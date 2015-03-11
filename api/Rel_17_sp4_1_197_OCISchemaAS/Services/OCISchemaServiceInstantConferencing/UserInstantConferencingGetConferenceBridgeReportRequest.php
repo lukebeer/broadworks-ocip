@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBillingCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,8 +23,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse';
-    public    $name                       = __CLASS__;
+    public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse';
+    public    $name                       = 'UserInstantConferencingGetConferenceBridgeReportRequest';
     protected $userId                     = null;
     protected $bridgeServiceUserId        = null;
     protected $reportStartDate            = null;
@@ -57,55 +57,47 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
+        if (!$bridgeServiceUserId) return $this;
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
+        $this->bridgeServiceUserId->setName('bridgeServiceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getBridgeServiceUserId()
     {
-        return (!$this->bridgeServiceUserId) ?: $this->bridgeServiceUserId->getValue();
+        return $this->bridgeServiceUserId->getValue();
     }
 
     /**
@@ -113,15 +105,18 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
      */
     public function setReportStartDate(xs:date $reportStartDate = null)
     {
-        $this->reportStartDate =  $reportStartDate;
+        if (!$reportStartDate) return $this;
+        $this->reportStartDate->setName('reportStartDate');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:date
      */
     public function getReportStartDate()
     {
-        return (!$this->reportStartDate) ?: $this->reportStartDate->getValue();
+        return $this->reportStartDate->getValue();
     }
 
     /**
@@ -129,50 +124,61 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
      */
     public function setReportEndDate(xs:date $reportEndDate = null)
     {
-        $this->reportEndDate =  $reportEndDate;
+        if (!$reportEndDate) return $this;
+        $this->reportEndDate->setName('reportEndDate');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:date
+     */
+    public function getReportEndDate()
+    {
+        return $this->reportEndDate->getValue();
     }
 
     /**
      * 
      */
-    public function getReportEndDate()
-    {
-        return (!$this->reportEndDate) ?: $this->reportEndDate->getValue();
-    }
-
-    /**
-     * Instant conferencing project billing code.
-     */
     public function setBillingCode($billingCode = null)
     {
+        if (!$billingCode) return $this;
         $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
              ? $billingCode
              : new InstantConferencingBillingCode($billingCode);
+        $this->billingCode->setName('billingCode');
+        return $this;
     }
 
     /**
-     * Instant conferencing project billing code.
+     * 
+     * @return InstantConferencingBillingCode
      */
     public function getBillingCode()
     {
-        return (!$this->billingCode) ?: $this->billingCode->getValue();
+        return $this->billingCode->getValue();
     }
 
     /**
-     * Email Address
+     * 
      */
     public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress = null)
     {
+        if (!$reportDeliveryEmailAddress) return $this;
         $this->reportDeliveryEmailAddress = ($reportDeliveryEmailAddress InstanceOf EmailAddress)
              ? $reportDeliveryEmailAddress
              : new EmailAddress($reportDeliveryEmailAddress);
+        $this->reportDeliveryEmailAddress->setName('reportDeliveryEmailAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getReportDeliveryEmailAddress()
     {
-        return (!$this->reportDeliveryEmailAddress) ?: $this->reportDeliveryEmailAddress->getValue();
+        return $this->reportDeliveryEmailAddress->getValue();
     }
 }

@@ -32,7 +32,7 @@ use Broadworks_OCIP\core\Client\Client;
 class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implements ComplexInterface
 {
     public    $responseType             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\DeviceManagementFileAuthLocationGetResponse17';
-    public    $name                     = __CLASS__;
+    public    $name                     = 'DeviceManagementFileAuthLocationGetRequest17';
     protected $deviceAccessProtocol     = null;
     protected $deviceAccessMethod       = null;
     protected $deviceAccessURI          = null;
@@ -77,21 +77,25 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
     }
 
     /**
-     * Protocols that an access device can use to fetch files from BroadWorks.
+     * 
      */
     public function setDeviceAccessProtocol($deviceAccessProtocol = null)
     {
+        if (!$deviceAccessProtocol) return $this;
         $this->deviceAccessProtocol = ($deviceAccessProtocol InstanceOf DeviceAccessProtocol16)
              ? $deviceAccessProtocol
              : new DeviceAccessProtocol16($deviceAccessProtocol);
+        $this->deviceAccessProtocol->setName('deviceAccessProtocol');
+        return $this;
     }
 
     /**
-     * Protocols that an access device can use to fetch files from BroadWorks.
+     * 
+     * @return DeviceAccessProtocol16
      */
     public function getDeviceAccessProtocol()
     {
-        return (!$this->deviceAccessProtocol) ?: $this->deviceAccessProtocol->getValue();
+        return $this->deviceAccessProtocol->getValue();
     }
 
     /**
@@ -99,61 +103,65 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setDeviceAccessMethod($deviceAccessMethod = null)
     {
+        if (!$deviceAccessMethod) return $this;
         $this->deviceAccessMethod = ($deviceAccessMethod InstanceOf FileRepositoryAccessType)
              ? $deviceAccessMethod
              : new FileRepositoryAccessType($deviceAccessMethod);
+        $this->deviceAccessMethod->setName('deviceAccessMethod');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return FileRepositoryAccessType
+     */
+    public function getDeviceAccessMethod()
+    {
+        return $this->deviceAccessMethod->getValue();
     }
 
     /**
      * 
      */
-    public function getDeviceAccessMethod()
-    {
-        return (!$this->deviceAccessMethod) ?: $this->deviceAccessMethod->getValue();
-    }
-
-    /**
-     * The access URI that a device uses to access files on BroadWorks.
-     */
     public function setDeviceAccessURI($deviceAccessURI = null)
     {
+        if (!$deviceAccessURI) return $this;
         $this->deviceAccessURI = ($deviceAccessURI InstanceOf DeviceManagementAccessURI)
              ? $deviceAccessURI
              : new DeviceManagementAccessURI($deviceAccessURI);
+        $this->deviceAccessURI->setName('deviceAccessURI');
+        return $this;
     }
 
     /**
-     * The access URI that a device uses to access files on BroadWorks.
+     * 
+     * @return DeviceManagementAccessURI
      */
     public function getDeviceAccessURI()
     {
-        return (!$this->deviceAccessURI) ?: $this->deviceAccessURI->getValue();
+        return $this->deviceAccessURI->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setAccessDeviceUserName($accessDeviceUserName = null)
     {
+        if (!$accessDeviceUserName) return $this;
         $this->accessDeviceUserName = ($accessDeviceUserName InstanceOf UserId)
              ? $accessDeviceUserName
              : new UserId($accessDeviceUserName);
+        $this->accessDeviceUserName->setName('accessDeviceUserName');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getAccessDeviceUserName()
     {
-        return (!$this->accessDeviceUserName) ?: $this->accessDeviceUserName->getValue();
+        return $this->accessDeviceUserName->getValue();
     }
 
     /**
@@ -161,106 +169,130 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setAccessDeviceUserPassword($accessDeviceUserPassword = null)
     {
+        if (!$accessDeviceUserPassword) return $this;
         $this->accessDeviceUserPassword = ($accessDeviceUserPassword InstanceOf Password)
              ? $accessDeviceUserPassword
              : new Password($accessDeviceUserPassword);
+        $this->accessDeviceUserPassword->setName('accessDeviceUserPassword');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return Password
+     */
+    public function getAccessDeviceUserPassword()
+    {
+        return $this->accessDeviceUserPassword->getValue();
     }
 
     /**
      * 
      */
-    public function getAccessDeviceUserPassword()
-    {
-        return (!$this->accessDeviceUserPassword) ?: $this->accessDeviceUserPassword->getValue();
-    }
-
-    /**
-     * Signed Password.
-     */
     public function setSignedPassword($signedPassword = null)
     {
+        if (!$signedPassword) return $this;
         $this->signedPassword = ($signedPassword InstanceOf SignedPassword)
              ? $signedPassword
              : new SignedPassword($signedPassword);
+        $this->signedPassword->setName('signedPassword');
+        return $this;
     }
 
     /**
-     * Signed Password.
+     * 
+     * @return SignedPassword
      */
     public function getSignedPassword()
     {
-        return (!$this->signedPassword) ?: $this->signedPassword->getValue();
+        return $this->signedPassword->getValue();
     }
 
     /**
-     * Access device MAC address.
+     * 
      */
     public function setMacAddress($macAddress = null)
     {
+        if (!$macAddress) return $this;
         $this->macAddress = ($macAddress InstanceOf AccessDeviceMACAddress)
              ? $macAddress
              : new AccessDeviceMACAddress($macAddress);
+        $this->macAddress->setName('macAddress');
+        return $this;
     }
 
     /**
-     * Access device MAC address.
+     * 
+     * @return AccessDeviceMACAddress
      */
     public function getMacAddress()
     {
-        return (!$this->macAddress) ?: $this->macAddress->getValue();
+        return $this->macAddress->getValue();
     }
 
     /**
-     * Realm Name.
+     * 
      */
     public function setRealmName($realmName = null)
     {
+        if (!$realmName) return $this;
         $this->realmName = ($realmName InstanceOf RealmName)
              ? $realmName
              : new RealmName($realmName);
+        $this->realmName->setName('realmName');
+        return $this;
     }
 
     /**
-     * Realm Name.
+     * 
+     * @return RealmName
      */
     public function getRealmName()
     {
-        return (!$this->realmName) ?: $this->realmName->getValue();
+        return $this->realmName->getValue();
     }
 
     /**
-     * Ha1 Complement of a Http Digest Authentication.
+     * 
      */
     public function setDigestHa1Complement($digestHa1Complement = null)
     {
+        if (!$digestHa1Complement) return $this;
         $this->digestHa1Complement = ($digestHa1Complement InstanceOf DigestHa1Complement)
              ? $digestHa1Complement
              : new DigestHa1Complement($digestHa1Complement);
+        $this->digestHa1Complement->setName('digestHa1Complement');
+        return $this;
     }
 
     /**
-     * Ha1 Complement of a Http Digest Authentication.
+     * 
+     * @return DigestHa1Complement
      */
     public function getDigestHa1Complement()
     {
-        return (!$this->digestHa1Complement) ?: $this->digestHa1Complement->getValue();
+        return $this->digestHa1Complement->getValue();
     }
 
     /**
-     * Byte Representation of a Md5 Hash.
+     * 
      */
     public function setDigestResponse($digestResponse = null)
     {
+        if (!$digestResponse) return $this;
         $this->digestResponse = ($digestResponse InstanceOf Md5Hash)
              ? $digestResponse
              : new Md5Hash($digestResponse);
+        $this->digestResponse->setName('digestResponse');
+        return $this;
     }
 
     /**
-     * Byte Representation of a Md5 Hash.
+     * 
+     * @return Md5Hash
      */
     public function getDigestResponse()
     {
-        return (!$this->digestResponse) ?: $this->digestResponse->getValue();
+        return $this->digestResponse->getValue();
     }
 }

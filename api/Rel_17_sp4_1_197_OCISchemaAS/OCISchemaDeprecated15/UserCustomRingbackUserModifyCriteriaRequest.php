@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Criteria
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCustomRingbackUserModifyCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'UserCustomRingbackUserModifyCriteriaRequest';
     protected $userId                    = null;
     protected $criteriaName              = null;
     protected $newCriteriaName           = null;
@@ -46,16 +45,16 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
          $userId,
          $criteriaName,
          $newCriteriaName = null,
-          $timeSchedule = null,
-          $fromDnCriteria = null,
+         TimeSchedule $timeSchedule = null,
+         CriteriaFromDnModify $fromDnCriteria = null,
          $audioSelection = null,
-          $audioFile = null,
+         ExtendedFileResource $audioFile = null,
          $videoSelection = null,
-          $videoFile = null,
+         ExtendedFileResource $videoFile = null,
          $callWaitingAudioSelection = null,
-          $callWaitingAudioFile = null,
+         ExtendedFileResource $callWaitingAudioFile = null,
          $callWaitingVideoSelection = null,
-          $callWaitingVideoFile = null
+         ExtendedFileResource $callWaitingVideoFile = null
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -73,7 +72,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
     }
 
     /**
-     * @return UserCustomRingbackUserModifyCriteriaResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -81,240 +80,276 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Criteria Name
+     * 
      */
     public function setCriteriaName($criteriaName = null)
     {
+        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
+        $this->criteriaName->setName('criteriaName');
+        return $this;
     }
 
     /**
-     * Criteria Name
+     * 
+     * @return CriteriaName
      */
     public function getCriteriaName()
     {
-        return (!$this->criteriaName) ?: $this->criteriaName->getValue();
+        return $this->criteriaName->getValue();
     }
 
     /**
-     * Criteria Name
+     * 
      */
     public function setNewCriteriaName($newCriteriaName = null)
     {
+        if (!$newCriteriaName) return $this;
         $this->newCriteriaName = ($newCriteriaName InstanceOf CriteriaName)
              ? $newCriteriaName
              : new CriteriaName($newCriteriaName);
+        $this->newCriteriaName->setName('newCriteriaName');
+        return $this;
     }
 
     /**
-     * Criteria Name
+     * 
+     * @return CriteriaName
      */
     public function getNewCriteriaName()
     {
-        return (!$this->newCriteriaName) ?: $this->newCriteriaName->getValue();
+        return $this->newCriteriaName->getValue();
     }
 
     /**
-     * The from dn criteria.
+     * 
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule =  $timeSchedule;
+        if (!$timeSchedule) return $this;
+        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule->setName('timeSchedule');
+        return $this;
     }
 
     /**
-     * The from dn criteria.
+     * 
+     * @return TimeSchedule
      */
     public function getTimeSchedule()
     {
-        return (!$this->timeSchedule) ?: $this->timeSchedule->getValue();
+        return $this->timeSchedule;
     }
 
     /**
-     * The from dn criteria used within a modify request.
+     * 
      */
     public function setFromDnCriteria(CriteriaFromDnModify $fromDnCriteria = null)
     {
-        $this->fromDnCriteria =  $fromDnCriteria;
+        if (!$fromDnCriteria) return $this;
+        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria->setName('fromDnCriteria');
+        return $this;
     }
 
     /**
-     * The from dn criteria used within a modify request.
+     * 
+     * @return CriteriaFromDnModify
      */
     public function getFromDnCriteria()
     {
-        return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->getValue();
+        return $this->fromDnCriteria;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setAudioSelection($audioSelection = null)
     {
+        if (!$audioSelection) return $this;
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
+        $this->audioSelection->setName('audioSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getAudioSelection()
     {
-        return (!$this->audioSelection) ?: $this->audioSelection->getValue();
+        return $this->audioSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setAudioFile(ExtendedFileResource $audioFile = null)
     {
-        $this->audioFile =  $audioFile;
+        if (!$audioFile) return $this;
+        $this->audioFile = $audioFile;
+        $this->audioFile->setName('audioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedFileResource
      */
     public function getAudioFile()
     {
-        return (!$this->audioFile) ?: $this->audioFile->getValue();
+        return $this->audioFile;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setVideoSelection($videoSelection = null)
     {
+        if (!$videoSelection) return $this;
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
+        $this->videoSelection->setName('videoSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getVideoSelection()
     {
-        return (!$this->videoSelection) ?: $this->videoSelection->getValue();
+        return $this->videoSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setVideoFile(ExtendedFileResource $videoFile = null)
     {
-        $this->videoFile =  $videoFile;
+        if (!$videoFile) return $this;
+        $this->videoFile = $videoFile;
+        $this->videoFile->setName('videoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedFileResource
      */
     public function getVideoFile()
     {
-        return (!$this->videoFile) ?: $this->videoFile->getValue();
+        return $this->videoFile;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setCallWaitingAudioSelection($callWaitingAudioSelection = null)
     {
+        if (!$callWaitingAudioSelection) return $this;
         $this->callWaitingAudioSelection = ($callWaitingAudioSelection InstanceOf ExtendedFileResourceSelection)
              ? $callWaitingAudioSelection
              : new ExtendedFileResourceSelection($callWaitingAudioSelection);
+        $this->callWaitingAudioSelection->setName('callWaitingAudioSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getCallWaitingAudioSelection()
     {
-        return (!$this->callWaitingAudioSelection) ?: $this->callWaitingAudioSelection->getValue();
+        return $this->callWaitingAudioSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setCallWaitingAudioFile(ExtendedFileResource $callWaitingAudioFile = null)
     {
-        $this->callWaitingAudioFile =  $callWaitingAudioFile;
+        if (!$callWaitingAudioFile) return $this;
+        $this->callWaitingAudioFile = $callWaitingAudioFile;
+        $this->callWaitingAudioFile->setName('callWaitingAudioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedFileResource
      */
     public function getCallWaitingAudioFile()
     {
-        return (!$this->callWaitingAudioFile) ?: $this->callWaitingAudioFile->getValue();
+        return $this->callWaitingAudioFile;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setCallWaitingVideoSelection($callWaitingVideoSelection = null)
     {
+        if (!$callWaitingVideoSelection) return $this;
         $this->callWaitingVideoSelection = ($callWaitingVideoSelection InstanceOf ExtendedFileResourceSelection)
              ? $callWaitingVideoSelection
              : new ExtendedFileResourceSelection($callWaitingVideoSelection);
+        $this->callWaitingVideoSelection->setName('callWaitingVideoSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getCallWaitingVideoSelection()
     {
-        return (!$this->callWaitingVideoSelection) ?: $this->callWaitingVideoSelection->getValue();
+        return $this->callWaitingVideoSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setCallWaitingVideoFile(ExtendedFileResource $callWaitingVideoFile = null)
     {
-        $this->callWaitingVideoFile =  $callWaitingVideoFile;
+        if (!$callWaitingVideoFile) return $this;
+        $this->callWaitingVideoFile = $callWaitingVideoFile;
+        $this->callWaitingVideoFile->setName('callWaitingVideoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedFileResource
      */
     public function getCallWaitingVideoFile()
     {
-        return (!$this->callWaitingVideoFile) ?: $this->callWaitingVideoFile->getValue();
+        return $this->callWaitingVideoFile;
     }
 }

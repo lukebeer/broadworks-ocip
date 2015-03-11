@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBasicCallLogs; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBasicCallLogs; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallLogsType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBasicCallLogs\UserBasicCallLogsGetListResponse14sp4;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBasicCallLogs\UserBasicCallLogsGetListResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,8 +23,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBasicCallLogsGetListRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBasicCallLogs\UserBasicCallLogsGetListResponse14sp4';
-    public    $name        = __CLASS__;
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBasicCallLogs\UserBasicCallLogsGetListResponse14sp4';
+    public    $name        = 'UserBasicCallLogsGetListRequest14sp4';
     protected $userId      = null;
     protected $callLogType = null;
 
@@ -45,46 +45,46 @@ class UserBasicCallLogsGetListRequest14sp4 extends ComplexType implements Comple
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Call Log type.
+     * 
      */
     public function setCallLogType($callLogType = null)
     {
+        if (!$callLogType) return $this;
         $this->callLogType = ($callLogType InstanceOf CallLogsType)
              ? $callLogType
              : new CallLogsType($callLogType);
+        $this->callLogType->setName('callLogType');
+        return $this;
     }
 
     /**
-     * Call Log type.
+     * 
+     * @return CallLogsType
      */
     public function getCallLogType()
     {
-        return (!$this->callLogType) ?: $this->callLogType->getValue();
+        return $this->callLogType->getValue();
     }
 }

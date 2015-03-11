@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterGetAnnouncementResponse16;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetAnnouncementResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                          = __CLASS__;
+    public    $name                                          = 'GroupCallCenterGetAnnouncementResponse16';
     protected $playEntranceMessage                           = null;
     protected $mandatoryEntranceMessage                      = null;
     protected $entranceAudioMessageSelection                 = null;
@@ -64,15 +64,19 @@ class GroupCallCenterGetAnnouncementResponse16 extends ComplexType implements Co
      */
     public function setPlayEntranceMessage($playEntranceMessage = null)
     {
-        $this->playEntranceMessage = (boolean) $playEntranceMessage;
+        if (!$playEntranceMessage) return $this;
+        $this->playEntranceMessage = new PrimitiveType($playEntranceMessage);
+        $this->playEntranceMessage->setName('playEntranceMessage');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPlayEntranceMessage()
     {
-        return (!$this->playEntranceMessage) ?: $this->playEntranceMessage;
+        return $this->playEntranceMessage->getValue();
     }
 
     /**
@@ -80,175 +84,195 @@ class GroupCallCenterGetAnnouncementResponse16 extends ComplexType implements Co
      */
     public function setMandatoryEntranceMessage($mandatoryEntranceMessage = null)
     {
-        $this->mandatoryEntranceMessage = (boolean) $mandatoryEntranceMessage;
+        if (!$mandatoryEntranceMessage) return $this;
+        $this->mandatoryEntranceMessage = new PrimitiveType($mandatoryEntranceMessage);
+        $this->mandatoryEntranceMessage->setName('mandatoryEntranceMessage');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getMandatoryEntranceMessage()
+    {
+        return $this->mandatoryEntranceMessage->getValue();
     }
 
     /**
      * 
      */
-    public function getMandatoryEntranceMessage()
-    {
-        return (!$this->mandatoryEntranceMessage) ?: $this->mandatoryEntranceMessage;
-    }
-
-    /**
-     * Choices for extended file resource usage.
-     */
     public function setEntranceAudioMessageSelection($entranceAudioMessageSelection = null)
     {
+        if (!$entranceAudioMessageSelection) return $this;
         $this->entranceAudioMessageSelection = ($entranceAudioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $entranceAudioMessageSelection
              : new ExtendedFileResourceSelection($entranceAudioMessageSelection);
+        $this->entranceAudioMessageSelection->setName('entranceAudioMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getEntranceAudioMessageSelection()
     {
-        return (!$this->entranceAudioMessageSelection) ?: $this->entranceAudioMessageSelection->getValue();
+        return $this->entranceAudioMessageSelection->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setEntranceAudioFileUrl($entranceAudioFileUrl = null)
     {
+        if (!$entranceAudioFileUrl) return $this;
         $this->entranceAudioFileUrl = ($entranceAudioFileUrl InstanceOf URL)
              ? $entranceAudioFileUrl
              : new URL($entranceAudioFileUrl);
+        $this->entranceAudioFileUrl->setName('entranceAudioFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getEntranceAudioFileUrl()
     {
-        return (!$this->entranceAudioFileUrl) ?: $this->entranceAudioFileUrl->getValue();
+        return $this->entranceAudioFileUrl->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setEntranceMessageAudioFileDescription($entranceMessageAudioFileDescription = null)
     {
+        if (!$entranceMessageAudioFileDescription) return $this;
         $this->entranceMessageAudioFileDescription = ($entranceMessageAudioFileDescription InstanceOf FileDescription)
              ? $entranceMessageAudioFileDescription
              : new FileDescription($entranceMessageAudioFileDescription);
+        $this->entranceMessageAudioFileDescription->setName('entranceMessageAudioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getEntranceMessageAudioFileDescription()
     {
-        return (!$this->entranceMessageAudioFileDescription) ?: $this->entranceMessageAudioFileDescription->getValue();
+        return $this->entranceMessageAudioFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setEntranceAudioFileMediaType($entranceAudioFileMediaType = null)
     {
+        if (!$entranceAudioFileMediaType) return $this;
         $this->entranceAudioFileMediaType = ($entranceAudioFileMediaType InstanceOf MediaFileType)
              ? $entranceAudioFileMediaType
              : new MediaFileType($entranceAudioFileMediaType);
+        $this->entranceAudioFileMediaType->setName('entranceAudioFileMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getEntranceAudioFileMediaType()
     {
-        return (!$this->entranceAudioFileMediaType) ?: $this->entranceAudioFileMediaType->getValue();
+        return $this->entranceAudioFileMediaType->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setEntranceVideoMessageSelection($entranceVideoMessageSelection = null)
     {
+        if (!$entranceVideoMessageSelection) return $this;
         $this->entranceVideoMessageSelection = ($entranceVideoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $entranceVideoMessageSelection
              : new ExtendedFileResourceSelection($entranceVideoMessageSelection);
+        $this->entranceVideoMessageSelection->setName('entranceVideoMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getEntranceVideoMessageSelection()
     {
-        return (!$this->entranceVideoMessageSelection) ?: $this->entranceVideoMessageSelection->getValue();
+        return $this->entranceVideoMessageSelection->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setEntranceVideoFileUrl($entranceVideoFileUrl = null)
     {
+        if (!$entranceVideoFileUrl) return $this;
         $this->entranceVideoFileUrl = ($entranceVideoFileUrl InstanceOf URL)
              ? $entranceVideoFileUrl
              : new URL($entranceVideoFileUrl);
+        $this->entranceVideoFileUrl->setName('entranceVideoFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getEntranceVideoFileUrl()
     {
-        return (!$this->entranceVideoFileUrl) ?: $this->entranceVideoFileUrl->getValue();
+        return $this->entranceVideoFileUrl->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setEntranceMessageVideoFileDescription($entranceMessageVideoFileDescription = null)
     {
+        if (!$entranceMessageVideoFileDescription) return $this;
         $this->entranceMessageVideoFileDescription = ($entranceMessageVideoFileDescription InstanceOf FileDescription)
              ? $entranceMessageVideoFileDescription
              : new FileDescription($entranceMessageVideoFileDescription);
+        $this->entranceMessageVideoFileDescription->setName('entranceMessageVideoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getEntranceMessageVideoFileDescription()
     {
-        return (!$this->entranceMessageVideoFileDescription) ?: $this->entranceMessageVideoFileDescription->getValue();
+        return $this->entranceMessageVideoFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setEntranceVideoFileMediaType($entranceVideoFileMediaType = null)
     {
+        if (!$entranceVideoFileMediaType) return $this;
         $this->entranceVideoFileMediaType = ($entranceVideoFileMediaType InstanceOf MediaFileType)
              ? $entranceVideoFileMediaType
              : new MediaFileType($entranceVideoFileMediaType);
+        $this->entranceVideoFileMediaType->setName('entranceVideoFileMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getEntranceVideoFileMediaType()
     {
-        return (!$this->entranceVideoFileMediaType) ?: $this->entranceVideoFileMediaType->getValue();
+        return $this->entranceVideoFileMediaType->getValue();
     }
 
     /**
@@ -256,193 +280,217 @@ class GroupCallCenterGetAnnouncementResponse16 extends ComplexType implements Co
      */
     public function setPlayPeriodicComfortMessage($playPeriodicComfortMessage = null)
     {
-        $this->playPeriodicComfortMessage = (boolean) $playPeriodicComfortMessage;
+        if (!$playPeriodicComfortMessage) return $this;
+        $this->playPeriodicComfortMessage = new PrimitiveType($playPeriodicComfortMessage);
+        $this->playPeriodicComfortMessage->setName('playPeriodicComfortMessage');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPlayPeriodicComfortMessage()
+    {
+        return $this->playPeriodicComfortMessage->getValue();
     }
 
     /**
      * 
      */
-    public function getPlayPeriodicComfortMessage()
-    {
-        return (!$this->playPeriodicComfortMessage) ?: $this->playPeriodicComfortMessage;
-    }
-
-    /**
-     * The interval in seconds between each repetition of the comfort message played to queued users.
-     */
     public function setTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds = null)
     {
+        if (!$timeBetweenComfortMessagesSeconds) return $this;
         $this->timeBetweenComfortMessagesSeconds = ($timeBetweenComfortMessagesSeconds InstanceOf CallCenterTimeBetweenComfortMessagesSeconds)
              ? $timeBetweenComfortMessagesSeconds
              : new CallCenterTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds);
+        $this->timeBetweenComfortMessagesSeconds->setName('timeBetweenComfortMessagesSeconds');
+        return $this;
     }
 
     /**
-     * The interval in seconds between each repetition of the comfort message played to queued users.
+     * 
+     * @return CallCenterTimeBetweenComfortMessagesSeconds
      */
     public function getTimeBetweenComfortMessagesSeconds()
     {
-        return (!$this->timeBetweenComfortMessagesSeconds) ?: $this->timeBetweenComfortMessagesSeconds->getValue();
+        return $this->timeBetweenComfortMessagesSeconds->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setPeriodicComfortAudioMessageSelection($periodicComfortAudioMessageSelection = null)
     {
+        if (!$periodicComfortAudioMessageSelection) return $this;
         $this->periodicComfortAudioMessageSelection = ($periodicComfortAudioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $periodicComfortAudioMessageSelection
              : new ExtendedFileResourceSelection($periodicComfortAudioMessageSelection);
+        $this->periodicComfortAudioMessageSelection->setName('periodicComfortAudioMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getPeriodicComfortAudioMessageSelection()
     {
-        return (!$this->periodicComfortAudioMessageSelection) ?: $this->periodicComfortAudioMessageSelection->getValue();
+        return $this->periodicComfortAudioMessageSelection->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setPeriodicComfortAudioFileUrl($periodicComfortAudioFileUrl = null)
     {
+        if (!$periodicComfortAudioFileUrl) return $this;
         $this->periodicComfortAudioFileUrl = ($periodicComfortAudioFileUrl InstanceOf URL)
              ? $periodicComfortAudioFileUrl
              : new URL($periodicComfortAudioFileUrl);
+        $this->periodicComfortAudioFileUrl->setName('periodicComfortAudioFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getPeriodicComfortAudioFileUrl()
     {
-        return (!$this->periodicComfortAudioFileUrl) ?: $this->periodicComfortAudioFileUrl->getValue();
+        return $this->periodicComfortAudioFileUrl->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setPeriodicComfortMessageAudioFileDescription($periodicComfortMessageAudioFileDescription = null)
     {
+        if (!$periodicComfortMessageAudioFileDescription) return $this;
         $this->periodicComfortMessageAudioFileDescription = ($periodicComfortMessageAudioFileDescription InstanceOf FileDescription)
              ? $periodicComfortMessageAudioFileDescription
              : new FileDescription($periodicComfortMessageAudioFileDescription);
+        $this->periodicComfortMessageAudioFileDescription->setName('periodicComfortMessageAudioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getPeriodicComfortMessageAudioFileDescription()
     {
-        return (!$this->periodicComfortMessageAudioFileDescription) ?: $this->periodicComfortMessageAudioFileDescription->getValue();
+        return $this->periodicComfortMessageAudioFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setPeriodicComfortAudioFileMediaType($periodicComfortAudioFileMediaType = null)
     {
+        if (!$periodicComfortAudioFileMediaType) return $this;
         $this->periodicComfortAudioFileMediaType = ($periodicComfortAudioFileMediaType InstanceOf MediaFileType)
              ? $periodicComfortAudioFileMediaType
              : new MediaFileType($periodicComfortAudioFileMediaType);
+        $this->periodicComfortAudioFileMediaType->setName('periodicComfortAudioFileMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getPeriodicComfortAudioFileMediaType()
     {
-        return (!$this->periodicComfortAudioFileMediaType) ?: $this->periodicComfortAudioFileMediaType->getValue();
+        return $this->periodicComfortAudioFileMediaType->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setPeriodicComfortVideoMessageSelection($periodicComfortVideoMessageSelection = null)
     {
+        if (!$periodicComfortVideoMessageSelection) return $this;
         $this->periodicComfortVideoMessageSelection = ($periodicComfortVideoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $periodicComfortVideoMessageSelection
              : new ExtendedFileResourceSelection($periodicComfortVideoMessageSelection);
+        $this->periodicComfortVideoMessageSelection->setName('periodicComfortVideoMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getPeriodicComfortVideoMessageSelection()
     {
-        return (!$this->periodicComfortVideoMessageSelection) ?: $this->periodicComfortVideoMessageSelection->getValue();
+        return $this->periodicComfortVideoMessageSelection->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setPeriodicComfortVideoFileUrl($periodicComfortVideoFileUrl = null)
     {
+        if (!$periodicComfortVideoFileUrl) return $this;
         $this->periodicComfortVideoFileUrl = ($periodicComfortVideoFileUrl InstanceOf URL)
              ? $periodicComfortVideoFileUrl
              : new URL($periodicComfortVideoFileUrl);
+        $this->periodicComfortVideoFileUrl->setName('periodicComfortVideoFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getPeriodicComfortVideoFileUrl()
     {
-        return (!$this->periodicComfortVideoFileUrl) ?: $this->periodicComfortVideoFileUrl->getValue();
+        return $this->periodicComfortVideoFileUrl->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setPeriodicComfortMessageVideoFileDescription($periodicComfortMessageVideoFileDescription = null)
     {
+        if (!$periodicComfortMessageVideoFileDescription) return $this;
         $this->periodicComfortMessageVideoFileDescription = ($periodicComfortMessageVideoFileDescription InstanceOf FileDescription)
              ? $periodicComfortMessageVideoFileDescription
              : new FileDescription($periodicComfortMessageVideoFileDescription);
+        $this->periodicComfortMessageVideoFileDescription->setName('periodicComfortMessageVideoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getPeriodicComfortMessageVideoFileDescription()
     {
-        return (!$this->periodicComfortMessageVideoFileDescription) ?: $this->periodicComfortMessageVideoFileDescription->getValue();
+        return $this->periodicComfortMessageVideoFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setPeriodicComfortVideoFileMediaType($periodicComfortVideoFileMediaType = null)
     {
+        if (!$periodicComfortVideoFileMediaType) return $this;
         $this->periodicComfortVideoFileMediaType = ($periodicComfortVideoFileMediaType InstanceOf MediaFileType)
              ? $periodicComfortVideoFileMediaType
              : new MediaFileType($periodicComfortVideoFileMediaType);
+        $this->periodicComfortVideoFileMediaType->setName('periodicComfortVideoFileMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getPeriodicComfortVideoFileMediaType()
     {
-        return (!$this->periodicComfortVideoFileMediaType) ?: $this->periodicComfortVideoFileMediaType->getValue();
+        return $this->periodicComfortVideoFileMediaType->getValue();
     }
 
     /**
@@ -450,31 +498,39 @@ class GroupCallCenterGetAnnouncementResponse16 extends ComplexType implements Co
      */
     public function setEnableMediaOnHoldForQueuedCalls($enableMediaOnHoldForQueuedCalls = null)
     {
-        $this->enableMediaOnHoldForQueuedCalls = (boolean) $enableMediaOnHoldForQueuedCalls;
+        if (!$enableMediaOnHoldForQueuedCalls) return $this;
+        $this->enableMediaOnHoldForQueuedCalls = new PrimitiveType($enableMediaOnHoldForQueuedCalls);
+        $this->enableMediaOnHoldForQueuedCalls->setName('enableMediaOnHoldForQueuedCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableMediaOnHoldForQueuedCalls()
+    {
+        return $this->enableMediaOnHoldForQueuedCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableMediaOnHoldForQueuedCalls()
-    {
-        return (!$this->enableMediaOnHoldForQueuedCalls) ?: $this->enableMediaOnHoldForQueuedCalls;
-    }
-
-    /**
-     * Contains the call center media on hold source configuration.
-     */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceRead16 $mediaOnHoldSource = null)
     {
-        $this->mediaOnHoldSource =  $mediaOnHoldSource;
+        if (!$mediaOnHoldSource) return $this;
+        $this->mediaOnHoldSource = $mediaOnHoldSource;
+        $this->mediaOnHoldSource->setName('mediaOnHoldSource');
+        return $this;
     }
 
     /**
-     * Contains the call center media on hold source configuration.
+     * 
+     * @return CallCenterMediaOnHoldSourceRead16
      */
     public function getMediaOnHoldSource()
     {
-        return (!$this->mediaOnHoldSource) ?: $this->mediaOnHoldSource->getValue();
+        return $this->mediaOnHoldSource;
     }
 
     /**
@@ -482,30 +538,38 @@ class GroupCallCenterGetAnnouncementResponse16 extends ComplexType implements Co
      */
     public function setMediaOnHoldUseAlternateSourceForInternalCalls($mediaOnHoldUseAlternateSourceForInternalCalls = null)
     {
-        $this->mediaOnHoldUseAlternateSourceForInternalCalls = (boolean) $mediaOnHoldUseAlternateSourceForInternalCalls;
+        if (!$mediaOnHoldUseAlternateSourceForInternalCalls) return $this;
+        $this->mediaOnHoldUseAlternateSourceForInternalCalls = new PrimitiveType($mediaOnHoldUseAlternateSourceForInternalCalls);
+        $this->mediaOnHoldUseAlternateSourceForInternalCalls->setName('mediaOnHoldUseAlternateSourceForInternalCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getMediaOnHoldUseAlternateSourceForInternalCalls()
+    {
+        return $this->mediaOnHoldUseAlternateSourceForInternalCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getMediaOnHoldUseAlternateSourceForInternalCalls()
-    {
-        return (!$this->mediaOnHoldUseAlternateSourceForInternalCalls) ?: $this->mediaOnHoldUseAlternateSourceForInternalCalls;
-    }
-
-    /**
-     * Contains the call center media on hold source configuration.
-     */
     public function setMediaOnHoldInternalSource(CallCenterMediaOnHoldSourceRead16 $mediaOnHoldInternalSource = null)
     {
-        $this->mediaOnHoldInternalSource =  $mediaOnHoldInternalSource;
+        if (!$mediaOnHoldInternalSource) return $this;
+        $this->mediaOnHoldInternalSource = $mediaOnHoldInternalSource;
+        $this->mediaOnHoldInternalSource->setName('mediaOnHoldInternalSource');
+        return $this;
     }
 
     /**
-     * Contains the call center media on hold source configuration.
+     * 
+     * @return CallCenterMediaOnHoldSourceRead16
      */
     public function getMediaOnHoldInternalSource()
     {
-        return (!$this->mediaOnHoldInternalSource) ?: $this->mediaOnHoldInternalSource->getValue();
+        return $this->mediaOnHoldInternalSource;
     }
 }

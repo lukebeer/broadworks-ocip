@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementVirtualOnNetCallTypeNameList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,10 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementVirtualOnNetCallTypeNameList extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementVirtualOnNetCallTypeNameList';
-    public    $name = __CLASS__;
+    public    $responseType             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementVirtualOnNetCallTypeNameList';
+    public    $name                     = 'ReplacementVirtualOnNetCallTypeNameList';
+    protected $virtualOnNetCallTypeName = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $virtualOnNetCallTypeName = null
+    ) {
+        $this->setVirtualOnNetCallTypeName($virtualOnNetCallTypeName);
     }
 
     /**
@@ -34,5 +38,25 @@ class ReplacementVirtualOnNetCallTypeNameList extends ComplexType implements Com
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
+    {
+        if (!$virtualOnNetCallTypeName) return $this;
+        $this->virtualOnNetCallTypeName = new SimpleContent($virtualOnNetCallTypeName);
+        $this->virtualOnNetCallTypeName->setName('virtualOnNetCallTypeName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getVirtualOnNetCallTypeName()
+    {
+        return $this->virtualOnNetCallTypeName->getValue();
     }
 }

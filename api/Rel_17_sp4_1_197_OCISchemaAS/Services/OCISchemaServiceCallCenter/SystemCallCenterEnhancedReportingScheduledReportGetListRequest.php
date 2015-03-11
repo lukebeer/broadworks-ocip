@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterScheduledReportServiceProvider;
@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaCallCenterReportTemplateName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetListResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,8 +26,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                                                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetListResponse';
-    public    $name                                                            = __CLASS__;
+    public    $responseType                                                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetListResponse';
+    public    $name                                                            = 'SystemCallCenterEnhancedReportingScheduledReportGetListRequest';
     protected $responseSizeLimit                                               = null;
     protected $searchCriteriaCallCenterScheduledReportName                     = null;
     protected $searchCriteriaGroupId                                           = null;
@@ -37,11 +37,11 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
 
     public function __construct(
          $responseSizeLimit = null,
-          $searchCriteriaCallCenterScheduledReportName = null,
-          $searchCriteriaGroupId = null,
-          $searchCriteriaExactCallCenterScheduledReportServiceProvider = null,
-          $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
-          $searchCriteriaCallCenterReportTemplateName = null
+         SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null,
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaExactCallCenterScheduledReportServiceProvider $searchCriteriaExactCallCenterScheduledReportServiceProvider = null,
+         SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
+         SearchCriteriaCallCenterReportTemplateName $searchCriteriaCallCenterReportTemplateName = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaCallCenterScheduledReportName($searchCriteriaCallCenterScheduledReportName);
@@ -60,106 +60,134 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListRequest extends Com
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a call center enhanced reporting scheduled report name.
+     * 
      */
     public function setSearchCriteriaCallCenterScheduledReportName(SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null)
     {
-        $this->searchCriteriaCallCenterScheduledReportName =  $searchCriteriaCallCenterScheduledReportName;
+        if (!$searchCriteriaCallCenterScheduledReportName) return $this;
+        $this->searchCriteriaCallCenterScheduledReportName = ($searchCriteriaCallCenterScheduledReportName InstanceOf SearchCriteriaCallCenterScheduledReportName)
+             ? $searchCriteriaCallCenterScheduledReportName
+             : new SearchCriteriaCallCenterScheduledReportName($searchCriteriaCallCenterScheduledReportName);
+        $this->searchCriteriaCallCenterScheduledReportName->setName('searchCriteriaCallCenterScheduledReportName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a call center enhanced reporting scheduled report name.
+     * 
+     * @return SearchCriteriaCallCenterScheduledReportName
      */
     public function getSearchCriteriaCallCenterScheduledReportName()
     {
-        return (!$this->searchCriteriaCallCenterScheduledReportName) ?: $this->searchCriteriaCallCenterScheduledReportName->getValue();
+        return $this->searchCriteriaCallCenterScheduledReportName;
     }
 
     /**
-     * Criteria for searching for a group ID.
+     * 
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
+        if (!$searchCriteriaGroupId) return $this;
+        $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
+             ? $searchCriteriaGroupId
+             : new SearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a group ID.
+     * 
+     * @return SearchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->getValue();
+        return $this->searchCriteriaGroupId;
     }
 
     /**
-     * Criteria for searching for a particular call center scheduled report's service provider.
+     * 
      */
     public function setSearchCriteriaExactCallCenterScheduledReportServiceProvider(SearchCriteriaExactCallCenterScheduledReportServiceProvider $searchCriteriaExactCallCenterScheduledReportServiceProvider = null)
     {
-        $this->searchCriteriaExactCallCenterScheduledReportServiceProvider =  $searchCriteriaExactCallCenterScheduledReportServiceProvider;
+        if (!$searchCriteriaExactCallCenterScheduledReportServiceProvider) return $this;
+        $this->searchCriteriaExactCallCenterScheduledReportServiceProvider = ($searchCriteriaExactCallCenterScheduledReportServiceProvider InstanceOf SearchCriteriaExactCallCenterScheduledReportServiceProvider)
+             ? $searchCriteriaExactCallCenterScheduledReportServiceProvider
+             : new SearchCriteriaExactCallCenterScheduledReportServiceProvider($searchCriteriaExactCallCenterScheduledReportServiceProvider);
+        $this->searchCriteriaExactCallCenterScheduledReportServiceProvider->setName('searchCriteriaExactCallCenterScheduledReportServiceProvider');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a particular call center scheduled report's service provider.
+     * 
+     * @return SearchCriteriaExactCallCenterScheduledReportServiceProvider
      */
     public function getSearchCriteriaExactCallCenterScheduledReportServiceProvider()
     {
-        return (!$this->searchCriteriaExactCallCenterScheduledReportServiceProvider) ?: $this->searchCriteriaExactCallCenterScheduledReportServiceProvider->getValue();
+        return $this->searchCriteriaExactCallCenterScheduledReportServiceProvider;
     }
 
     /**
-     * Criteria for searching for call center scheduled report created by a
-     *         supervisor or administrator.
+     * 
      */
     public function setSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor(SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null)
     {
-        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor =  $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
+        if (!$searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor) return $this;
+        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = ($searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor InstanceOf SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor)
+             ? $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor
+             : new SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor($searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor);
+        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor->setName('searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor');
+        return $this;
     }
 
     /**
-     * Criteria for searching for call center scheduled report created by a
-     *         supervisor or administrator.
+     * 
+     * @return SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor
      */
     public function getSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor()
     {
-        return (!$this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor) ?: $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor->getValue();
+        return $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
     }
 
     /**
-     * Criteria for searching for a particular call center enhanced reporting report template.
+     * 
      */
     public function setSearchCriteriaCallCenterReportTemplateName(SearchCriteriaCallCenterReportTemplateName $searchCriteriaCallCenterReportTemplateName = null)
     {
-        $this->searchCriteriaCallCenterReportTemplateName =  $searchCriteriaCallCenterReportTemplateName;
+        if (!$searchCriteriaCallCenterReportTemplateName) return $this;
+        $this->searchCriteriaCallCenterReportTemplateName = ($searchCriteriaCallCenterReportTemplateName InstanceOf SearchCriteriaCallCenterReportTemplateName)
+             ? $searchCriteriaCallCenterReportTemplateName
+             : new SearchCriteriaCallCenterReportTemplateName($searchCriteriaCallCenterReportTemplateName);
+        $this->searchCriteriaCallCenterReportTemplateName->setName('searchCriteriaCallCenterReportTemplateName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a particular call center enhanced reporting report template.
+     * 
+     * @return SearchCriteriaCallCenterReportTemplateName
      */
     public function getSearchCriteriaCallCenterReportTemplateName()
     {
-        return (!$this->searchCriteriaCallCenterReportTemplateName) ?: $this->searchCriteriaCallCenterReportTemplateName->getValue();
+        return $this->searchCriteriaCallCenterReportTemplateName;
     }
 }

@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTo;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceI
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkModifyInstanceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -31,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupCallParkModifyInstanceRequest';
     protected $serviceProviderId     = null;
     protected $groupId               = null;
     protected $name                  = null;
@@ -45,7 +44,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
          $groupId,
          $name,
          $newName = null,
-          $userIdList = null,
+         ReplacementUserIdList $userIdList = null,
          $recallAlternateUserId = null,
          $recallTo = null
     ) {
@@ -59,7 +58,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return GroupCallParkModifyInstanceResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,140 +66,154 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Service Instance Name for a service without a user id.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Service Instance Name for a service without a user id.
+     * 
+     * @return ServiceInstanceName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * Service Instance Name for a service without a user id.
+     * 
      */
     public function setNewName($newName = null)
     {
+        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf ServiceInstanceName)
              ? $newName
              : new ServiceInstanceName($newName);
+        $this->newName->setName('newName');
+        return $this;
     }
 
     /**
-     * Service Instance Name for a service without a user id.
+     * 
+     * @return ServiceInstanceName
      */
     public function getNewName()
     {
-        return (!$this->newName) ?: $this->newName->getValue();
+        return $this->newName->getValue();
     }
 
     /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
      */
     public function setUserIdList(ReplacementUserIdList $userIdList = null)
     {
-        $this->userIdList =  $userIdList;
+        if (!$userIdList) return $this;
+        $this->userIdList = $userIdList;
+        $this->userIdList->setName('userIdList');
+        return $this;
     }
 
     /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementUserIdList
      */
     public function getUserIdList()
     {
-        return (!$this->userIdList) ?: $this->userIdList->getValue();
+        return $this->userIdList;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setRecallAlternateUserId($recallAlternateUserId = null)
     {
+        if (!$recallAlternateUserId) return $this;
         $this->recallAlternateUserId = ($recallAlternateUserId InstanceOf UserId)
              ? $recallAlternateUserId
              : new UserId($recallAlternateUserId);
+        $this->recallAlternateUserId->setName('recallAlternateUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getRecallAlternateUserId()
     {
-        return (!$this->recallAlternateUserId) ?: $this->recallAlternateUserId->getValue();
+        return $this->recallAlternateUserId->getValue();
     }
 
     /**
-     * Call Park recall user options
+     * 
      */
     public function setRecallTo($recallTo = null)
     {
+        if (!$recallTo) return $this;
         $this->recallTo = ($recallTo InstanceOf CallParkRecallTo)
              ? $recallTo
              : new CallParkRecallTo($recallTo);
+        $this->recallTo->setName('recallTo');
+        return $this;
     }
 
     /**
-     * Call Park recall user options
+     * 
+     * @return CallParkRecallTo
      */
     public function getRecallTo()
     {
-        return (!$this->recallTo) ?: $this->recallTo->getValue();
+        return $this->recallTo->getValue();
     }
 }

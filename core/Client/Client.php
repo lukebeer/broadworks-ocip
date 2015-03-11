@@ -18,6 +18,7 @@ use Broadworks_OCIP\core\Console\Console;
 use Broadworks_OCIP\core\Response\ResponseOutput;
 use Broadworks_OCIP\CoreFactory;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\DependencyInjection\SimpleXMLElement;
 
 
 require_once 'HTTP/Request2.php';
@@ -31,6 +32,7 @@ class Client
     private $autoLogout = true;
     private $requestMsg = null;
     private $responseType = null;
+    private $appendToResponse = [];
 
 
     public function __construct(TransportInterface $transport)
@@ -94,9 +96,10 @@ class Client
         return false;
     }
 
-    public function getResponse($outputType = ResponseOutput::STD)
-    {;
-        return $this->transport->getResponse($this->responseType, $outputType);
+    public function getResponse($outputType = ResponseOutput::STD, $responseType=false)
+    {
+        $responseType = $responseType ?: $this->responseType;
+        return $this->transport->getResponse($responseType, $outputType, $this->appendToResponse);
     }
 
     public function getSession()
@@ -136,5 +139,14 @@ class Client
     public function setTimeout($timeout = 4)
     {
         $this->timeout = $timeout;
+    }
+
+    public function addElementToResponse($element) {
+        $this->appendToResponse[] = $element;
+        return $this;
+    }
+
+    public function clearAdditionalResponseElements() {
+        $this->appendToResponse = [];
     }
 }

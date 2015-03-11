@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemScheduleAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'SystemScheduleAddRequest';
     protected $scheduleName = null;
     protected $scheduleType = null;
 
@@ -35,7 +34,7 @@ class SystemScheduleAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return SystemScheduleAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemScheduleAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Schedule name.
+     * 
      */
     public function setScheduleName($scheduleName = null)
     {
+        if (!$scheduleName) return $this;
         $this->scheduleName = ($scheduleName InstanceOf ScheduleName)
              ? $scheduleName
              : new ScheduleName($scheduleName);
+        $this->scheduleName->setName('scheduleName');
+        return $this;
     }
 
     /**
-     * Schedule name.
+     * 
+     * @return ScheduleName
      */
     public function getScheduleName()
     {
-        return (!$this->scheduleName) ?: $this->scheduleName->getValue();
+        return $this->scheduleName->getValue();
     }
 
     /**
-     * Schedule type.
+     * 
      */
     public function setScheduleType($scheduleType = null)
     {
+        if (!$scheduleType) return $this;
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
+        $this->scheduleType->setName('scheduleType');
+        return $this;
     }
 
     /**
-     * Schedule type.
+     * 
+     * @return ScheduleType
      */
     public function getScheduleType()
     {
-        return (!$this->scheduleType) ?: $this->scheduleType->getValue();
+        return $this->scheduleType->getValue();
     }
 }

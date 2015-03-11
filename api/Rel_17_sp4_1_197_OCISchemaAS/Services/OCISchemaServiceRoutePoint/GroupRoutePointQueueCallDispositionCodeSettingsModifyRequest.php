@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeWithLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeSettingsModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
+    public    $name                           = 'GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest';
     protected $serviceUserId                  = null;
     protected $enableCallDispositionCodes     = null;
     protected $includeOrganizationCodes       = null;
@@ -36,8 +36,8 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
          $enableCallDispositionCodes = null,
          $includeOrganizationCodes = null,
          $forceUseOfCallDispositionCodes = null,
-          $defaultCallDispositionCode = null,
-          $callDispositionCodeActivation = null
+         CallDispositionCodeWithLevel $defaultCallDispositionCode = null,
+         CallDispositionCodeActivation $callDispositionCodeActivation = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setEnableCallDispositionCodes($enableCallDispositionCodes);
@@ -48,7 +48,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
     }
 
     /**
-     * @return GroupRoutePointQueueCallDispositionCodeSettingsModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,29 +56,25 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
@@ -86,15 +82,19 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function setEnableCallDispositionCodes($enableCallDispositionCodes = null)
     {
-        $this->enableCallDispositionCodes = (boolean) $enableCallDispositionCodes;
+        if (!$enableCallDispositionCodes) return $this;
+        $this->enableCallDispositionCodes = new PrimitiveType($enableCallDispositionCodes);
+        $this->enableCallDispositionCodes->setName('enableCallDispositionCodes');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableCallDispositionCodes()
     {
-        return (!$this->enableCallDispositionCodes) ?: $this->enableCallDispositionCodes;
+        return $this->enableCallDispositionCodes->getValue();
     }
 
     /**
@@ -102,15 +102,19 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function setIncludeOrganizationCodes($includeOrganizationCodes = null)
     {
-        $this->includeOrganizationCodes = (boolean) $includeOrganizationCodes;
+        if (!$includeOrganizationCodes) return $this;
+        $this->includeOrganizationCodes = new PrimitiveType($includeOrganizationCodes);
+        $this->includeOrganizationCodes->setName('includeOrganizationCodes');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeOrganizationCodes()
     {
-        return (!$this->includeOrganizationCodes) ?: $this->includeOrganizationCodes;
+        return $this->includeOrganizationCodes->getValue();
     }
 
     /**
@@ -118,46 +122,58 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function setForceUseOfCallDispositionCodes($forceUseOfCallDispositionCodes = null)
     {
-        $this->forceUseOfCallDispositionCodes = (boolean) $forceUseOfCallDispositionCodes;
+        if (!$forceUseOfCallDispositionCodes) return $this;
+        $this->forceUseOfCallDispositionCodes = new PrimitiveType($forceUseOfCallDispositionCodes);
+        $this->forceUseOfCallDispositionCodes->setName('forceUseOfCallDispositionCodes');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getForceUseOfCallDispositionCodes()
+    {
+        return $this->forceUseOfCallDispositionCodes->getValue();
     }
 
     /**
      * 
      */
-    public function getForceUseOfCallDispositionCodes()
-    {
-        return (!$this->forceUseOfCallDispositionCodes) ?: $this->forceUseOfCallDispositionCodes;
-    }
-
-    /**
-     * Contains a Call Center Call Disposition Code and its Level
-     */
     public function setDefaultCallDispositionCode(CallDispositionCodeWithLevel $defaultCallDispositionCode = null)
     {
-        $this->defaultCallDispositionCode =  $defaultCallDispositionCode;
+        if (!$defaultCallDispositionCode) return $this;
+        $this->defaultCallDispositionCode = $defaultCallDispositionCode;
+        $this->defaultCallDispositionCode->setName('defaultCallDispositionCode');
+        return $this;
     }
 
     /**
-     * Contains a Call Center Call Disposition Code and its Level
+     * 
+     * @return CallDispositionCodeWithLevel
      */
     public function getDefaultCallDispositionCode()
     {
-        return (!$this->defaultCallDispositionCode) ?: $this->defaultCallDispositionCode->getValue();
+        return $this->defaultCallDispositionCode;
     }
 
     /**
-     * Contains a Call Center Call Disposition Code and its active state
+     * 
      */
     public function setCallDispositionCodeActivation(CallDispositionCodeActivation $callDispositionCodeActivation = null)
     {
-        $this->callDispositionCodeActivation =  $callDispositionCodeActivation;
+        if (!$callDispositionCodeActivation) return $this;
+        $this->callDispositionCodeActivation = $callDispositionCodeActivation;
+        $this->callDispositionCodeActivation->setName('callDispositionCodeActivation');
+        return $this;
     }
 
     /**
-     * Contains a Call Center Call Disposition Code and its active state
+     * 
+     * @return CallDispositionCodeActivation
      */
     public function getCallDispositionCodeActivation()
     {
-        return (!$this->callDispositionCodeActivation) ?: $this->callDispositionCodeActivation->getValue();
+        return $this->callDispositionCodeActivation;
     }
 }

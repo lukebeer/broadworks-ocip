@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCITable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -25,9 +25,16 @@ use Broadworks_OCIP\core\Client\Client;
 class OCITable extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCITable';
-    public    $name = __CLASS__;
+    public    $name       = 'OCITable';
+    protected $colHeading = null;
+    protected $row        = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $colHeading = null,
+         $row = null
+    ) {
+        $this->setColHeading($colHeading);
+        $this->setRow($row);
     }
 
     /**
@@ -36,5 +43,45 @@ class OCITable extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setColHeading($colHeading = null)
+    {
+        if (!$colHeading) return $this;
+        $this->colHeading = new SimpleContent($colHeading);
+        $this->colHeading->setName('colHeading');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getColHeading()
+    {
+        return $this->colHeading->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setRow($row = null)
+    {
+        if (!$row) return $this;
+        $this->row = new SimpleContent($row);
+        $this->row->setName('row');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getRow()
+    {
+        return $this->row->getValue();
     }
 }

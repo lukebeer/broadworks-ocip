@@ -5,14 +5,14 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactServiceProvider;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetGroupListResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,8 +27,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetGroupListResponse';
-    public    $name                               = __CLASS__;
+    public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetGroupListResponse';
+    public    $name                               = 'SystemPreferredCarrierGetGroupListRequest';
     protected $carrier                            = null;
     protected $responseSizeLimit                  = null;
     protected $searchCriteriaGroupId              = null;
@@ -38,9 +38,9 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
     public function __construct(
          $carrier,
          $responseSizeLimit = null,
-          $searchCriteriaGroupId = null,
-          $searchCriteriaGroupName = null,
-          $searchCriteriaExactServiceProvider = null
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaGroupName $searchCriteriaGroupName = null,
+         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null
     ) {
         $this->setCarrier($carrier);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -58,90 +58,112 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
     }
 
     /**
-     * Uniquely identifies a carrier.
+     * 
      */
     public function setCarrier($carrier = null)
     {
+        if (!$carrier) return $this;
         $this->carrier = ($carrier InstanceOf PreferredCarrierName)
              ? $carrier
              : new PreferredCarrierName($carrier);
+        $this->carrier->setName('carrier');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a carrier.
+     * 
+     * @return PreferredCarrierName
      */
     public function getCarrier()
     {
-        return (!$this->carrier) ?: $this->carrier->getValue();
+        return $this->carrier->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a group ID.
+     * 
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
+        if (!$searchCriteriaGroupId) return $this;
+        $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
+             ? $searchCriteriaGroupId
+             : new SearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a group ID.
+     * 
+     * @return SearchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->getValue();
+        return $this->searchCriteriaGroupId;
     }
 
     /**
-     * Criteria for searching for a group name.
+     * 
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        $this->searchCriteriaGroupName =  $searchCriteriaGroupName;
+        if (!$searchCriteriaGroupName) return $this;
+        $this->searchCriteriaGroupName = ($searchCriteriaGroupName InstanceOf SearchCriteriaGroupName)
+             ? $searchCriteriaGroupName
+             : new SearchCriteriaGroupName($searchCriteriaGroupName);
+        $this->searchCriteriaGroupName->setName('searchCriteriaGroupName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a group name.
+     * 
+     * @return SearchCriteriaGroupName
      */
     public function getSearchCriteriaGroupName()
     {
-        return (!$this->searchCriteriaGroupName) ?: $this->searchCriteriaGroupName->getValue();
+        return $this->searchCriteriaGroupName;
     }
 
     /**
-     * Criteria for searching for a particular fully specified service provider.
+     * 
      */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
-        $this->searchCriteriaExactServiceProvider =  $searchCriteriaExactServiceProvider;
+        if (!$searchCriteriaExactServiceProvider) return $this;
+        $this->searchCriteriaExactServiceProvider = ($searchCriteriaExactServiceProvider InstanceOf SearchCriteriaExactServiceProvider)
+             ? $searchCriteriaExactServiceProvider
+             : new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
+        $this->searchCriteriaExactServiceProvider->setName('searchCriteriaExactServiceProvider');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a particular fully specified service provider.
+     * 
+     * @return SearchCriteriaExactServiceProvider
      */
     public function getSearchCriteriaExactServiceProvider()
     {
-        return (!$this->searchCriteriaExactServiceProvider) ?: $this->searchCriteriaExactServiceProvider->getValue();
+        return $this->searchCriteriaExactServiceProvider;
     }
 }

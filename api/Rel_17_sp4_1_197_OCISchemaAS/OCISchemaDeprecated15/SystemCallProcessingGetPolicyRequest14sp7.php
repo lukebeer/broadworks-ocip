@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallProcessingGetPolicyRequest14sp7 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemCallProcessingGetPolicyResponse14sp7';
-    public    $name = __CLASS__;
+    public    $name = 'SystemCallProcessingGetPolicyRequest14sp7';
 
     public function __construct(    ) {
     }

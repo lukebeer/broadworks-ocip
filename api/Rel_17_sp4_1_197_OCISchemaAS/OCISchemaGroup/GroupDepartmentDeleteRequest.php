@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupDepartmentDeleteRequest';
     protected $serviceProviderId = null;
     protected $groupId           = null;
     protected $departmentName    = null;
@@ -39,7 +38,7 @@ class GroupDepartmentDeleteRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return GroupDepartmentDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,62 +46,68 @@ class GroupDepartmentDeleteRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Department name. This is only the name of the department itself, not the full path name
-     *         of the department and all its parents.
+     * 
      */
     public function setDepartmentName($departmentName = null)
     {
+        if (!$departmentName) return $this;
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
+        $this->departmentName->setName('departmentName');
+        return $this;
     }
 
     /**
-     * Department name. This is only the name of the department itself, not the full path name
-     *         of the department and all its parents.
+     * 
+     * @return DepartmentName
      */
     public function getDepartmentName()
     {
-        return (!$this->departmentName) ?: $this->departmentName->getValue();
+        return $this->departmentName->getValue();
     }
 }

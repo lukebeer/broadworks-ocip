@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderAccessDeviceFileGetRequest16sp1 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceFileGetResponse16sp1';
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderAccessDeviceFileGetRequest16sp1';
     protected $serviceProviderId = null;
     protected $deviceName        = null;
     protected $fileFormat        = null;
@@ -48,58 +48,68 @@ class ServiceProviderAccessDeviceFileGetRequest16sp1 extends ComplexType impleme
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Access device name.
+     * 
      */
     public function setDeviceName($deviceName = null)
     {
+        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
+        $this->deviceName->setName('deviceName');
+        return $this;
     }
 
     /**
-     * Access device name.
+     * 
+     * @return AccessDeviceName
      */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->getValue();
+        return $this->deviceName->getValue();
     }
 
     /**
-     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     * 
      */
     public function setFileFormat($fileFormat = null)
     {
+        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
+        $this->fileFormat->setName('fileFormat');
+        return $this;
     }
 
     /**
-     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     * 
+     * @return DeviceManagementFileFormat
      */
     public function getFileFormat()
     {
-        return (!$this->fileFormat) ?: $this->fileFormat->getValue();
+        return $this->fileFormat->getValue();
     }
 }

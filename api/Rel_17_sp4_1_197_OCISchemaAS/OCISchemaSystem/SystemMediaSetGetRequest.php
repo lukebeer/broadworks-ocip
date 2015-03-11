@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemMediaSetGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaSetGetResponse';
-    public    $name    = __CLASS__;
+    public    $name    = 'SystemMediaSetGetRequest';
     protected $setName = null;
 
     public function __construct(
@@ -40,20 +40,24 @@ class SystemMediaSetGetRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Media Set name
+     * 
      */
     public function setSetName($setName = null)
     {
+        if (!$setName) return $this;
         $this->setName = ($setName InstanceOf MediaSetName)
              ? $setName
              : new MediaSetName($setName);
+        $this->setName->setName('setName');
+        return $this;
     }
 
     /**
-     * Media Set name
+     * 
+     * @return MediaSetName
      */
     public function getSetName()
     {
-        return (!$this->setName) ?: $this->setName->getValue();
+        return $this->setName->getValue();
     }
 }

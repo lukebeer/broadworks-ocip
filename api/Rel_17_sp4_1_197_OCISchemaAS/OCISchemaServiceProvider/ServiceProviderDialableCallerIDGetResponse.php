@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialableCallerIDGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'ServiceProviderDialableCallerIDGetResponse';
     protected $useServiceProviderCriteria = null;
     protected $nsScreeningFailurePolicy   = null;
     protected $criteriaTable              = null;
@@ -39,33 +39,41 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
      */
     public function setUseServiceProviderCriteria($useServiceProviderCriteria = null)
     {
-        $this->useServiceProviderCriteria = (boolean) $useServiceProviderCriteria;
+        if (!$useServiceProviderCriteria) return $this;
+        $this->useServiceProviderCriteria = new PrimitiveType($useServiceProviderCriteria);
+        $this->useServiceProviderCriteria->setName('useServiceProviderCriteria');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseServiceProviderCriteria()
+    {
+        return $this->useServiceProviderCriteria->getValue();
     }
 
     /**
      * 
      */
-    public function getUseServiceProviderCriteria()
-    {
-        return (!$this->useServiceProviderCriteria) ?: $this->useServiceProviderCriteria;
-    }
-
-    /**
-     * How the incomming caller ID should be displayed in the case of an NS screening failure
-     */
     public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
+        if (!$nsScreeningFailurePolicy) return $this;
         $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
              ? $nsScreeningFailurePolicy
              : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
+        $this->nsScreeningFailurePolicy->setName('nsScreeningFailurePolicy');
+        return $this;
     }
 
     /**
-     * How the incomming caller ID should be displayed in the case of an NS screening failure
+     * 
+     * @return NsScreeningFailurePolicy
      */
     public function getNsScreeningFailurePolicy()
     {
-        return (!$this->nsScreeningFailurePolicy) ?: $this->nsScreeningFailurePolicy->getValue();
+        return $this->nsScreeningFailurePolicy->getValue();
     }
 
     /**
@@ -73,14 +81,17 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable =  $criteriaTable;
+        if (!$criteriaTable) return $this;
+        $this->criteriaTable->setName('criteriaTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCriteriaTable()
     {
-        return (!$this->criteriaTable) ?: $this->criteriaTable->getValue();
+        return $this->criteriaTable->getValue();
     }
 }

@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCapacityManagement; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCapacityManagement; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCapacityManagement\CallCapacityCallLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCapacityManagement\GroupCallCapacityManagementGetInstanceResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCapacityManagementGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'GroupCallCapacityManagementGetInstanceResponse';
     protected $name                          = null;
     protected $maxActiveCallsAllowed         = null;
     protected $maxIncomingActiveCallsAllowed = null;
@@ -39,75 +39,91 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
     }
 
     /**
-     * Service Instance Name for a service without a user id.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Service Instance Name for a service without a user id.
+     * 
+     * @return ServiceInstanceName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * Range of values for the call capacity of a capacity group.
+     * 
      */
     public function setMaxActiveCallsAllowed($maxActiveCallsAllowed = null)
     {
+        if (!$maxActiveCallsAllowed) return $this;
         $this->maxActiveCallsAllowed = ($maxActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxActiveCallsAllowed
              : new CallCapacityCallLimit($maxActiveCallsAllowed);
+        $this->maxActiveCallsAllowed->setName('maxActiveCallsAllowed');
+        return $this;
     }
 
     /**
-     * Range of values for the call capacity of a capacity group.
+     * 
+     * @return CallCapacityCallLimit
      */
     public function getMaxActiveCallsAllowed()
     {
-        return (!$this->maxActiveCallsAllowed) ?: $this->maxActiveCallsAllowed->getValue();
+        return $this->maxActiveCallsAllowed->getValue();
     }
 
     /**
-     * Range of values for the call capacity of a capacity group.
+     * 
      */
     public function setMaxIncomingActiveCallsAllowed($maxIncomingActiveCallsAllowed = null)
     {
+        if (!$maxIncomingActiveCallsAllowed) return $this;
         $this->maxIncomingActiveCallsAllowed = ($maxIncomingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxIncomingActiveCallsAllowed
              : new CallCapacityCallLimit($maxIncomingActiveCallsAllowed);
+        $this->maxIncomingActiveCallsAllowed->setName('maxIncomingActiveCallsAllowed');
+        return $this;
     }
 
     /**
-     * Range of values for the call capacity of a capacity group.
+     * 
+     * @return CallCapacityCallLimit
      */
     public function getMaxIncomingActiveCallsAllowed()
     {
-        return (!$this->maxIncomingActiveCallsAllowed) ?: $this->maxIncomingActiveCallsAllowed->getValue();
+        return $this->maxIncomingActiveCallsAllowed->getValue();
     }
 
     /**
-     * Range of values for the call capacity of a capacity group.
+     * 
      */
     public function setMaxOutgoingActiveCallsAllowed($maxOutgoingActiveCallsAllowed = null)
     {
+        if (!$maxOutgoingActiveCallsAllowed) return $this;
         $this->maxOutgoingActiveCallsAllowed = ($maxOutgoingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxOutgoingActiveCallsAllowed
              : new CallCapacityCallLimit($maxOutgoingActiveCallsAllowed);
+        $this->maxOutgoingActiveCallsAllowed->setName('maxOutgoingActiveCallsAllowed');
+        return $this;
     }
 
     /**
-     * Range of values for the call capacity of a capacity group.
+     * 
+     * @return CallCapacityCallLimit
      */
     public function getMaxOutgoingActiveCallsAllowed()
     {
-        return (!$this->maxOutgoingActiveCallsAllowed) ?: $this->maxOutgoingActiveCallsAllowed->getValue();
+        return $this->maxOutgoingActiveCallsAllowed->getValue();
     }
 
     /**
@@ -115,15 +131,19 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
      */
     public function setDefaultGroupForNewUsers($defaultGroupForNewUsers = null)
     {
-        $this->defaultGroupForNewUsers = (boolean) $defaultGroupForNewUsers;
+        if (!$defaultGroupForNewUsers) return $this;
+        $this->defaultGroupForNewUsers = new PrimitiveType($defaultGroupForNewUsers);
+        $this->defaultGroupForNewUsers->setName('defaultGroupForNewUsers');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDefaultGroupForNewUsers()
     {
-        return (!$this->defaultGroupForNewUsers) ?: $this->defaultGroupForNewUsers;
+        return $this->defaultGroupForNewUsers->getValue();
     }
 
     /**
@@ -131,14 +151,17 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
      */
     public function setUserTable(core:OCITable $userTable = null)
     {
-        $this->userTable =  $userTable;
+        if (!$userTable) return $this;
+        $this->userTable->setName('userTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getUserTable()
     {
-        return (!$this->userTable) ?: $this->userTable->getValue();
+        return $this->userTable->getValue();
     }
 }

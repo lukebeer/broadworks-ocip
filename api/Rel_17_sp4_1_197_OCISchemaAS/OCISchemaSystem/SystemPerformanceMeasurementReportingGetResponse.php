@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\PerformanceMeasurementReportingIntervalMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPerformanceMeasurementReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'SystemPerformanceMeasurementReportingGetResponse';
     protected $isActive                         = null;
     protected $reportingInterval                = null;
     protected $resetMeasurementsAfterEachReport = null;
@@ -41,33 +41,41 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Performance Measurement Reporting Interval Minutes.
-     */
     public function setReportingInterval($reportingInterval = null)
     {
+        if (!$reportingInterval) return $this;
         $this->reportingInterval = ($reportingInterval InstanceOf PerformanceMeasurementReportingIntervalMinutes)
              ? $reportingInterval
              : new PerformanceMeasurementReportingIntervalMinutes($reportingInterval);
+        $this->reportingInterval->setName('reportingInterval');
+        return $this;
     }
 
     /**
-     * Performance Measurement Reporting Interval Minutes.
+     * 
+     * @return PerformanceMeasurementReportingIntervalMinutes
      */
     public function getReportingInterval()
     {
-        return (!$this->reportingInterval) ?: $this->reportingInterval->getValue();
+        return $this->reportingInterval->getValue();
     }
 
     /**
@@ -75,15 +83,19 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function setResetMeasurementsAfterEachReport($resetMeasurementsAfterEachReport = null)
     {
-        $this->resetMeasurementsAfterEachReport = (boolean) $resetMeasurementsAfterEachReport;
+        if (!$resetMeasurementsAfterEachReport) return $this;
+        $this->resetMeasurementsAfterEachReport = new PrimitiveType($resetMeasurementsAfterEachReport);
+        $this->resetMeasurementsAfterEachReport->setName('resetMeasurementsAfterEachReport');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getResetMeasurementsAfterEachReport()
     {
-        return (!$this->resetMeasurementsAfterEachReport) ?: $this->resetMeasurementsAfterEachReport;
+        return $this->resetMeasurementsAfterEachReport->getValue();
     }
 
     /**
@@ -91,15 +103,19 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function setReportEnterprise($reportEnterprise = null)
     {
-        $this->reportEnterprise = (boolean) $reportEnterprise;
+        if (!$reportEnterprise) return $this;
+        $this->reportEnterprise = new PrimitiveType($reportEnterprise);
+        $this->reportEnterprise->setName('reportEnterprise');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getReportEnterprise()
     {
-        return (!$this->reportEnterprise) ?: $this->reportEnterprise;
+        return $this->reportEnterprise->getValue();
     }
 
     /**
@@ -107,15 +123,19 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function setReportServiceProvider($reportServiceProvider = null)
     {
-        $this->reportServiceProvider = (boolean) $reportServiceProvider;
+        if (!$reportServiceProvider) return $this;
+        $this->reportServiceProvider = new PrimitiveType($reportServiceProvider);
+        $this->reportServiceProvider->setName('reportServiceProvider');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getReportServiceProvider()
     {
-        return (!$this->reportServiceProvider) ?: $this->reportServiceProvider;
+        return $this->reportServiceProvider->getValue();
     }
 
     /**
@@ -123,14 +143,18 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function setReportDevice($reportDevice = null)
     {
-        $this->reportDevice = (boolean) $reportDevice;
+        if (!$reportDevice) return $this;
+        $this->reportDevice = new PrimitiveType($reportDevice);
+        $this->reportDevice->setName('reportDevice');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getReportDevice()
     {
-        return (!$this->reportDevice) ?: $this->reportDevice;
+        return $this->reportDevice->getValue();
     }
 }

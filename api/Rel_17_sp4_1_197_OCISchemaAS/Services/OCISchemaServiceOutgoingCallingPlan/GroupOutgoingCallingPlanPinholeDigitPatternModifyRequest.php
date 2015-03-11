@@ -5,13 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPlan\CallingPlanDigitPattern;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingPlanDigitPatternName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPatternModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanPinholeDigitPatternModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupOutgoingCallingPlanPinholeDigitPatternModifyRequest';
     protected $serviceProviderId = null;
     protected $groupId           = null;
     protected $name              = null;
@@ -43,7 +42,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternModifyRequest extends ComplexTy
     }
 
     /**
-     * @return GroupOutgoingCallingPlanPinholeDigitPatternModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,84 +50,90 @@ class GroupOutgoingCallingPlanPinholeDigitPatternModifyRequest extends ComplexTy
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Name of a calling plan digit pattern.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf CallingPlanDigitPatternName)
              ? $name
              : new CallingPlanDigitPatternName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Name of a calling plan digit pattern.
+     * 
+     * @return CallingPlanDigitPatternName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * Digit patterns that are used to restrict calls in the Incoming Calling Plan and Outgoing Calling Plan.
-     *         The digit pattern may contain digits 0-9,+,?, and trailing * digit.
-     *         Starting in Rel.14.sp4 digit patterns can also contain '#', and '*' digits anywhere in the string. To distinguish between a '*' as a digit from '*' as a wildcard character, a back-slash character shall be used as an escape in front of '*' being a digit. Note that '*' as a wildcard is still only allowed at the end of string.
-     *         Starting in Rel.17.sp3, the range syntax [n1-n2] is also supported, where n1 and n2 denotes a digit in the range 0 to 9. Also the maximum length is increased to 160.
+     * 
      */
     public function setDigitPattern($digitPattern = null)
     {
+        if (!$digitPattern) return $this;
         $this->digitPattern = ($digitPattern InstanceOf CallingPlanDigitPattern)
              ? $digitPattern
              : new CallingPlanDigitPattern($digitPattern);
+        $this->digitPattern->setName('digitPattern');
+        return $this;
     }
 
     /**
-     * Digit patterns that are used to restrict calls in the Incoming Calling Plan and Outgoing Calling Plan.
-     *         The digit pattern may contain digits 0-9,+,?, and trailing * digit.
-     *         Starting in Rel.14.sp4 digit patterns can also contain '#', and '*' digits anywhere in the string. To distinguish between a '*' as a digit from '*' as a wildcard character, a back-slash character shall be used as an escape in front of '*' being a digit. Note that '*' as a wildcard is still only allowed at the end of string.
-     *         Starting in Rel.17.sp3, the range syntax [n1-n2] is also supported, where n1 and n2 denotes a digit in the range 0 to 9. Also the maximum length is increased to 160.
+     * 
+     * @return CallingPlanDigitPattern
      */
     public function getDigitPattern()
     {
-        return (!$this->digitPattern) ?: $this->digitPattern->getValue();
+        return $this->digitPattern->getValue();
     }
 }

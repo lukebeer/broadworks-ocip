@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemZoneCallingZonePhysicalLocationGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneCallingZonePhysicalLocationGetResponse';
-    public    $name     = __CLASS__;
+    public    $name     = 'SystemZoneCallingZonePhysicalLocationGetRequest';
     protected $zoneName = null;
 
     public function __construct(
@@ -40,20 +40,24 @@ class SystemZoneCallingZonePhysicalLocationGetRequest extends ComplexType implem
     }
 
     /**
-     * Zone Name.
+     * 
      */
     public function setZoneName($zoneName = null)
     {
+        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
+        $this->zoneName->setName('zoneName');
+        return $this;
     }
 
     /**
-     * Zone Name.
+     * 
+     * @return ZoneName
      */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->getValue();
+        return $this->zoneName->getValue();
     }
 }

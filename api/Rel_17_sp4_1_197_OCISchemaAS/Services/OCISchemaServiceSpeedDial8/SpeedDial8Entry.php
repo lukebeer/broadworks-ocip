@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial8; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial8; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial8\SpeedDial8Entry;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial8\SpeedDial8Entry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,10 +21,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SpeedDial8Entry extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial8\SpeedDial8Entry';
-    public    $name = __CLASS__;
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial8\SpeedDial8Entry';
+    public    $name        = 'SpeedDial8Entry';
+    protected $speedCode   = null;
+    protected $phoneNumber = null;
+    protected $description = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $speedCode,
+         $phoneNumber = null,
+         $description = null
+    ) {
+        $this->setSpeedCode($speedCode);
+        $this->setPhoneNumber($phoneNumber);
+        $this->setDescription($description);
     }
 
     /**
@@ -33,5 +43,65 @@ class SpeedDial8Entry extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setSpeedCode($speedCode = null)
+    {
+        if (!$speedCode) return $this;
+        $this->speedCode = new SimpleContent($speedCode);
+        $this->speedCode->setName('speedCode');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getSpeedCode()
+    {
+        return $this->speedCode->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setPhoneNumber($phoneNumber = null)
+    {
+        if (!$phoneNumber) return $this;
+        $this->phoneNumber = new SimpleContent($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setDescription($description = null)
+    {
+        if (!$description) return $this;
+        $this->description = new SimpleContent($description);
+        $this->description->setName('description');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getDescription()
+    {
+        return $this->description->getValue();
     }
 }

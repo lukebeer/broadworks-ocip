@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCapacityManagement; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCapacityManagement; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCapacityManagement\GroupCallCapacityManagementGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCapacityManagementGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'GroupCallCapacityManagementGetInstanceListResponse';
     protected $callCapacityGroupTable = null;
 
     /**
@@ -37,14 +36,17 @@ class GroupCallCapacityManagementGetInstanceListResponse extends ComplexType imp
      */
     public function setCallCapacityGroupTable(core:OCITable $callCapacityGroupTable = null)
     {
-        $this->callCapacityGroupTable =  $callCapacityGroupTable;
+        if (!$callCapacityGroupTable) return $this;
+        $this->callCapacityGroupTable->setName('callCapacityGroupTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCallCapacityGroupTable()
     {
-        return (!$this->callCapacityGroupTable) ?: $this->callCapacityGroupTable->getValue();
+        return $this->callCapacityGroupTable->getValue();
     }
 }

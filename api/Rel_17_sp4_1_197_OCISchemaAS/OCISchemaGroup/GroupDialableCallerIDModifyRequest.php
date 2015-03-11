@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Dialable
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialableCallerIDModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'GroupDialableCallerIDModifyRequest';
     protected $serviceProviderId        = null;
     protected $groupId                  = null;
     protected $useGroupCriteria         = null;
@@ -36,7 +36,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
          $groupId,
          $useGroupCriteria = null,
          $nsScreeningFailurePolicy = null,
-          $criteriaPriorityOrder = null
+         DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -46,7 +46,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return GroupDialableCallerIDModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,43 +54,47 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
@@ -98,48 +102,60 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function setUseGroupCriteria($useGroupCriteria = null)
     {
-        $this->useGroupCriteria = (boolean) $useGroupCriteria;
+        if (!$useGroupCriteria) return $this;
+        $this->useGroupCriteria = new PrimitiveType($useGroupCriteria);
+        $this->useGroupCriteria->setName('useGroupCriteria');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseGroupCriteria()
+    {
+        return $this->useGroupCriteria->getValue();
     }
 
     /**
      * 
      */
-    public function getUseGroupCriteria()
-    {
-        return (!$this->useGroupCriteria) ?: $this->useGroupCriteria;
-    }
-
-    /**
-     * How the incomming caller ID should be displayed in the case of an NS screening failure
-     */
     public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
+        if (!$nsScreeningFailurePolicy) return $this;
         $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
              ? $nsScreeningFailurePolicy
              : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
+        $this->nsScreeningFailurePolicy->setName('nsScreeningFailurePolicy');
+        return $this;
     }
 
     /**
-     * How the incomming caller ID should be displayed in the case of an NS screening failure
+     * 
+     * @return NsScreeningFailurePolicy
      */
     public function getNsScreeningFailurePolicy()
     {
-        return (!$this->nsScreeningFailurePolicy) ?: $this->nsScreeningFailurePolicy->getValue();
+        return $this->nsScreeningFailurePolicy->getValue();
     }
 
     /**
-     * Dialable Caller ID routing order
+     * 
      */
     public function setCriteriaPriorityOrder(DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null)
     {
-        $this->criteriaPriorityOrder =  $criteriaPriorityOrder;
+        if (!$criteriaPriorityOrder) return $this;
+        $this->criteriaPriorityOrder = $criteriaPriorityOrder;
+        $this->criteriaPriorityOrder->setName('criteriaPriorityOrder');
+        return $this;
     }
 
     /**
-     * Dialable Caller ID routing order
+     * 
+     * @return DialableCallerIDCriteriaPriorityOrder
      */
     public function getCriteriaPriorityOrder()
     {
-        return (!$this->criteriaPriorityOrder) ?: $this->criteriaPriorityOrder->getValue();
+        return $this->criteriaPriorityOrder;
     }
 }

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DNISKey extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey';
-    public    $name = __CLASS__;
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey';
+    public    $name          = 'DNISKey';
+    protected $serviceUserId = null;
+    protected $name          = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $serviceUserId,
+         $name
+    ) {
+        $this->setServiceUserId($serviceUserId);
+        $this->setName($name);
     }
 
     /**
@@ -32,5 +39,45 @@ class DNISKey extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setServiceUserId($serviceUserId = null)
+    {
+        if (!$serviceUserId) return $this;
+        $this->serviceUserId = new SimpleContent($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getServiceUserId()
+    {
+        return $this->serviceUserId->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setName($name = null)
+    {
+        if (!$name) return $this;
+        $this->name = new SimpleContent($name);
+        $this->name->setName('name');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getName()
+    {
+        return $this->name->getValue();
     }
 }

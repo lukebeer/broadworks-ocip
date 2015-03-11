@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaLinePortUserPart;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaLinePortUserPart extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaLinePortUserPart';
-    public    $name              = __CLASS__;
+    public    $name              = 'SearchCriteriaLinePortUserPart';
     protected $mode              = null;
     protected $value             = null;
     protected $isCaseInsensitive = null;
@@ -45,21 +46,25 @@ class SearchCriteriaLinePortUserPart extends ComplexType implements ComplexInter
     }
 
     /**
-     * Search mode when searching for string data.
+     * 
      */
     public function setMode($mode = null)
     {
+        if (!$mode) return $this;
         $this->mode = ($mode InstanceOf SearchMode)
              ? $mode
              : new SearchMode($mode);
+        $this->mode->setName('mode');
+        return $this;
     }
 
     /**
-     * Search mode when searching for string data.
+     * 
+     * @return SearchMode
      */
     public function getMode()
     {
-        return (!$this->mode) ?: $this->mode->getValue();
+        return $this->mode->getValue();
     }
 
     /**
@@ -67,15 +72,18 @@ class SearchCriteriaLinePortUserPart extends ComplexType implements ComplexInter
      */
     public function setValue($value = null)
     {
-        $this->value = $value;
+        if (!$value) return $this;
+        $this->value->setName('value');
+        return $this;
     }
 
     /**
      * 
+     * @return 
      */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value;
+        return $this->value->getValue();
     }
 
     /**
@@ -83,14 +91,18 @@ class SearchCriteriaLinePortUserPart extends ComplexType implements ComplexInter
      */
     public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
-        $this->isCaseInsensitive = (boolean) $isCaseInsensitive;
+        if (!$isCaseInsensitive) return $this;
+        $this->isCaseInsensitive = new PrimitiveType($isCaseInsensitive);
+        $this->isCaseInsensitive->setName('isCaseInsensitive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive;
+        return $this->isCaseInsensitive->getValue();
     }
 }

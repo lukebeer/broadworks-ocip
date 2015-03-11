@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaAlternateTrunkIdentity;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserFirstName;
@@ -17,7 +17,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetUserListResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -32,8 +32,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetUserListResponse';
-    public    $name                                 = __CLASS__;
+    public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetUserListResponse';
+    public    $name                                 = 'GroupEnterpriseTrunkGetUserListRequest';
     protected $serviceProviderId                    = null;
     protected $groupId                              = null;
     protected $enterpriseTrunkName                  = null;
@@ -50,12 +50,12 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
          $groupId,
          $enterpriseTrunkName,
          $responseSizeLimit = null,
-          $searchCriteriaUserLastName = null,
-          $searchCriteriaUserFirstName = null,
-          $searchCriteriaDn = null,
-          $searchCriteriaUserId = null,
-          $searchCriteriaGroupId = null,
-          $searchCriteriaAlternateTrunkIdentity = null
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
+         SearchCriteriaDn $searchCriteriaDn = null,
+         SearchCriteriaUserId $searchCriteriaUserId = null,
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -78,180 +78,222 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Enterprise Trunk name.
-     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     * 
      */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
+        if (!$enterpriseTrunkName) return $this;
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
+        $this->enterpriseTrunkName->setName('enterpriseTrunkName');
+        return $this;
     }
 
     /**
-     * Enterprise Trunk name.
-     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     * 
+     * @return EnterpriseTrunkName
      */
     public function getEnterpriseTrunkName()
     {
-        return (!$this->enterpriseTrunkName) ?: $this->enterpriseTrunkName->getValue();
+        return $this->enterpriseTrunkName->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a user's last name.
+     * 
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
+        if (!$searchCriteriaUserLastName) return $this;
+        $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
+             ? $searchCriteriaUserLastName
+             : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a user's last name.
+     * 
+     * @return SearchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
+        return $this->searchCriteriaUserLastName;
     }
 
     /**
-     * Criteria for searching for a user's first name.
+     * 
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
+        if (!$searchCriteriaUserFirstName) return $this;
+        $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
+             ? $searchCriteriaUserFirstName
+             : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
+        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a user's first name.
+     * 
+     * @return SearchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
-        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->getValue();
+        return $this->searchCriteriaUserFirstName;
     }
 
     /**
-     * Criteria for searching for a DN.
+     * 
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn =  $searchCriteriaDn;
+        if (!$searchCriteriaDn) return $this;
+        $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
+             ? $searchCriteriaDn
+             : new SearchCriteriaDn($searchCriteriaDn);
+        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a DN.
+     * 
+     * @return SearchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
-        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->getValue();
+        return $this->searchCriteriaDn;
     }
 
     /**
-     * Criteria for searching for a user's userId.
+     * 
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $this->searchCriteriaUserId =  $searchCriteriaUserId;
+        if (!$searchCriteriaUserId) return $this;
+        $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
+             ? $searchCriteriaUserId
+             : new SearchCriteriaUserId($searchCriteriaUserId);
+        $this->searchCriteriaUserId->setName('searchCriteriaUserId');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a user's userId.
+     * 
+     * @return SearchCriteriaUserId
      */
     public function getSearchCriteriaUserId()
     {
-        return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->getValue();
+        return $this->searchCriteriaUserId;
     }
 
     /**
-     * Criteria for searching for a group ID.
+     * 
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
+        if (!$searchCriteriaGroupId) return $this;
+        $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
+             ? $searchCriteriaGroupId
+             : new SearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a group ID.
+     * 
+     * @return SearchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->getValue();
+        return $this->searchCriteriaGroupId;
     }
 
     /**
-     * Criteria for searching for a particular fully specified alternate trunk identity
+     * 
      */
     public function setSearchCriteriaAlternateTrunkIdentity(SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null)
     {
-        $this->searchCriteriaAlternateTrunkIdentity =  $searchCriteriaAlternateTrunkIdentity;
+        if (!$searchCriteriaAlternateTrunkIdentity) return $this;
+        $this->searchCriteriaAlternateTrunkIdentity = ($searchCriteriaAlternateTrunkIdentity InstanceOf SearchCriteriaAlternateTrunkIdentity)
+             ? $searchCriteriaAlternateTrunkIdentity
+             : new SearchCriteriaAlternateTrunkIdentity($searchCriteriaAlternateTrunkIdentity);
+        $this->searchCriteriaAlternateTrunkIdentity->setName('searchCriteriaAlternateTrunkIdentity');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a particular fully specified alternate trunk identity
+     * 
+     * @return SearchCriteriaAlternateTrunkIdentity
      */
     public function getSearchCriteriaAlternateTrunkIdentity()
     {
-        return (!$this->searchCriteriaAlternateTrunkIdentity) ?: $this->searchCriteriaAlternateTrunkIdentity->getValue();
+        return $this->searchCriteriaAlternateTrunkIdentity;
     }
 }

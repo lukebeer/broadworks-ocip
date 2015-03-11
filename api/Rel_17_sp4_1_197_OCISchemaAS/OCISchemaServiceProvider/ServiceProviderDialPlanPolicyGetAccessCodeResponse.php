@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCodeDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyGetAccessCodeResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                        = __CLASS__;
+    public    $name                                        = 'ServiceProviderDialPlanPolicyGetAccessCodeResponse';
     protected $includeCodeForNetworkTranslationsAndRouting = null;
     protected $includeCodeForScreeningServices             = null;
     protected $enableSecondaryDialTone                     = null;
@@ -39,15 +39,19 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
      */
     public function setIncludeCodeForNetworkTranslationsAndRouting($includeCodeForNetworkTranslationsAndRouting = null)
     {
-        $this->includeCodeForNetworkTranslationsAndRouting = (boolean) $includeCodeForNetworkTranslationsAndRouting;
+        if (!$includeCodeForNetworkTranslationsAndRouting) return $this;
+        $this->includeCodeForNetworkTranslationsAndRouting = new PrimitiveType($includeCodeForNetworkTranslationsAndRouting);
+        $this->includeCodeForNetworkTranslationsAndRouting->setName('includeCodeForNetworkTranslationsAndRouting');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeCodeForNetworkTranslationsAndRouting()
     {
-        return (!$this->includeCodeForNetworkTranslationsAndRouting) ?: $this->includeCodeForNetworkTranslationsAndRouting;
+        return $this->includeCodeForNetworkTranslationsAndRouting->getValue();
     }
 
     /**
@@ -55,15 +59,19 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
      */
     public function setIncludeCodeForScreeningServices($includeCodeForScreeningServices = null)
     {
-        $this->includeCodeForScreeningServices = (boolean) $includeCodeForScreeningServices;
+        if (!$includeCodeForScreeningServices) return $this;
+        $this->includeCodeForScreeningServices = new PrimitiveType($includeCodeForScreeningServices);
+        $this->includeCodeForScreeningServices->setName('includeCodeForScreeningServices');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeCodeForScreeningServices()
     {
-        return (!$this->includeCodeForScreeningServices) ?: $this->includeCodeForScreeningServices;
+        return $this->includeCodeForScreeningServices->getValue();
     }
 
     /**
@@ -71,32 +79,40 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
      */
     public function setEnableSecondaryDialTone($enableSecondaryDialTone = null)
     {
-        $this->enableSecondaryDialTone = (boolean) $enableSecondaryDialTone;
+        if (!$enableSecondaryDialTone) return $this;
+        $this->enableSecondaryDialTone = new PrimitiveType($enableSecondaryDialTone);
+        $this->enableSecondaryDialTone->setName('enableSecondaryDialTone');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableSecondaryDialTone()
+    {
+        return $this->enableSecondaryDialTone->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableSecondaryDialTone()
-    {
-        return (!$this->enableSecondaryDialTone) ?: $this->enableSecondaryDialTone;
-    }
-
-    /**
-     * Dial Plan Access Code Description.
-     */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf DialPlanAccessCodeDescription)
              ? $description
              : new DialPlanAccessCodeDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Dial Plan Access Code Description.
+     * 
+     * @return DialPlanAccessCodeDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 }

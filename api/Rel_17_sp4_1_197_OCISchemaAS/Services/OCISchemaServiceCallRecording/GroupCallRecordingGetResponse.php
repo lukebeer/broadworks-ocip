@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\CallRecordingPlatformName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\GroupCallRecordingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name = 'GroupCallRecordingGetResponse';
     protected $name = null;
 
     /**
@@ -33,20 +32,24 @@ class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterf
     }
 
     /**
-     * Call Recording Platform Name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf CallRecordingPlatformName)
              ? $name
              : new CallRecordingPlatformName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Call Recording Platform Name.
+     * 
+     * @return CallRecordingPlatformName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 }

@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAnswerRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointBouncedCallModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'GroupRoutePointBouncedCallModifyRequest';
     protected $serviceUserId                   = null;
     protected $isActive                        = null;
     protected $numberOfRingsBeforeBouncingCall = null;
@@ -48,7 +48,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return GroupRoutePointBouncedCallModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,29 +56,25 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
@@ -86,35 +82,41 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Number of rings to wait for the currently hunted agent to answer before
-     *         hunting to the next available agent.
-     */
     public function setNumberOfRingsBeforeBouncingCall($numberOfRingsBeforeBouncingCall = null)
     {
+        if (!$numberOfRingsBeforeBouncingCall) return $this;
         $this->numberOfRingsBeforeBouncingCall = ($numberOfRingsBeforeBouncingCall InstanceOf HuntNoAnswerRings)
              ? $numberOfRingsBeforeBouncingCall
              : new HuntNoAnswerRings($numberOfRingsBeforeBouncingCall);
+        $this->numberOfRingsBeforeBouncingCall->setName('numberOfRingsBeforeBouncingCall');
+        return $this;
     }
 
     /**
-     * Number of rings to wait for the currently hunted agent to answer before
-     *         hunting to the next available agent.
+     * 
+     * @return HuntNoAnswerRings
      */
     public function getNumberOfRingsBeforeBouncingCall()
     {
-        return (!$this->numberOfRingsBeforeBouncingCall) ?: $this->numberOfRingsBeforeBouncingCall->getValue();
+        return $this->numberOfRingsBeforeBouncingCall->getValue();
     }
 
     /**
@@ -122,47 +124,41 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function setEnableTransfer($enableTransfer = null)
     {
-        $this->enableTransfer = (boolean) $enableTransfer;
+        if (!$enableTransfer) return $this;
+        $this->enableTransfer = new PrimitiveType($enableTransfer);
+        $this->enableTransfer->setName('enableTransfer');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableTransfer()
+    {
+        return $this->enableTransfer->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableTransfer()
-    {
-        return (!$this->enableTransfer) ?: $this->enableTransfer;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
+        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
+        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getTransferPhoneNumber()
     {
-        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->getValue();
+        return $this->transferPhoneNumber->getValue();
     }
 
     /**
@@ -170,14 +166,18 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function setBounceCallWhenAgentUnavailable($bounceCallWhenAgentUnavailable = null)
     {
-        $this->bounceCallWhenAgentUnavailable = (boolean) $bounceCallWhenAgentUnavailable;
+        if (!$bounceCallWhenAgentUnavailable) return $this;
+        $this->bounceCallWhenAgentUnavailable = new PrimitiveType($bounceCallWhenAgentUnavailable);
+        $this->bounceCallWhenAgentUnavailable->setName('bounceCallWhenAgentUnavailable');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getBounceCallWhenAgentUnavailable()
     {
-        return (!$this->bounceCallWhenAgentUnavailable) ?: $this->bounceCallWhenAgentUnavailable;
+        return $this->bounceCallWhenAgentUnavailable->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupMeetMeConferencingGetInstanceListResponse';
     protected $conferenceBridgeTable = null;
 
     /**
@@ -38,14 +37,17 @@ class GroupMeetMeConferencingGetInstanceListResponse extends ComplexType impleme
      */
     public function setConferenceBridgeTable(core:OCITable $conferenceBridgeTable = null)
     {
-        $this->conferenceBridgeTable =  $conferenceBridgeTable;
+        if (!$conferenceBridgeTable) return $this;
+        $this->conferenceBridgeTable->setName('conferenceBridgeTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getConferenceBridgeTable()
     {
-        return (!$this->conferenceBridgeTable) ?: $this->conferenceBridgeTable->getValue();
+        return $this->conferenceBridgeTable->getValue();
     }
 }

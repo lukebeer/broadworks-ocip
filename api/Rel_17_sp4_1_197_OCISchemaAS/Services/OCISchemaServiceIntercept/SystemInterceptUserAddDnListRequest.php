@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\InterceptDNListEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\SystemInterceptUserAddDnListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,17 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInterceptUserAddDnListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'SystemInterceptUserAddDnListRequest';
     protected $interceptDNList = null;
 
     public function __construct(
-          $interceptDNList = null
+         InterceptDNListEntry $interceptDNList = null
     ) {
         $this->setInterceptDNList($interceptDNList);
     }
 
     /**
-     * @return SystemInterceptUserAddDnListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,18 +38,22 @@ class SystemInterceptUserAddDnListRequest extends ComplexType implements Complex
     }
 
     /**
-     * Intercept User Entry containing the phone number and a Description.
+     * 
      */
     public function setInterceptDNList(InterceptDNListEntry $interceptDNList = null)
     {
-        $this->interceptDNList =  $interceptDNList;
+        if (!$interceptDNList) return $this;
+        $this->interceptDNList = $interceptDNList;
+        $this->interceptDNList->setName('interceptDNList');
+        return $this;
     }
 
     /**
-     * Intercept User Entry containing the phone number and a Description.
+     * 
+     * @return InterceptDNListEntry
      */
     public function getInterceptDNList()
     {
-        return (!$this->interceptDNList) ?: $this->interceptDNList->getValue();
+        return $this->interceptDNList;
     }
 }

@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetCallTypeCdrValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetCallTypeName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\SystemVirtualOnNetCallTypeAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'SystemVirtualOnNetCallTypeAddRequest';
     protected $virtualOnNetCallTypeName     = null;
     protected $virtualOnNetCallTypeCdrValue = null;
 
@@ -35,7 +34,7 @@ class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return SystemVirtualOnNetCallTypeAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements Comple
     }
 
     /**
-     * Virtual On-Net Call Type name.
+     * 
      */
     public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
     {
+        if (!$virtualOnNetCallTypeName) return $this;
         $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
              ? $virtualOnNetCallTypeName
              : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
+        $this->virtualOnNetCallTypeName->setName('virtualOnNetCallTypeName');
+        return $this;
     }
 
     /**
-     * Virtual On-Net Call Type name.
+     * 
+     * @return VirtualOnNetCallTypeName
      */
     public function getVirtualOnNetCallTypeName()
     {
-        return (!$this->virtualOnNetCallTypeName) ?: $this->virtualOnNetCallTypeName->getValue();
+        return $this->virtualOnNetCallTypeName->getValue();
     }
 
     /**
-     * Virtual On-Net Call Type CDR value.
+     * 
      */
     public function setVirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue = null)
     {
+        if (!$virtualOnNetCallTypeCdrValue) return $this;
         $this->virtualOnNetCallTypeCdrValue = ($virtualOnNetCallTypeCdrValue InstanceOf VirtualOnNetCallTypeCdrValue)
              ? $virtualOnNetCallTypeCdrValue
              : new VirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue);
+        $this->virtualOnNetCallTypeCdrValue->setName('virtualOnNetCallTypeCdrValue');
+        return $this;
     }
 
     /**
-     * Virtual On-Net Call Type CDR value.
+     * 
+     * @return VirtualOnNetCallTypeCdrValue
      */
     public function getVirtualOnNetCallTypeCdrValue()
     {
-        return (!$this->virtualOnNetCallTypeCdrValue) ?: $this->virtualOnNetCallTypeCdrValue->getValue();
+        return $this->virtualOnNetCallTypeCdrValue->getValue();
     }
 }

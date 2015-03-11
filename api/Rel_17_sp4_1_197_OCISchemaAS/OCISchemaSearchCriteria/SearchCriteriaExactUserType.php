@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaExactUserType extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserType';
-    public    $name     = __CLASS__;
+    public    $name     = 'SearchCriteriaExactUserType';
     protected $userType = null;
 
     public function __construct(
@@ -39,20 +39,24 @@ class SearchCriteriaExactUserType extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * Types of users in BroadWorks.
+     * 
      */
     public function setUserType($userType = null)
     {
+        if (!$userType) return $this;
         $this->userType = ($userType InstanceOf UserType)
              ? $userType
              : new UserType($userType);
+        $this->userType->setName('userType');
+        return $this;
     }
 
     /**
-     * Types of users in BroadWorks.
+     * 
+     * @return UserType
      */
     public function getUserType()
     {
-        return (!$this->userType) ?: $this->userType->getValue();
+        return $this->userType->getValue();
     }
 }

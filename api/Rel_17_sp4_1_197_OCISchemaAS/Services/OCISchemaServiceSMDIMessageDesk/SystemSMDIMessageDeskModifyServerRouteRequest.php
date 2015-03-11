@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIServerRouteDestination;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskModifyServerRouteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'SystemSMDIMessageDeskModifyServerRouteRequest';
     protected $routeDestination = null;
     protected $deviceNameList   = null;
 
@@ -35,7 +34,7 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
     }
 
     /**
-     * @return SystemSMDIMessageDeskModifyServerRouteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,21 +42,25 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
     }
 
     /**
-     * SMDI server route destination, a 3 to 10 digits number
+     * 
      */
     public function setRouteDestination($routeDestination = null)
     {
+        if (!$routeDestination) return $this;
         $this->routeDestination = ($routeDestination InstanceOf SMDIServerRouteDestination)
              ? $routeDestination
              : new SMDIServerRouteDestination($routeDestination);
+        $this->routeDestination->setName('routeDestination');
+        return $this;
     }
 
     /**
-     * SMDI server route destination, a 3 to 10 digits number
+     * 
+     * @return SMDIServerRouteDestination
      */
     public function getRouteDestination()
     {
-        return (!$this->routeDestination) ?: $this->routeDestination->getValue();
+        return $this->routeDestination->getValue();
     }
 
     /**
@@ -65,14 +68,17 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
      */
     public function setDeviceNameList($deviceNameList = null)
     {
-        $this->deviceNameList = $deviceNameList;
+        if (!$deviceNameList) return $this;
+        $this->deviceNameList->setName('deviceNameList');
+        return $this;
     }
 
     /**
      * 
+     * @return 
      */
     public function getDeviceNameList()
     {
-        return (!$this->deviceNameList) ?: $this->deviceNameList;
+        return $this->deviceNameList->getValue();
     }
 }

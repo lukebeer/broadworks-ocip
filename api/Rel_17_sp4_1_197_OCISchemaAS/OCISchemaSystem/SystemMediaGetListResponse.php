@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemMediaGetListResponse';
     protected $mediaTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemMediaGetListResponse extends ComplexType implements ComplexInterface
      */
     public function setMediaTable(core:OCITable $mediaTable = null)
     {
-        $this->mediaTable =  $mediaTable;
+        if (!$mediaTable) return $this;
+        $this->mediaTable->setName('mediaTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getMediaTable()
     {
-        return (!$this->mediaTable) ?: $this->mediaTable->getValue();
+        return $this->mediaTable->getValue();
     }
 }

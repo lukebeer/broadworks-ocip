@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCriteriaName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCriteriaDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringCriteriaDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name = 'SystemCommunicationBarringCriteriaDeleteRequest';
     protected $name = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemCommunicationBarringCriteriaDeleteRequest extends ComplexType implem
     }
 
     /**
-     * @return SystemCommunicationBarringCriteriaDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemCommunicationBarringCriteriaDeleteRequest extends ComplexType implem
     }
 
     /**
-     * Communication Barring Criteria Name
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf CommunicationBarringCriteriaName)
              ? $name
              : new CommunicationBarringCriteriaName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Communication Barring Criteria Name
+     * 
+     * @return CommunicationBarringCriteriaName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 }

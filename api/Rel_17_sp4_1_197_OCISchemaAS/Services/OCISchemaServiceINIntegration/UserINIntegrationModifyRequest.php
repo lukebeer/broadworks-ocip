@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceINIntegration; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceINIntegration; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MobilityManagerServiceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceINIntegration\UserINIntegrationModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserINIntegrationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'UserINIntegrationModifyRequest';
     protected $userId                = null;
     protected $originatingServiceKey = null;
     protected $terminatingServiceKey = null;
@@ -38,7 +37,7 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return UserINIntegrationModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,64 +45,68 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Mobility Manager service key
+     * 
      */
     public function setOriginatingServiceKey($originatingServiceKey = null)
     {
+        if (!$originatingServiceKey) return $this;
         $this->originatingServiceKey = ($originatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $originatingServiceKey
              : new MobilityManagerServiceKey($originatingServiceKey);
+        $this->originatingServiceKey->setName('originatingServiceKey');
+        return $this;
     }
 
     /**
-     * Mobility Manager service key
+     * 
+     * @return MobilityManagerServiceKey
      */
     public function getOriginatingServiceKey()
     {
-        return (!$this->originatingServiceKey) ?: $this->originatingServiceKey->getValue();
+        return $this->originatingServiceKey->getValue();
     }
 
     /**
-     * Mobility Manager service key
+     * 
      */
     public function setTerminatingServiceKey($terminatingServiceKey = null)
     {
+        if (!$terminatingServiceKey) return $this;
         $this->terminatingServiceKey = ($terminatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $terminatingServiceKey
              : new MobilityManagerServiceKey($terminatingServiceKey);
+        $this->terminatingServiceKey->setName('terminatingServiceKey');
+        return $this;
     }
 
     /**
-     * Mobility Manager service key
+     * 
+     * @return MobilityManagerServiceKey
      */
     public function getTerminatingServiceKey()
     {
-        return (!$this->terminatingServiceKey) ?: $this->terminatingServiceKey->getValue();
+        return $this->terminatingServiceKey->getValue();
     }
 }

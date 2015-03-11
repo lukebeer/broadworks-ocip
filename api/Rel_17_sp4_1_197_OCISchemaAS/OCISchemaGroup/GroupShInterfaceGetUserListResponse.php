@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\ShInterfaceUserListEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupShInterfaceGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupShInterfaceGetUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
+    public    $name  = 'GroupShInterfaceGetUserListResponse';
     protected $entry = null;
 
     /**
@@ -34,18 +33,22 @@ class GroupShInterfaceGetUserListResponse extends ComplexType implements Complex
     }
 
     /**
-     * ShInterface User List Entry.
+     * 
      */
     public function setEntry(ShInterfaceUserListEntry $entry = null)
     {
-        $this->entry =  $entry;
+        if (!$entry) return $this;
+        $this->entry = $entry;
+        $this->entry->setName('entry');
+        return $this;
     }
 
     /**
-     * ShInterface User List Entry.
+     * 
+     * @return ShInterfaceUserListEntry
      */
     public function getEntry()
     {
-        return (!$this->entry) ?: $this->entry->getValue();
+        return $this->entry;
     }
 }

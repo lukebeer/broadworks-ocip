@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceCodeDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemServiceCodeModifyRequest';
     protected $serviceCode = null;
     protected $description = null;
 
@@ -35,7 +34,7 @@ class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return SystemServiceCodeModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,40 +42,46 @@ class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * Service Codes that are used for dialing in lieu of phone numbers.
-     *         The digit pattern may contain digits 0-9, ?, *, and #.
+     * 
      */
     public function setServiceCode($serviceCode = null)
     {
+        if (!$serviceCode) return $this;
         $this->serviceCode = ($serviceCode InstanceOf ServiceCode)
              ? $serviceCode
              : new ServiceCode($serviceCode);
+        $this->serviceCode->setName('serviceCode');
+        return $this;
     }
 
     /**
-     * Service Codes that are used for dialing in lieu of phone numbers.
-     *         The digit pattern may contain digits 0-9, ?, *, and #.
+     * 
+     * @return ServiceCode
      */
     public function getServiceCode()
     {
-        return (!$this->serviceCode) ?: $this->serviceCode->getValue();
+        return $this->serviceCode->getValue();
     }
 
     /**
-     * Service Code description.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf ServiceCodeDescription)
              ? $description
              : new ServiceCodeDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Service Code description.
+     * 
+     * @return ServiceCodeDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 }

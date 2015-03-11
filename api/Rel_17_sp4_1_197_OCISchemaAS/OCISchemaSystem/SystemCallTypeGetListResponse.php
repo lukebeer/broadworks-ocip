@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallTypeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'SystemCallTypeGetListResponse';
     protected $callType = null;
 
     /**
@@ -32,20 +31,24 @@ class SystemCallTypeGetListResponse extends ComplexType implements ComplexInterf
     }
 
     /**
-     * System Call Type
+     * 
      */
     public function setCallType($callType = null)
     {
+        if (!$callType) return $this;
         $this->callType = ($callType InstanceOf SystemCallType)
              ? $callType
              : new SystemCallType($callType);
+        $this->callType->setName('callType');
+        return $this;
     }
 
     /**
-     * System Call Type
+     * 
+     * @return SystemCallType
      */
     public function getCallType()
     {
-        return (!$this->callType) ?: $this->callType->getValue();
+        return $this->callType->getValue();
     }
 }

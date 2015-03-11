@@ -5,14 +5,14 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkDisplayTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTo;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RingPattern;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkGetResponse16sp2;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -31,7 +31,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'GroupCallParkGetResponse16sp2';
     protected $recallTimerSeconds              = null;
     protected $displayTimerSeconds             = null;
     protected $enableDestinationAnnouncement   = null;
@@ -49,39 +49,47 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
     }
 
     /**
-     * The timer determines how long a call can be parked before the parker is recalled.
+     * 
      */
     public function setRecallTimerSeconds($recallTimerSeconds = null)
     {
+        if (!$recallTimerSeconds) return $this;
         $this->recallTimerSeconds = ($recallTimerSeconds InstanceOf CallParkRecallTimerSeconds)
              ? $recallTimerSeconds
              : new CallParkRecallTimerSeconds($recallTimerSeconds);
+        $this->recallTimerSeconds->setName('recallTimerSeconds');
+        return $this;
     }
 
     /**
-     * The timer determines how long a call can be parked before the parker is recalled.
+     * 
+     * @return CallParkRecallTimerSeconds
      */
     public function getRecallTimerSeconds()
     {
-        return (!$this->recallTimerSeconds) ?: $this->recallTimerSeconds->getValue();
+        return $this->recallTimerSeconds->getValue();
     }
 
     /**
-     * The timer determines how long the extension/DN of the parked against user is displayed.
+     * 
      */
     public function setDisplayTimerSeconds($displayTimerSeconds = null)
     {
+        if (!$displayTimerSeconds) return $this;
         $this->displayTimerSeconds = ($displayTimerSeconds InstanceOf CallParkDisplayTimerSeconds)
              ? $displayTimerSeconds
              : new CallParkDisplayTimerSeconds($displayTimerSeconds);
+        $this->displayTimerSeconds->setName('displayTimerSeconds');
+        return $this;
     }
 
     /**
-     * The timer determines how long the extension/DN of the parked against user is displayed.
+     * 
+     * @return CallParkDisplayTimerSeconds
      */
     public function getDisplayTimerSeconds()
     {
-        return (!$this->displayTimerSeconds) ?: $this->displayTimerSeconds->getValue();
+        return $this->displayTimerSeconds->getValue();
     }
 
     /**
@@ -89,94 +97,106 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
      */
     public function setEnableDestinationAnnouncement($enableDestinationAnnouncement = null)
     {
-        $this->enableDestinationAnnouncement = (boolean) $enableDestinationAnnouncement;
+        if (!$enableDestinationAnnouncement) return $this;
+        $this->enableDestinationAnnouncement = new PrimitiveType($enableDestinationAnnouncement);
+        $this->enableDestinationAnnouncement->setName('enableDestinationAnnouncement');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableDestinationAnnouncement()
+    {
+        return $this->enableDestinationAnnouncement->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableDestinationAnnouncement()
-    {
-        return (!$this->enableDestinationAnnouncement) ?: $this->enableDestinationAnnouncement;
-    }
-
-    /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
-     */
     public function setRecallAlternateUserId($recallAlternateUserId = null)
     {
+        if (!$recallAlternateUserId) return $this;
         $this->recallAlternateUserId = ($recallAlternateUserId InstanceOf UserId)
              ? $recallAlternateUserId
              : new UserId($recallAlternateUserId);
+        $this->recallAlternateUserId->setName('recallAlternateUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getRecallAlternateUserId()
     {
-        return (!$this->recallAlternateUserId) ?: $this->recallAlternateUserId->getValue();
+        return $this->recallAlternateUserId->getValue();
     }
 
     /**
-     * The supported ring patterns.
+     * 
      */
     public function setRecallRingPattern($recallRingPattern = null)
     {
+        if (!$recallRingPattern) return $this;
         $this->recallRingPattern = ($recallRingPattern InstanceOf RingPattern)
              ? $recallRingPattern
              : new RingPattern($recallRingPattern);
+        $this->recallRingPattern->setName('recallRingPattern');
+        return $this;
     }
 
     /**
-     * The supported ring patterns.
+     * 
+     * @return RingPattern
      */
     public function getRecallRingPattern()
     {
-        return (!$this->recallRingPattern) ?: $this->recallRingPattern->getValue();
+        return $this->recallRingPattern->getValue();
     }
 
     /**
-     * Call Park recall user options
+     * 
      */
     public function setRecallTo($recallTo = null)
     {
+        if (!$recallTo) return $this;
         $this->recallTo = ($recallTo InstanceOf CallParkRecallTo)
              ? $recallTo
              : new CallParkRecallTo($recallTo);
+        $this->recallTo->setName('recallTo');
+        return $this;
     }
 
     /**
-     * Call Park recall user options
+     * 
+     * @return CallParkRecallTo
      */
     public function getRecallTo()
     {
-        return (!$this->recallTo) ?: $this->recallTo->getValue();
+        return $this->recallTo->getValue();
     }
 
     /**
-     * The timer determines how long a call can be parked before the parker is recalled.
+     * 
      */
     public function setAlternateUserRecallTimerSeconds($alternateUserRecallTimerSeconds = null)
     {
+        if (!$alternateUserRecallTimerSeconds) return $this;
         $this->alternateUserRecallTimerSeconds = ($alternateUserRecallTimerSeconds InstanceOf CallParkRecallTimerSeconds)
              ? $alternateUserRecallTimerSeconds
              : new CallParkRecallTimerSeconds($alternateUserRecallTimerSeconds);
+        $this->alternateUserRecallTimerSeconds->setName('alternateUserRecallTimerSeconds');
+        return $this;
     }
 
     /**
-     * The timer determines how long a call can be parked before the parker is recalled.
+     * 
+     * @return CallParkRecallTimerSeconds
      */
     public function getAlternateUserRecallTimerSeconds()
     {
-        return (!$this->alternateUserRecallTimerSeconds) ?: $this->alternateUserRecallTimerSeconds->getValue();
+        return $this->alternateUserRecallTimerSeconds->getValue();
     }
 }

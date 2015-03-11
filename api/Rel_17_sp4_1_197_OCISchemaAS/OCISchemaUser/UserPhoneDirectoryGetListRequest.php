@@ -18,6 +18,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -44,7 +45,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetListResponse';
-    public    $name                                      = __CLASS__;
+    public    $name                                      = 'UserPhoneDirectoryGetListRequest';
     protected $userId                                    = null;
     protected $includeCommonPhoneList                    = null;
     protected $responseSizeLimit                         = null;
@@ -64,15 +65,15 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
          $includeCommonPhoneList,
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-          $searchCriteriaUserLastName = null,
-          $searchCriteriaUserFirstName = null,
-          $searchCriteriaDn = null,
-          $searchCriteriaExtension = null,
-          $searchCriteriaMobilePhoneNumber = null,
-          $searchCriteriaEmailAddress = null,
-          $searchCriteriaExactUserDepartment = null,
-          $searchCriteriaExactUserGroup = null,
-          $searchCriteriaExactCustomContactDirectory = null
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
+         SearchCriteriaDn $searchCriteriaDn = null,
+         SearchCriteriaExtension $searchCriteriaExtension = null,
+         SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null,
+         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null,
+         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null,
+         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null,
+         SearchCriteriaExactCustomContactDirectory $searchCriteriaExactCustomContactDirectory = null
     ) {
         $this->setUserId($userId);
         $this->setIncludeCommonPhoneList($includeCommonPhoneList);
@@ -98,29 +99,25 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
@@ -128,37 +125,41 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setIncludeCommonPhoneList($includeCommonPhoneList = null)
     {
-        $this->includeCommonPhoneList = (boolean) $includeCommonPhoneList;
+        if (!$includeCommonPhoneList) return $this;
+        $this->includeCommonPhoneList = new PrimitiveType($includeCommonPhoneList);
+        $this->includeCommonPhoneList->setName('includeCommonPhoneList');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIncludeCommonPhoneList()
+    {
+        return $this->includeCommonPhoneList->getValue();
     }
 
     /**
      * 
      */
-    public function getIncludeCommonPhoneList()
-    {
-        return (!$this->includeCommonPhoneList) ?: $this->includeCommonPhoneList;
-    }
-
-    /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
-     */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
@@ -166,158 +167,216 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
-        $this->searchCriteriaModeOr = (boolean) $searchCriteriaModeOr;
+        if (!$searchCriteriaModeOr) return $this;
+        $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
+        $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSearchCriteriaModeOr()
+    {
+        return $this->searchCriteriaModeOr->getValue();
     }
 
     /**
      * 
      */
-    public function getSearchCriteriaModeOr()
-    {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr;
-    }
-
-    /**
-     * Criteria for searching for a user's last name.
-     */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
+        if (!$searchCriteriaUserLastName) return $this;
+        $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
+             ? $searchCriteriaUserLastName
+             : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a user's last name.
+     * 
+     * @return SearchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
+        return $this->searchCriteriaUserLastName;
     }
 
     /**
-     * Criteria for searching for a user's first name.
+     * 
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
+        if (!$searchCriteriaUserFirstName) return $this;
+        $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
+             ? $searchCriteriaUserFirstName
+             : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
+        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a user's first name.
+     * 
+     * @return SearchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
-        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->getValue();
+        return $this->searchCriteriaUserFirstName;
     }
 
     /**
-     * Criteria for searching for a DN.
+     * 
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn =  $searchCriteriaDn;
+        if (!$searchCriteriaDn) return $this;
+        $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
+             ? $searchCriteriaDn
+             : new SearchCriteriaDn($searchCriteriaDn);
+        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a DN.
+     * 
+     * @return SearchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
-        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->getValue();
+        return $this->searchCriteriaDn;
     }
 
     /**
-     * Criteria for searching for an extension.
+     * 
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $this->searchCriteriaExtension =  $searchCriteriaExtension;
+        if (!$searchCriteriaExtension) return $this;
+        $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
+             ? $searchCriteriaExtension
+             : new SearchCriteriaExtension($searchCriteriaExtension);
+        $this->searchCriteriaExtension->setName('searchCriteriaExtension');
+        return $this;
     }
 
     /**
-     * Criteria for searching for an extension.
+     * 
+     * @return SearchCriteriaExtension
      */
     public function getSearchCriteriaExtension()
     {
-        return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->getValue();
+        return $this->searchCriteriaExtension;
     }
 
     /**
-     * Criteria for searching for a user's mobile phone number.
+     * 
      */
     public function setSearchCriteriaMobilePhoneNumber(SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null)
     {
-        $this->searchCriteriaMobilePhoneNumber =  $searchCriteriaMobilePhoneNumber;
+        if (!$searchCriteriaMobilePhoneNumber) return $this;
+        $this->searchCriteriaMobilePhoneNumber = ($searchCriteriaMobilePhoneNumber InstanceOf SearchCriteriaMobilePhoneNumber)
+             ? $searchCriteriaMobilePhoneNumber
+             : new SearchCriteriaMobilePhoneNumber($searchCriteriaMobilePhoneNumber);
+        $this->searchCriteriaMobilePhoneNumber->setName('searchCriteriaMobilePhoneNumber');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a user's mobile phone number.
+     * 
+     * @return SearchCriteriaMobilePhoneNumber
      */
     public function getSearchCriteriaMobilePhoneNumber()
     {
-        return (!$this->searchCriteriaMobilePhoneNumber) ?: $this->searchCriteriaMobilePhoneNumber->getValue();
+        return $this->searchCriteriaMobilePhoneNumber;
     }
 
     /**
-     * Criteria for searching for a email address.
+     * 
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        $this->searchCriteriaEmailAddress =  $searchCriteriaEmailAddress;
+        if (!$searchCriteriaEmailAddress) return $this;
+        $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
+             ? $searchCriteriaEmailAddress
+             : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
+        $this->searchCriteriaEmailAddress->setName('searchCriteriaEmailAddress');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a email address.
+     * 
+     * @return SearchCriteriaEmailAddress
      */
     public function getSearchCriteriaEmailAddress()
     {
-        return (!$this->searchCriteriaEmailAddress) ?: $this->searchCriteriaEmailAddress->getValue();
+        return $this->searchCriteriaEmailAddress;
     }
 
     /**
-     * Criteria for searching for a particular fully specified user's department.
+     * 
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        $this->searchCriteriaExactUserDepartment =  $searchCriteriaExactUserDepartment;
+        if (!$searchCriteriaExactUserDepartment) return $this;
+        $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
+             ? $searchCriteriaExactUserDepartment
+             : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
+        $this->searchCriteriaExactUserDepartment->setName('searchCriteriaExactUserDepartment');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a particular fully specified user's department.
+     * 
+     * @return SearchCriteriaExactUserDepartment
      */
     public function getSearchCriteriaExactUserDepartment()
     {
-        return (!$this->searchCriteriaExactUserDepartment) ?: $this->searchCriteriaExactUserDepartment->getValue();
+        return $this->searchCriteriaExactUserDepartment;
     }
 
     /**
-     * Criteria for searching for a particular fully specified user's group.
+     * 
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        $this->searchCriteriaExactUserGroup =  $searchCriteriaExactUserGroup;
+        if (!$searchCriteriaExactUserGroup) return $this;
+        $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
+             ? $searchCriteriaExactUserGroup
+             : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
+        $this->searchCriteriaExactUserGroup->setName('searchCriteriaExactUserGroup');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a particular fully specified user's group.
+     * 
+     * @return SearchCriteriaExactUserGroup
      */
     public function getSearchCriteriaExactUserGroup()
     {
-        return (!$this->searchCriteriaExactUserGroup) ?: $this->searchCriteriaExactUserGroup->getValue();
+        return $this->searchCriteriaExactUserGroup;
     }
 
     /**
-     * Criteria for searching for a particular fully specified custom contact directory.
+     * 
      */
     public function setSearchCriteriaExactCustomContactDirectory(SearchCriteriaExactCustomContactDirectory $searchCriteriaExactCustomContactDirectory = null)
     {
-        $this->searchCriteriaExactCustomContactDirectory =  $searchCriteriaExactCustomContactDirectory;
+        if (!$searchCriteriaExactCustomContactDirectory) return $this;
+        $this->searchCriteriaExactCustomContactDirectory = ($searchCriteriaExactCustomContactDirectory InstanceOf SearchCriteriaExactCustomContactDirectory)
+             ? $searchCriteriaExactCustomContactDirectory
+             : new SearchCriteriaExactCustomContactDirectory($searchCriteriaExactCustomContactDirectory);
+        $this->searchCriteriaExactCustomContactDirectory->setName('searchCriteriaExactCustomContactDirectory');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a particular fully specified custom contact directory.
+     * 
+     * @return SearchCriteriaExactCustomContactDirectory
      */
     public function getSearchCriteriaExactCustomContactDirectory()
     {
-        return (!$this->searchCriteriaExactCustomContactDirectory) ?: $this->searchCriteriaExactCustomContactDirectory->getValue();
+        return $this->searchCriteriaExactCustomContactDirectory;
     }
 }

@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSharedCallAppearance; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceModifyEndpointResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'UserSharedCallAppearanceModifyEndpointRequest';
     protected $userId               = null;
     protected $accessDeviceEndpoint = null;
     protected $isActive             = null;
@@ -31,7 +31,7 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
 
     public function __construct(
          $userId,
-          $accessDeviceEndpoint,
+         AccessDeviceEndpointKey $accessDeviceEndpoint,
          $isActive = null,
          $allowOrigination = null,
          $allowTermination = null
@@ -44,7 +44,7 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
     }
 
     /**
-     * @return UserSharedCallAppearanceModifyEndpointResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,45 +52,45 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Access device end point in the context of a delete command.
+     * 
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointKey $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
+        if (!$accessDeviceEndpoint) return $this;
+        $this->accessDeviceEndpoint = $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        return $this;
     }
 
     /**
-     * Access device end point in the context of a delete command.
+     * 
+     * @return AccessDeviceEndpointKey
      */
     public function getAccessDeviceEndpoint()
     {
-        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->getValue();
+        return $this->accessDeviceEndpoint;
     }
 
     /**
@@ -98,15 +98,19 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -114,15 +118,19 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function setAllowOrigination($allowOrigination = null)
     {
-        $this->allowOrigination = (boolean) $allowOrigination;
+        if (!$allowOrigination) return $this;
+        $this->allowOrigination = new PrimitiveType($allowOrigination);
+        $this->allowOrigination->setName('allowOrigination');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowOrigination()
     {
-        return (!$this->allowOrigination) ?: $this->allowOrigination;
+        return $this->allowOrigination->getValue();
     }
 
     /**
@@ -130,14 +138,18 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function setAllowTermination($allowTermination = null)
     {
-        $this->allowTermination = (boolean) $allowTermination;
+        if (!$allowTermination) return $this;
+        $this->allowTermination = new PrimitiveType($allowTermination);
+        $this->allowTermination->setName('allowTermination');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowTermination()
     {
-        return (!$this->allowTermination) ?: $this->allowTermination;
+        return $this->allowTermination->getValue();
     }
 }

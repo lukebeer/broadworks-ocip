@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpress; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpress\CommPilotExpressUnavailable;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressUnavailable;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressUnavailable extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpress\CommPilotExpressUnavailable';
-    public    $name = __CLASS__;
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressUnavailable';
+    public    $name              = 'CommPilotExpressUnavailable';
+    protected $incomingCalls     = null;
+    protected $voiceMailGreeting = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $incomingCalls,
+         $voiceMailGreeting
+    ) {
+        $this->setIncomingCalls($incomingCalls);
+        $this->setVoiceMailGreeting($voiceMailGreeting);
     }
 
     /**
@@ -32,5 +39,45 @@ class CommPilotExpressUnavailable extends ComplexType implements ComplexInterfac
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setIncomingCalls($incomingCalls = null)
+    {
+        if (!$incomingCalls) return $this;
+        $this->incomingCalls = new SimpleContent($incomingCalls);
+        $this->incomingCalls->setName('incomingCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getIncomingCalls()
+    {
+        return $this->incomingCalls->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setVoiceMailGreeting($voiceMailGreeting = null)
+    {
+        if (!$voiceMailGreeting) return $this;
+        $this->voiceMailGreeting = new SimpleContent($voiceMailGreeting);
+        $this->voiceMailGreeting->setName('voiceMailGreeting');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getVoiceMailGreeting()
+    {
+        return $this->voiceMailGreeting->getValue();
     }
 }

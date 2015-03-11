@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MusicOnHoldUserSourceRead;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MusicOnHoldUserSourceRead extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MusicOnHoldUserSourceRead';
-    public    $name = __CLASS__;
+    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MusicOnHoldUserSourceRead';
+    public    $name                   = 'MusicOnHoldUserSourceRead';
+    protected $messageSourceSelection = null;
+    protected $customSource           = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $messageSourceSelection,
+         $customSource = null
+    ) {
+        $this->setMessageSourceSelection($messageSourceSelection);
+        $this->setCustomSource($customSource);
     }
 
     /**
@@ -32,5 +39,45 @@ class MusicOnHoldUserSourceRead extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setMessageSourceSelection($messageSourceSelection = null)
+    {
+        if (!$messageSourceSelection) return $this;
+        $this->messageSourceSelection = new SimpleContent($messageSourceSelection);
+        $this->messageSourceSelection->setName('messageSourceSelection');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getMessageSourceSelection()
+    {
+        return $this->messageSourceSelection->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setCustomSource($customSource = null)
+    {
+        if (!$customSource) return $this;
+        $this->customSource = new SimpleContent($customSource);
+        $this->customSource->setName('customSource');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getCustomSource()
+    {
+        return $this->customSource->getValue();
     }
 }

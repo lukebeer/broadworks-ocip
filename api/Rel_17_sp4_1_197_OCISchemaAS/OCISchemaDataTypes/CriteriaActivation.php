@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,9 +21,16 @@ use Broadworks_OCIP\core\Client\Client;
 class CriteriaActivation extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation';
-    public    $name = __CLASS__;
+    public    $name         = 'CriteriaActivation';
+    protected $criteriaName = null;
+    protected $isActive     = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $criteriaName,
+         $isActive
+    ) {
+        $this->setCriteriaName($criteriaName);
+        $this->setIsActive($isActive);
     }
 
     /**
@@ -32,5 +39,45 @@ class CriteriaActivation extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setCriteriaName($criteriaName = null)
+    {
+        if (!$criteriaName) return $this;
+        $this->criteriaName = new SimpleContent($criteriaName);
+        $this->criteriaName->setName('criteriaName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getCriteriaName()
+    {
+        return $this->criteriaName->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setIsActive($isActive = null)
+    {
+        if (!$isActive) return $this;
+        $this->isActive = new SimpleContent($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotCallManager; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotCallManager; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotCallManager\UserCommPilotCallManagerGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommPilotCallManagerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'UserCommPilotCallManagerGetResponse';
     protected $launchOnLogin = null;
 
     /**
@@ -36,14 +35,18 @@ class UserCommPilotCallManagerGetResponse extends ComplexType implements Complex
      */
     public function setLaunchOnLogin($launchOnLogin = null)
     {
-        $this->launchOnLogin = (boolean) $launchOnLogin;
+        if (!$launchOnLogin) return $this;
+        $this->launchOnLogin = new PrimitiveType($launchOnLogin);
+        $this->launchOnLogin->setName('launchOnLogin');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getLaunchOnLogin()
     {
-        return (!$this->launchOnLogin) ?: $this->launchOnLogin;
+        return $this->launchOnLogin->getValue();
     }
 }

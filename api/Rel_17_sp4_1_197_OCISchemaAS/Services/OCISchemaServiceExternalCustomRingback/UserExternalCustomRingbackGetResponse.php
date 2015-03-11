@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\ExternalCustomRingbackSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPContact;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback\UserExternalCustomRingbackGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserExternalCustomRingbackGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'UserExternalCustomRingbackGetResponse';
     protected $isActive        = null;
     protected $useSettingLevel = null;
     protected $sipRequestURI   = null;
@@ -39,58 +39,62 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Choices for the External Custom Ringback feature to decide which type of settings to use.
-     */
     public function setUseSettingLevel($useSettingLevel = null)
     {
+        if (!$useSettingLevel) return $this;
         $this->useSettingLevel = ($useSettingLevel InstanceOf ExternalCustomRingbackSettingLevel)
              ? $useSettingLevel
              : new ExternalCustomRingbackSettingLevel($useSettingLevel);
+        $this->useSettingLevel->setName('useSettingLevel');
+        return $this;
     }
 
     /**
-     * Choices for the External Custom Ringback feature to decide which type of settings to use.
+     * 
+     * @return ExternalCustomRingbackSettingLevel
      */
     public function getUseSettingLevel()
     {
-        return (!$this->useSettingLevel) ?: $this->useSettingLevel->getValue();
+        return $this->useSettingLevel->getValue();
     }
 
     /**
-     * SIP Registration Contact without the sip: prefix.
-     *         Validation:
-     *          - do not allow sip:
-     *          - allow the following characters:
-     *            alphanumeric   ampersand    =   +   $   ,   ;   ?   /   -   _   .   !   ~   *   '   (   )   :  @
+     * 
      */
     public function setSipRequestURI($sipRequestURI = null)
     {
+        if (!$sipRequestURI) return $this;
         $this->sipRequestURI = ($sipRequestURI InstanceOf SIPContact)
              ? $sipRequestURI
              : new SIPContact($sipRequestURI);
+        $this->sipRequestURI->setName('sipRequestURI');
+        return $this;
     }
 
     /**
-     * SIP Registration Contact without the sip: prefix.
-     *         Validation:
-     *          - do not allow sip:
-     *          - allow the following characters:
-     *            alphanumeric   ampersand    =   +   $   ,   ;   ?   /   -   _   .   !   ~   *   '   (   )   :  @
+     * 
+     * @return SIPContact
      */
     public function getSipRequestURI()
     {
-        return (!$this->sipRequestURI) ?: $this->sipRequestURI->getValue();
+        return $this->sipRequestURI->getValue();
     }
 }

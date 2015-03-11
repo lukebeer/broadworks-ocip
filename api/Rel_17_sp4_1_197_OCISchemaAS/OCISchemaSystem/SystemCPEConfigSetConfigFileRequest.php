@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigSetConfigFileResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigSetConfigFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemCPEConfigSetConfigFileRequest';
     protected $deviceType = null;
     protected $configFile = null;
 
@@ -35,7 +34,7 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return SystemCPEConfigSetConfigFileResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
     }
 
     /**
-     * Access device type.
+     * 
      */
     public function setDeviceType($deviceType = null)
     {
+        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
+        $this->deviceType->setName('deviceType');
+        return $this;
     }
 
     /**
-     * Access device type.
+     * 
+     * @return AccessDeviceType
      */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->getValue();
+        return $this->deviceType->getValue();
     }
 
     /**
-     * Access device enhanced configuration file name.
+     * 
      */
     public function setConfigFile($configFile = null)
     {
+        if (!$configFile) return $this;
         $this->configFile = ($configFile InstanceOf AccessDeviceEnhancedConfigurationFileName)
              ? $configFile
              : new AccessDeviceEnhancedConfigurationFileName($configFile);
+        $this->configFile->setName('configFile');
+        return $this;
     }
 
     /**
-     * Access device enhanced configuration file name.
+     * 
+     * @return AccessDeviceEnhancedConfigurationFileName
      */
     public function getConfigFile()
     {
-        return (!$this->configFile) ?: $this->configFile->getValue();
+        return $this->configFile->getValue();
     }
 }

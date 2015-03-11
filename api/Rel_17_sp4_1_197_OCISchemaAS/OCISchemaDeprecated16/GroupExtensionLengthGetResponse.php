@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupExtensionLength;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupExtensionLengthGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'GroupExtensionLengthGetResponse';
     protected $extensionLength = null;
 
     /**
@@ -32,20 +31,24 @@ class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInte
     }
 
     /**
-     * The group's extension length.
+     * 
      */
     public function setExtensionLength($extensionLength = null)
     {
+        if (!$extensionLength) return $this;
         $this->extensionLength = ($extensionLength InstanceOf GroupExtensionLength)
              ? $extensionLength
              : new GroupExtensionLength($extensionLength);
+        $this->extensionLength->setName('extensionLength');
+        return $this;
     }
 
     /**
-     * The group's extension length.
+     * 
+     * @return GroupExtensionLength
      */
     public function getExtensionLength()
     {
-        return (!$this->extensionLength) ?: $this->extensionLength->getValue();
+        return $this->extensionLength->getValue();
     }
 }

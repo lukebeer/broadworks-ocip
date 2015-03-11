@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInSystemResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGetListInSystemResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'GroupGetListInSystemResponse';
     protected $groupTable = null;
 
     /**
@@ -41,14 +40,17 @@ class GroupGetListInSystemResponse extends ComplexType implements ComplexInterfa
      */
     public function setGroupTable(core:OCITable $groupTable = null)
     {
-        $this->groupTable =  $groupTable;
+        if (!$groupTable) return $this;
+        $this->groupTable->setName('groupTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getGroupTable()
     {
-        return (!$this->groupTable) ?: $this->groupTable->getValue();
+        return $this->groupTable->getValue();
     }
 }

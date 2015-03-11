@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterModifyCallCenterListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,20 +21,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterModifyCallCenterListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserCallCenterModifyCallCenterListRequest';
     protected $agentUserId       = null;
     protected $serviceUserIdList = null;
 
     public function __construct(
          $agentUserId,
-          $serviceUserIdList = null
+         ReplacementUserIdList $serviceUserIdList = null
     ) {
         $this->setAgentUserId($agentUserId);
         $this->setServiceUserIdList($serviceUserIdList);
     }
 
     /**
-     * @return UserCallCenterModifyCallCenterListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,46 +42,44 @@ class UserCallCenterModifyCallCenterListRequest extends ComplexType implements C
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setAgentUserId($agentUserId = null)
     {
+        if (!$agentUserId) return $this;
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
+        $this->agentUserId->setName('agentUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getAgentUserId()
     {
-        return (!$this->agentUserId) ?: $this->agentUserId->getValue();
+        return $this->agentUserId->getValue();
     }
 
     /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
      */
     public function setServiceUserIdList(ReplacementUserIdList $serviceUserIdList = null)
     {
-        $this->serviceUserIdList =  $serviceUserIdList;
+        if (!$serviceUserIdList) return $this;
+        $this->serviceUserIdList = $serviceUserIdList;
+        $this->serviceUserIdList->setName('serviceUserIdList');
+        return $this;
     }
 
     /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementUserIdList
      */
     public function getServiceUserIdList()
     {
-        return (!$this->serviceUserIdList) ?: $this->serviceUserIdList->getValue();
+        return $this->serviceUserIdList;
     }
 }

@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LoginType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocale;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\LoginResponse13mp10;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class LoginResponse13mp10 extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
+    public    $name      = 'LoginResponse13mp10';
     protected $loginType = null;
     protected $locale    = null;
     protected $encoding  = null;
@@ -36,56 +35,68 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
     }
 
     /**
-     * The login type of the admin/user.
+     * 
      */
     public function setLoginType($loginType = null)
     {
+        if (!$loginType) return $this;
         $this->loginType = ($loginType InstanceOf LoginType)
              ? $loginType
              : new LoginType($loginType);
+        $this->loginType->setName('loginType');
+        return $this;
     }
 
     /**
-     * The login type of the admin/user.
+     * 
+     * @return LoginType
      */
     public function getLoginType()
     {
-        return (!$this->loginType) ?: $this->loginType->getValue();
+        return $this->loginType->getValue();
     }
 
     /**
-     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     * 
      */
     public function setLocale($locale = null)
     {
+        if (!$locale) return $this;
         $this->locale = ($locale InstanceOf OCILocale)
              ? $locale
              : new OCILocale($locale);
+        $this->locale->setName('locale');
+        return $this;
     }
 
     /**
-     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     * 
+     * @return OCILocale
      */
     public function getLocale()
     {
-        return (!$this->locale) ?: $this->locale->getValue();
+        return $this->locale->getValue();
     }
 
     /**
-     * Character-encoding scheme.
+     * 
      */
     public function setEncoding($encoding = null)
     {
+        if (!$encoding) return $this;
         $this->encoding = ($encoding InstanceOf Encoding)
              ? $encoding
              : new Encoding($encoding);
+        $this->encoding->setName('encoding');
+        return $this;
     }
 
     /**
-     * Character-encoding scheme.
+     * 
+     * @return Encoding
      */
     public function getEncoding()
     {
-        return (!$this->encoding) ?: $this->encoding->getValue();
+        return $this->encoding->getValue();
     }
 }

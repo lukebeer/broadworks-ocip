@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingConfirmationToneTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingOriginatorCLIDPrefix;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile17;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingGetInstanceResponse17sp3;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
+    public    $name                           = 'GroupGroupPagingGetInstanceResponse17sp3';
     protected $serviceInstanceProfile         = null;
     protected $confirmationToneTimeoutSeconds = null;
     protected $deliverOriginatorCLIDInstead   = null;
@@ -38,41 +38,45 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile17 $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     * 
+     * @return ServiceInstanceReadProfile17
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Maximum time to wait after the first answer is received from a target before
-     *         sending back the confirmation tone to the originator.
+     * 
      */
     public function setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds = null)
     {
+        if (!$confirmationToneTimeoutSeconds) return $this;
         $this->confirmationToneTimeoutSeconds = ($confirmationToneTimeoutSeconds InstanceOf GroupPagingConfirmationToneTimeoutSeconds)
              ? $confirmationToneTimeoutSeconds
              : new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
+        $this->confirmationToneTimeoutSeconds->setName('confirmationToneTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * Maximum time to wait after the first answer is received from a target before
-     *         sending back the confirmation tone to the originator.
+     * 
+     * @return GroupPagingConfirmationToneTimeoutSeconds
      */
     public function getConfirmationToneTimeoutSeconds()
     {
-        return (!$this->confirmationToneTimeoutSeconds) ?: $this->confirmationToneTimeoutSeconds->getValue();
+        return $this->confirmationToneTimeoutSeconds->getValue();
     }
 
     /**
@@ -80,32 +84,40 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
      */
     public function setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead = null)
     {
-        $this->deliverOriginatorCLIDInstead = (boolean) $deliverOriginatorCLIDInstead;
+        if (!$deliverOriginatorCLIDInstead) return $this;
+        $this->deliverOriginatorCLIDInstead = new PrimitiveType($deliverOriginatorCLIDInstead);
+        $this->deliverOriginatorCLIDInstead->setName('deliverOriginatorCLIDInstead');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDeliverOriginatorCLIDInstead()
+    {
+        return $this->deliverOriginatorCLIDInstead->getValue();
     }
 
     /**
      * 
      */
-    public function getDeliverOriginatorCLIDInstead()
-    {
-        return (!$this->deliverOriginatorCLIDInstead) ?: $this->deliverOriginatorCLIDInstead;
-    }
-
-    /**
-     * Prefix for Calling Line Id Display.
-     */
     public function setOriginatorCLIDPrefix($originatorCLIDPrefix = null)
     {
+        if (!$originatorCLIDPrefix) return $this;
         $this->originatorCLIDPrefix = ($originatorCLIDPrefix InstanceOf GroupPagingOriginatorCLIDPrefix)
              ? $originatorCLIDPrefix
              : new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
+        $this->originatorCLIDPrefix->setName('originatorCLIDPrefix');
+        return $this;
     }
 
     /**
-     * Prefix for Calling Line Id Display.
+     * 
+     * @return GroupPagingOriginatorCLIDPrefix
      */
     public function getOriginatorCLIDPrefix()
     {
-        return (!$this->originatorCLIDPrefix) ?: $this->originatorCLIDPrefix->getValue();
+        return $this->originatorCLIDPrefix->getValue();
     }
 }

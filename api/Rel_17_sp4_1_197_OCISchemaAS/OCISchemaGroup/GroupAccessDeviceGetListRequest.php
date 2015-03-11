@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetListResponse';
-    public    $name                           = __CLASS__;
+    public    $name                           = 'GroupAccessDeviceGetListRequest';
     protected $serviceProviderId              = null;
     protected $groupId                        = null;
     protected $responseSizeLimit              = null;
@@ -41,10 +41,10 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
          $serviceProviderId,
          $groupId,
          $responseSizeLimit = null,
-          $searchCriteriaDeviceName = null,
-          $searchCriteriaDeviceMACAddress = null,
-          $searchCriteriaDeviceNetAddress = null,
-          $searchCriteriaExactDeviceType = null
+         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
+         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
+         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null,
+         SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -64,128 +64,156 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for device name.
+     * 
      */
     public function setSearchCriteriaDeviceName(SearchCriteriaDeviceName $searchCriteriaDeviceName = null)
     {
-        $this->searchCriteriaDeviceName =  $searchCriteriaDeviceName;
+        if (!$searchCriteriaDeviceName) return $this;
+        $this->searchCriteriaDeviceName = ($searchCriteriaDeviceName InstanceOf SearchCriteriaDeviceName)
+             ? $searchCriteriaDeviceName
+             : new SearchCriteriaDeviceName($searchCriteriaDeviceName);
+        $this->searchCriteriaDeviceName->setName('searchCriteriaDeviceName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for device name.
+     * 
+     * @return SearchCriteriaDeviceName
      */
     public function getSearchCriteriaDeviceName()
     {
-        return (!$this->searchCriteriaDeviceName) ?: $this->searchCriteriaDeviceName->getValue();
+        return $this->searchCriteriaDeviceName;
     }
 
     /**
-     * Criteria for searching for device MAC address.
+     * 
      */
     public function setSearchCriteriaDeviceMACAddress(SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null)
     {
-        $this->searchCriteriaDeviceMACAddress =  $searchCriteriaDeviceMACAddress;
+        if (!$searchCriteriaDeviceMACAddress) return $this;
+        $this->searchCriteriaDeviceMACAddress = ($searchCriteriaDeviceMACAddress InstanceOf SearchCriteriaDeviceMACAddress)
+             ? $searchCriteriaDeviceMACAddress
+             : new SearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
+        $this->searchCriteriaDeviceMACAddress->setName('searchCriteriaDeviceMACAddress');
+        return $this;
     }
 
     /**
-     * Criteria for searching for device MAC address.
+     * 
+     * @return SearchCriteriaDeviceMACAddress
      */
     public function getSearchCriteriaDeviceMACAddress()
     {
-        return (!$this->searchCriteriaDeviceMACAddress) ?: $this->searchCriteriaDeviceMACAddress->getValue();
+        return $this->searchCriteriaDeviceMACAddress;
     }
 
     /**
-     * Criteria for searching for device network address.
+     * 
      */
     public function setSearchCriteriaDeviceNetAddress(SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null)
     {
-        $this->searchCriteriaDeviceNetAddress =  $searchCriteriaDeviceNetAddress;
+        if (!$searchCriteriaDeviceNetAddress) return $this;
+        $this->searchCriteriaDeviceNetAddress = ($searchCriteriaDeviceNetAddress InstanceOf SearchCriteriaDeviceNetAddress)
+             ? $searchCriteriaDeviceNetAddress
+             : new SearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
+        $this->searchCriteriaDeviceNetAddress->setName('searchCriteriaDeviceNetAddress');
+        return $this;
     }
 
     /**
-     * Criteria for searching for device network address.
+     * 
+     * @return SearchCriteriaDeviceNetAddress
      */
     public function getSearchCriteriaDeviceNetAddress()
     {
-        return (!$this->searchCriteriaDeviceNetAddress) ?: $this->searchCriteriaDeviceNetAddress->getValue();
+        return $this->searchCriteriaDeviceNetAddress;
     }
 
     /**
-     * Criteria for searching for a particular fully specified device type.
+     * 
      */
     public function setSearchCriteriaExactDeviceType(SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null)
     {
-        $this->searchCriteriaExactDeviceType =  $searchCriteriaExactDeviceType;
+        if (!$searchCriteriaExactDeviceType) return $this;
+        $this->searchCriteriaExactDeviceType = ($searchCriteriaExactDeviceType InstanceOf SearchCriteriaExactDeviceType)
+             ? $searchCriteriaExactDeviceType
+             : new SearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
+        $this->searchCriteriaExactDeviceType->setName('searchCriteriaExactDeviceType');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a particular fully specified device type.
+     * 
+     * @return SearchCriteriaExactDeviceType
      */
     public function getSearchCriteriaExactDeviceType()
     {
-        return (!$this->searchCriteriaExactDeviceType) ?: $this->searchCriteriaExactDeviceType->getValue();
+        return $this->searchCriteriaExactDeviceType;
     }
 }

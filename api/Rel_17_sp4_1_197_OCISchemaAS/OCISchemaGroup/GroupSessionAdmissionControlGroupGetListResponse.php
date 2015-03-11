@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGroupGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSessionAdmissionControlGroupGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
+    public    $name                              = 'GroupSessionAdmissionControlGroupGetListResponse';
     protected $sessionAdmissionControlGroupTable = null;
 
     /**
@@ -38,14 +37,17 @@ class GroupSessionAdmissionControlGroupGetListResponse extends ComplexType imple
      */
     public function setSessionAdmissionControlGroupTable(core:OCITable $sessionAdmissionControlGroupTable = null)
     {
-        $this->sessionAdmissionControlGroupTable =  $sessionAdmissionControlGroupTable;
+        if (!$sessionAdmissionControlGroupTable) return $this;
+        $this->sessionAdmissionControlGroupTable->setName('sessionAdmissionControlGroupTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getSessionAdmissionControlGroupTable()
     {
-        return (!$this->sessionAdmissionControlGroupTable) ?: $this->sessionAdmissionControlGroupTable->getValue();
+        return $this->sessionAdmissionControlGroupTable->getValue();
     }
 }

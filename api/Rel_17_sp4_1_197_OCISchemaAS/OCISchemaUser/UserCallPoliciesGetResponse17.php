@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ConnectedLineIdentificationPrivacyOnRedirectedCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\CallBeingForwardedResponseCallType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserCallPoliciesGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
+    public    $name                               = 'UserCallPoliciesGetResponse17';
     protected $redirectedCallsCOLPPrivacy         = null;
     protected $callBeingForwardedResponseCallType = null;
 
@@ -34,38 +33,46 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
     }
 
     /**
-     * Choices for Connected Line Identification Privacy on Redirected Calls
+     * 
      */
     public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy = null)
     {
+        if (!$redirectedCallsCOLPPrivacy) return $this;
         $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
              ? $redirectedCallsCOLPPrivacy
              : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
+        $this->redirectedCallsCOLPPrivacy->setName('redirectedCallsCOLPPrivacy');
+        return $this;
     }
 
     /**
-     * Choices for Connected Line Identification Privacy on Redirected Calls
+     * 
+     * @return ConnectedLineIdentificationPrivacyOnRedirectedCalls
      */
     public function getRedirectedCallsCOLPPrivacy()
     {
-        return (!$this->redirectedCallsCOLPPrivacy) ?: $this->redirectedCallsCOLPPrivacy->getValue();
+        return $this->redirectedCallsCOLPPrivacy->getValue();
     }
 
     /**
-     * Call type choices for sending call being forward response on Redirected Calls
+     * 
      */
     public function setCallBeingForwardedResponseCallType($callBeingForwardedResponseCallType = null)
     {
+        if (!$callBeingForwardedResponseCallType) return $this;
         $this->callBeingForwardedResponseCallType = ($callBeingForwardedResponseCallType InstanceOf CallBeingForwardedResponseCallType)
              ? $callBeingForwardedResponseCallType
              : new CallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
+        $this->callBeingForwardedResponseCallType->setName('callBeingForwardedResponseCallType');
+        return $this;
     }
 
     /**
-     * Call type choices for sending call being forward response on Redirected Calls
+     * 
+     * @return CallBeingForwardedResponseCallType
      */
     public function getCallBeingForwardedResponseCallType()
     {
-        return (!$this->callBeingForwardedResponseCallType) ?: $this->callBeingForwardedResponseCallType->getValue();
+        return $this->callBeingForwardedResponseCallType->getValue();
     }
 }

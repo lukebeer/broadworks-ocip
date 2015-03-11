@@ -5,12 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingPlayStandAloneRecordingToPhoneResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'UserInstantConferencingPlayStandAloneRecordingToPhoneRequest';
     protected $conferenceOwnerUserId = null;
     protected $recordingKey          = null;
     protected $playBackPhoneNumber   = null;
 
     public function __construct(
          $conferenceOwnerUserId,
-          $recordingKey,
+         InstantConferencingRecordingKey $recordingKey,
          $playBackPhoneNumber
     ) {
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
@@ -39,7 +38,7 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
     }
 
     /**
-     * @return UserInstantConferencingPlayStandAloneRecordingToPhoneResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,76 +46,66 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
+        if (!$conferenceOwnerUserId) return $this;
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
+        $this->conferenceOwnerUserId->setName('conferenceOwnerUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getConferenceOwnerUserId()
     {
-        return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->getValue();
+        return $this->conferenceOwnerUserId->getValue();
     }
 
     /**
-     * Identifier for conference recording.
+     * 
      */
     public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        $this->recordingKey =  $recordingKey;
+        if (!$recordingKey) return $this;
+        $this->recordingKey = $recordingKey;
+        $this->recordingKey->setName('recordingKey');
+        return $this;
     }
 
     /**
-     * Identifier for conference recording.
+     * 
+     * @return InstantConferencingRecordingKey
      */
     public function getRecordingKey()
     {
-        return (!$this->recordingKey) ?: $this->recordingKey->getValue();
+        return $this->recordingKey;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
      */
     public function setPlayBackPhoneNumber($playBackPhoneNumber = null)
     {
+        if (!$playBackPhoneNumber) return $this;
         $this->playBackPhoneNumber = ($playBackPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $playBackPhoneNumber
              : new OutgoingDNorSIPURI($playBackPhoneNumber);
+        $this->playBackPhoneNumber->setName('playBackPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getPlayBackPhoneNumber()
     {
-        return (!$this->playBackPhoneNumber) ?: $this->playBackPhoneNumber->getValue();
+        return $this->playBackPhoneNumber->getValue();
     }
 }

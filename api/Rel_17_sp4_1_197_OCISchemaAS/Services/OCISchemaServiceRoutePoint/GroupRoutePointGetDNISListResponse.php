@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISListResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupRoutePointGetDNISListResponse';
     protected $displayDNISNumber = null;
     protected $displayDNISName   = null;
     protected $dnisTable         = null;
@@ -39,15 +38,19 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function setDisplayDNISNumber($displayDNISNumber = null)
     {
-        $this->displayDNISNumber = (boolean) $displayDNISNumber;
+        if (!$displayDNISNumber) return $this;
+        $this->displayDNISNumber = new PrimitiveType($displayDNISNumber);
+        $this->displayDNISNumber->setName('displayDNISNumber');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisplayDNISNumber()
     {
-        return (!$this->displayDNISNumber) ?: $this->displayDNISNumber;
+        return $this->displayDNISNumber->getValue();
     }
 
     /**
@@ -55,15 +58,19 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function setDisplayDNISName($displayDNISName = null)
     {
-        $this->displayDNISName = (boolean) $displayDNISName;
+        if (!$displayDNISName) return $this;
+        $this->displayDNISName = new PrimitiveType($displayDNISName);
+        $this->displayDNISName->setName('displayDNISName');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisplayDNISName()
     {
-        return (!$this->displayDNISName) ?: $this->displayDNISName;
+        return $this->displayDNISName->getValue();
     }
 
     /**
@@ -71,14 +78,17 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function setDnisTable(core:OCITable $dnisTable = null)
     {
-        $this->dnisTable =  $dnisTable;
+        if (!$dnisTable) return $this;
+        $this->dnisTable->setName('dnisTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDnisTable()
     {
-        return (!$this->dnisTable) ?: $this->dnisTable->getValue();
+        return $this->dnisTable->getValue();
     }
 }

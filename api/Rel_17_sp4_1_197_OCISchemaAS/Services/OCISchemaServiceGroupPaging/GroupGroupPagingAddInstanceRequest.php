@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingConfirmationToneTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingOriginatorCLIDPrefix;
@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceI
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingAddInstanceResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
+    public    $name                           = 'GroupGroupPagingAddInstanceRequest';
     protected $serviceProviderId              = null;
     protected $groupId                        = null;
     protected $serviceUserId                  = null;
@@ -40,7 +40,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-          $serviceInstanceProfile,
+         ServiceInstanceAddProfile $serviceInstanceProfile,
          $confirmationToneTimeoutSeconds,
          $deliverOriginatorCLIDInstead,
          $originatorCLIDPrefix = null
@@ -55,7 +55,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return GroupGroupPagingAddInstanceResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,105 +63,111 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * Service Profile Information for group service.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
+     * 
+     * @return ServiceInstanceAddProfile
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Maximum time to wait after the first answer is received from a target before
-     *         sending back the confirmation tone to the originator.
+     * 
      */
     public function setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds = null)
     {
+        if (!$confirmationToneTimeoutSeconds) return $this;
         $this->confirmationToneTimeoutSeconds = ($confirmationToneTimeoutSeconds InstanceOf GroupPagingConfirmationToneTimeoutSeconds)
              ? $confirmationToneTimeoutSeconds
              : new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
+        $this->confirmationToneTimeoutSeconds->setName('confirmationToneTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * Maximum time to wait after the first answer is received from a target before
-     *         sending back the confirmation tone to the originator.
+     * 
+     * @return GroupPagingConfirmationToneTimeoutSeconds
      */
     public function getConfirmationToneTimeoutSeconds()
     {
-        return (!$this->confirmationToneTimeoutSeconds) ?: $this->confirmationToneTimeoutSeconds->getValue();
+        return $this->confirmationToneTimeoutSeconds->getValue();
     }
 
     /**
@@ -169,32 +175,40 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead = null)
     {
-        $this->deliverOriginatorCLIDInstead = (boolean) $deliverOriginatorCLIDInstead;
+        if (!$deliverOriginatorCLIDInstead) return $this;
+        $this->deliverOriginatorCLIDInstead = new PrimitiveType($deliverOriginatorCLIDInstead);
+        $this->deliverOriginatorCLIDInstead->setName('deliverOriginatorCLIDInstead');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDeliverOriginatorCLIDInstead()
+    {
+        return $this->deliverOriginatorCLIDInstead->getValue();
     }
 
     /**
      * 
      */
-    public function getDeliverOriginatorCLIDInstead()
-    {
-        return (!$this->deliverOriginatorCLIDInstead) ?: $this->deliverOriginatorCLIDInstead;
-    }
-
-    /**
-     * Prefix for Calling Line Id Display.
-     */
     public function setOriginatorCLIDPrefix($originatorCLIDPrefix = null)
     {
+        if (!$originatorCLIDPrefix) return $this;
         $this->originatorCLIDPrefix = ($originatorCLIDPrefix InstanceOf GroupPagingOriginatorCLIDPrefix)
              ? $originatorCLIDPrefix
              : new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
+        $this->originatorCLIDPrefix->setName('originatorCLIDPrefix');
+        return $this;
     }
 
     /**
-     * Prefix for Calling Line Id Display.
+     * 
+     * @return GroupPagingOriginatorCLIDPrefix
      */
     public function getOriginatorCLIDPrefix()
     {
-        return (!$this->originatorCLIDPrefix) ?: $this->originatorCLIDPrefix->getValue();
+        return $this->originatorCLIDPrefix->getValue();
     }
 }

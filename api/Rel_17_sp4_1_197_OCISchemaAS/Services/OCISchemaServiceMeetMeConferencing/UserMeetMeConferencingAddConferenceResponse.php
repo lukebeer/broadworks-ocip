@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePassCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingAddConferenceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'UserMeetMeConferencingAddConferenceResponse';
     protected $conferenceId = null;
     protected $moderatorPin = null;
 
@@ -33,38 +32,46 @@ class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements
     }
 
     /**
-     * Conference Id or moderator pin.
+     * 
      */
     public function setConferenceId($conferenceId = null)
     {
+        if (!$conferenceId) return $this;
         $this->conferenceId = ($conferenceId InstanceOf MeetMeConferencingConferencePassCode)
              ? $conferenceId
              : new MeetMeConferencingConferencePassCode($conferenceId);
+        $this->conferenceId->setName('conferenceId');
+        return $this;
     }
 
     /**
-     * Conference Id or moderator pin.
+     * 
+     * @return MeetMeConferencingConferencePassCode
      */
     public function getConferenceId()
     {
-        return (!$this->conferenceId) ?: $this->conferenceId->getValue();
+        return $this->conferenceId->getValue();
     }
 
     /**
-     * Conference Id or moderator pin.
+     * 
      */
     public function setModeratorPin($moderatorPin = null)
     {
+        if (!$moderatorPin) return $this;
         $this->moderatorPin = ($moderatorPin InstanceOf MeetMeConferencingConferencePassCode)
              ? $moderatorPin
              : new MeetMeConferencingConferencePassCode($moderatorPin);
+        $this->moderatorPin->setName('moderatorPin');
+        return $this;
     }
 
     /**
-     * Conference Id or moderator pin.
+     * 
+     * @return MeetMeConferencingConferencePassCode
      */
     public function getModeratorPin()
     {
-        return (!$this->moderatorPin) ?: $this->moderatorPin->getValue();
+        return $this->moderatorPin->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPlan; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPlan\GroupCallingPlanGetDigitPatternListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallingPlanGetDigitPatternListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupCallingPlanGetDigitPatternListResponse';
     protected $digitPatternTable = null;
 
     /**
@@ -37,14 +36,17 @@ class GroupCallingPlanGetDigitPatternListResponse extends ComplexType implements
      */
     public function setDigitPatternTable(core:OCITable $digitPatternTable = null)
     {
-        $this->digitPatternTable =  $digitPatternTable;
+        if (!$digitPatternTable) return $this;
+        $this->digitPatternTable->setName('digitPatternTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDigitPatternTable()
     {
-        return (!$this->digitPatternTable) ?: $this->digitPatternTable->getValue();
+        return $this->digitPatternTable->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'GroupGroupPagingGetInstanceListResponse';
     protected $pagingGroupTable = null;
 
     /**
@@ -39,14 +38,17 @@ class GroupGroupPagingGetInstanceListResponse extends ComplexType implements Com
      */
     public function setPagingGroupTable(core:OCITable $pagingGroupTable = null)
     {
-        $this->pagingGroupTable =  $pagingGroupTable;
+        if (!$pagingGroupTable) return $this;
+        $this->pagingGroupTable->setName('pagingGroupTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getPagingGroupTable()
     {
-        return (!$this->pagingGroupTable) ?: $this->pagingGroupTable->getValue();
+        return $this->pagingGroupTable->getValue();
     }
 }

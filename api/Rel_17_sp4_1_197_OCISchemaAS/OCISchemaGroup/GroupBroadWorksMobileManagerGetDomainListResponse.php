@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\BroadWorksMobileManagerDomainName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetDomainListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksMobileManagerGetDomainListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'GroupBroadWorksMobileManagerGetDomainListResponse';
     protected $domainName = null;
 
     /**
@@ -33,20 +32,24 @@ class GroupBroadWorksMobileManagerGetDomainListResponse extends ComplexType impl
     }
 
     /**
-     * Domain name.
+     * 
      */
     public function setDomainName($domainName = null)
     {
+        if (!$domainName) return $this;
         $this->domainName = ($domainName InstanceOf BroadWorksMobileManagerDomainName)
              ? $domainName
              : new BroadWorksMobileManagerDomainName($domainName);
+        $this->domainName->setName('domainName');
+        return $this;
     }
 
     /**
-     * Domain name.
+     * 
+     * @return BroadWorksMobileManagerDomainName
      */
     public function getDomainName()
     {
-        return (!$this->domainName) ?: $this->domainName->getValue();
+        return $this->domainName->getValue();
     }
 }

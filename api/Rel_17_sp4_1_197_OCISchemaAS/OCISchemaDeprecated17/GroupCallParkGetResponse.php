@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkDisplayTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallParkGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'GroupCallParkGetResponse';
     protected $recallTimerSeconds            = null;
     protected $displayTimerSeconds           = null;
     protected $enableDestinationAnnouncement = null;
@@ -36,39 +36,47 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
     }
 
     /**
-     * The timer determines how long a call can be parked before the parker is recalled.
+     * 
      */
     public function setRecallTimerSeconds($recallTimerSeconds = null)
     {
+        if (!$recallTimerSeconds) return $this;
         $this->recallTimerSeconds = ($recallTimerSeconds InstanceOf CallParkRecallTimerSeconds)
              ? $recallTimerSeconds
              : new CallParkRecallTimerSeconds($recallTimerSeconds);
+        $this->recallTimerSeconds->setName('recallTimerSeconds');
+        return $this;
     }
 
     /**
-     * The timer determines how long a call can be parked before the parker is recalled.
+     * 
+     * @return CallParkRecallTimerSeconds
      */
     public function getRecallTimerSeconds()
     {
-        return (!$this->recallTimerSeconds) ?: $this->recallTimerSeconds->getValue();
+        return $this->recallTimerSeconds->getValue();
     }
 
     /**
-     * The timer determines how long the extension/DN of the parked against user is displayed.
+     * 
      */
     public function setDisplayTimerSeconds($displayTimerSeconds = null)
     {
+        if (!$displayTimerSeconds) return $this;
         $this->displayTimerSeconds = ($displayTimerSeconds InstanceOf CallParkDisplayTimerSeconds)
              ? $displayTimerSeconds
              : new CallParkDisplayTimerSeconds($displayTimerSeconds);
+        $this->displayTimerSeconds->setName('displayTimerSeconds');
+        return $this;
     }
 
     /**
-     * The timer determines how long the extension/DN of the parked against user is displayed.
+     * 
+     * @return CallParkDisplayTimerSeconds
      */
     public function getDisplayTimerSeconds()
     {
-        return (!$this->displayTimerSeconds) ?: $this->displayTimerSeconds->getValue();
+        return $this->displayTimerSeconds->getValue();
     }
 
     /**
@@ -76,14 +84,18 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
      */
     public function setEnableDestinationAnnouncement($enableDestinationAnnouncement = null)
     {
-        $this->enableDestinationAnnouncement = (boolean) $enableDestinationAnnouncement;
+        if (!$enableDestinationAnnouncement) return $this;
+        $this->enableDestinationAnnouncement = new PrimitiveType($enableDestinationAnnouncement);
+        $this->enableDestinationAnnouncement->setName('enableDestinationAnnouncement');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableDestinationAnnouncement()
     {
-        return (!$this->enableDestinationAnnouncement) ?: $this->enableDestinationAnnouncement;
+        return $this->enableDestinationAnnouncement->getValue();
     }
 }

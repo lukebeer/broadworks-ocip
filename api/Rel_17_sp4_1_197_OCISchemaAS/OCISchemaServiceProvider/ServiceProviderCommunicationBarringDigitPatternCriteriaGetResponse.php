@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse';
     protected $description = null;
 
     /**
@@ -33,20 +32,24 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends
     }
 
     /**
-     * Digit Pattern Criteria Description
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
              ? $description
              : new DigitPatternCriteriaDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Digit Pattern Criteria Description
+     * 
+     * @return DigitPatternCriteriaDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 }

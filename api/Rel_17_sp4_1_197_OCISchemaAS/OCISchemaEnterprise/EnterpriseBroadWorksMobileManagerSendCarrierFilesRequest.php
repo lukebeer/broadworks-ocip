@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerSendCarrierFilesResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest';
     protected $serviceProviderId = null;
     protected $emailTo           = null;
 
@@ -35,7 +34,7 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
     }
 
     /**
-     * @return EnterpriseBroadWorksMobileManagerSendCarrierFilesResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,40 +42,46 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Email Address
+     * 
      */
     public function setEmailTo($emailTo = null)
     {
+        if (!$emailTo) return $this;
         $this->emailTo = ($emailTo InstanceOf EmailAddress)
              ? $emailTo
              : new EmailAddress($emailTo);
+        $this->emailTo->setName('emailTo');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getEmailTo()
     {
-        return (!$this->emailTo) ?: $this->emailTo->getValue();
+        return $this->emailTo->getValue();
     }
 }

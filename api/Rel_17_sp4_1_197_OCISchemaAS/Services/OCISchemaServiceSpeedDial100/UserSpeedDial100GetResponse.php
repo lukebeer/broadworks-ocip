@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SpeedDialDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100\UserSpeedDial100GetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'UserSpeedDial100GetResponse';
     protected $phoneNumber = null;
     protected $description = null;
 
@@ -34,52 +33,46 @@ class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
      */
     public function setPhoneNumber($phoneNumber = null)
     {
+        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $phoneNumber
              : new OutgoingDNorSIPURI($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
+        return $this->phoneNumber->getValue();
     }
 
     /**
-     * Speed dial prefix.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf SpeedDialDescription)
              ? $description
              : new SpeedDialDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Speed dial prefix.
+     * 
+     * @return SpeedDialDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 }

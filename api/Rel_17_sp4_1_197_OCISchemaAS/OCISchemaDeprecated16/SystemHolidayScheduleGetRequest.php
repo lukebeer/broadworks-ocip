@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemHolidayScheduleGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemHolidayScheduleGetResponse';
-    public    $name                = __CLASS__;
+    public    $name                = 'SystemHolidayScheduleGetRequest';
     protected $holidayScheduleName = null;
 
     public function __construct(
@@ -40,20 +40,24 @@ class SystemHolidayScheduleGetRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * Schedule name.
+     * 
      */
     public function setHolidayScheduleName($holidayScheduleName = null)
     {
+        if (!$holidayScheduleName) return $this;
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
              ? $holidayScheduleName
              : new ScheduleName($holidayScheduleName);
+        $this->holidayScheduleName->setName('holidayScheduleName');
+        return $this;
     }
 
     /**
-     * Schedule name.
+     * 
+     * @return ScheduleName
      */
     public function getHolidayScheduleName()
     {
-        return (!$this->holidayScheduleName) ?: $this->holidayScheduleName->getValue();
+        return $this->holidayScheduleName->getValue();
     }
 }

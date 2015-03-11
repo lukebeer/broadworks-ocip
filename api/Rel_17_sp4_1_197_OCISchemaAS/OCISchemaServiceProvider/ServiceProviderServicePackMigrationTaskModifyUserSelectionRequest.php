@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\Se
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementServicePackNameList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserServiceList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskModifyUserSelectionResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest';
     protected $serviceProviderId   = null;
     protected $taskName            = null;
     protected $userSelectionType   = null;
@@ -37,8 +36,8 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
          $serviceProviderId,
          $taskName,
          $userSelectionType = null,
-          $userServiceNameList = null,
-          $servicePackNameList = null
+         ReplacementUserServiceList $userServiceNameList = null,
+         ReplacementServicePackNameList $servicePackNameList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setTaskName($taskName);
@@ -48,7 +47,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
     }
 
     /**
-     * @return ServiceProviderServicePackMigrationTaskModifyUserSelectionResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,94 +55,108 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Service pack migration task name.
+     * 
      */
     public function setTaskName($taskName = null)
     {
+        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
+        $this->taskName->setName('taskName');
+        return $this;
     }
 
     /**
-     * Service pack migration task name.
+     * 
+     * @return ServicePackMigrationTaskName
      */
     public function getTaskName()
     {
-        return (!$this->taskName) ?: $this->taskName->getValue();
+        return $this->taskName->getValue();
     }
 
     /**
-     * Possible status values of a service pack migration task.
+     * 
      */
     public function setUserSelectionType($userSelectionType = null)
     {
+        if (!$userSelectionType) return $this;
         $this->userSelectionType = ($userSelectionType InstanceOf ServicePackMigrationTaskUserSelectionType)
              ? $userSelectionType
              : new ServicePackMigrationTaskUserSelectionType($userSelectionType);
+        $this->userSelectionType->setName('userSelectionType');
+        return $this;
     }
 
     /**
-     * Possible status values of a service pack migration task.
+     * 
+     * @return ServicePackMigrationTaskUserSelectionType
      */
     public function getUserSelectionType()
     {
-        return (!$this->userSelectionType) ?: $this->userSelectionType->getValue();
+        return $this->userSelectionType->getValue();
     }
 
     /**
-     * A list of user services that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
      */
     public function setUserServiceNameList(ReplacementUserServiceList $userServiceNameList = null)
     {
-        $this->userServiceNameList =  $userServiceNameList;
+        if (!$userServiceNameList) return $this;
+        $this->userServiceNameList = $userServiceNameList;
+        $this->userServiceNameList->setName('userServiceNameList');
+        return $this;
     }
 
     /**
-     * A list of user services that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementUserServiceList
      */
     public function getUserServiceNameList()
     {
-        return (!$this->userServiceNameList) ?: $this->userServiceNameList->getValue();
+        return $this->userServiceNameList;
     }
 
     /**
-     * A list of service packs that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
      */
     public function setServicePackNameList(ReplacementServicePackNameList $servicePackNameList = null)
     {
-        $this->servicePackNameList =  $servicePackNameList;
+        if (!$servicePackNameList) return $this;
+        $this->servicePackNameList = $servicePackNameList;
+        $this->servicePackNameList->setName('servicePackNameList');
+        return $this;
     }
 
     /**
-     * A list of service packs that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementServicePackNameList
      */
     public function getServicePackNameList()
     {
-        return (!$this->servicePackNameList) ?: $this->servicePackNameList->getValue();
+        return $this->servicePackNameList;
     }
 }

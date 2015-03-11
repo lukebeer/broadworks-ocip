@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemFileRepositoryDeviceGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemFileRepositoryDeviceGetResponse';
     protected $rootDirectory = null;
     protected $port          = null;
 
@@ -34,38 +33,46 @@ class SystemFileRepositoryDeviceGetResponse extends ComplexType implements Compl
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
      */
     public function setRootDirectory($rootDirectory = null)
     {
+        if (!$rootDirectory) return $this;
         $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
              ? $rootDirectory
              : new CPEFileDirectory($rootDirectory);
+        $this->rootDirectory->setName('rootDirectory');
+        return $this;
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
+     * @return CPEFileDirectory
      */
     public function getRootDirectory()
     {
-        return (!$this->rootDirectory) ?: $this->rootDirectory->getValue();
+        return $this->rootDirectory->getValue();
     }
 
     /**
-     * TCP/IP Port.
+     * 
      */
     public function setPort($port = null)
     {
+        if (!$port) return $this;
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
+        $this->port->setName('port');
+        return $this;
     }
 
     /**
-     * TCP/IP Port.
+     * 
+     * @return Port
      */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->getValue();
+        return $this->port->getValue();
     }
 }

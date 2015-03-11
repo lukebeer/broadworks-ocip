@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingDeleteFileServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'SystemPerformanceMeasurementReportingDeleteFileServerRequest';
     protected $ftpHostNetAddress = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends Compl
     }
 
     /**
-     * @return SystemPerformanceMeasurementReportingDeleteFileServerResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends Compl
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setFtpHostNetAddress($ftpHostNetAddress = null)
     {
+        if (!$ftpHostNetAddress) return $this;
         $this->ftpHostNetAddress = ($ftpHostNetAddress InstanceOf NetAddress)
              ? $ftpHostNetAddress
              : new NetAddress($ftpHostNetAddress);
+        $this->ftpHostNetAddress->setName('ftpHostNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getFtpHostNetAddress()
     {
-        return (!$this->ftpHostNetAddress) ?: $this->ftpHostNetAddress->getValue();
+        return $this->ftpHostNetAddress->getValue();
     }
 }

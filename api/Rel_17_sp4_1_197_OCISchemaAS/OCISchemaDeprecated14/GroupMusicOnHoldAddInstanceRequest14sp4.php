@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledF
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupMusicOnHoldAddInstanceResponse14sp4;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'GroupMusicOnHoldAddInstanceRequest14sp4';
     protected $serviceProviderId        = null;
     protected $groupId                  = null;
     protected $department               = null;
@@ -41,14 +41,14 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
     public function __construct(
          $serviceProviderId,
          $groupId,
-          $department,
+         DepartmentKey $department,
          $isActiveDuringCallHold,
          $isActiveDuringCallPark,
          $isActiveDuringBusyCampOn,
          $messageSelection,
-          $accessDeviceEndpoint = null,
-          $audioFile = null,
-          $videoFile = null
+         AccessDeviceEndpointAdd $accessDeviceEndpoint = null,
+         LabeledFileResource $audioFile = null,
+         LabeledFileResource $videoFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -63,7 +63,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
     }
 
     /**
-     * @return GroupMusicOnHoldAddInstanceResponse14sp4
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,71 +71,67 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department =  $department;
+        if (!$department) return $this;
+        $this->department = $department;
+        $this->department->setName('department');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
+     * @return DepartmentKey
      */
     public function getDepartment()
     {
-        return (!$this->department) ?: $this->department->getValue();
+        return $this->department;
     }
 
     /**
@@ -143,15 +139,19 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
      */
     public function setIsActiveDuringCallHold($isActiveDuringCallHold = null)
     {
-        $this->isActiveDuringCallHold = (boolean) $isActiveDuringCallHold;
+        if (!$isActiveDuringCallHold) return $this;
+        $this->isActiveDuringCallHold = new PrimitiveType($isActiveDuringCallHold);
+        $this->isActiveDuringCallHold->setName('isActiveDuringCallHold');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActiveDuringCallHold()
     {
-        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold;
+        return $this->isActiveDuringCallHold->getValue();
     }
 
     /**
@@ -159,15 +159,19 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
      */
     public function setIsActiveDuringCallPark($isActiveDuringCallPark = null)
     {
-        $this->isActiveDuringCallPark = (boolean) $isActiveDuringCallPark;
+        if (!$isActiveDuringCallPark) return $this;
+        $this->isActiveDuringCallPark = new PrimitiveType($isActiveDuringCallPark);
+        $this->isActiveDuringCallPark->setName('isActiveDuringCallPark');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActiveDuringCallPark()
     {
-        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark;
+        return $this->isActiveDuringCallPark->getValue();
     }
 
     /**
@@ -175,84 +179,100 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
      */
     public function setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn = null)
     {
-        $this->isActiveDuringBusyCampOn = (boolean) $isActiveDuringBusyCampOn;
+        if (!$isActiveDuringBusyCampOn) return $this;
+        $this->isActiveDuringBusyCampOn = new PrimitiveType($isActiveDuringBusyCampOn);
+        $this->isActiveDuringBusyCampOn->setName('isActiveDuringBusyCampOn');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActiveDuringBusyCampOn()
+    {
+        return $this->isActiveDuringBusyCampOn->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActiveDuringBusyCampOn()
-    {
-        return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn;
-    }
-
-    /**
-     * Music On Hold Message Selection.
-     */
     public function setMessageSelection($messageSelection = null)
     {
+        if (!$messageSelection) return $this;
         $this->messageSelection = ($messageSelection InstanceOf MusicOnHoldMessageSelection)
              ? $messageSelection
              : new MusicOnHoldMessageSelection($messageSelection);
+        $this->messageSelection->setName('messageSelection');
+        return $this;
     }
 
     /**
-     * Music On Hold Message Selection.
+     * 
+     * @return MusicOnHoldMessageSelection
      */
     public function getMessageSelection()
     {
-        return (!$this->messageSelection) ?: $this->messageSelection->getValue();
+        return $this->messageSelection->getValue();
     }
 
     /**
-     * Access device end point used in the context of add.
+     * 
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointAdd $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
+        if (!$accessDeviceEndpoint) return $this;
+        $this->accessDeviceEndpoint = $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        return $this;
     }
 
     /**
-     * Access device end point used in the context of add.
+     * 
+     * @return AccessDeviceEndpointAdd
      */
     public function getAccessDeviceEndpoint()
     {
-        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->getValue();
+        return $this->accessDeviceEndpoint;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setAudioFile(LabeledFileResource $audioFile = null)
     {
-        $this->audioFile =  $audioFile;
+        if (!$audioFile) return $this;
+        $this->audioFile = $audioFile;
+        $this->audioFile->setName('audioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getAudioFile()
     {
-        return (!$this->audioFile) ?: $this->audioFile->getValue();
+        return $this->audioFile;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setVideoFile(LabeledFileResource $videoFile = null)
     {
-        $this->videoFile =  $videoFile;
+        if (!$videoFile) return $this;
+        $this->videoFile = $videoFile;
+        $this->videoFile->setName('videoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getVideoFile()
     {
-        return (!$this->videoFile) ?: $this->videoFile->getValue();
+        return $this->videoFile;
     }
 }

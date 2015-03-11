@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderScheduleGetEventListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventListResponse';
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderScheduleGetEventListRequest';
     protected $serviceProviderId = null;
     protected $scheduleKey       = null;
 
     public function __construct(
          $serviceProviderId,
-          $scheduleKey
+         ScheduleKey $scheduleKey
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setScheduleKey($scheduleKey);
@@ -44,38 +44,44 @@ class ServiceProviderScheduleGetEventListRequest extends ComplexType implements 
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey =  $scheduleKey;
+        if (!$scheduleKey) return $this;
+        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey->setName('scheduleKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
+     * @return ScheduleKey
      */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
+        return $this->scheduleKey;
     }
 }

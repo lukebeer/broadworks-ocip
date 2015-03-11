@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserServiceAuthorization;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,9 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserServiceAuthorization extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserServiceAuthorization';
-    public    $name = __CLASS__;
+    public    $name        = 'UserServiceAuthorization';
+    protected $serviceName = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $serviceName
+    ) {
+        $this->setServiceName($serviceName);
     }
 
     /**
@@ -32,5 +36,25 @@ class UserServiceAuthorization extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setServiceName($serviceName = null)
+    {
+        if (!$serviceName) return $this;
+        $this->serviceName = new SimpleContent($serviceName);
+        $this->serviceName->setName('serviceName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getServiceName()
+    {
+        return $this->serviceName->getValue();
     }
 }

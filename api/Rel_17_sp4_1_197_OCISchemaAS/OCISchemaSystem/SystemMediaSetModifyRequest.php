@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ReplacementMediaNameList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaSetName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaSetModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,20 +21,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemMediaSetModifyRequest';
     protected $setName       = null;
     protected $mediaNameList = null;
 
     public function __construct(
          $setName,
-          $mediaNameList = null
+         ReplacementMediaNameList $mediaNameList = null
     ) {
         $this->setSetName($setName);
         $this->setMediaNameList($mediaNameList);
     }
 
     /**
-     * @return SystemMediaSetModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,36 +42,44 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * Media Set name
+     * 
      */
     public function setSetName($setName = null)
     {
+        if (!$setName) return $this;
         $this->setName = ($setName InstanceOf MediaSetName)
              ? $setName
              : new MediaSetName($setName);
+        $this->setName->setName('setName');
+        return $this;
     }
 
     /**
-     * Media Set name
+     * 
+     * @return MediaSetName
      */
     public function getSetName()
     {
-        return (!$this->setName) ?: $this->setName->getValue();
+        return $this->setName->getValue();
     }
 
     /**
-     * A list of media that replaces a previously configured list.
+     * 
      */
     public function setMediaNameList(ReplacementMediaNameList $mediaNameList = null)
     {
-        $this->mediaNameList =  $mediaNameList;
+        if (!$mediaNameList) return $this;
+        $this->mediaNameList = $mediaNameList;
+        $this->mediaNameList->setName('mediaNameList');
+        return $this;
     }
 
     /**
-     * A list of media that replaces a previously configured list.
+     * 
+     * @return ReplacementMediaNameList
      */
     public function getMediaNameList()
     {
-        return (!$this->mediaNameList) ?: $this->mediaNameList->getValue();
+        return $this->mediaNameList;
     }
 }

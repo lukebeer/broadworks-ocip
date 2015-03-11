@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialableCallerIDCriteriaDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDialableCallerIDCriteriaDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name = 'SystemDialableCallerIDCriteriaDeleteRequest';
     protected $name = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemDialableCallerIDCriteriaDeleteRequest extends ComplexType implements
     }
 
     /**
-     * @return SystemDialableCallerIDCriteriaDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemDialableCallerIDCriteriaDeleteRequest extends ComplexType implements
     }
 
     /**
-     * Dialable Caller ID Criteria name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
              ? $name
              : new DialableCallerIDCriteriaName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Dialable Caller ID Criteria name.
+     * 
+     * @return DialableCallerIDCriteriaName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 }

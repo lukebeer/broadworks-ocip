@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportWebStatisticsSource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportServerChoice;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'EnterpriseCallCenterEnhancedReportingGetResponse';
     protected $reportingServer    = null;
     protected $webStatisticSource = null;
 
@@ -34,38 +33,46 @@ class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType imple
     }
 
     /**
-     * Call center report server choice.
+     * 
      */
     public function setReportingServer($reportingServer = null)
     {
+        if (!$reportingServer) return $this;
         $this->reportingServer = ($reportingServer InstanceOf CallCenterReportServerChoice)
              ? $reportingServer
              : new CallCenterReportServerChoice($reportingServer);
+        $this->reportingServer->setName('reportingServer');
+        return $this;
     }
 
     /**
-     * Call center report server choice.
+     * 
+     * @return CallCenterReportServerChoice
      */
     public function getReportingServer()
     {
-        return (!$this->reportingServer) ?: $this->reportingServer->getValue();
+        return $this->reportingServer->getValue();
     }
 
     /**
-     * Call center report web statistics source.
+     * 
      */
     public function setWebStatisticSource($webStatisticSource = null)
     {
+        if (!$webStatisticSource) return $this;
         $this->webStatisticSource = ($webStatisticSource InstanceOf CallCenterReportWebStatisticsSource)
              ? $webStatisticSource
              : new CallCenterReportWebStatisticsSource($webStatisticSource);
+        $this->webStatisticSource->setName('webStatisticSource');
+        return $this;
     }
 
     /**
-     * Call center report web statistics source.
+     * 
+     * @return CallCenterReportWebStatisticsSource
      */
     public function getWebStatisticSource()
     {
-        return (!$this->webStatisticSource) ?: $this->webStatisticSource->getValue();
+        return $this->webStatisticSource->getValue();
     }
 }

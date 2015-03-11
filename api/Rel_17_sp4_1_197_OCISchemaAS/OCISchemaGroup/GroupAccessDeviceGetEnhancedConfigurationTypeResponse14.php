@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationType14;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetEnhancedConfigurationTypeResponse14;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'GroupAccessDeviceGetEnhancedConfigurationTypeResponse14';
     protected $supportsEnhancedConfiguration = null;
     protected $supportsReset                 = null;
     protected $configurationType             = null;
@@ -40,15 +40,19 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function setSupportsEnhancedConfiguration($supportsEnhancedConfiguration = null)
     {
-        $this->supportsEnhancedConfiguration = (boolean) $supportsEnhancedConfiguration;
+        if (!$supportsEnhancedConfiguration) return $this;
+        $this->supportsEnhancedConfiguration = new PrimitiveType($supportsEnhancedConfiguration);
+        $this->supportsEnhancedConfiguration->setName('supportsEnhancedConfiguration');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getSupportsEnhancedConfiguration()
     {
-        return (!$this->supportsEnhancedConfiguration) ?: $this->supportsEnhancedConfiguration;
+        return $this->supportsEnhancedConfiguration->getValue();
     }
 
     /**
@@ -56,54 +60,62 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function setSupportsReset($supportsReset = null)
     {
-        $this->supportsReset = (boolean) $supportsReset;
+        if (!$supportsReset) return $this;
+        $this->supportsReset = new PrimitiveType($supportsReset);
+        $this->supportsReset->setName('supportsReset');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSupportsReset()
+    {
+        return $this->supportsReset->getValue();
     }
 
     /**
      * 
      */
-    public function getSupportsReset()
-    {
-        return (!$this->supportsReset) ?: $this->supportsReset;
-    }
-
-    /**
-     * Type of enhanced configuration supported by an access device.
-     *         "2 File Configuration" was formerly called "CPE Type 1"
-     *         "3 File Configuration" was formerly called "CPE Type 2"
-     */
     public function setConfigurationType($configurationType = null)
     {
+        if (!$configurationType) return $this;
         $this->configurationType = ($configurationType InstanceOf AccessDeviceEnhancedConfigurationType14)
              ? $configurationType
              : new AccessDeviceEnhancedConfigurationType14($configurationType);
+        $this->configurationType->setName('configurationType');
+        return $this;
     }
 
     /**
-     * Type of enhanced configuration supported by an access device.
-     *         "2 File Configuration" was formerly called "CPE Type 1"
-     *         "3 File Configuration" was formerly called "CPE Type 2"
+     * 
+     * @return AccessDeviceEnhancedConfigurationType14
      */
     public function getConfigurationType()
     {
-        return (!$this->configurationType) ?: $this->configurationType->getValue();
+        return $this->configurationType->getValue();
     }
 
     /**
-     * Access device enhanced configuration file name.
+     * 
      */
     public function setConfigurationFileName($configurationFileName = null)
     {
+        if (!$configurationFileName) return $this;
         $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
              ? $configurationFileName
              : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
+        $this->configurationFileName->setName('configurationFileName');
+        return $this;
     }
 
     /**
-     * Access device enhanced configuration file name.
+     * 
+     * @return AccessDeviceEnhancedConfigurationFileName
      */
     public function getConfigurationFileName()
     {
-        return (!$this->configurationFileName) ?: $this->configurationFileName->getValue();
+        return $this->configurationFileName->getValue();
     }
 }

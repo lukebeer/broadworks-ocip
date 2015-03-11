@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaPriorityOrder;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NsScreeningFailurePolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialableCallerIDModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'ServiceProviderDialableCallerIDModifyRequest';
     protected $serviceProviderId          = null;
     protected $useServiceProviderCriteria = null;
     protected $nsScreeningFailurePolicy   = null;
@@ -33,7 +33,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
          $serviceProviderId,
          $useServiceProviderCriteria = null,
          $nsScreeningFailurePolicy = null,
-          $criteriaPriorityOrder = null
+         DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setUseServiceProviderCriteria($useServiceProviderCriteria);
@@ -42,7 +42,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
     }
 
     /**
-     * @return ServiceProviderDialableCallerIDModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,23 +50,25 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
@@ -74,48 +76,60 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
      */
     public function setUseServiceProviderCriteria($useServiceProviderCriteria = null)
     {
-        $this->useServiceProviderCriteria = (boolean) $useServiceProviderCriteria;
+        if (!$useServiceProviderCriteria) return $this;
+        $this->useServiceProviderCriteria = new PrimitiveType($useServiceProviderCriteria);
+        $this->useServiceProviderCriteria->setName('useServiceProviderCriteria');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseServiceProviderCriteria()
+    {
+        return $this->useServiceProviderCriteria->getValue();
     }
 
     /**
      * 
      */
-    public function getUseServiceProviderCriteria()
-    {
-        return (!$this->useServiceProviderCriteria) ?: $this->useServiceProviderCriteria;
-    }
-
-    /**
-     * How the incomming caller ID should be displayed in the case of an NS screening failure
-     */
     public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
+        if (!$nsScreeningFailurePolicy) return $this;
         $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
              ? $nsScreeningFailurePolicy
              : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
+        $this->nsScreeningFailurePolicy->setName('nsScreeningFailurePolicy');
+        return $this;
     }
 
     /**
-     * How the incomming caller ID should be displayed in the case of an NS screening failure
+     * 
+     * @return NsScreeningFailurePolicy
      */
     public function getNsScreeningFailurePolicy()
     {
-        return (!$this->nsScreeningFailurePolicy) ?: $this->nsScreeningFailurePolicy->getValue();
+        return $this->nsScreeningFailurePolicy->getValue();
     }
 
     /**
-     * Dialable Caller ID routing order
+     * 
      */
     public function setCriteriaPriorityOrder(DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null)
     {
-        $this->criteriaPriorityOrder =  $criteriaPriorityOrder;
+        if (!$criteriaPriorityOrder) return $this;
+        $this->criteriaPriorityOrder = $criteriaPriorityOrder;
+        $this->criteriaPriorityOrder->setName('criteriaPriorityOrder');
+        return $this;
     }
 
     /**
-     * Dialable Caller ID routing order
+     * 
+     * @return DialableCallerIDCriteriaPriorityOrder
      */
     public function getCriteriaPriorityOrder()
     {
-        return (!$this->criteriaPriorityOrder) ?: $this->criteriaPriorityOrder->getValue();
+        return $this->criteriaPriorityOrder;
     }
 }

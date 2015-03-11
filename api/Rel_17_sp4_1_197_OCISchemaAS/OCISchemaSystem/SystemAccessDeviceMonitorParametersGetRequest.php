@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceMonitorParametersGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceMonitorParametersGetResponse';
-    public    $name = __CLASS__;
+    public    $name = 'SystemAccessDeviceMonitorParametersGetRequest';
 
     public function __construct(    ) {
     }

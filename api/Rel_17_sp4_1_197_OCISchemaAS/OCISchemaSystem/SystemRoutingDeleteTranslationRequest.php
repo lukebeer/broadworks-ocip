@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RoutingDigits;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingDeleteTranslationResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingDeleteTranslationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name   = __CLASS__;
+    public    $name   = 'SystemRoutingDeleteTranslationRequest';
     protected $digits = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemRoutingDeleteTranslationRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return SystemRoutingDeleteTranslationResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,22 +38,24 @@ class SystemRoutingDeleteTranslationRequest extends ComplexType implements Compl
     }
 
     /**
-     * Digit pattern used to route a call -- a 3 to 6 digit number.
-     *         If the digit pattern does not include a wildcard, it must be 6 digits.
+     * 
      */
     public function setDigits($digits = null)
     {
+        if (!$digits) return $this;
         $this->digits = ($digits InstanceOf RoutingDigits)
              ? $digits
              : new RoutingDigits($digits);
+        $this->digits->setName('digits');
+        return $this;
     }
 
     /**
-     * Digit pattern used to route a call -- a 3 to 6 digit number.
-     *         If the digit pattern does not include a wildcard, it must be 6 digits.
+     * 
+     * @return RoutingDigits
      */
     public function getDigits()
     {
-        return (!$this->digits) ?: $this->digits->getValue();
+        return $this->digits->getValue();
     }
 }

@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAdminGetResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderAdminGetResponse14';
     protected $serviceProviderId = null;
     protected $firstName         = null;
     protected $lastName          = null;
@@ -41,100 +40,112 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
      */
     public function setFirstName($firstName = null)
     {
+        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
+        $this->firstName->setName('firstName');
+        return $this;
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
+     * @return FirstName
      */
     public function getFirstName()
     {
-        return (!$this->firstName) ?: $this->firstName->getValue();
+        return $this->firstName->getValue();
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
      */
     public function setLastName($lastName = null)
     {
+        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
+        $this->lastName->setName('lastName');
+        return $this;
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
+     * @return LastName
      */
     public function getLastName()
     {
-        return (!$this->lastName) ?: $this->lastName->getValue();
+        return $this->lastName->getValue();
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
      */
     public function setLanguage($language = null)
     {
+        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
+        $this->language->setName('language');
+        return $this;
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
+     * @return Language
      */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->getValue();
+        return $this->language->getValue();
     }
 
     /**
-     * Service Provider Administrator type
-     *         "Normal" indicates the service provider admin is a normal admin.
-     *         "Customer" indicates the service provider admin is a customer admin.
-     *         "Password Reset Only" indicates the service provider admin is a password reset only admin.
+     * 
      */
     public function setAdministratorType($administratorType = null)
     {
+        if (!$administratorType) return $this;
         $this->administratorType = ($administratorType InstanceOf ServiceProviderAdminType)
              ? $administratorType
              : new ServiceProviderAdminType($administratorType);
+        $this->administratorType->setName('administratorType');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator type
-     *         "Normal" indicates the service provider admin is a normal admin.
-     *         "Customer" indicates the service provider admin is a customer admin.
-     *         "Password Reset Only" indicates the service provider admin is a password reset only admin.
+     * 
+     * @return ServiceProviderAdminType
      */
     public function getAdministratorType()
     {
-        return (!$this->administratorType) ?: $this->administratorType->getValue();
+        return $this->administratorType->getValue();
     }
 }

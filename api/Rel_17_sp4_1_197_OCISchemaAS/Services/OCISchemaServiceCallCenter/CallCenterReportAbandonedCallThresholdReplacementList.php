@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterReportAbandonedCallThresholdReplacementList;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportAbandonedCallThresholdReplacementList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,10 +20,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportAbandonedCallThresholdReplacementList extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterReportAbandonedCallThresholdReplacementList';
-    public    $name = __CLASS__;
+    public    $responseType                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportAbandonedCallThresholdReplacementList';
+    public    $name                          = 'CallCenterReportAbandonedCallThresholdReplacementList';
+    protected $abandonedCallThresholdSeconds = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $abandonedCallThresholdSeconds = null
+    ) {
+        $this->setAbandonedCallThresholdSeconds($abandonedCallThresholdSeconds);
     }
 
     /**
@@ -32,5 +36,25 @@ class CallCenterReportAbandonedCallThresholdReplacementList extends ComplexType 
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setAbandonedCallThresholdSeconds($abandonedCallThresholdSeconds = null)
+    {
+        if (!$abandonedCallThresholdSeconds) return $this;
+        $this->abandonedCallThresholdSeconds = new SimpleContent($abandonedCallThresholdSeconds);
+        $this->abandonedCallThresholdSeconds->setName('abandonedCallThresholdSeconds');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getAbandonedCallThresholdSeconds()
+    {
+        return $this->abandonedCallThresholdSeconds->getValue();
     }
 }

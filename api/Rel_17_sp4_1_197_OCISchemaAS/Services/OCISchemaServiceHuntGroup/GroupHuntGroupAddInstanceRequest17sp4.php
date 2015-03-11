@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHuntGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceAddProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntForwardTimeoutSeconds;
@@ -16,7 +16,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Outgoing
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup\GroupHuntGroupAddInstanceResponse17sp4;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,7 +36,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHuntGroupAddInstanceRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'GroupHuntGroupAddInstanceRequest17sp4';
     protected $serviceProviderId                = null;
     protected $groupId                          = null;
     protected $serviceUserId                    = null;
@@ -59,7 +59,7 @@ class GroupHuntGroupAddInstanceRequest17sp4 extends ComplexType implements Compl
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-          $serviceInstanceProfile,
+         ServiceInstanceAddProfile $serviceInstanceProfile,
          $policy,
          $huntAfterNoAnswer,
          $noAnswerNumberOfRings,
@@ -94,7 +94,7 @@ class GroupHuntGroupAddInstanceRequest17sp4 extends ComplexType implements Compl
     }
 
     /**
-     * @return GroupHuntGroupAddInstanceResponse17sp4
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -102,103 +102,111 @@ class GroupHuntGroupAddInstanceRequest17sp4 extends ComplexType implements Compl
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * Service Profile Information for group service.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
+     * 
+     * @return ServiceInstanceAddProfile
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Policy for distributing calls within a hunt group or call center.
+     * 
      */
     public function setPolicy($policy = null)
     {
+        if (!$policy) return $this;
         $this->policy = ($policy InstanceOf HuntPolicy)
              ? $policy
              : new HuntPolicy($policy);
+        $this->policy->setName('policy');
+        return $this;
     }
 
     /**
-     * Policy for distributing calls within a hunt group or call center.
+     * 
+     * @return HuntPolicy
      */
     public function getPolicy()
     {
-        return (!$this->policy) ?: $this->policy->getValue();
+        return $this->policy->getValue();
     }
 
     /**
@@ -206,35 +214,41 @@ class GroupHuntGroupAddInstanceRequest17sp4 extends ComplexType implements Compl
      */
     public function setHuntAfterNoAnswer($huntAfterNoAnswer = null)
     {
-        $this->huntAfterNoAnswer = (boolean) $huntAfterNoAnswer;
+        if (!$huntAfterNoAnswer) return $this;
+        $this->huntAfterNoAnswer = new PrimitiveType($huntAfterNoAnswer);
+        $this->huntAfterNoAnswer->setName('huntAfterNoAnswer');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getHuntAfterNoAnswer()
+    {
+        return $this->huntAfterNoAnswer->getValue();
     }
 
     /**
      * 
      */
-    public function getHuntAfterNoAnswer()
-    {
-        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer;
-    }
-
-    /**
-     * Number of rings to wait for the currently hunted agent to answer before
-     *         hunting to the next available agent.
-     */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
+        if (!$noAnswerNumberOfRings) return $this;
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
              ? $noAnswerNumberOfRings
              : new HuntNoAnswerRings($noAnswerNumberOfRings);
+        $this->noAnswerNumberOfRings->setName('noAnswerNumberOfRings');
+        return $this;
     }
 
     /**
-     * Number of rings to wait for the currently hunted agent to answer before
-     *         hunting to the next available agent.
+     * 
+     * @return HuntNoAnswerRings
      */
     public function getNoAnswerNumberOfRings()
     {
-        return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->getValue();
+        return $this->noAnswerNumberOfRings->getValue();
     }
 
     /**
@@ -242,81 +256,85 @@ class GroupHuntGroupAddInstanceRequest17sp4 extends ComplexType implements Compl
      */
     public function setForwardAfterTimeout($forwardAfterTimeout = null)
     {
-        $this->forwardAfterTimeout = (boolean) $forwardAfterTimeout;
+        if (!$forwardAfterTimeout) return $this;
+        $this->forwardAfterTimeout = new PrimitiveType($forwardAfterTimeout);
+        $this->forwardAfterTimeout->setName('forwardAfterTimeout');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getForwardAfterTimeout()
+    {
+        return $this->forwardAfterTimeout->getValue();
     }
 
     /**
      * 
      */
-    public function getForwardAfterTimeout()
-    {
-        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout;
-    }
-
-    /**
-     * Time to wait for any agent to answer before forwarding the caller elsewhere.
-     */
     public function setForwardTimeoutSeconds($forwardTimeoutSeconds = null)
     {
+        if (!$forwardTimeoutSeconds) return $this;
         $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
              ? $forwardTimeoutSeconds
              : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
+        $this->forwardTimeoutSeconds->setName('forwardTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * Time to wait for any agent to answer before forwarding the caller elsewhere.
+     * 
+     * @return HuntForwardTimeoutSeconds
      */
     public function getForwardTimeoutSeconds()
     {
-        return (!$this->forwardTimeoutSeconds) ?: $this->forwardTimeoutSeconds->getValue();
+        return $this->forwardTimeoutSeconds->getValue();
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
+        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
              ? $forwardToPhoneNumber
              : new OutgoingDN($forwardToPhoneNumber);
+        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        return $this;
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
+     * @return OutgoingDN
      */
     public function getForwardToPhoneNumber()
     {
-        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->getValue();
+        return $this->forwardToPhoneNumber->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setAgentUserId($agentUserId = null)
     {
+        if (!$agentUserId) return $this;
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
+        $this->agentUserId->setName('agentUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getAgentUserId()
     {
-        return (!$this->agentUserId) ?: $this->agentUserId->getValue();
+        return $this->agentUserId->getValue();
     }
 
     /**
@@ -324,15 +342,19 @@ class GroupHuntGroupAddInstanceRequest17sp4 extends ComplexType implements Compl
      */
     public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
-        $this->allowCallWaitingForAgents = (boolean) $allowCallWaitingForAgents;
+        if (!$allowCallWaitingForAgents) return $this;
+        $this->allowCallWaitingForAgents = new PrimitiveType($allowCallWaitingForAgents);
+        $this->allowCallWaitingForAgents->setName('allowCallWaitingForAgents');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents;
+        return $this->allowCallWaitingForAgents->getValue();
     }
 
     /**
@@ -340,15 +362,19 @@ class GroupHuntGroupAddInstanceRequest17sp4 extends ComplexType implements Compl
      */
     public function setUseSystemHuntGroupCLIDSetting($useSystemHuntGroupCLIDSetting = null)
     {
-        $this->useSystemHuntGroupCLIDSetting = (boolean) $useSystemHuntGroupCLIDSetting;
+        if (!$useSystemHuntGroupCLIDSetting) return $this;
+        $this->useSystemHuntGroupCLIDSetting = new PrimitiveType($useSystemHuntGroupCLIDSetting);
+        $this->useSystemHuntGroupCLIDSetting->setName('useSystemHuntGroupCLIDSetting');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseSystemHuntGroupCLIDSetting()
     {
-        return (!$this->useSystemHuntGroupCLIDSetting) ?: $this->useSystemHuntGroupCLIDSetting;
+        return $this->useSystemHuntGroupCLIDSetting->getValue();
     }
 
     /**
@@ -356,15 +382,19 @@ class GroupHuntGroupAddInstanceRequest17sp4 extends ComplexType implements Compl
      */
     public function setIncludeHuntGroupNameInCLID($includeHuntGroupNameInCLID = null)
     {
-        $this->includeHuntGroupNameInCLID = (boolean) $includeHuntGroupNameInCLID;
+        if (!$includeHuntGroupNameInCLID) return $this;
+        $this->includeHuntGroupNameInCLID = new PrimitiveType($includeHuntGroupNameInCLID);
+        $this->includeHuntGroupNameInCLID->setName('includeHuntGroupNameInCLID');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeHuntGroupNameInCLID()
     {
-        return (!$this->includeHuntGroupNameInCLID) ?: $this->includeHuntGroupNameInCLID;
+        return $this->includeHuntGroupNameInCLID->getValue();
     }
 
     /**
@@ -372,47 +402,41 @@ class GroupHuntGroupAddInstanceRequest17sp4 extends ComplexType implements Compl
      */
     public function setEnableNotReachableForwarding($enableNotReachableForwarding = null)
     {
-        $this->enableNotReachableForwarding = (boolean) $enableNotReachableForwarding;
+        if (!$enableNotReachableForwarding) return $this;
+        $this->enableNotReachableForwarding = new PrimitiveType($enableNotReachableForwarding);
+        $this->enableNotReachableForwarding->setName('enableNotReachableForwarding');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableNotReachableForwarding()
+    {
+        return $this->enableNotReachableForwarding->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableNotReachableForwarding()
-    {
-        return (!$this->enableNotReachableForwarding) ?: $this->enableNotReachableForwarding;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setNotReachableForwardToPhoneNumber($notReachableForwardToPhoneNumber = null)
     {
+        if (!$notReachableForwardToPhoneNumber) return $this;
         $this->notReachableForwardToPhoneNumber = ($notReachableForwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $notReachableForwardToPhoneNumber
              : new OutgoingDNorSIPURI($notReachableForwardToPhoneNumber);
+        $this->notReachableForwardToPhoneNumber->setName('notReachableForwardToPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getNotReachableForwardToPhoneNumber()
     {
-        return (!$this->notReachableForwardToPhoneNumber) ?: $this->notReachableForwardToPhoneNumber->getValue();
+        return $this->notReachableForwardToPhoneNumber->getValue();
     }
 
     /**
@@ -420,14 +444,18 @@ class GroupHuntGroupAddInstanceRequest17sp4 extends ComplexType implements Compl
      */
     public function setMakeBusyWhenNotReachable($makeBusyWhenNotReachable = null)
     {
-        $this->makeBusyWhenNotReachable = (boolean) $makeBusyWhenNotReachable;
+        if (!$makeBusyWhenNotReachable) return $this;
+        $this->makeBusyWhenNotReachable = new PrimitiveType($makeBusyWhenNotReachable);
+        $this->makeBusyWhenNotReachable->setName('makeBusyWhenNotReachable');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMakeBusyWhenNotReachable()
     {
-        return (!$this->makeBusyWhenNotReachable) ?: $this->makeBusyWhenNotReachable;
+        return $this->makeBusyWhenNotReachable->getValue();
     }
 }

@@ -5,14 +5,14 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\BroadWorksAnywherePhoneNumberDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereModifyPhoneNumberResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'UserBroadWorksAnywhereModifyPhoneNumberRequest';
     protected $userId                     = null;
     protected $phoneNumber                = null;
     protected $newPhoneNumber             = null;
@@ -47,7 +47,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
          $broadworksCallControl = null,
          $useDiversionInhibitor = null,
          $answerConfirmationRequired = null,
-          $criteriaActivation = null
+         CriteriaActivation $criteriaActivation = null
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
@@ -62,7 +62,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
     }
 
     /**
-     * @return UserBroadWorksAnywhereModifyPhoneNumberResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,83 +70,91 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setPhoneNumber($phoneNumber = null)
     {
+        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
+        return $this->phoneNumber->getValue();
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setNewPhoneNumber($newPhoneNumber = null)
     {
+        if (!$newPhoneNumber) return $this;
         $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
              ? $newPhoneNumber
              : new DN($newPhoneNumber);
+        $this->newPhoneNumber->setName('newPhoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getNewPhoneNumber()
     {
-        return (!$this->newPhoneNumber) ?: $this->newPhoneNumber->getValue();
+        return $this->newPhoneNumber->getValue();
     }
 
     /**
-     * BroadWorks Anywhere Phone Number Description.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf BroadWorksAnywherePhoneNumberDescription)
              ? $description
              : new BroadWorksAnywherePhoneNumberDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * BroadWorks Anywhere Phone Number Description.
+     * 
+     * @return BroadWorksAnywherePhoneNumberDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 
     /**
@@ -154,47 +162,41 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setOutboundAlternateNumber($outboundAlternateNumber = null)
     {
+        if (!$outboundAlternateNumber) return $this;
         $this->outboundAlternateNumber = ($outboundAlternateNumber InstanceOf OutgoingDNorSIPURI)
              ? $outboundAlternateNumber
              : new OutgoingDNorSIPURI($outboundAlternateNumber);
+        $this->outboundAlternateNumber->setName('outboundAlternateNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getOutboundAlternateNumber()
     {
-        return (!$this->outboundAlternateNumber) ?: $this->outboundAlternateNumber->getValue();
+        return $this->outboundAlternateNumber->getValue();
     }
 
     /**
@@ -202,15 +204,19 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function setBroadworksCallControl($broadworksCallControl = null)
     {
-        $this->broadworksCallControl = (boolean) $broadworksCallControl;
+        if (!$broadworksCallControl) return $this;
+        $this->broadworksCallControl = new PrimitiveType($broadworksCallControl);
+        $this->broadworksCallControl->setName('broadworksCallControl');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getBroadworksCallControl()
     {
-        return (!$this->broadworksCallControl) ?: $this->broadworksCallControl;
+        return $this->broadworksCallControl->getValue();
     }
 
     /**
@@ -218,15 +224,19 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function setUseDiversionInhibitor($useDiversionInhibitor = null)
     {
-        $this->useDiversionInhibitor = (boolean) $useDiversionInhibitor;
+        if (!$useDiversionInhibitor) return $this;
+        $this->useDiversionInhibitor = new PrimitiveType($useDiversionInhibitor);
+        $this->useDiversionInhibitor->setName('useDiversionInhibitor');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseDiversionInhibitor()
     {
-        return (!$this->useDiversionInhibitor) ?: $this->useDiversionInhibitor;
+        return $this->useDiversionInhibitor->getValue();
     }
 
     /**
@@ -234,30 +244,38 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function setAnswerConfirmationRequired($answerConfirmationRequired = null)
     {
-        $this->answerConfirmationRequired = (boolean) $answerConfirmationRequired;
+        if (!$answerConfirmationRequired) return $this;
+        $this->answerConfirmationRequired = new PrimitiveType($answerConfirmationRequired);
+        $this->answerConfirmationRequired->setName('answerConfirmationRequired');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAnswerConfirmationRequired()
+    {
+        return $this->answerConfirmationRequired->getValue();
     }
 
     /**
      * 
      */
-    public function getAnswerConfirmationRequired()
-    {
-        return (!$this->answerConfirmationRequired) ?: $this->answerConfirmationRequired;
-    }
-
-    /**
-     * Criteria active status indicator
-     */
     public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        $this->criteriaActivation =  $criteriaActivation;
+        if (!$criteriaActivation) return $this;
+        $this->criteriaActivation = $criteriaActivation;
+        $this->criteriaActivation->setName('criteriaActivation');
+        return $this;
     }
 
     /**
-     * Criteria active status indicator
+     * 
+     * @return CriteriaActivation
      */
     public function getCriteriaActivation()
     {
-        return (!$this->criteriaActivation) ?: $this->criteriaActivation->getValue();
+        return $this->criteriaActivation;
     }
 }

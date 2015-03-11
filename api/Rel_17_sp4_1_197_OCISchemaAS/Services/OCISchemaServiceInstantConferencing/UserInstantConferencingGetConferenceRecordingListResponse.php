@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetConferenceRecordingListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'UserInstantConferencingGetConferenceRecordingListResponse';
     protected $conferenceRecordingTable = null;
 
     /**
@@ -40,14 +39,17 @@ class UserInstantConferencingGetConferenceRecordingListResponse extends ComplexT
      */
     public function setConferenceRecordingTable(core:OCITable $conferenceRecordingTable = null)
     {
-        $this->conferenceRecordingTable =  $conferenceRecordingTable;
+        if (!$conferenceRecordingTable) return $this;
+        $this->conferenceRecordingTable->setName('conferenceRecordingTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getConferenceRecordingTable()
     {
-        return (!$this->conferenceRecordingTable) ?: $this->conferenceRecordingTable->getValue();
+        return $this->conferenceRecordingTable->getValue();
     }
 }

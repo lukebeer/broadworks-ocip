@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingDeleteDnResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemTwoStageDialingDeleteDnRequest';
     protected $phoneNumber = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return SystemTwoStageDialingDeleteDnResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements Comple
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setPhoneNumber($phoneNumber = null)
     {
+        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
+        return $this->phoneNumber->getValue();
     }
 }

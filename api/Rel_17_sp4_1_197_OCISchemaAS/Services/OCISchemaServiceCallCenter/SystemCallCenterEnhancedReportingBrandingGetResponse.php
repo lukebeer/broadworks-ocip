@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterEnhancedReportingSystemBrandingChoice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingBrandingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'SystemCallCenterEnhancedReportingBrandingGetResponse';
     protected $brandingChoice                = null;
     protected $customBrandingFileDescription = null;
 
@@ -34,38 +33,46 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
     }
 
     /**
-     * The call center enhanced reporting system level branding choice.
+     * 
      */
     public function setBrandingChoice($brandingChoice = null)
     {
+        if (!$brandingChoice) return $this;
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingSystemBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingSystemBrandingChoice($brandingChoice);
+        $this->brandingChoice->setName('brandingChoice');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting system level branding choice.
+     * 
+     * @return CallCenterEnhancedReportingSystemBrandingChoice
      */
     public function getBrandingChoice()
     {
-        return (!$this->brandingChoice) ?: $this->brandingChoice->getValue();
+        return $this->brandingChoice->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setCustomBrandingFileDescription($customBrandingFileDescription = null)
     {
+        if (!$customBrandingFileDescription) return $this;
         $this->customBrandingFileDescription = ($customBrandingFileDescription InstanceOf FileDescription)
              ? $customBrandingFileDescription
              : new FileDescription($customBrandingFileDescription);
+        $this->customBrandingFileDescription->setName('customBrandingFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getCustomBrandingFileDescription()
     {
-        return (!$this->customBrandingFileDescription) ?: $this->customBrandingFileDescription->getValue();
+        return $this->customBrandingFileDescription->getValue();
     }
 }

@@ -17,12 +17,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallProcessingMaxConcurrentRedirectedCalls extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "CallProcessingMaxConcurrentRedirectedCalls";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "int";
+        $this->dataType = "";
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("32"));
     }

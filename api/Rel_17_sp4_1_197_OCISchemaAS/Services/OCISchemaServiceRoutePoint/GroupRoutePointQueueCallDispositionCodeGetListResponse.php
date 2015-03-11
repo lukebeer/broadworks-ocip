@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointQueueCallDispositionCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupRoutePointQueueCallDispositionCodeGetListResponse';
     protected $dispositionCodesTable = null;
 
     /**
@@ -38,14 +37,17 @@ class GroupRoutePointQueueCallDispositionCodeGetListResponse extends ComplexType
      */
     public function setDispositionCodesTable(core:OCITable $dispositionCodesTable = null)
     {
-        $this->dispositionCodesTable =  $dispositionCodesTable;
+        if (!$dispositionCodesTable) return $this;
+        $this->dispositionCodesTable->setName('dispositionCodesTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDispositionCodesTable()
     {
-        return (!$this->dispositionCodesTable) ?: $this->dispositionCodesTable->getValue();
+        return $this->dispositionCodesTable->getValue();
     }
 }

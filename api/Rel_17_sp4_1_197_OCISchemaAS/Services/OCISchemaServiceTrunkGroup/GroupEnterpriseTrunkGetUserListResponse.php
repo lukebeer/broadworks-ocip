@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEnterpriseTrunkGetUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'GroupEnterpriseTrunkGetUserListResponse';
     protected $enterpriseTrunkUserTable = null;
 
     /**
@@ -37,14 +36,17 @@ class GroupEnterpriseTrunkGetUserListResponse extends ComplexType implements Com
      */
     public function setEnterpriseTrunkUserTable(core:OCITable $enterpriseTrunkUserTable = null)
     {
-        $this->enterpriseTrunkUserTable =  $enterpriseTrunkUserTable;
+        if (!$enterpriseTrunkUserTable) return $this;
+        $this->enterpriseTrunkUserTable->setName('enterpriseTrunkUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getEnterpriseTrunkUserTable()
     {
-        return (!$this->enterpriseTrunkUserTable) ?: $this->enterpriseTrunkUserTable->getValue();
+        return $this->enterpriseTrunkUserTable->getValue();
     }
 }

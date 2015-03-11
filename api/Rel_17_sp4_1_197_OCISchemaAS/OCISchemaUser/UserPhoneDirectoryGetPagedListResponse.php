@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -30,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserPhoneDirectoryGetPagedListResponse';
     protected $totalNumberOfRows = null;
     protected $directoryTable    = null;
 
@@ -47,15 +46,19 @@ class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements Comp
      */
     public function setTotalNumberOfRows($totalNumberOfRows = null)
     {
-        $this->totalNumberOfRows = (int) $totalNumberOfRows;
+        if (!$totalNumberOfRows) return $this;
+        $this->totalNumberOfRows = new PrimitiveType($totalNumberOfRows);
+        $this->totalNumberOfRows->setName('totalNumberOfRows');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:int
      */
     public function getTotalNumberOfRows()
     {
-        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows;
+        return $this->totalNumberOfRows->getValue();
     }
 
     /**
@@ -63,14 +66,17 @@ class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements Comp
      */
     public function setDirectoryTable(core:OCITable $directoryTable = null)
     {
-        $this->directoryTable =  $directoryTable;
+        if (!$directoryTable) return $this;
+        $this->directoryTable->setName('directoryTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDirectoryTable()
     {
-        return (!$this->directoryTable) ?: $this->directoryTable->getValue();
+        return $this->directoryTable->getValue();
     }
 }

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResource;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,9 +22,16 @@ use Broadworks_OCIP\core\Client\Client;
 class ExtendedFileResource extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResource';
-    public    $name = __CLASS__;
+    public    $name = 'ExtendedFileResource';
+    protected $file = null;
+    protected $url  = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $file = null,
+         $url = null
+    ) {
+        $this->setFile($file);
+        $this->setUrl($url);
     }
 
     /**
@@ -33,5 +40,45 @@ class ExtendedFileResource extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setFile($file = null)
+    {
+        if (!$file) return $this;
+        $this->file = new SimpleContent($file);
+        $this->file->setName('file');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getFile()
+    {
+        return $this->file->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setUrl($url = null)
+    {
+        if (!$url) return $this;
+        $this->url = new SimpleContent($url);
+        $this->url->setName('url');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getUrl()
+    {
+        return $this->url->getValue();
     }
 }

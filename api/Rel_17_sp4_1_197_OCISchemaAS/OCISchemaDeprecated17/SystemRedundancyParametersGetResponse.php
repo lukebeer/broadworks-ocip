@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RedundancyRollBackTimerMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemRedundancyParametersGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRedundancyParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'SystemRedundancyParametersGetResponse';
     protected $rollBackTimerMinutes = null;
 
     /**
@@ -35,20 +34,24 @@ class SystemRedundancyParametersGetResponse extends ComplexType implements Compl
     }
 
     /**
-     * Redundancy rollback timer in minutes.
+     * 
      */
     public function setRollBackTimerMinutes($rollBackTimerMinutes = null)
     {
+        if (!$rollBackTimerMinutes) return $this;
         $this->rollBackTimerMinutes = ($rollBackTimerMinutes InstanceOf RedundancyRollBackTimerMinutes)
              ? $rollBackTimerMinutes
              : new RedundancyRollBackTimerMinutes($rollBackTimerMinutes);
+        $this->rollBackTimerMinutes->setName('rollBackTimerMinutes');
+        return $this;
     }
 
     /**
-     * Redundancy rollback timer in minutes.
+     * 
+     * @return RedundancyRollBackTimerMinutes
      */
     public function getRollBackTimerMinutes()
     {
-        return (!$this->rollBackTimerMinutes) ?: $this->rollBackTimerMinutes->getValue();
+        return $this->rollBackTimerMinutes->getValue();
     }
 }

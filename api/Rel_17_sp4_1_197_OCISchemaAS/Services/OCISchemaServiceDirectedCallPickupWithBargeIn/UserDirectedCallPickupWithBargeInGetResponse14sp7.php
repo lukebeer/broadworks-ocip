@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectedCallPickupWithBargeIn; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDirectedCallPickupWithBargeIn; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectedCallPickupWithBargeIn\UserDirectedCallPickupWithBargeInGetResponse14sp7;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
+    public    $name                           = 'UserDirectedCallPickupWithBargeInGetResponse14sp7';
     protected $enableBargeInWarningTone       = null;
     protected $enableAutomaticTargetSelection = null;
 
@@ -37,15 +36,19 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
      */
     public function setEnableBargeInWarningTone($enableBargeInWarningTone = null)
     {
-        $this->enableBargeInWarningTone = (boolean) $enableBargeInWarningTone;
+        if (!$enableBargeInWarningTone) return $this;
+        $this->enableBargeInWarningTone = new PrimitiveType($enableBargeInWarningTone);
+        $this->enableBargeInWarningTone->setName('enableBargeInWarningTone');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableBargeInWarningTone()
     {
-        return (!$this->enableBargeInWarningTone) ?: $this->enableBargeInWarningTone;
+        return $this->enableBargeInWarningTone->getValue();
     }
 
     /**
@@ -53,14 +56,18 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
      */
     public function setEnableAutomaticTargetSelection($enableAutomaticTargetSelection = null)
     {
-        $this->enableAutomaticTargetSelection = (boolean) $enableAutomaticTargetSelection;
+        if (!$enableAutomaticTargetSelection) return $this;
+        $this->enableAutomaticTargetSelection = new PrimitiveType($enableAutomaticTargetSelection);
+        $this->enableAutomaticTargetSelection->setName('enableAutomaticTargetSelection');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableAutomaticTargetSelection()
     {
-        return (!$this->enableAutomaticTargetSelection) ?: $this->enableAutomaticTargetSelection;
+        return $this->enableAutomaticTargetSelection->getValue();
     }
 }

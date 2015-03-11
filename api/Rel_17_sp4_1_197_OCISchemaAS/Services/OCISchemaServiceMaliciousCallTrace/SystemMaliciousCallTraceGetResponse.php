@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\SystemMaliciousCallTraceGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMaliciousCallTraceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'SystemMaliciousCallTraceGetResponse';
     protected $playMCTWarningAnnouncement = null;
     protected $userTable                  = null;
 
@@ -43,15 +42,19 @@ class SystemMaliciousCallTraceGetResponse extends ComplexType implements Complex
      */
     public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement = null)
     {
-        $this->playMCTWarningAnnouncement = (boolean) $playMCTWarningAnnouncement;
+        if (!$playMCTWarningAnnouncement) return $this;
+        $this->playMCTWarningAnnouncement = new PrimitiveType($playMCTWarningAnnouncement);
+        $this->playMCTWarningAnnouncement->setName('playMCTWarningAnnouncement');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPlayMCTWarningAnnouncement()
     {
-        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement;
+        return $this->playMCTWarningAnnouncement->getValue();
     }
 
     /**
@@ -59,14 +62,17 @@ class SystemMaliciousCallTraceGetResponse extends ComplexType implements Complex
      */
     public function setUserTable(core:OCITable $userTable = null)
     {
-        $this->userTable =  $userTable;
+        if (!$userTable) return $this;
+        $this->userTable->setName('userTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getUserTable()
     {
-        return (!$this->userTable) ?: $this->userTable->getValue();
+        return $this->userTable->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagSetName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagSetDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceManagementTagSetDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemDeviceManagementTagSetDeleteRequest';
     protected $tagSetName = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemDeviceManagementTagSetDeleteRequest extends ComplexType implements C
     }
 
     /**
-     * @return SystemDeviceManagementTagSetDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemDeviceManagementTagSetDeleteRequest extends ComplexType implements C
     }
 
     /**
-     * A static tag set name for access device files managed by the Device Management System on BroadWorks.
+     * 
      */
     public function setTagSetName($tagSetName = null)
     {
+        if (!$tagSetName) return $this;
         $this->tagSetName = ($tagSetName InstanceOf DeviceManagementTagSetName)
              ? $tagSetName
              : new DeviceManagementTagSetName($tagSetName);
+        $this->tagSetName->setName('tagSetName');
+        return $this;
     }
 
     /**
-     * A static tag set name for access device files managed by the Device Management System on BroadWorks.
+     * 
+     * @return DeviceManagementTagSetName
      */
     public function getTagSetName()
     {
-        return (!$this->tagSetName) ?: $this->tagSetName->getValue();
+        return $this->tagSetName->getValue();
     }
 }

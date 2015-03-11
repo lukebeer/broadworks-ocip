@@ -17,12 +17,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CommunicationBarringTimeoutSeconds extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "CommunicationBarringTimeoutSeconds";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "int";
+        $this->dataType = "";
         $this->addRestriction(new MinInclusive("60"));
         $this->addRestriction(new MaxInclusive("86400"));
     }

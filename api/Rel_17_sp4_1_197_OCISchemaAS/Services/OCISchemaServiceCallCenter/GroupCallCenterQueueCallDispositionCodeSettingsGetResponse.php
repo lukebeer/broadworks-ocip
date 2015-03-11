@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeWithLevel;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterQueueCallDispositionCodeSettingsGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterQueueCallDispositionCodeSettingsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
+    public    $name                           = 'GroupCallCenterQueueCallDispositionCodeSettingsGetResponse';
     protected $enableCallDispositionCodes     = null;
     protected $includeOrganizationCodes       = null;
     protected $forceUseOfCallDispositionCodes = null;
@@ -39,15 +39,19 @@ class GroupCallCenterQueueCallDispositionCodeSettingsGetResponse extends Complex
      */
     public function setEnableCallDispositionCodes($enableCallDispositionCodes = null)
     {
-        $this->enableCallDispositionCodes = (boolean) $enableCallDispositionCodes;
+        if (!$enableCallDispositionCodes) return $this;
+        $this->enableCallDispositionCodes = new PrimitiveType($enableCallDispositionCodes);
+        $this->enableCallDispositionCodes->setName('enableCallDispositionCodes');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableCallDispositionCodes()
     {
-        return (!$this->enableCallDispositionCodes) ?: $this->enableCallDispositionCodes;
+        return $this->enableCallDispositionCodes->getValue();
     }
 
     /**
@@ -55,15 +59,19 @@ class GroupCallCenterQueueCallDispositionCodeSettingsGetResponse extends Complex
      */
     public function setIncludeOrganizationCodes($includeOrganizationCodes = null)
     {
-        $this->includeOrganizationCodes = (boolean) $includeOrganizationCodes;
+        if (!$includeOrganizationCodes) return $this;
+        $this->includeOrganizationCodes = new PrimitiveType($includeOrganizationCodes);
+        $this->includeOrganizationCodes->setName('includeOrganizationCodes');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeOrganizationCodes()
     {
-        return (!$this->includeOrganizationCodes) ?: $this->includeOrganizationCodes;
+        return $this->includeOrganizationCodes->getValue();
     }
 
     /**
@@ -71,30 +79,38 @@ class GroupCallCenterQueueCallDispositionCodeSettingsGetResponse extends Complex
      */
     public function setForceUseOfCallDispositionCodes($forceUseOfCallDispositionCodes = null)
     {
-        $this->forceUseOfCallDispositionCodes = (boolean) $forceUseOfCallDispositionCodes;
+        if (!$forceUseOfCallDispositionCodes) return $this;
+        $this->forceUseOfCallDispositionCodes = new PrimitiveType($forceUseOfCallDispositionCodes);
+        $this->forceUseOfCallDispositionCodes->setName('forceUseOfCallDispositionCodes');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getForceUseOfCallDispositionCodes()
+    {
+        return $this->forceUseOfCallDispositionCodes->getValue();
     }
 
     /**
      * 
      */
-    public function getForceUseOfCallDispositionCodes()
-    {
-        return (!$this->forceUseOfCallDispositionCodes) ?: $this->forceUseOfCallDispositionCodes;
-    }
-
-    /**
-     * Contains a Call Center Call Disposition Code and its Level
-     */
     public function setDefaultCallDispositionCode(CallDispositionCodeWithLevel $defaultCallDispositionCode = null)
     {
-        $this->defaultCallDispositionCode =  $defaultCallDispositionCode;
+        if (!$defaultCallDispositionCode) return $this;
+        $this->defaultCallDispositionCode = $defaultCallDispositionCode;
+        $this->defaultCallDispositionCode->setName('defaultCallDispositionCode');
+        return $this;
     }
 
     /**
-     * Contains a Call Center Call Disposition Code and its Level
+     * 
+     * @return CallDispositionCodeWithLevel
      */
     public function getDefaultCallDispositionCode()
     {
-        return (!$this->defaultCallDispositionCode) ?: $this->defaultCallDispositionCode->getValue();
+        return $this->defaultCallDispositionCode;
     }
 }

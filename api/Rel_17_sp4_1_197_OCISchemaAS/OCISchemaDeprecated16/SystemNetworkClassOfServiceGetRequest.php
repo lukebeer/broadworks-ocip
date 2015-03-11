@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemNetworkClassOfServiceGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemNetworkClassOfServiceGetResponse';
-    public    $name = __CLASS__;
+    public    $name = 'SystemNetworkClassOfServiceGetRequest';
     protected $name = null;
 
     public function __construct(
@@ -42,20 +42,24 @@ class SystemNetworkClassOfServiceGetRequest extends ComplexType implements Compl
     }
 
     /**
-     * Network Class of Service name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf NetworkClassOfServiceName)
              ? $name
              : new NetworkClassOfServiceName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Network Class of Service name.
+     * 
+     * @return NetworkClassOfServiceName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 }

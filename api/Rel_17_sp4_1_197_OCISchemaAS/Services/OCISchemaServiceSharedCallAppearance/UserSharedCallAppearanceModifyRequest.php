@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSharedCallAppearance; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SharedCallAppearanceBridgeWarningTone;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSharedCallAppearanceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = __CLASS__;
+    public    $name                                   = 'UserSharedCallAppearanceModifyRequest';
     protected $userId                                 = null;
     protected $alertAllAppearancesForClickToDialCalls = null;
     protected $alertAllAppearancesForGroupPagingCalls = null;
@@ -56,7 +56,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return UserSharedCallAppearanceModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,29 +64,25 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
@@ -94,15 +90,19 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setAlertAllAppearancesForClickToDialCalls($alertAllAppearancesForClickToDialCalls = null)
     {
-        $this->alertAllAppearancesForClickToDialCalls = (boolean) $alertAllAppearancesForClickToDialCalls;
+        if (!$alertAllAppearancesForClickToDialCalls) return $this;
+        $this->alertAllAppearancesForClickToDialCalls = new PrimitiveType($alertAllAppearancesForClickToDialCalls);
+        $this->alertAllAppearancesForClickToDialCalls->setName('alertAllAppearancesForClickToDialCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAlertAllAppearancesForClickToDialCalls()
     {
-        return (!$this->alertAllAppearancesForClickToDialCalls) ?: $this->alertAllAppearancesForClickToDialCalls;
+        return $this->alertAllAppearancesForClickToDialCalls->getValue();
     }
 
     /**
@@ -110,15 +110,19 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setAlertAllAppearancesForGroupPagingCalls($alertAllAppearancesForGroupPagingCalls = null)
     {
-        $this->alertAllAppearancesForGroupPagingCalls = (boolean) $alertAllAppearancesForGroupPagingCalls;
+        if (!$alertAllAppearancesForGroupPagingCalls) return $this;
+        $this->alertAllAppearancesForGroupPagingCalls = new PrimitiveType($alertAllAppearancesForGroupPagingCalls);
+        $this->alertAllAppearancesForGroupPagingCalls->setName('alertAllAppearancesForGroupPagingCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAlertAllAppearancesForGroupPagingCalls()
     {
-        return (!$this->alertAllAppearancesForGroupPagingCalls) ?: $this->alertAllAppearancesForGroupPagingCalls;
+        return $this->alertAllAppearancesForGroupPagingCalls->getValue();
     }
 
     /**
@@ -126,15 +130,19 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setAllowSCACallRetrieve($allowSCACallRetrieve = null)
     {
-        $this->allowSCACallRetrieve = (boolean) $allowSCACallRetrieve;
+        if (!$allowSCACallRetrieve) return $this;
+        $this->allowSCACallRetrieve = new PrimitiveType($allowSCACallRetrieve);
+        $this->allowSCACallRetrieve->setName('allowSCACallRetrieve');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowSCACallRetrieve()
     {
-        return (!$this->allowSCACallRetrieve) ?: $this->allowSCACallRetrieve;
+        return $this->allowSCACallRetrieve->getValue();
     }
 
     /**
@@ -142,15 +150,19 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setMultipleCallArrangementIsActive($multipleCallArrangementIsActive = null)
     {
-        $this->multipleCallArrangementIsActive = (boolean) $multipleCallArrangementIsActive;
+        if (!$multipleCallArrangementIsActive) return $this;
+        $this->multipleCallArrangementIsActive = new PrimitiveType($multipleCallArrangementIsActive);
+        $this->multipleCallArrangementIsActive->setName('multipleCallArrangementIsActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMultipleCallArrangementIsActive()
     {
-        return (!$this->multipleCallArrangementIsActive) ?: $this->multipleCallArrangementIsActive;
+        return $this->multipleCallArrangementIsActive->getValue();
     }
 
     /**
@@ -158,35 +170,41 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setAllowBridgingBetweenLocations($allowBridgingBetweenLocations = null)
     {
-        $this->allowBridgingBetweenLocations = (boolean) $allowBridgingBetweenLocations;
+        if (!$allowBridgingBetweenLocations) return $this;
+        $this->allowBridgingBetweenLocations = new PrimitiveType($allowBridgingBetweenLocations);
+        $this->allowBridgingBetweenLocations->setName('allowBridgingBetweenLocations');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowBridgingBetweenLocations()
+    {
+        return $this->allowBridgingBetweenLocations->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowBridgingBetweenLocations()
-    {
-        return (!$this->allowBridgingBetweenLocations) ?: $this->allowBridgingBetweenLocations;
-    }
-
-    /**
-     * Warning tone types for Shared Call Appearance.
-     *         The bridge warning tone types are none, barge-in, barge-in repeat.
-     */
     public function setBridgeWarningTone($bridgeWarningTone = null)
     {
+        if (!$bridgeWarningTone) return $this;
         $this->bridgeWarningTone = ($bridgeWarningTone InstanceOf SharedCallAppearanceBridgeWarningTone)
              ? $bridgeWarningTone
              : new SharedCallAppearanceBridgeWarningTone($bridgeWarningTone);
+        $this->bridgeWarningTone->setName('bridgeWarningTone');
+        return $this;
     }
 
     /**
-     * Warning tone types for Shared Call Appearance.
-     *         The bridge warning tone types are none, barge-in, barge-in repeat.
+     * 
+     * @return SharedCallAppearanceBridgeWarningTone
      */
     public function getBridgeWarningTone()
     {
-        return (!$this->bridgeWarningTone) ?: $this->bridgeWarningTone->getValue();
+        return $this->bridgeWarningTone->getValue();
     }
 
     /**
@@ -194,14 +212,18 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setEnableCallParkNotification($enableCallParkNotification = null)
     {
-        $this->enableCallParkNotification = (boolean) $enableCallParkNotification;
+        if (!$enableCallParkNotification) return $this;
+        $this->enableCallParkNotification = new PrimitiveType($enableCallParkNotification);
+        $this->enableCallParkNotification->setName('enableCallParkNotification');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableCallParkNotification()
     {
-        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification;
+        return $this->enableCallParkNotification->getValue();
     }
 }

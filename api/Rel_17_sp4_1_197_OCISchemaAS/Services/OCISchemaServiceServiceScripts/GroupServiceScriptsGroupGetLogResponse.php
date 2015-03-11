@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts\GroupServiceScriptsGroupGetLogResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceScriptsGroupGetLogResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'GroupServiceScriptsGroupGetLogResponse';
     protected $logContent = null;
 
     /**
@@ -36,14 +35,17 @@ class GroupServiceScriptsGroupGetLogResponse extends ComplexType implements Comp
      */
     public function setLogContent(xs:base64Binary $logContent = null)
     {
-        $this->logContent =  $logContent;
+        if (!$logContent) return $this;
+        $this->logContent->setName('logContent');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:base64Binary
      */
     public function getLogContent()
     {
-        return (!$this->logContent) ?: $this->logContent->getValue();
+        return $this->logContent->getValue();
     }
 }

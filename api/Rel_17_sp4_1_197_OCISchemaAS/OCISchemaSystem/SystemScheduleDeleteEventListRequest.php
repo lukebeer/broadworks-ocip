@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleDeleteEventListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemScheduleDeleteEventListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemScheduleDeleteEventListRequest';
     protected $scheduleKey = null;
     protected $eventName   = null;
 
     public function __construct(
-          $scheduleKey,
+         ScheduleKey $scheduleKey,
          $eventName
     ) {
         $this->setScheduleKey($scheduleKey);
@@ -35,7 +34,7 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return SystemScheduleDeleteEventListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,36 +42,44 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey =  $scheduleKey;
+        if (!$scheduleKey) return $this;
+        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey->setName('scheduleKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
+     * @return ScheduleKey
      */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
+        return $this->scheduleKey;
     }
 
     /**
-     * Event name.
+     * 
      */
     public function setEventName($eventName = null)
     {
+        if (!$eventName) return $this;
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
+        $this->eventName->setName('eventName');
+        return $this;
     }
 
     /**
-     * Event name.
+     * 
+     * @return EventName
      */
     public function getEventName()
     {
-        return (!$this->eventName) ?: $this->eventName->getValue();
+        return $this->eventName->getValue();
     }
 }

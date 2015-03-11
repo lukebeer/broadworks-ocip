@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetConferenceBridgeReportResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'UserInstantConferencingGetConferenceBridgeReportResponse';
     protected $conferenceReportTable = null;
 
     /**
@@ -40,14 +39,17 @@ class UserInstantConferencingGetConferenceBridgeReportResponse extends ComplexTy
      */
     public function setConferenceReportTable(core:OCITable $conferenceReportTable = null)
     {
-        $this->conferenceReportTable =  $conferenceReportTable;
+        if (!$conferenceReportTable) return $this;
+        $this->conferenceReportTable->setName('conferenceReportTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getConferenceReportTable()
     {
-        return (!$this->conferenceReportTable) ?: $this->conferenceReportTable->getValue();
+        return $this->conferenceReportTable->getValue();
     }
 }

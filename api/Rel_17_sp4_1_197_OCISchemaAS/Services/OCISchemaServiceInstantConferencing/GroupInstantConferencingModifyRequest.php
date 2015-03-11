@@ -5,12 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\GroupInstantConferencingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupInstantConferencingModifyRequest';
     protected $serviceProviderId     = null;
     protected $groupId               = null;
     protected $portsAllocatedToGroup = null;
@@ -31,7 +30,7 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
     public function __construct(
          $serviceProviderId,
          $groupId,
-          $portsAllocatedToGroup = null
+         UnboundedNonNegativeInt $portsAllocatedToGroup = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -39,7 +38,7 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return GroupInstantConferencingModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,58 +46,66 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
      */
     public function setPortsAllocatedToGroup(UnboundedNonNegativeInt $portsAllocatedToGroup = null)
     {
-        $this->portsAllocatedToGroup =  $portsAllocatedToGroup;
+        if (!$portsAllocatedToGroup) return $this;
+        $this->portsAllocatedToGroup = $portsAllocatedToGroup;
+        $this->portsAllocatedToGroup->setName('portsAllocatedToGroup');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
+     * @return UnboundedNonNegativeInt
      */
     public function getPortsAllocatedToGroup()
     {
-        return (!$this->portsAllocatedToGroup) ?: $this->portsAllocatedToGroup->getValue();
+        return $this->portsAllocatedToGroup;
     }
 }

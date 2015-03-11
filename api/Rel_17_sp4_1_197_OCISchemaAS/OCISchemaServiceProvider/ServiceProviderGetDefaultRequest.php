@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderGetDefaultRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetDefaultResponse';
-    public    $name = __CLASS__;
+    public    $name = 'ServiceProviderGetDefaultRequest';
 
     public function __construct(    ) {
     }

@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAdd
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBroadWorksMobileManagerModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'SystemBroadWorksMobileManagerModifyRequest';
     protected $scfApiNetAddress1  = null;
     protected $scfApiNetAddress2  = null;
     protected $userName           = null;
@@ -57,7 +57,7 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return SystemBroadWorksMobileManagerModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,93 +65,113 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setScfApiNetAddress1($scfApiNetAddress1 = null)
     {
+        if (!$scfApiNetAddress1) return $this;
         $this->scfApiNetAddress1 = ($scfApiNetAddress1 InstanceOf NetAddress)
              ? $scfApiNetAddress1
              : new NetAddress($scfApiNetAddress1);
+        $this->scfApiNetAddress1->setName('scfApiNetAddress1');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getScfApiNetAddress1()
     {
-        return (!$this->scfApiNetAddress1) ?: $this->scfApiNetAddress1->getValue();
+        return $this->scfApiNetAddress1->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setScfApiNetAddress2($scfApiNetAddress2 = null)
     {
+        if (!$scfApiNetAddress2) return $this;
         $this->scfApiNetAddress2 = ($scfApiNetAddress2 InstanceOf NetAddress)
              ? $scfApiNetAddress2
              : new NetAddress($scfApiNetAddress2);
+        $this->scfApiNetAddress2->setName('scfApiNetAddress2');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getScfApiNetAddress2()
     {
-        return (!$this->scfApiNetAddress2) ?: $this->scfApiNetAddress2->getValue();
+        return $this->scfApiNetAddress2->getValue();
     }
 
     /**
-     * BroadWorks Mobile Manger API user name
+     * 
      */
     public function setUserName($userName = null)
     {
+        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf BroadWorksMobileManagerUserName)
              ? $userName
              : new BroadWorksMobileManagerUserName($userName);
+        $this->userName->setName('userName');
+        return $this;
     }
 
     /**
-     * BroadWorks Mobile Manger API user name
+     * 
+     * @return BroadWorksMobileManagerUserName
      */
     public function getUserName()
     {
-        return (!$this->userName) ?: $this->userName->getValue();
+        return $this->userName->getValue();
     }
 
     /**
-     * BroadWorks Mobile Manger API password
+     * 
      */
     public function setPassword($password = null)
     {
+        if (!$password) return $this;
         $this->password = ($password InstanceOf BroadWorksMobileManagerPassword)
              ? $password
              : new BroadWorksMobileManagerPassword($password);
+        $this->password->setName('password');
+        return $this;
     }
 
     /**
-     * BroadWorks Mobile Manger API password
+     * 
+     * @return BroadWorksMobileManagerPassword
      */
     public function getPassword()
     {
-        return (!$this->password) ?: $this->password->getValue();
+        return $this->password->getValue();
     }
 
     /**
-     * Email Address
+     * 
      */
     public function setEmailFromAddress($emailFromAddress = null)
     {
+        if (!$emailFromAddress) return $this;
         $this->emailFromAddress = ($emailFromAddress InstanceOf EmailAddress)
              ? $emailFromAddress
              : new EmailAddress($emailFromAddress);
+        $this->emailFromAddress->setName('emailFromAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getEmailFromAddress()
     {
-        return (!$this->emailFromAddress) ?: $this->emailFromAddress->getValue();
+        return $this->emailFromAddress->getValue();
     }
 
     /**
@@ -159,50 +179,62 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
      */
     public function setScfIMSOnly($scfIMSOnly = null)
     {
-        $this->scfIMSOnly = (boolean) $scfIMSOnly;
+        if (!$scfIMSOnly) return $this;
+        $this->scfIMSOnly = new PrimitiveType($scfIMSOnly);
+        $this->scfIMSOnly->setName('scfIMSOnly');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getScfIMSOnly()
+    {
+        return $this->scfIMSOnly->getValue();
     }
 
     /**
      * 
      */
-    public function getScfIMSOnly()
-    {
-        return (!$this->scfIMSOnly) ?: $this->scfIMSOnly;
-    }
-
-    /**
-     * Numeric IP Address.
-     */
     public function setSignalingIPAddress($signalingIPAddress = null)
     {
+        if (!$signalingIPAddress) return $this;
         $this->signalingIPAddress = ($signalingIPAddress InstanceOf IPAddress)
              ? $signalingIPAddress
              : new IPAddress($signalingIPAddress);
+        $this->signalingIPAddress->setName('signalingIPAddress');
+        return $this;
     }
 
     /**
-     * Numeric IP Address.
+     * 
+     * @return IPAddress
      */
     public function getSignalingIPAddress()
     {
-        return (!$this->signalingIPAddress) ?: $this->signalingIPAddress->getValue();
+        return $this->signalingIPAddress->getValue();
     }
 
     /**
-     * TCP/IP Port.
+     * 
      */
     public function setSignalingPort($signalingPort = null)
     {
+        if (!$signalingPort) return $this;
         $this->signalingPort = ($signalingPort InstanceOf Port)
              ? $signalingPort
              : new Port($signalingPort);
+        $this->signalingPort->setName('signalingPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port.
+     * 
+     * @return Port
      */
     public function getSignalingPort()
     {
-        return (!$this->signalingPort) ?: $this->signalingPort->getValue();
+        return $this->signalingPort->getValue();
     }
 }

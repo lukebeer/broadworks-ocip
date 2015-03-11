@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementUserNamePassword16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,9 +21,16 @@ use Broadworks_OCIP\core\Client\Client;
 class DeviceManagementUserNamePassword16 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementUserNamePassword16';
-    public    $name = __CLASS__;
+    public    $name     = 'DeviceManagementUserNamePassword16';
+    protected $userName = null;
+    protected $password = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $userName,
+         $password
+    ) {
+        $this->setUserName($userName);
+        $this->setPassword($password);
     }
 
     /**
@@ -32,5 +39,45 @@ class DeviceManagementUserNamePassword16 extends ComplexType implements ComplexI
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setUserName($userName = null)
+    {
+        if (!$userName) return $this;
+        $this->userName = new SimpleContent($userName);
+        $this->userName->setName('userName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getUserName()
+    {
+        return $this->userName->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setPassword($password = null)
+    {
+        if (!$password) return $this;
+        $this->password = new SimpleContent($password);
+        $this->password->setName('password');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getPassword()
+    {
+        return $this->password->getValue();
     }
 }

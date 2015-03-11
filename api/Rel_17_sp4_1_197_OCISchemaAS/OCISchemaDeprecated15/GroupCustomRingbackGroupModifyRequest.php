@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCustomRingbackGroupModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCustomRingbackGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupCustomRingbackGroupModifyRequest';
     protected $serviceProviderId = null;
     protected $groupId           = null;
     protected $isActive          = null;
@@ -39,9 +39,9 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
          $groupId,
          $isActive = null,
          $audioSelection = null,
-          $audioFile = null,
+         ExtendedFileResource $audioFile = null,
          $videoSelection = null,
-          $videoFile = null
+         ExtendedFileResource $videoFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -53,7 +53,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return GroupCustomRingbackGroupModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,43 +61,47 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
@@ -105,86 +109,102 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Choices for extended file resource usage.
-     */
     public function setAudioSelection($audioSelection = null)
     {
+        if (!$audioSelection) return $this;
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
+        $this->audioSelection->setName('audioSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getAudioSelection()
     {
-        return (!$this->audioSelection) ?: $this->audioSelection->getValue();
+        return $this->audioSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setAudioFile(ExtendedFileResource $audioFile = null)
     {
-        $this->audioFile =  $audioFile;
+        if (!$audioFile) return $this;
+        $this->audioFile = $audioFile;
+        $this->audioFile->setName('audioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedFileResource
      */
     public function getAudioFile()
     {
-        return (!$this->audioFile) ?: $this->audioFile->getValue();
+        return $this->audioFile;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setVideoSelection($videoSelection = null)
     {
+        if (!$videoSelection) return $this;
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
+        $this->videoSelection->setName('videoSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getVideoSelection()
     {
-        return (!$this->videoSelection) ?: $this->videoSelection->getValue();
+        return $this->videoSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setVideoFile(ExtendedFileResource $videoFile = null)
     {
-        $this->videoFile =  $videoFile;
+        if (!$videoFile) return $this;
+        $this->videoFile = $videoFile;
+        $this->videoFile->setName('videoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedFileResource
      */
     public function getVideoFile()
     {
-        return (!$this->videoFile) ?: $this->videoFile->getValue();
+        return $this->videoFile;
     }
 }

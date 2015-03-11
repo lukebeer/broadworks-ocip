@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallTypeGetMappingListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallTypeGetMappingListResponse';
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemCallTypeGetMappingListRequest';
     protected $countryCode = null;
 
     public function __construct(
@@ -40,20 +40,24 @@ class SystemCallTypeGetMappingListRequest extends ComplexType implements Complex
     }
 
     /**
-     * Country dialing code.
+     * 
      */
     public function setCountryCode($countryCode = null)
     {
+        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
+        $this->countryCode->setName('countryCode');
+        return $this;
     }
 
     /**
-     * Country dialing code.
+     * 
+     * @return CountryCode
      */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->getValue();
+        return $this->countryCode->getValue();
     }
 }

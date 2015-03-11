@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignalingAddressType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMGCPDeviceTypeGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'SystemMGCPDeviceTypeGetResponse';
     protected $isObsolete     = null;
     protected $profile        = null;
     protected $numberOfPorts  = null;
@@ -41,66 +41,82 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
      */
     public function setIsObsolete($isObsolete = null)
     {
-        $this->isObsolete = (boolean) $isObsolete;
+        if (!$isObsolete) return $this;
+        $this->isObsolete = new PrimitiveType($isObsolete);
+        $this->isObsolete->setName('isObsolete');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsObsolete()
+    {
+        return $this->isObsolete->getValue();
     }
 
     /**
      * 
      */
-    public function getIsObsolete()
-    {
-        return (!$this->isObsolete) ?: $this->isObsolete;
-    }
-
-    /**
-     * Device type signaling address types.
-     */
     public function setProfile($profile = null)
     {
+        if (!$profile) return $this;
         $this->profile = ($profile InstanceOf SignalingAddressType)
              ? $profile
              : new SignalingAddressType($profile);
+        $this->profile->setName('profile');
+        return $this;
     }
 
     /**
-     * Device type signaling address types.
+     * 
+     * @return SignalingAddressType
      */
     public function getProfile()
     {
-        return (!$this->profile) ?: $this->profile->getValue();
+        return $this->profile->getValue();
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     * 
      */
     public function setNumberOfPorts(UnboundedPositiveInt $numberOfPorts = null)
     {
-        $this->numberOfPorts =  $numberOfPorts;
+        if (!$numberOfPorts) return $this;
+        $this->numberOfPorts = $numberOfPorts;
+        $this->numberOfPorts->setName('numberOfPorts');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     * 
+     * @return UnboundedPositiveInt
      */
     public function getNumberOfPorts()
     {
-        return (!$this->numberOfPorts) ?: $this->numberOfPorts->getValue();
+        return $this->numberOfPorts;
     }
 
     /**
-     * Access device protocol.
+     * 
      */
     public function setProtocolChoice($protocolChoice = null)
     {
+        if (!$protocolChoice) return $this;
         $this->protocolChoice = ($protocolChoice InstanceOf AccessDeviceProtocol)
              ? $protocolChoice
              : new AccessDeviceProtocol($protocolChoice);
+        $this->protocolChoice->setName('protocolChoice');
+        return $this;
     }
 
     /**
-     * Access device protocol.
+     * 
+     * @return AccessDeviceProtocol
      */
     public function getProtocolChoice()
     {
-        return (!$this->protocolChoice) ?: $this->protocolChoice->getValue();
+        return $this->protocolChoice->getValue();
     }
 }

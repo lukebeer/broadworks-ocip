@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseAccessDevice;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,9 +21,16 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseAccessDevice extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseAccessDevice';
-    public    $name = __CLASS__;
+    public    $name         = 'EnterpriseAccessDevice';
+    protected $accessDevice = null;
+    protected $groupId      = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $accessDevice,
+         $groupId = null
+    ) {
+        $this->setAccessDevice($accessDevice);
+        $this->setGroupId($groupId);
     }
 
     /**
@@ -32,5 +39,45 @@ class EnterpriseAccessDevice extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setAccessDevice($accessDevice = null)
+    {
+        if (!$accessDevice) return $this;
+        $this->accessDevice = new SimpleContent($accessDevice);
+        $this->accessDevice->setName('accessDevice');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getAccessDevice()
+    {
+        return $this->accessDevice->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setGroupId($groupId = null)
+    {
+        if (!$groupId) return $this;
+        $this->groupId = new SimpleContent($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getGroupId()
+    {
+        return $this->groupId->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ConfigurableFileSystemDirectory;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableFileSystemGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemConfigurableFileSystemGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'SystemConfigurableFileSystemGetResponse';
     protected $mediaDirectory = null;
 
     /**
@@ -33,20 +32,24 @@ class SystemConfigurableFileSystemGetResponse extends ComplexType implements Com
     }
 
     /**
-     * Audio/Video File Directory location.
+     * 
      */
     public function setMediaDirectory($mediaDirectory = null)
     {
+        if (!$mediaDirectory) return $this;
         $this->mediaDirectory = ($mediaDirectory InstanceOf ConfigurableFileSystemDirectory)
              ? $mediaDirectory
              : new ConfigurableFileSystemDirectory($mediaDirectory);
+        $this->mediaDirectory->setName('mediaDirectory');
+        return $this;
     }
 
     /**
-     * Audio/Video File Directory location.
+     * 
+     * @return ConfigurableFileSystemDirectory
      */
     public function getMediaDirectory()
     {
-        return (!$this->mediaDirectory) ?: $this->mediaDirectory->getValue();
+        return $this->mediaDirectory->getValue();
     }
 }

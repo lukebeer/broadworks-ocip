@@ -12,7 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\Servi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupVoiceMessagingGroupGetVoicePortalResponse15;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVoiceMessagingGroupGetVoicePortalResponse15 extends ComplexType implements ComplexInterface
 {
-    public    $name                                                      = __CLASS__;
+    public    $name                                                      = 'GroupVoiceMessagingGroupGetVoicePortalResponse15';
     protected $serviceUserId                                             = null;
     protected $serviceInstanceProfile                                    = null;
     protected $isActive                                                  = null;
@@ -44,49 +44,45 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse15 extends ComplexType imple
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
-     *         Prior to release 14 this was called ServiceInstanceProfile.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
-     *         Prior to release 14 this was called ServiceInstanceProfile.
+     * 
+     * @return ServiceInstanceReadProfile
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
@@ -94,15 +90,19 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse15 extends ComplexType imple
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -110,15 +110,19 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse15 extends ComplexType imple
      */
     public function setAllowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin($allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = null)
     {
-        $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = (boolean) $allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin;
+        if (!$allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin) return $this;
+        $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = new PrimitiveType($allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin);
+        $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->setName('allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin()
     {
-        return (!$this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin) ?: $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin;
+        return $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->getValue();
     }
 
     /**
@@ -126,33 +130,41 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse15 extends ComplexType imple
      */
     public function setUseVoicePortalWizard($useVoicePortalWizard = null)
     {
-        $this->useVoicePortalWizard = (boolean) $useVoicePortalWizard;
+        if (!$useVoicePortalWizard) return $this;
+        $this->useVoicePortalWizard = new PrimitiveType($useVoicePortalWizard);
+        $this->useVoicePortalWizard->setName('useVoicePortalWizard');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseVoicePortalWizard()
+    {
+        return $this->useVoicePortalWizard->getValue();
     }
 
     /**
      * 
      */
-    public function getUseVoicePortalWizard()
-    {
-        return (!$this->useVoicePortalWizard) ?: $this->useVoicePortalWizard;
-    }
-
-    /**
-     * Choices for the voice portal's external routing to decide which settings to use.
-     */
     public function setVoicePortalExternalRoutingScope($voicePortalExternalRoutingScope = null)
     {
+        if (!$voicePortalExternalRoutingScope) return $this;
         $this->voicePortalExternalRoutingScope = ($voicePortalExternalRoutingScope InstanceOf VoicePortalExternalRoutingScope)
              ? $voicePortalExternalRoutingScope
              : new VoicePortalExternalRoutingScope($voicePortalExternalRoutingScope);
+        $this->voicePortalExternalRoutingScope->setName('voicePortalExternalRoutingScope');
+        return $this;
     }
 
     /**
-     * Choices for the voice portal's external routing to decide which settings to use.
+     * 
+     * @return VoicePortalExternalRoutingScope
      */
     public function getVoicePortalExternalRoutingScope()
     {
-        return (!$this->voicePortalExternalRoutingScope) ?: $this->voicePortalExternalRoutingScope->getValue();
+        return $this->voicePortalExternalRoutingScope->getValue();
     }
 
     /**
@@ -160,64 +172,62 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse15 extends ComplexType imple
      */
     public function setUseExternalRouting($useExternalRouting = null)
     {
-        $this->useExternalRouting = (boolean) $useExternalRouting;
+        if (!$useExternalRouting) return $this;
+        $this->useExternalRouting = new PrimitiveType($useExternalRouting);
+        $this->useExternalRouting->setName('useExternalRouting');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseExternalRouting()
+    {
+        return $this->useExternalRouting->getValue();
     }
 
     /**
      * 
      */
-    public function getUseExternalRouting()
-    {
-        return (!$this->useExternalRouting) ?: $this->useExternalRouting;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setExternalRoutingAddress($externalRoutingAddress = null)
     {
+        if (!$externalRoutingAddress) return $this;
         $this->externalRoutingAddress = ($externalRoutingAddress InstanceOf OutgoingDNorSIPURI)
              ? $externalRoutingAddress
              : new OutgoingDNorSIPURI($externalRoutingAddress);
+        $this->externalRoutingAddress->setName('externalRoutingAddress');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getExternalRoutingAddress()
     {
-        return (!$this->externalRoutingAddress) ?: $this->externalRoutingAddress->getValue();
+        return $this->externalRoutingAddress->getValue();
     }
 
     /**
-     * Zone Name.
+     * 
      */
     public function setHomeZoneName($homeZoneName = null)
     {
+        if (!$homeZoneName) return $this;
         $this->homeZoneName = ($homeZoneName InstanceOf ZoneName)
              ? $homeZoneName
              : new ZoneName($homeZoneName);
+        $this->homeZoneName->setName('homeZoneName');
+        return $this;
     }
 
     /**
-     * Zone Name.
+     * 
+     * @return ZoneName
      */
     public function getHomeZoneName()
     {
-        return (!$this->homeZoneName) ?: $this->homeZoneName->getValue();
+        return $this->homeZoneName->getValue();
     }
 }

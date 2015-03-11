@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterPriority;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterWeight;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterRoutingPeerModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterRoutingPeerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemBwDiameterRoutingPeerModifyRequest';
     protected $instance      = null;
     protected $realm         = null;
     protected $applicationId = null;
@@ -50,7 +49,7 @@ class SystemBwDiameterRoutingPeerModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * @return SystemBwDiameterRoutingPeerModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,110 +57,134 @@ class SystemBwDiameterRoutingPeerModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * The diameter peer instance type for an entry in the Peer Table.
+     * 
      */
     public function setInstance($instance = null)
     {
+        if (!$instance) return $this;
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
              ? $instance
              : new BwDiameterPeerInstance($instance);
+        $this->instance->setName('instance');
+        return $this;
     }
 
     /**
-     * The diameter peer instance type for an entry in the Peer Table.
+     * 
+     * @return BwDiameterPeerInstance
      */
     public function getInstance()
     {
-        return (!$this->instance) ?: $this->instance->getValue();
+        return $this->instance->getValue();
     }
 
     /**
-     * Network domain name.
+     * 
      */
     public function setRealm($realm = null)
     {
+        if (!$realm) return $this;
         $this->realm = ($realm InstanceOf DomainName)
              ? $realm
              : new DomainName($realm);
+        $this->realm->setName('realm');
+        return $this;
     }
 
     /**
-     * Network domain name.
+     * 
+     * @return DomainName
      */
     public function getRealm()
     {
-        return (!$this->realm) ?: $this->realm->getValue();
+        return $this->realm->getValue();
     }
 
     /**
-     * Choices for locally supported Diameter Application Ids.
+     * 
      */
     public function setApplicationId($applicationId = null)
     {
+        if (!$applicationId) return $this;
         $this->applicationId = ($applicationId InstanceOf BwDiameterApplicationId)
              ? $applicationId
              : new BwDiameterApplicationId($applicationId);
+        $this->applicationId->setName('applicationId');
+        return $this;
     }
 
     /**
-     * Choices for locally supported Diameter Application Ids.
+     * 
+     * @return BwDiameterApplicationId
      */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->getValue();
+        return $this->applicationId->getValue();
     }
 
     /**
-     * Network domain name.
+     * 
      */
     public function setIdentity($identity = null)
     {
+        if (!$identity) return $this;
         $this->identity = ($identity InstanceOf DomainName)
              ? $identity
              : new DomainName($identity);
+        $this->identity->setName('identity');
+        return $this;
     }
 
     /**
-     * Network domain name.
+     * 
+     * @return DomainName
      */
     public function getIdentity()
     {
-        return (!$this->identity) ?: $this->identity->getValue();
+        return $this->identity->getValue();
     }
 
     /**
-     * The priority of a peer against other routing peers associated to the same Realm Routing Table entry.
+     * 
      */
     public function setPriority($priority = null)
     {
+        if (!$priority) return $this;
         $this->priority = ($priority InstanceOf BwDiameterPriority)
              ? $priority
              : new BwDiameterPriority($priority);
+        $this->priority->setName('priority');
+        return $this;
     }
 
     /**
-     * The priority of a peer against other routing peers associated to the same Realm Routing Table entry.
+     * 
+     * @return BwDiameterPriority
      */
     public function getPriority()
     {
-        return (!$this->priority) ?: $this->priority->getValue();
+        return $this->priority->getValue();
     }
 
     /**
-     * The weight used for ordering peers having the same priority.
+     * 
      */
     public function setWeight($weight = null)
     {
+        if (!$weight) return $this;
         $this->weight = ($weight InstanceOf BwDiameterWeight)
              ? $weight
              : new BwDiameterWeight($weight);
+        $this->weight->setName('weight');
+        return $this;
     }
 
     /**
-     * The weight used for ordering peers having the same priority.
+     * 
+     * @return BwDiameterWeight
      */
     public function getWeight()
     {
-        return (!$this->weight) ?: $this->weight->getValue();
+        return $this->weight->getValue();
     }
 }

@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsRetransmissionDelayMilliSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsNonPagedResponseSize;
@@ -15,7 +15,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\SystemEnhancedCallLogsGetResponse17sp4;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'SystemEnhancedCallLogsGetResponse17sp4';
     protected $isSendEnabled                   = null;
     protected $server1NetAddress               = null;
     protected $server1SendPort                 = null;
@@ -55,195 +55,239 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
      */
     public function setIsSendEnabled($isSendEnabled = null)
     {
-        $this->isSendEnabled = (boolean) $isSendEnabled;
+        if (!$isSendEnabled) return $this;
+        $this->isSendEnabled = new PrimitiveType($isSendEnabled);
+        $this->isSendEnabled->setName('isSendEnabled');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsSendEnabled()
+    {
+        return $this->isSendEnabled->getValue();
     }
 
     /**
      * 
      */
-    public function getIsSendEnabled()
-    {
-        return (!$this->isSendEnabled) ?: $this->isSendEnabled;
-    }
-
-    /**
-     * IP Address, hostname, or domain.
-     */
     public function setServer1NetAddress($server1NetAddress = null)
     {
+        if (!$server1NetAddress) return $this;
         $this->server1NetAddress = ($server1NetAddress InstanceOf NetAddress)
              ? $server1NetAddress
              : new NetAddress($server1NetAddress);
+        $this->server1NetAddress->setName('server1NetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getServer1NetAddress()
     {
-        return (!$this->server1NetAddress) ?: $this->server1NetAddress->getValue();
+        return $this->server1NetAddress->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setServer1SendPort($server1SendPort = null)
     {
+        if (!$server1SendPort) return $this;
         $this->server1SendPort = ($server1SendPort InstanceOf Port1025)
              ? $server1SendPort
              : new Port1025($server1SendPort);
+        $this->server1SendPort->setName('server1SendPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getServer1SendPort()
     {
-        return (!$this->server1SendPort) ?: $this->server1SendPort->getValue();
+        return $this->server1SendPort->getValue();
     }
 
     /**
-     * TCP/IP Port.
+     * 
      */
     public function setServer1RetrievePort($server1RetrievePort = null)
     {
+        if (!$server1RetrievePort) return $this;
         $this->server1RetrievePort = ($server1RetrievePort InstanceOf Port)
              ? $server1RetrievePort
              : new Port($server1RetrievePort);
+        $this->server1RetrievePort->setName('server1RetrievePort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port.
+     * 
+     * @return Port
      */
     public function getServer1RetrievePort()
     {
-        return (!$this->server1RetrievePort) ?: $this->server1RetrievePort->getValue();
+        return $this->server1RetrievePort->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setServer2NetAddress($server2NetAddress = null)
     {
+        if (!$server2NetAddress) return $this;
         $this->server2NetAddress = ($server2NetAddress InstanceOf NetAddress)
              ? $server2NetAddress
              : new NetAddress($server2NetAddress);
+        $this->server2NetAddress->setName('server2NetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getServer2NetAddress()
     {
-        return (!$this->server2NetAddress) ?: $this->server2NetAddress->getValue();
+        return $this->server2NetAddress->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setServer2SendPort($server2SendPort = null)
     {
+        if (!$server2SendPort) return $this;
         $this->server2SendPort = ($server2SendPort InstanceOf Port1025)
              ? $server2SendPort
              : new Port1025($server2SendPort);
+        $this->server2SendPort->setName('server2SendPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getServer2SendPort()
     {
-        return (!$this->server2SendPort) ?: $this->server2SendPort->getValue();
+        return $this->server2SendPort->getValue();
     }
 
     /**
-     * TCP/IP Port.
+     * 
      */
     public function setServer2RetrievePort($server2RetrievePort = null)
     {
+        if (!$server2RetrievePort) return $this;
         $this->server2RetrievePort = ($server2RetrievePort InstanceOf Port)
              ? $server2RetrievePort
              : new Port($server2RetrievePort);
+        $this->server2RetrievePort->setName('server2RetrievePort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port.
+     * 
+     * @return Port
      */
     public function getServer2RetrievePort()
     {
-        return (!$this->server2RetrievePort) ?: $this->server2RetrievePort->getValue();
+        return $this->server2RetrievePort->getValue();
     }
 
     /**
-     * Shared Secret.
+     * 
      */
     public function setSharedSecret($sharedSecret = null)
     {
+        if (!$sharedSecret) return $this;
         $this->sharedSecret = ($sharedSecret InstanceOf EnhancedCallLogsSharedSecret)
              ? $sharedSecret
              : new EnhancedCallLogsSharedSecret($sharedSecret);
+        $this->sharedSecret->setName('sharedSecret');
+        return $this;
     }
 
     /**
-     * Shared Secret.
+     * 
+     * @return EnhancedCallLogsSharedSecret
      */
     public function getSharedSecret()
     {
-        return (!$this->sharedSecret) ?: $this->sharedSecret->getValue();
+        return $this->sharedSecret->getValue();
     }
 
     /**
-     * Retransmission delay in milli-seconds.
+     * 
      */
     public function setRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds = null)
     {
+        if (!$retransmissionDelayMilliSeconds) return $this;
         $this->retransmissionDelayMilliSeconds = ($retransmissionDelayMilliSeconds InstanceOf EnhancedCallLogsRetransmissionDelayMilliSeconds)
              ? $retransmissionDelayMilliSeconds
              : new EnhancedCallLogsRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
+        $this->retransmissionDelayMilliSeconds->setName('retransmissionDelayMilliSeconds');
+        return $this;
     }
 
     /**
-     * Retransmission delay in milli-seconds.
+     * 
+     * @return EnhancedCallLogsRetransmissionDelayMilliSeconds
      */
     public function getRetransmissionDelayMilliSeconds()
     {
-        return (!$this->retransmissionDelayMilliSeconds) ?: $this->retransmissionDelayMilliSeconds->getValue();
+        return $this->retransmissionDelayMilliSeconds->getValue();
     }
 
     /**
-     * Maximum transmissions.
+     * 
      */
     public function setMaxTransmissions($maxTransmissions = null)
     {
+        if (!$maxTransmissions) return $this;
         $this->maxTransmissions = ($maxTransmissions InstanceOf EnhancedCallLogsMaxTransmissions)
              ? $maxTransmissions
              : new EnhancedCallLogsMaxTransmissions($maxTransmissions);
+        $this->maxTransmissions->setName('maxTransmissions');
+        return $this;
     }
 
     /**
-     * Maximum transmissions.
+     * 
+     * @return EnhancedCallLogsMaxTransmissions
      */
     public function getMaxTransmissions()
     {
-        return (!$this->maxTransmissions) ?: $this->maxTransmissions->getValue();
+        return $this->maxTransmissions->getValue();
     }
 
     /**
-     * Timeout when retrieving enhanced call logs through the SOAP interface.
+     * 
      */
     public function setSoapTimeoutSeconds($soapTimeoutSeconds = null)
     {
+        if (!$soapTimeoutSeconds) return $this;
         $this->soapTimeoutSeconds = ($soapTimeoutSeconds InstanceOf EnhancedCallLogsSoapTimeoutSeconds)
              ? $soapTimeoutSeconds
              : new EnhancedCallLogsSoapTimeoutSeconds($soapTimeoutSeconds);
+        $this->soapTimeoutSeconds->setName('soapTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * Timeout when retrieving enhanced call logs through the SOAP interface.
+     * 
+     * @return EnhancedCallLogsSoapTimeoutSeconds
      */
     public function getSoapTimeoutSeconds()
     {
-        return (!$this->soapTimeoutSeconds) ?: $this->soapTimeoutSeconds->getValue();
+        return $this->soapTimeoutSeconds->getValue();
     }
 
     /**
@@ -251,34 +295,40 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
      */
     public function setUseDBS($useDBS = null)
     {
-        $this->useDBS = (boolean) $useDBS;
+        if (!$useDBS) return $this;
+        $this->useDBS = new PrimitiveType($useDBS);
+        $this->useDBS->setName('useDBS');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseDBS()
+    {
+        return $this->useDBS->getValue();
     }
 
     /**
      * 
      */
-    public function getUseDBS()
-    {
-        return (!$this->useDBS) ?: $this->useDBS;
-    }
-
-    /**
-     * The maximum number of call log entries to return when paging information is
-     *         not specified in the request.
-     */
     public function setMaxNonPagedResponseSize($maxNonPagedResponseSize = null)
     {
+        if (!$maxNonPagedResponseSize) return $this;
         $this->maxNonPagedResponseSize = ($maxNonPagedResponseSize InstanceOf EnhancedCallLogsNonPagedResponseSize)
              ? $maxNonPagedResponseSize
              : new EnhancedCallLogsNonPagedResponseSize($maxNonPagedResponseSize);
+        $this->maxNonPagedResponseSize->setName('maxNonPagedResponseSize');
+        return $this;
     }
 
     /**
-     * The maximum number of call log entries to return when paging information is
-     *         not specified in the request.
+     * 
+     * @return EnhancedCallLogsNonPagedResponseSize
      */
     public function getMaxNonPagedResponseSize()
     {
-        return (!$this->maxNonPagedResponseSize) ?: $this->maxNonPagedResponseSize->getValue();
+        return $this->maxNonPagedResponseSize->getValue();
     }
 }

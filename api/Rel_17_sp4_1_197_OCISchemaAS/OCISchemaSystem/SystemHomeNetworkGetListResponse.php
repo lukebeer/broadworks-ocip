@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemHomeNetworkGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemHomeNetworkGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemHomeNetworkGetListResponse';
     protected $mscAddress = null;
 
     /**
@@ -32,20 +31,24 @@ class SystemHomeNetworkGetListResponse extends ComplexType implements ComplexInt
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setMscAddress($mscAddress = null)
     {
+        if (!$mscAddress) return $this;
         $this->mscAddress = ($mscAddress InstanceOf DN)
              ? $mscAddress
              : new DN($mscAddress);
+        $this->mscAddress->setName('mscAddress');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getMscAddress()
     {
-        return (!$this->mscAddress) ?: $this->mscAddress->getValue();
+        return $this->mscAddress->getValue();
     }
 }

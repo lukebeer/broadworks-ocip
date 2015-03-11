@@ -24,7 +24,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminAdminAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderAdminUserAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAdminModifyPolicyResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -42,7 +41,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAdminModifyPolicyRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'ServiceProviderAdminModifyPolicyRequest14';
     protected $userId                        = null;
     protected $profileAccess                 = null;
     protected $groupAccess                   = null;
@@ -100,7 +99,7 @@ class ServiceProviderAdminModifyPolicyRequest14 extends ComplexType implements C
     }
 
     /**
-     * @return ServiceProviderAdminModifyPolicyResponse14
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -108,358 +107,376 @@ class ServiceProviderAdminModifyPolicyRequest14 extends ComplexType implements C
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing
-     *         the service provider profile information.
+     * 
      */
     public function setProfileAccess($profileAccess = null)
     {
+        if (!$profileAccess) return $this;
         $this->profileAccess = ($profileAccess InstanceOf ServiceProviderAdminProfileAccess)
              ? $profileAccess
              : new ServiceProviderAdminProfileAccess($profileAccess);
+        $this->profileAccess->setName('profileAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing
-     *         the service provider profile information.
+     * 
+     * @return ServiceProviderAdminProfileAccess
      */
     public function getProfileAccess()
     {
-        return (!$this->profileAccess) ?: $this->profileAccess->getValue();
+        return $this->profileAccess->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing groups
-     *         within the service provider.
+     * 
      */
     public function setGroupAccess($groupAccess = null)
     {
+        if (!$groupAccess) return $this;
         $this->groupAccess = ($groupAccess InstanceOf ServiceProviderAdminGroupAccess)
              ? $groupAccess
              : new ServiceProviderAdminGroupAccess($groupAccess);
+        $this->groupAccess->setName('groupAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing groups
-     *         within the service provider.
+     * 
+     * @return ServiceProviderAdminGroupAccess
      */
     public function getGroupAccess()
     {
-        return (!$this->groupAccess) ?: $this->groupAccess->getValue();
+        return $this->groupAccess->getValue();
     }
 
     /**
-     * Policy for a service provider administrator's access to user configuration.
-     *         "Full" indicates full access to users in the service provider.
-     *         "Full Profile" indicates
-     *           1) the service provider administrator is restricted from adding or removing users, but
-     *           2) has full access to the user's profile
-     *         "Read-Only Profile" indicates
-     *           1) the service provider administrator is restricted from adding or removing users, and
-     *           2) read-only access is granted to the user's profile.
-     *         "No Profile" indicates
-     *           1) the service provider administrator is restricted from adding or removing users, and
-     *           2) no access is granted to the user's profile.
-     *         "None" indicates no access to users in the service provider.
+     * 
      */
     public function setUserAccess($userAccess = null)
     {
+        if (!$userAccess) return $this;
         $this->userAccess = ($userAccess InstanceOf ServiceProviderAdminUserAccess)
              ? $userAccess
              : new ServiceProviderAdminUserAccess($userAccess);
+        $this->userAccess->setName('userAccess');
+        return $this;
     }
 
     /**
-     * Policy for a service provider administrator's access to user configuration.
-     *         "Full" indicates full access to users in the service provider.
-     *         "Full Profile" indicates
-     *           1) the service provider administrator is restricted from adding or removing users, but
-     *           2) has full access to the user's profile
-     *         "Read-Only Profile" indicates
-     *           1) the service provider administrator is restricted from adding or removing users, and
-     *           2) read-only access is granted to the user's profile.
-     *         "No Profile" indicates
-     *           1) the service provider administrator is restricted from adding or removing users, and
-     *           2) no access is granted to the user's profile.
-     *         "None" indicates no access to users in the service provider.
+     * 
+     * @return ServiceProviderAdminUserAccess
      */
     public function getUserAccess()
     {
-        return (!$this->userAccess) ?: $this->userAccess->getValue();
+        return $this->userAccess->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing other
-     *         Service Provider Administrator's within the same service provider.
+     * 
      */
     public function setAdminAccess($adminAccess = null)
     {
+        if (!$adminAccess) return $this;
         $this->adminAccess = ($adminAccess InstanceOf ServiceProviderAdminAdminAccess)
              ? $adminAccess
              : new ServiceProviderAdminAdminAccess($adminAccess);
+        $this->adminAccess->setName('adminAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing other
-     *         Service Provider Administrator's within the same service provider.
+     * 
+     * @return ServiceProviderAdminAdminAccess
      */
     public function getAdminAccess()
     {
-        return (!$this->adminAccess) ?: $this->adminAccess->getValue();
+        return $this->adminAccess->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing department lists
-     *         within the service provider.
+     * 
      */
     public function setDepartmentAccess($departmentAccess = null)
     {
+        if (!$departmentAccess) return $this;
         $this->departmentAccess = ($departmentAccess InstanceOf ServiceProviderAdminDepartmentAccess)
              ? $departmentAccess
              : new ServiceProviderAdminDepartmentAccess($departmentAccess);
+        $this->departmentAccess->setName('departmentAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing department lists
-     *         within the service provider.
+     * 
+     * @return ServiceProviderAdminDepartmentAccess
      */
     public function getDepartmentAccess()
     {
-        return (!$this->departmentAccess) ?: $this->departmentAccess->getValue();
+        return $this->departmentAccess->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing access devices.
+     * 
      */
     public function setAccessDeviceAccess($accessDeviceAccess = null)
     {
+        if (!$accessDeviceAccess) return $this;
         $this->accessDeviceAccess = ($accessDeviceAccess InstanceOf ServiceProviderAdminAccessDeviceAccess)
              ? $accessDeviceAccess
              : new ServiceProviderAdminAccessDeviceAccess($accessDeviceAccess);
+        $this->accessDeviceAccess->setName('accessDeviceAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing access devices.
+     * 
+     * @return ServiceProviderAdminAccessDeviceAccess
      */
     public function getAccessDeviceAccess()
     {
-        return (!$this->accessDeviceAccess) ?: $this->accessDeviceAccess->getValue();
+        return $this->accessDeviceAccess->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing phone numbers or
-     *         extensions.
+     * 
      */
     public function setPhoneNumberExtensionAccess($phoneNumberExtensionAccess = null)
     {
+        if (!$phoneNumberExtensionAccess) return $this;
         $this->phoneNumberExtensionAccess = ($phoneNumberExtensionAccess InstanceOf ServiceProviderAdminPhoneNumberExtensionAccess)
              ? $phoneNumberExtensionAccess
              : new ServiceProviderAdminPhoneNumberExtensionAccess($phoneNumberExtensionAccess);
+        $this->phoneNumberExtensionAccess->setName('phoneNumberExtensionAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing phone numbers or
-     *         extensions.
+     * 
+     * @return ServiceProviderAdminPhoneNumberExtensionAccess
      */
     public function getPhoneNumberExtensionAccess()
     {
-        return (!$this->phoneNumberExtensionAccess) ?: $this->phoneNumberExtensionAccess->getValue();
+        return $this->phoneNumberExtensionAccess->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing calling line id number.
+     * 
      */
     public function setCallingLineIdNumberAccess($callingLineIdNumberAccess = null)
     {
+        if (!$callingLineIdNumberAccess) return $this;
         $this->callingLineIdNumberAccess = ($callingLineIdNumberAccess InstanceOf ServiceProviderAdminCallingLineIdNumberAccess)
              ? $callingLineIdNumberAccess
              : new ServiceProviderAdminCallingLineIdNumberAccess($callingLineIdNumberAccess);
+        $this->callingLineIdNumberAccess->setName('callingLineIdNumberAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing calling line id number.
+     * 
+     * @return ServiceProviderAdminCallingLineIdNumberAccess
      */
     public function getCallingLineIdNumberAccess()
     {
-        return (!$this->callingLineIdNumberAccess) ?: $this->callingLineIdNumberAccess->getValue();
+        return $this->callingLineIdNumberAccess->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing services.
-     *         "No Authorization" was added in release 14.
+     * 
      */
     public function setServiceAccess($serviceAccess = null)
     {
+        if (!$serviceAccess) return $this;
         $this->serviceAccess = ($serviceAccess InstanceOf ServiceProviderAdminServiceAccess)
              ? $serviceAccess
              : new ServiceProviderAdminServiceAccess($serviceAccess);
+        $this->serviceAccess->setName('serviceAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing services.
-     *         "No Authorization" was added in release 14.
+     * 
+     * @return ServiceProviderAdminServiceAccess
      */
     public function getServiceAccess()
     {
-        return (!$this->serviceAccess) ?: $this->serviceAccess->getValue();
+        return $this->serviceAccess->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing service packs.
+     * 
      */
     public function setServicePackAccess($servicePackAccess = null)
     {
+        if (!$servicePackAccess) return $this;
         $this->servicePackAccess = ($servicePackAccess InstanceOf ServiceProviderAdminServicePackAccess)
              ? $servicePackAccess
              : new ServiceProviderAdminServicePackAccess($servicePackAccess);
+        $this->servicePackAccess->setName('servicePackAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing service packs.
+     * 
+     * @return ServiceProviderAdminServicePackAccess
      */
     public function getServicePackAccess()
     {
-        return (!$this->servicePackAccess) ?: $this->servicePackAccess->getValue();
+        return $this->servicePackAccess->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing
-     *         the Session Admission Control information.
+     * 
      */
     public function setSessionAdmissionControlAccess($sessionAdmissionControlAccess = null)
     {
+        if (!$sessionAdmissionControlAccess) return $this;
         $this->sessionAdmissionControlAccess = ($sessionAdmissionControlAccess InstanceOf ServiceProviderAdminSessionAdmissionControlAccess)
              ? $sessionAdmissionControlAccess
              : new ServiceProviderAdminSessionAdmissionControlAccess($sessionAdmissionControlAccess);
+        $this->sessionAdmissionControlAccess->setName('sessionAdmissionControlAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing
-     *         the Session Admission Control information.
+     * 
+     * @return ServiceProviderAdminSessionAdmissionControlAccess
      */
     public function getSessionAdmissionControlAccess()
     {
-        return (!$this->sessionAdmissionControlAccess) ?: $this->sessionAdmissionControlAccess->getValue();
+        return $this->sessionAdmissionControlAccess->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing web branding.
+     * 
      */
     public function setWebBrandingAccess($webBrandingAccess = null)
     {
+        if (!$webBrandingAccess) return $this;
         $this->webBrandingAccess = ($webBrandingAccess InstanceOf ServiceProviderAdminWebBrandingAccess)
              ? $webBrandingAccess
              : new ServiceProviderAdminWebBrandingAccess($webBrandingAccess);
+        $this->webBrandingAccess->setName('webBrandingAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing web branding.
+     * 
+     * @return ServiceProviderAdminWebBrandingAccess
      */
     public function getWebBrandingAccess()
     {
-        return (!$this->webBrandingAccess) ?: $this->webBrandingAccess->getValue();
+        return $this->webBrandingAccess->getValue();
     }
 
     /**
-     * Service Provider Administrator's policy for accessing
-     *         the Office Zone information.
+     * 
      */
     public function setOfficeZoneAccess($officeZoneAccess = null)
     {
+        if (!$officeZoneAccess) return $this;
         $this->officeZoneAccess = ($officeZoneAccess InstanceOf ServiceProviderAdminOfficeZoneAccess)
              ? $officeZoneAccess
              : new ServiceProviderAdminOfficeZoneAccess($officeZoneAccess);
+        $this->officeZoneAccess->setName('officeZoneAccess');
+        return $this;
     }
 
     /**
-     * Service Provider Administrator's policy for accessing
-     *         the Office Zone information.
+     * 
+     * @return ServiceProviderAdminOfficeZoneAccess
      */
     public function getOfficeZoneAccess()
     {
-        return (!$this->officeZoneAccess) ?: $this->officeZoneAccess->getValue();
+        return $this->officeZoneAccess->getValue();
     }
 
     /**
-     * Service Providers Administrator's policy for accessing
-     *         the Communication Barring information.
+     * 
      */
     public function setCommunicationBarringAccess($communicationBarringAccess = null)
     {
+        if (!$communicationBarringAccess) return $this;
         $this->communicationBarringAccess = ($communicationBarringAccess InstanceOf ServiceProviderAdminCommunicationBarringAccess)
              ? $communicationBarringAccess
              : new ServiceProviderAdminCommunicationBarringAccess($communicationBarringAccess);
+        $this->communicationBarringAccess->setName('communicationBarringAccess');
+        return $this;
     }
 
     /**
-     * Service Providers Administrator's policy for accessing
-     *         the Communication Barring information.
+     * 
+     * @return ServiceProviderAdminCommunicationBarringAccess
      */
     public function getCommunicationBarringAccess()
     {
-        return (!$this->communicationBarringAccess) ?: $this->communicationBarringAccess->getValue();
+        return $this->communicationBarringAccess->getValue();
     }
 
     /**
-     * This data type is applicable only for an Enterprise administrator.
-     *         It specifies the Enterprise Administrator's policy for accessing network policies (e.g. - VoiceVPN).
+     * 
      */
     public function setNetworkPolicyAccess($networkPolicyAccess = null)
     {
+        if (!$networkPolicyAccess) return $this;
         $this->networkPolicyAccess = ($networkPolicyAccess InstanceOf EnterpriseAdminNetworkPolicyAccess)
              ? $networkPolicyAccess
              : new EnterpriseAdminNetworkPolicyAccess($networkPolicyAccess);
+        $this->networkPolicyAccess->setName('networkPolicyAccess');
+        return $this;
     }
 
     /**
-     * This data type is applicable only for an Enterprise administrator.
-     *         It specifies the Enterprise Administrator's policy for accessing network policies (e.g. - VoiceVPN).
+     * 
+     * @return EnterpriseAdminNetworkPolicyAccess
      */
     public function getNetworkPolicyAccess()
     {
-        return (!$this->networkPolicyAccess) ?: $this->networkPolicyAccess->getValue();
+        return $this->networkPolicyAccess->getValue();
     }
 
     /**
-     * Policy for accessing the service provider Dialable Caller ID configuration.
+     * 
      */
     public function setDialableCallerIDAccess($dialableCallerIDAccess = null)
     {
+        if (!$dialableCallerIDAccess) return $this;
         $this->dialableCallerIDAccess = ($dialableCallerIDAccess InstanceOf ServiceProviderAdminDialableCallerIDAccess)
              ? $dialableCallerIDAccess
              : new ServiceProviderAdminDialableCallerIDAccess($dialableCallerIDAccess);
+        $this->dialableCallerIDAccess->setName('dialableCallerIDAccess');
+        return $this;
     }
 
     /**
-     * Policy for accessing the service provider Dialable Caller ID configuration.
+     * 
+     * @return ServiceProviderAdminDialableCallerIDAccess
      */
     public function getDialableCallerIDAccess()
     {
-        return (!$this->dialableCallerIDAccess) ?: $this->dialableCallerIDAccess->getValue();
+        return $this->dialableCallerIDAccess->getValue();
     }
 }

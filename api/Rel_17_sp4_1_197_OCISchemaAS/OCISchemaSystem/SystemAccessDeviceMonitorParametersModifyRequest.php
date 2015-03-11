@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\AccessDeviceMonitorPollingIntervalMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceMonitorParametersModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceMonitorParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'SystemAccessDeviceMonitorParametersModifyRequest';
     protected $pollingIntervalMinutes = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemAccessDeviceMonitorParametersModifyRequest extends ComplexType imple
     }
 
     /**
-     * @return SystemAccessDeviceMonitorParametersModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,22 +38,24 @@ class SystemAccessDeviceMonitorParametersModifyRequest extends ComplexType imple
     }
 
     /**
-     * Polling interval in minutes.
-     *         Setting the monitoring interval to zero will turn it off.
+     * 
      */
     public function setPollingIntervalMinutes($pollingIntervalMinutes = null)
     {
+        if (!$pollingIntervalMinutes) return $this;
         $this->pollingIntervalMinutes = ($pollingIntervalMinutes InstanceOf AccessDeviceMonitorPollingIntervalMinutes)
              ? $pollingIntervalMinutes
              : new AccessDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
+        $this->pollingIntervalMinutes->setName('pollingIntervalMinutes');
+        return $this;
     }
 
     /**
-     * Polling interval in minutes.
-     *         Setting the monitoring interval to zero will turn it off.
+     * 
+     * @return AccessDeviceMonitorPollingIntervalMinutes
      */
     public function getPollingIntervalMinutes()
     {
-        return (!$this->pollingIntervalMinutes) ?: $this->pollingIntervalMinutes->getValue();
+        return $this->pollingIntervalMinutes->getValue();
     }
 }

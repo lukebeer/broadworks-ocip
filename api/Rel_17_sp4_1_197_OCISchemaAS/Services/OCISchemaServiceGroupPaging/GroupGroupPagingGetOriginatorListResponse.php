@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingGetOriginatorListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetOriginatorListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'GroupGroupPagingGetOriginatorListResponse';
     protected $originatorTable = null;
 
     /**
@@ -38,14 +37,17 @@ class GroupGroupPagingGetOriginatorListResponse extends ComplexType implements C
      */
     public function setOriginatorTable(core:OCITable $originatorTable = null)
     {
-        $this->originatorTable =  $originatorTable;
+        if (!$originatorTable) return $this;
+        $this->originatorTable->setName('originatorTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getOriginatorTable()
     {
-        return (!$this->originatorTable) ?: $this->originatorTable->getValue();
+        return $this->originatorTable->getValue();
     }
 }

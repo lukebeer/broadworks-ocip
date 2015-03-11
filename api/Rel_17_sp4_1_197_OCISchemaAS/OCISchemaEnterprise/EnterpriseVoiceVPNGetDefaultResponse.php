@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\Enterpr
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseVoiceVPNPolicySelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNTreatmentEntry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetDefaultResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'EnterpriseVoiceVPNGetDefaultResponse';
     protected $policySelection            = null;
     protected $digitManipulationOperation = null;
     protected $routeGroupId               = null;
@@ -38,74 +37,88 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
     }
 
     /**
-     * Enterprise Voice VPN Location Selection.
+     * 
      */
     public function setPolicySelection($policySelection = null)
     {
+        if (!$policySelection) return $this;
         $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
              ? $policySelection
              : new EnterpriseVoiceVPNPolicySelection($policySelection);
+        $this->policySelection->setName('policySelection');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Location Selection.
+     * 
+     * @return EnterpriseVoiceVPNPolicySelection
      */
     public function getPolicySelection()
     {
-        return (!$this->policySelection) ?: $this->policySelection->getValue();
+        return $this->policySelection->getValue();
     }
 
     /**
-     * Enterprise Voice VPN Digit Manipulation operations.
+     * 
      */
     public function setDigitManipulationOperation($digitManipulationOperation = null)
     {
+        if (!$digitManipulationOperation) return $this;
         $this->digitManipulationOperation = ($digitManipulationOperation InstanceOf EnterpriseVoiceVPNDigitManipulationOperation)
              ? $digitManipulationOperation
              : new EnterpriseVoiceVPNDigitManipulationOperation($digitManipulationOperation);
+        $this->digitManipulationOperation->setName('digitManipulationOperation');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Digit Manipulation operations.
+     * 
+     * @return EnterpriseVoiceVPNDigitManipulationOperation
      */
     public function getDigitManipulationOperation()
     {
-        return (!$this->digitManipulationOperation) ?: $this->digitManipulationOperation->getValue();
+        return $this->digitManipulationOperation->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setRouteGroupId($routeGroupId = null)
     {
+        if (!$routeGroupId) return $this;
         $this->routeGroupId = ($routeGroupId InstanceOf GroupId)
              ? $routeGroupId
              : new GroupId($routeGroupId);
+        $this->routeGroupId->setName('routeGroupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getRouteGroupId()
     {
-        return (!$this->routeGroupId) ?: $this->routeGroupId->getValue();
+        return $this->routeGroupId->getValue();
     }
 
     /**
-     * Enterprise Voice VPN Treatment entry
+     * 
      */
     public function setTreatment(EnterpriseVoiceVPNTreatmentEntry $treatment = null)
     {
-        $this->treatment =  $treatment;
+        if (!$treatment) return $this;
+        $this->treatment = $treatment;
+        $this->treatment->setName('treatment');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Treatment entry
+     * 
+     * @return EnterpriseVoiceVPNTreatmentEntry
      */
     public function getTreatment()
     {
-        return (!$this->treatment) ?: $this->treatment->getValue();
+        return $this->treatment;
     }
 }

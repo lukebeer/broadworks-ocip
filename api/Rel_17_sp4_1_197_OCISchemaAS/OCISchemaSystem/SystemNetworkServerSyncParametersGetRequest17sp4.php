@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemNetworkServerSyncParametersGetRequest17sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkServerSyncParametersGetResponse17sp4';
-    public    $name = __CLASS__;
+    public    $name = 'SystemNetworkServerSyncParametersGetRequest17sp4';
 
     public function __construct(    ) {
     }

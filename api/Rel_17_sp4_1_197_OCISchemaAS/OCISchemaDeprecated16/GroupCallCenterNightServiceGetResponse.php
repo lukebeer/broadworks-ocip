@@ -15,7 +15,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDesc
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterNightServiceGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterNightServiceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'GroupCallCenterNightServiceGetResponse';
     protected $action                       = null;
     protected $businessHours                = null;
     protected $forceNightService            = null;
@@ -61,39 +61,47 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
     }
 
     /**
-     * Call center scheduled service (Night Services, Holiday Services, etc.) processing action.
+     * 
      */
     public function setAction($action = null)
     {
+        if (!$action) return $this;
         $this->action = ($action InstanceOf CallCenterScheduledServiceAction)
              ? $action
              : new CallCenterScheduledServiceAction($action);
+        $this->action->setName('action');
+        return $this;
     }
 
     /**
-     * Call center scheduled service (Night Services, Holiday Services, etc.) processing action.
+     * 
+     * @return CallCenterScheduledServiceAction
      */
     public function getAction()
     {
-        return (!$this->action) ?: $this->action->getValue();
+        return $this->action->getValue();
     }
 
     /**
-     * Schedule name.
+     * 
      */
     public function setBusinessHours($businessHours = null)
     {
+        if (!$businessHours) return $this;
         $this->businessHours = ($businessHours InstanceOf ScheduleName)
              ? $businessHours
              : new ScheduleName($businessHours);
+        $this->businessHours->setName('businessHours');
+        return $this;
     }
 
     /**
-     * Schedule name.
+     * 
+     * @return ScheduleName
      */
     public function getBusinessHours()
     {
-        return (!$this->businessHours) ?: $this->businessHours->getValue();
+        return $this->businessHours->getValue();
     }
 
     /**
@@ -101,15 +109,19 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setForceNightService($forceNightService = null)
     {
-        $this->forceNightService = (boolean) $forceNightService;
+        if (!$forceNightService) return $this;
+        $this->forceNightService = new PrimitiveType($forceNightService);
+        $this->forceNightService->setName('forceNightService');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getForceNightService()
     {
-        return (!$this->forceNightService) ?: $this->forceNightService;
+        return $this->forceNightService->getValue();
     }
 
     /**
@@ -117,47 +129,41 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setAllowManualOverrideViaFAC($allowManualOverrideViaFAC = null)
     {
-        $this->allowManualOverrideViaFAC = (boolean) $allowManualOverrideViaFAC;
+        if (!$allowManualOverrideViaFAC) return $this;
+        $this->allowManualOverrideViaFAC = new PrimitiveType($allowManualOverrideViaFAC);
+        $this->allowManualOverrideViaFAC->setName('allowManualOverrideViaFAC');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowManualOverrideViaFAC()
+    {
+        return $this->allowManualOverrideViaFAC->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowManualOverrideViaFAC()
-    {
-        return (!$this->allowManualOverrideViaFAC) ?: $this->allowManualOverrideViaFAC;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
+        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
+        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getTransferPhoneNumber()
     {
-        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->getValue();
+        return $this->transferPhoneNumber->getValue();
     }
 
     /**
@@ -165,352 +171,392 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setPlayAnnouncementBeforeAction($playAnnouncementBeforeAction = null)
     {
-        $this->playAnnouncementBeforeAction = (boolean) $playAnnouncementBeforeAction;
+        if (!$playAnnouncementBeforeAction) return $this;
+        $this->playAnnouncementBeforeAction = new PrimitiveType($playAnnouncementBeforeAction);
+        $this->playAnnouncementBeforeAction->setName('playAnnouncementBeforeAction');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPlayAnnouncementBeforeAction()
+    {
+        return $this->playAnnouncementBeforeAction->getValue();
     }
 
     /**
      * 
      */
-    public function getPlayAnnouncementBeforeAction()
-    {
-        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction;
-    }
-
-    /**
-     * Choices for extended file resource usage.
-     */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
+        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
+        $this->audioMessageSelection->setName('audioMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getAudioMessageSelection()
     {
-        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->getValue();
+        return $this->audioMessageSelection->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
+        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
+        $this->audioFileUrl->setName('audioFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getAudioFileUrl()
     {
-        return (!$this->audioFileUrl) ?: $this->audioFileUrl->getValue();
+        return $this->audioFileUrl->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
+        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
+        $this->audioFileDescription->setName('audioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
+        return $this->audioFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setAudioMediaType($audioMediaType = null)
     {
+        if (!$audioMediaType) return $this;
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
+        $this->audioMediaType->setName('audioMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getAudioMediaType()
     {
-        return (!$this->audioMediaType) ?: $this->audioMediaType->getValue();
+        return $this->audioMediaType->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
+        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
+        $this->videoMessageSelection->setName('videoMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getVideoMessageSelection()
     {
-        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->getValue();
+        return $this->videoMessageSelection->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
+        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
+        $this->videoFileUrl->setName('videoFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getVideoFileUrl()
     {
-        return (!$this->videoFileUrl) ?: $this->videoFileUrl->getValue();
+        return $this->videoFileUrl->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
+        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
+        $this->videoFileDescription->setName('videoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
+        return $this->videoFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setVideoMediaType($videoMediaType = null)
     {
+        if (!$videoMediaType) return $this;
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
+        $this->videoMediaType->setName('videoMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getVideoMediaType()
     {
-        return (!$this->videoMediaType) ?: $this->videoMediaType->getValue();
+        return $this->videoMediaType->getValue();
     }
 
     /**
-     * Call center manual night service announcement mode.
+     * 
      */
     public function setManualAnnouncementMode($manualAnnouncementMode = null)
     {
+        if (!$manualAnnouncementMode) return $this;
         $this->manualAnnouncementMode = ($manualAnnouncementMode InstanceOf CallCenterManualNightServiceAnnouncementMode)
              ? $manualAnnouncementMode
              : new CallCenterManualNightServiceAnnouncementMode($manualAnnouncementMode);
+        $this->manualAnnouncementMode->setName('manualAnnouncementMode');
+        return $this;
     }
 
     /**
-     * Call center manual night service announcement mode.
+     * 
+     * @return CallCenterManualNightServiceAnnouncementMode
      */
     public function getManualAnnouncementMode()
     {
-        return (!$this->manualAnnouncementMode) ?: $this->manualAnnouncementMode->getValue();
+        return $this->manualAnnouncementMode->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setManualAudioMessageSelection($manualAudioMessageSelection = null)
     {
+        if (!$manualAudioMessageSelection) return $this;
         $this->manualAudioMessageSelection = ($manualAudioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $manualAudioMessageSelection
              : new ExtendedFileResourceSelection($manualAudioMessageSelection);
+        $this->manualAudioMessageSelection->setName('manualAudioMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getManualAudioMessageSelection()
     {
-        return (!$this->manualAudioMessageSelection) ?: $this->manualAudioMessageSelection->getValue();
+        return $this->manualAudioMessageSelection->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setManualAudioFileUrl($manualAudioFileUrl = null)
     {
+        if (!$manualAudioFileUrl) return $this;
         $this->manualAudioFileUrl = ($manualAudioFileUrl InstanceOf URL)
              ? $manualAudioFileUrl
              : new URL($manualAudioFileUrl);
+        $this->manualAudioFileUrl->setName('manualAudioFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getManualAudioFileUrl()
     {
-        return (!$this->manualAudioFileUrl) ?: $this->manualAudioFileUrl->getValue();
+        return $this->manualAudioFileUrl->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setManualAudioFileDescription($manualAudioFileDescription = null)
     {
+        if (!$manualAudioFileDescription) return $this;
         $this->manualAudioFileDescription = ($manualAudioFileDescription InstanceOf FileDescription)
              ? $manualAudioFileDescription
              : new FileDescription($manualAudioFileDescription);
+        $this->manualAudioFileDescription->setName('manualAudioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getManualAudioFileDescription()
     {
-        return (!$this->manualAudioFileDescription) ?: $this->manualAudioFileDescription->getValue();
+        return $this->manualAudioFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setManualAudioMediaType($manualAudioMediaType = null)
     {
+        if (!$manualAudioMediaType) return $this;
         $this->manualAudioMediaType = ($manualAudioMediaType InstanceOf MediaFileType)
              ? $manualAudioMediaType
              : new MediaFileType($manualAudioMediaType);
+        $this->manualAudioMediaType->setName('manualAudioMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getManualAudioMediaType()
     {
-        return (!$this->manualAudioMediaType) ?: $this->manualAudioMediaType->getValue();
+        return $this->manualAudioMediaType->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setManualVideoMessageSelection($manualVideoMessageSelection = null)
     {
+        if (!$manualVideoMessageSelection) return $this;
         $this->manualVideoMessageSelection = ($manualVideoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $manualVideoMessageSelection
              : new ExtendedFileResourceSelection($manualVideoMessageSelection);
+        $this->manualVideoMessageSelection->setName('manualVideoMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getManualVideoMessageSelection()
     {
-        return (!$this->manualVideoMessageSelection) ?: $this->manualVideoMessageSelection->getValue();
+        return $this->manualVideoMessageSelection->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setManualVideoFileUrl($manualVideoFileUrl = null)
     {
+        if (!$manualVideoFileUrl) return $this;
         $this->manualVideoFileUrl = ($manualVideoFileUrl InstanceOf URL)
              ? $manualVideoFileUrl
              : new URL($manualVideoFileUrl);
+        $this->manualVideoFileUrl->setName('manualVideoFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getManualVideoFileUrl()
     {
-        return (!$this->manualVideoFileUrl) ?: $this->manualVideoFileUrl->getValue();
+        return $this->manualVideoFileUrl->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setManualVideoFileDescription($manualVideoFileDescription = null)
     {
+        if (!$manualVideoFileDescription) return $this;
         $this->manualVideoFileDescription = ($manualVideoFileDescription InstanceOf FileDescription)
              ? $manualVideoFileDescription
              : new FileDescription($manualVideoFileDescription);
+        $this->manualVideoFileDescription->setName('manualVideoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getManualVideoFileDescription()
     {
-        return (!$this->manualVideoFileDescription) ?: $this->manualVideoFileDescription->getValue();
+        return $this->manualVideoFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setManualVideoMediaType($manualVideoMediaType = null)
     {
+        if (!$manualVideoMediaType) return $this;
         $this->manualVideoMediaType = ($manualVideoMediaType InstanceOf MediaFileType)
              ? $manualVideoMediaType
              : new MediaFileType($manualVideoMediaType);
+        $this->manualVideoMediaType->setName('manualVideoMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getManualVideoMediaType()
     {
-        return (!$this->manualVideoMediaType) ?: $this->manualVideoMediaType->getValue();
+        return $this->manualVideoMediaType->getValue();
     }
 }

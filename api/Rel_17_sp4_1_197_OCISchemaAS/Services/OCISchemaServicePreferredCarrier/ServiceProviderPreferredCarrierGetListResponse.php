@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPreferredCarrierGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
+    public    $name                        = 'ServiceProviderPreferredCarrierGetListResponse';
     protected $serviceProviderCarrierTable = null;
 
     /**
@@ -37,14 +36,17 @@ class ServiceProviderPreferredCarrierGetListResponse extends ComplexType impleme
      */
     public function setServiceProviderCarrierTable(core:OCITable $serviceProviderCarrierTable = null)
     {
-        $this->serviceProviderCarrierTable =  $serviceProviderCarrierTable;
+        if (!$serviceProviderCarrierTable) return $this;
+        $this->serviceProviderCarrierTable->setName('serviceProviderCarrierTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getServiceProviderCarrierTable()
     {
-        return (!$this->serviceProviderCarrierTable) ?: $this->serviceProviderCarrierTable->getValue();
+        return $this->serviceProviderCarrierTable->getValue();
     }
 }

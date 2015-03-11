@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInServiceProviderResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserGetServiceInstanceListInServiceProviderResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'UserGetServiceInstanceListInServiceProviderResponse';
     protected $serviceInstanceTable = null;
 
     /**
@@ -38,14 +37,17 @@ class UserGetServiceInstanceListInServiceProviderResponse extends ComplexType im
      */
     public function setServiceInstanceTable(core:OCITable $serviceInstanceTable = null)
     {
-        $this->serviceInstanceTable =  $serviceInstanceTable;
+        if (!$serviceInstanceTable) return $this;
+        $this->serviceInstanceTable->setName('serviceInstanceTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getServiceInstanceTable()
     {
-        return (!$this->serviceInstanceTable) ?: $this->serviceInstanceTable->getValue();
+        return $this->serviceInstanceTable->getValue();
     }
 }

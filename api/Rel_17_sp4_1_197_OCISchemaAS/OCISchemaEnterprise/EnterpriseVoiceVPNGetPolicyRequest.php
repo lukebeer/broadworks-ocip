@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyResponse';
-    public    $name                = __CLASS__;
+    public    $name                = 'EnterpriseVoiceVPNGetPolicyRequest';
     protected $serviceProviderId   = null;
     protected $locationDialingCode = null;
 
@@ -44,40 +44,46 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Enterprise Voice VPN location code.
+     * 
      */
     public function setLocationDialingCode($locationDialingCode = null)
     {
+        if (!$locationDialingCode) return $this;
         $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
              ? $locationDialingCode
              : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
+        $this->locationDialingCode->setName('locationDialingCode');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN location code.
+     * 
+     * @return EnterpriseVoiceVPNLocationCode
      */
     public function getLocationDialingCode()
     {
-        return (!$this->locationDialingCode) ?: $this->locationDialingCode->getValue();
+        return $this->locationDialingCode->getValue();
     }
 }

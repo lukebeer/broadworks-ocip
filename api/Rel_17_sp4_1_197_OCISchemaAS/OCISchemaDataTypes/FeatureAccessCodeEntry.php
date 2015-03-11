@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FeatureAccessCodeEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,10 +20,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class FeatureAccessCodeEntry extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FeatureAccessCodeEntry';
-    public    $name = __CLASS__;
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FeatureAccessCodeEntry';
+    public    $name                  = 'FeatureAccessCodeEntry';
+    protected $featureAccessCodeName = null;
+    protected $mainCode              = null;
+    protected $alternateCode         = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $featureAccessCodeName,
+         $mainCode = null,
+         $alternateCode = null
+    ) {
+        $this->setFeatureAccessCodeName($featureAccessCodeName);
+        $this->setMainCode($mainCode);
+        $this->setAlternateCode($alternateCode);
     }
 
     /**
@@ -32,5 +42,65 @@ class FeatureAccessCodeEntry extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setFeatureAccessCodeName($featureAccessCodeName = null)
+    {
+        if (!$featureAccessCodeName) return $this;
+        $this->featureAccessCodeName = new SimpleContent($featureAccessCodeName);
+        $this->featureAccessCodeName->setName('featureAccessCodeName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getFeatureAccessCodeName()
+    {
+        return $this->featureAccessCodeName->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setMainCode($mainCode = null)
+    {
+        if (!$mainCode) return $this;
+        $this->mainCode = new SimpleContent($mainCode);
+        $this->mainCode->setName('mainCode');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getMainCode()
+    {
+        return $this->mainCode->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setAlternateCode($alternateCode = null)
+    {
+        if (!$alternateCode) return $this;
+        $this->alternateCode = new SimpleContent($alternateCode);
+        $this->alternateCode->setName('alternateCode');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getAlternateCode()
+    {
+        return $this->alternateCode->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistSmallBusiness; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistSmallBusiness; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistSmallBusiness\UserBroadWorksReceptionistSmallBusinessGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksReceptionistSmallBusinessGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'UserBroadWorksReceptionistSmallBusinessGetResponse';
     protected $monitoredUserTable = null;
 
     /**
@@ -39,14 +38,17 @@ class UserBroadWorksReceptionistSmallBusinessGetResponse extends ComplexType imp
      */
     public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
     {
-        $this->monitoredUserTable =  $monitoredUserTable;
+        if (!$monitoredUserTable) return $this;
+        $this->monitoredUserTable->setName('monitoredUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getMonitoredUserTable()
     {
-        return (!$this->monitoredUserTable) ?: $this->monitoredUserTable->getValue();
+        return $this->monitoredUserTable->getValue();
     }
 }

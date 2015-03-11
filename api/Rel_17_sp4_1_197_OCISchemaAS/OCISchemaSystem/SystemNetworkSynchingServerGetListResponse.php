@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkSynchingServerGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkSynchingServerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'SystemNetworkSynchingServerGetListResponse';
     protected $preferredNetworkServerNetAddress = null;
     protected $networkSynchingServerTable       = null;
 
@@ -34,21 +33,25 @@ class SystemNetworkSynchingServerGetListResponse extends ComplexType implements 
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setPreferredNetworkServerNetAddress($preferredNetworkServerNetAddress = null)
     {
+        if (!$preferredNetworkServerNetAddress) return $this;
         $this->preferredNetworkServerNetAddress = ($preferredNetworkServerNetAddress InstanceOf NetAddress)
              ? $preferredNetworkServerNetAddress
              : new NetAddress($preferredNetworkServerNetAddress);
+        $this->preferredNetworkServerNetAddress->setName('preferredNetworkServerNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getPreferredNetworkServerNetAddress()
     {
-        return (!$this->preferredNetworkServerNetAddress) ?: $this->preferredNetworkServerNetAddress->getValue();
+        return $this->preferredNetworkServerNetAddress->getValue();
     }
 
     /**
@@ -56,14 +59,17 @@ class SystemNetworkSynchingServerGetListResponse extends ComplexType implements 
      */
     public function setNetworkSynchingServerTable(core:OCITable $networkSynchingServerTable = null)
     {
-        $this->networkSynchingServerTable =  $networkSynchingServerTable;
+        if (!$networkSynchingServerTable) return $this;
+        $this->networkSynchingServerTable->setName('networkSynchingServerTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getNetworkSynchingServerTable()
     {
-        return (!$this->networkSynchingServerTable) ?: $this->networkSynchingServerTable->getValue();
+        return $this->networkSynchingServerTable->getValue();
     }
 }

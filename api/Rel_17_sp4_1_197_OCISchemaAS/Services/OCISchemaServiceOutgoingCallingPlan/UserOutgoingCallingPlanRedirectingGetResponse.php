@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanRedirectingPermissions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanRedirectingGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanRedirectingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserOutgoingCallingPlanRedirectingGetResponse';
     protected $useCustomSettings = null;
     protected $userPermissions   = null;
 
@@ -37,30 +37,38 @@ class UserOutgoingCallingPlanRedirectingGetResponse extends ComplexType implemen
      */
     public function setUseCustomSettings($useCustomSettings = null)
     {
-        $this->useCustomSettings = (boolean) $useCustomSettings;
+        if (!$useCustomSettings) return $this;
+        $this->useCustomSettings = new PrimitiveType($useCustomSettings);
+        $this->useCustomSettings->setName('useCustomSettings');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseCustomSettings()
+    {
+        return $this->useCustomSettings->getValue();
     }
 
     /**
      * 
      */
-    public function getUseCustomSettings()
-    {
-        return (!$this->useCustomSettings) ?: $this->useCustomSettings;
-    }
-
-    /**
-     * Outgoing Calling Plan initiating call forwards/transfer permissions.
-     */
     public function setUserPermissions(OutgoingCallingPlanRedirectingPermissions $userPermissions = null)
     {
-        $this->userPermissions =  $userPermissions;
+        if (!$userPermissions) return $this;
+        $this->userPermissions = $userPermissions;
+        $this->userPermissions->setName('userPermissions');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan initiating call forwards/transfer permissions.
+     * 
+     * @return OutgoingCallingPlanRedirectingPermissions
      */
     public function getUserPermissions()
     {
-        return (!$this->userPermissions) ?: $this->userPermissions->getValue();
+        return $this->userPermissions;
     }
 }

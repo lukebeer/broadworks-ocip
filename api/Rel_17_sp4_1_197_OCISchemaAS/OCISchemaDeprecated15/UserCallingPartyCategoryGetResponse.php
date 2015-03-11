@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CallingPartyCategorySelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallingPartyCategoryGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallingPartyCategoryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'UserCallingPartyCategoryGetResponse';
     protected $category = null;
 
     /**
@@ -32,20 +31,24 @@ class UserCallingPartyCategoryGetResponse extends ComplexType implements Complex
     }
 
     /**
-     * Calling Party Category Selection
+     * 
      */
     public function setCategory($category = null)
     {
+        if (!$category) return $this;
         $this->category = ($category InstanceOf CallingPartyCategorySelection)
              ? $category
              : new CallingPartyCategorySelection($category);
+        $this->category->setName('category');
+        return $this;
     }
 
     /**
-     * Calling Party Category Selection
+     * 
+     * @return CallingPartyCategorySelection
      */
     public function getCategory()
     {
-        return (!$this->category) ?: $this->category->getValue();
+        return $this->category->getValue();
     }
 }

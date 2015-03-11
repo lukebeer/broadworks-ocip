@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingSelective; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallForwardingSelective; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
@@ -16,12 +16,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallForwardingSelectiveNumberSelection16 extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "CallForwardingSelectiveNumberSelection16";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "string";
+        $this->dataType = "";
         $this->addRestriction(new Enumeration([
             'Forward To Default Number',
             'Forward To Specified Number',

@@ -12,12 +12,12 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPAuthe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPAuthenticationPassword;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointAdd;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxOutgoingCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxIncomingCalls;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxOutgoingCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxActiveCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupAddInstanceResponse14;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -32,7 +32,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'GroupTrunkGroupAddInstanceRequest14';
     protected $serviceProviderId         = null;
     protected $groupId                   = null;
     protected $serviceUserId             = null;
@@ -49,8 +49,8 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-          $serviceInstanceProfile,
-          $accessDeviceEndpoint = null,
+         ServiceInstanceAddProfileTrunkGroup $serviceInstanceProfile,
+         AccessDeviceEndpointAdd $accessDeviceEndpoint = null,
          $maxActiveCalls,
          $maxIncomingCalls = null,
          $maxOutgoingCalls = null,
@@ -72,7 +72,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
     }
 
     /**
-     * @return GroupTrunkGroupAddInstanceResponse14
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -80,157 +80,175 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * Service Profile Information for a trunk group.
-     *         The publicUserIdentity element is not part of ServiceInstanceAddProfileTrunkGroup.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfileTrunkGroup $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for a trunk group.
-     *         The publicUserIdentity element is not part of ServiceInstanceAddProfileTrunkGroup.
+     * 
+     * @return ServiceInstanceAddProfileTrunkGroup
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Access device end point used in the context of add.
+     * 
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointAdd $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
+        if (!$accessDeviceEndpoint) return $this;
+        $this->accessDeviceEndpoint = $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        return $this;
     }
 
     /**
-     * Access device end point used in the context of add.
+     * 
+     * @return AccessDeviceEndpointAdd
      */
     public function getAccessDeviceEndpoint()
     {
-        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->getValue();
+        return $this->accessDeviceEndpoint;
     }
 
     /**
-     * Maximum Number of Active Calls
+     * 
      */
     public function setMaxActiveCalls($maxActiveCalls = null)
     {
+        if (!$maxActiveCalls) return $this;
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
              ? $maxActiveCalls
              : new MaxActiveCalls($maxActiveCalls);
+        $this->maxActiveCalls->setName('maxActiveCalls');
+        return $this;
     }
 
     /**
-     * Maximum Number of Active Calls
+     * 
+     * @return MaxActiveCalls
      */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
+        return $this->maxActiveCalls->getValue();
     }
 
     /**
-     * Maximum Number of Incoming Calls
+     * 
      */
     public function setMaxIncomingCalls($maxIncomingCalls = null)
     {
+        if (!$maxIncomingCalls) return $this;
         $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
              ? $maxIncomingCalls
              : new MaxIncomingCalls($maxIncomingCalls);
+        $this->maxIncomingCalls->setName('maxIncomingCalls');
+        return $this;
     }
 
     /**
-     * Maximum Number of Incoming Calls
+     * 
+     * @return MaxIncomingCalls
      */
     public function getMaxIncomingCalls()
     {
-        return (!$this->maxIncomingCalls) ?: $this->maxIncomingCalls->getValue();
+        return $this->maxIncomingCalls->getValue();
     }
 
     /**
-     * Maximum Number of Outgoing Calls
+     * 
      */
     public function setMaxOutgoingCalls($maxOutgoingCalls = null)
     {
+        if (!$maxOutgoingCalls) return $this;
         $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
              ? $maxOutgoingCalls
              : new MaxOutgoingCalls($maxOutgoingCalls);
+        $this->maxOutgoingCalls->setName('maxOutgoingCalls');
+        return $this;
     }
 
     /**
-     * Maximum Number of Outgoing Calls
+     * 
+     * @return MaxOutgoingCalls
      */
     public function getMaxOutgoingCalls()
     {
-        return (!$this->maxOutgoingCalls) ?: $this->maxOutgoingCalls->getValue();
+        return $this->maxOutgoingCalls->getValue();
     }
 
     /**
@@ -238,50 +256,62 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function setRequireAuthentication($requireAuthentication = null)
     {
-        $this->requireAuthentication = (boolean) $requireAuthentication;
+        if (!$requireAuthentication) return $this;
+        $this->requireAuthentication = new PrimitiveType($requireAuthentication);
+        $this->requireAuthentication->setName('requireAuthentication');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRequireAuthentication()
+    {
+        return $this->requireAuthentication->getValue();
     }
 
     /**
      * 
      */
-    public function getRequireAuthentication()
-    {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
-    }
-
-    /**
-     * SIP Authentication User Name.
-     */
     public function setSipAuthenticationUserName($sipAuthenticationUserName = null)
     {
+        if (!$sipAuthenticationUserName) return $this;
         $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
              ? $sipAuthenticationUserName
              : new SIPAuthenticationUserName($sipAuthenticationUserName);
+        $this->sipAuthenticationUserName->setName('sipAuthenticationUserName');
+        return $this;
     }
 
     /**
-     * SIP Authentication User Name.
+     * 
+     * @return SIPAuthenticationUserName
      */
     public function getSipAuthenticationUserName()
     {
-        return (!$this->sipAuthenticationUserName) ?: $this->sipAuthenticationUserName->getValue();
+        return $this->sipAuthenticationUserName->getValue();
     }
 
     /**
-     * SIP Authentication Password
+     * 
      */
     public function setSipAuthenticationPassword($sipAuthenticationPassword = null)
     {
+        if (!$sipAuthenticationPassword) return $this;
         $this->sipAuthenticationPassword = ($sipAuthenticationPassword InstanceOf SIPAuthenticationPassword)
              ? $sipAuthenticationPassword
              : new SIPAuthenticationPassword($sipAuthenticationPassword);
+        $this->sipAuthenticationPassword->setName('sipAuthenticationPassword');
+        return $this;
     }
 
     /**
-     * SIP Authentication Password
+     * 
+     * @return SIPAuthenticationPassword
      */
     public function getSipAuthenticationPassword()
     {
-        return (!$this->sipAuthenticationPassword) ?: $this->sipAuthenticationPassword->getValue();
+        return $this->sipAuthenticationPassword->getValue();
     }
 }

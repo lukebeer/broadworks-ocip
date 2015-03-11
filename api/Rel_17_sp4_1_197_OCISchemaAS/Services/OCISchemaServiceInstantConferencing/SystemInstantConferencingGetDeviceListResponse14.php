@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetDeviceListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingGetDeviceListResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
+    public    $name                           = 'SystemInstantConferencingGetDeviceListResponse14';
     protected $instantConferencingDeviceTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemInstantConferencingGetDeviceListResponse14 extends ComplexType imple
      */
     public function setInstantConferencingDeviceTable(core:OCITable $instantConferencingDeviceTable = null)
     {
-        $this->instantConferencingDeviceTable =  $instantConferencingDeviceTable;
+        if (!$instantConferencingDeviceTable) return $this;
+        $this->instantConferencingDeviceTable->setName('instantConferencingDeviceTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getInstantConferencingDeviceTable()
     {
-        return (!$this->instantConferencingDeviceTable) ?: $this->instantConferencingDeviceTable->getValue();
+        return $this->instantConferencingDeviceTable->getValue();
     }
 }

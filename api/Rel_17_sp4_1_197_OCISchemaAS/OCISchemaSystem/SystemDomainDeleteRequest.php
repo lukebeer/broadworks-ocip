@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDomainDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name   = __CLASS__;
+    public    $name   = 'SystemDomainDeleteRequest';
     protected $domain = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemDomainDeleteRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return SystemDomainDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemDomainDeleteRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setDomain($domain = null)
     {
+        if (!$domain) return $this;
         $this->domain = ($domain InstanceOf NetAddress)
              ? $domain
              : new NetAddress($domain);
+        $this->domain->setName('domain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getDomain()
     {
-        return (!$this->domain) ?: $this->domain->getValue();
+        return $this->domain->getValue();
     }
 }

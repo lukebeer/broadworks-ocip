@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ServiceActivationAccessCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceActivationAccessCodeModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServiceActivationAccessCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'SystemServiceActivationAccessCodeModifyRequest';
     protected $isActive              = null;
     protected $terminatingAccessCode = null;
     protected $redirectingAccessCode = null;
@@ -40,7 +40,7 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return SystemServiceActivationAccessCodeModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,68 +52,84 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Access code for Service Activation Access Code System Parameters.
-     */
     public function setTerminatingAccessCode($terminatingAccessCode = null)
     {
+        if (!$terminatingAccessCode) return $this;
         $this->terminatingAccessCode = ($terminatingAccessCode InstanceOf ServiceActivationAccessCode)
              ? $terminatingAccessCode
              : new ServiceActivationAccessCode($terminatingAccessCode);
+        $this->terminatingAccessCode->setName('terminatingAccessCode');
+        return $this;
     }
 
     /**
-     * Access code for Service Activation Access Code System Parameters.
+     * 
+     * @return ServiceActivationAccessCode
      */
     public function getTerminatingAccessCode()
     {
-        return (!$this->terminatingAccessCode) ?: $this->terminatingAccessCode->getValue();
+        return $this->terminatingAccessCode->getValue();
     }
 
     /**
-     * Access code for Service Activation Access Code System Parameters.
+     * 
      */
     public function setRedirectingAccessCode($redirectingAccessCode = null)
     {
+        if (!$redirectingAccessCode) return $this;
         $this->redirectingAccessCode = ($redirectingAccessCode InstanceOf ServiceActivationAccessCode)
              ? $redirectingAccessCode
              : new ServiceActivationAccessCode($redirectingAccessCode);
+        $this->redirectingAccessCode->setName('redirectingAccessCode');
+        return $this;
     }
 
     /**
-     * Access code for Service Activation Access Code System Parameters.
+     * 
+     * @return ServiceActivationAccessCode
      */
     public function getRedirectingAccessCode()
     {
-        return (!$this->redirectingAccessCode) ?: $this->redirectingAccessCode->getValue();
+        return $this->redirectingAccessCode->getValue();
     }
 
     /**
-     * Access code for Service Activation Access Code System Parameters.
+     * 
      */
     public function setClickToDialAccessCode($clickToDialAccessCode = null)
     {
+        if (!$clickToDialAccessCode) return $this;
         $this->clickToDialAccessCode = ($clickToDialAccessCode InstanceOf ServiceActivationAccessCode)
              ? $clickToDialAccessCode
              : new ServiceActivationAccessCode($clickToDialAccessCode);
+        $this->clickToDialAccessCode->setName('clickToDialAccessCode');
+        return $this;
     }
 
     /**
-     * Access code for Service Activation Access Code System Parameters.
+     * 
+     * @return ServiceActivationAccessCode
      */
     public function getClickToDialAccessCode()
     {
-        return (!$this->clickToDialAccessCode) ?: $this->clickToDialAccessCode->getValue();
+        return $this->clickToDialAccessCode->getValue();
     }
 }

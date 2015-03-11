@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementOutgoingDNorSIPURIList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserSimultaneousRingPersonalModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'UserSimultaneousRingPersonalModifyRequest';
     protected $userId                 = null;
     protected $isActive               = null;
     protected $incomingCalls          = null;
@@ -34,7 +34,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
          $userId,
          $isActive = null,
          $incomingCalls = null,
-          $simRingPhoneNumberList = null
+         ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);
@@ -43,7 +43,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
     }
 
     /**
-     * @return UserSimultaneousRingPersonalModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,29 +51,25 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
@@ -81,50 +77,60 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Simultaneous Ring Selection.
-     */
     public function setIncomingCalls($incomingCalls = null)
     {
+        if (!$incomingCalls) return $this;
         $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
              ? $incomingCalls
              : new SimultaneousRingSelection($incomingCalls);
+        $this->incomingCalls->setName('incomingCalls');
+        return $this;
     }
 
     /**
-     * Simultaneous Ring Selection.
+     * 
+     * @return SimultaneousRingSelection
      */
     public function getIncomingCalls()
     {
-        return (!$this->incomingCalls) ?: $this->incomingCalls->getValue();
+        return $this->incomingCalls->getValue();
     }
 
     /**
-     * A list of phone numbers or sipuris that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
      */
     public function setSimRingPhoneNumberList(ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList = null)
     {
-        $this->simRingPhoneNumberList =  $simRingPhoneNumberList;
+        if (!$simRingPhoneNumberList) return $this;
+        $this->simRingPhoneNumberList = $simRingPhoneNumberList;
+        $this->simRingPhoneNumberList->setName('simRingPhoneNumberList');
+        return $this;
     }
 
     /**
-     * A list of phone numbers or sipuris that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementOutgoingDNorSIPURIList
      */
     public function getSimRingPhoneNumberList()
     {
-        return (!$this->simRingPhoneNumberList) ?: $this->simRingPhoneNumberList->getValue();
+        return $this->simRingPhoneNumberList;
     }
 }

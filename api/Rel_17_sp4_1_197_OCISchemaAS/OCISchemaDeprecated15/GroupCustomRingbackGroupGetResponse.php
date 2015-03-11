@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCustomRingbackGroupGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCustomRingbackGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'GroupCustomRingbackGroupGetResponse';
     protected $isActive             = null;
     protected $audioSelection       = null;
     protected $audioFileDescription = null;
@@ -45,122 +45,150 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Choices for extended file resource usage.
-     */
     public function setAudioSelection($audioSelection = null)
     {
+        if (!$audioSelection) return $this;
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
+        $this->audioSelection->setName('audioSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getAudioSelection()
     {
-        return (!$this->audioSelection) ?: $this->audioSelection->getValue();
+        return $this->audioSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
+        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
+        $this->audioFileDescription->setName('audioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
+        return $this->audioFileDescription->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
+        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
+        $this->audioFileUrl->setName('audioFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getAudioFileUrl()
     {
-        return (!$this->audioFileUrl) ?: $this->audioFileUrl->getValue();
+        return $this->audioFileUrl->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setVideoSelection($videoSelection = null)
     {
+        if (!$videoSelection) return $this;
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
+        $this->videoSelection->setName('videoSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getVideoSelection()
     {
-        return (!$this->videoSelection) ?: $this->videoSelection->getValue();
+        return $this->videoSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
+        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
+        $this->videoFileDescription->setName('videoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
+        return $this->videoFileDescription->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
+        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
+        $this->videoFileUrl->setName('videoFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getVideoFileUrl()
     {
-        return (!$this->videoFileUrl) ?: $this->videoFileUrl->getValue();
+        return $this->videoFileUrl->getValue();
     }
 }

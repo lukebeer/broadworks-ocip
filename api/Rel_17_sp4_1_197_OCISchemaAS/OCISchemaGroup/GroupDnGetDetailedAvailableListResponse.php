@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetDetailedAvailableListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDnGetDetailedAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name    = __CLASS__;
+    public    $name    = 'GroupDnGetDetailedAvailableListResponse';
     protected $dnTable = null;
 
     /**
@@ -39,14 +38,17 @@ class GroupDnGetDetailedAvailableListResponse extends ComplexType implements Com
      */
     public function setDnTable(core:OCITable $dnTable = null)
     {
-        $this->dnTable =  $dnTable;
+        if (!$dnTable) return $this;
+        $this->dnTable->setName('dnTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDnTable()
     {
-        return (!$this->dnTable) ?: $this->dnTable->getValue();
+        return $this->dnTable->getValue();
     }
 }

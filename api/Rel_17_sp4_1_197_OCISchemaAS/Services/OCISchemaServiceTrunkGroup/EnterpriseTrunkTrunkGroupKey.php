@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseTrunkTrunkGroupKey;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseTrunkTrunkGroupKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseTrunkTrunkGroupKey';
-    public    $name = __CLASS__;
+    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseTrunkTrunkGroupKey';
+    public    $name           = 'EnterpriseTrunkTrunkGroupKey';
+    protected $groupId        = null;
+    protected $trunkGroupName = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $groupId,
+         $trunkGroupName
+    ) {
+        $this->setGroupId($groupId);
+        $this->setTrunkGroupName($trunkGroupName);
     }
 
     /**
@@ -32,5 +39,45 @@ class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterfa
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setGroupId($groupId = null)
+    {
+        if (!$groupId) return $this;
+        $this->groupId = new SimpleContent($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getGroupId()
+    {
+        return $this->groupId->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setTrunkGroupName($trunkGroupName = null)
+    {
+        if (!$trunkGroupName) return $this;
+        $this->trunkGroupName = new SimpleContent($trunkGroupName);
+        $this->trunkGroupName->setName('trunkGroupName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getTrunkGroupName()
+    {
+        return $this->trunkGroupName->getValue();
     }
 }

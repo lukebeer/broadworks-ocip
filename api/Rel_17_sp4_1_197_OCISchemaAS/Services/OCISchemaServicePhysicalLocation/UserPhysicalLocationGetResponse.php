@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePhysicalLocation; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePhysicalLocation; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePhysicalLocation\UserPhysicalLocationGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPhysicalLocationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'UserPhysicalLocationGetResponse';
     protected $isActive = null;
 
     /**
@@ -36,14 +35,18 @@ class UserPhysicalLocationGetResponse extends ComplexType implements ComplexInte
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 }

@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Departme
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'GroupDepartmentAdminGetResponse';
     protected $departmentKey      = null;
     protected $departmentFullPath = null;
     protected $firstName          = null;
@@ -41,96 +40,110 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
     }
 
     /**
-     * Uniquely identifies a department defined within a group.
-     *         To uniquely identify a group department, we must know the department name and which
-     *         group contains the department.
+     * 
      */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
-        $this->departmentKey =  $departmentKey;
+        if (!$departmentKey) return $this;
+        $this->departmentKey = $departmentKey;
+        $this->departmentKey->setName('departmentKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department defined within a group.
-     *         To uniquely identify a group department, we must know the department name and which
-     *         group contains the department.
+     * 
+     * @return GroupDepartmentKey
      */
     public function getDepartmentKey()
     {
-        return (!$this->departmentKey) ?: $this->departmentKey->getValue();
+        return $this->departmentKey;
     }
 
     /**
-     * Department name. This is only the name of the department itself, not the full path name
-     *         of the department and all its parents.
+     * 
      */
     public function setDepartmentFullPath($departmentFullPath = null)
     {
+        if (!$departmentFullPath) return $this;
         $this->departmentFullPath = ($departmentFullPath InstanceOf DepartmentName)
              ? $departmentFullPath
              : new DepartmentName($departmentFullPath);
+        $this->departmentFullPath->setName('departmentFullPath');
+        return $this;
     }
 
     /**
-     * Department name. This is only the name of the department itself, not the full path name
-     *         of the department and all its parents.
+     * 
+     * @return DepartmentName
      */
     public function getDepartmentFullPath()
     {
-        return (!$this->departmentFullPath) ?: $this->departmentFullPath->getValue();
+        return $this->departmentFullPath->getValue();
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
      */
     public function setFirstName($firstName = null)
     {
+        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
+        $this->firstName->setName('firstName');
+        return $this;
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
+     * @return FirstName
      */
     public function getFirstName()
     {
-        return (!$this->firstName) ?: $this->firstName->getValue();
+        return $this->firstName->getValue();
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
      */
     public function setLastName($lastName = null)
     {
+        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
+        $this->lastName->setName('lastName');
+        return $this;
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
+     * @return LastName
      */
     public function getLastName()
     {
-        return (!$this->lastName) ?: $this->lastName->getValue();
+        return $this->lastName->getValue();
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
      */
     public function setLanguage($language = null)
     {
+        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
+        $this->language->setName('language');
+        return $this;
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
+     * @return Language
      */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->getValue();
+        return $this->language->getValue();
     }
 }

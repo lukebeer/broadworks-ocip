@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAliasAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAliasAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'SystemAliasAddRequest';
     protected $aliasNetAddress = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemAliasAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return SystemAliasAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemAliasAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setAliasNetAddress($aliasNetAddress = null)
     {
+        if (!$aliasNetAddress) return $this;
         $this->aliasNetAddress = ($aliasNetAddress InstanceOf NetAddress)
              ? $aliasNetAddress
              : new NetAddress($aliasNetAddress);
+        $this->aliasNetAddress->setName('aliasNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getAliasNetAddress()
     {
-        return (!$this->aliasNetAddress) ?: $this->aliasNetAddress->getValue();
+        return $this->aliasNetAddress->getValue();
     }
 }

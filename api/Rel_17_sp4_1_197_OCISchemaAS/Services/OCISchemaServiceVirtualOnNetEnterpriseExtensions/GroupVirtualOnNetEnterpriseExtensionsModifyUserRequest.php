@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetCallTypeName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdFirstName;
@@ -16,7 +16,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstNam
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsModifyUserResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -31,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest';
     protected $serviceProviderId        = null;
     protected $groupId                  = null;
     protected $phoneNumber              = null;
@@ -65,7 +64,7 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
     }
 
     /**
-     * @return GroupVirtualOnNetEnterpriseExtensionsModifyUserResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -73,168 +72,200 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setPhoneNumber($phoneNumber = null)
     {
+        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
+        return $this->phoneNumber->getValue();
     }
 
     /**
-     * Extension.
+     * 
      */
     public function setExtension($extension = null)
     {
+        if (!$extension) return $this;
         $this->extension = ($extension InstanceOf Extension17)
              ? $extension
              : new Extension17($extension);
+        $this->extension->setName('extension');
+        return $this;
     }
 
     /**
-     * Extension.
+     * 
+     * @return Extension17
      */
     public function getExtension()
     {
-        return (!$this->extension) ?: $this->extension->getValue();
+        return $this->extension->getValue();
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
      */
     public function setFirstName($firstName = null)
     {
+        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
+        $this->firstName->setName('firstName');
+        return $this;
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
+     * @return FirstName
      */
     public function getFirstName()
     {
-        return (!$this->firstName) ?: $this->firstName->getValue();
+        return $this->firstName->getValue();
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
      */
     public function setLastName($lastName = null)
     {
+        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
+        $this->lastName->setName('lastName');
+        return $this;
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
+     * @return LastName
      */
     public function getLastName()
     {
-        return (!$this->lastName) ?: $this->lastName->getValue();
+        return $this->lastName->getValue();
     }
 
     /**
-     * First Name for Calling Line Id Display.
+     * 
      */
     public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
+        if (!$callingLineIdFirstName) return $this;
         $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
              ? $callingLineIdFirstName
              : new CallingLineIdFirstName($callingLineIdFirstName);
+        $this->callingLineIdFirstName->setName('callingLineIdFirstName');
+        return $this;
     }
 
     /**
-     * First Name for Calling Line Id Display.
+     * 
+     * @return CallingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
-        return (!$this->callingLineIdFirstName) ?: $this->callingLineIdFirstName->getValue();
+        return $this->callingLineIdFirstName->getValue();
     }
 
     /**
-     * Last Name for Calling Line Id Display.
+     * 
      */
     public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
+        if (!$callingLineIdLastName) return $this;
         $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
              ? $callingLineIdLastName
              : new CallingLineIdLastName($callingLineIdLastName);
+        $this->callingLineIdLastName->setName('callingLineIdLastName');
+        return $this;
     }
 
     /**
-     * Last Name for Calling Line Id Display.
+     * 
+     * @return CallingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
-        return (!$this->callingLineIdLastName) ?: $this->callingLineIdLastName->getValue();
+        return $this->callingLineIdLastName->getValue();
     }
 
     /**
-     * Virtual On-Net Call Type name.
+     * 
      */
     public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
     {
+        if (!$virtualOnNetCallTypeName) return $this;
         $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
              ? $virtualOnNetCallTypeName
              : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
+        $this->virtualOnNetCallTypeName->setName('virtualOnNetCallTypeName');
+        return $this;
     }
 
     /**
-     * Virtual On-Net Call Type name.
+     * 
+     * @return VirtualOnNetCallTypeName
      */
     public function getVirtualOnNetCallTypeName()
     {
-        return (!$this->virtualOnNetCallTypeName) ?: $this->virtualOnNetCallTypeName->getValue();
+        return $this->virtualOnNetCallTypeName->getValue();
     }
 }

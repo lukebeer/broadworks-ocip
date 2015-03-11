@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallTypeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExpensiveCallTypeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'SystemExpensiveCallTypeModifyRequest';
     protected $alternateCallIndicator = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemExpensiveCallTypeModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return SystemExpensiveCallTypeModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemExpensiveCallTypeModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * Network Server Alternate Call Indicator.
+     * 
      */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
+        if (!$alternateCallIndicator) return $this;
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
              ? $alternateCallIndicator
              : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
+        $this->alternateCallIndicator->setName('alternateCallIndicator');
+        return $this;
     }
 
     /**
-     * Network Server Alternate Call Indicator.
+     * 
+     * @return NetworkServerAlternateCallIndicator
      */
     public function getAlternateCallIndicator()
     {
-        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->getValue();
+        return $this->alternateCallIndicator->getValue();
     }
 }

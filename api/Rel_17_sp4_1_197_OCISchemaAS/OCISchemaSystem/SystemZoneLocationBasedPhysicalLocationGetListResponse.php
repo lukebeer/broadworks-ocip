@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhysicalLocation;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneLocationBasedPhysicalLocationGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneLocationBasedPhysicalLocationGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'SystemZoneLocationBasedPhysicalLocationGetListResponse';
     protected $physicalLocation = null;
 
     /**
@@ -32,20 +31,24 @@ class SystemZoneLocationBasedPhysicalLocationGetListResponse extends ComplexType
     }
 
     /**
-     * Physical geographic location of the zone
+     * 
      */
     public function setPhysicalLocation($physicalLocation = null)
     {
+        if (!$physicalLocation) return $this;
         $this->physicalLocation = ($physicalLocation InstanceOf PhysicalLocation)
              ? $physicalLocation
              : new PhysicalLocation($physicalLocation);
+        $this->physicalLocation->setName('physicalLocation');
+        return $this;
     }
 
     /**
-     * Physical geographic location of the zone
+     * 
+     * @return PhysicalLocation
      */
     public function getPhysicalLocation()
     {
-        return (!$this->physicalLocation) ?: $this->physicalLocation->getValue();
+        return $this->physicalLocation->getValue();
     }
 }

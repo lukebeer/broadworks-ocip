@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallDispositionCodeWithLevel;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeWithLevel;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallDispositionCodeWithLevel extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallDispositionCodeWithLevel';
-    public    $name = __CLASS__;
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeWithLevel';
+    public    $name  = 'CallDispositionCodeWithLevel';
+    protected $code  = null;
+    protected $level = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $code,
+         $level
+    ) {
+        $this->setCode($code);
+        $this->setLevel($level);
     }
 
     /**
@@ -32,5 +39,45 @@ class CallDispositionCodeWithLevel extends ComplexType implements ComplexInterfa
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setCode($code = null)
+    {
+        if (!$code) return $this;
+        $this->code = new SimpleContent($code);
+        $this->code->setName('code');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getCode()
+    {
+        return $this->code->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setLevel($level = null)
+    {
+        if (!$level) return $this;
+        $this->level = new SimpleContent($level);
+        $this->level->setName('level');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getLevel()
+    {
+        return $this->level->getValue();
     }
 }

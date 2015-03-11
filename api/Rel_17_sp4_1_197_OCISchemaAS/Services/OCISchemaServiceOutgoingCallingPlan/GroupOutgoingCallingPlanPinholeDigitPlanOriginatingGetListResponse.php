@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse';
     protected $groupPermissions      = null;
     protected $departmentPermissions = null;
 
@@ -34,34 +33,42 @@ class GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse extends
     }
 
     /**
-     * Outgoing Pinhole Digit Plan originating call permissions for specified digit patterns.
+     * 
      */
     public function setGroupPermissions(OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions $groupPermissions = null)
     {
-        $this->groupPermissions =  $groupPermissions;
+        if (!$groupPermissions) return $this;
+        $this->groupPermissions = $groupPermissions;
+        $this->groupPermissions->setName('groupPermissions');
+        return $this;
     }
 
     /**
-     * Outgoing Pinhole Digit Plan originating call permissions for specified digit patterns.
+     * 
+     * @return OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions
      */
     public function getGroupPermissions()
     {
-        return (!$this->groupPermissions) ?: $this->groupPermissions->getValue();
+        return $this->groupPermissions;
     }
 
     /**
-     * Outgoing Pinhole Digit Plan department originating call permissions for specified digit patterns.
+     * 
      */
     public function setDepartmentPermissions(OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions $departmentPermissions = null)
     {
-        $this->departmentPermissions =  $departmentPermissions;
+        if (!$departmentPermissions) return $this;
+        $this->departmentPermissions = $departmentPermissions;
+        $this->departmentPermissions->setName('departmentPermissions');
+        return $this;
     }
 
     /**
-     * Outgoing Pinhole Digit Plan department originating call permissions for specified digit patterns.
+     * 
+     * @return OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions
      */
     public function getDepartmentPermissions()
     {
-        return (!$this->departmentPermissions) ?: $this->departmentPermissions->getValue();
+        return $this->departmentPermissions;
     }
 }

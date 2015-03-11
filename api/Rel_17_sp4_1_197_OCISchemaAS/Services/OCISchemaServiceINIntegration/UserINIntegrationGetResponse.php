@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceINIntegration; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceINIntegration; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MobilityManagerServiceKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceINIntegration\UserINIntegrationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserINIntegrationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'UserINIntegrationGetResponse';
     protected $originatingServiceKey = null;
     protected $terminatingServiceKey = null;
 
@@ -33,38 +32,46 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * Mobility Manager service key
+     * 
      */
     public function setOriginatingServiceKey($originatingServiceKey = null)
     {
+        if (!$originatingServiceKey) return $this;
         $this->originatingServiceKey = ($originatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $originatingServiceKey
              : new MobilityManagerServiceKey($originatingServiceKey);
+        $this->originatingServiceKey->setName('originatingServiceKey');
+        return $this;
     }
 
     /**
-     * Mobility Manager service key
+     * 
+     * @return MobilityManagerServiceKey
      */
     public function getOriginatingServiceKey()
     {
-        return (!$this->originatingServiceKey) ?: $this->originatingServiceKey->getValue();
+        return $this->originatingServiceKey->getValue();
     }
 
     /**
-     * Mobility Manager service key
+     * 
      */
     public function setTerminatingServiceKey($terminatingServiceKey = null)
     {
+        if (!$terminatingServiceKey) return $this;
         $this->terminatingServiceKey = ($terminatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $terminatingServiceKey
              : new MobilityManagerServiceKey($terminatingServiceKey);
+        $this->terminatingServiceKey->setName('terminatingServiceKey');
+        return $this;
     }
 
     /**
-     * Mobility Manager service key
+     * 
+     * @return MobilityManagerServiceKey
      */
     public function getTerminatingServiceKey()
     {
-        return (!$this->terminatingServiceKey) ?: $this->terminatingServiceKey->getValue();
+        return $this->terminatingServiceKey->getValue();
     }
 }

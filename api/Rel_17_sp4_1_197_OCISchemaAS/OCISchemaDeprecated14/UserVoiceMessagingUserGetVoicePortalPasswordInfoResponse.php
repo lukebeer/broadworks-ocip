@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse';
     protected $isLoginDisabled = null;
     protected $password        = null;
 
@@ -38,15 +38,19 @@ class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexTy
      */
     public function setIsLoginDisabled($isLoginDisabled = null)
     {
-        $this->isLoginDisabled = (boolean) $isLoginDisabled;
+        if (!$isLoginDisabled) return $this;
+        $this->isLoginDisabled = new PrimitiveType($isLoginDisabled);
+        $this->isLoginDisabled->setName('isLoginDisabled');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsLoginDisabled()
     {
-        return (!$this->isLoginDisabled) ?: $this->isLoginDisabled;
+        return $this->isLoginDisabled->getValue();
     }
 
     /**
@@ -54,16 +58,20 @@ class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexTy
      */
     public function setPassword($password = null)
     {
+        if (!$password) return $this;
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
+        $this->password->setName('password');
+        return $this;
     }
 
     /**
      * 
+     * @return Password
      */
     public function getPassword()
     {
-        return (!$this->password) ?: $this->password->getValue();
+        return $this->password->getValue();
     }
 }

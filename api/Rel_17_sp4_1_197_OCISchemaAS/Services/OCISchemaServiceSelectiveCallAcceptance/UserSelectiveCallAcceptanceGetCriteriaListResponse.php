@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelectiveCallAcceptance; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallAcceptance; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelectiveCallAcceptance\UserSelectiveCallAcceptanceGetCriteriaListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallAcceptanceGetCriteriaListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'UserSelectiveCallAcceptanceGetCriteriaListResponse';
     protected $criteriaTable = null;
 
     /**
@@ -38,14 +37,17 @@ class UserSelectiveCallAcceptanceGetCriteriaListResponse extends ComplexType imp
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable =  $criteriaTable;
+        if (!$criteriaTable) return $this;
+        $this->criteriaTable->setName('criteriaTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCriteriaTable()
     {
-        return (!$this->criteriaTable) ?: $this->criteriaTable->getValue();
+        return $this->criteriaTable->getValue();
     }
 }

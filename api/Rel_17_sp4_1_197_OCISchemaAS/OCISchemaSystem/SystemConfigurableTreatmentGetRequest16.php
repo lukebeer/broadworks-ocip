@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemConfigurableTreatmentGetRequest16 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableTreatmentGetResponse16';
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemConfigurableTreatmentGetRequest16';
     protected $treatmentId = null;
 
     public function __construct(
@@ -40,20 +40,24 @@ class SystemConfigurableTreatmentGetRequest16 extends ComplexType implements Com
     }
 
     /**
-     * Configurable Treatment Name
+     * 
      */
     public function setTreatmentId($treatmentId = null)
     {
+        if (!$treatmentId) return $this;
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
+        $this->treatmentId->setName('treatmentId');
+        return $this;
     }
 
     /**
-     * Configurable Treatment Name
+     * 
+     * @return TreatmentId
      */
     public function getTreatmentId()
     {
-        return (!$this->treatmentId) ?: $this->treatmentId->getValue();
+        return $this->treatmentId->getValue();
     }
 }

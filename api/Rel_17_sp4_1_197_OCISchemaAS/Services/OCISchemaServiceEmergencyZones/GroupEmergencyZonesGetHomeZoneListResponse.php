@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones\GroupEmergencyZonesGetHomeZoneListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEmergencyZonesGetHomeZoneListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'GroupEmergencyZonesGetHomeZoneListResponse';
     protected $homeZoneIpAddress      = null;
     protected $homeZoneIpAddressRange = null;
 
@@ -34,36 +33,44 @@ class GroupEmergencyZonesGetHomeZoneListResponse extends ComplexType implements 
     }
 
     /**
-     * Numeric IP Address.
+     * 
      */
     public function setHomeZoneIpAddress($homeZoneIpAddress = null)
     {
+        if (!$homeZoneIpAddress) return $this;
         $this->homeZoneIpAddress = ($homeZoneIpAddress InstanceOf IPAddress)
              ? $homeZoneIpAddress
              : new IPAddress($homeZoneIpAddress);
+        $this->homeZoneIpAddress->setName('homeZoneIpAddress');
+        return $this;
     }
 
     /**
-     * Numeric IP Address.
+     * 
+     * @return IPAddress
      */
     public function getHomeZoneIpAddress()
     {
-        return (!$this->homeZoneIpAddress) ?: $this->homeZoneIpAddress->getValue();
+        return $this->homeZoneIpAddress->getValue();
     }
 
     /**
-     * IP Address Range.
+     * 
      */
     public function setHomeZoneIpAddressRange(IPAddressRange $homeZoneIpAddressRange = null)
     {
-        $this->homeZoneIpAddressRange =  $homeZoneIpAddressRange;
+        if (!$homeZoneIpAddressRange) return $this;
+        $this->homeZoneIpAddressRange = $homeZoneIpAddressRange;
+        $this->homeZoneIpAddressRange->setName('homeZoneIpAddressRange');
+        return $this;
     }
 
     /**
-     * IP Address Range.
+     * 
+     * @return IPAddressRange
      */
     public function getHomeZoneIpAddressRange()
     {
-        return (!$this->homeZoneIpAddressRange) ?: $this->homeZoneIpAddressRange->getValue();
+        return $this->homeZoneIpAddressRange;
     }
 }

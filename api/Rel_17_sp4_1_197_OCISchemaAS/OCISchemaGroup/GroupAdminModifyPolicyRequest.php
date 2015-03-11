@@ -22,7 +22,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdm
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminAdminAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupAdminUserAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAdminModifyPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -37,7 +36,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'GroupAdminModifyPolicyRequest';
     protected $userId                        = null;
     protected $profileAccess                 = null;
     protected $userAccess                    = null;
@@ -89,7 +88,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return GroupAdminModifyPolicyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -97,348 +96,332 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Policy for a group administrator's access to the group profile.
+     * 
      */
     public function setProfileAccess($profileAccess = null)
     {
+        if (!$profileAccess) return $this;
         $this->profileAccess = ($profileAccess InstanceOf GroupAdminProfileAccess)
              ? $profileAccess
              : new GroupAdminProfileAccess($profileAccess);
+        $this->profileAccess->setName('profileAccess');
+        return $this;
     }
 
     /**
-     * Policy for a group administrator's access to the group profile.
+     * 
+     * @return GroupAdminProfileAccess
      */
     public function getProfileAccess()
     {
-        return (!$this->profileAccess) ?: $this->profileAccess->getValue();
+        return $this->profileAccess->getValue();
     }
 
     /**
-     * Policy for a group administrator's access to user configuration.
-     *         "Full" indicates full access to users in the group.
-     *         "Full Profile" indicates
-     *           1) the group administrator is restricted from adding or removing users, but
-     *           2) has full access to the user's profile
-     *         "Read-Only Profile" indicates
-     *           1) the group administrator is restricted from adding or removing users, and
-     *           2) read-only access is granted to the user's profile.
-     *         "No Profile" indicates
-     *           1) the group administrator is restricted from adding or removing users, and
-     *           2) no access is granted to the user's profile.
-     *         "None" indicates no access to users in the group.
+     * 
      */
     public function setUserAccess($userAccess = null)
     {
+        if (!$userAccess) return $this;
         $this->userAccess = ($userAccess InstanceOf GroupAdminUserAccess)
              ? $userAccess
              : new GroupAdminUserAccess($userAccess);
+        $this->userAccess->setName('userAccess');
+        return $this;
     }
 
     /**
-     * Policy for a group administrator's access to user configuration.
-     *         "Full" indicates full access to users in the group.
-     *         "Full Profile" indicates
-     *           1) the group administrator is restricted from adding or removing users, but
-     *           2) has full access to the user's profile
-     *         "Read-Only Profile" indicates
-     *           1) the group administrator is restricted from adding or removing users, and
-     *           2) read-only access is granted to the user's profile.
-     *         "No Profile" indicates
-     *           1) the group administrator is restricted from adding or removing users, and
-     *           2) no access is granted to the user's profile.
-     *         "None" indicates no access to users in the group.
+     * 
+     * @return GroupAdminUserAccess
      */
     public function getUserAccess()
     {
-        return (!$this->userAccess) ?: $this->userAccess->getValue();
+        return $this->userAccess->getValue();
     }
 
     /**
-     * Policy for a group administrator's access to group administrators and department administrators.
+     * 
      */
     public function setAdminAccess($adminAccess = null)
     {
+        if (!$adminAccess) return $this;
         $this->adminAccess = ($adminAccess InstanceOf GroupAdminAdminAccess)
              ? $adminAccess
              : new GroupAdminAdminAccess($adminAccess);
+        $this->adminAccess->setName('adminAccess');
+        return $this;
     }
 
     /**
-     * Policy for a group administrator's access to group administrators and department administrators.
+     * 
+     * @return GroupAdminAdminAccess
      */
     public function getAdminAccess()
     {
-        return (!$this->adminAccess) ?: $this->adminAccess->getValue();
+        return $this->adminAccess->getValue();
     }
 
     /**
-     * Policy for a group administrator's access to departments.
-     *         "Full" indicates full access to departments.
-     *         "Read-Only" indicates read-only access to the department list
-     *         "None" indicates no access to the department list
+     * 
      */
     public function setDepartmentAccess($departmentAccess = null)
     {
+        if (!$departmentAccess) return $this;
         $this->departmentAccess = ($departmentAccess InstanceOf GroupAdminDepartmentAccess)
              ? $departmentAccess
              : new GroupAdminDepartmentAccess($departmentAccess);
+        $this->departmentAccess->setName('departmentAccess');
+        return $this;
     }
 
     /**
-     * Policy for a group administrator's access to departments.
-     *         "Full" indicates full access to departments.
-     *         "Read-Only" indicates read-only access to the department list
-     *         "None" indicates no access to the department list
+     * 
+     * @return GroupAdminDepartmentAccess
      */
     public function getDepartmentAccess()
     {
-        return (!$this->departmentAccess) ?: $this->departmentAccess->getValue();
+        return $this->departmentAccess->getValue();
     }
 
     /**
-     * Policy for a group administrator's access to access devices.
-     *        "Full" indicates full access to access devices.
-     *        "Associate User With Device" indicates
-     *          1) read-only access to devices, but
-     *          2) the group administrator may associate users with devices
-     *        "Read-Only" indicates read-only access to devices and user-device associations
+     * 
      */
     public function setAccessDeviceAccess($accessDeviceAccess = null)
     {
+        if (!$accessDeviceAccess) return $this;
         $this->accessDeviceAccess = ($accessDeviceAccess InstanceOf GroupAdminAccessDeviceAccess)
              ? $accessDeviceAccess
              : new GroupAdminAccessDeviceAccess($accessDeviceAccess);
+        $this->accessDeviceAccess->setName('accessDeviceAccess');
+        return $this;
     }
 
     /**
-     * Policy for a group administrator's access to access devices.
-     *        "Full" indicates full access to access devices.
-     *        "Associate User With Device" indicates
-     *          1) read-only access to devices, but
-     *          2) the group administrator may associate users with devices
-     *        "Read-Only" indicates read-only access to devices and user-device associations
+     * 
+     * @return GroupAdminAccessDeviceAccess
      */
     public function getAccessDeviceAccess()
     {
-        return (!$this->accessDeviceAccess) ?: $this->accessDeviceAccess->getValue();
+        return $this->accessDeviceAccess->getValue();
     }
 
     /**
-     * Policy for a group administrator's access to enhanced service instances (e.g. - instances of Auto Attendants, Call Capacity Groups,
-     *         Conference Bridges, Hunt Groups, Call Centers, Series Completion Groups, etc.).
-     *         "Full" indicates full access to enhanced service instances.
-     *         "Modify-Only" indicates
-     *           1) the group administrator is restricted from adding or removing enhanced service instances, but
-     *           2) may modify existing instances.
+     * 
      */
     public function setEnhancedServiceInstanceAccess($enhancedServiceInstanceAccess = null)
     {
+        if (!$enhancedServiceInstanceAccess) return $this;
         $this->enhancedServiceInstanceAccess = ($enhancedServiceInstanceAccess InstanceOf GroupAdminEnhancedServiceInstanceAccess)
              ? $enhancedServiceInstanceAccess
              : new GroupAdminEnhancedServiceInstanceAccess($enhancedServiceInstanceAccess);
+        $this->enhancedServiceInstanceAccess->setName('enhancedServiceInstanceAccess');
+        return $this;
     }
 
     /**
-     * Policy for a group administrator's access to enhanced service instances (e.g. - instances of Auto Attendants, Call Capacity Groups,
-     *         Conference Bridges, Hunt Groups, Call Centers, Series Completion Groups, etc.).
-     *         "Full" indicates full access to enhanced service instances.
-     *         "Modify-Only" indicates
-     *           1) the group administrator is restricted from adding or removing enhanced service instances, but
-     *           2) may modify existing instances.
+     * 
+     * @return GroupAdminEnhancedServiceInstanceAccess
      */
     public function getEnhancedServiceInstanceAccess()
     {
-        return (!$this->enhancedServiceInstanceAccess) ?: $this->enhancedServiceInstanceAccess->getValue();
+        return $this->enhancedServiceInstanceAccess->getValue();
     }
 
     /**
-     * Policy for a group administrator's access to feature access codes.
+     * 
      */
     public function setFeatureAccessCodeAccess($featureAccessCodeAccess = null)
     {
+        if (!$featureAccessCodeAccess) return $this;
         $this->featureAccessCodeAccess = ($featureAccessCodeAccess InstanceOf GroupAdminFeatureAccessCodeAccess)
              ? $featureAccessCodeAccess
              : new GroupAdminFeatureAccessCodeAccess($featureAccessCodeAccess);
+        $this->featureAccessCodeAccess->setName('featureAccessCodeAccess');
+        return $this;
     }
 
     /**
-     * Policy for a group administrator's access to feature access codes.
+     * 
+     * @return GroupAdminFeatureAccessCodeAccess
      */
     public function getFeatureAccessCodeAccess()
     {
-        return (!$this->featureAccessCodeAccess) ?: $this->featureAccessCodeAccess->getValue();
+        return $this->featureAccessCodeAccess->getValue();
     }
 
     /**
-     * Policy for a group administrator's access to assigning phone numbers and extensions.
+     * 
      */
     public function setPhoneNumberExtensionAccess($phoneNumberExtensionAccess = null)
     {
+        if (!$phoneNumberExtensionAccess) return $this;
         $this->phoneNumberExtensionAccess = ($phoneNumberExtensionAccess InstanceOf GroupAdminPhoneNumberExtensionAccess)
              ? $phoneNumberExtensionAccess
              : new GroupAdminPhoneNumberExtensionAccess($phoneNumberExtensionAccess);
+        $this->phoneNumberExtensionAccess->setName('phoneNumberExtensionAccess');
+        return $this;
     }
 
     /**
-     * Policy for a group administrator's access to assigning phone numbers and extensions.
+     * 
+     * @return GroupAdminPhoneNumberExtensionAccess
      */
     public function getPhoneNumberExtensionAccess()
     {
-        return (!$this->phoneNumberExtensionAccess) ?: $this->phoneNumberExtensionAccess->getValue();
+        return $this->phoneNumberExtensionAccess->getValue();
     }
 
     /**
-     * Group Administrator's policy for accessing calling line id number.
+     * 
      */
     public function setCallingLineIdNumberAccess($callingLineIdNumberAccess = null)
     {
+        if (!$callingLineIdNumberAccess) return $this;
         $this->callingLineIdNumberAccess = ($callingLineIdNumberAccess InstanceOf GroupAdminCallingLineIdNumberAccess)
              ? $callingLineIdNumberAccess
              : new GroupAdminCallingLineIdNumberAccess($callingLineIdNumberAccess);
+        $this->callingLineIdNumberAccess->setName('callingLineIdNumberAccess');
+        return $this;
     }
 
     /**
-     * Group Administrator's policy for accessing calling line id number.
+     * 
+     * @return GroupAdminCallingLineIdNumberAccess
      */
     public function getCallingLineIdNumberAccess()
     {
-        return (!$this->callingLineIdNumberAccess) ?: $this->callingLineIdNumberAccess->getValue();
+        return $this->callingLineIdNumberAccess->getValue();
     }
 
     /**
-     * Policy for a group administrator's access to assigning services to groups and users.
+     * 
      */
     public function setServiceAccess($serviceAccess = null)
     {
+        if (!$serviceAccess) return $this;
         $this->serviceAccess = ($serviceAccess InstanceOf GroupAdminServiceAccess)
              ? $serviceAccess
              : new GroupAdminServiceAccess($serviceAccess);
+        $this->serviceAccess->setName('serviceAccess');
+        return $this;
     }
 
     /**
-     * Policy for a group administrator's access to assigning services to groups and users.
+     * 
+     * @return GroupAdminServiceAccess
      */
     public function getServiceAccess()
     {
-        return (!$this->serviceAccess) ?: $this->serviceAccess->getValue();
+        return $this->serviceAccess->getValue();
     }
 
     /**
-     * Policy for a group administrator's access to trunk groups.
-     *         "Full" indicates full access to add/modify/delete trunk groups in the group.
-     *         "Full Resources" indicates
-     *           1) Restricted from adding or removing trunk groups, and
-     *           2) Full access to trunk group resources
-     *         "Read-Only Resources" indicates
-     *           1) Restricted from adding or removing trunk groups, and
-     *           2) Read-only access to trunk group resources
-     *         "None" indicates no access to trunk groups in the group.
+     * 
      */
     public function setTrunkGroupAccess($trunkGroupAccess = null)
     {
+        if (!$trunkGroupAccess) return $this;
         $this->trunkGroupAccess = ($trunkGroupAccess InstanceOf GroupAdminTrunkGroupAccess)
              ? $trunkGroupAccess
              : new GroupAdminTrunkGroupAccess($trunkGroupAccess);
+        $this->trunkGroupAccess->setName('trunkGroupAccess');
+        return $this;
     }
 
     /**
-     * Policy for a group administrator's access to trunk groups.
-     *         "Full" indicates full access to add/modify/delete trunk groups in the group.
-     *         "Full Resources" indicates
-     *           1) Restricted from adding or removing trunk groups, and
-     *           2) Full access to trunk group resources
-     *         "Read-Only Resources" indicates
-     *           1) Restricted from adding or removing trunk groups, and
-     *           2) Read-only access to trunk group resources
-     *         "None" indicates no access to trunk groups in the group.
+     * 
+     * @return GroupAdminTrunkGroupAccess
      */
     public function getTrunkGroupAccess()
     {
-        return (!$this->trunkGroupAccess) ?: $this->trunkGroupAccess->getValue();
+        return $this->trunkGroupAccess->getValue();
     }
 
     /**
-     * Group Administrator's policy for accessing
-     *         the Session Admission Control information.
+     * 
      */
     public function setSessionAdmissionControlAccess($sessionAdmissionControlAccess = null)
     {
+        if (!$sessionAdmissionControlAccess) return $this;
         $this->sessionAdmissionControlAccess = ($sessionAdmissionControlAccess InstanceOf GroupAdminSessionAdmissionControlAccess)
              ? $sessionAdmissionControlAccess
              : new GroupAdminSessionAdmissionControlAccess($sessionAdmissionControlAccess);
+        $this->sessionAdmissionControlAccess->setName('sessionAdmissionControlAccess');
+        return $this;
     }
 
     /**
-     * Group Administrator's policy for accessing
-     *         the Session Admission Control information.
+     * 
+     * @return GroupAdminSessionAdmissionControlAccess
      */
     public function getSessionAdmissionControlAccess()
     {
-        return (!$this->sessionAdmissionControlAccess) ?: $this->sessionAdmissionControlAccess->getValue();
+        return $this->sessionAdmissionControlAccess->getValue();
     }
 
     /**
-     * Group Administrator's policy for accessing
-     *         the Office Zone information.
+     * 
      */
     public function setOfficeZoneAccess($officeZoneAccess = null)
     {
+        if (!$officeZoneAccess) return $this;
         $this->officeZoneAccess = ($officeZoneAccess InstanceOf GroupAdminOfficeZoneAccess)
              ? $officeZoneAccess
              : new GroupAdminOfficeZoneAccess($officeZoneAccess);
+        $this->officeZoneAccess->setName('officeZoneAccess');
+        return $this;
     }
 
     /**
-     * Group Administrator's policy for accessing
-     *         the Office Zone information.
+     * 
+     * @return GroupAdminOfficeZoneAccess
      */
     public function getOfficeZoneAccess()
     {
-        return (!$this->officeZoneAccess) ?: $this->officeZoneAccess->getValue();
+        return $this->officeZoneAccess->getValue();
     }
 
     /**
-     * Policy for accessing the group Dialable Caller ID configuration.
+     * 
      */
     public function setDialableCallerIDAccess($dialableCallerIDAccess = null)
     {
+        if (!$dialableCallerIDAccess) return $this;
         $this->dialableCallerIDAccess = ($dialableCallerIDAccess InstanceOf GroupAdminDialableCallerIDAccess)
              ? $dialableCallerIDAccess
              : new GroupAdminDialableCallerIDAccess($dialableCallerIDAccess);
+        $this->dialableCallerIDAccess->setName('dialableCallerIDAccess');
+        return $this;
     }
 
     /**
-     * Policy for accessing the group Dialable Caller ID configuration.
+     * 
+     * @return GroupAdminDialableCallerIDAccess
      */
     public function getDialableCallerIDAccess()
     {
-        return (!$this->dialableCallerIDAccess) ?: $this->dialableCallerIDAccess->getValue();
+        return $this->dialableCallerIDAccess->getValue();
     }
 }

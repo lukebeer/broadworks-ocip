@@ -35,7 +35,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderEndpointGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderEndpointGetListResponse';
-    public    $name                           = __CLASS__;
+    public    $name                           = 'ServiceProviderEndpointGetListRequest';
     protected $serviceProviderId              = null;
     protected $responseSizeLimit              = null;
     protected $searchCriteriaGroupId          = null;
@@ -54,18 +54,18 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
     public function __construct(
          $serviceProviderId,
          $responseSizeLimit = null,
-          $searchCriteriaGroupId = null,
-          $searchCriteriaLinePortUserPart = null,
-          $searchCriteriaLinePortDomain = null,
-          $searchCriteriaUserLastName = null,
-          $searchCriteriaUserFirstName = null,
-          $searchCriteriaUserId = null,
-          $searchCriteriaDn = null,
-          $searchCriteriaExtension = null,
-          $searchCriteriaDeviceType = null,
-          $searchCriteriaDeviceName = null,
-          $searchCriteriaDeviceMACAddress = null,
-          $searchCriteriaDeviceNetAddress = null
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
+         SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
+         SearchCriteriaUserId $searchCriteriaUserId = null,
+         SearchCriteriaDn $searchCriteriaDn = null,
+         SearchCriteriaExtension $searchCriteriaExtension = null,
+         SearchCriteriaDeviceType $searchCriteriaDeviceType = null,
+         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
+         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
+         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -92,236 +92,310 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a group ID.
+     * 
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
+        if (!$searchCriteriaGroupId) return $this;
+        $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
+             ? $searchCriteriaGroupId
+             : new SearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a group ID.
+     * 
+     * @return SearchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->getValue();
+        return $this->searchCriteriaGroupId;
     }
 
     /**
-     * Criteria for searching for device line/port, or SIPURI user part.
+     * 
      */
     public function setSearchCriteriaLinePortUserPart(SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null)
     {
-        $this->searchCriteriaLinePortUserPart =  $searchCriteriaLinePortUserPart;
+        if (!$searchCriteriaLinePortUserPart) return $this;
+        $this->searchCriteriaLinePortUserPart = ($searchCriteriaLinePortUserPart InstanceOf SearchCriteriaLinePortUserPart)
+             ? $searchCriteriaLinePortUserPart
+             : new SearchCriteriaLinePortUserPart($searchCriteriaLinePortUserPart);
+        $this->searchCriteriaLinePortUserPart->setName('searchCriteriaLinePortUserPart');
+        return $this;
     }
 
     /**
-     * Criteria for searching for device line/port, or SIPURI user part.
+     * 
+     * @return SearchCriteriaLinePortUserPart
      */
     public function getSearchCriteriaLinePortUserPart()
     {
-        return (!$this->searchCriteriaLinePortUserPart) ?: $this->searchCriteriaLinePortUserPart->getValue();
+        return $this->searchCriteriaLinePortUserPart;
     }
 
     /**
-     * Criteria for searching for device line/port, or SIPURI domain part.
+     * 
      */
     public function setSearchCriteriaLinePortDomain(SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null)
     {
-        $this->searchCriteriaLinePortDomain =  $searchCriteriaLinePortDomain;
+        if (!$searchCriteriaLinePortDomain) return $this;
+        $this->searchCriteriaLinePortDomain = ($searchCriteriaLinePortDomain InstanceOf SearchCriteriaLinePortDomain)
+             ? $searchCriteriaLinePortDomain
+             : new SearchCriteriaLinePortDomain($searchCriteriaLinePortDomain);
+        $this->searchCriteriaLinePortDomain->setName('searchCriteriaLinePortDomain');
+        return $this;
     }
 
     /**
-     * Criteria for searching for device line/port, or SIPURI domain part.
+     * 
+     * @return SearchCriteriaLinePortDomain
      */
     public function getSearchCriteriaLinePortDomain()
     {
-        return (!$this->searchCriteriaLinePortDomain) ?: $this->searchCriteriaLinePortDomain->getValue();
+        return $this->searchCriteriaLinePortDomain;
     }
 
     /**
-     * Criteria for searching for a user's last name.
+     * 
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
+        if (!$searchCriteriaUserLastName) return $this;
+        $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
+             ? $searchCriteriaUserLastName
+             : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a user's last name.
+     * 
+     * @return SearchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
+        return $this->searchCriteriaUserLastName;
     }
 
     /**
-     * Criteria for searching for a user's first name.
+     * 
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
+        if (!$searchCriteriaUserFirstName) return $this;
+        $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
+             ? $searchCriteriaUserFirstName
+             : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
+        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a user's first name.
+     * 
+     * @return SearchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
-        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->getValue();
+        return $this->searchCriteriaUserFirstName;
     }
 
     /**
-     * Criteria for searching for a user's userId.
+     * 
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        $this->searchCriteriaUserId =  $searchCriteriaUserId;
+        if (!$searchCriteriaUserId) return $this;
+        $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
+             ? $searchCriteriaUserId
+             : new SearchCriteriaUserId($searchCriteriaUserId);
+        $this->searchCriteriaUserId->setName('searchCriteriaUserId');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a user's userId.
+     * 
+     * @return SearchCriteriaUserId
      */
     public function getSearchCriteriaUserId()
     {
-        return (!$this->searchCriteriaUserId) ?: $this->searchCriteriaUserId->getValue();
+        return $this->searchCriteriaUserId;
     }
 
     /**
-     * Criteria for searching for a DN.
+     * 
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        $this->searchCriteriaDn =  $searchCriteriaDn;
+        if (!$searchCriteriaDn) return $this;
+        $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
+             ? $searchCriteriaDn
+             : new SearchCriteriaDn($searchCriteriaDn);
+        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a DN.
+     * 
+     * @return SearchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
-        return (!$this->searchCriteriaDn) ?: $this->searchCriteriaDn->getValue();
+        return $this->searchCriteriaDn;
     }
 
     /**
-     * Criteria for searching for an extension.
+     * 
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        $this->searchCriteriaExtension =  $searchCriteriaExtension;
+        if (!$searchCriteriaExtension) return $this;
+        $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
+             ? $searchCriteriaExtension
+             : new SearchCriteriaExtension($searchCriteriaExtension);
+        $this->searchCriteriaExtension->setName('searchCriteriaExtension');
+        return $this;
     }
 
     /**
-     * Criteria for searching for an extension.
+     * 
+     * @return SearchCriteriaExtension
      */
     public function getSearchCriteriaExtension()
     {
-        return (!$this->searchCriteriaExtension) ?: $this->searchCriteriaExtension->getValue();
+        return $this->searchCriteriaExtension;
     }
 
     /**
-     * Criteria for searching for device type.
+     * 
      */
     public function setSearchCriteriaDeviceType(SearchCriteriaDeviceType $searchCriteriaDeviceType = null)
     {
-        $this->searchCriteriaDeviceType =  $searchCriteriaDeviceType;
+        if (!$searchCriteriaDeviceType) return $this;
+        $this->searchCriteriaDeviceType = ($searchCriteriaDeviceType InstanceOf SearchCriteriaDeviceType)
+             ? $searchCriteriaDeviceType
+             : new SearchCriteriaDeviceType($searchCriteriaDeviceType);
+        $this->searchCriteriaDeviceType->setName('searchCriteriaDeviceType');
+        return $this;
     }
 
     /**
-     * Criteria for searching for device type.
+     * 
+     * @return SearchCriteriaDeviceType
      */
     public function getSearchCriteriaDeviceType()
     {
-        return (!$this->searchCriteriaDeviceType) ?: $this->searchCriteriaDeviceType->getValue();
+        return $this->searchCriteriaDeviceType;
     }
 
     /**
-     * Criteria for searching for device name.
+     * 
      */
     public function setSearchCriteriaDeviceName(SearchCriteriaDeviceName $searchCriteriaDeviceName = null)
     {
-        $this->searchCriteriaDeviceName =  $searchCriteriaDeviceName;
+        if (!$searchCriteriaDeviceName) return $this;
+        $this->searchCriteriaDeviceName = ($searchCriteriaDeviceName InstanceOf SearchCriteriaDeviceName)
+             ? $searchCriteriaDeviceName
+             : new SearchCriteriaDeviceName($searchCriteriaDeviceName);
+        $this->searchCriteriaDeviceName->setName('searchCriteriaDeviceName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for device name.
+     * 
+     * @return SearchCriteriaDeviceName
      */
     public function getSearchCriteriaDeviceName()
     {
-        return (!$this->searchCriteriaDeviceName) ?: $this->searchCriteriaDeviceName->getValue();
+        return $this->searchCriteriaDeviceName;
     }
 
     /**
-     * Criteria for searching for device MAC address.
+     * 
      */
     public function setSearchCriteriaDeviceMACAddress(SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null)
     {
-        $this->searchCriteriaDeviceMACAddress =  $searchCriteriaDeviceMACAddress;
+        if (!$searchCriteriaDeviceMACAddress) return $this;
+        $this->searchCriteriaDeviceMACAddress = ($searchCriteriaDeviceMACAddress InstanceOf SearchCriteriaDeviceMACAddress)
+             ? $searchCriteriaDeviceMACAddress
+             : new SearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
+        $this->searchCriteriaDeviceMACAddress->setName('searchCriteriaDeviceMACAddress');
+        return $this;
     }
 
     /**
-     * Criteria for searching for device MAC address.
+     * 
+     * @return SearchCriteriaDeviceMACAddress
      */
     public function getSearchCriteriaDeviceMACAddress()
     {
-        return (!$this->searchCriteriaDeviceMACAddress) ?: $this->searchCriteriaDeviceMACAddress->getValue();
+        return $this->searchCriteriaDeviceMACAddress;
     }
 
     /**
-     * Criteria for searching for device network address.
+     * 
      */
     public function setSearchCriteriaDeviceNetAddress(SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null)
     {
-        $this->searchCriteriaDeviceNetAddress =  $searchCriteriaDeviceNetAddress;
+        if (!$searchCriteriaDeviceNetAddress) return $this;
+        $this->searchCriteriaDeviceNetAddress = ($searchCriteriaDeviceNetAddress InstanceOf SearchCriteriaDeviceNetAddress)
+             ? $searchCriteriaDeviceNetAddress
+             : new SearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
+        $this->searchCriteriaDeviceNetAddress->setName('searchCriteriaDeviceNetAddress');
+        return $this;
     }
 
     /**
-     * Criteria for searching for device network address.
+     * 
+     * @return SearchCriteriaDeviceNetAddress
      */
     public function getSearchCriteriaDeviceNetAddress()
     {
-        return (!$this->searchCriteriaDeviceNetAddress) ?: $this->searchCriteriaDeviceNetAddress->getValue();
+        return $this->searchCriteriaDeviceNetAddress;
     }
 }

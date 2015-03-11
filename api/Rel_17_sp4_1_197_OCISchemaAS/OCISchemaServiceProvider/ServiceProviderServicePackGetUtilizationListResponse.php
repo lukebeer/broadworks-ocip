@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetUtilizationListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'ServiceProviderServicePackGetUtilizationListResponse';
     protected $servicePackName         = null;
     protected $serviceUtilizationTable = null;
 
@@ -35,21 +34,25 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
     }
 
     /**
-     * Service Pack name.
+     * 
      */
     public function setServicePackName($servicePackName = null)
     {
+        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
+        $this->servicePackName->setName('servicePackName');
+        return $this;
     }
 
     /**
-     * Service Pack name.
+     * 
+     * @return ServicePackName
      */
     public function getServicePackName()
     {
-        return (!$this->servicePackName) ?: $this->servicePackName->getValue();
+        return $this->servicePackName->getValue();
     }
 
     /**
@@ -57,14 +60,17 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
      */
     public function setServiceUtilizationTable(core:OCITable $serviceUtilizationTable = null)
     {
-        $this->serviceUtilizationTable =  $serviceUtilizationTable;
+        if (!$serviceUtilizationTable) return $this;
+        $this->serviceUtilizationTable->setName('serviceUtilizationTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getServiceUtilizationTable()
     {
-        return (!$this->serviceUtilizationTable) ?: $this->serviceUtilizationTable->getValue();
+        return $this->serviceUtilizationTable->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallWaiting; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting\UserCallWaitingGetResponse17sp4;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'UserCallWaitingGetResponse17sp4';
     protected $isActive                     = null;
     protected $disableCallingLineIdDelivery = null;
 
@@ -40,15 +39,19 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -56,14 +59,18 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
      */
     public function setDisableCallingLineIdDelivery($disableCallingLineIdDelivery = null)
     {
-        $this->disableCallingLineIdDelivery = (boolean) $disableCallingLineIdDelivery;
+        if (!$disableCallingLineIdDelivery) return $this;
+        $this->disableCallingLineIdDelivery = new PrimitiveType($disableCallingLineIdDelivery);
+        $this->disableCallingLineIdDelivery->setName('disableCallingLineIdDelivery');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisableCallingLineIdDelivery()
     {
-        return (!$this->disableCallingLineIdDelivery) ?: $this->disableCallingLineIdDelivery;
+        return $this->disableCallingLineIdDelivery->getValue();
     }
 }

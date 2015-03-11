@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagDeleteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceManagementTagDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name    = __CLASS__;
+    public    $name    = 'SystemDeviceManagementTagDeleteListRequest';
     protected $tagName = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemDeviceManagementTagDeleteListRequest extends ComplexType implements 
     }
 
     /**
-     * @return SystemDeviceManagementTagDeleteListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,24 +38,24 @@ class SystemDeviceManagementTagDeleteListRequest extends ComplexType implements 
     }
 
     /**
-     * A static tag name for access device files managed by the Device Management System on BroadWorks.
-     *         The static tag name must start and end with a % with no other % in between. The tag must not
-     *         start with %BW.
+     * 
      */
     public function setTagName($tagName = null)
     {
+        if (!$tagName) return $this;
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
+        $this->tagName->setName('tagName');
+        return $this;
     }
 
     /**
-     * A static tag name for access device files managed by the Device Management System on BroadWorks.
-     *         The static tag name must start and end with a % with no other % in between. The tag must not
-     *         start with %BW.
+     * 
+     * @return DeviceManagementTagName
      */
     public function getTagName()
     {
-        return (!$this->tagName) ?: $this->tagName->getValue();
+        return $this->tagName->getValue();
     }
 }

@@ -5,14 +5,14 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserDepartment;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserFirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetAvailableHostedUserListResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetAvailableHostedUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,8 +25,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetAvailableHostedUserListResponse';
-    public    $name                              = __CLASS__;
+    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetAvailableHostedUserListResponse';
+    public    $name                              = 'GroupTrunkGroupGetAvailableHostedUserListRequest';
     protected $trunkGroupKey                     = null;
     protected $responseSizeLimit                 = null;
     protected $searchCriteriaUserLastName        = null;
@@ -34,11 +34,11 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
     protected $searchCriteriaExactUserDepartment = null;
 
     public function __construct(
-          $trunkGroupKey,
+         TrunkGroupKey $trunkGroupKey,
          $responseSizeLimit = null,
-          $searchCriteriaUserLastName = null,
-          $searchCriteriaUserFirstName = null,
-          $searchCriteriaExactUserDepartment = null
+         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
+         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
+         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -56,90 +56,110 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
     }
 
     /**
-     * Uniquely identifies a Trunk Group system-wide.
-     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     * 
      */
     public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
-        $this->trunkGroupKey =  $trunkGroupKey;
+        if (!$trunkGroupKey) return $this;
+        $this->trunkGroupKey = $trunkGroupKey;
+        $this->trunkGroupKey->setName('trunkGroupKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a Trunk Group system-wide.
-     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     * 
+     * @return TrunkGroupKey
      */
     public function getTrunkGroupKey()
     {
-        return (!$this->trunkGroupKey) ?: $this->trunkGroupKey->getValue();
+        return $this->trunkGroupKey;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a user's last name.
+     * 
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        $this->searchCriteriaUserLastName =  $searchCriteriaUserLastName;
+        if (!$searchCriteriaUserLastName) return $this;
+        $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
+             ? $searchCriteriaUserLastName
+             : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
+        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a user's last name.
+     * 
+     * @return SearchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
-        return (!$this->searchCriteriaUserLastName) ?: $this->searchCriteriaUserLastName->getValue();
+        return $this->searchCriteriaUserLastName;
     }
 
     /**
-     * Criteria for searching for a user's first name.
+     * 
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        $this->searchCriteriaUserFirstName =  $searchCriteriaUserFirstName;
+        if (!$searchCriteriaUserFirstName) return $this;
+        $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
+             ? $searchCriteriaUserFirstName
+             : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
+        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a user's first name.
+     * 
+     * @return SearchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
-        return (!$this->searchCriteriaUserFirstName) ?: $this->searchCriteriaUserFirstName->getValue();
+        return $this->searchCriteriaUserFirstName;
     }
 
     /**
-     * Criteria for searching for a particular fully specified user's department.
+     * 
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        $this->searchCriteriaExactUserDepartment =  $searchCriteriaExactUserDepartment;
+        if (!$searchCriteriaExactUserDepartment) return $this;
+        $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
+             ? $searchCriteriaExactUserDepartment
+             : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
+        $this->searchCriteriaExactUserDepartment->setName('searchCriteriaExactUserDepartment');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a particular fully specified user's department.
+     * 
+     * @return SearchCriteriaExactUserDepartment
      */
     public function getSearchCriteriaExactUserDepartment()
     {
-        return (!$this->searchCriteriaExactUserDepartment) ?: $this->searchCriteriaExactUserDepartment->getValue();
+        return $this->searchCriteriaExactUserDepartment;
     }
 }

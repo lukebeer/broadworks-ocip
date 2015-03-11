@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPAuthe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxOutgoingCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxIncomingCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaxActiveCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'GroupTrunkGroupGetInstanceResponse14';
     protected $serviceInstanceProfile    = null;
     protected $accessDeviceEndpoint      = null;
     protected $maxActiveCalls            = null;
@@ -45,93 +45,109 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
-     *         Prior to release 14 this was called ServiceInstanceProfile.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
-     *         Prior to release 14 this was called ServiceInstanceProfile.
+     * 
+     * @return ServiceInstanceReadProfile
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Access device end point.
+     * 
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointRead14 $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
+        if (!$accessDeviceEndpoint) return $this;
+        $this->accessDeviceEndpoint = $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        return $this;
     }
 
     /**
-     * Access device end point.
+     * 
+     * @return AccessDeviceEndpointRead14
      */
     public function getAccessDeviceEndpoint()
     {
-        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->getValue();
+        return $this->accessDeviceEndpoint;
     }
 
     /**
-     * Maximum Number of Active Calls
+     * 
      */
     public function setMaxActiveCalls($maxActiveCalls = null)
     {
+        if (!$maxActiveCalls) return $this;
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
              ? $maxActiveCalls
              : new MaxActiveCalls($maxActiveCalls);
+        $this->maxActiveCalls->setName('maxActiveCalls');
+        return $this;
     }
 
     /**
-     * Maximum Number of Active Calls
+     * 
+     * @return MaxActiveCalls
      */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
+        return $this->maxActiveCalls->getValue();
     }
 
     /**
-     * Maximum Number of Incoming Calls
+     * 
      */
     public function setMaxIncomingCalls($maxIncomingCalls = null)
     {
+        if (!$maxIncomingCalls) return $this;
         $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
              ? $maxIncomingCalls
              : new MaxIncomingCalls($maxIncomingCalls);
+        $this->maxIncomingCalls->setName('maxIncomingCalls');
+        return $this;
     }
 
     /**
-     * Maximum Number of Incoming Calls
+     * 
+     * @return MaxIncomingCalls
      */
     public function getMaxIncomingCalls()
     {
-        return (!$this->maxIncomingCalls) ?: $this->maxIncomingCalls->getValue();
+        return $this->maxIncomingCalls->getValue();
     }
 
     /**
-     * Maximum Number of Outgoing Calls
+     * 
      */
     public function setMaxOutgoingCalls($maxOutgoingCalls = null)
     {
+        if (!$maxOutgoingCalls) return $this;
         $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
              ? $maxOutgoingCalls
              : new MaxOutgoingCalls($maxOutgoingCalls);
+        $this->maxOutgoingCalls->setName('maxOutgoingCalls');
+        return $this;
     }
 
     /**
-     * Maximum Number of Outgoing Calls
+     * 
+     * @return MaxOutgoingCalls
      */
     public function getMaxOutgoingCalls()
     {
-        return (!$this->maxOutgoingCalls) ?: $this->maxOutgoingCalls->getValue();
+        return $this->maxOutgoingCalls->getValue();
     }
 
     /**
@@ -139,32 +155,40 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function setRequireAuthentication($requireAuthentication = null)
     {
-        $this->requireAuthentication = (boolean) $requireAuthentication;
+        if (!$requireAuthentication) return $this;
+        $this->requireAuthentication = new PrimitiveType($requireAuthentication);
+        $this->requireAuthentication->setName('requireAuthentication');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRequireAuthentication()
+    {
+        return $this->requireAuthentication->getValue();
     }
 
     /**
      * 
      */
-    public function getRequireAuthentication()
-    {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
-    }
-
-    /**
-     * SIP Authentication User Name.
-     */
     public function setSipAuthenticationUserName($sipAuthenticationUserName = null)
     {
+        if (!$sipAuthenticationUserName) return $this;
         $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
              ? $sipAuthenticationUserName
              : new SIPAuthenticationUserName($sipAuthenticationUserName);
+        $this->sipAuthenticationUserName->setName('sipAuthenticationUserName');
+        return $this;
     }
 
     /**
-     * SIP Authentication User Name.
+     * 
+     * @return SIPAuthenticationUserName
      */
     public function getSipAuthenticationUserName()
     {
-        return (!$this->sipAuthenticationUserName) ?: $this->sipAuthenticationUserName->getValue();
+        return $this->sipAuthenticationUserName->getValue();
     }
 }

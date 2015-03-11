@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationPresentation; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceConnectedLineIdentificationPresentation; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationPresentation\SystemConnectedLineIdentificationPresentationModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemConnectedLineIdentificationPresentationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'SystemConnectedLineIdentificationPresentationModifyRequest';
     protected $enforceUserServiceAssignment = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemConnectedLineIdentificationPresentationModifyRequest extends Complex
     }
 
     /**
-     * @return SystemConnectedLineIdentificationPresentationModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,14 +42,18 @@ class SystemConnectedLineIdentificationPresentationModifyRequest extends Complex
      */
     public function setEnforceUserServiceAssignment($enforceUserServiceAssignment = null)
     {
-        $this->enforceUserServiceAssignment = (boolean) $enforceUserServiceAssignment;
+        if (!$enforceUserServiceAssignment) return $this;
+        $this->enforceUserServiceAssignment = new PrimitiveType($enforceUserServiceAssignment);
+        $this->enforceUserServiceAssignment->setName('enforceUserServiceAssignment');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnforceUserServiceAssignment()
     {
-        return (!$this->enforceUserServiceAssignment) ?: $this->enforceUserServiceAssignment;
+        return $this->enforceUserServiceAssignment->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleDeleteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,17 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemScheduleDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemScheduleDeleteListRequest';
     protected $scheduleKey = null;
 
     public function __construct(
-          $scheduleKey
+         ScheduleKey $scheduleKey
     ) {
         $this->setScheduleKey($scheduleKey);
     }
 
     /**
-     * @return SystemScheduleDeleteListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,18 +38,22 @@ class SystemScheduleDeleteListRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey =  $scheduleKey;
+        if (!$scheduleKey) return $this;
+        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey->setName('scheduleKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
+     * @return ScheduleKey
      */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
+        return $this->scheduleKey;
     }
 }

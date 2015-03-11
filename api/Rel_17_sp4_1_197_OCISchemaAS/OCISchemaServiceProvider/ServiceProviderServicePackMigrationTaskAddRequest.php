@@ -12,7 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\Se
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskAddResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                  = __CLASS__;
+    public    $name                                  = 'ServiceProviderServicePackMigrationTaskAddRequest';
     protected $serviceProviderId                     = null;
     protected $taskName                              = null;
     protected $startTimestamp                        = null;
@@ -62,7 +62,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
     }
 
     /**
-     * @return ServiceProviderServicePackMigrationTaskAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,41 +70,47 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Service pack migration task name.
+     * 
      */
     public function setTaskName($taskName = null)
     {
+        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
+        $this->taskName->setName('taskName');
+        return $this;
     }
 
     /**
-     * Service pack migration task name.
+     * 
+     * @return ServicePackMigrationTaskName
      */
     public function getTaskName()
     {
-        return (!$this->taskName) ?: $this->taskName->getValue();
+        return $this->taskName->getValue();
     }
 
     /**
@@ -112,33 +118,40 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
      */
     public function setStartTimestamp(xs:dateTime $startTimestamp = null)
     {
-        $this->startTimestamp =  $startTimestamp;
+        if (!$startTimestamp) return $this;
+        $this->startTimestamp->setName('startTimestamp');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:dateTime
+     */
+    public function getStartTimestamp()
+    {
+        return $this->startTimestamp->getValue();
     }
 
     /**
      * 
      */
-    public function getStartTimestamp()
-    {
-        return (!$this->startTimestamp) ?: $this->startTimestamp->getValue();
-    }
-
-    /**
-     * The maximum duration of a service pack migration task.
-     */
     public function setMaxDurationHours($maxDurationHours = null)
     {
+        if (!$maxDurationHours) return $this;
         $this->maxDurationHours = ($maxDurationHours InstanceOf ServicePackMigrationMaxDurationHours)
              ? $maxDurationHours
              : new ServicePackMigrationMaxDurationHours($maxDurationHours);
+        $this->maxDurationHours->setName('maxDurationHours');
+        return $this;
     }
 
     /**
-     * The maximum duration of a service pack migration task.
+     * 
+     * @return ServicePackMigrationMaxDurationHours
      */
     public function getMaxDurationHours()
     {
-        return (!$this->maxDurationHours) ?: $this->maxDurationHours->getValue();
+        return $this->maxDurationHours->getValue();
     }
 
     /**
@@ -146,33 +159,41 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
      */
     public function setSendReportEmail($sendReportEmail = null)
     {
-        $this->sendReportEmail = (boolean) $sendReportEmail;
+        if (!$sendReportEmail) return $this;
+        $this->sendReportEmail = new PrimitiveType($sendReportEmail);
+        $this->sendReportEmail->setName('sendReportEmail');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSendReportEmail()
+    {
+        return $this->sendReportEmail->getValue();
     }
 
     /**
      * 
      */
-    public function getSendReportEmail()
-    {
-        return (!$this->sendReportEmail) ?: $this->sendReportEmail;
-    }
-
-    /**
-     * Email Address
-     */
     public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress = null)
     {
+        if (!$reportDeliveryEmailAddress) return $this;
         $this->reportDeliveryEmailAddress = ($reportDeliveryEmailAddress InstanceOf EmailAddress)
              ? $reportDeliveryEmailAddress
              : new EmailAddress($reportDeliveryEmailAddress);
+        $this->reportDeliveryEmailAddress->setName('reportDeliveryEmailAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getReportDeliveryEmailAddress()
     {
-        return (!$this->reportDeliveryEmailAddress) ?: $this->reportDeliveryEmailAddress->getValue();
+        return $this->reportDeliveryEmailAddress->getValue();
     }
 
     /**
@@ -180,33 +201,41 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
      */
     public function setAbortOnError($abortOnError = null)
     {
-        $this->abortOnError = (boolean) $abortOnError;
+        if (!$abortOnError) return $this;
+        $this->abortOnError = new PrimitiveType($abortOnError);
+        $this->abortOnError->setName('abortOnError');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAbortOnError()
+    {
+        return $this->abortOnError->getValue();
     }
 
     /**
      * 
      */
-    public function getAbortOnError()
-    {
-        return (!$this->abortOnError) ?: $this->abortOnError;
-    }
-
-    /**
-     * The service pack migration task will be aborted if this many errors occurs.
-     */
     public function setAbortErrorThreshold($abortErrorThreshold = null)
     {
+        if (!$abortErrorThreshold) return $this;
         $this->abortErrorThreshold = ($abortErrorThreshold InstanceOf ServicePackMigrationAbortErrorThreshold)
              ? $abortErrorThreshold
              : new ServicePackMigrationAbortErrorThreshold($abortErrorThreshold);
+        $this->abortErrorThreshold->setName('abortErrorThreshold');
+        return $this;
     }
 
     /**
-     * The service pack migration task will be aborted if this many errors occurs.
+     * 
+     * @return ServicePackMigrationAbortErrorThreshold
      */
     public function getAbortErrorThreshold()
     {
-        return (!$this->abortErrorThreshold) ?: $this->abortErrorThreshold->getValue();
+        return $this->abortErrorThreshold->getValue();
     }
 
     /**
@@ -214,15 +243,19 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
      */
     public function setReportAllUsers($reportAllUsers = null)
     {
-        $this->reportAllUsers = (boolean) $reportAllUsers;
+        if (!$reportAllUsers) return $this;
+        $this->reportAllUsers = new PrimitiveType($reportAllUsers);
+        $this->reportAllUsers->setName('reportAllUsers');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getReportAllUsers()
     {
-        return (!$this->reportAllUsers) ?: $this->reportAllUsers;
+        return $this->reportAllUsers->getValue();
     }
 
     /**
@@ -230,14 +263,18 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
      */
     public function setAutomaticallyIncrementServiceQuantity($automaticallyIncrementServiceQuantity = null)
     {
-        $this->automaticallyIncrementServiceQuantity = (boolean) $automaticallyIncrementServiceQuantity;
+        if (!$automaticallyIncrementServiceQuantity) return $this;
+        $this->automaticallyIncrementServiceQuantity = new PrimitiveType($automaticallyIncrementServiceQuantity);
+        $this->automaticallyIncrementServiceQuantity->setName('automaticallyIncrementServiceQuantity');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAutomaticallyIncrementServiceQuantity()
     {
-        return (!$this->automaticallyIncrementServiceQuantity) ?: $this->automaticallyIncrementServiceQuantity;
+        return $this->automaticallyIncrementServiceQuantity->getValue();
     }
 }

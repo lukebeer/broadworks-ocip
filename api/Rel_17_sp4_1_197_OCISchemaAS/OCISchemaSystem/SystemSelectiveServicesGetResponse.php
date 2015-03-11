@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ScheduleCombinationType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSelectiveServicesGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSelectiveServicesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'SystemSelectiveServicesGetResponse';
     protected $scheduleCombination = null;
 
     /**
@@ -32,20 +31,24 @@ class SystemSelectiveServicesGetResponse extends ComplexType implements ComplexI
     }
 
     /**
-     * Schedule Combination.
+     * 
      */
     public function setScheduleCombination($scheduleCombination = null)
     {
+        if (!$scheduleCombination) return $this;
         $this->scheduleCombination = ($scheduleCombination InstanceOf ScheduleCombinationType)
              ? $scheduleCombination
              : new ScheduleCombinationType($scheduleCombination);
+        $this->scheduleCombination->setName('scheduleCombination');
+        return $this;
     }
 
     /**
-     * Schedule Combination.
+     * 
+     * @return ScheduleCombinationType
      */
     public function getScheduleCombination()
     {
-        return (!$this->scheduleCombination) ?: $this->scheduleCombination->getValue();
+        return $this->scheduleCombination->getValue();
     }
 }

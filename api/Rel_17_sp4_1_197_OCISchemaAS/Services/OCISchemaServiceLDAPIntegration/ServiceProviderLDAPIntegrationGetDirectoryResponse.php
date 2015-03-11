@@ -5,18 +5,18 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPAuthenticatedPassword;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPColumnAttributeName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPAuthenticatedDN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPSearchFilter;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPSearchColumn;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPSearchFilter;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPColumnLabel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPSearchBase;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLDAPIntegration\ServiceProviderLDAPIntegrationGetDirectoryResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderLDAPIntegrationGetDirectoryResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
+    public    $name                                 = 'ServiceProviderLDAPIntegrationGetDirectoryResponse';
     protected $serverNetAddress                     = null;
     protected $serverPort                           = null;
     protected $searchBase                           = null;
@@ -59,57 +59,69 @@ class ServiceProviderLDAPIntegrationGetDirectoryResponse extends ComplexType imp
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setServerNetAddress($serverNetAddress = null)
     {
+        if (!$serverNetAddress) return $this;
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
              ? $serverNetAddress
              : new NetAddress($serverNetAddress);
+        $this->serverNetAddress->setName('serverNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getServerNetAddress()
     {
-        return (!$this->serverNetAddress) ?: $this->serverNetAddress->getValue();
+        return $this->serverNetAddress->getValue();
     }
 
     /**
-     * TCP/IP Port.
+     * 
      */
     public function setServerPort($serverPort = null)
     {
+        if (!$serverPort) return $this;
         $this->serverPort = ($serverPort InstanceOf Port)
              ? $serverPort
              : new Port($serverPort);
+        $this->serverPort->setName('serverPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port.
+     * 
+     * @return Port
      */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->getValue();
+        return $this->serverPort->getValue();
     }
 
     /**
-     * LDAP Search Base.
+     * 
      */
     public function setSearchBase($searchBase = null)
     {
+        if (!$searchBase) return $this;
         $this->searchBase = ($searchBase InstanceOf LDAPSearchBase)
              ? $searchBase
              : new LDAPSearchBase($searchBase);
+        $this->searchBase->setName('searchBase');
+        return $this;
     }
 
     /**
-     * LDAP Search Base.
+     * 
+     * @return LDAPSearchBase
      */
     public function getSearchBase()
     {
-        return (!$this->searchBase) ?: $this->searchBase->getValue();
+        return $this->searchBase->getValue();
     }
 
     /**
@@ -117,15 +129,19 @@ class ServiceProviderLDAPIntegrationGetDirectoryResponse extends ComplexType imp
      */
     public function setUseSSL($useSSL = null)
     {
-        $this->useSSL = (boolean) $useSSL;
+        if (!$useSSL) return $this;
+        $this->useSSL = new PrimitiveType($useSSL);
+        $this->useSSL->setName('useSSL');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseSSL()
     {
-        return (!$this->useSSL) ?: $this->useSSL;
+        return $this->useSSL->getValue();
     }
 
     /**
@@ -133,51 +149,63 @@ class ServiceProviderLDAPIntegrationGetDirectoryResponse extends ComplexType imp
      */
     public function setRequireAuthentication($requireAuthentication = null)
     {
-        $this->requireAuthentication = (boolean) $requireAuthentication;
+        if (!$requireAuthentication) return $this;
+        $this->requireAuthentication = new PrimitiveType($requireAuthentication);
+        $this->requireAuthentication->setName('requireAuthentication');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRequireAuthentication()
+    {
+        return $this->requireAuthentication->getValue();
     }
 
     /**
      * 
      */
-    public function getRequireAuthentication()
-    {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
-    }
-
-    /**
-     * LDAP Authenticated DN.
-     */
     public function setAuthenticatedDN($authenticatedDN = null)
     {
+        if (!$authenticatedDN) return $this;
         $this->authenticatedDN = ($authenticatedDN InstanceOf LDAPAuthenticatedDN)
              ? $authenticatedDN
              : new LDAPAuthenticatedDN($authenticatedDN);
+        $this->authenticatedDN->setName('authenticatedDN');
+        return $this;
     }
 
     /**
-     * LDAP Authenticated DN.
+     * 
+     * @return LDAPAuthenticatedDN
      */
     public function getAuthenticatedDN()
     {
-        return (!$this->authenticatedDN) ?: $this->authenticatedDN->getValue();
+        return $this->authenticatedDN->getValue();
     }
 
     /**
-     * LDAP Authenticated Password.
+     * 
      */
     public function setAuthenticatedPassword($authenticatedPassword = null)
     {
+        if (!$authenticatedPassword) return $this;
         $this->authenticatedPassword = ($authenticatedPassword InstanceOf LDAPAuthenticatedPassword)
              ? $authenticatedPassword
              : new LDAPAuthenticatedPassword($authenticatedPassword);
+        $this->authenticatedPassword->setName('authenticatedPassword');
+        return $this;
     }
 
     /**
-     * LDAP Authenticated Password.
+     * 
+     * @return LDAPAuthenticatedPassword
      */
     public function getAuthenticatedPassword()
     {
-        return (!$this->authenticatedPassword) ?: $this->authenticatedPassword->getValue();
+        return $this->authenticatedPassword->getValue();
     }
 
     /**
@@ -185,15 +213,19 @@ class ServiceProviderLDAPIntegrationGetDirectoryResponse extends ComplexType imp
      */
     public function setIsSortEnabled($isSortEnabled = null)
     {
-        $this->isSortEnabled = (boolean) $isSortEnabled;
+        if (!$isSortEnabled) return $this;
+        $this->isSortEnabled = new PrimitiveType($isSortEnabled);
+        $this->isSortEnabled->setName('isSortEnabled');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsSortEnabled()
     {
-        return (!$this->isSortEnabled) ?: $this->isSortEnabled;
+        return $this->isSortEnabled->getValue();
     }
 
     /**
@@ -201,33 +233,41 @@ class ServiceProviderLDAPIntegrationGetDirectoryResponse extends ComplexType imp
      */
     public function setIsPagedResultEnabled($isPagedResultEnabled = null)
     {
-        $this->isPagedResultEnabled = (boolean) $isPagedResultEnabled;
+        if (!$isPagedResultEnabled) return $this;
+        $this->isPagedResultEnabled = new PrimitiveType($isPagedResultEnabled);
+        $this->isPagedResultEnabled->setName('isPagedResultEnabled');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsPagedResultEnabled()
+    {
+        return $this->isPagedResultEnabled->getValue();
     }
 
     /**
      * 
      */
-    public function getIsPagedResultEnabled()
-    {
-        return (!$this->isPagedResultEnabled) ?: $this->isPagedResultEnabled;
-    }
-
-    /**
-     * LDAP Search Filter.
-     */
     public function setSearchFilter($searchFilter = null)
     {
+        if (!$searchFilter) return $this;
         $this->searchFilter = ($searchFilter InstanceOf LDAPSearchFilter)
              ? $searchFilter
              : new LDAPSearchFilter($searchFilter);
+        $this->searchFilter->setName('searchFilter');
+        return $this;
     }
 
     /**
-     * LDAP Search Filter.
+     * 
+     * @return LDAPSearchFilter
      */
     public function getSearchFilter()
     {
-        return (!$this->searchFilter) ?: $this->searchFilter->getValue();
+        return $this->searchFilter->getValue();
     }
 
     /**
@@ -235,178 +275,216 @@ class ServiceProviderLDAPIntegrationGetDirectoryResponse extends ComplexType imp
      */
     public function setIncludeSearchAttributeInSearchFilter($includeSearchAttributeInSearchFilter = null)
     {
-        $this->includeSearchAttributeInSearchFilter = (boolean) $includeSearchAttributeInSearchFilter;
+        if (!$includeSearchAttributeInSearchFilter) return $this;
+        $this->includeSearchAttributeInSearchFilter = new PrimitiveType($includeSearchAttributeInSearchFilter);
+        $this->includeSearchAttributeInSearchFilter->setName('includeSearchAttributeInSearchFilter');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIncludeSearchAttributeInSearchFilter()
+    {
+        return $this->includeSearchAttributeInSearchFilter->getValue();
     }
 
     /**
      * 
      */
-    public function getIncludeSearchAttributeInSearchFilter()
-    {
-        return (!$this->includeSearchAttributeInSearchFilter) ?: $this->includeSearchAttributeInSearchFilter;
-    }
-
-    /**
-     * LDAP column attribute name.
-     */
     public function setColumn1AttributeName($column1AttributeName = null)
     {
+        if (!$column1AttributeName) return $this;
         $this->column1AttributeName = ($column1AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column1AttributeName
              : new LDAPColumnAttributeName($column1AttributeName);
+        $this->column1AttributeName->setName('column1AttributeName');
+        return $this;
     }
 
     /**
-     * LDAP column attribute name.
+     * 
+     * @return LDAPColumnAttributeName
      */
     public function getColumn1AttributeName()
     {
-        return (!$this->column1AttributeName) ?: $this->column1AttributeName->getValue();
+        return $this->column1AttributeName->getValue();
     }
 
     /**
-     * LDAP column attribute name.
+     * 
      */
     public function setColumn2AttributeName($column2AttributeName = null)
     {
+        if (!$column2AttributeName) return $this;
         $this->column2AttributeName = ($column2AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column2AttributeName
              : new LDAPColumnAttributeName($column2AttributeName);
+        $this->column2AttributeName->setName('column2AttributeName');
+        return $this;
     }
 
     /**
-     * LDAP column attribute name.
+     * 
+     * @return LDAPColumnAttributeName
      */
     public function getColumn2AttributeName()
     {
-        return (!$this->column2AttributeName) ?: $this->column2AttributeName->getValue();
+        return $this->column2AttributeName->getValue();
     }
 
     /**
-     * LDAP column attribute name.
+     * 
      */
     public function setColumn3AttributeName($column3AttributeName = null)
     {
+        if (!$column3AttributeName) return $this;
         $this->column3AttributeName = ($column3AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column3AttributeName
              : new LDAPColumnAttributeName($column3AttributeName);
+        $this->column3AttributeName->setName('column3AttributeName');
+        return $this;
     }
 
     /**
-     * LDAP column attribute name.
+     * 
+     * @return LDAPColumnAttributeName
      */
     public function getColumn3AttributeName()
     {
-        return (!$this->column3AttributeName) ?: $this->column3AttributeName->getValue();
+        return $this->column3AttributeName->getValue();
     }
 
     /**
-     * LDAP column attribute name.
+     * 
      */
     public function setColumn4AttributeName($column4AttributeName = null)
     {
+        if (!$column4AttributeName) return $this;
         $this->column4AttributeName = ($column4AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column4AttributeName
              : new LDAPColumnAttributeName($column4AttributeName);
+        $this->column4AttributeName->setName('column4AttributeName');
+        return $this;
     }
 
     /**
-     * LDAP column attribute name.
+     * 
+     * @return LDAPColumnAttributeName
      */
     public function getColumn4AttributeName()
     {
-        return (!$this->column4AttributeName) ?: $this->column4AttributeName->getValue();
+        return $this->column4AttributeName->getValue();
     }
 
     /**
-     * LDAP column label.
+     * 
      */
     public function setColumn1Label($column1Label = null)
     {
+        if (!$column1Label) return $this;
         $this->column1Label = ($column1Label InstanceOf LDAPColumnLabel)
              ? $column1Label
              : new LDAPColumnLabel($column1Label);
+        $this->column1Label->setName('column1Label');
+        return $this;
     }
 
     /**
-     * LDAP column label.
+     * 
+     * @return LDAPColumnLabel
      */
     public function getColumn1Label()
     {
-        return (!$this->column1Label) ?: $this->column1Label->getValue();
+        return $this->column1Label->getValue();
     }
 
     /**
-     * LDAP column label.
+     * 
      */
     public function setColumn2Label($column2Label = null)
     {
+        if (!$column2Label) return $this;
         $this->column2Label = ($column2Label InstanceOf LDAPColumnLabel)
              ? $column2Label
              : new LDAPColumnLabel($column2Label);
+        $this->column2Label->setName('column2Label');
+        return $this;
     }
 
     /**
-     * LDAP column label.
+     * 
+     * @return LDAPColumnLabel
      */
     public function getColumn2Label()
     {
-        return (!$this->column2Label) ?: $this->column2Label->getValue();
+        return $this->column2Label->getValue();
     }
 
     /**
-     * LDAP column label.
+     * 
      */
     public function setColumn3Label($column3Label = null)
     {
+        if (!$column3Label) return $this;
         $this->column3Label = ($column3Label InstanceOf LDAPColumnLabel)
              ? $column3Label
              : new LDAPColumnLabel($column3Label);
+        $this->column3Label->setName('column3Label');
+        return $this;
     }
 
     /**
-     * LDAP column label.
+     * 
+     * @return LDAPColumnLabel
      */
     public function getColumn3Label()
     {
-        return (!$this->column3Label) ?: $this->column3Label->getValue();
+        return $this->column3Label->getValue();
     }
 
     /**
-     * LDAP column label.
+     * 
      */
     public function setColumn4Label($column4Label = null)
     {
+        if (!$column4Label) return $this;
         $this->column4Label = ($column4Label InstanceOf LDAPColumnLabel)
              ? $column4Label
              : new LDAPColumnLabel($column4Label);
+        $this->column4Label->setName('column4Label');
+        return $this;
     }
 
     /**
-     * LDAP column label.
+     * 
+     * @return LDAPColumnLabel
      */
     public function getColumn4Label()
     {
-        return (!$this->column4Label) ?: $this->column4Label->getValue();
+        return $this->column4Label->getValue();
     }
 
     /**
-     * Indicates the column whose attribute is chosen to be included in
-     *         the search filter.
+     * 
      */
     public function setSearchColumn($searchColumn = null)
     {
+        if (!$searchColumn) return $this;
         $this->searchColumn = ($searchColumn InstanceOf LDAPSearchColumn)
              ? $searchColumn
              : new LDAPSearchColumn($searchColumn);
+        $this->searchColumn->setName('searchColumn');
+        return $this;
     }
 
     /**
-     * Indicates the column whose attribute is chosen to be included in
-     *         the search filter.
+     * 
+     * @return LDAPSearchColumn
      */
     public function getSearchColumn()
     {
-        return (!$this->searchColumn) ?: $this->searchColumn->getValue();
+        return $this->searchColumn->getValue();
     }
 }

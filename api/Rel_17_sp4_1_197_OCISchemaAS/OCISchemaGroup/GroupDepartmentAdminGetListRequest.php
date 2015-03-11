@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupDepartmentAdminGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminGetListResponse';
-    public    $name          = __CLASS__;
+    public    $name          = 'GroupDepartmentAdminGetListRequest';
     protected $departmentKey = null;
 
     public function __construct(
-          $departmentKey
+         GroupDepartmentKey $departmentKey
     ) {
         $this->setDepartmentKey($departmentKey);
     }
@@ -40,22 +40,22 @@ class GroupDepartmentAdminGetListRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * Uniquely identifies a department defined within a group.
-     *         To uniquely identify a group department, we must know the department name and which
-     *         group contains the department.
+     * 
      */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
-        $this->departmentKey =  $departmentKey;
+        if (!$departmentKey) return $this;
+        $this->departmentKey = $departmentKey;
+        $this->departmentKey->setName('departmentKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department defined within a group.
-     *         To uniquely identify a group department, we must know the department name and which
-     *         group contains the department.
+     * 
+     * @return GroupDepartmentKey
      */
     public function getDepartmentKey()
     {
-        return (!$this->departmentKey) ?: $this->departmentKey->getValue();
+        return $this->departmentKey;
     }
 }

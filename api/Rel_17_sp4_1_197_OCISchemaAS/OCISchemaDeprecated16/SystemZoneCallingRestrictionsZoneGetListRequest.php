@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemZoneCallingRestrictionsZoneGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsZoneGetListResponse';
-    public    $name = __CLASS__;
+    public    $name = 'SystemZoneCallingRestrictionsZoneGetListRequest';
 
     public function __construct(    ) {
     }

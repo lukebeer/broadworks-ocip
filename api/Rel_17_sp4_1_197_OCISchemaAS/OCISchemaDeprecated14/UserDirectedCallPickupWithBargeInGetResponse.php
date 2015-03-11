@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserDirectedCallPickupWithBargeInGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDirectedCallPickupWithBargeInGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'UserDirectedCallPickupWithBargeInGetResponse';
     protected $enableBargeInWarningTone = null;
 
     /**
@@ -36,14 +35,18 @@ class UserDirectedCallPickupWithBargeInGetResponse extends ComplexType implement
      */
     public function setEnableBargeInWarningTone($enableBargeInWarningTone = null)
     {
-        $this->enableBargeInWarningTone = (boolean) $enableBargeInWarningTone;
+        if (!$enableBargeInWarningTone) return $this;
+        $this->enableBargeInWarningTone = new PrimitiveType($enableBargeInWarningTone);
+        $this->enableBargeInWarningTone->setName('enableBargeInWarningTone');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableBargeInWarningTone()
     {
-        return (!$this->enableBargeInWarningTone) ?: $this->enableBargeInWarningTone;
+        return $this->enableBargeInWarningTone->getValue();
     }
 }

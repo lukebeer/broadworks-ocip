@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServiceGetUserAssignableListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServiceGetUserAssignableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'ServiceProviderServiceGetUserAssignableListResponse';
     protected $serviceName = null;
 
     /**
@@ -32,20 +31,24 @@ class ServiceProviderServiceGetUserAssignableListResponse extends ComplexType im
     }
 
     /**
-     * User level services.
+     * 
      */
     public function setServiceName($serviceName = null)
     {
+        if (!$serviceName) return $this;
         $this->serviceName = ($serviceName InstanceOf UserService)
              ? $serviceName
              : new UserService($serviceName);
+        $this->serviceName->setName('serviceName');
+        return $this;
     }
 
     /**
-     * User level services.
+     * 
+     * @return UserService
      */
     public function getServiceName()
     {
-        return (!$this->serviceName) ?: $this->serviceName->getValue();
+        return $this->serviceName->getValue();
     }
 }

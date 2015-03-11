@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RingPattern;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterDistinctiveRingingModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterDistinctiveRingingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = __CLASS__;
+    public    $name                                       = 'GroupCallCenterDistinctiveRingingModifyRequest';
     protected $serviceUserId                              = null;
     protected $distinctiveRingingCallCenterCalls          = null;
     protected $distinctiveRingingRingPatternForCallCenter = null;
@@ -42,7 +42,7 @@ class GroupCallCenterDistinctiveRingingModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return GroupCallCenterDistinctiveRingingModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,29 +50,25 @@ class GroupCallCenterDistinctiveRingingModifyRequest extends ComplexType impleme
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
@@ -80,50 +76,62 @@ class GroupCallCenterDistinctiveRingingModifyRequest extends ComplexType impleme
      */
     public function setDistinctiveRingingCallCenterCalls($distinctiveRingingCallCenterCalls = null)
     {
-        $this->distinctiveRingingCallCenterCalls = (boolean) $distinctiveRingingCallCenterCalls;
+        if (!$distinctiveRingingCallCenterCalls) return $this;
+        $this->distinctiveRingingCallCenterCalls = new PrimitiveType($distinctiveRingingCallCenterCalls);
+        $this->distinctiveRingingCallCenterCalls->setName('distinctiveRingingCallCenterCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDistinctiveRingingCallCenterCalls()
+    {
+        return $this->distinctiveRingingCallCenterCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getDistinctiveRingingCallCenterCalls()
-    {
-        return (!$this->distinctiveRingingCallCenterCalls) ?: $this->distinctiveRingingCallCenterCalls;
-    }
-
-    /**
-     * The supported ring patterns.
-     */
     public function setDistinctiveRingingRingPatternForCallCenter($distinctiveRingingRingPatternForCallCenter = null)
     {
+        if (!$distinctiveRingingRingPatternForCallCenter) return $this;
         $this->distinctiveRingingRingPatternForCallCenter = ($distinctiveRingingRingPatternForCallCenter InstanceOf RingPattern)
              ? $distinctiveRingingRingPatternForCallCenter
              : new RingPattern($distinctiveRingingRingPatternForCallCenter);
+        $this->distinctiveRingingRingPatternForCallCenter->setName('distinctiveRingingRingPatternForCallCenter');
+        return $this;
     }
 
     /**
-     * The supported ring patterns.
+     * 
+     * @return RingPattern
      */
     public function getDistinctiveRingingRingPatternForCallCenter()
     {
-        return (!$this->distinctiveRingingRingPatternForCallCenter) ?: $this->distinctiveRingingRingPatternForCallCenter->getValue();
+        return $this->distinctiveRingingRingPatternForCallCenter->getValue();
     }
 
     /**
-     * The supported ring patterns.
+     * 
      */
     public function setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern = null)
     {
+        if (!$distinctiveRingingForceDeliveryRingPattern) return $this;
         $this->distinctiveRingingForceDeliveryRingPattern = ($distinctiveRingingForceDeliveryRingPattern InstanceOf RingPattern)
              ? $distinctiveRingingForceDeliveryRingPattern
              : new RingPattern($distinctiveRingingForceDeliveryRingPattern);
+        $this->distinctiveRingingForceDeliveryRingPattern->setName('distinctiveRingingForceDeliveryRingPattern');
+        return $this;
     }
 
     /**
-     * The supported ring patterns.
+     * 
+     * @return RingPattern
      */
     public function getDistinctiveRingingForceDeliveryRingPattern()
     {
-        return (!$this->distinctiveRingingForceDeliveryRingPattern) ?: $this->distinctiveRingingForceDeliveryRingPattern->getValue();
+        return $this->distinctiveRingingForceDeliveryRingPattern->getValue();
     }
 }

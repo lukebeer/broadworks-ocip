@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRoutingPolicy;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterGetRoutingPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterGetRoutingPolicyResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'EnterpriseCallCenterGetRoutingPolicyResponse';
     protected $routingPolicy   = null;
     protected $callCenterTable = null;
 
@@ -35,21 +34,25 @@ class EnterpriseCallCenterGetRoutingPolicyResponse extends ComplexType implement
     }
 
     /**
-     * Call center routing policy.
+     * 
      */
     public function setRoutingPolicy($routingPolicy = null)
     {
+        if (!$routingPolicy) return $this;
         $this->routingPolicy = ($routingPolicy InstanceOf CallCenterRoutingPolicy)
              ? $routingPolicy
              : new CallCenterRoutingPolicy($routingPolicy);
+        $this->routingPolicy->setName('routingPolicy');
+        return $this;
     }
 
     /**
-     * Call center routing policy.
+     * 
+     * @return CallCenterRoutingPolicy
      */
     public function getRoutingPolicy()
     {
-        return (!$this->routingPolicy) ?: $this->routingPolicy->getValue();
+        return $this->routingPolicy->getValue();
     }
 
     /**
@@ -57,14 +60,17 @@ class EnterpriseCallCenterGetRoutingPolicyResponse extends ComplexType implement
      */
     public function setCallCenterTable(core:OCITable $callCenterTable = null)
     {
-        $this->callCenterTable =  $callCenterTable;
+        if (!$callCenterTable) return $this;
+        $this->callCenterTable->setName('callCenterTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCallCenterTable()
     {
-        return (!$this->callCenterTable) ?: $this->callCenterTable->getValue();
+        return $this->callCenterTable->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeLanguageMappingGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeLanguageMappingGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'SystemSIPDeviceTypeLanguageMappingGetListResponse';
     protected $deviceTypeLanguagesTable = null;
 
     /**
@@ -38,14 +37,17 @@ class SystemSIPDeviceTypeLanguageMappingGetListResponse extends ComplexType impl
      */
     public function setDeviceTypeLanguagesTable(core:OCITable $deviceTypeLanguagesTable = null)
     {
-        $this->deviceTypeLanguagesTable =  $deviceTypeLanguagesTable;
+        if (!$deviceTypeLanguagesTable) return $this;
+        $this->deviceTypeLanguagesTable->setName('deviceTypeLanguagesTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDeviceTypeLanguagesTable()
     {
-        return (!$this->deviceTypeLanguagesTable) ?: $this->deviceTypeLanguagesTable->getValue();
+        return $this->deviceTypeLanguagesTable->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterMediaOnHoldSourceRead17;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAnnouncementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetDNISAnnouncementResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupRoutePointGetDNISAnnouncementResponse';
     protected $mediaOnHoldSource = null;
 
     /**
@@ -32,18 +31,22 @@ class GroupRoutePointGetDNISAnnouncementResponse extends ComplexType implements 
     }
 
     /**
-     * Contains the call center media on hold source configuration.
+     * 
      */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceRead17 $mediaOnHoldSource = null)
     {
-        $this->mediaOnHoldSource =  $mediaOnHoldSource;
+        if (!$mediaOnHoldSource) return $this;
+        $this->mediaOnHoldSource = $mediaOnHoldSource;
+        $this->mediaOnHoldSource->setName('mediaOnHoldSource');
+        return $this;
     }
 
     /**
-     * Contains the call center media on hold source configuration.
+     * 
+     * @return CallCenterMediaOnHoldSourceRead17
      */
     public function getMediaOnHoldSource()
     {
-        return (!$this->mediaOnHoldSource) ?: $this->mediaOnHoldSource->getValue();
+        return $this->mediaOnHoldSource;
     }
 }

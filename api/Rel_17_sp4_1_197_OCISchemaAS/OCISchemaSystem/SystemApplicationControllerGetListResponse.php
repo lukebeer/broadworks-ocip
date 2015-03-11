@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationControllerGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemApplicationControllerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'SystemApplicationControllerGetListResponse';
     protected $applicationControllerTable = null;
 
     /**
@@ -38,14 +37,17 @@ class SystemApplicationControllerGetListResponse extends ComplexType implements 
      */
     public function setApplicationControllerTable(core:OCITable $applicationControllerTable = null)
     {
-        $this->applicationControllerTable =  $applicationControllerTable;
+        if (!$applicationControllerTable) return $this;
+        $this->applicationControllerTable->setName('applicationControllerTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getApplicationControllerTable()
     {
-        return (!$this->applicationControllerTable) ?: $this->applicationControllerTable->getValue();
+        return $this->applicationControllerTable->getValue();
     }
 }

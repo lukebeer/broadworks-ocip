@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemBwDiameterBaseDataGetRequest17sp3 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterBaseDataGetResponse17sp3';
-    public    $name = __CLASS__;
+    public    $name = 'SystemBwDiameterBaseDataGetRequest17sp3';
 
     public function __construct(    ) {
     }

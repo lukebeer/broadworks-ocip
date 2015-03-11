@@ -11,6 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserPersonalPhoneListName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -32,7 +33,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserPersonalPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse';
-    public    $name                                      = __CLASS__;
+    public    $name                                      = 'UserPersonalPhoneListGetListRequest';
     protected $userId                                    = null;
     protected $responseSizeLimit                         = null;
     protected $searchCriteriaModeOr                      = null;
@@ -43,8 +44,8 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
          $userId,
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-          $searchCriteriaUserPersonalPhoneListName = null,
-          $searchCriteriaUserPersonalPhoneListNumber = null
+         SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName = null,
+         SearchCriteriaUserPersonalPhoneListNumber $searchCriteriaUserPersonalPhoneListNumber = null
     ) {
         $this->setUserId($userId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -62,51 +63,47 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
@@ -114,46 +111,62 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
-        $this->searchCriteriaModeOr = (boolean) $searchCriteriaModeOr;
+        if (!$searchCriteriaModeOr) return $this;
+        $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
+        $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSearchCriteriaModeOr()
+    {
+        return $this->searchCriteriaModeOr->getValue();
     }
 
     /**
      * 
      */
-    public function getSearchCriteriaModeOr()
-    {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr;
-    }
-
-    /**
-     * Criteria for searching for a name in a user personal phone list.
-     */
     public function setSearchCriteriaUserPersonalPhoneListName(SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName = null)
     {
-        $this->searchCriteriaUserPersonalPhoneListName =  $searchCriteriaUserPersonalPhoneListName;
+        if (!$searchCriteriaUserPersonalPhoneListName) return $this;
+        $this->searchCriteriaUserPersonalPhoneListName = ($searchCriteriaUserPersonalPhoneListName InstanceOf SearchCriteriaUserPersonalPhoneListName)
+             ? $searchCriteriaUserPersonalPhoneListName
+             : new SearchCriteriaUserPersonalPhoneListName($searchCriteriaUserPersonalPhoneListName);
+        $this->searchCriteriaUserPersonalPhoneListName->setName('searchCriteriaUserPersonalPhoneListName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a name in a user personal phone list.
+     * 
+     * @return SearchCriteriaUserPersonalPhoneListName
      */
     public function getSearchCriteriaUserPersonalPhoneListName()
     {
-        return (!$this->searchCriteriaUserPersonalPhoneListName) ?: $this->searchCriteriaUserPersonalPhoneListName->getValue();
+        return $this->searchCriteriaUserPersonalPhoneListName;
     }
 
     /**
-     * Criteria for searching for a phone number in a user personal phone list.
+     * 
      */
     public function setSearchCriteriaUserPersonalPhoneListNumber(SearchCriteriaUserPersonalPhoneListNumber $searchCriteriaUserPersonalPhoneListNumber = null)
     {
-        $this->searchCriteriaUserPersonalPhoneListNumber =  $searchCriteriaUserPersonalPhoneListNumber;
+        if (!$searchCriteriaUserPersonalPhoneListNumber) return $this;
+        $this->searchCriteriaUserPersonalPhoneListNumber = ($searchCriteriaUserPersonalPhoneListNumber InstanceOf SearchCriteriaUserPersonalPhoneListNumber)
+             ? $searchCriteriaUserPersonalPhoneListNumber
+             : new SearchCriteriaUserPersonalPhoneListNumber($searchCriteriaUserPersonalPhoneListNumber);
+        $this->searchCriteriaUserPersonalPhoneListNumber->setName('searchCriteriaUserPersonalPhoneListNumber');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a phone number in a user personal phone list.
+     * 
+     * @return SearchCriteriaUserPersonalPhoneListNumber
      */
     public function getSearchCriteriaUserPersonalPhoneListNumber()
     {
-        return (!$this->searchCriteriaUserPersonalPhoneListNumber) ?: $this->searchCriteriaUserPersonalPhoneListNumber->getValue();
+        return $this->searchCriteriaUserPersonalPhoneListNumber;
     }
 }

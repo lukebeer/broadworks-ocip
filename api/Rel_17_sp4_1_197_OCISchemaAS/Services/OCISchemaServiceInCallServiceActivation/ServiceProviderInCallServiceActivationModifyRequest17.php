@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInCallServiceActivation; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInCallServiceActivation; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InCallServiceActivationDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInCallServiceActivation\ServiceProviderInCallServiceActivationModifyResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'ServiceProviderInCallServiceActivationModifyRequest17';
     protected $serviceProviderId            = null;
     protected $flashActivationDigits        = null;
     protected $callTransferActivationDigits = null;
@@ -37,7 +36,7 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
     }
 
     /**
-     * @return ServiceProviderInCallServiceActivationModifyResponse17
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,58 +44,68 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * In Call Service Activation DigitMap.
+     * 
      */
     public function setFlashActivationDigits($flashActivationDigits = null)
     {
+        if (!$flashActivationDigits) return $this;
         $this->flashActivationDigits = ($flashActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $flashActivationDigits
              : new InCallServiceActivationDigits($flashActivationDigits);
+        $this->flashActivationDigits->setName('flashActivationDigits');
+        return $this;
     }
 
     /**
-     * In Call Service Activation DigitMap.
+     * 
+     * @return InCallServiceActivationDigits
      */
     public function getFlashActivationDigits()
     {
-        return (!$this->flashActivationDigits) ?: $this->flashActivationDigits->getValue();
+        return $this->flashActivationDigits->getValue();
     }
 
     /**
-     * In Call Service Activation DigitMap.
+     * 
      */
     public function setCallTransferActivationDigits($callTransferActivationDigits = null)
     {
+        if (!$callTransferActivationDigits) return $this;
         $this->callTransferActivationDigits = ($callTransferActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $callTransferActivationDigits
              : new InCallServiceActivationDigits($callTransferActivationDigits);
+        $this->callTransferActivationDigits->setName('callTransferActivationDigits');
+        return $this;
     }
 
     /**
-     * In Call Service Activation DigitMap.
+     * 
+     * @return InCallServiceActivationDigits
      */
     public function getCallTransferActivationDigits()
     {
-        return (!$this->callTransferActivationDigits) ?: $this->callTransferActivationDigits->getValue();
+        return $this->callTransferActivationDigits->getValue();
     }
 }

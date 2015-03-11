@@ -5,13 +5,13 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceFaxMessaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceFaxMessaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementSIPAliasList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceFaxMessaging\UserFaxMessagingModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'UserFaxMessagingModifyRequest';
     protected $userId       = null;
     protected $isActive     = null;
     protected $phoneNumber  = null;
@@ -36,7 +36,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
          $isActive = null,
          $phoneNumber = null,
          $extension = null,
-          $sipAliasList = null
+         ReplacementSIPAliasList $sipAliasList = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);
@@ -46,7 +46,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return UserFaxMessagingModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,29 +54,25 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
@@ -84,68 +80,82 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Directory Number in E164 Format.
-     */
     public function setPhoneNumber($phoneNumber = null)
     {
+        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
+        return $this->phoneNumber->getValue();
     }
 
     /**
-     * Extension.
+     * 
      */
     public function setExtension($extension = null)
     {
+        if (!$extension) return $this;
         $this->extension = ($extension InstanceOf Extension17)
              ? $extension
              : new Extension17($extension);
+        $this->extension->setName('extension');
+        return $this;
     }
 
     /**
-     * Extension.
+     * 
+     * @return Extension17
      */
     public function getExtension()
     {
-        return (!$this->extension) ?: $this->extension->getValue();
+        return $this->extension->getValue();
     }
 
     /**
-     * A list of SIP aliases that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
      */
     public function setSipAliasList(ReplacementSIPAliasList $sipAliasList = null)
     {
-        $this->sipAliasList =  $sipAliasList;
+        if (!$sipAliasList) return $this;
+        $this->sipAliasList = $sipAliasList;
+        $this->sipAliasList->setName('sipAliasList');
+        return $this;
     }
 
     /**
-     * A list of SIP aliases that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementSIPAliasList
      */
     public function getSipAliasList()
     {
-        return (!$this->sipAliasList) ?: $this->sipAliasList->getValue();
+        return $this->sipAliasList;
     }
 }

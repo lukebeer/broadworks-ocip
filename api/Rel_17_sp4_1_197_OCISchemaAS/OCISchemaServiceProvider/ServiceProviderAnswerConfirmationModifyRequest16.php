@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\An
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAnswerConfirmationModifyResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'ServiceProviderAnswerConfirmationModifyRequest16';
     protected $serviceProviderId            = null;
     protected $announcementMessageSelection = null;
     protected $confirmationMessageAudioFile = null;
@@ -33,7 +32,7 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
     public function __construct(
          $serviceProviderId,
          $announcementMessageSelection = null,
-          $confirmationMessageAudioFile = null,
+         LabeledMediaFileResource $confirmationMessageAudioFile = null,
          $confirmationTimoutSeconds = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -43,7 +42,7 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
     }
 
     /**
-     * @return ServiceProviderAnswerConfirmationModifyResponse16
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,76 +50,88 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Anser Confirmation Announcement Selection.
+     * 
      */
     public function setAnnouncementMessageSelection($announcementMessageSelection = null)
     {
+        if (!$announcementMessageSelection) return $this;
         $this->announcementMessageSelection = ($announcementMessageSelection InstanceOf AnswerConfirmationAnnouncementSelection)
              ? $announcementMessageSelection
              : new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
+        $this->announcementMessageSelection->setName('announcementMessageSelection');
+        return $this;
     }
 
     /**
-     * Anser Confirmation Announcement Selection.
+     * 
+     * @return AnswerConfirmationAnnouncementSelection
      */
     public function getAnnouncementMessageSelection()
     {
-        return (!$this->announcementMessageSelection) ?: $this->announcementMessageSelection->getValue();
+        return $this->announcementMessageSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setConfirmationMessageAudioFile(LabeledMediaFileResource $confirmationMessageAudioFile = null)
     {
-        $this->confirmationMessageAudioFile =  $confirmationMessageAudioFile;
+        if (!$confirmationMessageAudioFile) return $this;
+        $this->confirmationMessageAudioFile = $confirmationMessageAudioFile;
+        $this->confirmationMessageAudioFile->setName('confirmationMessageAudioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledMediaFileResource
      */
     public function getConfirmationMessageAudioFile()
     {
-        return (!$this->confirmationMessageAudioFile) ?: $this->confirmationMessageAudioFile->getValue();
+        return $this->confirmationMessageAudioFile;
     }
 
     /**
-     * The timer determines how long the system will wait for the confirmation.
+     * 
      */
     public function setConfirmationTimoutSeconds($confirmationTimoutSeconds = null)
     {
+        if (!$confirmationTimoutSeconds) return $this;
         $this->confirmationTimoutSeconds = ($confirmationTimoutSeconds InstanceOf AnswerConfirmationTimeoutSeconds)
              ? $confirmationTimoutSeconds
              : new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
+        $this->confirmationTimoutSeconds->setName('confirmationTimoutSeconds');
+        return $this;
     }
 
     /**
-     * The timer determines how long the system will wait for the confirmation.
+     * 
+     * @return AnswerConfirmationTimeoutSeconds
      */
     public function getConfirmationTimoutSeconds()
     {
-        return (!$this->confirmationTimoutSeconds) ?: $this->confirmationTimoutSeconds->getValue();
+        return $this->confirmationTimoutSeconds->getValue();
     }
 }

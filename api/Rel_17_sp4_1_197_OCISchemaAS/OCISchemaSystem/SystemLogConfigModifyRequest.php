@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileResource;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLogConfigModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,17 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemLogConfigModifyRequest';
     protected $configFile = null;
 
     public function __construct(
-          $configFile = null
+         FileResource $configFile = null
     ) {
         $this->setConfigFile($configFile);
     }
 
     /**
-     * @return SystemLogConfigModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,22 @@ class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer.
+     * 
      */
     public function setConfigFile(FileResource $configFile = null)
     {
-        $this->configFile =  $configFile;
+        if (!$configFile) return $this;
+        $this->configFile = $configFile;
+        $this->configFile->setName('configFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer.
+     * 
+     * @return FileResource
      */
     public function getConfigFile()
     {
-        return (!$this->configFile) ?: $this->configFile->getValue();
+        return $this->configFile;
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutePointExternalSystemDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name = 'SystemRoutePointExternalSystemDeleteRequest';
     protected $name = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemRoutePointExternalSystemDeleteRequest extends ComplexType implements
     }
 
     /**
-     * @return SystemRoutePointExternalSystemDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemRoutePointExternalSystemDeleteRequest extends ComplexType implements
     }
 
     /**
-     * The Route Point External System's name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf RoutePointExternalSystem)
              ? $name
              : new RoutePointExternalSystem($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * The Route Point External System's name.
+     * 
+     * @return RoutePointExternalSystem
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 }

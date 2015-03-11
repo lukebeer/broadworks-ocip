@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneLis
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupCommonPhoneListModifyRequest';
     protected $serviceProviderId = null;
     protected $groupId           = null;
     protected $entryName         = null;
@@ -46,7 +45,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return GroupCommonPhoneListModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,100 +53,112 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * The name in a phone list entry.
+     * 
      */
     public function setEntryName($entryName = null)
     {
+        if (!$entryName) return $this;
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
              ? $entryName
              : new PhoneListEntryName($entryName);
+        $this->entryName->setName('entryName');
+        return $this;
     }
 
     /**
-     * The name in a phone list entry.
+     * 
+     * @return PhoneListEntryName
      */
     public function getEntryName()
     {
-        return (!$this->entryName) ?: $this->entryName->getValue();
+        return $this->entryName->getValue();
     }
 
     /**
-     * The name in a phone list entry.
+     * 
      */
     public function setNewEntryName($newEntryName = null)
     {
+        if (!$newEntryName) return $this;
         $this->newEntryName = ($newEntryName InstanceOf PhoneListEntryName)
              ? $newEntryName
              : new PhoneListEntryName($newEntryName);
+        $this->newEntryName->setName('newEntryName');
+        return $this;
     }
 
     /**
-     * The name in a phone list entry.
+     * 
+     * @return PhoneListEntryName
      */
     public function getNewEntryName()
     {
-        return (!$this->newEntryName) ?: $this->newEntryName->getValue();
+        return $this->newEntryName->getValue();
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
      */
     public function setPhoneNumber($phoneNumber = null)
     {
+        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDN)
              ? $phoneNumber
              : new OutgoingDN($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
+     * @return OutgoingDN
      */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
+        return $this->phoneNumber->getValue();
     }
 }

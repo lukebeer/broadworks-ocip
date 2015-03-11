@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones\GroupEmergencyZonesModifyHomeZoneListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'GroupEmergencyZonesModifyHomeZoneListRequest';
     protected $serviceProviderId          = null;
     protected $groupId                    = null;
     protected $homeZoneIpAddressList      = null;
@@ -41,7 +40,7 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
     }
 
     /**
-     * @return GroupEmergencyZonesModifyHomeZoneListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,43 +48,47 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
@@ -93,15 +96,18 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
      */
     public function setHomeZoneIpAddressList($homeZoneIpAddressList = null)
     {
-        $this->homeZoneIpAddressList = $homeZoneIpAddressList;
+        if (!$homeZoneIpAddressList) return $this;
+        $this->homeZoneIpAddressList->setName('homeZoneIpAddressList');
+        return $this;
     }
 
     /**
      * 
+     * @return 
      */
     public function getHomeZoneIpAddressList()
     {
-        return (!$this->homeZoneIpAddressList) ?: $this->homeZoneIpAddressList;
+        return $this->homeZoneIpAddressList->getValue();
     }
 
     /**
@@ -109,14 +115,17 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
      */
     public function setHomeZoneIpAddressRangeList($homeZoneIpAddressRangeList = null)
     {
-        $this->homeZoneIpAddressRangeList = $homeZoneIpAddressRangeList;
+        if (!$homeZoneIpAddressRangeList) return $this;
+        $this->homeZoneIpAddressRangeList->setName('homeZoneIpAddressRangeList');
+        return $this;
     }
 
     /**
      * 
+     * @return 
      */
     public function getHomeZoneIpAddressRangeList()
     {
-        return (!$this->homeZoneIpAddressRangeList) ?: $this->homeZoneIpAddressRangeList;
+        return $this->homeZoneIpAddressRangeList->getValue();
     }
 }

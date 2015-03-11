@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceMonthInterval;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthly;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthly;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,8 +23,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceScheduleMonthly extends ComplexType implements ComplexInterface
 {
-    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthly';
-    public    $name                    = __CLASS__;
+    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthly';
+    public    $name                    = 'InstantConferencingRecurrenceScheduleMonthly';
     protected $recurrenceMonthInterval = null;
 
     public function __construct(
@@ -42,20 +42,24 @@ class InstantConferencingRecurrenceScheduleMonthly extends ComplexType implement
     }
 
     /**
-     * The recurrence interval for monthly schedule.
+     * 
      */
     public function setRecurrenceMonthInterval($recurrenceMonthInterval = null)
     {
+        if (!$recurrenceMonthInterval) return $this;
         $this->recurrenceMonthInterval = ($recurrenceMonthInterval InstanceOf InstantConferencingRecurrenceMonthInterval)
              ? $recurrenceMonthInterval
              : new InstantConferencingRecurrenceMonthInterval($recurrenceMonthInterval);
+        $this->recurrenceMonthInterval->setName('recurrenceMonthInterval');
+        return $this;
     }
 
     /**
-     * The recurrence interval for monthly schedule.
+     * 
+     * @return InstantConferencingRecurrenceMonthInterval
      */
     public function getRecurrenceMonthInterval()
     {
-        return (!$this->recurrenceMonthInterval) ?: $this->recurrenceMonthInterval->getValue();
+        return $this->recurrenceMonthInterval->getValue();
     }
 }

@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\ServiceProviderTrunkGroupModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,15 +21,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'ServiceProviderTrunkGroupModifyRequest';
     protected $serviceProviderId      = null;
     protected $maxActiveCalls         = null;
     protected $burstingMaxActiveCalls = null;
 
     public function __construct(
          $serviceProviderId,
-          $maxActiveCalls = null,
-          $burstingMaxActiveCalls = null
+         UnboundedNonNegativeInt $maxActiveCalls = null,
+         UnboundedNonNegativeInt $burstingMaxActiveCalls = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setMaxActiveCalls($maxActiveCalls);
@@ -38,7 +37,7 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return ServiceProviderTrunkGroupModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,54 +45,64 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
      */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
-        $this->maxActiveCalls =  $maxActiveCalls;
+        if (!$maxActiveCalls) return $this;
+        $this->maxActiveCalls = $maxActiveCalls;
+        $this->maxActiveCalls->setName('maxActiveCalls');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
+     * @return UnboundedNonNegativeInt
      */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
+        return $this->maxActiveCalls;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
      */
     public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
-        $this->burstingMaxActiveCalls =  $burstingMaxActiveCalls;
+        if (!$burstingMaxActiveCalls) return $this;
+        $this->burstingMaxActiveCalls = $burstingMaxActiveCalls;
+        $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
+     * @return UnboundedNonNegativeInt
      */
     public function getBurstingMaxActiveCalls()
     {
-        return (!$this->burstingMaxActiveCalls) ?: $this->burstingMaxActiveCalls->getValue();
+        return $this->burstingMaxActiveCalls;
     }
 }

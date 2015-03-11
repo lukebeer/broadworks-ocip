@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ConnectedLineIdentificationPrivacyOnRedirectedCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserCallPoliciesGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallPoliciesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'UserCallPoliciesGetResponse';
     protected $redirectedCallsCOLPPrivacy = null;
 
     /**
@@ -32,20 +31,24 @@ class UserCallPoliciesGetResponse extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * Choices for Connected Line Identification Privacy on Redirected Calls
+     * 
      */
     public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy = null)
     {
+        if (!$redirectedCallsCOLPPrivacy) return $this;
         $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
              ? $redirectedCallsCOLPPrivacy
              : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
+        $this->redirectedCallsCOLPPrivacy->setName('redirectedCallsCOLPPrivacy');
+        return $this;
     }
 
     /**
-     * Choices for Connected Line Identification Privacy on Redirected Calls
+     * 
+     * @return ConnectedLineIdentificationPrivacyOnRedirectedCalls
      */
     public function getRedirectedCallsCOLPPrivacy()
     {
-        return (!$this->redirectedCallsCOLPPrivacy) ?: $this->redirectedCallsCOLPPrivacy->getValue();
+        return $this->redirectedCallsCOLPPrivacy->getValue();
     }
 }

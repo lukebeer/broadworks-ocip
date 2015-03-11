@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingTitle;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceCallResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetStandAloneConferenceCallResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'UserInstantConferencingGetStandAloneConferenceCallResponse';
     protected $isBridgeActive     = null;
     protected $title              = null;
     protected $isLocked           = null;
@@ -46,33 +46,41 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function setIsBridgeActive($isBridgeActive = null)
     {
-        $this->isBridgeActive = (boolean) $isBridgeActive;
+        if (!$isBridgeActive) return $this;
+        $this->isBridgeActive = new PrimitiveType($isBridgeActive);
+        $this->isBridgeActive->setName('isBridgeActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsBridgeActive()
+    {
+        return $this->isBridgeActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsBridgeActive()
-    {
-        return (!$this->isBridgeActive) ?: $this->isBridgeActive;
-    }
-
-    /**
-     * Title of instant conference.
-     */
     public function setTitle($title = null)
     {
+        if (!$title) return $this;
         $this->title = ($title InstanceOf InstantConferencingTitle)
              ? $title
              : new InstantConferencingTitle($title);
+        $this->title->setName('title');
+        return $this;
     }
 
     /**
-     * Title of instant conference.
+     * 
+     * @return InstantConferencingTitle
      */
     public function getTitle()
     {
-        return (!$this->title) ?: $this->title->getValue();
+        return $this->title->getValue();
     }
 
     /**
@@ -80,15 +88,19 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function setIsLocked($isLocked = null)
     {
-        $this->isLocked = (boolean) $isLocked;
+        if (!$isLocked) return $this;
+        $this->isLocked = new PrimitiveType($isLocked);
+        $this->isLocked->setName('isLocked');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsLocked()
     {
-        return (!$this->isLocked) ?: $this->isLocked;
+        return $this->isLocked->getValue();
     }
 
     /**
@@ -96,15 +108,19 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function setIsRecording($isRecording = null)
     {
-        $this->isRecording = (boolean) $isRecording;
+        if (!$isRecording) return $this;
+        $this->isRecording = new PrimitiveType($isRecording);
+        $this->isRecording->setName('isRecording');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsRecording()
     {
-        return (!$this->isRecording) ?: $this->isRecording;
+        return $this->isRecording->getValue();
     }
 
     /**
@@ -112,15 +128,19 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function setIsExpired($isExpired = null)
     {
-        $this->isExpired = (boolean) $isExpired;
+        if (!$isExpired) return $this;
+        $this->isExpired = new PrimitiveType($isExpired);
+        $this->isExpired->setName('isExpired');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsExpired()
     {
-        return (!$this->isExpired) ?: $this->isExpired;
+        return $this->isExpired->getValue();
     }
 
     /**
@@ -128,15 +148,19 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function setIsPaused($isPaused = null)
     {
-        $this->isPaused = (boolean) $isPaused;
+        if (!$isPaused) return $this;
+        $this->isPaused = new PrimitiveType($isPaused);
+        $this->isPaused->setName('isPaused');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsPaused()
     {
-        return (!$this->isPaused) ?: $this->isPaused;
+        return $this->isPaused->getValue();
     }
 
     /**
@@ -144,14 +168,17 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function setConferenceLegTable(core:OCITable $conferenceLegTable = null)
     {
-        $this->conferenceLegTable =  $conferenceLegTable;
+        if (!$conferenceLegTable) return $this;
+        $this->conferenceLegTable->setName('conferenceLegTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getConferenceLegTable()
     {
-        return (!$this->conferenceLegTable) ?: $this->conferenceLegTable->getValue();
+        return $this->conferenceLegTable->getValue();
     }
 }

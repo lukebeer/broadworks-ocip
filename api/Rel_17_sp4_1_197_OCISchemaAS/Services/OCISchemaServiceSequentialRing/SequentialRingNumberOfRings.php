@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSequentialRing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
@@ -16,12 +16,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SequentialRingNumberOfRings extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "SequentialRingNumberOfRings";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "int";
+        $this->dataType = "";
         $this->addRestriction(new Enumeration([
             '0',
             '2',

@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ConnectedLineIdentificationPrivacyOnRedirectedCalls;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\CallBeingForwardedResponseCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserCallPoliciesModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
+    public    $name                               = 'UserCallPoliciesModifyRequest';
     protected $userId                             = null;
     protected $redirectedCallsCOLPPrivacy         = null;
     protected $callBeingForwardedResponseCallType = null;
@@ -39,7 +38,7 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return UserCallPoliciesModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,64 +46,68 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Choices for Connected Line Identification Privacy on Redirected Calls
+     * 
      */
     public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy = null)
     {
+        if (!$redirectedCallsCOLPPrivacy) return $this;
         $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
              ? $redirectedCallsCOLPPrivacy
              : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
+        $this->redirectedCallsCOLPPrivacy->setName('redirectedCallsCOLPPrivacy');
+        return $this;
     }
 
     /**
-     * Choices for Connected Line Identification Privacy on Redirected Calls
+     * 
+     * @return ConnectedLineIdentificationPrivacyOnRedirectedCalls
      */
     public function getRedirectedCallsCOLPPrivacy()
     {
-        return (!$this->redirectedCallsCOLPPrivacy) ?: $this->redirectedCallsCOLPPrivacy->getValue();
+        return $this->redirectedCallsCOLPPrivacy->getValue();
     }
 
     /**
-     * Call type choices for sending call being forward response on Redirected Calls
+     * 
      */
     public function setCallBeingForwardedResponseCallType($callBeingForwardedResponseCallType = null)
     {
+        if (!$callBeingForwardedResponseCallType) return $this;
         $this->callBeingForwardedResponseCallType = ($callBeingForwardedResponseCallType InstanceOf CallBeingForwardedResponseCallType)
              ? $callBeingForwardedResponseCallType
              : new CallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
+        $this->callBeingForwardedResponseCallType->setName('callBeingForwardedResponseCallType');
+        return $this;
     }
 
     /**
-     * Call type choices for sending call being forward response on Redirected Calls
+     * 
+     * @return CallBeingForwardedResponseCallType
      */
     public function getCallBeingForwardedResponseCallType()
     {
-        return (!$this->callBeingForwardedResponseCallType) ?: $this->callBeingForwardedResponseCallType->getValue();
+        return $this->callBeingForwardedResponseCallType->getValue();
     }
 }

@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMu
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointRead14;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupMusicOnHoldGetInstanceResponse14;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'GroupMusicOnHoldGetInstanceResponse14';
     protected $serviceUserId          = null;
     protected $isActiveDuringCallHold = null;
     protected $isActiveDuringCallPark = null;
@@ -42,29 +42,25 @@ class GroupMusicOnHoldGetInstanceResponse14 extends ComplexType implements Compl
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
@@ -72,15 +68,19 @@ class GroupMusicOnHoldGetInstanceResponse14 extends ComplexType implements Compl
      */
     public function setIsActiveDuringCallHold($isActiveDuringCallHold = null)
     {
-        $this->isActiveDuringCallHold = (boolean) $isActiveDuringCallHold;
+        if (!$isActiveDuringCallHold) return $this;
+        $this->isActiveDuringCallHold = new PrimitiveType($isActiveDuringCallHold);
+        $this->isActiveDuringCallHold->setName('isActiveDuringCallHold');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActiveDuringCallHold()
     {
-        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold;
+        return $this->isActiveDuringCallHold->getValue();
     }
 
     /**
@@ -88,49 +88,61 @@ class GroupMusicOnHoldGetInstanceResponse14 extends ComplexType implements Compl
      */
     public function setIsActiveDuringCallPark($isActiveDuringCallPark = null)
     {
-        $this->isActiveDuringCallPark = (boolean) $isActiveDuringCallPark;
+        if (!$isActiveDuringCallPark) return $this;
+        $this->isActiveDuringCallPark = new PrimitiveType($isActiveDuringCallPark);
+        $this->isActiveDuringCallPark->setName('isActiveDuringCallPark');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActiveDuringCallPark()
+    {
+        return $this->isActiveDuringCallPark->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActiveDuringCallPark()
-    {
-        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark;
-    }
-
-    /**
-     * Music On Hold Message Selection.
-     */
     public function setMessageSelection($messageSelection = null)
     {
+        if (!$messageSelection) return $this;
         $this->messageSelection = ($messageSelection InstanceOf MusicOnHoldMessageSelection)
              ? $messageSelection
              : new MusicOnHoldMessageSelection($messageSelection);
+        $this->messageSelection->setName('messageSelection');
+        return $this;
     }
 
     /**
-     * Music On Hold Message Selection.
+     * 
+     * @return MusicOnHoldMessageSelection
      */
     public function getMessageSelection()
     {
-        return (!$this->messageSelection) ?: $this->messageSelection->getValue();
+        return $this->messageSelection->getValue();
     }
 
     /**
-     * Access device end point.
+     * 
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointRead14 $accessDeviceEndpoint = null)
     {
-        $this->accessDeviceEndpoint =  $accessDeviceEndpoint;
+        if (!$accessDeviceEndpoint) return $this;
+        $this->accessDeviceEndpoint = $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        return $this;
     }
 
     /**
-     * Access device end point.
+     * 
+     * @return AccessDeviceEndpointRead14
      */
     public function getAccessDeviceEndpoint()
     {
-        return (!$this->accessDeviceEndpoint) ?: $this->accessDeviceEndpoint->getValue();
+        return $this->accessDeviceEndpoint;
     }
 
     /**
@@ -138,50 +150,62 @@ class GroupMusicOnHoldGetInstanceResponse14 extends ComplexType implements Compl
      */
     public function setEnableVideo($enableVideo = null)
     {
-        $this->enableVideo = (boolean) $enableVideo;
+        if (!$enableVideo) return $this;
+        $this->enableVideo = new PrimitiveType($enableVideo);
+        $this->enableVideo->setName('enableVideo');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableVideo()
+    {
+        return $this->enableVideo->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableVideo()
-    {
-        return (!$this->enableVideo) ?: $this->enableVideo;
-    }
-
-    /**
-     * Description of a file resource.
-     */
     public function setAudioFileDescription($audioFileDescription = null)
     {
+        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
+        $this->audioFileDescription->setName('audioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
+        return $this->audioFileDescription->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
+        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
+        $this->videoFileDescription->setName('videoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
+        return $this->videoFileDescription->getValue();
     }
 }

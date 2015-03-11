@@ -15,7 +15,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\DeviceManagementFileAuthLocationGetResponse17;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -29,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
+    public    $name                               = 'DeviceManagementFileAuthLocationGetResponse17';
     protected $fileRepositoryUserName             = null;
     protected $fileRepositoryPassword             = null;
     protected $netAddress                         = null;
@@ -55,129 +55,157 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
     }
 
     /**
-     * A user id for a File Repository.
+     * 
      */
     public function setFileRepositoryUserName($fileRepositoryUserName = null)
     {
+        if (!$fileRepositoryUserName) return $this;
         $this->fileRepositoryUserName = ($fileRepositoryUserName InstanceOf FileRepositoryUserName)
              ? $fileRepositoryUserName
              : new FileRepositoryUserName($fileRepositoryUserName);
+        $this->fileRepositoryUserName->setName('fileRepositoryUserName');
+        return $this;
     }
 
     /**
-     * A user id for a File Repository.
+     * 
+     * @return FileRepositoryUserName
      */
     public function getFileRepositoryUserName()
     {
-        return (!$this->fileRepositoryUserName) ?: $this->fileRepositoryUserName->getValue();
+        return $this->fileRepositoryUserName->getValue();
     }
 
     /**
-     * A password for a File Repository.
+     * 
      */
     public function setFileRepositoryPassword($fileRepositoryPassword = null)
     {
+        if (!$fileRepositoryPassword) return $this;
         $this->fileRepositoryPassword = ($fileRepositoryPassword InstanceOf FileRepositoryUserPassword)
              ? $fileRepositoryPassword
              : new FileRepositoryUserPassword($fileRepositoryPassword);
+        $this->fileRepositoryPassword->setName('fileRepositoryPassword');
+        return $this;
     }
 
     /**
-     * A password for a File Repository.
+     * 
+     * @return FileRepositoryUserPassword
      */
     public function getFileRepositoryPassword()
     {
-        return (!$this->fileRepositoryPassword) ?: $this->fileRepositoryPassword->getValue();
+        return $this->fileRepositoryPassword->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setNetAddress($netAddress = null)
     {
+        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
+        $this->netAddress->setName('netAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->getValue();
+        return $this->netAddress->getValue();
     }
 
     /**
-     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     * 
      */
     public function setRemoteFileFormat($remoteFileFormat = null)
     {
+        if (!$remoteFileFormat) return $this;
         $this->remoteFileFormat = ($remoteFileFormat InstanceOf DeviceManagementFileFormat)
              ? $remoteFileFormat
              : new DeviceManagementFileFormat($remoteFileFormat);
+        $this->remoteFileFormat->setName('remoteFileFormat');
+        return $this;
     }
 
     /**
-     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     * 
+     * @return DeviceManagementFileFormat
      */
     public function getRemoteFileFormat()
     {
-        return (!$this->remoteFileFormat) ?: $this->remoteFileFormat->getValue();
+        return $this->remoteFileFormat->getValue();
     }
 
     /**
-     * TCP/IP Port.
+     * 
      */
     public function setPortNumber($portNumber = null)
     {
+        if (!$portNumber) return $this;
         $this->portNumber = ($portNumber InstanceOf Port)
              ? $portNumber
              : new Port($portNumber);
+        $this->portNumber->setName('portNumber');
+        return $this;
     }
 
     /**
-     * TCP/IP Port.
+     * 
+     * @return Port
      */
     public function getPortNumber()
     {
-        return (!$this->portNumber) ?: $this->portNumber->getValue();
+        return $this->portNumber->getValue();
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
      */
     public function setRootDirectory($rootDirectory = null)
     {
+        if (!$rootDirectory) return $this;
         $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
              ? $rootDirectory
              : new CPEFileDirectory($rootDirectory);
+        $this->rootDirectory->setName('rootDirectory');
+        return $this;
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
+     * @return CPEFileDirectory
      */
     public function getRootDirectory()
     {
-        return (!$this->rootDirectory) ?: $this->rootDirectory->getValue();
+        return $this->rootDirectory->getValue();
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
      */
     public function setCpeFileDirectory($cpeFileDirectory = null)
     {
+        if (!$cpeFileDirectory) return $this;
         $this->cpeFileDirectory = ($cpeFileDirectory InstanceOf CPEFileDirectory)
              ? $cpeFileDirectory
              : new CPEFileDirectory($cpeFileDirectory);
+        $this->cpeFileDirectory->setName('cpeFileDirectory');
+        return $this;
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
+     * @return CPEFileDirectory
      */
     public function getCpeFileDirectory()
     {
-        return (!$this->cpeFileDirectory) ?: $this->cpeFileDirectory->getValue();
+        return $this->cpeFileDirectory->getValue();
     }
 
     /**
@@ -185,15 +213,19 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function setSecure($secure = null)
     {
-        $this->secure = (boolean) $secure;
+        if (!$secure) return $this;
+        $this->secure = new PrimitiveType($secure);
+        $this->secure->setName('secure');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getSecure()
     {
-        return (!$this->secure) ?: $this->secure;
+        return $this->secure->getValue();
     }
 
     /**
@@ -201,33 +233,41 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function setMacInNonRequestURI($macInNonRequestURI = null)
     {
-        $this->macInNonRequestURI = (boolean) $macInNonRequestURI;
+        if (!$macInNonRequestURI) return $this;
+        $this->macInNonRequestURI = new PrimitiveType($macInNonRequestURI);
+        $this->macInNonRequestURI->setName('macInNonRequestURI');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getMacInNonRequestURI()
+    {
+        return $this->macInNonRequestURI->getValue();
     }
 
     /**
      * 
      */
-    public function getMacInNonRequestURI()
-    {
-        return (!$this->macInNonRequestURI) ?: $this->macInNonRequestURI;
-    }
-
-    /**
-     * The access URI that a device uses to access files on BroadWorks.
-     */
     public function setMacFormatInNonRequestURI($macFormatInNonRequestURI = null)
     {
+        if (!$macFormatInNonRequestURI) return $this;
         $this->macFormatInNonRequestURI = ($macFormatInNonRequestURI InstanceOf DeviceManagementAccessURI)
              ? $macFormatInNonRequestURI
              : new DeviceManagementAccessURI($macFormatInNonRequestURI);
+        $this->macFormatInNonRequestURI->setName('macFormatInNonRequestURI');
+        return $this;
     }
 
     /**
-     * The access URI that a device uses to access files on BroadWorks.
+     * 
+     * @return DeviceManagementAccessURI
      */
     public function getMacFormatInNonRequestURI()
     {
-        return (!$this->macFormatInNonRequestURI) ?: $this->macFormatInNonRequestURI->getValue();
+        return $this->macFormatInNonRequestURI->getValue();
     }
 
     /**
@@ -235,15 +275,19 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function setUseHttpDigestAuthentication($useHttpDigestAuthentication = null)
     {
-        $this->useHttpDigestAuthentication = (boolean) $useHttpDigestAuthentication;
+        if (!$useHttpDigestAuthentication) return $this;
+        $this->useHttpDigestAuthentication = new PrimitiveType($useHttpDigestAuthentication);
+        $this->useHttpDigestAuthentication->setName('useHttpDigestAuthentication');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseHttpDigestAuthentication()
     {
-        return (!$this->useHttpDigestAuthentication) ?: $this->useHttpDigestAuthentication;
+        return $this->useHttpDigestAuthentication->getValue();
     }
 
     /**
@@ -251,15 +295,19 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function setMacBasedFileAuthentication($macBasedFileAuthentication = null)
     {
-        $this->macBasedFileAuthentication = (boolean) $macBasedFileAuthentication;
+        if (!$macBasedFileAuthentication) return $this;
+        $this->macBasedFileAuthentication = new PrimitiveType($macBasedFileAuthentication);
+        $this->macBasedFileAuthentication->setName('macBasedFileAuthentication');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMacBasedFileAuthentication()
     {
-        return (!$this->macBasedFileAuthentication) ?: $this->macBasedFileAuthentication;
+        return $this->macBasedFileAuthentication->getValue();
     }
 
     /**
@@ -267,15 +315,19 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function setUserNamePasswordFileAuthentication($userNamePasswordFileAuthentication = null)
     {
-        $this->userNamePasswordFileAuthentication = (boolean) $userNamePasswordFileAuthentication;
+        if (!$userNamePasswordFileAuthentication) return $this;
+        $this->userNamePasswordFileAuthentication = new PrimitiveType($userNamePasswordFileAuthentication);
+        $this->userNamePasswordFileAuthentication->setName('userNamePasswordFileAuthentication');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUserNamePasswordFileAuthentication()
     {
-        return (!$this->userNamePasswordFileAuthentication) ?: $this->userNamePasswordFileAuthentication;
+        return $this->userNamePasswordFileAuthentication->getValue();
     }
 
     /**
@@ -283,32 +335,40 @@ class DeviceManagementFileAuthLocationGetResponse17 extends ComplexType implemen
      */
     public function setCompletionNotification($completionNotification = null)
     {
-        $this->completionNotification = (boolean) $completionNotification;
+        if (!$completionNotification) return $this;
+        $this->completionNotification = new PrimitiveType($completionNotification);
+        $this->completionNotification->setName('completionNotification');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getCompletionNotification()
+    {
+        return $this->completionNotification->getValue();
     }
 
     /**
      * 
      */
-    public function getCompletionNotification()
-    {
-        return (!$this->completionNotification) ?: $this->completionNotification;
-    }
-
-    /**
-     * The file category for an access device file managed by the Device Management System on BroadWorks. A static file has no variable content and only one copy is required on the repository.
-     */
     public function setFileCategory($fileCategory = null)
     {
+        if (!$fileCategory) return $this;
         $this->fileCategory = ($fileCategory InstanceOf DeviceManagementFileCategory)
              ? $fileCategory
              : new DeviceManagementFileCategory($fileCategory);
+        $this->fileCategory->setName('fileCategory');
+        return $this;
     }
 
     /**
-     * The file category for an access device file managed by the Device Management System on BroadWorks. A static file has no variable content and only one copy is required on the repository.
+     * 
+     * @return DeviceManagementFileCategory
      */
     public function getFileCategory()
     {
-        return (!$this->fileCategory) ?: $this->fileCategory->getValue();
+        return $this->fileCategory->getValue();
     }
 }

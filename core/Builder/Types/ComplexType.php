@@ -49,4 +49,12 @@ abstract class ComplexType
     {
         return $this->responseType;
     }
+
+    public function getName() {
+        return join('', array_slice(explode('\\', get_class($this)), -1));
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+    }
 }

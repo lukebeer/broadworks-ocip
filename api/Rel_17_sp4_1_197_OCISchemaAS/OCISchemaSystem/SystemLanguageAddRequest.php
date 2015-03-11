@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocale;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLanguageAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'SystemLanguageAddRequest';
     protected $language = null;
     protected $locale   = null;
     protected $encoding = null;
@@ -39,7 +38,7 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return SystemLanguageAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,56 +46,68 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
      */
     public function setLanguage($language = null)
     {
+        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
+        $this->language->setName('language');
+        return $this;
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
+     * @return Language
      */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->getValue();
+        return $this->language->getValue();
     }
 
     /**
-     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     * 
      */
     public function setLocale($locale = null)
     {
+        if (!$locale) return $this;
         $this->locale = ($locale InstanceOf OCILocale)
              ? $locale
              : new OCILocale($locale);
+        $this->locale->setName('locale');
+        return $this;
     }
 
     /**
-     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     * 
+     * @return OCILocale
      */
     public function getLocale()
     {
-        return (!$this->locale) ?: $this->locale->getValue();
+        return $this->locale->getValue();
     }
 
     /**
-     * Character-encoding scheme.
+     * 
      */
     public function setEncoding($encoding = null)
     {
+        if (!$encoding) return $this;
         $this->encoding = ($encoding InstanceOf Encoding)
              ? $encoding
              : new Encoding($encoding);
+        $this->encoding->setName('encoding');
+        return $this;
     }
 
     /**
-     * Character-encoding scheme.
+     * 
+     * @return Encoding
      */
     public function getEncoding()
     {
-        return (!$this->encoding) ?: $this->encoding->getValue();
+        return $this->encoding->getValue();
     }
 }

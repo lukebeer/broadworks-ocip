@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleGlobalKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserScheduleGetListResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleGetListResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserScheduleGetListResponse17sp1';
     protected $scheduleGlobalKey = null;
 
     /**
@@ -35,18 +34,22 @@ class UserScheduleGetListResponse17sp1 extends ComplexType implements ComplexInt
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules throughout all System, Service Provider, Group and User level.
+     * 
      */
     public function setScheduleGlobalKey(ScheduleGlobalKey $scheduleGlobalKey = null)
     {
-        $this->scheduleGlobalKey =  $scheduleGlobalKey;
+        if (!$scheduleGlobalKey) return $this;
+        $this->scheduleGlobalKey = $scheduleGlobalKey;
+        $this->scheduleGlobalKey->setName('scheduleGlobalKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules throughout all System, Service Provider, Group and User level.
+     * 
+     * @return ScheduleGlobalKey
      */
     public function getScheduleGlobalKey()
     {
-        return (!$this->scheduleGlobalKey) ?: $this->scheduleGlobalKey->getValue();
+        return $this->scheduleGlobalKey;
     }
 }

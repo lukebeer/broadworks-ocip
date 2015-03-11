@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledMediaFileResource;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,9 +22,16 @@ use Broadworks_OCIP\core\Client\Client;
 class LabeledMediaFileResource extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledMediaFileResource';
-    public    $name = __CLASS__;
+    public    $name        = 'LabeledMediaFileResource';
+    protected $description = null;
+    protected $mediaType   = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $description,
+         $mediaType
+    ) {
+        $this->setDescription($description);
+        $this->setMediaType($mediaType);
     }
 
     /**
@@ -33,5 +40,45 @@ class LabeledMediaFileResource extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setDescription($description = null)
+    {
+        if (!$description) return $this;
+        $this->description = new SimpleContent($description);
+        $this->description->setName('description');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getDescription()
+    {
+        return $this->description->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setMediaType($mediaType = null)
+    {
+        if (!$mediaType) return $this;
+        $this->mediaType = new SimpleContent($mediaType);
+        $this->mediaType->setName('mediaType');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getMediaType()
+    {
+        return $this->mediaType->getValue();
     }
 }

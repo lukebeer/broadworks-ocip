@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ReplacementZoneList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,9 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ReplacementZoneList extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ReplacementZoneList';
-    public    $name = __CLASS__;
+    public    $name     = 'ReplacementZoneList';
+    protected $zoneName = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $zoneName = null
+    ) {
+        $this->setZoneName($zoneName);
     }
 
     /**
@@ -32,5 +36,25 @@ class ReplacementZoneList extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setZoneName($zoneName = null)
+    {
+        if (!$zoneName) return $this;
+        $this->zoneName = new SimpleContent($zoneName);
+        $this->zoneName->setName('zoneName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getZoneName()
+    {
+        return $this->zoneName->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialPlanPolicyDeleteAccessCodeResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemDialPlanPolicyDeleteAccessCodeRequest';
     protected $accessCode = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements
     }
 
     /**
-     * @return SystemDialPlanPolicyDeleteAccessCodeResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,22 +38,24 @@ class SystemDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements
     }
 
     /**
-     * Dial Plan Access Code.
-     *         The Access Code may contain digits 0-9, *, and #.
+     * 
      */
     public function setAccessCode($accessCode = null)
     {
+        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
              ? $accessCode
              : new DialPlanAccessCode($accessCode);
+        $this->accessCode->setName('accessCode');
+        return $this;
     }
 
     /**
-     * Dial Plan Access Code.
-     *         The Access Code may contain digits 0-9, *, and #.
+     * 
+     * @return DialPlanAccessCode
      */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->getValue();
+        return $this->accessCode->getValue();
     }
 }

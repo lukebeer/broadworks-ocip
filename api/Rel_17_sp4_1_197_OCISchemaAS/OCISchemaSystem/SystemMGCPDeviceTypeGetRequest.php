@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemMGCPDeviceTypeGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMGCPDeviceTypeGetResponse';
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemMGCPDeviceTypeGetRequest';
     protected $deviceType = null;
 
     public function __construct(
@@ -41,20 +41,24 @@ class SystemMGCPDeviceTypeGetRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * Access device type.
+     * 
      */
     public function setDeviceType($deviceType = null)
     {
+        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
+        $this->deviceType->setName('deviceType');
+        return $this;
     }
 
     /**
-     * Access device type.
+     * 
+     * @return AccessDeviceType
      */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->getValue();
+        return $this->deviceType->getValue();
     }
 }

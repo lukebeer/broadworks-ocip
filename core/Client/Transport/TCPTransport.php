@@ -45,7 +45,7 @@ class TCPTransport implements TransportInterface
         return true;
     }
 
-    public function getResponse($responseType=false, $outputType = ResponseOutput::STD)
+    public function getResponse($responseType=false, $outputType = ResponseOutput::STD, $appends)
     {
         $data = '';
         if ($this->pending) {
@@ -57,7 +57,7 @@ class TCPTransport implements TransportInterface
                 }
             }
         }
-        $response = new Response($this->response, $responseType, $outputType);
+        $response = new Response($this->response, $responseType, $outputType, $appends);
         return $response->getResponse();
     }
 

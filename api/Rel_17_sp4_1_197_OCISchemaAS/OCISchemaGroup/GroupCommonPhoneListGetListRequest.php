@@ -12,6 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -33,7 +34,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListGetListResponse';
-    public    $name                                     = __CLASS__;
+    public    $name                                     = 'GroupCommonPhoneListGetListRequest';
     protected $serviceProviderId                        = null;
     protected $groupId                                  = null;
     protected $responseSizeLimit                        = null;
@@ -46,8 +47,8 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
          $groupId,
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-          $searchCriteriaGroupCommonPhoneListName = null,
-          $searchCriteriaGroupCommonPhoneListNumber = null
+         SearchCriteriaGroupCommonPhoneListName $searchCriteriaGroupCommonPhoneListName = null,
+         SearchCriteriaGroupCommonPhoneListNumber $searchCriteriaGroupCommonPhoneListNumber = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -66,65 +67,69 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
@@ -132,46 +137,62 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
-        $this->searchCriteriaModeOr = (boolean) $searchCriteriaModeOr;
+        if (!$searchCriteriaModeOr) return $this;
+        $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
+        $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSearchCriteriaModeOr()
+    {
+        return $this->searchCriteriaModeOr->getValue();
     }
 
     /**
      * 
      */
-    public function getSearchCriteriaModeOr()
-    {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr;
-    }
-
-    /**
-     * Criteria for searching for a name in a group common phone list.
-     */
     public function setSearchCriteriaGroupCommonPhoneListName(SearchCriteriaGroupCommonPhoneListName $searchCriteriaGroupCommonPhoneListName = null)
     {
-        $this->searchCriteriaGroupCommonPhoneListName =  $searchCriteriaGroupCommonPhoneListName;
+        if (!$searchCriteriaGroupCommonPhoneListName) return $this;
+        $this->searchCriteriaGroupCommonPhoneListName = ($searchCriteriaGroupCommonPhoneListName InstanceOf SearchCriteriaGroupCommonPhoneListName)
+             ? $searchCriteriaGroupCommonPhoneListName
+             : new SearchCriteriaGroupCommonPhoneListName($searchCriteriaGroupCommonPhoneListName);
+        $this->searchCriteriaGroupCommonPhoneListName->setName('searchCriteriaGroupCommonPhoneListName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a name in a group common phone list.
+     * 
+     * @return SearchCriteriaGroupCommonPhoneListName
      */
     public function getSearchCriteriaGroupCommonPhoneListName()
     {
-        return (!$this->searchCriteriaGroupCommonPhoneListName) ?: $this->searchCriteriaGroupCommonPhoneListName->getValue();
+        return $this->searchCriteriaGroupCommonPhoneListName;
     }
 
     /**
-     * Criteria for searching for a phone number in a group common phone list.
+     * 
      */
     public function setSearchCriteriaGroupCommonPhoneListNumber(SearchCriteriaGroupCommonPhoneListNumber $searchCriteriaGroupCommonPhoneListNumber = null)
     {
-        $this->searchCriteriaGroupCommonPhoneListNumber =  $searchCriteriaGroupCommonPhoneListNumber;
+        if (!$searchCriteriaGroupCommonPhoneListNumber) return $this;
+        $this->searchCriteriaGroupCommonPhoneListNumber = ($searchCriteriaGroupCommonPhoneListNumber InstanceOf SearchCriteriaGroupCommonPhoneListNumber)
+             ? $searchCriteriaGroupCommonPhoneListNumber
+             : new SearchCriteriaGroupCommonPhoneListNumber($searchCriteriaGroupCommonPhoneListNumber);
+        $this->searchCriteriaGroupCommonPhoneListNumber->setName('searchCriteriaGroupCommonPhoneListNumber');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a phone number in a group common phone list.
+     * 
+     * @return SearchCriteriaGroupCommonPhoneListNumber
      */
     public function getSearchCriteriaGroupCommonPhoneListNumber()
     {
-        return (!$this->searchCriteriaGroupCommonPhoneListNumber) ?: $this->searchCriteriaGroupCommonPhoneListNumber->getValue();
+        return $this->searchCriteriaGroupCommonPhoneListNumber;
     }
 }

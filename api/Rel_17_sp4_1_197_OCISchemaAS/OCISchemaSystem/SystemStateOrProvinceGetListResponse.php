@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemStateOrProvinceGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemStateOrProvinceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'SystemStateOrProvinceGetListResponse';
     protected $stateOrProvinceTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemStateOrProvinceGetListResponse extends ComplexType implements Comple
      */
     public function setStateOrProvinceTable(core:OCITable $stateOrProvinceTable = null)
     {
-        $this->stateOrProvinceTable =  $stateOrProvinceTable;
+        if (!$stateOrProvinceTable) return $this;
+        $this->stateOrProvinceTable->setName('stateOrProvinceTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getStateOrProvinceTable()
     {
-        return (!$this->stateOrProvinceTable) ?: $this->stateOrProvinceTable->getValue();
+        return $this->stateOrProvinceTable->getValue();
     }
 }

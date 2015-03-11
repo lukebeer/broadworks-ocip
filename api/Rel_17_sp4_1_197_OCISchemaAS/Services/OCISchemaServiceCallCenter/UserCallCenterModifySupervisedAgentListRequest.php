@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterModifySupervisedAgentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterModifySupervisedAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'UserCallCenterModifySupervisedAgentListRequest';
     protected $supervisorUserId = null;
     protected $serviceUserId    = null;
     protected $agentUserIdList  = null;
@@ -30,7 +29,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
     public function __construct(
          $supervisorUserId,
          $serviceUserId,
-          $agentUserIdList = null
+         ReplacementUserIdList $agentUserIdList = null
     ) {
         $this->setSupervisorUserId($supervisorUserId);
         $this->setServiceUserId($serviceUserId);
@@ -38,7 +37,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
     }
 
     /**
-     * @return UserCallCenterModifySupervisedAgentListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,72 +45,66 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setSupervisorUserId($supervisorUserId = null)
     {
+        if (!$supervisorUserId) return $this;
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
+        $this->supervisorUserId->setName('supervisorUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getSupervisorUserId()
     {
-        return (!$this->supervisorUserId) ?: $this->supervisorUserId->getValue();
+        return $this->supervisorUserId->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
      */
     public function setAgentUserIdList(ReplacementUserIdList $agentUserIdList = null)
     {
-        $this->agentUserIdList =  $agentUserIdList;
+        if (!$agentUserIdList) return $this;
+        $this->agentUserIdList = $agentUserIdList;
+        $this->agentUserIdList->setName('agentUserIdList');
+        return $this;
     }
 
     /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementUserIdList
      */
     public function getAgentUserIdList()
     {
-        return (!$this->agentUserIdList) ?: $this->agentUserIdList->getValue();
+        return $this->agentUserIdList;
     }
 }

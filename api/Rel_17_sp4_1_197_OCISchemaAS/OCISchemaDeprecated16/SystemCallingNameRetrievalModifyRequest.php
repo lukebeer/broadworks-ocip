@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\Calli
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCallingNameRetrievalModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallingNameRetrievalModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'SystemCallingNameRetrievalModifyRequest';
     protected $queryTimerMilliSeconds  = null;
     protected $serverNetAddress        = null;
     protected $serverPort              = null;
@@ -43,7 +42,7 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return SystemCallingNameRetrievalModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,74 +50,90 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * Query timer milli-seconds.
+     * 
      */
     public function setQueryTimerMilliSeconds($queryTimerMilliSeconds = null)
     {
+        if (!$queryTimerMilliSeconds) return $this;
         $this->queryTimerMilliSeconds = ($queryTimerMilliSeconds InstanceOf CallingNameRetrievalQueryTimerMilliSeconds)
              ? $queryTimerMilliSeconds
              : new CallingNameRetrievalQueryTimerMilliSeconds($queryTimerMilliSeconds);
+        $this->queryTimerMilliSeconds->setName('queryTimerMilliSeconds');
+        return $this;
     }
 
     /**
-     * Query timer milli-seconds.
+     * 
+     * @return CallingNameRetrievalQueryTimerMilliSeconds
      */
     public function getQueryTimerMilliSeconds()
     {
-        return (!$this->queryTimerMilliSeconds) ?: $this->queryTimerMilliSeconds->getValue();
+        return $this->queryTimerMilliSeconds->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setServerNetAddress($serverNetAddress = null)
     {
+        if (!$serverNetAddress) return $this;
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
              ? $serverNetAddress
              : new NetAddress($serverNetAddress);
+        $this->serverNetAddress->setName('serverNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getServerNetAddress()
     {
-        return (!$this->serverNetAddress) ?: $this->serverNetAddress->getValue();
+        return $this->serverNetAddress->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setServerPort($serverPort = null)
     {
+        if (!$serverPort) return $this;
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
+        $this->serverPort->setName('serverPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->getValue();
+        return $this->serverPort->getValue();
     }
 
     /**
-     * Network Transport Protocol.
+     * 
      */
     public function setServerTransportProtocol($serverTransportProtocol = null)
     {
+        if (!$serverTransportProtocol) return $this;
         $this->serverTransportProtocol = ($serverTransportProtocol InstanceOf TransportProtocol)
              ? $serverTransportProtocol
              : new TransportProtocol($serverTransportProtocol);
+        $this->serverTransportProtocol->setName('serverTransportProtocol');
+        return $this;
     }
 
     /**
-     * Network Transport Protocol.
+     * 
+     * @return TransportProtocol
      */
     public function getServerTransportProtocol()
     {
-        return (!$this->serverTransportProtocol) ?: $this->serverTransportProtocol->getValue();
+        return $this->serverTransportProtocol->getValue();
     }
 }

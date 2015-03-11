@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PublicUserIdentity;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfacePublicIdentityRefreshTaskStartResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,17 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserShInterfacePublicIdentityRefreshTaskStartRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'UserShInterfacePublicIdentityRefreshTaskStartRequest';
     protected $publicUserIdentity = null;
 
     public function __construct(
-          $publicUserIdentity
+         PublicUserIdentity $publicUserIdentity
     ) {
         $this->setPublicUserIdentity($publicUserIdentity);
     }
 
     /**
-     * @return UserShInterfacePublicIdentityRefreshTaskStartResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,18 +38,22 @@ class UserShInterfacePublicIdentityRefreshTaskStartRequest extends ComplexType i
     }
 
     /**
-     * Public User Identity
+     * 
      */
     public function setPublicUserIdentity(PublicUserIdentity $publicUserIdentity = null)
     {
-        $this->publicUserIdentity =  $publicUserIdentity;
+        if (!$publicUserIdentity) return $this;
+        $this->publicUserIdentity = $publicUserIdentity;
+        $this->publicUserIdentity->setName('publicUserIdentity');
+        return $this;
     }
 
     /**
-     * Public User Identity
+     * 
+     * @return PublicUserIdentity
      */
     public function getPublicUserIdentity()
     {
-        return (!$this->publicUserIdentity) ?: $this->publicUserIdentity->getValue();
+        return $this->publicUserIdentity;
     }
 }

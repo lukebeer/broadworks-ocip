@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RoutingDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RouteName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingModifyTranslationResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingModifyTranslationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
+    public    $name      = 'SystemRoutingModifyTranslationRequest';
     protected $digits    = null;
     protected $routeName = null;
 
@@ -35,7 +34,7 @@ class SystemRoutingModifyTranslationRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return SystemRoutingModifyTranslationResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,40 +42,46 @@ class SystemRoutingModifyTranslationRequest extends ComplexType implements Compl
     }
 
     /**
-     * Digit pattern used to route a call -- a 3 to 6 digit number.
-     *         If the digit pattern does not include a wildcard, it must be 6 digits.
+     * 
      */
     public function setDigits($digits = null)
     {
+        if (!$digits) return $this;
         $this->digits = ($digits InstanceOf RoutingDigits)
              ? $digits
              : new RoutingDigits($digits);
+        $this->digits->setName('digits');
+        return $this;
     }
 
     /**
-     * Digit pattern used to route a call -- a 3 to 6 digit number.
-     *         If the digit pattern does not include a wildcard, it must be 6 digits.
+     * 
+     * @return RoutingDigits
      */
     public function getDigits()
     {
-        return (!$this->digits) ?: $this->digits->getValue();
+        return $this->digits->getValue();
     }
 
     /**
-     * Route name.
+     * 
      */
     public function setRouteName($routeName = null)
     {
+        if (!$routeName) return $this;
         $this->routeName = ($routeName InstanceOf RouteName)
              ? $routeName
              : new RouteName($routeName);
+        $this->routeName->setName('routeName');
+        return $this;
     }
 
     /**
-     * Route name.
+     * 
+     * @return RouteName
      */
     public function getRouteName()
     {
-        return (!$this->routeName) ?: $this->routeName->getValue();
+        return $this->routeName->getValue();
     }
 }

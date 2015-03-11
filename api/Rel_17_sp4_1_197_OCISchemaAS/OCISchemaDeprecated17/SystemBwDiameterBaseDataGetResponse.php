@@ -14,7 +14,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterT
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterTcTimerSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemBwDiameterBaseDataGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterBaseDataGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
+    public    $name                                 = 'SystemBwDiameterBaseDataGetResponse';
     protected $xsRealm                              = null;
     protected $xsListeningPort                      = null;
     protected $psRealm                              = null;
@@ -50,75 +50,91 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
     }
 
     /**
-     * Network domain name.
+     * 
      */
     public function setXsRealm($xsRealm = null)
     {
+        if (!$xsRealm) return $this;
         $this->xsRealm = ($xsRealm InstanceOf DomainName)
              ? $xsRealm
              : new DomainName($xsRealm);
+        $this->xsRealm->setName('xsRealm');
+        return $this;
     }
 
     /**
-     * Network domain name.
+     * 
+     * @return DomainName
      */
     public function getXsRealm()
     {
-        return (!$this->xsRealm) ?: $this->xsRealm->getValue();
+        return $this->xsRealm->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setXsListeningPort($xsListeningPort = null)
     {
+        if (!$xsListeningPort) return $this;
         $this->xsListeningPort = ($xsListeningPort InstanceOf Port1025)
              ? $xsListeningPort
              : new Port1025($xsListeningPort);
+        $this->xsListeningPort->setName('xsListeningPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getXsListeningPort()
     {
-        return (!$this->xsListeningPort) ?: $this->xsListeningPort->getValue();
+        return $this->xsListeningPort->getValue();
     }
 
     /**
-     * Network domain name.
+     * 
      */
     public function setPsRealm($psRealm = null)
     {
+        if (!$psRealm) return $this;
         $this->psRealm = ($psRealm InstanceOf DomainName)
              ? $psRealm
              : new DomainName($psRealm);
+        $this->psRealm->setName('psRealm');
+        return $this;
     }
 
     /**
-     * Network domain name.
+     * 
+     * @return DomainName
      */
     public function getPsRealm()
     {
-        return (!$this->psRealm) ?: $this->psRealm->getValue();
+        return $this->psRealm->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setPsListeningPort($psListeningPort = null)
     {
+        if (!$psListeningPort) return $this;
         $this->psListeningPort = ($psListeningPort InstanceOf Port1025)
              ? $psListeningPort
              : new Port1025($psListeningPort);
+        $this->psListeningPort->setName('psListeningPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getPsListeningPort()
     {
-        return (!$this->psListeningPort) ?: $this->psListeningPort->getValue();
+        return $this->psListeningPort->getValue();
     }
 
     /**
@@ -126,140 +142,172 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
      */
     public function setPsRelayThroughXs($psRelayThroughXs = null)
     {
-        $this->psRelayThroughXs = (boolean) $psRelayThroughXs;
+        if (!$psRelayThroughXs) return $this;
+        $this->psRelayThroughXs = new PrimitiveType($psRelayThroughXs);
+        $this->psRelayThroughXs->setName('psRelayThroughXs');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPsRelayThroughXs()
+    {
+        return $this->psRelayThroughXs->getValue();
     }
 
     /**
      * 
      */
-    public function getPsRelayThroughXs()
-    {
-        return (!$this->psRelayThroughXs) ?: $this->psRelayThroughXs;
-    }
-
-    /**
-     * TCP/IP Port number above the well-known range.
-     */
     public function setXsRelayListeningPort($xsRelayListeningPort = null)
     {
+        if (!$xsRelayListeningPort) return $this;
         $this->xsRelayListeningPort = ($xsRelayListeningPort InstanceOf Port1025)
              ? $xsRelayListeningPort
              : new Port1025($xsRelayListeningPort);
+        $this->xsRelayListeningPort->setName('xsRelayListeningPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getXsRelayListeningPort()
     {
-        return (!$this->xsRelayListeningPort) ?: $this->xsRelayListeningPort->getValue();
+        return $this->xsRelayListeningPort->getValue();
     }
 
     /**
-     * Delay afer which the Diameter stack attempts to reconnect to a peer after detecting a connection failure.
+     * 
      */
     public function setTcTimerSeconds($tcTimerSeconds = null)
     {
+        if (!$tcTimerSeconds) return $this;
         $this->tcTimerSeconds = ($tcTimerSeconds InstanceOf BwDiameterTcTimerSeconds)
              ? $tcTimerSeconds
              : new BwDiameterTcTimerSeconds($tcTimerSeconds);
+        $this->tcTimerSeconds->setName('tcTimerSeconds');
+        return $this;
     }
 
     /**
-     * Delay afer which the Diameter stack attempts to reconnect to a peer after detecting a connection failure.
+     * 
+     * @return BwDiameterTcTimerSeconds
      */
     public function getTcTimerSeconds()
     {
-        return (!$this->tcTimerSeconds) ?: $this->tcTimerSeconds->getValue();
+        return $this->tcTimerSeconds->getValue();
     }
 
     /**
-     * Timer that controls the frequency of Device-Watchdog messages (when no other messages are exchanged on the peer connection) and is used in the connection failure detection algorithm.
+     * 
      */
     public function setTwTimerSeconds($twTimerSeconds = null)
     {
+        if (!$twTimerSeconds) return $this;
         $this->twTimerSeconds = ($twTimerSeconds InstanceOf BwDiameterTwTimerSeconds)
              ? $twTimerSeconds
              : new BwDiameterTwTimerSeconds($twTimerSeconds);
+        $this->twTimerSeconds->setName('twTimerSeconds');
+        return $this;
     }
 
     /**
-     * Timer that controls the frequency of Device-Watchdog messages (when no other messages are exchanged on the peer connection) and is used in the connection failure detection algorithm.
+     * 
+     * @return BwDiameterTwTimerSeconds
      */
     public function getTwTimerSeconds()
     {
-        return (!$this->twTimerSeconds) ?: $this->twTimerSeconds->getValue();
+        return $this->twTimerSeconds->getValue();
     }
 
     /**
-     * Time after which the Diameter stack reports a timeout to applications and removes the request from its requests queue.
+     * 
      */
     public function setRequestTimerSeconds($requestTimerSeconds = null)
     {
+        if (!$requestTimerSeconds) return $this;
         $this->requestTimerSeconds = ($requestTimerSeconds InstanceOf BwDiameterRequestTimerSeconds)
              ? $requestTimerSeconds
              : new BwDiameterRequestTimerSeconds($requestTimerSeconds);
+        $this->requestTimerSeconds->setName('requestTimerSeconds');
+        return $this;
     }
 
     /**
-     * Time after which the Diameter stack reports a timeout to applications and removes the request from its requests queue.
+     * 
+     * @return BwDiameterRequestTimerSeconds
      */
     public function getRequestTimerSeconds()
     {
-        return (!$this->requestTimerSeconds) ?: $this->requestTimerSeconds->getValue();
+        return $this->requestTimerSeconds->getValue();
     }
 
     /**
-     * The maximum number of concurrent outstanding transactions allowed on a single peer connection.
+     * 
      */
     public function setBusyPeerDetectionOutstandingTxnCount($busyPeerDetectionOutstandingTxnCount = null)
     {
+        if (!$busyPeerDetectionOutstandingTxnCount) return $this;
         $this->busyPeerDetectionOutstandingTxnCount = ($busyPeerDetectionOutstandingTxnCount InstanceOf BwDiameterBusyPeerOutstandingTxnCount)
              ? $busyPeerDetectionOutstandingTxnCount
              : new BwDiameterBusyPeerOutstandingTxnCount($busyPeerDetectionOutstandingTxnCount);
+        $this->busyPeerDetectionOutstandingTxnCount->setName('busyPeerDetectionOutstandingTxnCount');
+        return $this;
     }
 
     /**
-     * The maximum number of concurrent outstanding transactions allowed on a single peer connection.
+     * 
+     * @return BwDiameterBusyPeerOutstandingTxnCount
      */
     public function getBusyPeerDetectionOutstandingTxnCount()
     {
-        return (!$this->busyPeerDetectionOutstandingTxnCount) ?: $this->busyPeerDetectionOutstandingTxnCount->getValue();
+        return $this->busyPeerDetectionOutstandingTxnCount->getValue();
     }
 
     /**
-     * The maximum number of concurrent outstanding transactions allowed on a single peer connection.
+     * 
      */
     public function setBusyPeerRestoreOutstandingTxnCount($busyPeerRestoreOutstandingTxnCount = null)
     {
+        if (!$busyPeerRestoreOutstandingTxnCount) return $this;
         $this->busyPeerRestoreOutstandingTxnCount = ($busyPeerRestoreOutstandingTxnCount InstanceOf BwDiameterBusyPeerOutstandingTxnCount)
              ? $busyPeerRestoreOutstandingTxnCount
              : new BwDiameterBusyPeerOutstandingTxnCount($busyPeerRestoreOutstandingTxnCount);
+        $this->busyPeerRestoreOutstandingTxnCount->setName('busyPeerRestoreOutstandingTxnCount');
+        return $this;
     }
 
     /**
-     * The maximum number of concurrent outstanding transactions allowed on a single peer connection.
+     * 
+     * @return BwDiameterBusyPeerOutstandingTxnCount
      */
     public function getBusyPeerRestoreOutstandingTxnCount()
     {
-        return (!$this->busyPeerRestoreOutstandingTxnCount) ?: $this->busyPeerRestoreOutstandingTxnCount->getValue();
+        return $this->busyPeerRestoreOutstandingTxnCount->getValue();
     }
 
     /**
-     * Idle time allowed for a dynamic entry (either Realm Routing Table entry or Peer Table entry) before it is removed.
+     * 
      */
     public function setDynamicEntryInactivityTimerHours($dynamicEntryInactivityTimerHours = null)
     {
+        if (!$dynamicEntryInactivityTimerHours) return $this;
         $this->dynamicEntryInactivityTimerHours = ($dynamicEntryInactivityTimerHours InstanceOf BwDiameterDynamicEntryInactivityTimerHours)
              ? $dynamicEntryInactivityTimerHours
              : new BwDiameterDynamicEntryInactivityTimerHours($dynamicEntryInactivityTimerHours);
+        $this->dynamicEntryInactivityTimerHours->setName('dynamicEntryInactivityTimerHours');
+        return $this;
     }
 
     /**
-     * Idle time allowed for a dynamic entry (either Realm Routing Table entry or Peer Table entry) before it is removed.
+     * 
+     * @return BwDiameterDynamicEntryInactivityTimerHours
      */
     public function getDynamicEntryInactivityTimerHours()
     {
-        return (!$this->dynamicEntryInactivityTimerHours) ?: $this->dynamicEntryInactivityTimerHours->getValue();
+        return $this->dynamicEntryInactivityTimerHours->getValue();
     }
 }

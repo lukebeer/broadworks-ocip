@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderTrunkGroupGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderTrunkGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'ServiceProviderTrunkGroupGetResponse';
     protected $maxActiveCalls = null;
 
     /**
@@ -33,18 +32,22 @@ class ServiceProviderTrunkGroupGetResponse extends ComplexType implements Comple
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
      */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
-        $this->maxActiveCalls =  $maxActiveCalls;
+        if (!$maxActiveCalls) return $this;
+        $this->maxActiveCalls = $maxActiveCalls;
+        $this->maxActiveCalls->setName('maxActiveCalls');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
+     * @return UnboundedNonNegativeInt
      */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
+        return $this->maxActiveCalls;
     }
 }

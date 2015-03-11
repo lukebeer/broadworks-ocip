@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterStatisticsCollectionPeriodMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterGetInstanceStatisticsReportingResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceStatisticsReportingResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'GroupCallCenterGetInstanceStatisticsReportingResponse';
     protected $generateDailyReport     = null;
     protected $collectionPeriodMinutes = null;
     protected $reportingEmailAddress1  = null;
@@ -40,68 +40,84 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse extends ComplexType 
      */
     public function setGenerateDailyReport($generateDailyReport = null)
     {
-        $this->generateDailyReport = (boolean) $generateDailyReport;
+        if (!$generateDailyReport) return $this;
+        $this->generateDailyReport = new PrimitiveType($generateDailyReport);
+        $this->generateDailyReport->setName('generateDailyReport');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getGenerateDailyReport()
+    {
+        return $this->generateDailyReport->getValue();
     }
 
     /**
      * 
      */
-    public function getGenerateDailyReport()
-    {
-        return (!$this->generateDailyReport) ?: $this->generateDailyReport;
-    }
-
-    /**
-     * Statistics reporting interval in minutes.
-     */
     public function setCollectionPeriodMinutes($collectionPeriodMinutes = null)
     {
+        if (!$collectionPeriodMinutes) return $this;
         $this->collectionPeriodMinutes = ($collectionPeriodMinutes InstanceOf CallCenterStatisticsCollectionPeriodMinutes)
              ? $collectionPeriodMinutes
              : new CallCenterStatisticsCollectionPeriodMinutes($collectionPeriodMinutes);
+        $this->collectionPeriodMinutes->setName('collectionPeriodMinutes');
+        return $this;
     }
 
     /**
-     * Statistics reporting interval in minutes.
+     * 
+     * @return CallCenterStatisticsCollectionPeriodMinutes
      */
     public function getCollectionPeriodMinutes()
     {
-        return (!$this->collectionPeriodMinutes) ?: $this->collectionPeriodMinutes->getValue();
+        return $this->collectionPeriodMinutes->getValue();
     }
 
     /**
-     * Email Address
+     * 
      */
     public function setReportingEmailAddress1($reportingEmailAddress1 = null)
     {
+        if (!$reportingEmailAddress1) return $this;
         $this->reportingEmailAddress1 = ($reportingEmailAddress1 InstanceOf EmailAddress)
              ? $reportingEmailAddress1
              : new EmailAddress($reportingEmailAddress1);
+        $this->reportingEmailAddress1->setName('reportingEmailAddress1');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getReportingEmailAddress1()
     {
-        return (!$this->reportingEmailAddress1) ?: $this->reportingEmailAddress1->getValue();
+        return $this->reportingEmailAddress1->getValue();
     }
 
     /**
-     * Email Address
+     * 
      */
     public function setReportingEmailAddress2($reportingEmailAddress2 = null)
     {
+        if (!$reportingEmailAddress2) return $this;
         $this->reportingEmailAddress2 = ($reportingEmailAddress2 InstanceOf EmailAddress)
              ? $reportingEmailAddress2
              : new EmailAddress($reportingEmailAddress2);
+        $this->reportingEmailAddress2->setName('reportingEmailAddress2');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getReportingEmailAddress2()
     {
-        return (!$this->reportingEmailAddress2) ?: $this->reportingEmailAddress2->getValue();
+        return $this->reportingEmailAddress2->getValue();
     }
 }

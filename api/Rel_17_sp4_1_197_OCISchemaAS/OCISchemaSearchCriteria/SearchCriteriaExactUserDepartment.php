@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaExactUserDepartment extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserDepartment';
-    public    $name          = __CLASS__;
+    public    $name          = 'SearchCriteriaExactUserDepartment';
     protected $departmentKey = null;
 
     public function __construct(
-          $departmentKey
+         DepartmentKey $departmentKey
     ) {
         $this->setDepartmentKey($departmentKey);
     }
@@ -39,30 +39,22 @@ class SearchCriteriaExactUserDepartment extends ComplexType implements ComplexIn
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
      */
     public function setDepartmentKey(DepartmentKey $departmentKey = null)
     {
-        $this->departmentKey =  $departmentKey;
+        if (!$departmentKey) return $this;
+        $this->departmentKey = $departmentKey;
+        $this->departmentKey->setName('departmentKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
+     * @return DepartmentKey
      */
     public function getDepartmentKey()
     {
-        return (!$this->departmentKey) ?: $this->departmentKey->getValue();
+        return $this->departmentKey;
     }
 }

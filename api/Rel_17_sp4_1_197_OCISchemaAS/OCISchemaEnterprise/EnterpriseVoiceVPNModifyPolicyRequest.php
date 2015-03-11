@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\Enterpr
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNModifyPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'EnterpriseVoiceVPNModifyPolicyRequest';
     protected $serviceProviderId   = null;
     protected $locationDialingCode = null;
     protected $minExtensionLength  = null;
@@ -54,7 +53,7 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return EnterpriseVoiceVPNModifyPolicyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,132 +61,156 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Enterprise Voice VPN location code.
+     * 
      */
     public function setLocationDialingCode($locationDialingCode = null)
     {
+        if (!$locationDialingCode) return $this;
         $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
              ? $locationDialingCode
              : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
+        $this->locationDialingCode->setName('locationDialingCode');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN location code.
+     * 
+     * @return EnterpriseVoiceVPNLocationCode
      */
     public function getLocationDialingCode()
     {
-        return (!$this->locationDialingCode) ?: $this->locationDialingCode->getValue();
+        return $this->locationDialingCode->getValue();
     }
 
     /**
-     * Enterprise Voice VPN Extension Length.
+     * 
      */
     public function setMinExtensionLength($minExtensionLength = null)
     {
+        if (!$minExtensionLength) return $this;
         $this->minExtensionLength = ($minExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
              ? $minExtensionLength
              : new EnterpriseVoiceVPNExtensionLength($minExtensionLength);
+        $this->minExtensionLength->setName('minExtensionLength');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Extension Length.
+     * 
+     * @return EnterpriseVoiceVPNExtensionLength
      */
     public function getMinExtensionLength()
     {
-        return (!$this->minExtensionLength) ?: $this->minExtensionLength->getValue();
+        return $this->minExtensionLength->getValue();
     }
 
     /**
-     * Enterprise Voice VPN Extension Length.
+     * 
      */
     public function setMaxExtensionLength($maxExtensionLength = null)
     {
+        if (!$maxExtensionLength) return $this;
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
              ? $maxExtensionLength
              : new EnterpriseVoiceVPNExtensionLength($maxExtensionLength);
+        $this->maxExtensionLength->setName('maxExtensionLength');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Extension Length.
+     * 
+     * @return EnterpriseVoiceVPNExtensionLength
      */
     public function getMaxExtensionLength()
     {
-        return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->getValue();
+        return $this->maxExtensionLength->getValue();
     }
 
     /**
-     * Enterprise Voice VPN description.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf EnterpriseVoiceVPNDescription)
              ? $description
              : new EnterpriseVoiceVPNDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN description.
+     * 
+     * @return EnterpriseVoiceVPNDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setRouteGroupId($routeGroupId = null)
     {
+        if (!$routeGroupId) return $this;
         $this->routeGroupId = ($routeGroupId InstanceOf GroupId)
              ? $routeGroupId
              : new GroupId($routeGroupId);
+        $this->routeGroupId->setName('routeGroupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getRouteGroupId()
     {
-        return (!$this->routeGroupId) ?: $this->routeGroupId->getValue();
+        return $this->routeGroupId->getValue();
     }
 
     /**
-     * Enterprise Voice VPN Location Selection.
+     * 
      */
     public function setPolicySelection($policySelection = null)
     {
+        if (!$policySelection) return $this;
         $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
              ? $policySelection
              : new EnterpriseVoiceVPNPolicySelection($policySelection);
+        $this->policySelection->setName('policySelection');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Location Selection.
+     * 
+     * @return EnterpriseVoiceVPNPolicySelection
      */
     public function getPolicySelection()
     {
-        return (!$this->policySelection) ?: $this->policySelection->getValue();
+        return $this->policySelection->getValue();
     }
 }

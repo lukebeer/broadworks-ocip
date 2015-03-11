@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCommunicationBarringDigitPatternCriteriaGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetResponse';
-    public    $name = __CLASS__;
+    public    $name = 'SystemCommunicationBarringDigitPatternCriteriaGetRequest';
     protected $name = null;
 
     public function __construct(
@@ -40,20 +40,24 @@ class SystemCommunicationBarringDigitPatternCriteriaGetRequest extends ComplexTy
     }
 
     /**
-     * Digit Pattern Criteria Name
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
              ? $name
              : new DigitPatternCriteriaName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Digit Pattern Criteria Name
+     * 
+     * @return DigitPatternCriteriaName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 }

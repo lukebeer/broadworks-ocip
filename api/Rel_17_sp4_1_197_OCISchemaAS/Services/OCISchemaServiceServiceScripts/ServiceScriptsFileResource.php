@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts\ServiceScriptsFileResource;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts\ServiceScriptsFileResource;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceScriptsFileResource extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts\ServiceScriptsFileResource';
-    public    $name = __CLASS__;
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts\ServiceScriptsFileResource';
+    public    $name          = 'ServiceScriptsFileResource';
+    protected $fileName      = null;
+    protected $scriptContent = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $fileName,
+         $scriptContent
+    ) {
+        $this->setFileName($fileName);
+        $this->setScriptContent($scriptContent);
     }
 
     /**
@@ -32,5 +39,45 @@ class ServiceScriptsFileResource extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setFileName($fileName = null)
+    {
+        if (!$fileName) return $this;
+        $this->fileName = new SimpleContent($fileName);
+        $this->fileName->setName('fileName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getFileName()
+    {
+        return $this->fileName->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setScriptContent($scriptContent = null)
+    {
+        if (!$scriptContent) return $this;
+        $this->scriptContent = new SimpleContent($scriptContent);
+        $this->scriptContent->setName('scriptContent');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getScriptContent()
+    {
+        return $this->scriptContent->getValue();
     }
 }

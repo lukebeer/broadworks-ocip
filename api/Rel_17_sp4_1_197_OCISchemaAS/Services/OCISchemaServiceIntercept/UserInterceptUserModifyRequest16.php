@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\InterceptInboundCall;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledMediaFileResource;
@@ -14,7 +14,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Outgoing
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\UserInterceptUserModifyResponse16;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'UserInterceptUserModifyRequest16';
     protected $userId                        = null;
     protected $isActive                      = null;
     protected $announcementSelection         = null;
@@ -48,8 +48,8 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
          $userId,
          $isActive = null,
          $announcementSelection = null,
-          $audioFile = null,
-          $videoFile = null,
+         LabeledMediaFileResource $audioFile = null,
+         LabeledMediaFileResource $videoFile = null,
          $playNewPhoneNumber = null,
          $newPhoneNumber = null,
          $transferOnZeroToPhoneNumber = null,
@@ -79,7 +79,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return UserInterceptUserModifyResponse16
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,29 +87,25 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
@@ -117,69 +113,81 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Announcement Selection.
-     */
     public function setAnnouncementSelection($announcementSelection = null)
     {
+        if (!$announcementSelection) return $this;
         $this->announcementSelection = ($announcementSelection InstanceOf AnnouncementSelection)
              ? $announcementSelection
              : new AnnouncementSelection($announcementSelection);
+        $this->announcementSelection->setName('announcementSelection');
+        return $this;
     }
 
     /**
-     * Announcement Selection.
+     * 
+     * @return AnnouncementSelection
      */
     public function getAnnouncementSelection()
     {
-        return (!$this->announcementSelection) ?: $this->announcementSelection->getValue();
+        return $this->announcementSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setAudioFile(LabeledMediaFileResource $audioFile = null)
     {
-        $this->audioFile =  $audioFile;
+        if (!$audioFile) return $this;
+        $this->audioFile = $audioFile;
+        $this->audioFile->setName('audioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledMediaFileResource
      */
     public function getAudioFile()
     {
-        return (!$this->audioFile) ?: $this->audioFile->getValue();
+        return $this->audioFile;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setVideoFile(LabeledMediaFileResource $videoFile = null)
     {
-        $this->videoFile =  $videoFile;
+        if (!$videoFile) return $this;
+        $this->videoFile = $videoFile;
+        $this->videoFile->setName('videoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledMediaFileResource
      */
     public function getVideoFile()
     {
-        return (!$this->videoFile) ?: $this->videoFile->getValue();
+        return $this->videoFile;
     }
 
     /**
@@ -187,33 +195,41 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setPlayNewPhoneNumber($playNewPhoneNumber = null)
     {
-        $this->playNewPhoneNumber = (boolean) $playNewPhoneNumber;
+        if (!$playNewPhoneNumber) return $this;
+        $this->playNewPhoneNumber = new PrimitiveType($playNewPhoneNumber);
+        $this->playNewPhoneNumber->setName('playNewPhoneNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPlayNewPhoneNumber()
+    {
+        return $this->playNewPhoneNumber->getValue();
     }
 
     /**
      * 
      */
-    public function getPlayNewPhoneNumber()
-    {
-        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber;
-    }
-
-    /**
-     * Directory Number in E164 Format.
-     */
     public function setNewPhoneNumber($newPhoneNumber = null)
     {
+        if (!$newPhoneNumber) return $this;
         $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
              ? $newPhoneNumber
              : new DN($newPhoneNumber);
+        $this->newPhoneNumber->setName('newPhoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getNewPhoneNumber()
     {
-        return (!$this->newPhoneNumber) ?: $this->newPhoneNumber->getValue();
+        return $this->newPhoneNumber->getValue();
     }
 
     /**
@@ -221,37 +237,41 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber = null)
     {
-        $this->transferOnZeroToPhoneNumber = (boolean) $transferOnZeroToPhoneNumber;
+        if (!$transferOnZeroToPhoneNumber) return $this;
+        $this->transferOnZeroToPhoneNumber = new PrimitiveType($transferOnZeroToPhoneNumber);
+        $this->transferOnZeroToPhoneNumber->setName('transferOnZeroToPhoneNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getTransferOnZeroToPhoneNumber()
+    {
+        return $this->transferOnZeroToPhoneNumber->getValue();
     }
 
     /**
      * 
      */
-    public function getTransferOnZeroToPhoneNumber()
-    {
-        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber;
-    }
-
-    /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
-     */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
+        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
              ? $transferPhoneNumber
              : new OutgoingDN($transferPhoneNumber);
+        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        return $this;
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
+     * @return OutgoingDN
      */
     public function getTransferPhoneNumber()
     {
-        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->getValue();
+        return $this->transferPhoneNumber->getValue();
     }
 
     /**
@@ -259,47 +279,41 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setRerouteOutboundCalls($rerouteOutboundCalls = null)
     {
-        $this->rerouteOutboundCalls = (boolean) $rerouteOutboundCalls;
+        if (!$rerouteOutboundCalls) return $this;
+        $this->rerouteOutboundCalls = new PrimitiveType($rerouteOutboundCalls);
+        $this->rerouteOutboundCalls->setName('rerouteOutboundCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRerouteOutboundCalls()
+    {
+        return $this->rerouteOutboundCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getRerouteOutboundCalls()
-    {
-        return (!$this->rerouteOutboundCalls) ?: $this->rerouteOutboundCalls;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setOutboundReroutePhoneNumber($outboundReroutePhoneNumber = null)
     {
+        if (!$outboundReroutePhoneNumber) return $this;
         $this->outboundReroutePhoneNumber = ($outboundReroutePhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $outboundReroutePhoneNumber
              : new OutgoingDNorSIPURI($outboundReroutePhoneNumber);
+        $this->outboundReroutePhoneNumber->setName('outboundReroutePhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getOutboundReroutePhoneNumber()
     {
-        return (!$this->outboundReroutePhoneNumber) ?: $this->outboundReroutePhoneNumber->getValue();
+        return $this->outboundReroutePhoneNumber->getValue();
     }
 
     /**
@@ -307,33 +321,41 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setAllowOutboundLocalCalls($allowOutboundLocalCalls = null)
     {
-        $this->allowOutboundLocalCalls = (boolean) $allowOutboundLocalCalls;
+        if (!$allowOutboundLocalCalls) return $this;
+        $this->allowOutboundLocalCalls = new PrimitiveType($allowOutboundLocalCalls);
+        $this->allowOutboundLocalCalls->setName('allowOutboundLocalCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowOutboundLocalCalls()
+    {
+        return $this->allowOutboundLocalCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowOutboundLocalCalls()
-    {
-        return (!$this->allowOutboundLocalCalls) ?: $this->allowOutboundLocalCalls;
-    }
-
-    /**
-     * The type of inbound calls to Intercept or allow.
-     */
     public function setInboundCallMode($inboundCallMode = null)
     {
+        if (!$inboundCallMode) return $this;
         $this->inboundCallMode = ($inboundCallMode InstanceOf InterceptInboundCall)
              ? $inboundCallMode
              : new InterceptInboundCall($inboundCallMode);
+        $this->inboundCallMode->setName('inboundCallMode');
+        return $this;
     }
 
     /**
-     * The type of inbound calls to Intercept or allow.
+     * 
+     * @return InterceptInboundCall
      */
     public function getInboundCallMode()
     {
-        return (!$this->inboundCallMode) ?: $this->inboundCallMode->getValue();
+        return $this->inboundCallMode->getValue();
     }
 
     /**
@@ -341,15 +363,19 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setAlternateBlockingAnnouncement($alternateBlockingAnnouncement = null)
     {
-        $this->alternateBlockingAnnouncement = (boolean) $alternateBlockingAnnouncement;
+        if (!$alternateBlockingAnnouncement) return $this;
+        $this->alternateBlockingAnnouncement = new PrimitiveType($alternateBlockingAnnouncement);
+        $this->alternateBlockingAnnouncement->setName('alternateBlockingAnnouncement');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAlternateBlockingAnnouncement()
     {
-        return (!$this->alternateBlockingAnnouncement) ?: $this->alternateBlockingAnnouncement;
+        return $this->alternateBlockingAnnouncement->getValue();
     }
 
     /**
@@ -357,14 +383,18 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setRouteToVoiceMail($routeToVoiceMail = null)
     {
-        $this->routeToVoiceMail = (boolean) $routeToVoiceMail;
+        if (!$routeToVoiceMail) return $this;
+        $this->routeToVoiceMail = new PrimitiveType($routeToVoiceMail);
+        $this->routeToVoiceMail->setName('routeToVoiceMail');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRouteToVoiceMail()
     {
-        return (!$this->routeToVoiceMail) ?: $this->routeToVoiceMail;
+        return $this->routeToVoiceMail->getValue();
     }
 }

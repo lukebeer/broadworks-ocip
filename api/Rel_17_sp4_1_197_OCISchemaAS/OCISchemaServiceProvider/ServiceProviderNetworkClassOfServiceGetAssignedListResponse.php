@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderNetworkClassOfServiceGetAssignedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderNetworkClassOfServiceGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'ServiceProviderNetworkClassOfServiceGetAssignedListResponse';
     protected $networkClassOfServiceTable = null;
 
     /**
@@ -38,14 +37,17 @@ class ServiceProviderNetworkClassOfServiceGetAssignedListResponse extends Comple
      */
     public function setNetworkClassOfServiceTable(core:OCITable $networkClassOfServiceTable = null)
     {
-        $this->networkClassOfServiceTable =  $networkClassOfServiceTable;
+        if (!$networkClassOfServiceTable) return $this;
+        $this->networkClassOfServiceTable->setName('networkClassOfServiceTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getNetworkClassOfServiceTable()
     {
-        return (!$this->networkClassOfServiceTable) ?: $this->networkClassOfServiceTable->getValue();
+        return $this->networkClassOfServiceTable->getValue();
     }
 }

@@ -14,7 +14,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupRoutePointHolidayServiceModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'GroupRoutePointHolidayServiceModifyRequest';
     protected $serviceUserId                = null;
     protected $action                       = null;
     protected $holidaySchedule              = null;
@@ -47,11 +47,11 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-          $audioUrlList = null,
-          $audioFileList = null,
+         CallCenterAnnouncementURLListModify $audioUrlList = null,
+         CallCenterAnnouncementFileListModify $audioFileList = null,
          $videoMessageSelection = null,
-          $videoUrlList = null,
-          $videoFileList = null
+         CallCenterAnnouncementURLListModify $videoUrlList = null,
+         CallCenterAnnouncementFileListModify $videoFileList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);
@@ -67,7 +67,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return GroupRoutePointHolidayServiceModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,97 +75,91 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * Call center scheduled service (Night Services, Holiday Services, etc.) processing action.
+     * 
      */
     public function setAction($action = null)
     {
+        if (!$action) return $this;
         $this->action = ($action InstanceOf CallCenterScheduledServiceAction)
              ? $action
              : new CallCenterScheduledServiceAction($action);
+        $this->action->setName('action');
+        return $this;
     }
 
     /**
-     * Call center scheduled service (Night Services, Holiday Services, etc.) processing action.
+     * 
+     * @return CallCenterScheduledServiceAction
      */
     public function getAction()
     {
-        return (!$this->action) ?: $this->action->getValue();
+        return $this->action->getValue();
     }
 
     /**
-     * Schedule name.
+     * 
      */
     public function setHolidaySchedule($holidaySchedule = null)
     {
+        if (!$holidaySchedule) return $this;
         $this->holidaySchedule = ($holidaySchedule InstanceOf ScheduleName)
              ? $holidaySchedule
              : new ScheduleName($holidaySchedule);
+        $this->holidaySchedule->setName('holidaySchedule');
+        return $this;
     }
 
     /**
-     * Schedule name.
+     * 
+     * @return ScheduleName
      */
     public function getHolidaySchedule()
     {
-        return (!$this->holidaySchedule) ?: $this->holidaySchedule->getValue();
+        return $this->holidaySchedule->getValue();
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
      */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
+        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
+        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getTransferPhoneNumber()
     {
-        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->getValue();
+        return $this->transferPhoneNumber->getValue();
     }
 
     /**
@@ -173,114 +167,142 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setPlayAnnouncementBeforeAction($playAnnouncementBeforeAction = null)
     {
-        $this->playAnnouncementBeforeAction = (boolean) $playAnnouncementBeforeAction;
+        if (!$playAnnouncementBeforeAction) return $this;
+        $this->playAnnouncementBeforeAction = new PrimitiveType($playAnnouncementBeforeAction);
+        $this->playAnnouncementBeforeAction->setName('playAnnouncementBeforeAction');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPlayAnnouncementBeforeAction()
+    {
+        return $this->playAnnouncementBeforeAction->getValue();
     }
 
     /**
      * 
      */
-    public function getPlayAnnouncementBeforeAction()
-    {
-        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction;
-    }
-
-    /**
-     * Choices for extended file resource usage.
-     */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
+        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
+        $this->audioMessageSelection->setName('audioMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getAudioMessageSelection()
     {
-        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->getValue();
+        return $this->audioMessageSelection->getValue();
     }
 
     /**
-     * Contains a list of URLs for modify.
+     * 
      */
     public function setAudioUrlList(CallCenterAnnouncementURLListModify $audioUrlList = null)
     {
-        $this->audioUrlList =  $audioUrlList;
+        if (!$audioUrlList) return $this;
+        $this->audioUrlList = $audioUrlList;
+        $this->audioUrlList->setName('audioUrlList');
+        return $this;
     }
 
     /**
-     * Contains a list of URLs for modify.
+     * 
+     * @return CallCenterAnnouncementURLListModify
      */
     public function getAudioUrlList()
     {
-        return (!$this->audioUrlList) ?: $this->audioUrlList->getValue();
+        return $this->audioUrlList;
     }
 
     /**
-     * Contains a list of audio or video files to modify.
+     * 
      */
     public function setAudioFileList(CallCenterAnnouncementFileListModify $audioFileList = null)
     {
-        $this->audioFileList =  $audioFileList;
+        if (!$audioFileList) return $this;
+        $this->audioFileList = $audioFileList;
+        $this->audioFileList->setName('audioFileList');
+        return $this;
     }
 
     /**
-     * Contains a list of audio or video files to modify.
+     * 
+     * @return CallCenterAnnouncementFileListModify
      */
     public function getAudioFileList()
     {
-        return (!$this->audioFileList) ?: $this->audioFileList->getValue();
+        return $this->audioFileList;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
+        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
+        $this->videoMessageSelection->setName('videoMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getVideoMessageSelection()
     {
-        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->getValue();
+        return $this->videoMessageSelection->getValue();
     }
 
     /**
-     * Contains a list of URLs for modify.
+     * 
      */
     public function setVideoUrlList(CallCenterAnnouncementURLListModify $videoUrlList = null)
     {
-        $this->videoUrlList =  $videoUrlList;
+        if (!$videoUrlList) return $this;
+        $this->videoUrlList = $videoUrlList;
+        $this->videoUrlList->setName('videoUrlList');
+        return $this;
     }
 
     /**
-     * Contains a list of URLs for modify.
+     * 
+     * @return CallCenterAnnouncementURLListModify
      */
     public function getVideoUrlList()
     {
-        return (!$this->videoUrlList) ?: $this->videoUrlList->getValue();
+        return $this->videoUrlList;
     }
 
     /**
-     * Contains a list of audio or video files to modify.
+     * 
      */
     public function setVideoFileList(CallCenterAnnouncementFileListModify $videoFileList = null)
     {
-        $this->videoFileList =  $videoFileList;
+        if (!$videoFileList) return $this;
+        $this->videoFileList = $videoFileList;
+        $this->videoFileList->setName('videoFileList');
+        return $this;
     }
 
     /**
-     * Contains a list of audio or video files to modify.
+     * 
+     * @return CallCenterAnnouncementFileListModify
      */
     public function getVideoFileList()
     {
-        return (!$this->videoFileList) ?: $this->videoFileList->getValue();
+        return $this->videoFileList;
     }
 }

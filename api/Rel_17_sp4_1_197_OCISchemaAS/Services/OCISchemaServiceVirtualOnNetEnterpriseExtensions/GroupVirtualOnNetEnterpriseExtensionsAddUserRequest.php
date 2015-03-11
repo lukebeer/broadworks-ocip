@@ -5,13 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\VirtualOnNetUserRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\VirtualOnNetUser;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsAddUserResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupVirtualOnNetEnterpriseExtensionsAddUserRequest';
     protected $serviceProviderId     = null;
     protected $groupId               = null;
     protected $virtualOnNetUser      = null;
@@ -35,8 +34,8 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
     public function __construct(
          $serviceProviderId,
          $groupId,
-          $virtualOnNetUser = null,
-          $virtualOnNetUserRange = null
+         VirtualOnNetUser $virtualOnNetUser = null,
+         VirtualOnNetUserRange $virtualOnNetUserRange = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -45,7 +44,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
     }
 
     /**
-     * @return GroupVirtualOnNetEnterpriseExtensionsAddUserResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,74 +52,86 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Virtual On-Net User.
+     * 
      */
     public function setVirtualOnNetUser(VirtualOnNetUser $virtualOnNetUser = null)
     {
-        $this->virtualOnNetUser =  $virtualOnNetUser;
+        if (!$virtualOnNetUser) return $this;
+        $this->virtualOnNetUser = $virtualOnNetUser;
+        $this->virtualOnNetUser->setName('virtualOnNetUser');
+        return $this;
     }
 
     /**
-     * Virtual On-Net User.
+     * 
+     * @return VirtualOnNetUser
      */
     public function getVirtualOnNetUser()
     {
-        return (!$this->virtualOnNetUser) ?: $this->virtualOnNetUser->getValue();
+        return $this->virtualOnNetUser;
     }
 
     /**
-     * Virtual On-Net User Range.
+     * 
      */
     public function setVirtualOnNetUserRange(VirtualOnNetUserRange $virtualOnNetUserRange = null)
     {
-        $this->virtualOnNetUserRange =  $virtualOnNetUserRange;
+        if (!$virtualOnNetUserRange) return $this;
+        $this->virtualOnNetUserRange = $virtualOnNetUserRange;
+        $this->virtualOnNetUserRange->setName('virtualOnNetUserRange');
+        return $this;
     }
 
     /**
-     * Virtual On-Net User Range.
+     * 
+     * @return VirtualOnNetUserRange
      */
     public function getVirtualOnNetUserRange()
     {
-        return (!$this->virtualOnNetUserRange) ?: $this->virtualOnNetUserRange->getValue();
+        return $this->virtualOnNetUserRange;
     }
 }

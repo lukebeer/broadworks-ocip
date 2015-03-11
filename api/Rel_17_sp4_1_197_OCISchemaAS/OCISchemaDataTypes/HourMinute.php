@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HourMinute;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,9 +21,16 @@ use Broadworks_OCIP\core\Client\Client;
 class HourMinute extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HourMinute';
-    public    $name = __CLASS__;
+    public    $name   = 'HourMinute';
+    protected $hour   = null;
+    protected $minute = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $hour,
+         $minute
+    ) {
+        $this->setHour($hour);
+        $this->setMinute($minute);
     }
 
     /**
@@ -32,5 +39,45 @@ class HourMinute extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setHour($hour = null)
+    {
+        if (!$hour) return $this;
+        $this->hour = new SimpleContent($hour);
+        $this->hour->setName('hour');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getHour()
+    {
+        return $this->hour->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setMinute($minute = null)
+    {
+        if (!$minute) return $this;
+        $this->minute = new SimpleContent($minute);
+        $this->minute->setName('minute');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getMinute()
+    {
+        return $this->minute->getValue();
     }
 }

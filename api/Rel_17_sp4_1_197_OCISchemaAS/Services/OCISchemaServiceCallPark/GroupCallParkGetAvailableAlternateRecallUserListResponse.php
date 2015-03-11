@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkGetAvailableAlternateRecallUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetAvailableAlternateRecallUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'GroupCallParkGetAvailableAlternateRecallUserListResponse';
     protected $availableHuntGroupTable = null;
 
     /**
@@ -37,14 +36,17 @@ class GroupCallParkGetAvailableAlternateRecallUserListResponse extends ComplexTy
      */
     public function setAvailableHuntGroupTable(core:OCITable $availableHuntGroupTable = null)
     {
-        $this->availableHuntGroupTable =  $availableHuntGroupTable;
+        if (!$availableHuntGroupTable) return $this;
+        $this->availableHuntGroupTable->setName('availableHuntGroupTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getAvailableHuntGroupTable()
     {
-        return (!$this->availableHuntGroupTable) ?: $this->availableHuntGroupTable->getValue();
+        return $this->availableHuntGroupTable->getValue();
     }
 }

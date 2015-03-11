@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePorts;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\ServiceProviderMeetMeConferencingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderMeetMeConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'ServiceProviderMeetMeConferencingGetResponse';
     protected $allocatedPorts = null;
 
     /**
@@ -32,18 +31,22 @@ class ServiceProviderMeetMeConferencingGetResponse extends ComplexType implement
     }
 
     /**
-     * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
+     * 
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        $this->allocatedPorts =  $allocatedPorts;
+        if (!$allocatedPorts) return $this;
+        $this->allocatedPorts = $allocatedPorts;
+        $this->allocatedPorts->setName('allocatedPorts');
+        return $this;
     }
 
     /**
-     * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
+     * 
+     * @return MeetMeConferencingConferencePorts
      */
     public function getAllocatedPorts()
     {
-        return (!$this->allocatedPorts) ?: $this->allocatedPorts->getValue();
+        return $this->allocatedPorts;
     }
 }

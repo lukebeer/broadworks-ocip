@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                      = __CLASS__;
+    public    $name                                      = 'ServiceProviderDialPlanPolicyModifyRequest';
     protected $serviceProviderId                         = null;
     protected $requiresAccessCodeForPublicCalls          = null;
     protected $allowE164PublicCalls                      = null;
@@ -47,7 +47,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return ServiceProviderDialPlanPolicyModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,23 +55,25 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
@@ -79,15 +81,19 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function setRequiresAccessCodeForPublicCalls($requiresAccessCodeForPublicCalls = null)
     {
-        $this->requiresAccessCodeForPublicCalls = (boolean) $requiresAccessCodeForPublicCalls;
+        if (!$requiresAccessCodeForPublicCalls) return $this;
+        $this->requiresAccessCodeForPublicCalls = new PrimitiveType($requiresAccessCodeForPublicCalls);
+        $this->requiresAccessCodeForPublicCalls->setName('requiresAccessCodeForPublicCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
-        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls;
+        return $this->requiresAccessCodeForPublicCalls->getValue();
     }
 
     /**
@@ -95,15 +101,19 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function setAllowE164PublicCalls($allowE164PublicCalls = null)
     {
-        $this->allowE164PublicCalls = (boolean) $allowE164PublicCalls;
+        if (!$allowE164PublicCalls) return $this;
+        $this->allowE164PublicCalls = new PrimitiveType($allowE164PublicCalls);
+        $this->allowE164PublicCalls->setName('allowE164PublicCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowE164PublicCalls()
     {
-        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls;
+        return $this->allowE164PublicCalls->getValue();
     }
 
     /**
@@ -111,50 +121,62 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function setPreferE164NumberFormatForCallbackServices($preferE164NumberFormatForCallbackServices = null)
     {
-        $this->preferE164NumberFormatForCallbackServices = (boolean) $preferE164NumberFormatForCallbackServices;
+        if (!$preferE164NumberFormatForCallbackServices) return $this;
+        $this->preferE164NumberFormatForCallbackServices = new PrimitiveType($preferE164NumberFormatForCallbackServices);
+        $this->preferE164NumberFormatForCallbackServices->setName('preferE164NumberFormatForCallbackServices');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPreferE164NumberFormatForCallbackServices()
+    {
+        return $this->preferE164NumberFormatForCallbackServices->getValue();
     }
 
     /**
      * 
      */
-    public function getPreferE164NumberFormatForCallbackServices()
-    {
-        return (!$this->preferE164NumberFormatForCallbackServices) ?: $this->preferE164NumberFormatForCallbackServices;
-    }
-
-    /**
-     * Digit Collection Digit Map.
-     */
     public function setPublicDigitMap($publicDigitMap = null)
     {
+        if (!$publicDigitMap) return $this;
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
+        $this->publicDigitMap->setName('publicDigitMap');
+        return $this;
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
+     * @return DigitMap
      */
     public function getPublicDigitMap()
     {
-        return (!$this->publicDigitMap) ?: $this->publicDigitMap->getValue();
+        return $this->publicDigitMap->getValue();
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
      */
     public function setPrivateDigitMap($privateDigitMap = null)
     {
+        if (!$privateDigitMap) return $this;
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
+        $this->privateDigitMap->setName('privateDigitMap');
+        return $this;
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
+     * @return DigitMap
      */
     public function getPrivateDigitMap()
     {
-        return (!$this->privateDigitMap) ?: $this->privateDigitMap->getValue();
+        return $this->privateDigitMap->getValue();
     }
 }

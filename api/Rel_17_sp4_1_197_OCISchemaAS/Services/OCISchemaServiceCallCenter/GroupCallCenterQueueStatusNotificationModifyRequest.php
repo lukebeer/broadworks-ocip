@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterWaitingTimeNotificationThresholdSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterQueueDepthNotificationThreshold;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterQueueStatusNotificationModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'GroupCallCenterQueueStatusNotificationModifyRequest';
     protected $serviceUserId                 = null;
     protected $enableQueueStatusNotification = null;
     protected $enableQueueDepthThreshold     = null;
@@ -48,7 +48,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
     }
 
     /**
-     * @return GroupCallCenterQueueStatusNotificationModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,29 +56,25 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
@@ -86,15 +82,19 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
      */
     public function setEnableQueueStatusNotification($enableQueueStatusNotification = null)
     {
-        $this->enableQueueStatusNotification = (boolean) $enableQueueStatusNotification;
+        if (!$enableQueueStatusNotification) return $this;
+        $this->enableQueueStatusNotification = new PrimitiveType($enableQueueStatusNotification);
+        $this->enableQueueStatusNotification->setName('enableQueueStatusNotification');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableQueueStatusNotification()
     {
-        return (!$this->enableQueueStatusNotification) ?: $this->enableQueueStatusNotification;
+        return $this->enableQueueStatusNotification->getValue();
     }
 
     /**
@@ -102,15 +102,19 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
      */
     public function setEnableQueueDepthThreshold($enableQueueDepthThreshold = null)
     {
-        $this->enableQueueDepthThreshold = (boolean) $enableQueueDepthThreshold;
+        if (!$enableQueueDepthThreshold) return $this;
+        $this->enableQueueDepthThreshold = new PrimitiveType($enableQueueDepthThreshold);
+        $this->enableQueueDepthThreshold->setName('enableQueueDepthThreshold');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableQueueDepthThreshold()
     {
-        return (!$this->enableQueueDepthThreshold) ?: $this->enableQueueDepthThreshold;
+        return $this->enableQueueDepthThreshold->getValue();
     }
 
     /**
@@ -118,50 +122,62 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
      */
     public function setEnableWaitingTimeThreshold($enableWaitingTimeThreshold = null)
     {
-        $this->enableWaitingTimeThreshold = (boolean) $enableWaitingTimeThreshold;
+        if (!$enableWaitingTimeThreshold) return $this;
+        $this->enableWaitingTimeThreshold = new PrimitiveType($enableWaitingTimeThreshold);
+        $this->enableWaitingTimeThreshold->setName('enableWaitingTimeThreshold');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableWaitingTimeThreshold()
+    {
+        return $this->enableWaitingTimeThreshold->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableWaitingTimeThreshold()
-    {
-        return (!$this->enableWaitingTimeThreshold) ?: $this->enableWaitingTimeThreshold;
-    }
-
-    /**
-     * Number of calls in queue before notification to agents devices.
-     */
     public function setNumberOfCallsThreshold($numberOfCallsThreshold = null)
     {
+        if (!$numberOfCallsThreshold) return $this;
         $this->numberOfCallsThreshold = ($numberOfCallsThreshold InstanceOf CallCenterQueueDepthNotificationThreshold)
              ? $numberOfCallsThreshold
              : new CallCenterQueueDepthNotificationThreshold($numberOfCallsThreshold);
+        $this->numberOfCallsThreshold->setName('numberOfCallsThreshold');
+        return $this;
     }
 
     /**
-     * Number of calls in queue before notification to agents devices.
+     * 
+     * @return CallCenterQueueDepthNotificationThreshold
      */
     public function getNumberOfCallsThreshold()
     {
-        return (!$this->numberOfCallsThreshold) ?: $this->numberOfCallsThreshold->getValue();
+        return $this->numberOfCallsThreshold->getValue();
     }
 
     /**
-     * Waiting time for a given call before notification to agents devices.
+     * 
      */
     public function setWaitingTimeOfCallsThreshold($waitingTimeOfCallsThreshold = null)
     {
+        if (!$waitingTimeOfCallsThreshold) return $this;
         $this->waitingTimeOfCallsThreshold = ($waitingTimeOfCallsThreshold InstanceOf CallCenterWaitingTimeNotificationThresholdSeconds)
              ? $waitingTimeOfCallsThreshold
              : new CallCenterWaitingTimeNotificationThresholdSeconds($waitingTimeOfCallsThreshold);
+        $this->waitingTimeOfCallsThreshold->setName('waitingTimeOfCallsThreshold');
+        return $this;
     }
 
     /**
-     * Waiting time for a given call before notification to agents devices.
+     * 
+     * @return CallCenterWaitingTimeNotificationThresholdSeconds
      */
     public function getWaitingTimeOfCallsThreshold()
     {
-        return (!$this->waitingTimeOfCallsThreshold) ?: $this->waitingTimeOfCallsThreshold->getValue();
+        return $this->waitingTimeOfCallsThreshold->getValue();
     }
 }

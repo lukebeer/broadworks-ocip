@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceManagementTagGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
+    public    $name      = 'SystemDeviceManagementTagGetListResponse';
     protected $tagsTable = null;
 
     /**
@@ -38,14 +37,17 @@ class SystemDeviceManagementTagGetListResponse extends ComplexType implements Co
      */
     public function setTagsTable(core:OCITable $tagsTable = null)
     {
-        $this->tagsTable =  $tagsTable;
+        if (!$tagsTable) return $this;
+        $this->tagsTable->setName('tagsTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getTagsTable()
     {
-        return (!$this->tagsTable) ?: $this->tagsTable->getValue();
+        return $this->tagsTable->getValue();
     }
 }

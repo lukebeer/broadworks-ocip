@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetVoicePortalResponse16;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
+    public    $name                                 = 'UserVoiceMessagingUserGetVoicePortalResponse16';
     protected $usePersonalizedName                  = null;
     protected $voicePortalAutoLogin                 = null;
     protected $personalizedNameAudioFileDescription = null;
@@ -40,15 +40,19 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function setUsePersonalizedName($usePersonalizedName = null)
     {
-        $this->usePersonalizedName = (boolean) $usePersonalizedName;
+        if (!$usePersonalizedName) return $this;
+        $this->usePersonalizedName = new PrimitiveType($usePersonalizedName);
+        $this->usePersonalizedName->setName('usePersonalizedName');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUsePersonalizedName()
     {
-        return (!$this->usePersonalizedName) ?: $this->usePersonalizedName;
+        return $this->usePersonalizedName->getValue();
     }
 
     /**
@@ -56,58 +60,62 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function setVoicePortalAutoLogin($voicePortalAutoLogin = null)
     {
-        $this->voicePortalAutoLogin = (boolean) $voicePortalAutoLogin;
+        if (!$voicePortalAutoLogin) return $this;
+        $this->voicePortalAutoLogin = new PrimitiveType($voicePortalAutoLogin);
+        $this->voicePortalAutoLogin->setName('voicePortalAutoLogin');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getVoicePortalAutoLogin()
+    {
+        return $this->voicePortalAutoLogin->getValue();
     }
 
     /**
      * 
      */
-    public function getVoicePortalAutoLogin()
-    {
-        return (!$this->voicePortalAutoLogin) ?: $this->voicePortalAutoLogin;
-    }
-
-    /**
-     * Description of a file resource.
-     */
     public function setPersonalizedNameAudioFileDescription($personalizedNameAudioFileDescription = null)
     {
+        if (!$personalizedNameAudioFileDescription) return $this;
         $this->personalizedNameAudioFileDescription = ($personalizedNameAudioFileDescription InstanceOf FileDescription)
              ? $personalizedNameAudioFileDescription
              : new FileDescription($personalizedNameAudioFileDescription);
+        $this->personalizedNameAudioFileDescription->setName('personalizedNameAudioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getPersonalizedNameAudioFileDescription()
     {
-        return (!$this->personalizedNameAudioFileDescription) ?: $this->personalizedNameAudioFileDescription->getValue();
+        return $this->personalizedNameAudioFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setPersonalizedNameMediaType($personalizedNameMediaType = null)
     {
+        if (!$personalizedNameMediaType) return $this;
         $this->personalizedNameMediaType = ($personalizedNameMediaType InstanceOf MediaFileType)
              ? $personalizedNameMediaType
              : new MediaFileType($personalizedNameMediaType);
+        $this->personalizedNameMediaType->setName('personalizedNameMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getPersonalizedNameMediaType()
     {
-        return (!$this->personalizedNameMediaType) ?: $this->personalizedNameMediaType->getValue();
+        return $this->personalizedNameMediaType->getValue();
     }
 }

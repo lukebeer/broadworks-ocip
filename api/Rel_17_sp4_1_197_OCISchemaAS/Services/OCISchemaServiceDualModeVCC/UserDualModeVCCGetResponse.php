@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDualModeVCC; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDualModeVCC; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDualModeVCC\DualModeVCCSubscriberUserName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDualModeVCC\UserDualModeVCCGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDualModeVCCGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'UserDualModeVCCGetResponse';
     protected $subscriberUserName = null;
 
     /**
@@ -32,20 +31,24 @@ class UserDualModeVCCGetResponse extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Dual Mode VCC Service subscriber user name
+     * 
      */
     public function setSubscriberUserName($subscriberUserName = null)
     {
+        if (!$subscriberUserName) return $this;
         $this->subscriberUserName = ($subscriberUserName InstanceOf DualModeVCCSubscriberUserName)
              ? $subscriberUserName
              : new DualModeVCCSubscriberUserName($subscriberUserName);
+        $this->subscriberUserName->setName('subscriberUserName');
+        return $this;
     }
 
     /**
-     * Dual Mode VCC Service subscriber user name
+     * 
+     * @return DualModeVCCSubscriberUserName
      */
     public function getSubscriberUserName()
     {
-        return (!$this->subscriberUserName) ?: $this->subscriberUserName->getValue();
+        return $this->subscriberUserName->getValue();
     }
 }

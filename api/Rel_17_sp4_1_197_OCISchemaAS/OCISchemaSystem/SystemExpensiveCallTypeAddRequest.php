@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\MediaTreatmentFileName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallTypeAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'SystemExpensiveCallTypeAddRequest';
     protected $alternateCallIndicator = null;
     protected $treatmentAudioFile     = null;
 
@@ -35,7 +34,7 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return SystemExpensiveCallTypeAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * Network Server Alternate Call Indicator.
+     * 
      */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
+        if (!$alternateCallIndicator) return $this;
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
              ? $alternateCallIndicator
              : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
+        $this->alternateCallIndicator->setName('alternateCallIndicator');
+        return $this;
     }
 
     /**
-     * Network Server Alternate Call Indicator.
+     * 
+     * @return NetworkServerAlternateCallIndicator
      */
     public function getAlternateCallIndicator()
     {
-        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->getValue();
+        return $this->alternateCallIndicator->getValue();
     }
 
     /**
-     * Audio or video treatment file name.
+     * 
      */
     public function setTreatmentAudioFile($treatmentAudioFile = null)
     {
+        if (!$treatmentAudioFile) return $this;
         $this->treatmentAudioFile = ($treatmentAudioFile InstanceOf MediaTreatmentFileName)
              ? $treatmentAudioFile
              : new MediaTreatmentFileName($treatmentAudioFile);
+        $this->treatmentAudioFile->setName('treatmentAudioFile');
+        return $this;
     }
 
     /**
-     * Audio or video treatment file name.
+     * 
+     * @return MediaTreatmentFileName
      */
     public function getTreatmentAudioFile()
     {
-        return (!$this->treatmentAudioFile) ?: $this->treatmentAudioFile->getValue();
+        return $this->treatmentAudioFile->getValue();
     }
 }

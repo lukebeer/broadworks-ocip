@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'SystemOutgoingCallingPlanModifyRequest';
     protected $directTransferScreening      = null;
     protected $enableEnhancedTollCallTyping = null;
 
@@ -34,7 +33,7 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return SystemOutgoingCallingPlanModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,15 +45,19 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
      */
     public function setDirectTransferScreening($directTransferScreening = null)
     {
-        $this->directTransferScreening = (boolean) $directTransferScreening;
+        if (!$directTransferScreening) return $this;
+        $this->directTransferScreening = new PrimitiveType($directTransferScreening);
+        $this->directTransferScreening->setName('directTransferScreening');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDirectTransferScreening()
     {
-        return (!$this->directTransferScreening) ?: $this->directTransferScreening;
+        return $this->directTransferScreening->getValue();
     }
 
     /**
@@ -62,14 +65,18 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
      */
     public function setEnableEnhancedTollCallTyping($enableEnhancedTollCallTyping = null)
     {
-        $this->enableEnhancedTollCallTyping = (boolean) $enableEnhancedTollCallTyping;
+        if (!$enableEnhancedTollCallTyping) return $this;
+        $this->enableEnhancedTollCallTyping = new PrimitiveType($enableEnhancedTollCallTyping);
+        $this->enableEnhancedTollCallTyping->setName('enableEnhancedTollCallTyping');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableEnhancedTollCallTyping()
     {
-        return (!$this->enableEnhancedTollCallTyping) ?: $this->enableEnhancedTollCallTyping;
+        return $this->enableEnhancedTollCallTyping->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingGuest; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingGuest; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingGuest\UserHotelingGuestGetAvailableUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHotelingGuestGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'UserHotelingGuestGetAvailableUserListResponse';
     protected $hostUserTable = null;
 
     /**
@@ -37,14 +36,17 @@ class UserHotelingGuestGetAvailableUserListResponse extends ComplexType implemen
      */
     public function setHostUserTable(core:OCITable $hostUserTable = null)
     {
-        $this->hostUserTable =  $hostUserTable;
+        if (!$hostUserTable) return $this;
+        $this->hostUserTable->setName('hostUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getHostUserTable()
     {
-        return (!$this->hostUserTable) ?: $this->hostUserTable->getValue();
+        return $this->hostUserTable->getValue();
     }
 }

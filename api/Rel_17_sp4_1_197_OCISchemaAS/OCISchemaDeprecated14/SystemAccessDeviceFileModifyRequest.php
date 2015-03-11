@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\DeviceManagementFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileResource;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAccessDeviceFileModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceFileModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemAccessDeviceFileModifyRequest';
     protected $deviceName = null;
     protected $fileType   = null;
     protected $fileSource = null;
@@ -35,7 +34,7 @@ class SystemAccessDeviceFileModifyRequest extends ComplexType implements Complex
          $deviceName,
          $fileType,
          $fileSource = null,
-          $uploadFile = null
+         FileResource $uploadFile = null
     ) {
         $this->setDeviceName($deviceName);
         $this->setFileType($fileType);
@@ -44,7 +43,7 @@ class SystemAccessDeviceFileModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return SystemAccessDeviceFileModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,74 +51,88 @@ class SystemAccessDeviceFileModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * Access device name.
+     * 
      */
     public function setDeviceName($deviceName = null)
     {
+        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
+        $this->deviceName->setName('deviceName');
+        return $this;
     }
 
     /**
-     * Access device name.
+     * 
+     * @return AccessDeviceName
      */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->getValue();
+        return $this->deviceName->getValue();
     }
 
     /**
-     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     * 
      */
     public function setFileType($fileType = null)
     {
+        if (!$fileType) return $this;
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
              ? $fileType
              : new DeviceManagementFileType($fileType);
+        $this->fileType->setName('fileType');
+        return $this;
     }
 
     /**
-     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     * 
+     * @return DeviceManagementFileType
      */
     public function getFileType()
     {
-        return (!$this->fileType) ?: $this->fileType->getValue();
+        return $this->fileType->getValue();
     }
 
     /**
-     * Choices for the access device configuration mode.
+     * 
      */
     public function setFileSource($fileSource = null)
     {
+        if (!$fileSource) return $this;
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
+        $this->fileSource->setName('fileSource');
+        return $this;
     }
 
     /**
-     * Choices for the access device configuration mode.
+     * 
+     * @return AccessDeviceEnhancedConfigurationMode
      */
     public function getFileSource()
     {
-        return (!$this->fileSource) ?: $this->fileSource->getValue();
+        return $this->fileSource->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer.
+     * 
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        $this->uploadFile =  $uploadFile;
+        if (!$uploadFile) return $this;
+        $this->uploadFile = $uploadFile;
+        $this->uploadFile->setName('uploadFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer.
+     * 
+     * @return FileResource
      */
     public function getUploadFile()
     {
-        return (!$this->uploadFile) ?: $this->uploadFile->getValue();
+        return $this->uploadFile;
     }
 }

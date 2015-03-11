@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\EnterprisePhoneDirectoryGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterprisePhoneDirectoryGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'EnterprisePhoneDirectoryGetListResponse';
     protected $directoryTable = null;
 
     /**
@@ -43,14 +42,17 @@ class EnterprisePhoneDirectoryGetListResponse extends ComplexType implements Com
      */
     public function setDirectoryTable(core:OCITable $directoryTable = null)
     {
-        $this->directoryTable =  $directoryTable;
+        if (!$directoryTable) return $this;
+        $this->directoryTable->setName('directoryTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDirectoryTable()
     {
-        return (!$this->directoryTable) ?: $this->directoryTable->getValue();
+        return $this->directoryTable->getValue();
     }
 }

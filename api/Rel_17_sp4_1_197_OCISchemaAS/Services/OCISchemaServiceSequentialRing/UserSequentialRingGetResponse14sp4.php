@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSequentialRing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\SequentialRingLocation14sp4;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\SequentialRingNumberOfRings;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSequentialRing\UserSequentialRingGetResponse14sp4;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\SequentialRingLocation14sp4;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'UserSequentialRingGetResponse14sp4';
     protected $ringBaseLocationFirst        = null;
     protected $baseLocationNumberOfRings    = null;
     protected $continueIfBaseLocationIsBusy = null;
@@ -47,33 +47,41 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function setRingBaseLocationFirst($ringBaseLocationFirst = null)
     {
-        $this->ringBaseLocationFirst = (boolean) $ringBaseLocationFirst;
+        if (!$ringBaseLocationFirst) return $this;
+        $this->ringBaseLocationFirst = new PrimitiveType($ringBaseLocationFirst);
+        $this->ringBaseLocationFirst->setName('ringBaseLocationFirst');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRingBaseLocationFirst()
+    {
+        return $this->ringBaseLocationFirst->getValue();
     }
 
     /**
      * 
      */
-    public function getRingBaseLocationFirst()
-    {
-        return (!$this->ringBaseLocationFirst) ?: $this->ringBaseLocationFirst;
-    }
-
-    /**
-     * Number of Rings until call is redirected to next location in sequence.
-     */
     public function setBaseLocationNumberOfRings($baseLocationNumberOfRings = null)
     {
+        if (!$baseLocationNumberOfRings) return $this;
         $this->baseLocationNumberOfRings = ($baseLocationNumberOfRings InstanceOf SequentialRingNumberOfRings)
              ? $baseLocationNumberOfRings
              : new SequentialRingNumberOfRings($baseLocationNumberOfRings);
+        $this->baseLocationNumberOfRings->setName('baseLocationNumberOfRings');
+        return $this;
     }
 
     /**
-     * Number of Rings until call is redirected to next location in sequence.
+     * 
+     * @return SequentialRingNumberOfRings
      */
     public function getBaseLocationNumberOfRings()
     {
-        return (!$this->baseLocationNumberOfRings) ?: $this->baseLocationNumberOfRings->getValue();
+        return $this->baseLocationNumberOfRings->getValue();
     }
 
     /**
@@ -81,15 +89,19 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function setContinueIfBaseLocationIsBusy($continueIfBaseLocationIsBusy = null)
     {
-        $this->continueIfBaseLocationIsBusy = (boolean) $continueIfBaseLocationIsBusy;
+        if (!$continueIfBaseLocationIsBusy) return $this;
+        $this->continueIfBaseLocationIsBusy = new PrimitiveType($continueIfBaseLocationIsBusy);
+        $this->continueIfBaseLocationIsBusy->setName('continueIfBaseLocationIsBusy');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getContinueIfBaseLocationIsBusy()
     {
-        return (!$this->continueIfBaseLocationIsBusy) ?: $this->continueIfBaseLocationIsBusy;
+        return $this->continueIfBaseLocationIsBusy->getValue();
     }
 
     /**
@@ -97,95 +109,119 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function setCallerMayStopSearch($callerMayStopSearch = null)
     {
-        $this->callerMayStopSearch = (boolean) $callerMayStopSearch;
+        if (!$callerMayStopSearch) return $this;
+        $this->callerMayStopSearch = new PrimitiveType($callerMayStopSearch);
+        $this->callerMayStopSearch->setName('callerMayStopSearch');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getCallerMayStopSearch()
+    {
+        return $this->callerMayStopSearch->getValue();
     }
 
     /**
      * 
      */
-    public function getCallerMayStopSearch()
-    {
-        return (!$this->callerMayStopSearch) ?: $this->callerMayStopSearch;
-    }
-
-    /**
-     * Sequential Ring Location.
-     */
     public function setLocation01(SequentialRingLocation14sp4 $Location01 = null)
     {
-        $this->Location01 =  $Location01;
+        if (!$Location01) return $this;
+        $this->Location01 = $Location01;
+        $this->Location01->setName('Location01');
+        return $this;
     }
 
     /**
-     * Sequential Ring Location.
+     * 
+     * @return SequentialRingLocation14sp4
      */
     public function getLocation01()
     {
-        return (!$this->Location01) ?: $this->Location01->getValue();
+        return $this->Location01;
     }
 
     /**
-     * Sequential Ring Location.
+     * 
      */
     public function setLocation02(SequentialRingLocation14sp4 $Location02 = null)
     {
-        $this->Location02 =  $Location02;
+        if (!$Location02) return $this;
+        $this->Location02 = $Location02;
+        $this->Location02->setName('Location02');
+        return $this;
     }
 
     /**
-     * Sequential Ring Location.
+     * 
+     * @return SequentialRingLocation14sp4
      */
     public function getLocation02()
     {
-        return (!$this->Location02) ?: $this->Location02->getValue();
+        return $this->Location02;
     }
 
     /**
-     * Sequential Ring Location.
+     * 
      */
     public function setLocation03(SequentialRingLocation14sp4 $Location03 = null)
     {
-        $this->Location03 =  $Location03;
+        if (!$Location03) return $this;
+        $this->Location03 = $Location03;
+        $this->Location03->setName('Location03');
+        return $this;
     }
 
     /**
-     * Sequential Ring Location.
+     * 
+     * @return SequentialRingLocation14sp4
      */
     public function getLocation03()
     {
-        return (!$this->Location03) ?: $this->Location03->getValue();
+        return $this->Location03;
     }
 
     /**
-     * Sequential Ring Location.
+     * 
      */
     public function setLocation04(SequentialRingLocation14sp4 $Location04 = null)
     {
-        $this->Location04 =  $Location04;
+        if (!$Location04) return $this;
+        $this->Location04 = $Location04;
+        $this->Location04->setName('Location04');
+        return $this;
     }
 
     /**
-     * Sequential Ring Location.
+     * 
+     * @return SequentialRingLocation14sp4
      */
     public function getLocation04()
     {
-        return (!$this->Location04) ?: $this->Location04->getValue();
+        return $this->Location04;
     }
 
     /**
-     * Sequential Ring Location.
+     * 
      */
     public function setLocation05(SequentialRingLocation14sp4 $Location05 = null)
     {
-        $this->Location05 =  $Location05;
+        if (!$Location05) return $this;
+        $this->Location05 = $Location05;
+        $this->Location05->setName('Location05');
+        return $this;
     }
 
     /**
-     * Sequential Ring Location.
+     * 
+     * @return SequentialRingLocation14sp4
      */
     public function getLocation05()
     {
-        return (!$this->Location05) ?: $this->Location05->getValue();
+        return $this->Location05;
     }
 
     /**
@@ -193,14 +229,17 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable =  $criteriaTable;
+        if (!$criteriaTable) return $this;
+        $this->criteriaTable->setName('criteriaTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCriteriaTable()
     {
-        return (!$this->criteriaTable) ?: $this->criteriaTable->getValue();
+        return $this->criteriaTable->getValue();
     }
 }

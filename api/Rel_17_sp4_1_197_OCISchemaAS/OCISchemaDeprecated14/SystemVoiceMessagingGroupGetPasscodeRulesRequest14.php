@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemVoiceMessagingGroupGetPasscodeRulesRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemVoiceMessagingGroupGetPasscodeRulesResponse14';
-    public    $name = __CLASS__;
+    public    $name = 'SystemVoiceMessagingGroupGetPasscodeRulesRequest14';
 
     public function __construct(    ) {
     }

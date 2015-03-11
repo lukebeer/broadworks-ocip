@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceModifyUserResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderAccessDeviceModifyUserRequest';
     protected $serviceProviderId = null;
     protected $deviceName        = null;
     protected $linePort          = null;
@@ -42,7 +42,7 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
     }
 
     /**
-     * @return ServiceProviderAccessDeviceModifyUserResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,77 +50,69 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Access device name.
+     * 
      */
     public function setDeviceName($deviceName = null)
     {
+        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
+        $this->deviceName->setName('deviceName');
+        return $this;
     }
 
     /**
-     * Access device name.
+     * 
+     * @return AccessDeviceName
      */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->getValue();
+        return $this->deviceName->getValue();
     }
 
     /**
-     * Also known as address of record, the Line/Port identifies a device endpoint
-     *         in standalone mode  or a SIPURI public identity in IMS mode.
-     *         Line/port user@host or just the port.
-     *         Validation:
-     *         - don't allow sip:
-     *         - allow a leading +
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - lineports for sip devices configured with Proxy Addressing must have a host portion
-     *         - lineports for sip devices configured with Device Addressing must not have a host portion
+     * 
      */
     public function setLinePort($linePort = null)
     {
+        if (!$linePort) return $this;
         $this->linePort = ($linePort InstanceOf AccessDeviceEndpointLinePort)
              ? $linePort
              : new AccessDeviceEndpointLinePort($linePort);
+        $this->linePort->setName('linePort');
+        return $this;
     }
 
     /**
-     * Also known as address of record, the Line/Port identifies a device endpoint
-     *         in standalone mode  or a SIPURI public identity in IMS mode.
-     *         Line/port user@host or just the port.
-     *         Validation:
-     *         - don't allow sip:
-     *         - allow a leading +
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - lineports for sip devices configured with Proxy Addressing must have a host portion
-     *         - lineports for sip devices configured with Device Addressing must not have a host portion
+     * 
+     * @return AccessDeviceEndpointLinePort
      */
     public function getLinePort()
     {
-        return (!$this->linePort) ?: $this->linePort->getValue();
+        return $this->linePort->getValue();
     }
 
     /**
@@ -128,14 +120,18 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
      */
     public function setIsPrimaryLinePort($isPrimaryLinePort = null)
     {
-        $this->isPrimaryLinePort = (boolean) $isPrimaryLinePort;
+        if (!$isPrimaryLinePort) return $this;
+        $this->isPrimaryLinePort = new PrimitiveType($isPrimaryLinePort);
+        $this->isPrimaryLinePort->setName('isPrimaryLinePort');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsPrimaryLinePort()
     {
-        return (!$this->isPrimaryLinePort) ?: $this->isPrimaryLinePort;
+        return $this->isPrimaryLinePort->getValue();
     }
 }

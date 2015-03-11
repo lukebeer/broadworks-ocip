@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
-
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse';
-    public    $name                   = __CLASS__;
+    public    $name                   = 'PrimaryInfoGetRequest';
     protected $isPrivate              = null;
     protected $isAddressInfoRequested = null;
 
@@ -42,34 +42,48 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * 
+     * Dual homed side is private?
      */
     public function setIsPrivate($isPrivate = null)
     {
-        $this->isPrivate = (boolean) $isPrivate;
+        if (!$isPrivate) return $this;
+        $this->isPrivate = new PrimitiveType($isPrivate);
+        $this->isPrivate->setName('isPrivate');
+        return $this;
     }
 
     /**
-     * 
+     * Dual homed side is private?
+     * @return xs:boolean
      */
     public function getIsPrivate()
     {
-        return (!$this->isPrivate) ?: $this->isPrivate;
+        return $this->isPrivate->getValue();
     }
 
     /**
-     * 
+     * For optimization, we only get the hostname and addresses for primary if
+     *                 they are explicitly requested or if the current server is not the primary.
+     *                 So you might get back the list of server addresses even if you did not
+     *                 ask for the list if the request is not serviced by the primary server.
      */
     public function setIsAddressInfoRequested($isAddressInfoRequested = null)
     {
-        $this->isAddressInfoRequested = (boolean) $isAddressInfoRequested;
+        if (!$isAddressInfoRequested) return $this;
+        $this->isAddressInfoRequested = new PrimitiveType($isAddressInfoRequested);
+        $this->isAddressInfoRequested->setName('isAddressInfoRequested');
+        return $this;
     }
 
     /**
-     * 
+     * For optimization, we only get the hostname and addresses for primary if
+     *                 they are explicitly requested or if the current server is not the primary.
+     *                 So you might get back the list of server addresses even if you did not
+     *                 ask for the list if the request is not serviced by the primary server.
+     * @return xs:boolean
      */
     public function getIsAddressInfoRequested()
     {
-        return (!$this->isAddressInfoRequested) ?: $this->isAddressInfoRequested;
+        return $this->isAddressInfoRequested->getValue();
     }
 }

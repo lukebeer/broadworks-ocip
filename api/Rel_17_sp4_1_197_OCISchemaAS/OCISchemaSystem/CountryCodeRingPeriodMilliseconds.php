@@ -17,12 +17,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CountryCodeRingPeriodMilliseconds extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "CountryCodeRingPeriodMilliseconds";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "int";
+        $this->dataType = "";
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("12000"));
     }

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,9 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ReplacementUserIdList extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList';
-    public    $name = __CLASS__;
+    public    $name   = 'ReplacementUserIdList';
+    protected $userId = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $userId = null
+    ) {
+        $this->setUserId($userId);
     }
 
     /**
@@ -33,5 +37,25 @@ class ReplacementUserIdList extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setUserId($userId = null)
+    {
+        if (!$userId) return $this;
+        $this->userId = new SimpleContent($userId);
+        $this->userId->setName('userId');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getUserId()
+    {
+        return $this->userId->getValue();
     }
 }

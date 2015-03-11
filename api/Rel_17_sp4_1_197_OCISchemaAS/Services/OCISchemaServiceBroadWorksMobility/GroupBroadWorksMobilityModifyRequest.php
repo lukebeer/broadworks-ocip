@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\BroadWorksMobilityGroupSettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\GroupBroadWorksMobilityModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksMobilityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'GroupBroadWorksMobilityModifyRequest';
     protected $serviceProviderId         = null;
     protected $groupId                   = null;
     protected $useSettingLevel           = null;
@@ -54,7 +54,7 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return GroupBroadWorksMobilityModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,61 +62,69 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * BroadWorks Mobility setting for the group level.
+     * 
      */
     public function setUseSettingLevel($useSettingLevel = null)
     {
+        if (!$useSettingLevel) return $this;
         $this->useSettingLevel = ($useSettingLevel InstanceOf BroadWorksMobilityGroupSettingLevel)
              ? $useSettingLevel
              : new BroadWorksMobilityGroupSettingLevel($useSettingLevel);
+        $this->useSettingLevel->setName('useSettingLevel');
+        return $this;
     }
 
     /**
-     * BroadWorks Mobility setting for the group level.
+     * 
+     * @return BroadWorksMobilityGroupSettingLevel
      */
     public function getUseSettingLevel()
     {
-        return (!$this->useSettingLevel) ?: $this->useSettingLevel->getValue();
+        return $this->useSettingLevel->getValue();
     }
 
     /**
@@ -124,15 +132,19 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
      */
     public function setEnableLocationServices($enableLocationServices = null)
     {
-        $this->enableLocationServices = (boolean) $enableLocationServices;
+        if (!$enableLocationServices) return $this;
+        $this->enableLocationServices = new PrimitiveType($enableLocationServices);
+        $this->enableLocationServices->setName('enableLocationServices');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableLocationServices()
     {
-        return (!$this->enableLocationServices) ?: $this->enableLocationServices;
+        return $this->enableLocationServices->getValue();
     }
 
     /**
@@ -140,15 +152,19 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
      */
     public function setEnableMSRNLookup($enableMSRNLookup = null)
     {
-        $this->enableMSRNLookup = (boolean) $enableMSRNLookup;
+        if (!$enableMSRNLookup) return $this;
+        $this->enableMSRNLookup = new PrimitiveType($enableMSRNLookup);
+        $this->enableMSRNLookup->setName('enableMSRNLookup');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableMSRNLookup()
     {
-        return (!$this->enableMSRNLookup) ?: $this->enableMSRNLookup;
+        return $this->enableMSRNLookup->getValue();
     }
 
     /**
@@ -156,15 +172,19 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
      */
     public function setEnableMobileStateChecking($enableMobileStateChecking = null)
     {
-        $this->enableMobileStateChecking = (boolean) $enableMobileStateChecking;
+        if (!$enableMobileStateChecking) return $this;
+        $this->enableMobileStateChecking = new PrimitiveType($enableMobileStateChecking);
+        $this->enableMobileStateChecking->setName('enableMobileStateChecking');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableMobileStateChecking()
     {
-        return (!$this->enableMobileStateChecking) ?: $this->enableMobileStateChecking;
+        return $this->enableMobileStateChecking->getValue();
     }
 
     /**
@@ -172,15 +192,19 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
      */
     public function setDenyCallOriginations($denyCallOriginations = null)
     {
-        $this->denyCallOriginations = (boolean) $denyCallOriginations;
+        if (!$denyCallOriginations) return $this;
+        $this->denyCallOriginations = new PrimitiveType($denyCallOriginations);
+        $this->denyCallOriginations->setName('denyCallOriginations');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDenyCallOriginations()
     {
-        return (!$this->denyCallOriginations) ?: $this->denyCallOriginations;
+        return $this->denyCallOriginations->getValue();
     }
 
     /**
@@ -188,14 +212,18 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
      */
     public function setDenyCallTerminations($denyCallTerminations = null)
     {
-        $this->denyCallTerminations = (boolean) $denyCallTerminations;
+        if (!$denyCallTerminations) return $this;
+        $this->denyCallTerminations = new PrimitiveType($denyCallTerminations);
+        $this->denyCallTerminations->setName('denyCallTerminations');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDenyCallTerminations()
     {
-        return (!$this->denyCallTerminations) ?: $this->denyCallTerminations;
+        return $this->denyCallTerminations->getValue();
     }
 }

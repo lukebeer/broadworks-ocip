@@ -5,16 +5,16 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomRingback; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCustomRingback; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCustomRingback\UserCustomRingbackUserGetCriteriaResponse16;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'UserCustomRingbackUserGetCriteriaResponse16';
     protected $timeSchedule                    = null;
     protected $holidaySchedule                 = null;
     protected $blacklisted                     = null;
@@ -57,35 +57,43 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
     }
 
     /**
-     * The from dn criteria.
+     * 
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule =  $timeSchedule;
+        if (!$timeSchedule) return $this;
+        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule->setName('timeSchedule');
+        return $this;
     }
 
     /**
-     * The from dn criteria.
+     * 
+     * @return TimeSchedule
      */
     public function getTimeSchedule()
     {
-        return (!$this->timeSchedule) ?: $this->timeSchedule->getValue();
+        return $this->timeSchedule;
     }
 
     /**
-     * Holiday Schedule.
+     * 
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule =  $holidaySchedule;
+        if (!$holidaySchedule) return $this;
+        $this->holidaySchedule = $holidaySchedule;
+        $this->holidaySchedule->setName('holidaySchedule');
+        return $this;
     }
 
     /**
-     * Holiday Schedule.
+     * 
+     * @return HolidaySchedule
      */
     public function getHolidaySchedule()
     {
-        return (!$this->holidaySchedule) ?: $this->holidaySchedule->getValue();
+        return $this->holidaySchedule;
     }
 
     /**
@@ -93,350 +101,390 @@ class UserCustomRingbackUserGetCriteriaResponse16 extends ComplexType implements
      */
     public function setBlacklisted($blacklisted = null)
     {
-        $this->blacklisted = (boolean) $blacklisted;
+        if (!$blacklisted) return $this;
+        $this->blacklisted = new PrimitiveType($blacklisted);
+        $this->blacklisted->setName('blacklisted');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getBlacklisted()
+    {
+        return $this->blacklisted->getValue();
     }
 
     /**
      * 
      */
-    public function getBlacklisted()
-    {
-        return (!$this->blacklisted) ?: $this->blacklisted;
-    }
-
-    /**
-     * The from dn criteria used within an add/get request.
-     */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria =  $fromDnCriteria;
+        if (!$fromDnCriteria) return $this;
+        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria->setName('fromDnCriteria');
+        return $this;
     }
 
     /**
-     * The from dn criteria used within an add/get request.
+     * 
+     * @return CriteriaFromDn
      */
     public function getFromDnCriteria()
     {
-        return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->getValue();
+        return $this->fromDnCriteria;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setAudioSelection($audioSelection = null)
     {
+        if (!$audioSelection) return $this;
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
+        $this->audioSelection->setName('audioSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getAudioSelection()
     {
-        return (!$this->audioSelection) ?: $this->audioSelection->getValue();
+        return $this->audioSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
+        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
+        $this->audioFileDescription->setName('audioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
+        return $this->audioFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setAudioMediaType($audioMediaType = null)
     {
+        if (!$audioMediaType) return $this;
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
+        $this->audioMediaType->setName('audioMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getAudioMediaType()
     {
-        return (!$this->audioMediaType) ?: $this->audioMediaType->getValue();
+        return $this->audioMediaType->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
+        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
+        $this->audioFileUrl->setName('audioFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getAudioFileUrl()
     {
-        return (!$this->audioFileUrl) ?: $this->audioFileUrl->getValue();
+        return $this->audioFileUrl->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setVideoSelection($videoSelection = null)
     {
+        if (!$videoSelection) return $this;
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
+        $this->videoSelection->setName('videoSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getVideoSelection()
     {
-        return (!$this->videoSelection) ?: $this->videoSelection->getValue();
+        return $this->videoSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
+        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
+        $this->videoFileDescription->setName('videoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
+        return $this->videoFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setVideoMediaType($videoMediaType = null)
     {
+        if (!$videoMediaType) return $this;
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
+        $this->videoMediaType->setName('videoMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getVideoMediaType()
     {
-        return (!$this->videoMediaType) ?: $this->videoMediaType->getValue();
+        return $this->videoMediaType->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
+        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
+        $this->videoFileUrl->setName('videoFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getVideoFileUrl()
     {
-        return (!$this->videoFileUrl) ?: $this->videoFileUrl->getValue();
+        return $this->videoFileUrl->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setCallWaitingAudioSelection($callWaitingAudioSelection = null)
     {
+        if (!$callWaitingAudioSelection) return $this;
         $this->callWaitingAudioSelection = ($callWaitingAudioSelection InstanceOf ExtendedFileResourceSelection)
              ? $callWaitingAudioSelection
              : new ExtendedFileResourceSelection($callWaitingAudioSelection);
+        $this->callWaitingAudioSelection->setName('callWaitingAudioSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getCallWaitingAudioSelection()
     {
-        return (!$this->callWaitingAudioSelection) ?: $this->callWaitingAudioSelection->getValue();
+        return $this->callWaitingAudioSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setCallWaitingAudioFileDescription($callWaitingAudioFileDescription = null)
     {
+        if (!$callWaitingAudioFileDescription) return $this;
         $this->callWaitingAudioFileDescription = ($callWaitingAudioFileDescription InstanceOf FileDescription)
              ? $callWaitingAudioFileDescription
              : new FileDescription($callWaitingAudioFileDescription);
+        $this->callWaitingAudioFileDescription->setName('callWaitingAudioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getCallWaitingAudioFileDescription()
     {
-        return (!$this->callWaitingAudioFileDescription) ?: $this->callWaitingAudioFileDescription->getValue();
+        return $this->callWaitingAudioFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setCallWaitingAudioMediaType($callWaitingAudioMediaType = null)
     {
+        if (!$callWaitingAudioMediaType) return $this;
         $this->callWaitingAudioMediaType = ($callWaitingAudioMediaType InstanceOf MediaFileType)
              ? $callWaitingAudioMediaType
              : new MediaFileType($callWaitingAudioMediaType);
+        $this->callWaitingAudioMediaType->setName('callWaitingAudioMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getCallWaitingAudioMediaType()
     {
-        return (!$this->callWaitingAudioMediaType) ?: $this->callWaitingAudioMediaType->getValue();
+        return $this->callWaitingAudioMediaType->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setCallWaitingAudioFileUrl($callWaitingAudioFileUrl = null)
     {
+        if (!$callWaitingAudioFileUrl) return $this;
         $this->callWaitingAudioFileUrl = ($callWaitingAudioFileUrl InstanceOf URL)
              ? $callWaitingAudioFileUrl
              : new URL($callWaitingAudioFileUrl);
+        $this->callWaitingAudioFileUrl->setName('callWaitingAudioFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getCallWaitingAudioFileUrl()
     {
-        return (!$this->callWaitingAudioFileUrl) ?: $this->callWaitingAudioFileUrl->getValue();
+        return $this->callWaitingAudioFileUrl->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setCallWaitingVideoSelection($callWaitingVideoSelection = null)
     {
+        if (!$callWaitingVideoSelection) return $this;
         $this->callWaitingVideoSelection = ($callWaitingVideoSelection InstanceOf ExtendedFileResourceSelection)
              ? $callWaitingVideoSelection
              : new ExtendedFileResourceSelection($callWaitingVideoSelection);
+        $this->callWaitingVideoSelection->setName('callWaitingVideoSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getCallWaitingVideoSelection()
     {
-        return (!$this->callWaitingVideoSelection) ?: $this->callWaitingVideoSelection->getValue();
+        return $this->callWaitingVideoSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setCallWaitingVideoFileDescription($callWaitingVideoFileDescription = null)
     {
+        if (!$callWaitingVideoFileDescription) return $this;
         $this->callWaitingVideoFileDescription = ($callWaitingVideoFileDescription InstanceOf FileDescription)
              ? $callWaitingVideoFileDescription
              : new FileDescription($callWaitingVideoFileDescription);
+        $this->callWaitingVideoFileDescription->setName('callWaitingVideoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getCallWaitingVideoFileDescription()
     {
-        return (!$this->callWaitingVideoFileDescription) ?: $this->callWaitingVideoFileDescription->getValue();
+        return $this->callWaitingVideoFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setCallWaitingVideoMediaType($callWaitingVideoMediaType = null)
     {
+        if (!$callWaitingVideoMediaType) return $this;
         $this->callWaitingVideoMediaType = ($callWaitingVideoMediaType InstanceOf MediaFileType)
              ? $callWaitingVideoMediaType
              : new MediaFileType($callWaitingVideoMediaType);
+        $this->callWaitingVideoMediaType->setName('callWaitingVideoMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getCallWaitingVideoMediaType()
     {
-        return (!$this->callWaitingVideoMediaType) ?: $this->callWaitingVideoMediaType->getValue();
+        return $this->callWaitingVideoMediaType->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setCallWaitingVideoFileUrl($callWaitingVideoFileUrl = null)
     {
+        if (!$callWaitingVideoFileUrl) return $this;
         $this->callWaitingVideoFileUrl = ($callWaitingVideoFileUrl InstanceOf URL)
              ? $callWaitingVideoFileUrl
              : new URL($callWaitingVideoFileUrl);
+        $this->callWaitingVideoFileUrl->setName('callWaitingVideoFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getCallWaitingVideoFileUrl()
     {
-        return (!$this->callWaitingVideoFileUrl) ?: $this->callWaitingVideoFileUrl->getValue();
+        return $this->callWaitingVideoFileUrl->getValue();
     }
 }

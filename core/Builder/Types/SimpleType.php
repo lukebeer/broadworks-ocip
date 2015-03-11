@@ -14,6 +14,7 @@ abstract class SimpleType
 {
     public $name = __CLASS__;
     protected $annontation;
+    protected $attributes;
     protected $restrictions;
     protected $value;
     protected $errors;
@@ -40,5 +41,13 @@ abstract class SimpleType
     public function getErrors()
     {
         return ['SchemaType' => __CLASS__, 'DataType' => '', 'Errors' => $this->errors];
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
     }
 }

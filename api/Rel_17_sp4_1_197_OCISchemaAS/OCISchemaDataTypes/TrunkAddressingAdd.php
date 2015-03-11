@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkAddressingAdd;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,10 +20,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkAddressingAdd extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkAddressingAdd';
-    public    $name = __CLASS__;
+    public    $responseType             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkAddressingAdd';
+    public    $name                     = 'TrunkAddressingAdd';
+    protected $trunkGroupDeviceEndpoint = null;
+    protected $enterpriseTrunkName      = null;
+    protected $alternateTrunkIdentity   = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $trunkGroupDeviceEndpoint = null,
+         $enterpriseTrunkName = null,
+         $alternateTrunkIdentity = null
+    ) {
+        $this->setTrunkGroupDeviceEndpoint($trunkGroupDeviceEndpoint);
+        $this->setEnterpriseTrunkName($enterpriseTrunkName);
+        $this->setAlternateTrunkIdentity($alternateTrunkIdentity);
     }
 
     /**
@@ -32,5 +42,65 @@ class TrunkAddressingAdd extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setTrunkGroupDeviceEndpoint($trunkGroupDeviceEndpoint = null)
+    {
+        if (!$trunkGroupDeviceEndpoint) return $this;
+        $this->trunkGroupDeviceEndpoint = new SimpleContent($trunkGroupDeviceEndpoint);
+        $this->trunkGroupDeviceEndpoint->setName('trunkGroupDeviceEndpoint');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getTrunkGroupDeviceEndpoint()
+    {
+        return $this->trunkGroupDeviceEndpoint->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setEnterpriseTrunkName($enterpriseTrunkName = null)
+    {
+        if (!$enterpriseTrunkName) return $this;
+        $this->enterpriseTrunkName = new SimpleContent($enterpriseTrunkName);
+        $this->enterpriseTrunkName->setName('enterpriseTrunkName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getEnterpriseTrunkName()
+    {
+        return $this->enterpriseTrunkName->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setAlternateTrunkIdentity($alternateTrunkIdentity = null)
+    {
+        if (!$alternateTrunkIdentity) return $this;
+        $this->alternateTrunkIdentity = new SimpleContent($alternateTrunkIdentity);
+        $this->alternateTrunkIdentity->setName('alternateTrunkIdentity');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getAlternateTrunkIdentity()
+    {
+        return $this->alternateTrunkIdentity->getValue();
     }
 }

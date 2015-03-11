@@ -16,7 +16,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderServicePackMigrationTaskGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -30,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                  = __CLASS__;
+    public    $name                                  = 'ServiceProviderServicePackMigrationTaskGetResponse';
     protected $taskName                              = null;
     protected $startTimestamp                        = null;
     protected $maxDurationHours                      = null;
@@ -65,21 +65,25 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
     }
 
     /**
-     * Service pack migration task name.
+     * 
      */
     public function setTaskName($taskName = null)
     {
+        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
+        $this->taskName->setName('taskName');
+        return $this;
     }
 
     /**
-     * Service pack migration task name.
+     * 
+     * @return ServicePackMigrationTaskName
      */
     public function getTaskName()
     {
-        return (!$this->taskName) ?: $this->taskName->getValue();
+        return $this->taskName->getValue();
     }
 
     /**
@@ -87,33 +91,40 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function setStartTimestamp(xs:dateTime $startTimestamp = null)
     {
-        $this->startTimestamp =  $startTimestamp;
+        if (!$startTimestamp) return $this;
+        $this->startTimestamp->setName('startTimestamp');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:dateTime
+     */
+    public function getStartTimestamp()
+    {
+        return $this->startTimestamp->getValue();
     }
 
     /**
      * 
      */
-    public function getStartTimestamp()
-    {
-        return (!$this->startTimestamp) ?: $this->startTimestamp->getValue();
-    }
-
-    /**
-     * The maximum duration of a service pack migration task.
-     */
     public function setMaxDurationHours($maxDurationHours = null)
     {
+        if (!$maxDurationHours) return $this;
         $this->maxDurationHours = ($maxDurationHours InstanceOf ServicePackMigrationMaxDurationHours)
              ? $maxDurationHours
              : new ServicePackMigrationMaxDurationHours($maxDurationHours);
+        $this->maxDurationHours->setName('maxDurationHours');
+        return $this;
     }
 
     /**
-     * The maximum duration of a service pack migration task.
+     * 
+     * @return ServicePackMigrationMaxDurationHours
      */
     public function getMaxDurationHours()
     {
-        return (!$this->maxDurationHours) ?: $this->maxDurationHours->getValue();
+        return $this->maxDurationHours->getValue();
     }
 
     /**
@@ -121,33 +132,41 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function setSendReportEmail($sendReportEmail = null)
     {
-        $this->sendReportEmail = (boolean) $sendReportEmail;
+        if (!$sendReportEmail) return $this;
+        $this->sendReportEmail = new PrimitiveType($sendReportEmail);
+        $this->sendReportEmail->setName('sendReportEmail');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSendReportEmail()
+    {
+        return $this->sendReportEmail->getValue();
     }
 
     /**
      * 
      */
-    public function getSendReportEmail()
-    {
-        return (!$this->sendReportEmail) ?: $this->sendReportEmail;
-    }
-
-    /**
-     * Email Address
-     */
     public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress = null)
     {
+        if (!$reportDeliveryEmailAddress) return $this;
         $this->reportDeliveryEmailAddress = ($reportDeliveryEmailAddress InstanceOf EmailAddress)
              ? $reportDeliveryEmailAddress
              : new EmailAddress($reportDeliveryEmailAddress);
+        $this->reportDeliveryEmailAddress->setName('reportDeliveryEmailAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getReportDeliveryEmailAddress()
     {
-        return (!$this->reportDeliveryEmailAddress) ?: $this->reportDeliveryEmailAddress->getValue();
+        return $this->reportDeliveryEmailAddress->getValue();
     }
 
     /**
@@ -155,33 +174,41 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function setAbortOnError($abortOnError = null)
     {
-        $this->abortOnError = (boolean) $abortOnError;
+        if (!$abortOnError) return $this;
+        $this->abortOnError = new PrimitiveType($abortOnError);
+        $this->abortOnError->setName('abortOnError');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAbortOnError()
+    {
+        return $this->abortOnError->getValue();
     }
 
     /**
      * 
      */
-    public function getAbortOnError()
-    {
-        return (!$this->abortOnError) ?: $this->abortOnError;
-    }
-
-    /**
-     * The service pack migration task will be aborted if this many errors occurs.
-     */
     public function setAbortErrorThreshold($abortErrorThreshold = null)
     {
+        if (!$abortErrorThreshold) return $this;
         $this->abortErrorThreshold = ($abortErrorThreshold InstanceOf ServicePackMigrationAbortErrorThreshold)
              ? $abortErrorThreshold
              : new ServicePackMigrationAbortErrorThreshold($abortErrorThreshold);
+        $this->abortErrorThreshold->setName('abortErrorThreshold');
+        return $this;
     }
 
     /**
-     * The service pack migration task will be aborted if this many errors occurs.
+     * 
+     * @return ServicePackMigrationAbortErrorThreshold
      */
     public function getAbortErrorThreshold()
     {
-        return (!$this->abortErrorThreshold) ?: $this->abortErrorThreshold->getValue();
+        return $this->abortErrorThreshold->getValue();
     }
 
     /**
@@ -189,15 +216,19 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function setReportAllUsers($reportAllUsers = null)
     {
-        $this->reportAllUsers = (boolean) $reportAllUsers;
+        if (!$reportAllUsers) return $this;
+        $this->reportAllUsers = new PrimitiveType($reportAllUsers);
+        $this->reportAllUsers->setName('reportAllUsers');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getReportAllUsers()
     {
-        return (!$this->reportAllUsers) ?: $this->reportAllUsers;
+        return $this->reportAllUsers->getValue();
     }
 
     /**
@@ -205,15 +236,19 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function setAutomaticallyIncrementServiceQuantity($automaticallyIncrementServiceQuantity = null)
     {
-        $this->automaticallyIncrementServiceQuantity = (boolean) $automaticallyIncrementServiceQuantity;
+        if (!$automaticallyIncrementServiceQuantity) return $this;
+        $this->automaticallyIncrementServiceQuantity = new PrimitiveType($automaticallyIncrementServiceQuantity);
+        $this->automaticallyIncrementServiceQuantity->setName('automaticallyIncrementServiceQuantity');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAutomaticallyIncrementServiceQuantity()
     {
-        return (!$this->automaticallyIncrementServiceQuantity) ?: $this->automaticallyIncrementServiceQuantity;
+        return $this->automaticallyIncrementServiceQuantity->getValue();
     }
 
     /**
@@ -221,33 +256,41 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function setErrorCount($errorCount = null)
     {
-        $this->errorCount = (int) $errorCount;
+        if (!$errorCount) return $this;
+        $this->errorCount = new PrimitiveType($errorCount);
+        $this->errorCount->setName('errorCount');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:int
+     */
+    public function getErrorCount()
+    {
+        return $this->errorCount->getValue();
     }
 
     /**
      * 
      */
-    public function getErrorCount()
-    {
-        return (!$this->errorCount) ?: $this->errorCount;
-    }
-
-    /**
-     * Possible status values of a service pack migration task.
-     */
     public function setStatus($status = null)
     {
+        if (!$status) return $this;
         $this->status = ($status InstanceOf ServicePackMigrationTaskStatus)
              ? $status
              : new ServicePackMigrationTaskStatus($status);
+        $this->status->setName('status');
+        return $this;
     }
 
     /**
-     * Possible status values of a service pack migration task.
+     * 
+     * @return ServicePackMigrationTaskStatus
      */
     public function getStatus()
     {
-        return (!$this->status) ?: $this->status->getValue();
+        return $this->status->getValue();
     }
 
     /**
@@ -255,15 +298,19 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function setGroupsProcessed($groupsProcessed = null)
     {
-        $this->groupsProcessed = (int) $groupsProcessed;
+        if (!$groupsProcessed) return $this;
+        $this->groupsProcessed = new PrimitiveType($groupsProcessed);
+        $this->groupsProcessed->setName('groupsProcessed');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:int
      */
     public function getGroupsProcessed()
     {
-        return (!$this->groupsProcessed) ?: $this->groupsProcessed;
+        return $this->groupsProcessed->getValue();
     }
 
     /**
@@ -271,15 +318,19 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function setGroupsTotal($groupsTotal = null)
     {
-        $this->groupsTotal = (int) $groupsTotal;
+        if (!$groupsTotal) return $this;
+        $this->groupsTotal = new PrimitiveType($groupsTotal);
+        $this->groupsTotal->setName('groupsTotal');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:int
      */
     public function getGroupsTotal()
     {
-        return (!$this->groupsTotal) ?: $this->groupsTotal;
+        return $this->groupsTotal->getValue();
     }
 
     /**
@@ -287,15 +338,19 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function setUsersProcessed($usersProcessed = null)
     {
-        $this->usersProcessed = (int) $usersProcessed;
+        if (!$usersProcessed) return $this;
+        $this->usersProcessed = new PrimitiveType($usersProcessed);
+        $this->usersProcessed->setName('usersProcessed');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:int
      */
     public function getUsersProcessed()
     {
-        return (!$this->usersProcessed) ?: $this->usersProcessed;
+        return $this->usersProcessed->getValue();
     }
 
     /**
@@ -303,51 +358,63 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function setUsersTotal($usersTotal = null)
     {
-        $this->usersTotal = (int) $usersTotal;
+        if (!$usersTotal) return $this;
+        $this->usersTotal = new PrimitiveType($usersTotal);
+        $this->usersTotal->setName('usersTotal');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:int
+     */
+    public function getUsersTotal()
+    {
+        return $this->usersTotal->getValue();
     }
 
     /**
      * 
      */
-    public function getUsersTotal()
-    {
-        return (!$this->usersTotal) ?: $this->usersTotal;
-    }
-
-    /**
-     * Possible status values of a service pack migration task.
-     */
     public function setUserSelectionType($userSelectionType = null)
     {
+        if (!$userSelectionType) return $this;
         $this->userSelectionType = ($userSelectionType InstanceOf ServicePackMigrationTaskUserSelectionType)
              ? $userSelectionType
              : new ServicePackMigrationTaskUserSelectionType($userSelectionType);
+        $this->userSelectionType->setName('userSelectionType');
+        return $this;
     }
 
     /**
-     * Possible status values of a service pack migration task.
+     * 
+     * @return ServicePackMigrationTaskUserSelectionType
      */
     public function getUserSelectionType()
     {
-        return (!$this->userSelectionType) ?: $this->userSelectionType->getValue();
+        return $this->userSelectionType->getValue();
     }
 
     /**
-     * Name of a file on the filesystem.
+     * 
      */
     public function setReportFilePathName($reportFilePathName = null)
     {
+        if (!$reportFilePathName) return $this;
         $this->reportFilePathName = ($reportFilePathName InstanceOf FileName)
              ? $reportFilePathName
              : new FileName($reportFilePathName);
+        $this->reportFilePathName->setName('reportFilePathName');
+        return $this;
     }
 
     /**
-     * Name of a file on the filesystem.
+     * 
+     * @return FileName
      */
     public function getReportFilePathName()
     {
-        return (!$this->reportFilePathName) ?: $this->reportFilePathName->getValue();
+        return $this->reportFilePathName->getValue();
     }
 
     /**
@@ -355,122 +422,149 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function setGroupTable(core:OCITable $groupTable = null)
     {
-        $this->groupTable =  $groupTable;
+        if (!$groupTable) return $this;
+        $this->groupTable->setName('groupTable');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return core:OCITable
+     */
+    public function getGroupTable()
+    {
+        return $this->groupTable->getValue();
     }
 
     /**
      * 
      */
-    public function getGroupTable()
-    {
-        return (!$this->groupTable) ?: $this->groupTable->getValue();
-    }
-
-    /**
-     * Service Pack name.
-     */
     public function setUserSelectionServicePackName($userSelectionServicePackName = null)
     {
+        if (!$userSelectionServicePackName) return $this;
         $this->userSelectionServicePackName = ($userSelectionServicePackName InstanceOf ServicePackName)
              ? $userSelectionServicePackName
              : new ServicePackName($userSelectionServicePackName);
+        $this->userSelectionServicePackName->setName('userSelectionServicePackName');
+        return $this;
     }
 
     /**
-     * Service Pack name.
+     * 
+     * @return ServicePackName
      */
     public function getUserSelectionServicePackName()
     {
-        return (!$this->userSelectionServicePackName) ?: $this->userSelectionServicePackName->getValue();
+        return $this->userSelectionServicePackName->getValue();
     }
 
     /**
-     * User level services.
+     * 
      */
     public function setUserSelectionServiceName($userSelectionServiceName = null)
     {
+        if (!$userSelectionServiceName) return $this;
         $this->userSelectionServiceName = ($userSelectionServiceName InstanceOf UserService)
              ? $userSelectionServiceName
              : new UserService($userSelectionServiceName);
+        $this->userSelectionServiceName->setName('userSelectionServiceName');
+        return $this;
     }
 
     /**
-     * User level services.
+     * 
+     * @return UserService
      */
     public function getUserSelectionServiceName()
     {
-        return (!$this->userSelectionServiceName) ?: $this->userSelectionServiceName->getValue();
+        return $this->userSelectionServiceName->getValue();
     }
 
     /**
-     * Service Pack name.
+     * 
      */
     public function setRemoveServicePackName($removeServicePackName = null)
     {
+        if (!$removeServicePackName) return $this;
         $this->removeServicePackName = ($removeServicePackName InstanceOf ServicePackName)
              ? $removeServicePackName
              : new ServicePackName($removeServicePackName);
+        $this->removeServicePackName->setName('removeServicePackName');
+        return $this;
     }
 
     /**
-     * Service Pack name.
+     * 
+     * @return ServicePackName
      */
     public function getRemoveServicePackName()
     {
-        return (!$this->removeServicePackName) ?: $this->removeServicePackName->getValue();
+        return $this->removeServicePackName->getValue();
     }
 
     /**
-     * User level services.
+     * 
      */
     public function setRemoveServiceName($removeServiceName = null)
     {
+        if (!$removeServiceName) return $this;
         $this->removeServiceName = ($removeServiceName InstanceOf UserService)
              ? $removeServiceName
              : new UserService($removeServiceName);
+        $this->removeServiceName->setName('removeServiceName');
+        return $this;
     }
 
     /**
-     * User level services.
+     * 
+     * @return UserService
      */
     public function getRemoveServiceName()
     {
-        return (!$this->removeServiceName) ?: $this->removeServiceName->getValue();
+        return $this->removeServiceName->getValue();
     }
 
     /**
-     * Service Pack name.
+     * 
      */
     public function setAssignServicePackName($assignServicePackName = null)
     {
+        if (!$assignServicePackName) return $this;
         $this->assignServicePackName = ($assignServicePackName InstanceOf ServicePackName)
              ? $assignServicePackName
              : new ServicePackName($assignServicePackName);
+        $this->assignServicePackName->setName('assignServicePackName');
+        return $this;
     }
 
     /**
-     * Service Pack name.
+     * 
+     * @return ServicePackName
      */
     public function getAssignServicePackName()
     {
-        return (!$this->assignServicePackName) ?: $this->assignServicePackName->getValue();
+        return $this->assignServicePackName->getValue();
     }
 
     /**
-     * User level services.
+     * 
      */
     public function setAssignServiceName($assignServiceName = null)
     {
+        if (!$assignServiceName) return $this;
         $this->assignServiceName = ($assignServiceName InstanceOf UserService)
              ? $assignServiceName
              : new UserService($assignServiceName);
+        $this->assignServiceName->setName('assignServiceName');
+        return $this;
     }
 
     /**
-     * User level services.
+     * 
+     * @return UserService
      */
     public function getAssignServiceName()
     {
-        return (!$this->assignServiceName) ?: $this->assignServiceName->getValue();
+        return $this->assignServiceName->getValue();
     }
 }

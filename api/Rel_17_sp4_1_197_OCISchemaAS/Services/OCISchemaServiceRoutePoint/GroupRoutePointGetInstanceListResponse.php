@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'GroupRoutePointGetInstanceListResponse';
     protected $routePointTable = null;
 
     /**
@@ -39,14 +38,17 @@ class GroupRoutePointGetInstanceListResponse extends ComplexType implements Comp
      */
     public function setRoutePointTable(core:OCITable $routePointTable = null)
     {
-        $this->routePointTable =  $routePointTable;
+        if (!$routePointTable) return $this;
+        $this->routePointTable->setName('routePointTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getRoutePointTable()
     {
-        return (!$this->routePointTable) ?: $this->routePointTable->getValue();
+        return $this->routePointTable->getValue();
     }
 }

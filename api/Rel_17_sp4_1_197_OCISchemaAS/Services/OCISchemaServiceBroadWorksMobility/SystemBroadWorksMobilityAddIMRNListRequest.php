@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityAddIMRNListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,20 +22,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemBroadWorksMobilityAddIMRNListRequest';
     protected $imrnNumber  = null;
     protected $numberRange = null;
 
     public function __construct(
          $imrnNumber = null,
-          $numberRange = null
+         DNRange $numberRange = null
     ) {
         $this->setImrnNumber($imrnNumber);
         $this->setNumberRange($numberRange);
     }
 
     /**
-     * @return SystemBroadWorksMobilityAddIMRNListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,36 +43,44 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setImrnNumber($imrnNumber = null)
     {
+        if (!$imrnNumber) return $this;
         $this->imrnNumber = ($imrnNumber InstanceOf DN)
              ? $imrnNumber
              : new DN($imrnNumber);
+        $this->imrnNumber->setName('imrnNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getImrnNumber()
     {
-        return (!$this->imrnNumber) ?: $this->imrnNumber->getValue();
+        return $this->imrnNumber->getValue();
     }
 
     /**
-     * Directory number range. The minimum and maximum values are inclusive.
+     * 
      */
     public function setNumberRange(DNRange $numberRange = null)
     {
-        $this->numberRange =  $numberRange;
+        if (!$numberRange) return $this;
+        $this->numberRange = $numberRange;
+        $this->numberRange->setName('numberRange');
+        return $this;
     }
 
     /**
-     * Directory number range. The minimum and maximum values are inclusive.
+     * 
+     * @return DNRange
      */
     public function getNumberRange()
     {
-        return (!$this->numberRange) ?: $this->numberRange->getValue();
+        return $this->numberRange;
     }
 }

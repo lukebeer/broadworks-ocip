@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RedundancyRollBackTimerMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRedundancyParametersModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRedundancyParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
+    public    $name                              = 'SystemRedundancyParametersModifyRequest';
     protected $rollBackTimerMinutes              = null;
     protected $sendSipOptionMessageUponMigration = null;
 
@@ -34,7 +34,7 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return SystemRedundancyParametersModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -42,21 +42,25 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * Redundancy rollback timer in minutes.
+     * 
      */
     public function setRollBackTimerMinutes($rollBackTimerMinutes = null)
     {
+        if (!$rollBackTimerMinutes) return $this;
         $this->rollBackTimerMinutes = ($rollBackTimerMinutes InstanceOf RedundancyRollBackTimerMinutes)
              ? $rollBackTimerMinutes
              : new RedundancyRollBackTimerMinutes($rollBackTimerMinutes);
+        $this->rollBackTimerMinutes->setName('rollBackTimerMinutes');
+        return $this;
     }
 
     /**
-     * Redundancy rollback timer in minutes.
+     * 
+     * @return RedundancyRollBackTimerMinutes
      */
     public function getRollBackTimerMinutes()
     {
-        return (!$this->rollBackTimerMinutes) ?: $this->rollBackTimerMinutes->getValue();
+        return $this->rollBackTimerMinutes->getValue();
     }
 
     /**
@@ -64,14 +68,18 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
      */
     public function setSendSipOptionMessageUponMigration($sendSipOptionMessageUponMigration = null)
     {
-        $this->sendSipOptionMessageUponMigration = (boolean) $sendSipOptionMessageUponMigration;
+        if (!$sendSipOptionMessageUponMigration) return $this;
+        $this->sendSipOptionMessageUponMigration = new PrimitiveType($sendSipOptionMessageUponMigration);
+        $this->sendSipOptionMessageUponMigration->setName('sendSipOptionMessageUponMigration');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getSendSipOptionMessageUponMigration()
     {
-        return (!$this->sendSipOptionMessageUponMigration) ?: $this->sendSipOptionMessageUponMigration;
+        return $this->sendSipOptionMessageUponMigration->getValue();
     }
 }

@@ -14,7 +14,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTr
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupUserCreationTaskGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'GroupTrunkGroupUserCreationTaskGetResponse';
     protected $userIdFormat       = null;
     protected $userIdDomain       = null;
     protected $populateExtension  = null;
@@ -53,39 +53,47 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
     }
 
     /**
-     * User Id format for Trunk Group User Creation.
+     * 
      */
     public function setUserIdFormat($userIdFormat = null)
     {
+        if (!$userIdFormat) return $this;
         $this->userIdFormat = ($userIdFormat InstanceOf TrunkGroupUserCreationUserIdFormat)
              ? $userIdFormat
              : new TrunkGroupUserCreationUserIdFormat($userIdFormat);
+        $this->userIdFormat->setName('userIdFormat');
+        return $this;
     }
 
     /**
-     * User Id format for Trunk Group User Creation.
+     * 
+     * @return TrunkGroupUserCreationUserIdFormat
      */
     public function getUserIdFormat()
     {
-        return (!$this->userIdFormat) ?: $this->userIdFormat->getValue();
+        return $this->userIdFormat->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setUserIdDomain($userIdDomain = null)
     {
+        if (!$userIdDomain) return $this;
         $this->userIdDomain = ($userIdDomain InstanceOf NetAddress)
              ? $userIdDomain
              : new NetAddress($userIdDomain);
+        $this->userIdDomain->setName('userIdDomain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getUserIdDomain()
     {
-        return (!$this->userIdDomain) ?: $this->userIdDomain->getValue();
+        return $this->userIdDomain->getValue();
     }
 
     /**
@@ -93,51 +101,63 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setPopulateExtension($populateExtension = null)
     {
-        $this->populateExtension = (boolean) $populateExtension;
+        if (!$populateExtension) return $this;
+        $this->populateExtension = new PrimitiveType($populateExtension);
+        $this->populateExtension->setName('populateExtension');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPopulateExtension()
+    {
+        return $this->populateExtension->getValue();
     }
 
     /**
      * 
      */
-    public function getPopulateExtension()
-    {
-        return (!$this->populateExtension) ?: $this->populateExtension;
-    }
-
-    /**
-     * SIP URI format for Trunk Group User Creation.
-     */
     public function setLinePortFormat($linePortFormat = null)
     {
+        if (!$linePortFormat) return $this;
         $this->linePortFormat = ($linePortFormat InstanceOf TrunkGroupUserCreationSIPURIFormat)
              ? $linePortFormat
              : new TrunkGroupUserCreationSIPURIFormat($linePortFormat);
+        $this->linePortFormat->setName('linePortFormat');
+        return $this;
     }
 
     /**
-     * SIP URI format for Trunk Group User Creation.
+     * 
+     * @return TrunkGroupUserCreationSIPURIFormat
      */
     public function getLinePortFormat()
     {
-        return (!$this->linePortFormat) ?: $this->linePortFormat->getValue();
+        return $this->linePortFormat->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setLinePortDomain($linePortDomain = null)
     {
+        if (!$linePortDomain) return $this;
         $this->linePortDomain = ($linePortDomain InstanceOf NetAddress)
              ? $linePortDomain
              : new NetAddress($linePortDomain);
+        $this->linePortDomain->setName('linePortDomain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getLinePortDomain()
     {
-        return (!$this->linePortDomain) ?: $this->linePortDomain->getValue();
+        return $this->linePortDomain->getValue();
     }
 
     /**
@@ -145,51 +165,63 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setPopulateContact($populateContact = null)
     {
-        $this->populateContact = (boolean) $populateContact;
+        if (!$populateContact) return $this;
+        $this->populateContact = new PrimitiveType($populateContact);
+        $this->populateContact->setName('populateContact');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPopulateContact()
+    {
+        return $this->populateContact->getValue();
     }
 
     /**
      * 
      */
-    public function getPopulateContact()
-    {
-        return (!$this->populateContact) ?: $this->populateContact;
-    }
-
-    /**
-     * SIP URI format for Trunk Group User Creation.
-     */
     public function setContactFormat($contactFormat = null)
     {
+        if (!$contactFormat) return $this;
         $this->contactFormat = ($contactFormat InstanceOf TrunkGroupUserCreationSIPURIFormat)
              ? $contactFormat
              : new TrunkGroupUserCreationSIPURIFormat($contactFormat);
+        $this->contactFormat->setName('contactFormat');
+        return $this;
     }
 
     /**
-     * SIP URI format for Trunk Group User Creation.
+     * 
+     * @return TrunkGroupUserCreationSIPURIFormat
      */
     public function getContactFormat()
     {
-        return (!$this->contactFormat) ?: $this->contactFormat->getValue();
+        return $this->contactFormat->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setContactDomain($contactDomain = null)
     {
+        if (!$contactDomain) return $this;
         $this->contactDomain = ($contactDomain InstanceOf NetAddress)
              ? $contactDomain
              : new NetAddress($contactDomain);
+        $this->contactDomain->setName('contactDomain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getContactDomain()
     {
-        return (!$this->contactDomain) ?: $this->contactDomain->getValue();
+        return $this->contactDomain->getValue();
     }
 
     /**
@@ -197,15 +229,19 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setUsersCreated($usersCreated = null)
     {
-        $this->usersCreated = (int) $usersCreated;
+        if (!$usersCreated) return $this;
+        $this->usersCreated = new PrimitiveType($usersCreated);
+        $this->usersCreated->setName('usersCreated');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:int
      */
     public function getUsersCreated()
     {
-        return (!$this->usersCreated) ?: $this->usersCreated;
+        return $this->usersCreated->getValue();
     }
 
     /**
@@ -213,15 +249,19 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setTotalUsersToCreate($totalUsersToCreate = null)
     {
-        $this->totalUsersToCreate = (int) $totalUsersToCreate;
+        if (!$totalUsersToCreate) return $this;
+        $this->totalUsersToCreate = new PrimitiveType($totalUsersToCreate);
+        $this->totalUsersToCreate->setName('totalUsersToCreate');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:int
      */
     public function getTotalUsersToCreate()
     {
-        return (!$this->totalUsersToCreate) ?: $this->totalUsersToCreate;
+        return $this->totalUsersToCreate->getValue();
     }
 
     /**
@@ -229,87 +269,107 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setErrorCount($errorCount = null)
     {
-        $this->errorCount = (int) $errorCount;
+        if (!$errorCount) return $this;
+        $this->errorCount = new PrimitiveType($errorCount);
+        $this->errorCount->setName('errorCount');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:int
+     */
+    public function getErrorCount()
+    {
+        return $this->errorCount->getValue();
     }
 
     /**
      * 
      */
-    public function getErrorCount()
-    {
-        return (!$this->errorCount) ?: $this->errorCount;
-    }
-
-    /**
-     * Service Pack name.
-     */
     public function setServicePackName($servicePackName = null)
     {
+        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
+        $this->servicePackName->setName('servicePackName');
+        return $this;
     }
 
     /**
-     * Service Pack name.
+     * 
+     * @return ServicePackName
      */
     public function getServicePackName()
     {
-        return (!$this->servicePackName) ?: $this->servicePackName->getValue();
+        return $this->servicePackName->getValue();
     }
 
     /**
-     * User level services.
+     * 
      */
     public function setUserServiceName($userServiceName = null)
     {
+        if (!$userServiceName) return $this;
         $this->userServiceName = ($userServiceName InstanceOf UserService)
              ? $userServiceName
              : new UserService($userServiceName);
+        $this->userServiceName->setName('userServiceName');
+        return $this;
     }
 
     /**
-     * User level services.
+     * 
+     * @return UserService
      */
     public function getUserServiceName()
     {
-        return (!$this->userServiceName) ?: $this->userServiceName->getValue();
+        return $this->userServiceName->getValue();
     }
 
     /**
-     * Trunk Group user creation task status.
+     * 
      */
     public function setStatus($status = null)
     {
+        if (!$status) return $this;
         $this->status = ($status InstanceOf TrunkGroupUserCreationTaskStatus)
              ? $status
              : new TrunkGroupUserCreationTaskStatus($status);
+        $this->status->setName('status');
+        return $this;
     }
 
     /**
-     * Trunk Group user creation task status.
+     * 
+     * @return TrunkGroupUserCreationTaskStatus
      */
     public function getStatus()
     {
-        return (!$this->status) ?: $this->status->getValue();
+        return $this->status->getValue();
     }
 
     /**
-     * Trunk Group user creation mode.
+     * 
      */
     public function setUserCreationMode($userCreationMode = null)
     {
+        if (!$userCreationMode) return $this;
         $this->userCreationMode = ($userCreationMode InstanceOf TrunkGroupUserCreationMode)
              ? $userCreationMode
              : new TrunkGroupUserCreationMode($userCreationMode);
+        $this->userCreationMode->setName('userCreationMode');
+        return $this;
     }
 
     /**
-     * Trunk Group user creation mode.
+     * 
+     * @return TrunkGroupUserCreationMode
      */
     public function getUserCreationMode()
     {
-        return (!$this->userCreationMode) ?: $this->userCreationMode->getValue();
+        return $this->userCreationMode->getValue();
     }
 
     /**
@@ -317,14 +377,18 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setTaskSummary($taskSummary = null)
     {
-        $this->taskSummary = (string) $taskSummary;
+        if (!$taskSummary) return $this;
+        $this->taskSummary = new PrimitiveType($taskSummary);
+        $this->taskSummary->setName('taskSummary');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:token
      */
     public function getTaskSummary()
     {
-        return (!$this->taskSummary) ?: $this->taskSummary;
+        return $this->taskSummary->getValue();
     }
 }

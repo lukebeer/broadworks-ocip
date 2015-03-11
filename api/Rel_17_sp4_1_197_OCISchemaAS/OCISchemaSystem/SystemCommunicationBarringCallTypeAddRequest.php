@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerCallType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCallTypeAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'SystemCommunicationBarringCallTypeAddRequest';
     protected $callType              = null;
     protected $networkServerCallType = null;
 
@@ -35,7 +34,7 @@ class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implement
     }
 
     /**
-     * @return SystemCommunicationBarringCallTypeAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implement
     }
 
     /**
-     * Communication Barring Call Type.
+     * 
      */
     public function setCallType($callType = null)
     {
+        if (!$callType) return $this;
         $this->callType = ($callType InstanceOf CommunicationBarringCallType)
              ? $callType
              : new CommunicationBarringCallType($callType);
+        $this->callType->setName('callType');
+        return $this;
     }
 
     /**
-     * Communication Barring Call Type.
+     * 
+     * @return CommunicationBarringCallType
      */
     public function getCallType()
     {
-        return (!$this->callType) ?: $this->callType->getValue();
+        return $this->callType->getValue();
     }
 
     /**
-     * Network Server Call Type.
+     * 
      */
     public function setNetworkServerCallType($networkServerCallType = null)
     {
+        if (!$networkServerCallType) return $this;
         $this->networkServerCallType = ($networkServerCallType InstanceOf NetworkServerCallType)
              ? $networkServerCallType
              : new NetworkServerCallType($networkServerCallType);
+        $this->networkServerCallType->setName('networkServerCallType');
+        return $this;
     }
 
     /**
-     * Network Server Call Type.
+     * 
+     * @return NetworkServerCallType
      */
     public function getNetworkServerCallType()
     {
-        return (!$this->networkServerCallType) ?: $this->networkServerCallType->getValue();
+        return $this->networkServerCallType->getValue();
     }
 }

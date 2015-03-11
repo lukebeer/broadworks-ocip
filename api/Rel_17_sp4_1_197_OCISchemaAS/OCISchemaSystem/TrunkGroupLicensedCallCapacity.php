@@ -15,11 +15,11 @@ use Broadworks_OCIP\core\Builder\Types\SimpleType;
  */
 class TrunkGroupLicensedCallCapacity extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "TrunkGroupLicensedCallCapacity";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "int";
+        $this->dataType = "";
     }
 }

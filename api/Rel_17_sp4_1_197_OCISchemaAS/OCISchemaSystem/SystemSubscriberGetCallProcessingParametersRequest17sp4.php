@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSubscriberGetCallProcessingParametersRequest17sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSubscriberGetCallProcessingParametersResponse17sp4';
-    public    $name = __CLASS__;
+    public    $name = 'SystemSubscriberGetCallProcessingParametersRequest17sp4';
 
     public function __construct(    ) {
     }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark\SystemClassmarkGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemClassmarkGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'SystemClassmarkGetListResponse';
     protected $classmarkTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemClassmarkGetListResponse extends ComplexType implements ComplexInter
      */
     public function setClassmarkTable(core:OCITable $classmarkTable = null)
     {
-        $this->classmarkTable =  $classmarkTable;
+        if (!$classmarkTable) return $this;
+        $this->classmarkTable->setName('classmarkTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getClassmarkTable()
     {
-        return (!$this->classmarkTable) ?: $this->classmarkTable->getValue();
+        return $this->classmarkTable->getValue();
     }
 }

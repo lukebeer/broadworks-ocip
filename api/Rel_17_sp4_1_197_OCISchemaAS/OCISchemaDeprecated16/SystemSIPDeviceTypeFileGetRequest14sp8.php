@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSIPDeviceTypeFileGetRequest14sp8 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemSIPDeviceTypeFileGetResponse14sp8';
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemSIPDeviceTypeFileGetRequest14sp8';
     protected $deviceType = null;
     protected $fileFormat = null;
 
@@ -44,38 +44,46 @@ class SystemSIPDeviceTypeFileGetRequest14sp8 extends ComplexType implements Comp
     }
 
     /**
-     * Access device type.
+     * 
      */
     public function setDeviceType($deviceType = null)
     {
+        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
+        $this->deviceType->setName('deviceType');
+        return $this;
     }
 
     /**
-     * Access device type.
+     * 
+     * @return AccessDeviceType
      */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->getValue();
+        return $this->deviceType->getValue();
     }
 
     /**
-     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     * 
      */
     public function setFileFormat($fileFormat = null)
     {
+        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
+        $this->fileFormat->setName('fileFormat');
+        return $this;
     }
 
     /**
-     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     * 
+     * @return DeviceManagementFileFormat
      */
     public function getFileFormat()
     {
-        return (!$this->fileFormat) ?: $this->fileFormat->getValue();
+        return $this->fileFormat->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenterMonitoring; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenterMonitoring; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenterMonitoring\UserCallCenterMonitoringGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterMonitoringGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
+    public    $name                               = 'UserCallCenterMonitoringGetResponse';
     protected $playToneToAgentForSilentMonitoring = null;
 
     /**
@@ -36,14 +35,18 @@ class UserCallCenterMonitoringGetResponse extends ComplexType implements Complex
      */
     public function setPlayToneToAgentForSilentMonitoring($playToneToAgentForSilentMonitoring = null)
     {
-        $this->playToneToAgentForSilentMonitoring = (boolean) $playToneToAgentForSilentMonitoring;
+        if (!$playToneToAgentForSilentMonitoring) return $this;
+        $this->playToneToAgentForSilentMonitoring = new PrimitiveType($playToneToAgentForSilentMonitoring);
+        $this->playToneToAgentForSilentMonitoring->setName('playToneToAgentForSilentMonitoring');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPlayToneToAgentForSilentMonitoring()
     {
-        return (!$this->playToneToAgentForSilentMonitoring) ?: $this->playToneToAgentForSilentMonitoring;
+        return $this->playToneToAgentForSilentMonitoring->getValue();
     }
 }

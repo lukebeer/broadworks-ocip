@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingSelective; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallForwardingSelective; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallForwardingSelective\UserCallForwardingSelectiveGetResponse16;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
+    public    $name                        = 'UserCallForwardingSelectiveGetResponse16';
     protected $isActive                    = null;
     protected $defaultForwardToPhoneNumber = null;
     protected $playRingReminder            = null;
@@ -40,47 +40,41 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setDefaultForwardToPhoneNumber($defaultForwardToPhoneNumber = null)
     {
+        if (!$defaultForwardToPhoneNumber) return $this;
         $this->defaultForwardToPhoneNumber = ($defaultForwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $defaultForwardToPhoneNumber
              : new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
+        $this->defaultForwardToPhoneNumber->setName('defaultForwardToPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getDefaultForwardToPhoneNumber()
     {
-        return (!$this->defaultForwardToPhoneNumber) ?: $this->defaultForwardToPhoneNumber->getValue();
+        return $this->defaultForwardToPhoneNumber->getValue();
     }
 
     /**
@@ -88,15 +82,19 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function setPlayRingReminder($playRingReminder = null)
     {
-        $this->playRingReminder = (boolean) $playRingReminder;
+        if (!$playRingReminder) return $this;
+        $this->playRingReminder = new PrimitiveType($playRingReminder);
+        $this->playRingReminder->setName('playRingReminder');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPlayRingReminder()
     {
-        return (!$this->playRingReminder) ?: $this->playRingReminder;
+        return $this->playRingReminder->getValue();
     }
 
     /**
@@ -104,14 +102,17 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable =  $criteriaTable;
+        if (!$criteriaTable) return $this;
+        $this->criteriaTable->setName('criteriaTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCriteriaTable()
     {
-        return (!$this->criteriaTable) ?: $this->criteriaTable->getValue();
+        return $this->criteriaTable->getValue();
     }
 }

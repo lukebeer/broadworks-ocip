@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePolycomPhoneServices; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CustomContactDirectoryName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePolycomPhoneServices\UserPolycomPhoneServicesGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPolycomPhoneServicesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                          = __CLASS__;
+    public    $name                                          = 'UserPolycomPhoneServicesGetResponse';
     protected $integratePhoneDirectoryWithBroadWorks         = null;
     protected $includeUserPersonalPhoneListInDirectory       = null;
     protected $includeGroupCustomContactDirectoryInDirectory = null;
@@ -39,15 +39,19 @@ class UserPolycomPhoneServicesGetResponse extends ComplexType implements Complex
      */
     public function setIntegratePhoneDirectoryWithBroadWorks($integratePhoneDirectoryWithBroadWorks = null)
     {
-        $this->integratePhoneDirectoryWithBroadWorks = (boolean) $integratePhoneDirectoryWithBroadWorks;
+        if (!$integratePhoneDirectoryWithBroadWorks) return $this;
+        $this->integratePhoneDirectoryWithBroadWorks = new PrimitiveType($integratePhoneDirectoryWithBroadWorks);
+        $this->integratePhoneDirectoryWithBroadWorks->setName('integratePhoneDirectoryWithBroadWorks');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIntegratePhoneDirectoryWithBroadWorks()
     {
-        return (!$this->integratePhoneDirectoryWithBroadWorks) ?: $this->integratePhoneDirectoryWithBroadWorks;
+        return $this->integratePhoneDirectoryWithBroadWorks->getValue();
     }
 
     /**
@@ -55,15 +59,19 @@ class UserPolycomPhoneServicesGetResponse extends ComplexType implements Complex
      */
     public function setIncludeUserPersonalPhoneListInDirectory($includeUserPersonalPhoneListInDirectory = null)
     {
-        $this->includeUserPersonalPhoneListInDirectory = (boolean) $includeUserPersonalPhoneListInDirectory;
+        if (!$includeUserPersonalPhoneListInDirectory) return $this;
+        $this->includeUserPersonalPhoneListInDirectory = new PrimitiveType($includeUserPersonalPhoneListInDirectory);
+        $this->includeUserPersonalPhoneListInDirectory->setName('includeUserPersonalPhoneListInDirectory');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeUserPersonalPhoneListInDirectory()
     {
-        return (!$this->includeUserPersonalPhoneListInDirectory) ?: $this->includeUserPersonalPhoneListInDirectory;
+        return $this->includeUserPersonalPhoneListInDirectory->getValue();
     }
 
     /**
@@ -71,32 +79,40 @@ class UserPolycomPhoneServicesGetResponse extends ComplexType implements Complex
      */
     public function setIncludeGroupCustomContactDirectoryInDirectory($includeGroupCustomContactDirectoryInDirectory = null)
     {
-        $this->includeGroupCustomContactDirectoryInDirectory = (boolean) $includeGroupCustomContactDirectoryInDirectory;
+        if (!$includeGroupCustomContactDirectoryInDirectory) return $this;
+        $this->includeGroupCustomContactDirectoryInDirectory = new PrimitiveType($includeGroupCustomContactDirectoryInDirectory);
+        $this->includeGroupCustomContactDirectoryInDirectory->setName('includeGroupCustomContactDirectoryInDirectory');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIncludeGroupCustomContactDirectoryInDirectory()
+    {
+        return $this->includeGroupCustomContactDirectoryInDirectory->getValue();
     }
 
     /**
      * 
      */
-    public function getIncludeGroupCustomContactDirectoryInDirectory()
-    {
-        return (!$this->includeGroupCustomContactDirectoryInDirectory) ?: $this->includeGroupCustomContactDirectoryInDirectory;
-    }
-
-    /**
-     * Custom Contact Directory name.
-     */
     public function setGroupCustomContactDirectory($groupCustomContactDirectory = null)
     {
+        if (!$groupCustomContactDirectory) return $this;
         $this->groupCustomContactDirectory = ($groupCustomContactDirectory InstanceOf CustomContactDirectoryName)
              ? $groupCustomContactDirectory
              : new CustomContactDirectoryName($groupCustomContactDirectory);
+        $this->groupCustomContactDirectory->setName('groupCustomContactDirectory');
+        return $this;
     }
 
     /**
-     * Custom Contact Directory name.
+     * 
+     * @return CustomContactDirectoryName
      */
     public function getGroupCustomContactDirectory()
     {
-        return (!$this->groupCustomContactDirectory) ?: $this->groupCustomContactDirectory->getValue();
+        return $this->groupCustomContactDirectory->getValue();
     }
 }

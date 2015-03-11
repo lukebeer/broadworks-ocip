@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantGroupCall\InstantGroupCallAnswerTimeoutMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupInstantGroupCallGetInstanceResponse14;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'GroupInstantGroupCallGetInstanceResponse14';
     protected $serviceInstanceProfile = null;
     protected $destinationPhoneNumber = null;
     protected $isAnswerTimeoutEnabled = null;
@@ -38,55 +38,45 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
-     *         Prior to release 14 this was called ServiceInstanceProfile.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
-     *         Prior to release 14 this was called ServiceInstanceProfile.
+     * 
+     * @return ServiceInstanceReadProfile
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
      */
     public function setDestinationPhoneNumber($destinationPhoneNumber = null)
     {
+        if (!$destinationPhoneNumber) return $this;
         $this->destinationPhoneNumber = ($destinationPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $destinationPhoneNumber
              : new OutgoingDNorSIPURI($destinationPhoneNumber);
+        $this->destinationPhoneNumber->setName('destinationPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getDestinationPhoneNumber()
     {
-        return (!$this->destinationPhoneNumber) ?: $this->destinationPhoneNumber->getValue();
+        return $this->destinationPhoneNumber->getValue();
     }
 
     /**
@@ -94,32 +84,40 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
      */
     public function setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled = null)
     {
-        $this->isAnswerTimeoutEnabled = (boolean) $isAnswerTimeoutEnabled;
+        if (!$isAnswerTimeoutEnabled) return $this;
+        $this->isAnswerTimeoutEnabled = new PrimitiveType($isAnswerTimeoutEnabled);
+        $this->isAnswerTimeoutEnabled->setName('isAnswerTimeoutEnabled');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsAnswerTimeoutEnabled()
+    {
+        return $this->isAnswerTimeoutEnabled->getValue();
     }
 
     /**
      * 
      */
-    public function getIsAnswerTimeoutEnabled()
-    {
-        return (!$this->isAnswerTimeoutEnabled) ?: $this->isAnswerTimeoutEnabled;
-    }
-
-    /**
-     * The maximum duration for unanswered call.
-     */
     public function setAnswerTimeoutMinutes($answerTimeoutMinutes = null)
     {
+        if (!$answerTimeoutMinutes) return $this;
         $this->answerTimeoutMinutes = ($answerTimeoutMinutes InstanceOf InstantGroupCallAnswerTimeoutMinutes)
              ? $answerTimeoutMinutes
              : new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
+        $this->answerTimeoutMinutes->setName('answerTimeoutMinutes');
+        return $this;
     }
 
     /**
-     * The maximum duration for unanswered call.
+     * 
+     * @return InstantGroupCallAnswerTimeoutMinutes
      */
     public function getAnswerTimeoutMinutes()
     {
-        return (!$this->answerTimeoutMinutes) ?: $this->answerTimeoutMinutes->getValue();
+        return $this->answerTimeoutMinutes->getValue();
     }
 }

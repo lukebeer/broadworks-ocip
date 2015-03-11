@@ -26,15 +26,15 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeGetListResponse';
-    public    $name                                 = __CLASS__;
+    public    $name                                 = 'SystemServiceCodeGetListRequest';
     protected $responseSizeLimit                    = null;
     protected $searchCriteriaServiceCode            = null;
     protected $searchCriteriaServiceCodeDescription = null;
 
     public function __construct(
          $responseSizeLimit = null,
-          $searchCriteriaServiceCode = null,
-          $searchCriteriaServiceCodeDescription = null
+         SearchCriteriaServiceCode $searchCriteriaServiceCode = null,
+         SearchCriteriaServiceCodeDescription $searchCriteriaServiceCodeDescription = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaServiceCode($searchCriteriaServiceCode);
@@ -50,56 +50,68 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a Service Code.
+     * 
      */
     public function setSearchCriteriaServiceCode(SearchCriteriaServiceCode $searchCriteriaServiceCode = null)
     {
-        $this->searchCriteriaServiceCode =  $searchCriteriaServiceCode;
+        if (!$searchCriteriaServiceCode) return $this;
+        $this->searchCriteriaServiceCode = ($searchCriteriaServiceCode InstanceOf SearchCriteriaServiceCode)
+             ? $searchCriteriaServiceCode
+             : new SearchCriteriaServiceCode($searchCriteriaServiceCode);
+        $this->searchCriteriaServiceCode->setName('searchCriteriaServiceCode');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a Service Code.
+     * 
+     * @return SearchCriteriaServiceCode
      */
     public function getSearchCriteriaServiceCode()
     {
-        return (!$this->searchCriteriaServiceCode) ?: $this->searchCriteriaServiceCode->getValue();
+        return $this->searchCriteriaServiceCode;
     }
 
     /**
-     * Criteria for searching for a Service Code description.
+     * 
      */
     public function setSearchCriteriaServiceCodeDescription(SearchCriteriaServiceCodeDescription $searchCriteriaServiceCodeDescription = null)
     {
-        $this->searchCriteriaServiceCodeDescription =  $searchCriteriaServiceCodeDescription;
+        if (!$searchCriteriaServiceCodeDescription) return $this;
+        $this->searchCriteriaServiceCodeDescription = ($searchCriteriaServiceCodeDescription InstanceOf SearchCriteriaServiceCodeDescription)
+             ? $searchCriteriaServiceCodeDescription
+             : new SearchCriteriaServiceCodeDescription($searchCriteriaServiceCodeDescription);
+        $this->searchCriteriaServiceCodeDescription->setName('searchCriteriaServiceCodeDescription');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a Service Code description.
+     * 
+     * @return SearchCriteriaServiceCodeDescription
      */
     public function getSearchCriteriaServiceCodeDescription()
     {
-        return (!$this->searchCriteriaServiceCodeDescription) ?: $this->searchCriteriaServiceCodeDescription->getValue();
+        return $this->searchCriteriaServiceCodeDescription;
     }
 }

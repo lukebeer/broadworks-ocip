@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse';
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest';
     protected $serviceProviderId = null;
     protected $criteriaName      = null;
 
@@ -45,40 +45,46 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Communication Barring Criteria Name
+     * 
      */
     public function setCriteriaName($criteriaName = null)
     {
+        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CommunicationBarringCriteriaName)
              ? $criteriaName
              : new CommunicationBarringCriteriaName($criteriaName);
+        $this->criteriaName->setName('criteriaName');
+        return $this;
     }
 
     /**
-     * Communication Barring Criteria Name
+     * 
+     * @return CommunicationBarringCriteriaName
      */
     public function getCriteriaName()
     {
-        return (!$this->criteriaName) ?: $this->criteriaName->getValue();
+        return $this->criteriaName->getValue();
     }
 }

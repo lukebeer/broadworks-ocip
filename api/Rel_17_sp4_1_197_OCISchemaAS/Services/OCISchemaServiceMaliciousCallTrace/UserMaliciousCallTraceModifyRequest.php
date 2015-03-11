@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\MaliciousCallTraceCallTypeSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\MaliciousCallTraceTimePeriod;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\UserMaliciousCallTraceModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'UserMaliciousCallTraceModifyRequest';
     protected $userId             = null;
     protected $isActive           = null;
     protected $traceTypeSelection = null;
@@ -35,7 +35,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
          $isActive = null,
          $traceTypeSelection = null,
          $traceForTimePeriod = null,
-          $traceTimePeriod = null
+         MaliciousCallTraceTimePeriod $traceTimePeriod = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);
@@ -45,7 +45,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return UserMaliciousCallTraceModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,29 +53,25 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
@@ -83,33 +79,41 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Call Types that are traced for malicious calls
-     */
     public function setTraceTypeSelection($traceTypeSelection = null)
     {
+        if (!$traceTypeSelection) return $this;
         $this->traceTypeSelection = ($traceTypeSelection InstanceOf MaliciousCallTraceCallTypeSelection)
              ? $traceTypeSelection
              : new MaliciousCallTraceCallTypeSelection($traceTypeSelection);
+        $this->traceTypeSelection->setName('traceTypeSelection');
+        return $this;
     }
 
     /**
-     * Call Types that are traced for malicious calls
+     * 
+     * @return MaliciousCallTraceCallTypeSelection
      */
     public function getTraceTypeSelection()
     {
-        return (!$this->traceTypeSelection) ?: $this->traceTypeSelection->getValue();
+        return $this->traceTypeSelection->getValue();
     }
 
     /**
@@ -117,32 +121,38 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function setTraceForTimePeriod($traceForTimePeriod = null)
     {
-        $this->traceForTimePeriod = (boolean) $traceForTimePeriod;
+        if (!$traceForTimePeriod) return $this;
+        $this->traceForTimePeriod = new PrimitiveType($traceForTimePeriod);
+        $this->traceForTimePeriod->setName('traceForTimePeriod');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getTraceForTimePeriod()
+    {
+        return $this->traceForTimePeriod->getValue();
     }
 
     /**
      * 
      */
-    public function getTraceForTimePeriod()
-    {
-        return (!$this->traceForTimePeriod) ?: $this->traceForTimePeriod;
-    }
-
-    /**
-     * Modify the user level data associated with Malicious Call Trace.
-     *         The response is either a SuccessResponse or an ErrorResponse.
-     */
     public function setTraceTimePeriod(MaliciousCallTraceTimePeriod $traceTimePeriod = null)
     {
-        $this->traceTimePeriod =  $traceTimePeriod;
+        if (!$traceTimePeriod) return $this;
+        $this->traceTimePeriod = $traceTimePeriod;
+        $this->traceTimePeriod->setName('traceTimePeriod');
+        return $this;
     }
 
     /**
-     * Modify the user level data associated with Malicious Call Trace.
-     *         The response is either a SuccessResponse or an ErrorResponse.
+     * 
+     * @return MaliciousCallTraceTimePeriod
      */
     public function getTraceTimePeriod()
     {
-        return (!$this->traceTimePeriod) ?: $this->traceTimePeriod->getValue();
+        return $this->traceTimePeriod;
     }
 }

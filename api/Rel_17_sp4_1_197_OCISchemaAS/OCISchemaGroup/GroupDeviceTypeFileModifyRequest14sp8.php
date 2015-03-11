@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDeviceTypeFileModifyResponse14sp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupDeviceTypeFileModifyRequest14sp8';
     protected $serviceProviderId = null;
     protected $groupId           = null;
     protected $deviceType        = null;
@@ -40,7 +39,7 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
          $deviceType,
          $fileFormat,
          $fileSource = null,
-          $uploadFile = null
+         FileResource $uploadFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -51,7 +50,7 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
     }
 
     /**
-     * @return GroupDeviceTypeFileModifyResponse14sp8
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,114 +58,132 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Access device type.
+     * 
      */
     public function setDeviceType($deviceType = null)
     {
+        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
+        $this->deviceType->setName('deviceType');
+        return $this;
     }
 
     /**
-     * Access device type.
+     * 
+     * @return AccessDeviceType
      */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->getValue();
+        return $this->deviceType->getValue();
     }
 
     /**
-     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     * 
      */
     public function setFileFormat($fileFormat = null)
     {
+        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
+        $this->fileFormat->setName('fileFormat');
+        return $this;
     }
 
     /**
-     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     * 
+     * @return DeviceManagementFileFormat
      */
     public function getFileFormat()
     {
-        return (!$this->fileFormat) ?: $this->fileFormat->getValue();
+        return $this->fileFormat->getValue();
     }
 
     /**
-     * Choices for the access device configuration mode.
+     * 
      */
     public function setFileSource($fileSource = null)
     {
+        if (!$fileSource) return $this;
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
+        $this->fileSource->setName('fileSource');
+        return $this;
     }
 
     /**
-     * Choices for the access device configuration mode.
+     * 
+     * @return AccessDeviceEnhancedConfigurationMode
      */
     public function getFileSource()
     {
-        return (!$this->fileSource) ?: $this->fileSource->getValue();
+        return $this->fileSource->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer.
+     * 
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        $this->uploadFile =  $uploadFile;
+        if (!$uploadFile) return $this;
+        $this->uploadFile = $uploadFile;
+        $this->uploadFile->setName('uploadFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer.
+     * 
+     * @return FileResource
      */
     public function getUploadFile()
     {
-        return (!$this->uploadFile) ?: $this->uploadFile->getValue();
+        return $this->uploadFile;
     }
 }

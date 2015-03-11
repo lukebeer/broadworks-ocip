@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdviceOfCharge; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\MinInclusive;
@@ -17,12 +17,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class AdviceOfChargeDelayBetweenNotificationSeconds extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "AdviceOfChargeDelayBetweenNotificationSeconds";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "int";
+        $this->dataType = "";
         $this->addRestriction(new MinInclusive("15"));
         $this->addRestriction(new MaxInclusive("1800"));
     }

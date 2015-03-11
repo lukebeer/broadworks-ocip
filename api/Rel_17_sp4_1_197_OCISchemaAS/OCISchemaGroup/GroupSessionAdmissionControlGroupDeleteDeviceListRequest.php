@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SessionA
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGroupDeleteDeviceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupSessionAdmissionControlGroupDeleteDeviceListRequest';
     protected $serviceProviderId = null;
     protected $groupId           = null;
     protected $name              = null;
@@ -34,7 +33,7 @@ class GroupSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexTy
          $serviceProviderId,
          $groupId,
          $name,
-          $devices = null
+         AccessDevice $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -43,7 +42,7 @@ class GroupSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexTy
     }
 
     /**
-     * @return GroupSessionAdmissionControlGroupDeleteDeviceListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,78 +50,88 @@ class GroupSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexTy
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Session Admission Control Group name.
-     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
              ? $name
              : new SessionAdmissionControlGroupName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Session Admission Control Group name.
-     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     * 
+     * @return SessionAdmissionControlGroupName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     * 
      */
     public function setDevices(AccessDevice $devices = null)
     {
-        $this->devices =  $devices;
+        if (!$devices) return $this;
+        $this->devices = $devices;
+        $this->devices->setName('devices');
+        return $this;
     }
 
     /**
-     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     * 
+     * @return AccessDevice
      */
     public function getDevices()
     {
-        return (!$this->devices) ?: $this->devices->getValue();
+        return $this->devices;
     }
 }

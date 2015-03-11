@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanGetResponse17sp3;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'SystemOutgoingCallingPlanGetResponse17sp3';
     protected $directTransferScreening      = null;
     protected $enableEnhancedTollCallTyping = null;
 
@@ -37,15 +36,19 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
      */
     public function setDirectTransferScreening($directTransferScreening = null)
     {
-        $this->directTransferScreening = (boolean) $directTransferScreening;
+        if (!$directTransferScreening) return $this;
+        $this->directTransferScreening = new PrimitiveType($directTransferScreening);
+        $this->directTransferScreening->setName('directTransferScreening');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDirectTransferScreening()
     {
-        return (!$this->directTransferScreening) ?: $this->directTransferScreening;
+        return $this->directTransferScreening->getValue();
     }
 
     /**
@@ -53,14 +56,18 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
      */
     public function setEnableEnhancedTollCallTyping($enableEnhancedTollCallTyping = null)
     {
-        $this->enableEnhancedTollCallTyping = (boolean) $enableEnhancedTollCallTyping;
+        if (!$enableEnhancedTollCallTyping) return $this;
+        $this->enableEnhancedTollCallTyping = new PrimitiveType($enableEnhancedTollCallTyping);
+        $this->enableEnhancedTollCallTyping->setName('enableEnhancedTollCallTyping');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableEnhancedTollCallTyping()
     {
-        return (!$this->enableEnhancedTollCallTyping) ?: $this->enableEnhancedTollCallTyping;
+        return $this->enableEnhancedTollCallTyping->getValue();
     }
 }

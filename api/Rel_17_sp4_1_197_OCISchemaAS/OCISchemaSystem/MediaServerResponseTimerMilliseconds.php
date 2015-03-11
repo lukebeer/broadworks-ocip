@@ -17,12 +17,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class MediaServerResponseTimerMilliseconds extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "MediaServerResponseTimerMilliseconds";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "int";
+        $this->dataType = "";
         $this->addRestriction(new MinInclusive("600"));
         $this->addRestriction(new MaxInclusive("120000"));
     }

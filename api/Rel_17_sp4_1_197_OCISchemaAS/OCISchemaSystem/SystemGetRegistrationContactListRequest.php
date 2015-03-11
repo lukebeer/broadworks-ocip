@@ -11,8 +11,9 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaSIPContact;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RegistrationEndpointType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceLevel;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemGetRegistrationContactListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -28,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemGetRegistrationContactListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemGetRegistrationContactListResponse';
-    public    $name                          = __CLASS__;
+    public    $name                          = 'SystemGetRegistrationContactListRequest';
     protected $deviceLevel                   = null;
     protected $deviceName                    = null;
     protected $deviceType                    = null;
@@ -41,8 +42,8 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
          $deviceLevel = null,
          $deviceName = null,
          $deviceType = null,
-          $searchCriteriaRegistrationURI = null,
-          $searchCriteriaSIPContact = null,
+         SearchCriteriaRegistrationURI $searchCriteriaRegistrationURI = null,
+         SearchCriteriaSIPContact $searchCriteriaSIPContact = null,
          $endpointType = null,
          $expired = null
     ) {
@@ -64,107 +65,135 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
     }
 
     /**
-     * Identifies at which level in the system an identity/device profile is created.
+     * 
      */
     public function setDeviceLevel($deviceLevel = null)
     {
+        if (!$deviceLevel) return $this;
         $this->deviceLevel = ($deviceLevel InstanceOf AccessDeviceLevel)
              ? $deviceLevel
              : new AccessDeviceLevel($deviceLevel);
+        $this->deviceLevel->setName('deviceLevel');
+        return $this;
     }
 
     /**
-     * Identifies at which level in the system an identity/device profile is created.
+     * 
+     * @return AccessDeviceLevel
      */
     public function getDeviceLevel()
     {
-        return (!$this->deviceLevel) ?: $this->deviceLevel->getValue();
+        return $this->deviceLevel->getValue();
     }
 
     /**
-     * Access device name.
+     * 
      */
     public function setDeviceName($deviceName = null)
     {
+        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
+        $this->deviceName->setName('deviceName');
+        return $this;
     }
 
     /**
-     * Access device name.
+     * 
+     * @return AccessDeviceName
      */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->getValue();
+        return $this->deviceName->getValue();
     }
 
     /**
-     * Access device type.
+     * 
      */
     public function setDeviceType($deviceType = null)
     {
+        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
+        $this->deviceType->setName('deviceType');
+        return $this;
     }
 
     /**
-     * Access device type.
+     * 
+     * @return AccessDeviceType
      */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->getValue();
+        return $this->deviceType->getValue();
     }
 
     /**
-     * Criteria for searching for a RegistrationURI.
+     * 
      */
     public function setSearchCriteriaRegistrationURI(SearchCriteriaRegistrationURI $searchCriteriaRegistrationURI = null)
     {
-        $this->searchCriteriaRegistrationURI =  $searchCriteriaRegistrationURI;
+        if (!$searchCriteriaRegistrationURI) return $this;
+        $this->searchCriteriaRegistrationURI = ($searchCriteriaRegistrationURI InstanceOf SearchCriteriaRegistrationURI)
+             ? $searchCriteriaRegistrationURI
+             : new SearchCriteriaRegistrationURI($searchCriteriaRegistrationURI);
+        $this->searchCriteriaRegistrationURI->setName('searchCriteriaRegistrationURI');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a RegistrationURI.
+     * 
+     * @return SearchCriteriaRegistrationURI
      */
     public function getSearchCriteriaRegistrationURI()
     {
-        return (!$this->searchCriteriaRegistrationURI) ?: $this->searchCriteriaRegistrationURI->getValue();
+        return $this->searchCriteriaRegistrationURI;
     }
 
     /**
-     * Criteria for searching for a SIP Contact.
+     * 
      */
     public function setSearchCriteriaSIPContact(SearchCriteriaSIPContact $searchCriteriaSIPContact = null)
     {
-        $this->searchCriteriaSIPContact =  $searchCriteriaSIPContact;
+        if (!$searchCriteriaSIPContact) return $this;
+        $this->searchCriteriaSIPContact = ($searchCriteriaSIPContact InstanceOf SearchCriteriaSIPContact)
+             ? $searchCriteriaSIPContact
+             : new SearchCriteriaSIPContact($searchCriteriaSIPContact);
+        $this->searchCriteriaSIPContact->setName('searchCriteriaSIPContact');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a SIP Contact.
+     * 
+     * @return SearchCriteriaSIPContact
      */
     public function getSearchCriteriaSIPContact()
     {
-        return (!$this->searchCriteriaSIPContact) ?: $this->searchCriteriaSIPContact->getValue();
+        return $this->searchCriteriaSIPContact;
     }
 
     /**
-     * Types of Endpoints in Broadworks.
+     * 
      */
     public function setEndpointType($endpointType = null)
     {
+        if (!$endpointType) return $this;
         $this->endpointType = ($endpointType InstanceOf RegistrationEndpointType)
              ? $endpointType
              : new RegistrationEndpointType($endpointType);
+        $this->endpointType->setName('endpointType');
+        return $this;
     }
 
     /**
-     * Types of Endpoints in Broadworks.
+     * 
+     * @return RegistrationEndpointType
      */
     public function getEndpointType()
     {
-        return (!$this->endpointType) ?: $this->endpointType->getValue();
+        return $this->endpointType->getValue();
     }
 
     /**
@@ -172,14 +201,18 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function setExpired($expired = null)
     {
-        $this->expired = (boolean) $expired;
+        if (!$expired) return $this;
+        $this->expired = new PrimitiveType($expired);
+        $this->expired->setName('expired');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getExpired()
     {
-        return (!$this->expired) ?: $this->expired;
+        return $this->expired->getValue();
     }
 }

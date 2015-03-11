@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastDNISGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterCurrentAndPastDNISGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'GroupCallCenterCurrentAndPastDNISGetListResponse';
     protected $name        = null;
     protected $deletedName = null;
 
@@ -33,38 +32,46 @@ class GroupCallCenterCurrentAndPastDNISGetListResponse extends ComplexType imple
     }
 
     /**
-     * Call Center DNIS Name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf DNISName)
              ? $name
              : new DNISName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Call Center DNIS Name.
+     * 
+     * @return DNISName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * Call Center DNIS Name.
+     * 
      */
     public function setDeletedName($deletedName = null)
     {
+        if (!$deletedName) return $this;
         $this->deletedName = ($deletedName InstanceOf DNISName)
              ? $deletedName
              : new DNISName($deletedName);
+        $this->deletedName->setName('deletedName');
+        return $this;
     }
 
     /**
-     * Call Center DNIS Name.
+     * 
+     * @return DNISName
      */
     public function getDeletedName()
     {
-        return (!$this->deletedName) ?: $this->deletedName->getValue();
+        return $this->deletedName->getValue();
     }
 }

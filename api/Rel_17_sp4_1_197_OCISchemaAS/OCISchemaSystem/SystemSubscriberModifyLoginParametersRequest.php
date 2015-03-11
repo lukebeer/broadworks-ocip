@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMinLoginIdLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMaxLoginAttempts;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSubscriberModifyLoginParametersResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSubscriberModifyLoginParametersRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'SystemSubscriberModifyLoginParametersRequest';
     protected $maxFailedLoginAttempts = null;
     protected $minLoginIdLength       = null;
 
@@ -35,7 +34,7 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
     }
 
     /**
-     * @return SystemSubscriberModifyLoginParametersResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
     }
 
     /**
-     * Maximum Login Attempts.
+     * 
      */
     public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
+        if (!$maxFailedLoginAttempts) return $this;
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf SystemMaxLoginAttempts)
              ? $maxFailedLoginAttempts
              : new SystemMaxLoginAttempts($maxFailedLoginAttempts);
+        $this->maxFailedLoginAttempts->setName('maxFailedLoginAttempts');
+        return $this;
     }
 
     /**
-     * Maximum Login Attempts.
+     * 
+     * @return SystemMaxLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
-        return (!$this->maxFailedLoginAttempts) ?: $this->maxFailedLoginAttempts->getValue();
+        return $this->maxFailedLoginAttempts->getValue();
     }
 
     /**
-     * Minimum Login Id Length.
+     * 
      */
     public function setMinLoginIdLength($minLoginIdLength = null)
     {
+        if (!$minLoginIdLength) return $this;
         $this->minLoginIdLength = ($minLoginIdLength InstanceOf SystemMinLoginIdLength)
              ? $minLoginIdLength
              : new SystemMinLoginIdLength($minLoginIdLength);
+        $this->minLoginIdLength->setName('minLoginIdLength');
+        return $this;
     }
 
     /**
-     * Minimum Login Id Length.
+     * 
+     * @return SystemMinLoginIdLength
      */
     public function getMinLoginIdLength()
     {
-        return (!$this->minLoginIdLength) ?: $this->minLoginIdLength->getValue();
+        return $this->minLoginIdLength->getValue();
     }
 }

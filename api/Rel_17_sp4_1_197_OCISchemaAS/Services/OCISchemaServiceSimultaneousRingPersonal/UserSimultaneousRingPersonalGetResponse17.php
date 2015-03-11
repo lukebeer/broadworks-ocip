@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingPersonal; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSimultaneousRingPersonal; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingNumber;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSimultaneousRingPersonal\UserSimultaneousRingPersonalGetResponse17;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingPersonalGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'UserSimultaneousRingPersonalGetResponse17';
     protected $isActive               = null;
     protected $doNotRingIfOnCall      = null;
     protected $simultaneousRingNumber = null;
@@ -40,15 +40,19 @@ class UserSimultaneousRingPersonalGetResponse17 extends ComplexType implements C
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -56,31 +60,39 @@ class UserSimultaneousRingPersonalGetResponse17 extends ComplexType implements C
      */
     public function setDoNotRingIfOnCall($doNotRingIfOnCall = null)
     {
-        $this->doNotRingIfOnCall = (boolean) $doNotRingIfOnCall;
+        if (!$doNotRingIfOnCall) return $this;
+        $this->doNotRingIfOnCall = new PrimitiveType($doNotRingIfOnCall);
+        $this->doNotRingIfOnCall->setName('doNotRingIfOnCall');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDoNotRingIfOnCall()
+    {
+        return $this->doNotRingIfOnCall->getValue();
     }
 
     /**
      * 
      */
-    public function getDoNotRingIfOnCall()
-    {
-        return (!$this->doNotRingIfOnCall) ?: $this->doNotRingIfOnCall;
-    }
-
-    /**
-     * Simultaneous Ring number entry.
-     */
     public function setSimultaneousRingNumber(SimultaneousRingNumber $simultaneousRingNumber = null)
     {
-        $this->simultaneousRingNumber =  $simultaneousRingNumber;
+        if (!$simultaneousRingNumber) return $this;
+        $this->simultaneousRingNumber = $simultaneousRingNumber;
+        $this->simultaneousRingNumber->setName('simultaneousRingNumber');
+        return $this;
     }
 
     /**
-     * Simultaneous Ring number entry.
+     * 
+     * @return SimultaneousRingNumber
      */
     public function getSimultaneousRingNumber()
     {
-        return (!$this->simultaneousRingNumber) ?: $this->simultaneousRingNumber->getValue();
+        return $this->simultaneousRingNumber;
     }
 
     /**
@@ -88,14 +100,17 @@ class UserSimultaneousRingPersonalGetResponse17 extends ComplexType implements C
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable =  $criteriaTable;
+        if (!$criteriaTable) return $this;
+        $this->criteriaTable->setName('criteriaTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCriteriaTable()
     {
-        return (!$this->criteriaTable) ?: $this->criteriaTable->getValue();
+        return $this->criteriaTable->getValue();
     }
 }

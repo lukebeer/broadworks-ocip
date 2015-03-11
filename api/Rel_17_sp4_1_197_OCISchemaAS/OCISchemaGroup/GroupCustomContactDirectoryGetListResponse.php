@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CustomContactDirectoryName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCustomContactDirectoryGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name = 'GroupCustomContactDirectoryGetListResponse';
     protected $name = null;
 
     /**
@@ -33,20 +32,24 @@ class GroupCustomContactDirectoryGetListResponse extends ComplexType implements 
     }
 
     /**
-     * Custom Contact Directory name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf CustomContactDirectoryName)
              ? $name
              : new CustomContactDirectoryName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Custom Contact Directory name.
+     * 
+     * @return CustomContactDirectoryName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCallType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCallTypeDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringCallTypeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'SystemCommunicationBarringCallTypeDeleteRequest';
     protected $callType = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemCommunicationBarringCallTypeDeleteRequest extends ComplexType implem
     }
 
     /**
-     * @return SystemCommunicationBarringCallTypeDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemCommunicationBarringCallTypeDeleteRequest extends ComplexType implem
     }
 
     /**
-     * Communication Barring Call Type.
+     * 
      */
     public function setCallType($callType = null)
     {
+        if (!$callType) return $this;
         $this->callType = ($callType InstanceOf CommunicationBarringCallType)
              ? $callType
              : new CommunicationBarringCallType($callType);
+        $this->callType->setName('callType');
+        return $this;
     }
 
     /**
-     * Communication Barring Call Type.
+     * 
+     * @return CommunicationBarringCallType
      */
     public function getCallType()
     {
-        return (!$this->callType) ?: $this->callType->getValue();
+        return $this->callType->getValue();
     }
 }

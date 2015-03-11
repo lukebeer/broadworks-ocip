@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaximumMonitoredUsers;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\SystemBroadWorksReceptionistEnterpriseModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'SystemBroadWorksReceptionistEnterpriseModifyRequest';
     protected $maxMonitoredUsers = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType im
     }
 
     /**
-     * @return SystemBroadWorksReceptionistEnterpriseModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType im
     }
 
     /**
-     * Maximum number of users allowed in a monitored user list.
+     * 
      */
     public function setMaxMonitoredUsers($maxMonitoredUsers = null)
     {
+        if (!$maxMonitoredUsers) return $this;
         $this->maxMonitoredUsers = ($maxMonitoredUsers InstanceOf MaximumMonitoredUsers)
              ? $maxMonitoredUsers
              : new MaximumMonitoredUsers($maxMonitoredUsers);
+        $this->maxMonitoredUsers->setName('maxMonitoredUsers');
+        return $this;
     }
 
     /**
-     * Maximum number of users allowed in a monitored user list.
+     * 
+     * @return MaximumMonitoredUsers
      */
     public function getMaxMonitoredUsers()
     {
-        return (!$this->maxMonitoredUsers) ?: $this->maxMonitoredUsers->getValue();
+        return $this->maxMonitoredUsers->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'SystemZoneGetListResponse';
     protected $zoneName = null;
 
     /**
@@ -32,20 +31,24 @@ class SystemZoneGetListResponse extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Zone Name.
+     * 
      */
     public function setZoneName($zoneName = null)
     {
+        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
+        $this->zoneName->setName('zoneName');
+        return $this;
     }
 
     /**
-     * Zone Name.
+     * 
+     * @return ZoneName
      */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->getValue();
+        return $this->zoneName->getValue();
     }
 }

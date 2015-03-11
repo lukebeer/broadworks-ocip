@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMaliciousCallTrace\ServiceProviderMaliciousCallTraceGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
+    public    $name                                = 'ServiceProviderMaliciousCallTraceGetResponse';
     protected $useSystemPlayMCTWarningAnnouncement = null;
     protected $playMCTWarningAnnouncement          = null;
 
@@ -39,15 +38,19 @@ class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implement
      */
     public function setUseSystemPlayMCTWarningAnnouncement($useSystemPlayMCTWarningAnnouncement = null)
     {
-        $this->useSystemPlayMCTWarningAnnouncement = (boolean) $useSystemPlayMCTWarningAnnouncement;
+        if (!$useSystemPlayMCTWarningAnnouncement) return $this;
+        $this->useSystemPlayMCTWarningAnnouncement = new PrimitiveType($useSystemPlayMCTWarningAnnouncement);
+        $this->useSystemPlayMCTWarningAnnouncement->setName('useSystemPlayMCTWarningAnnouncement');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseSystemPlayMCTWarningAnnouncement()
     {
-        return (!$this->useSystemPlayMCTWarningAnnouncement) ?: $this->useSystemPlayMCTWarningAnnouncement;
+        return $this->useSystemPlayMCTWarningAnnouncement->getValue();
     }
 
     /**
@@ -55,14 +58,18 @@ class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implement
      */
     public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement = null)
     {
-        $this->playMCTWarningAnnouncement = (boolean) $playMCTWarningAnnouncement;
+        if (!$playMCTWarningAnnouncement) return $this;
+        $this->playMCTWarningAnnouncement = new PrimitiveType($playMCTWarningAnnouncement);
+        $this->playMCTWarningAnnouncement->setName('playMCTWarningAnnouncement');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPlayMCTWarningAnnouncement()
     {
-        return (!$this->playMCTWarningAnnouncement) ?: $this->playMCTWarningAnnouncement;
+        return $this->playMCTWarningAnnouncement->getValue();
     }
 }

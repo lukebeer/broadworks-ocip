@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\FileRepositoryProtocolWebDAV;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,9 +21,16 @@ use Broadworks_OCIP\core\Client\Client;
 class FileRepositoryProtocolWebDAV extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\FileRepositoryProtocolWebDAV';
-    public    $name = __CLASS__;
+    public    $name       = 'FileRepositoryProtocolWebDAV';
+    protected $secure     = null;
+    protected $netAddress = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $secure,
+         $netAddress
+    ) {
+        $this->setSecure($secure);
+        $this->setNetAddress($netAddress);
     }
 
     /**
@@ -32,5 +39,45 @@ class FileRepositoryProtocolWebDAV extends ComplexType implements ComplexInterfa
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setSecure($secure = null)
+    {
+        if (!$secure) return $this;
+        $this->secure = new SimpleContent($secure);
+        $this->secure->setName('secure');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getSecure()
+    {
+        return $this->secure->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setNetAddress($netAddress = null)
+    {
+        if (!$netAddress) return $this;
+        $this->netAddress = new SimpleContent($netAddress);
+        $this->netAddress->setName('netAddress');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getNetAddress()
+    {
+        return $this->netAddress->getValue();
     }
 }

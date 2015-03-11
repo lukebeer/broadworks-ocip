@@ -16,12 +16,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class RoamingCriteria extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "RoamingCriteria";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "string";
+        $this->dataType = "";
         $this->addRestriction(new Enumeration([
             'In Home Network',
             'In Roaming Network',

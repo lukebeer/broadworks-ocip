@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDomainGetAssignedServiceProviderListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainGetAssignedServiceProviderListResponse';
-    public    $name   = __CLASS__;
+    public    $name   = 'SystemDomainGetAssignedServiceProviderListRequest';
     protected $domain = null;
 
     public function __construct(
@@ -40,20 +40,24 @@ class SystemDomainGetAssignedServiceProviderListRequest extends ComplexType impl
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setDomain($domain = null)
     {
+        if (!$domain) return $this;
         $this->domain = ($domain InstanceOf NetAddress)
              ? $domain
              : new NetAddress($domain);
+        $this->domain->setName('domain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getDomain()
     {
-        return (!$this->domain) ?: $this->domain->getValue();
+        return $this->domain->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallNotify; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallNotify\UserCallNotifyGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'UserCallNotifyGetResponse';
     protected $callNotifyEmailAddress = null;
     protected $criteriaTable          = null;
 
@@ -34,21 +33,25 @@ class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Email Address
+     * 
      */
     public function setCallNotifyEmailAddress($callNotifyEmailAddress = null)
     {
+        if (!$callNotifyEmailAddress) return $this;
         $this->callNotifyEmailAddress = ($callNotifyEmailAddress InstanceOf EmailAddress)
              ? $callNotifyEmailAddress
              : new EmailAddress($callNotifyEmailAddress);
+        $this->callNotifyEmailAddress->setName('callNotifyEmailAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getCallNotifyEmailAddress()
     {
-        return (!$this->callNotifyEmailAddress) ?: $this->callNotifyEmailAddress->getValue();
+        return $this->callNotifyEmailAddress->getValue();
     }
 
     /**
@@ -56,14 +59,17 @@ class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable =  $criteriaTable;
+        if (!$criteriaTable) return $this;
+        $this->criteriaTable->setName('criteriaTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCriteriaTable()
     {
-        return (!$this->criteriaTable) ?: $this->criteriaTable->getValue();
+        return $this->criteriaTable->getValue();
     }
 }

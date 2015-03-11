@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,9 +21,16 @@ use Broadworks_OCIP\core\Client\Client;
 class AccessDeviceEndpointKey extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointKey';
-    public    $name = __CLASS__;
+    public    $name         = 'AccessDeviceEndpointKey';
+    protected $accessDevice = null;
+    protected $linePort     = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $accessDevice,
+         $linePort
+    ) {
+        $this->setAccessDevice($accessDevice);
+        $this->setLinePort($linePort);
     }
 
     /**
@@ -32,5 +39,45 @@ class AccessDeviceEndpointKey extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setAccessDevice($accessDevice = null)
+    {
+        if (!$accessDevice) return $this;
+        $this->accessDevice = new SimpleContent($accessDevice);
+        $this->accessDevice->setName('accessDevice');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getAccessDevice()
+    {
+        return $this->accessDevice->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setLinePort($linePort = null)
+    {
+        if (!$linePort) return $this;
+        $this->linePort = new SimpleContent($linePort);
+        $this->linePort->setName('linePort');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getLinePort()
+    {
+        return $this->linePort->getValue();
     }
 }

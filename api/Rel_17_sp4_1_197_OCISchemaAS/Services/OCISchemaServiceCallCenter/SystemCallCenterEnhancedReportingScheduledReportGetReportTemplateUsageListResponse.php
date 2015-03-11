@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse';
     protected $scheduleReportTable = null;
 
     /**
@@ -41,14 +40,17 @@ class SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageList
      */
     public function setScheduleReportTable(core:OCITable $scheduleReportTable = null)
     {
-        $this->scheduleReportTable =  $scheduleReportTable;
+        if (!$scheduleReportTable) return $this;
+        $this->scheduleReportTable->setName('scheduleReportTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getScheduleReportTable()
     {
-        return (!$this->scheduleReportTable) ?: $this->scheduleReportTable->getValue();
+        return $this->scheduleReportTable->getValue();
     }
 }

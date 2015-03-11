@@ -5,13 +5,13 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePushToTalk; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk\PushToTalkOutgoingConnectionSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk\PushToTalkAccessListSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePushToTalk\UserPushToTalkModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
+    public    $name                        = 'UserPushToTalkModifyRequest';
     protected $userId                      = null;
     protected $allowAutoAnswer             = null;
     protected $outgoingConnectionSelection = null;
@@ -36,7 +36,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
          $allowAutoAnswer = null,
          $outgoingConnectionSelection = null,
          $accessListSelection = null,
-          $selectedUserIdList = null
+         ReplacementUserIdList $selectedUserIdList = null
     ) {
         $this->setUserId($userId);
         $this->setAllowAutoAnswer($allowAutoAnswer);
@@ -46,7 +46,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return UserPushToTalkModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,29 +54,25 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
@@ -84,68 +80,82 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setAllowAutoAnswer($allowAutoAnswer = null)
     {
-        $this->allowAutoAnswer = (boolean) $allowAutoAnswer;
+        if (!$allowAutoAnswer) return $this;
+        $this->allowAutoAnswer = new PrimitiveType($allowAutoAnswer);
+        $this->allowAutoAnswer->setName('allowAutoAnswer');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowAutoAnswer()
+    {
+        return $this->allowAutoAnswer->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowAutoAnswer()
-    {
-        return (!$this->allowAutoAnswer) ?: $this->allowAutoAnswer;
-    }
-
-    /**
-     * Push to talk outgoing connection type.
-     */
     public function setOutgoingConnectionSelection($outgoingConnectionSelection = null)
     {
+        if (!$outgoingConnectionSelection) return $this;
         $this->outgoingConnectionSelection = ($outgoingConnectionSelection InstanceOf PushToTalkOutgoingConnectionSelection)
              ? $outgoingConnectionSelection
              : new PushToTalkOutgoingConnectionSelection($outgoingConnectionSelection);
+        $this->outgoingConnectionSelection->setName('outgoingConnectionSelection');
+        return $this;
     }
 
     /**
-     * Push to talk outgoing connection type.
+     * 
+     * @return PushToTalkOutgoingConnectionSelection
      */
     public function getOutgoingConnectionSelection()
     {
-        return (!$this->outgoingConnectionSelection) ?: $this->outgoingConnectionSelection->getValue();
+        return $this->outgoingConnectionSelection->getValue();
     }
 
     /**
-     * Push to talk access list.
+     * 
      */
     public function setAccessListSelection($accessListSelection = null)
     {
+        if (!$accessListSelection) return $this;
         $this->accessListSelection = ($accessListSelection InstanceOf PushToTalkAccessListSelection)
              ? $accessListSelection
              : new PushToTalkAccessListSelection($accessListSelection);
+        $this->accessListSelection->setName('accessListSelection');
+        return $this;
     }
 
     /**
-     * Push to talk access list.
+     * 
+     * @return PushToTalkAccessListSelection
      */
     public function getAccessListSelection()
     {
-        return (!$this->accessListSelection) ?: $this->accessListSelection->getValue();
+        return $this->accessListSelection->getValue();
     }
 
     /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
      */
     public function setSelectedUserIdList(ReplacementUserIdList $selectedUserIdList = null)
     {
-        $this->selectedUserIdList =  $selectedUserIdList;
+        if (!$selectedUserIdList) return $this;
+        $this->selectedUserIdList = $selectedUserIdList;
+        $this->selectedUserIdList->setName('selectedUserIdList');
+        return $this;
     }
 
     /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementUserIdList
      */
     public function getSelectedUserIdList()
     {
-        return (!$this->selectedUserIdList) ?: $this->selectedUserIdList->getValue();
+        return $this->selectedUserIdList;
     }
 }

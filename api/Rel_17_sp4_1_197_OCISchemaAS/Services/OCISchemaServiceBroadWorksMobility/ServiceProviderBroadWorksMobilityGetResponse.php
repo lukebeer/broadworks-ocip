@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\BroadWorksMobilityServiceProviderSettingLevel;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\ServiceProviderBroadWorksMobilityGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'ServiceProviderBroadWorksMobilityGetResponse';
     protected $useSettingLevel           = null;
     protected $enableLocationServices    = null;
     protected $enableMSRNLookup          = null;
@@ -37,21 +37,25 @@ class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implement
     }
 
     /**
-     * BroadWorks Mobility setting for the service provider level.
+     * 
      */
     public function setUseSettingLevel($useSettingLevel = null)
     {
+        if (!$useSettingLevel) return $this;
         $this->useSettingLevel = ($useSettingLevel InstanceOf BroadWorksMobilityServiceProviderSettingLevel)
              ? $useSettingLevel
              : new BroadWorksMobilityServiceProviderSettingLevel($useSettingLevel);
+        $this->useSettingLevel->setName('useSettingLevel');
+        return $this;
     }
 
     /**
-     * BroadWorks Mobility setting for the service provider level.
+     * 
+     * @return BroadWorksMobilityServiceProviderSettingLevel
      */
     public function getUseSettingLevel()
     {
-        return (!$this->useSettingLevel) ?: $this->useSettingLevel->getValue();
+        return $this->useSettingLevel->getValue();
     }
 
     /**
@@ -59,15 +63,19 @@ class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implement
      */
     public function setEnableLocationServices($enableLocationServices = null)
     {
-        $this->enableLocationServices = (boolean) $enableLocationServices;
+        if (!$enableLocationServices) return $this;
+        $this->enableLocationServices = new PrimitiveType($enableLocationServices);
+        $this->enableLocationServices->setName('enableLocationServices');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableLocationServices()
     {
-        return (!$this->enableLocationServices) ?: $this->enableLocationServices;
+        return $this->enableLocationServices->getValue();
     }
 
     /**
@@ -75,15 +83,19 @@ class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implement
      */
     public function setEnableMSRNLookup($enableMSRNLookup = null)
     {
-        $this->enableMSRNLookup = (boolean) $enableMSRNLookup;
+        if (!$enableMSRNLookup) return $this;
+        $this->enableMSRNLookup = new PrimitiveType($enableMSRNLookup);
+        $this->enableMSRNLookup->setName('enableMSRNLookup');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableMSRNLookup()
     {
-        return (!$this->enableMSRNLookup) ?: $this->enableMSRNLookup;
+        return $this->enableMSRNLookup->getValue();
     }
 
     /**
@@ -91,15 +103,19 @@ class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implement
      */
     public function setEnableMobileStateChecking($enableMobileStateChecking = null)
     {
-        $this->enableMobileStateChecking = (boolean) $enableMobileStateChecking;
+        if (!$enableMobileStateChecking) return $this;
+        $this->enableMobileStateChecking = new PrimitiveType($enableMobileStateChecking);
+        $this->enableMobileStateChecking->setName('enableMobileStateChecking');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableMobileStateChecking()
     {
-        return (!$this->enableMobileStateChecking) ?: $this->enableMobileStateChecking;
+        return $this->enableMobileStateChecking->getValue();
     }
 
     /**
@@ -107,15 +123,19 @@ class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implement
      */
     public function setDenyCallOriginations($denyCallOriginations = null)
     {
-        $this->denyCallOriginations = (boolean) $denyCallOriginations;
+        if (!$denyCallOriginations) return $this;
+        $this->denyCallOriginations = new PrimitiveType($denyCallOriginations);
+        $this->denyCallOriginations->setName('denyCallOriginations');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDenyCallOriginations()
     {
-        return (!$this->denyCallOriginations) ?: $this->denyCallOriginations;
+        return $this->denyCallOriginations->getValue();
     }
 
     /**
@@ -123,14 +143,18 @@ class ServiceProviderBroadWorksMobilityGetResponse extends ComplexType implement
      */
     public function setDenyCallTerminations($denyCallTerminations = null)
     {
-        $this->denyCallTerminations = (boolean) $denyCallTerminations;
+        if (!$denyCallTerminations) return $this;
+        $this->denyCallTerminations = new PrimitiveType($denyCallTerminations);
+        $this->denyCallTerminations->setName('denyCallTerminations');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDenyCallTerminations()
     {
-        return (!$this->denyCallTerminations) ?: $this->denyCallTerminations;
+        return $this->denyCallTerminations->getValue();
     }
 }

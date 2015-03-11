@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetResponse14sp9;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'GroupTrunkGroupGetResponse14sp9';
     protected $maxActiveCalls                  = null;
     protected $maxAvailableActiveCalls         = null;
     protected $burstingMaxActiveCalls          = null;
@@ -40,62 +40,78 @@ class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInte
      */
     public function setMaxActiveCalls($maxActiveCalls = null)
     {
-        $this->maxActiveCalls = (int) $maxActiveCalls;
+        if (!$maxActiveCalls) return $this;
+        $this->maxActiveCalls = new PrimitiveType($maxActiveCalls);
+        $this->maxActiveCalls->setName('maxActiveCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:int
+     */
+    public function getMaxActiveCalls()
+    {
+        return $this->maxActiveCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getMaxActiveCalls()
-    {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls;
-    }
-
-    /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
-     */
     public function setMaxAvailableActiveCalls(UnboundedNonNegativeInt $maxAvailableActiveCalls = null)
     {
-        $this->maxAvailableActiveCalls =  $maxAvailableActiveCalls;
+        if (!$maxAvailableActiveCalls) return $this;
+        $this->maxAvailableActiveCalls = $maxAvailableActiveCalls;
+        $this->maxAvailableActiveCalls->setName('maxAvailableActiveCalls');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
+     * @return UnboundedNonNegativeInt
      */
     public function getMaxAvailableActiveCalls()
     {
-        return (!$this->maxAvailableActiveCalls) ?: $this->maxAvailableActiveCalls->getValue();
+        return $this->maxAvailableActiveCalls;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
      */
     public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
-        $this->burstingMaxActiveCalls =  $burstingMaxActiveCalls;
+        if (!$burstingMaxActiveCalls) return $this;
+        $this->burstingMaxActiveCalls = $burstingMaxActiveCalls;
+        $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
+     * @return UnboundedNonNegativeInt
      */
     public function getBurstingMaxActiveCalls()
     {
-        return (!$this->burstingMaxActiveCalls) ?: $this->burstingMaxActiveCalls->getValue();
+        return $this->burstingMaxActiveCalls;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
      */
     public function setBurstingMaxAvailableActiveCalls(UnboundedNonNegativeInt $burstingMaxAvailableActiveCalls = null)
     {
-        $this->burstingMaxAvailableActiveCalls =  $burstingMaxAvailableActiveCalls;
+        if (!$burstingMaxAvailableActiveCalls) return $this;
+        $this->burstingMaxAvailableActiveCalls = $burstingMaxAvailableActiveCalls;
+        $this->burstingMaxAvailableActiveCalls->setName('burstingMaxAvailableActiveCalls');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
+     * @return UnboundedNonNegativeInt
      */
     public function getBurstingMaxAvailableActiveCalls()
     {
-        return (!$this->burstingMaxAvailableActiveCalls) ?: $this->burstingMaxAvailableActiveCalls->getValue();
+        return $this->burstingMaxAvailableActiveCalls;
     }
 }

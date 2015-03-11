@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse';
     protected $defaultCountryCode = null;
     protected $countryCode        = null;
 
@@ -34,38 +33,46 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
     }
 
     /**
-     * Country dialing code.
+     * 
      */
     public function setDefaultCountryCode($defaultCountryCode = null)
     {
+        if (!$defaultCountryCode) return $this;
         $this->defaultCountryCode = ($defaultCountryCode InstanceOf CountryCode)
              ? $defaultCountryCode
              : new CountryCode($defaultCountryCode);
+        $this->defaultCountryCode->setName('defaultCountryCode');
+        return $this;
     }
 
     /**
-     * Country dialing code.
+     * 
+     * @return CountryCode
      */
     public function getDefaultCountryCode()
     {
-        return (!$this->defaultCountryCode) ?: $this->defaultCountryCode->getValue();
+        return $this->defaultCountryCode->getValue();
     }
 
     /**
-     * Country dialing code.
+     * 
      */
     public function setCountryCode($countryCode = null)
     {
+        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
+        $this->countryCode->setName('countryCode');
+        return $this;
     }
 
     /**
-     * Country dialing code.
+     * 
+     * @return CountryCode
      */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->getValue();
+        return $this->countryCode->getValue();
     }
 }

@@ -5,12 +5,13 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInventoryReport; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,8 +24,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInventoryReportGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse';
-    public    $name                       = __CLASS__;
+    public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse';
+    public    $name                       = 'GroupInventoryReportGetRequest';
     protected $serviceProviderId          = null;
     protected $groupId                    = null;
     protected $includeUsers               = null;
@@ -63,43 +64,47 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
@@ -107,15 +112,19 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setIncludeUsers($includeUsers = null)
     {
-        $this->includeUsers = (boolean) $includeUsers;
+        if (!$includeUsers) return $this;
+        $this->includeUsers = new PrimitiveType($includeUsers);
+        $this->includeUsers->setName('includeUsers');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeUsers()
     {
-        return (!$this->includeUsers) ?: $this->includeUsers;
+        return $this->includeUsers->getValue();
     }
 
     /**
@@ -123,15 +132,19 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setIncludeServices($includeServices = null)
     {
-        $this->includeServices = (boolean) $includeServices;
+        if (!$includeServices) return $this;
+        $this->includeServices = new PrimitiveType($includeServices);
+        $this->includeServices->setName('includeServices');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeServices()
     {
-        return (!$this->includeServices) ?: $this->includeServices;
+        return $this->includeServices->getValue();
     }
 
     /**
@@ -139,15 +152,19 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setIncludeDns($includeDns = null)
     {
-        $this->includeDns = (boolean) $includeDns;
+        if (!$includeDns) return $this;
+        $this->includeDns = new PrimitiveType($includeDns);
+        $this->includeDns->setName('includeDns');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeDns()
     {
-        return (!$this->includeDns) ?: $this->includeDns;
+        return $this->includeDns->getValue();
     }
 
     /**
@@ -155,15 +172,19 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setIncludeAccessDevices($includeAccessDevices = null)
     {
-        $this->includeAccessDevices = (boolean) $includeAccessDevices;
+        if (!$includeAccessDevices) return $this;
+        $this->includeAccessDevices = new PrimitiveType($includeAccessDevices);
+        $this->includeAccessDevices->setName('includeAccessDevices');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeAccessDevices()
     {
-        return (!$this->includeAccessDevices) ?: $this->includeAccessDevices;
+        return $this->includeAccessDevices->getValue();
     }
 
     /**
@@ -171,32 +192,40 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setIncludeDepartments($includeDepartments = null)
     {
-        $this->includeDepartments = (boolean) $includeDepartments;
+        if (!$includeDepartments) return $this;
+        $this->includeDepartments = new PrimitiveType($includeDepartments);
+        $this->includeDepartments->setName('includeDepartments');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIncludeDepartments()
+    {
+        return $this->includeDepartments->getValue();
     }
 
     /**
      * 
      */
-    public function getIncludeDepartments()
-    {
-        return (!$this->includeDepartments) ?: $this->includeDepartments;
-    }
-
-    /**
-     * Email Address
-     */
     public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress = null)
     {
+        if (!$reportDeliveryEmailAddress) return $this;
         $this->reportDeliveryEmailAddress = ($reportDeliveryEmailAddress InstanceOf EmailAddress)
              ? $reportDeliveryEmailAddress
              : new EmailAddress($reportDeliveryEmailAddress);
+        $this->reportDeliveryEmailAddress->setName('reportDeliveryEmailAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getReportDeliveryEmailAddress()
     {
-        return (!$this->reportDeliveryEmailAddress) ?: $this->reportDeliveryEmailAddress->getValue();
+        return $this->reportDeliveryEmailAddress->getValue();
     }
 }

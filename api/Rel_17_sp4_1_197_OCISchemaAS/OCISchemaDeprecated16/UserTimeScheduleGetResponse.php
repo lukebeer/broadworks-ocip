@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\TimeInterval;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserTimeScheduleGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserTimeScheduleGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'UserTimeScheduleGetResponse';
     protected $timeScheduleName = null;
     protected $timeInterval01   = null;
     protected $timeInterval02   = null;
@@ -54,340 +53,424 @@ class UserTimeScheduleGetResponse extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * Schedule name.
+     * 
      */
     public function setTimeScheduleName($timeScheduleName = null)
     {
+        if (!$timeScheduleName) return $this;
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
              ? $timeScheduleName
              : new ScheduleName($timeScheduleName);
+        $this->timeScheduleName->setName('timeScheduleName');
+        return $this;
     }
 
     /**
-     * Schedule name.
+     * 
+     * @return ScheduleName
      */
     public function getTimeScheduleName()
     {
-        return (!$this->timeScheduleName) ?: $this->timeScheduleName->getValue();
+        return $this->timeScheduleName->getValue();
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval01(TimeInterval $timeInterval01 = null)
     {
-        $this->timeInterval01 =  $timeInterval01;
+        if (!$timeInterval01) return $this;
+        $this->timeInterval01 = $timeInterval01;
+        $this->timeInterval01->setName('timeInterval01');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval01()
     {
-        return (!$this->timeInterval01) ?: $this->timeInterval01->getValue();
+        return $this->timeInterval01;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval02(TimeInterval $timeInterval02 = null)
     {
-        $this->timeInterval02 =  $timeInterval02;
+        if (!$timeInterval02) return $this;
+        $this->timeInterval02 = $timeInterval02;
+        $this->timeInterval02->setName('timeInterval02');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval02()
     {
-        return (!$this->timeInterval02) ?: $this->timeInterval02->getValue();
+        return $this->timeInterval02;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval03(TimeInterval $timeInterval03 = null)
     {
-        $this->timeInterval03 =  $timeInterval03;
+        if (!$timeInterval03) return $this;
+        $this->timeInterval03 = $timeInterval03;
+        $this->timeInterval03->setName('timeInterval03');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval03()
     {
-        return (!$this->timeInterval03) ?: $this->timeInterval03->getValue();
+        return $this->timeInterval03;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval04(TimeInterval $timeInterval04 = null)
     {
-        $this->timeInterval04 =  $timeInterval04;
+        if (!$timeInterval04) return $this;
+        $this->timeInterval04 = $timeInterval04;
+        $this->timeInterval04->setName('timeInterval04');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval04()
     {
-        return (!$this->timeInterval04) ?: $this->timeInterval04->getValue();
+        return $this->timeInterval04;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval05(TimeInterval $timeInterval05 = null)
     {
-        $this->timeInterval05 =  $timeInterval05;
+        if (!$timeInterval05) return $this;
+        $this->timeInterval05 = $timeInterval05;
+        $this->timeInterval05->setName('timeInterval05');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval05()
     {
-        return (!$this->timeInterval05) ?: $this->timeInterval05->getValue();
+        return $this->timeInterval05;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval06(TimeInterval $timeInterval06 = null)
     {
-        $this->timeInterval06 =  $timeInterval06;
+        if (!$timeInterval06) return $this;
+        $this->timeInterval06 = $timeInterval06;
+        $this->timeInterval06->setName('timeInterval06');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval06()
     {
-        return (!$this->timeInterval06) ?: $this->timeInterval06->getValue();
+        return $this->timeInterval06;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval07(TimeInterval $timeInterval07 = null)
     {
-        $this->timeInterval07 =  $timeInterval07;
+        if (!$timeInterval07) return $this;
+        $this->timeInterval07 = $timeInterval07;
+        $this->timeInterval07->setName('timeInterval07');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval07()
     {
-        return (!$this->timeInterval07) ?: $this->timeInterval07->getValue();
+        return $this->timeInterval07;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval08(TimeInterval $timeInterval08 = null)
     {
-        $this->timeInterval08 =  $timeInterval08;
+        if (!$timeInterval08) return $this;
+        $this->timeInterval08 = $timeInterval08;
+        $this->timeInterval08->setName('timeInterval08');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval08()
     {
-        return (!$this->timeInterval08) ?: $this->timeInterval08->getValue();
+        return $this->timeInterval08;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval09(TimeInterval $timeInterval09 = null)
     {
-        $this->timeInterval09 =  $timeInterval09;
+        if (!$timeInterval09) return $this;
+        $this->timeInterval09 = $timeInterval09;
+        $this->timeInterval09->setName('timeInterval09');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval09()
     {
-        return (!$this->timeInterval09) ?: $this->timeInterval09->getValue();
+        return $this->timeInterval09;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval10(TimeInterval $timeInterval10 = null)
     {
-        $this->timeInterval10 =  $timeInterval10;
+        if (!$timeInterval10) return $this;
+        $this->timeInterval10 = $timeInterval10;
+        $this->timeInterval10->setName('timeInterval10');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval10()
     {
-        return (!$this->timeInterval10) ?: $this->timeInterval10->getValue();
+        return $this->timeInterval10;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval11(TimeInterval $timeInterval11 = null)
     {
-        $this->timeInterval11 =  $timeInterval11;
+        if (!$timeInterval11) return $this;
+        $this->timeInterval11 = $timeInterval11;
+        $this->timeInterval11->setName('timeInterval11');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval11()
     {
-        return (!$this->timeInterval11) ?: $this->timeInterval11->getValue();
+        return $this->timeInterval11;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval12(TimeInterval $timeInterval12 = null)
     {
-        $this->timeInterval12 =  $timeInterval12;
+        if (!$timeInterval12) return $this;
+        $this->timeInterval12 = $timeInterval12;
+        $this->timeInterval12->setName('timeInterval12');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval12()
     {
-        return (!$this->timeInterval12) ?: $this->timeInterval12->getValue();
+        return $this->timeInterval12;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval13(TimeInterval $timeInterval13 = null)
     {
-        $this->timeInterval13 =  $timeInterval13;
+        if (!$timeInterval13) return $this;
+        $this->timeInterval13 = $timeInterval13;
+        $this->timeInterval13->setName('timeInterval13');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval13()
     {
-        return (!$this->timeInterval13) ?: $this->timeInterval13->getValue();
+        return $this->timeInterval13;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval14(TimeInterval $timeInterval14 = null)
     {
-        $this->timeInterval14 =  $timeInterval14;
+        if (!$timeInterval14) return $this;
+        $this->timeInterval14 = $timeInterval14;
+        $this->timeInterval14->setName('timeInterval14');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval14()
     {
-        return (!$this->timeInterval14) ?: $this->timeInterval14->getValue();
+        return $this->timeInterval14;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval15(TimeInterval $timeInterval15 = null)
     {
-        $this->timeInterval15 =  $timeInterval15;
+        if (!$timeInterval15) return $this;
+        $this->timeInterval15 = $timeInterval15;
+        $this->timeInterval15->setName('timeInterval15');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval15()
     {
-        return (!$this->timeInterval15) ?: $this->timeInterval15->getValue();
+        return $this->timeInterval15;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval16(TimeInterval $timeInterval16 = null)
     {
-        $this->timeInterval16 =  $timeInterval16;
+        if (!$timeInterval16) return $this;
+        $this->timeInterval16 = $timeInterval16;
+        $this->timeInterval16->setName('timeInterval16');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval16()
     {
-        return (!$this->timeInterval16) ?: $this->timeInterval16->getValue();
+        return $this->timeInterval16;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval17(TimeInterval $timeInterval17 = null)
     {
-        $this->timeInterval17 =  $timeInterval17;
+        if (!$timeInterval17) return $this;
+        $this->timeInterval17 = $timeInterval17;
+        $this->timeInterval17->setName('timeInterval17');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval17()
     {
-        return (!$this->timeInterval17) ?: $this->timeInterval17->getValue();
+        return $this->timeInterval17;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval18(TimeInterval $timeInterval18 = null)
     {
-        $this->timeInterval18 =  $timeInterval18;
+        if (!$timeInterval18) return $this;
+        $this->timeInterval18 = $timeInterval18;
+        $this->timeInterval18->setName('timeInterval18');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval18()
     {
-        return (!$this->timeInterval18) ?: $this->timeInterval18->getValue();
+        return $this->timeInterval18;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval19(TimeInterval $timeInterval19 = null)
     {
-        $this->timeInterval19 =  $timeInterval19;
+        if (!$timeInterval19) return $this;
+        $this->timeInterval19 = $timeInterval19;
+        $this->timeInterval19->setName('timeInterval19');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval19()
     {
-        return (!$this->timeInterval19) ?: $this->timeInterval19->getValue();
+        return $this->timeInterval19;
     }
 
     /**
-     * Time Interval.
+     * 
      */
     public function setTimeInterval20(TimeInterval $timeInterval20 = null)
     {
-        $this->timeInterval20 =  $timeInterval20;
+        if (!$timeInterval20) return $this;
+        $this->timeInterval20 = $timeInterval20;
+        $this->timeInterval20->setName('timeInterval20');
+        return $this;
     }
 
     /**
-     * Time Interval.
+     * 
+     * @return TimeInterval
      */
     public function getTimeInterval20()
     {
-        return (!$this->timeInterval20) ?: $this->timeInterval20->getValue();
+        return $this->timeInterval20;
     }
 }

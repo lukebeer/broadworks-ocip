@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkProgressionWaitPeriodSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkProgressionModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkProgressionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'SystemNetworkProgressionModifyRequest';
     protected $isActive          = null;
     protected $waitPeriodSeconds = null;
 
@@ -34,7 +34,7 @@ class SystemNetworkProgressionModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return SystemNetworkProgressionModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,32 +46,40 @@ class SystemNetworkProgressionModifyRequest extends ComplexType implements Compl
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Network progression wait period in seconds.
-     */
     public function setWaitPeriodSeconds($waitPeriodSeconds = null)
     {
+        if (!$waitPeriodSeconds) return $this;
         $this->waitPeriodSeconds = ($waitPeriodSeconds InstanceOf NetworkProgressionWaitPeriodSeconds)
              ? $waitPeriodSeconds
              : new NetworkProgressionWaitPeriodSeconds($waitPeriodSeconds);
+        $this->waitPeriodSeconds->setName('waitPeriodSeconds');
+        return $this;
     }
 
     /**
-     * Network progression wait period in seconds.
+     * 
+     * @return NetworkProgressionWaitPeriodSeconds
      */
     public function getWaitPeriodSeconds()
     {
-        return (!$this->waitPeriodSeconds) ?: $this->waitPeriodSeconds->getValue();
+        return $this->waitPeriodSeconds->getValue();
     }
 }

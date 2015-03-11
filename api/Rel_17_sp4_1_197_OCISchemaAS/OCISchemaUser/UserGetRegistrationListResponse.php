@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetRegistrationListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -29,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserGetRegistrationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserGetRegistrationListResponse';
     protected $registrationTable = null;
 
     /**
@@ -45,14 +44,17 @@ class UserGetRegistrationListResponse extends ComplexType implements ComplexInte
      */
     public function setRegistrationTable(core:OCITable $registrationTable = null)
     {
-        $this->registrationTable =  $registrationTable;
+        if (!$registrationTable) return $this;
+        $this->registrationTable->setName('registrationTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getRegistrationTable()
     {
-        return (!$this->registrationTable) ?: $this->registrationTable->getValue();
+        return $this->registrationTable->getValue();
     }
 }

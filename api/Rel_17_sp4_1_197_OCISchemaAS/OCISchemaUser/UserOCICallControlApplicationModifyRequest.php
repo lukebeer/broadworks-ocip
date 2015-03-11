@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\ReplacementOCICallControlApplicationIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserOCICallControlApplicationModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,20 +21,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOCICallControlApplicationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserOCICallControlApplicationModifyRequest';
     protected $userId            = null;
     protected $applicationIdList = null;
 
     public function __construct(
          $userId,
-          $applicationIdList = null
+         ReplacementOCICallControlApplicationIdList $applicationIdList = null
     ) {
         $this->setUserId($userId);
         $this->setApplicationIdList($applicationIdList);
     }
 
     /**
-     * @return UserOCICallControlApplicationModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,46 +42,44 @@ class UserOCICallControlApplicationModifyRequest extends ComplexType implements 
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * A list of applicationIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
      */
     public function setApplicationIdList(ReplacementOCICallControlApplicationIdList $applicationIdList = null)
     {
-        $this->applicationIdList =  $applicationIdList;
+        if (!$applicationIdList) return $this;
+        $this->applicationIdList = $applicationIdList;
+        $this->applicationIdList->setName('applicationIdList');
+        return $this;
     }
 
     /**
-     * A list of applicationIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementOCICallControlApplicationIdList
      */
     public function getApplicationIdList()
     {
-        return (!$this->applicationIdList) ?: $this->applicationIdList->getValue();
+        return $this->applicationIdList;
     }
 }

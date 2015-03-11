@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportingServerName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetCallCenterListResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetCallCenterListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,8 +23,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterReportingServerGetCallCenterListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetCallCenterListResponse';
-    public    $name                = __CLASS__;
+    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetCallCenterListResponse';
+    public    $name                = 'SystemCallCenterReportingServerGetCallCenterListRequest';
     protected $reportingServerName = null;
 
     public function __construct(
@@ -42,20 +42,24 @@ class SystemCallCenterReportingServerGetCallCenterListRequest extends ComplexTyp
     }
 
     /**
-     * Call Center Reporting Server Name.
+     * 
      */
     public function setReportingServerName($reportingServerName = null)
     {
+        if (!$reportingServerName) return $this;
         $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
              ? $reportingServerName
              : new CallCenterReportingServerName($reportingServerName);
+        $this->reportingServerName->setName('reportingServerName');
+        return $this;
     }
 
     /**
-     * Call Center Reporting Server Name.
+     * 
+     * @return CallCenterReportingServerName
      */
     public function getReportingServerName()
     {
-        return (!$this->reportingServerName) ?: $this->reportingServerName->getValue();
+        return $this->reportingServerName->getValue();
     }
 }

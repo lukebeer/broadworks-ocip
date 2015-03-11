@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'PrimaryInfoGetResponse';
     protected $isPrimary                = null;
     protected $hostnameForPrimary       = null;
     protected $addressForPrimary        = null;
@@ -37,72 +37,88 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
     }
 
     /**
-     * 
+     * Is the server that processed this request the primary in the cluster?
      */
     public function setIsPrimary($isPrimary = null)
     {
-        $this->isPrimary = (boolean) $isPrimary;
+        if (!$isPrimary) return $this;
+        $this->isPrimary = new PrimitiveType($isPrimary);
+        $this->isPrimary->setName('isPrimary');
+        return $this;
     }
 
     /**
-     * 
+     * Is the server that processed this request the primary in the cluster?
+     * @return xs:boolean
      */
     public function getIsPrimary()
     {
-        return (!$this->isPrimary) ?: $this->isPrimary;
+        return $this->isPrimary->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * Primary server's hostname.
      */
     public function setHostnameForPrimary($hostnameForPrimary = null)
     {
+        if (!$hostnameForPrimary) return $this;
         $this->hostnameForPrimary = ($hostnameForPrimary InstanceOf NetAddress)
              ? $hostnameForPrimary
              : new NetAddress($hostnameForPrimary);
+        $this->hostnameForPrimary->setName('hostnameForPrimary');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * Primary server's hostname.
+     * @return NetAddress
      */
     public function getHostnameForPrimary()
     {
-        return (!$this->hostnameForPrimary) ?: $this->hostnameForPrimary->getValue();
+        return $this->hostnameForPrimary->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * List of addresses for primary server in cluster.
      */
     public function setAddressForPrimary($addressForPrimary = null)
     {
+        if (!$addressForPrimary) return $this;
         $this->addressForPrimary = ($addressForPrimary InstanceOf NetAddress)
              ? $addressForPrimary
              : new NetAddress($addressForPrimary);
+        $this->addressForPrimary->setName('addressForPrimary');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * List of addresses for primary server in cluster.
+     * @return NetAddress
      */
     public function getAddressForPrimary()
     {
-        return (!$this->addressForPrimary) ?: $this->addressForPrimary->getValue();
+        return $this->addressForPrimary->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * List of private addresses for primary server in cluster.
      */
     public function setPrivateAddressForPrimary($privateAddressForPrimary = null)
     {
+        if (!$privateAddressForPrimary) return $this;
         $this->privateAddressForPrimary = ($privateAddressForPrimary InstanceOf NetAddress)
              ? $privateAddressForPrimary
              : new NetAddress($privateAddressForPrimary);
+        $this->privateAddressForPrimary->setName('privateAddressForPrimary');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * List of private addresses for primary server in cluster.
+     * @return NetAddress
      */
     public function getPrivateAddressForPrimary()
     {
-        return (!$this->privateAddressForPrimary) ?: $this->privateAddressForPrimary->getValue();
+        return $this->privateAddressForPrimary->getValue();
     }
 }

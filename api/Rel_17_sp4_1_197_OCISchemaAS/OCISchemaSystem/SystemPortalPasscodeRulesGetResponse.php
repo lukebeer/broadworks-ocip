@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Passcode
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasscodeMaxLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPortalPasscodeRulesGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPortalPasscodeRulesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = __CLASS__;
+    public    $name                                    = 'SystemPortalPasscodeRulesGetResponse';
     protected $disallowRepeatedDigits                  = null;
     protected $disallowUserNumber                      = null;
     protected $disallowReversedUserNumber              = null;
@@ -55,15 +55,19 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
      */
     public function setDisallowRepeatedDigits($disallowRepeatedDigits = null)
     {
-        $this->disallowRepeatedDigits = (boolean) $disallowRepeatedDigits;
+        if (!$disallowRepeatedDigits) return $this;
+        $this->disallowRepeatedDigits = new PrimitiveType($disallowRepeatedDigits);
+        $this->disallowRepeatedDigits->setName('disallowRepeatedDigits');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisallowRepeatedDigits()
     {
-        return (!$this->disallowRepeatedDigits) ?: $this->disallowRepeatedDigits;
+        return $this->disallowRepeatedDigits->getValue();
     }
 
     /**
@@ -71,15 +75,19 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
      */
     public function setDisallowUserNumber($disallowUserNumber = null)
     {
-        $this->disallowUserNumber = (boolean) $disallowUserNumber;
+        if (!$disallowUserNumber) return $this;
+        $this->disallowUserNumber = new PrimitiveType($disallowUserNumber);
+        $this->disallowUserNumber->setName('disallowUserNumber');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisallowUserNumber()
     {
-        return (!$this->disallowUserNumber) ?: $this->disallowUserNumber;
+        return $this->disallowUserNumber->getValue();
     }
 
     /**
@@ -87,15 +95,19 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
      */
     public function setDisallowReversedUserNumber($disallowReversedUserNumber = null)
     {
-        $this->disallowReversedUserNumber = (boolean) $disallowReversedUserNumber;
+        if (!$disallowReversedUserNumber) return $this;
+        $this->disallowReversedUserNumber = new PrimitiveType($disallowReversedUserNumber);
+        $this->disallowReversedUserNumber->setName('disallowReversedUserNumber');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisallowReversedUserNumber()
     {
-        return (!$this->disallowReversedUserNumber) ?: $this->disallowReversedUserNumber;
+        return $this->disallowReversedUserNumber->getValue();
     }
 
     /**
@@ -103,15 +115,19 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
      */
     public function setDisallowOldPasscode($disallowOldPasscode = null)
     {
-        $this->disallowOldPasscode = (boolean) $disallowOldPasscode;
+        if (!$disallowOldPasscode) return $this;
+        $this->disallowOldPasscode = new PrimitiveType($disallowOldPasscode);
+        $this->disallowOldPasscode->setName('disallowOldPasscode');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisallowOldPasscode()
     {
-        return (!$this->disallowOldPasscode) ?: $this->disallowOldPasscode;
+        return $this->disallowOldPasscode->getValue();
     }
 
     /**
@@ -119,51 +135,63 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
      */
     public function setDisallowReversedOldPasscode($disallowReversedOldPasscode = null)
     {
-        $this->disallowReversedOldPasscode = (boolean) $disallowReversedOldPasscode;
+        if (!$disallowReversedOldPasscode) return $this;
+        $this->disallowReversedOldPasscode = new PrimitiveType($disallowReversedOldPasscode);
+        $this->disallowReversedOldPasscode->setName('disallowReversedOldPasscode');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDisallowReversedOldPasscode()
+    {
+        return $this->disallowReversedOldPasscode->getValue();
     }
 
     /**
      * 
      */
-    public function getDisallowReversedOldPasscode()
-    {
-        return (!$this->disallowReversedOldPasscode) ?: $this->disallowReversedOldPasscode;
-    }
-
-    /**
-     * Minimum length of portal passcode.
-     */
     public function setMinCodeLength($minCodeLength = null)
     {
+        if (!$minCodeLength) return $this;
         $this->minCodeLength = ($minCodeLength InstanceOf PasscodeMinLength)
              ? $minCodeLength
              : new PasscodeMinLength($minCodeLength);
+        $this->minCodeLength->setName('minCodeLength');
+        return $this;
     }
 
     /**
-     * Minimum length of portal passcode.
+     * 
+     * @return PasscodeMinLength
      */
     public function getMinCodeLength()
     {
-        return (!$this->minCodeLength) ?: $this->minCodeLength->getValue();
+        return $this->minCodeLength->getValue();
     }
 
     /**
-     * Maximum length of portal passcode.
+     * 
      */
     public function setMaxCodeLength($maxCodeLength = null)
     {
+        if (!$maxCodeLength) return $this;
         $this->maxCodeLength = ($maxCodeLength InstanceOf PasscodeMaxLength)
              ? $maxCodeLength
              : new PasscodeMaxLength($maxCodeLength);
+        $this->maxCodeLength->setName('maxCodeLength');
+        return $this;
     }
 
     /**
-     * Maximum length of portal passcode.
+     * 
+     * @return PasscodeMaxLength
      */
     public function getMaxCodeLength()
     {
-        return (!$this->maxCodeLength) ?: $this->maxCodeLength->getValue();
+        return $this->maxCodeLength->getValue();
     }
 
     /**
@@ -171,33 +199,41 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
      */
     public function setDisableLoginAfterMaxFailedLoginAttempts($disableLoginAfterMaxFailedLoginAttempts = null)
     {
-        $this->disableLoginAfterMaxFailedLoginAttempts = (boolean) $disableLoginAfterMaxFailedLoginAttempts;
+        if (!$disableLoginAfterMaxFailedLoginAttempts) return $this;
+        $this->disableLoginAfterMaxFailedLoginAttempts = new PrimitiveType($disableLoginAfterMaxFailedLoginAttempts);
+        $this->disableLoginAfterMaxFailedLoginAttempts->setName('disableLoginAfterMaxFailedLoginAttempts');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDisableLoginAfterMaxFailedLoginAttempts()
+    {
+        return $this->disableLoginAfterMaxFailedLoginAttempts->getValue();
     }
 
     /**
      * 
      */
-    public function getDisableLoginAfterMaxFailedLoginAttempts()
-    {
-        return (!$this->disableLoginAfterMaxFailedLoginAttempts) ?: $this->disableLoginAfterMaxFailedLoginAttempts;
-    }
-
-    /**
-     * Maximum allowed portal failed login attempts.
-     */
     public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
+        if (!$maxFailedLoginAttempts) return $this;
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf PortalMaxFailedLoginAttempts)
              ? $maxFailedLoginAttempts
              : new PortalMaxFailedLoginAttempts($maxFailedLoginAttempts);
+        $this->maxFailedLoginAttempts->setName('maxFailedLoginAttempts');
+        return $this;
     }
 
     /**
-     * Maximum allowed portal failed login attempts.
+     * 
+     * @return PortalMaxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
-        return (!$this->maxFailedLoginAttempts) ?: $this->maxFailedLoginAttempts->getValue();
+        return $this->maxFailedLoginAttempts->getValue();
     }
 
     /**
@@ -205,33 +241,41 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
      */
     public function setExpirePassword($expirePassword = null)
     {
-        $this->expirePassword = (boolean) $expirePassword;
+        if (!$expirePassword) return $this;
+        $this->expirePassword = new PrimitiveType($expirePassword);
+        $this->expirePassword->setName('expirePassword');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getExpirePassword()
+    {
+        return $this->expirePassword->getValue();
     }
 
     /**
      * 
      */
-    public function getExpirePassword()
-    {
-        return (!$this->expirePassword) ?: $this->expirePassword;
-    }
-
-    /**
-     * Portal passcode expiration days.
-     */
     public function setPasscodeExpiresDays($passcodeExpiresDays = null)
     {
+        if (!$passcodeExpiresDays) return $this;
         $this->passcodeExpiresDays = ($passcodeExpiresDays InstanceOf PasscodeExpiresDays)
              ? $passcodeExpiresDays
              : new PasscodeExpiresDays($passcodeExpiresDays);
+        $this->passcodeExpiresDays->setName('passcodeExpiresDays');
+        return $this;
     }
 
     /**
-     * Portal passcode expiration days.
+     * 
+     * @return PasscodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
-        return (!$this->passcodeExpiresDays) ?: $this->passcodeExpiresDays->getValue();
+        return $this->passcodeExpiresDays->getValue();
     }
 
     /**
@@ -239,33 +283,41 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
      */
     public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail = null)
     {
-        $this->sendLoginDisabledNotifyEmail = (boolean) $sendLoginDisabledNotifyEmail;
+        if (!$sendLoginDisabledNotifyEmail) return $this;
+        $this->sendLoginDisabledNotifyEmail = new PrimitiveType($sendLoginDisabledNotifyEmail);
+        $this->sendLoginDisabledNotifyEmail->setName('sendLoginDisabledNotifyEmail');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSendLoginDisabledNotifyEmail()
+    {
+        return $this->sendLoginDisabledNotifyEmail->getValue();
     }
 
     /**
      * 
      */
-    public function getSendLoginDisabledNotifyEmail()
-    {
-        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail;
-    }
-
-    /**
-     * Email Address
-     */
     public function setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress = null)
     {
+        if (!$loginDisabledNotifyEmailAddress) return $this;
         $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
              ? $loginDisabledNotifyEmailAddress
              : new EmailAddress($loginDisabledNotifyEmailAddress);
+        $this->loginDisabledNotifyEmailAddress->setName('loginDisabledNotifyEmailAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
-        return (!$this->loginDisabledNotifyEmailAddress) ?: $this->loginDisabledNotifyEmailAddress->getValue();
+        return $this->loginDisabledNotifyEmailAddress->getValue();
     }
 
     /**
@@ -273,16 +325,20 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
      */
     public function setDefaultPassword($defaultPassword = null)
     {
+        if (!$defaultPassword) return $this;
         $this->defaultPassword = ($defaultPassword InstanceOf Password)
              ? $defaultPassword
              : new Password($defaultPassword);
+        $this->defaultPassword->setName('defaultPassword');
+        return $this;
     }
 
     /**
      * 
+     * @return Password
      */
     public function getDefaultPassword()
     {
-        return (!$this->defaultPassword) ?: $this->defaultPassword->getValue();
+        return $this->defaultPassword->getValue();
     }
 }

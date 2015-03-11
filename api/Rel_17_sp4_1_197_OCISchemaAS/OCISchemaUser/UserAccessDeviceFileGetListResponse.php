@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceFileGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAccessDeviceFileGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'UserAccessDeviceFileGetListResponse';
     protected $deviceFilesTable = null;
 
     /**
@@ -38,14 +37,17 @@ class UserAccessDeviceFileGetListResponse extends ComplexType implements Complex
      */
     public function setDeviceFilesTable(core:OCITable $deviceFilesTable = null)
     {
-        $this->deviceFilesTable =  $deviceFilesTable;
+        if (!$deviceFilesTable) return $this;
+        $this->deviceFilesTable->setName('deviceFilesTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDeviceFilesTable()
     {
-        return (!$this->deviceFilesTable) ?: $this->deviceFilesTable->getValue();
+        return $this->deviceFilesTable->getValue();
     }
 }

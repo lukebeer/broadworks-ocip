@@ -14,7 +14,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Dialable
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDPrefixDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialableCallerIDCriteriaAddResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
+    public    $name                        = 'GroupDialableCallerIDCriteriaAddRequest';
     protected $serviceProviderId           = null;
     protected $groupId                     = null;
     protected $name                        = null;
@@ -78,7 +78,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
     }
 
     /**
-     * @return GroupDialableCallerIDCriteriaAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -86,135 +86,157 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Dialable Caller ID Criteria name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
              ? $name
              : new DialableCallerIDCriteriaName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Dialable Caller ID Criteria name.
+     * 
+     * @return DialableCallerIDCriteriaName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * Dialable Caller ID Criteria description.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf DialableCallerIDCriteriaDescription)
              ? $description
              : new DialableCallerIDCriteriaDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Dialable Caller ID Criteria description.
+     * 
+     * @return DialableCallerIDCriteriaDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 
     /**
-     * Digits that are prepended to the incoming Caller ID of public calls, so that the Caller ID is presented in dialable format.
-     *         The digit pattern may contain digits 0-9, *, #.
+     * 
      */
     public function setPrefixDigits($prefixDigits = null)
     {
+        if (!$prefixDigits) return $this;
         $this->prefixDigits = ($prefixDigits InstanceOf DialableCallerIDPrefixDigits)
              ? $prefixDigits
              : new DialableCallerIDPrefixDigits($prefixDigits);
+        $this->prefixDigits->setName('prefixDigits');
+        return $this;
     }
 
     /**
-     * Digits that are prepended to the incoming Caller ID of public calls, so that the Caller ID is presented in dialable format.
-     *         The digit pattern may contain digits 0-9, *, #.
+     * 
+     * @return DialableCallerIDPrefixDigits
      */
     public function getPrefixDigits()
     {
-        return (!$this->prefixDigits) ?: $this->prefixDigits->getValue();
+        return $this->prefixDigits->getValue();
     }
 
     /**
-     * Communication Barring Call Type.
+     * 
      */
     public function setMatchCallType($matchCallType = null)
     {
+        if (!$matchCallType) return $this;
         $this->matchCallType = ($matchCallType InstanceOf CommunicationBarringCallType)
              ? $matchCallType
              : new CommunicationBarringCallType($matchCallType);
+        $this->matchCallType->setName('matchCallType');
+        return $this;
     }
 
     /**
-     * Communication Barring Call Type.
+     * 
+     * @return CommunicationBarringCallType
      */
     public function getMatchCallType()
     {
-        return (!$this->matchCallType) ?: $this->matchCallType->getValue();
+        return $this->matchCallType->getValue();
     }
 
     /**
-     * Communication Barring Alternate Call Indicator.
+     * 
      */
     public function setMatchAlternateCallIndicator($matchAlternateCallIndicator = null)
     {
+        if (!$matchAlternateCallIndicator) return $this;
         $this->matchAlternateCallIndicator = ($matchAlternateCallIndicator InstanceOf CommunicationBarringAlternateCallIndicator)
              ? $matchAlternateCallIndicator
              : new CommunicationBarringAlternateCallIndicator($matchAlternateCallIndicator);
+        $this->matchAlternateCallIndicator->setName('matchAlternateCallIndicator');
+        return $this;
     }
 
     /**
-     * Communication Barring Alternate Call Indicator.
+     * 
+     * @return CommunicationBarringAlternateCallIndicator
      */
     public function getMatchAlternateCallIndicator()
     {
-        return (!$this->matchAlternateCallIndicator) ?: $this->matchAlternateCallIndicator->getValue();
+        return $this->matchAlternateCallIndicator->getValue();
     }
 
     /**
@@ -222,15 +244,19 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
      */
     public function setMatchLocalCategory($matchLocalCategory = null)
     {
-        $this->matchLocalCategory = (boolean) $matchLocalCategory;
+        if (!$matchLocalCategory) return $this;
+        $this->matchLocalCategory = new PrimitiveType($matchLocalCategory);
+        $this->matchLocalCategory->setName('matchLocalCategory');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMatchLocalCategory()
     {
-        return (!$this->matchLocalCategory) ?: $this->matchLocalCategory;
+        return $this->matchLocalCategory->getValue();
     }
 
     /**
@@ -238,15 +264,19 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
      */
     public function setMatchNationalCategory($matchNationalCategory = null)
     {
-        $this->matchNationalCategory = (boolean) $matchNationalCategory;
+        if (!$matchNationalCategory) return $this;
+        $this->matchNationalCategory = new PrimitiveType($matchNationalCategory);
+        $this->matchNationalCategory->setName('matchNationalCategory');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMatchNationalCategory()
     {
-        return (!$this->matchNationalCategory) ?: $this->matchNationalCategory;
+        return $this->matchNationalCategory->getValue();
     }
 
     /**
@@ -254,15 +284,19 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
      */
     public function setMatchInterlataCategory($matchInterlataCategory = null)
     {
-        $this->matchInterlataCategory = (boolean) $matchInterlataCategory;
+        if (!$matchInterlataCategory) return $this;
+        $this->matchInterlataCategory = new PrimitiveType($matchInterlataCategory);
+        $this->matchInterlataCategory->setName('matchInterlataCategory');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMatchInterlataCategory()
     {
-        return (!$this->matchInterlataCategory) ?: $this->matchInterlataCategory;
+        return $this->matchInterlataCategory->getValue();
     }
 
     /**
@@ -270,15 +304,19 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
      */
     public function setMatchIntralataCategory($matchIntralataCategory = null)
     {
-        $this->matchIntralataCategory = (boolean) $matchIntralataCategory;
+        if (!$matchIntralataCategory) return $this;
+        $this->matchIntralataCategory = new PrimitiveType($matchIntralataCategory);
+        $this->matchIntralataCategory->setName('matchIntralataCategory');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMatchIntralataCategory()
     {
-        return (!$this->matchIntralataCategory) ?: $this->matchIntralataCategory;
+        return $this->matchIntralataCategory->getValue();
     }
 
     /**
@@ -286,15 +324,19 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
      */
     public function setMatchInternationalCategory($matchInternationalCategory = null)
     {
-        $this->matchInternationalCategory = (boolean) $matchInternationalCategory;
+        if (!$matchInternationalCategory) return $this;
+        $this->matchInternationalCategory = new PrimitiveType($matchInternationalCategory);
+        $this->matchInternationalCategory->setName('matchInternationalCategory');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMatchInternationalCategory()
     {
-        return (!$this->matchInternationalCategory) ?: $this->matchInternationalCategory;
+        return $this->matchInternationalCategory->getValue();
     }
 
     /**
@@ -302,15 +344,19 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
      */
     public function setMatchPrivateCategory($matchPrivateCategory = null)
     {
-        $this->matchPrivateCategory = (boolean) $matchPrivateCategory;
+        if (!$matchPrivateCategory) return $this;
+        $this->matchPrivateCategory = new PrimitiveType($matchPrivateCategory);
+        $this->matchPrivateCategory->setName('matchPrivateCategory');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMatchPrivateCategory()
     {
-        return (!$this->matchPrivateCategory) ?: $this->matchPrivateCategory;
+        return $this->matchPrivateCategory->getValue();
     }
 
     /**
@@ -318,15 +364,19 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
      */
     public function setMatchEmergencyCategory($matchEmergencyCategory = null)
     {
-        $this->matchEmergencyCategory = (boolean) $matchEmergencyCategory;
+        if (!$matchEmergencyCategory) return $this;
+        $this->matchEmergencyCategory = new PrimitiveType($matchEmergencyCategory);
+        $this->matchEmergencyCategory->setName('matchEmergencyCategory');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMatchEmergencyCategory()
     {
-        return (!$this->matchEmergencyCategory) ?: $this->matchEmergencyCategory;
+        return $this->matchEmergencyCategory->getValue();
     }
 
     /**
@@ -334,14 +384,18 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
      */
     public function setMatchOtherCategory($matchOtherCategory = null)
     {
-        $this->matchOtherCategory = (boolean) $matchOtherCategory;
+        if (!$matchOtherCategory) return $this;
+        $this->matchOtherCategory = new PrimitiveType($matchOtherCategory);
+        $this->matchOtherCategory->setName('matchOtherCategory');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMatchOtherCategory()
     {
-        return (!$this->matchOtherCategory) ?: $this->matchOtherCategory;
+        return $this->matchOtherCategory->getValue();
     }
 }

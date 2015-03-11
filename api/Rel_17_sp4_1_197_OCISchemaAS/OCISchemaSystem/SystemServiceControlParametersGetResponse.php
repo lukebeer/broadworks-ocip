@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ServiceControlMaxClientConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceControlParametersGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServiceControlParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'SystemServiceControlParametersGetResponse';
     protected $serverPort           = null;
     protected $maxClientConnections = null;
 
@@ -35,38 +34,46 @@ class SystemServiceControlParametersGetResponse extends ComplexType implements C
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setServerPort($serverPort = null)
     {
+        if (!$serverPort) return $this;
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
+        $this->serverPort->setName('serverPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->getValue();
+        return $this->serverPort->getValue();
     }
 
     /**
-     * Maximum allowed number of service control client connections.
+     * 
      */
     public function setMaxClientConnections($maxClientConnections = null)
     {
+        if (!$maxClientConnections) return $this;
         $this->maxClientConnections = ($maxClientConnections InstanceOf ServiceControlMaxClientConnections)
              ? $maxClientConnections
              : new ServiceControlMaxClientConnections($maxClientConnections);
+        $this->maxClientConnections->setName('maxClientConnections');
+        return $this;
     }
 
     /**
-     * Maximum allowed number of service control client connections.
+     * 
+     * @return ServiceControlMaxClientConnections
      */
     public function getMaxClientConnections()
     {
-        return (!$this->maxClientConnections) ?: $this->maxClientConnections->getValue();
+        return $this->maxClientConnections->getValue();
     }
 }

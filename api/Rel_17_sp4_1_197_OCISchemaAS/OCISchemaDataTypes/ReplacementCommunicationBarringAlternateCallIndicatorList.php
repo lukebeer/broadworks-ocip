@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementCommunicationBarringAlternateCallIndicatorList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,10 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementCommunicationBarringAlternateCallIndicatorList extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementCommunicationBarringAlternateCallIndicatorList';
-    public    $name = __CLASS__;
+    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementCommunicationBarringAlternateCallIndicatorList';
+    public    $name                   = 'ReplacementCommunicationBarringAlternateCallIndicatorList';
+    protected $alternateCallIndicator = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $alternateCallIndicator = null
+    ) {
+        $this->setAlternateCallIndicator($alternateCallIndicator);
     }
 
     /**
@@ -34,5 +38,25 @@ class ReplacementCommunicationBarringAlternateCallIndicatorList extends ComplexT
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setAlternateCallIndicator($alternateCallIndicator = null)
+    {
+        if (!$alternateCallIndicator) return $this;
+        $this->alternateCallIndicator = new SimpleContent($alternateCallIndicator);
+        $this->alternateCallIndicator->setName('alternateCallIndicator');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getAlternateCallIndicator()
+    {
+        return $this->alternateCallIndicator->getValue();
     }
 }

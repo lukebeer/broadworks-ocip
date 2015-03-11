@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetStandAloneSlideShowContentResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'UserInstantConferencingGetStandAloneSlideShowContentResponse';
     protected $audioURL              = null;
     protected $slideShowContentTable = null;
 
@@ -35,21 +34,25 @@ class UserInstantConferencingGetStandAloneSlideShowContentResponse extends Compl
     }
 
     /**
-     * URL.
+     * 
      */
     public function setAudioURL($audioURL = null)
     {
+        if (!$audioURL) return $this;
         $this->audioURL = ($audioURL InstanceOf URL)
              ? $audioURL
              : new URL($audioURL);
+        $this->audioURL->setName('audioURL');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getAudioURL()
     {
-        return (!$this->audioURL) ?: $this->audioURL->getValue();
+        return $this->audioURL->getValue();
     }
 
     /**
@@ -57,14 +60,17 @@ class UserInstantConferencingGetStandAloneSlideShowContentResponse extends Compl
      */
     public function setSlideShowContentTable(core:OCITable $slideShowContentTable = null)
     {
-        $this->slideShowContentTable =  $slideShowContentTable;
+        if (!$slideShowContentTable) return $this;
+        $this->slideShowContentTable->setName('slideShowContentTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getSlideShowContentTable()
     {
-        return (!$this->slideShowContentTable) ?: $this->slideShowContentTable->getValue();
+        return $this->slideShowContentTable->getValue();
     }
 }

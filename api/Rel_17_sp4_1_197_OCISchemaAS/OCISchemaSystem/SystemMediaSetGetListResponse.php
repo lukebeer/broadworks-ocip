@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaSetName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaSetGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaSetGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'SystemMediaSetGetListResponse';
     protected $mediaSetName = null;
 
     /**
@@ -32,20 +31,24 @@ class SystemMediaSetGetListResponse extends ComplexType implements ComplexInterf
     }
 
     /**
-     * Media Set name
+     * 
      */
     public function setMediaSetName($mediaSetName = null)
     {
+        if (!$mediaSetName) return $this;
         $this->mediaSetName = ($mediaSetName InstanceOf MediaSetName)
              ? $mediaSetName
              : new MediaSetName($mediaSetName);
+        $this->mediaSetName->setName('mediaSetName');
+        return $this;
     }
 
     /**
-     * Media Set name
+     * 
+     * @return MediaSetName
      */
     public function getMediaSetName()
     {
-        return (!$this->mediaSetName) ?: $this->mediaSetName->getValue();
+        return $this->mediaSetName->getValue();
     }
 }

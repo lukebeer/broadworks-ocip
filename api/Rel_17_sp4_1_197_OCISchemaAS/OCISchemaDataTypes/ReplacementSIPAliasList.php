@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementSIPAliasList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,9 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ReplacementSIPAliasList extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementSIPAliasList';
-    public    $name = __CLASS__;
+    public    $name     = 'ReplacementSIPAliasList';
+    protected $sipAlias = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $sipAlias = null
+    ) {
+        $this->setSipAlias($sipAlias);
     }
 
     /**
@@ -33,5 +37,25 @@ class ReplacementSIPAliasList extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setSipAlias($sipAlias = null)
+    {
+        if (!$sipAlias) return $this;
+        $this->sipAlias = new SimpleContent($sipAlias);
+        $this->sipAlias->setName('sipAlias');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getSipAlias()
+    {
+        return $this->sipAlias->getValue();
     }
 }

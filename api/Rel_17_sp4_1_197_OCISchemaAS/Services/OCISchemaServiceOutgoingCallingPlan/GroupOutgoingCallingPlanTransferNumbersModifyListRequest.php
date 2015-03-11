@@ -5,13 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDepartmentTransferNumbersModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanTransferNumbersModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanTransferNumbersModifyListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupOutgoingCallingPlanTransferNumbersModifyListRequest';
     protected $serviceProviderId = null;
     protected $groupId           = null;
     protected $groupNumbers      = null;
@@ -33,8 +32,8 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
     public function __construct(
          $serviceProviderId,
          $groupId,
-          $groupNumbers = null,
-          $departmentNumbers = null
+         OutgoingCallingPlanTransferNumbersModify $groupNumbers = null,
+         OutgoingCallingPlanDepartmentTransferNumbersModify $departmentNumbers = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -43,7 +42,7 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
     }
 
     /**
-     * @return GroupOutgoingCallingPlanTransferNumbersModifyListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,74 +50,86 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Outgoing Calling Plan transfer numbers.
+     * 
      */
     public function setGroupNumbers(OutgoingCallingPlanTransferNumbersModify $groupNumbers = null)
     {
-        $this->groupNumbers =  $groupNumbers;
+        if (!$groupNumbers) return $this;
+        $this->groupNumbers = $groupNumbers;
+        $this->groupNumbers->setName('groupNumbers');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan transfer numbers.
+     * 
+     * @return OutgoingCallingPlanTransferNumbersModify
      */
     public function getGroupNumbers()
     {
-        return (!$this->groupNumbers) ?: $this->groupNumbers->getValue();
+        return $this->groupNumbers;
     }
 
     /**
-     * Outgoing Calling Plan transfer numbers for a department.
+     * 
      */
     public function setDepartmentNumbers(OutgoingCallingPlanDepartmentTransferNumbersModify $departmentNumbers = null)
     {
-        $this->departmentNumbers =  $departmentNumbers;
+        if (!$departmentNumbers) return $this;
+        $this->departmentNumbers = $departmentNumbers;
+        $this->departmentNumbers->setName('departmentNumbers');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan transfer numbers for a department.
+     * 
+     * @return OutgoingCallingPlanDepartmentTransferNumbersModify
      */
     public function getDepartmentNumbers()
     {
-        return (!$this->departmentNumbers) ?: $this->departmentNumbers->getValue();
+        return $this->departmentNumbers;
     }
 }

@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdFirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdLastName;
@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extensio
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointModifyDNISResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
+    public    $name                              = 'GroupRoutePointModifyDNISRequest';
     protected $dnisKey                           = null;
     protected $newDNISName                       = null;
     protected $dnisPhoneNumber                   = null;
@@ -39,7 +39,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
     protected $allowOutgoingACDCall              = null;
 
     public function __construct(
-          $dnisKey,
+         DNISKey $dnisKey,
          $newDNISName = null,
          $dnisPhoneNumber = null,
          $extension = null,
@@ -63,7 +63,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return GroupRoutePointModifyDNISResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,73 +71,89 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * Uniquely identifies a Call Center DNIS.
+     * 
      */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
-        $this->dnisKey =  $dnisKey;
+        if (!$dnisKey) return $this;
+        $this->dnisKey = $dnisKey;
+        $this->dnisKey->setName('dnisKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a Call Center DNIS.
+     * 
+     * @return DNISKey
      */
     public function getDnisKey()
     {
-        return (!$this->dnisKey) ?: $this->dnisKey->getValue();
+        return $this->dnisKey;
     }
 
     /**
-     * Call Center DNIS Name.
+     * 
      */
     public function setNewDNISName($newDNISName = null)
     {
+        if (!$newDNISName) return $this;
         $this->newDNISName = ($newDNISName InstanceOf DNISName)
              ? $newDNISName
              : new DNISName($newDNISName);
+        $this->newDNISName->setName('newDNISName');
+        return $this;
     }
 
     /**
-     * Call Center DNIS Name.
+     * 
+     * @return DNISName
      */
     public function getNewDNISName()
     {
-        return (!$this->newDNISName) ?: $this->newDNISName->getValue();
+        return $this->newDNISName->getValue();
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setDnisPhoneNumber($dnisPhoneNumber = null)
     {
+        if (!$dnisPhoneNumber) return $this;
         $this->dnisPhoneNumber = ($dnisPhoneNumber InstanceOf DN)
              ? $dnisPhoneNumber
              : new DN($dnisPhoneNumber);
+        $this->dnisPhoneNumber->setName('dnisPhoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getDnisPhoneNumber()
     {
-        return (!$this->dnisPhoneNumber) ?: $this->dnisPhoneNumber->getValue();
+        return $this->dnisPhoneNumber->getValue();
     }
 
     /**
-     * Extension.
+     * 
      */
     public function setExtension($extension = null)
     {
+        if (!$extension) return $this;
         $this->extension = ($extension InstanceOf Extension17)
              ? $extension
              : new Extension17($extension);
+        $this->extension->setName('extension');
+        return $this;
     }
 
     /**
-     * Extension.
+     * 
+     * @return Extension17
      */
     public function getExtension()
     {
-        return (!$this->extension) ?: $this->extension->getValue();
+        return $this->extension->getValue();
     }
 
     /**
@@ -145,69 +161,85 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function setUseCustomCLIDSettings($useCustomCLIDSettings = null)
     {
-        $this->useCustomCLIDSettings = (boolean) $useCustomCLIDSettings;
+        if (!$useCustomCLIDSettings) return $this;
+        $this->useCustomCLIDSettings = new PrimitiveType($useCustomCLIDSettings);
+        $this->useCustomCLIDSettings->setName('useCustomCLIDSettings');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseCustomCLIDSettings()
+    {
+        return $this->useCustomCLIDSettings->getValue();
     }
 
     /**
      * 
      */
-    public function getUseCustomCLIDSettings()
-    {
-        return (!$this->useCustomCLIDSettings) ?: $this->useCustomCLIDSettings;
-    }
-
-    /**
-     * Directory Number in E164 Format.
-     */
     public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
+        if (!$callingLineIdPhoneNumber) return $this;
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
              ? $callingLineIdPhoneNumber
              : new DN($callingLineIdPhoneNumber);
+        $this->callingLineIdPhoneNumber->setName('callingLineIdPhoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getCallingLineIdPhoneNumber()
     {
-        return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->getValue();
+        return $this->callingLineIdPhoneNumber->getValue();
     }
 
     /**
-     * Last Name for Calling Line Id Display.
+     * 
      */
     public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
+        if (!$callingLineIdLastName) return $this;
         $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
              ? $callingLineIdLastName
              : new CallingLineIdLastName($callingLineIdLastName);
+        $this->callingLineIdLastName->setName('callingLineIdLastName');
+        return $this;
     }
 
     /**
-     * Last Name for Calling Line Id Display.
+     * 
+     * @return CallingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
-        return (!$this->callingLineIdLastName) ?: $this->callingLineIdLastName->getValue();
+        return $this->callingLineIdLastName->getValue();
     }
 
     /**
-     * First Name for Calling Line Id Display.
+     * 
      */
     public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
+        if (!$callingLineIdFirstName) return $this;
         $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
              ? $callingLineIdFirstName
              : new CallingLineIdFirstName($callingLineIdFirstName);
+        $this->callingLineIdFirstName->setName('callingLineIdFirstName');
+        return $this;
     }
 
     /**
-     * First Name for Calling Line Id Display.
+     * 
+     * @return CallingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
-        return (!$this->callingLineIdFirstName) ?: $this->callingLineIdFirstName->getValue();
+        return $this->callingLineIdFirstName->getValue();
     }
 
     /**
@@ -215,15 +247,19 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function setUseCustomDnisAnnouncementSettings($useCustomDnisAnnouncementSettings = null)
     {
-        $this->useCustomDnisAnnouncementSettings = (boolean) $useCustomDnisAnnouncementSettings;
+        if (!$useCustomDnisAnnouncementSettings) return $this;
+        $this->useCustomDnisAnnouncementSettings = new PrimitiveType($useCustomDnisAnnouncementSettings);
+        $this->useCustomDnisAnnouncementSettings->setName('useCustomDnisAnnouncementSettings');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseCustomDnisAnnouncementSettings()
     {
-        return (!$this->useCustomDnisAnnouncementSettings) ?: $this->useCustomDnisAnnouncementSettings;
+        return $this->useCustomDnisAnnouncementSettings->getValue();
     }
 
     /**
@@ -231,14 +267,18 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function setAllowOutgoingACDCall($allowOutgoingACDCall = null)
     {
-        $this->allowOutgoingACDCall = (boolean) $allowOutgoingACDCall;
+        if (!$allowOutgoingACDCall) return $this;
+        $this->allowOutgoingACDCall = new PrimitiveType($allowOutgoingACDCall);
+        $this->allowOutgoingACDCall->setName('allowOutgoingACDCall');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowOutgoingACDCall()
     {
-        return (!$this->allowOutgoingACDCall) ?: $this->allowOutgoingACDCall;
+        return $this->allowOutgoingACDCall->getValue();
     }
 }

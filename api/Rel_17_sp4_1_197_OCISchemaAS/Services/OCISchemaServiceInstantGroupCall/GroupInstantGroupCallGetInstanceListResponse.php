@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantGroupCall; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantGroupCallGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupInstantGroupCallGetInstanceListResponse';
     protected $instantGroupCallTable = null;
 
     /**
@@ -39,14 +38,17 @@ class GroupInstantGroupCallGetInstanceListResponse extends ComplexType implement
      */
     public function setInstantGroupCallTable(core:OCITable $instantGroupCallTable = null)
     {
-        $this->instantGroupCallTable =  $instantGroupCallTable;
+        if (!$instantGroupCallTable) return $this;
+        $this->instantGroupCallTable->setName('instantGroupCallTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getInstantGroupCallTable()
     {
-        return (!$this->instantGroupCallTable) ?: $this->instantGroupCallTable->getValue();
+        return $this->instantGroupCallTable->getValue();
     }
 }

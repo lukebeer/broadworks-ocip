@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceAddResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemFileRepositoryDeviceAddRequest16';
     protected $name          = null;
     protected $rootDirectory = null;
     protected $port          = null;
@@ -39,7 +38,7 @@ class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements Comp
     }
 
     /**
-     * @return SystemFileRepositoryDeviceAddResponse16
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,56 +46,68 @@ class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements Comp
     }
 
     /**
-     * File repository name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf FileRepositoryName)
              ? $name
              : new FileRepositoryName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * File repository name.
+     * 
+     * @return FileRepositoryName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
      */
     public function setRootDirectory($rootDirectory = null)
     {
+        if (!$rootDirectory) return $this;
         $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
              ? $rootDirectory
              : new CPEFileDirectory($rootDirectory);
+        $this->rootDirectory->setName('rootDirectory');
+        return $this;
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
+     * @return CPEFileDirectory
      */
     public function getRootDirectory()
     {
-        return (!$this->rootDirectory) ?: $this->rootDirectory->getValue();
+        return $this->rootDirectory->getValue();
     }
 
     /**
-     * TCP/IP Port.
+     * 
      */
     public function setPort($port = null)
     {
+        if (!$port) return $this;
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
+        $this->port->setName('port');
+        return $this;
     }
 
     /**
-     * TCP/IP Port.
+     * 
+     * @return Port
      */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->getValue();
+        return $this->port->getValue();
     }
 }

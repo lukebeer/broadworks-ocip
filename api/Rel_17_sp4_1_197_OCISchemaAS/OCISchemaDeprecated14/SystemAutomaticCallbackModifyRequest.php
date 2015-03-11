@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAu
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackMonitorMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\AutomaticCallbackWaitBetweenRetryOriginatorMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\AutomaticCallbackMaxRetryOriginatorMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAutomaticCallbackModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAutomaticCallbackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
+    public    $name                              = 'SystemAutomaticCallbackModifyRequest';
     protected $monitorMinutes                    = null;
     protected $waitBetweenRetryOriginatorMinutes = null;
     protected $maxMonitorsPerOriginator          = null;
@@ -48,7 +47,7 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return SystemAutomaticCallbackModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,92 +55,112 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * Automatic Callback monitor minutes.
+     * 
      */
     public function setMonitorMinutes($monitorMinutes = null)
     {
+        if (!$monitorMinutes) return $this;
         $this->monitorMinutes = ($monitorMinutes InstanceOf AutomaticCallbackMonitorMinutes)
              ? $monitorMinutes
              : new AutomaticCallbackMonitorMinutes($monitorMinutes);
+        $this->monitorMinutes->setName('monitorMinutes');
+        return $this;
     }
 
     /**
-     * Automatic Callback monitor minutes.
+     * 
+     * @return AutomaticCallbackMonitorMinutes
      */
     public function getMonitorMinutes()
     {
-        return (!$this->monitorMinutes) ?: $this->monitorMinutes->getValue();
+        return $this->monitorMinutes->getValue();
     }
 
     /**
-     * Wait between retry originator minutes.
+     * 
      */
     public function setWaitBetweenRetryOriginatorMinutes($waitBetweenRetryOriginatorMinutes = null)
     {
+        if (!$waitBetweenRetryOriginatorMinutes) return $this;
         $this->waitBetweenRetryOriginatorMinutes = ($waitBetweenRetryOriginatorMinutes InstanceOf AutomaticCallbackWaitBetweenRetryOriginatorMinutes)
              ? $waitBetweenRetryOriginatorMinutes
              : new AutomaticCallbackWaitBetweenRetryOriginatorMinutes($waitBetweenRetryOriginatorMinutes);
+        $this->waitBetweenRetryOriginatorMinutes->setName('waitBetweenRetryOriginatorMinutes');
+        return $this;
     }
 
     /**
-     * Wait between retry originator minutes.
+     * 
+     * @return AutomaticCallbackWaitBetweenRetryOriginatorMinutes
      */
     public function getWaitBetweenRetryOriginatorMinutes()
     {
-        return (!$this->waitBetweenRetryOriginatorMinutes) ?: $this->waitBetweenRetryOriginatorMinutes->getValue();
+        return $this->waitBetweenRetryOriginatorMinutes->getValue();
     }
 
     /**
-     * Maximum monitors per originator.
+     * 
      */
     public function setMaxMonitorsPerOriginator($maxMonitorsPerOriginator = null)
     {
+        if (!$maxMonitorsPerOriginator) return $this;
         $this->maxMonitorsPerOriginator = ($maxMonitorsPerOriginator InstanceOf AutomaticCallbackMaxMonitorsPerOriginator)
              ? $maxMonitorsPerOriginator
              : new AutomaticCallbackMaxMonitorsPerOriginator($maxMonitorsPerOriginator);
+        $this->maxMonitorsPerOriginator->setName('maxMonitorsPerOriginator');
+        return $this;
     }
 
     /**
-     * Maximum monitors per originator.
+     * 
+     * @return AutomaticCallbackMaxMonitorsPerOriginator
      */
     public function getMaxMonitorsPerOriginator()
     {
-        return (!$this->maxMonitorsPerOriginator) ?: $this->maxMonitorsPerOriginator->getValue();
+        return $this->maxMonitorsPerOriginator->getValue();
     }
 
     /**
-     * Maximum callback rings.
+     * 
      */
     public function setMaxCallbackRings($maxCallbackRings = null)
     {
+        if (!$maxCallbackRings) return $this;
         $this->maxCallbackRings = ($maxCallbackRings InstanceOf AutomaticCallbackMaxCallbackRings)
              ? $maxCallbackRings
              : new AutomaticCallbackMaxCallbackRings($maxCallbackRings);
+        $this->maxCallbackRings->setName('maxCallbackRings');
+        return $this;
     }
 
     /**
-     * Maximum callback rings.
+     * 
+     * @return AutomaticCallbackMaxCallbackRings
      */
     public function getMaxCallbackRings()
     {
-        return (!$this->maxCallbackRings) ?: $this->maxCallbackRings->getValue();
+        return $this->maxCallbackRings->getValue();
     }
 
     /**
-     * Maximum retry originator minutes.
+     * 
      */
     public function setMaxRetryOriginatorMinutes($maxRetryOriginatorMinutes = null)
     {
+        if (!$maxRetryOriginatorMinutes) return $this;
         $this->maxRetryOriginatorMinutes = ($maxRetryOriginatorMinutes InstanceOf AutomaticCallbackMaxRetryOriginatorMinutes)
              ? $maxRetryOriginatorMinutes
              : new AutomaticCallbackMaxRetryOriginatorMinutes($maxRetryOriginatorMinutes);
+        $this->maxRetryOriginatorMinutes->setName('maxRetryOriginatorMinutes');
+        return $this;
     }
 
     /**
-     * Maximum retry originator minutes.
+     * 
+     * @return AutomaticCallbackMaxRetryOriginatorMinutes
      */
     public function getMaxRetryOriginatorMinutes()
     {
-        return (!$this->maxRetryOriginatorMinutes) ?: $this->maxRetryOriginatorMinutes->getValue();
+        return $this->maxRetryOriginatorMinutes->getValue();
     }
 }

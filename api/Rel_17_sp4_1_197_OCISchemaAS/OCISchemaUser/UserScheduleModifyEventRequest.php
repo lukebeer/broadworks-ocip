@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Schedule
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Recurrence;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserScheduleModifyEventResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleModifyEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'UserScheduleModifyEventRequest';
     protected $userId       = null;
     protected $scheduleKey  = null;
     protected $eventName    = null;
@@ -35,12 +34,12 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
 
     public function __construct(
          $userId,
-          $scheduleKey,
+         ScheduleKey $scheduleKey,
          $eventName,
          $newEventName = null,
          $startDate = null,
          $endDate = null,
-          $recurrence = null
+         Recurrence $recurrence = null
     ) {
         $this->setUserId($userId);
         $this->setScheduleKey($scheduleKey);
@@ -52,7 +51,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return UserScheduleModifyEventResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,81 +59,89 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey =  $scheduleKey;
+        if (!$scheduleKey) return $this;
+        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey->setName('scheduleKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
+     * @return ScheduleKey
      */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
+        return $this->scheduleKey;
     }
 
     /**
-     * Event name.
+     * 
      */
     public function setEventName($eventName = null)
     {
+        if (!$eventName) return $this;
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
+        $this->eventName->setName('eventName');
+        return $this;
     }
 
     /**
-     * Event name.
+     * 
+     * @return EventName
      */
     public function getEventName()
     {
-        return (!$this->eventName) ?: $this->eventName->getValue();
+        return $this->eventName->getValue();
     }
 
     /**
-     * Event name.
+     * 
      */
     public function setNewEventName($newEventName = null)
     {
+        if (!$newEventName) return $this;
         $this->newEventName = ($newEventName InstanceOf EventName)
              ? $newEventName
              : new EventName($newEventName);
+        $this->newEventName->setName('newEventName');
+        return $this;
     }
 
     /**
-     * Event name.
+     * 
+     * @return EventName
      */
     public function getNewEventName()
     {
-        return (!$this->newEventName) ?: $this->newEventName->getValue();
+        return $this->newEventName->getValue();
     }
 
     /**
@@ -142,15 +149,18 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        $this->startDate =  $startDate;
+        if (!$startDate) return $this;
+        $this->startDate->setName('startDate');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:date
      */
     public function getStartDate()
     {
-        return (!$this->startDate) ?: $this->startDate->getValue();
+        return $this->startDate->getValue();
     }
 
     /**
@@ -158,30 +168,37 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        $this->endDate =  $endDate;
+        if (!$endDate) return $this;
+        $this->endDate->setName('endDate');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:date
+     */
+    public function getEndDate()
+    {
+        return $this->endDate->getValue();
     }
 
     /**
      * 
      */
-    public function getEndDate()
-    {
-        return (!$this->endDate) ?: $this->endDate->getValue();
-    }
-
-    /**
-     * Defines recurrence.
-     */
     public function setRecurrence(Recurrence $recurrence = null)
     {
-        $this->recurrence =  $recurrence;
+        if (!$recurrence) return $this;
+        $this->recurrence = $recurrence;
+        $this->recurrence->setName('recurrence');
+        return $this;
     }
 
     /**
-     * Defines recurrence.
+     * 
+     * @return Recurrence
      */
     public function getRecurrence()
     {
-        return (!$this->recurrence) ?: $this->recurrence->getValue();
+        return $this->recurrence;
     }
 }

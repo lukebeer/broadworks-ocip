@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListResponse';
-    public    $name                       = __CLASS__;
+    public    $name                       = 'ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListRequest';
     protected $serviceProviderId          = null;
     protected $name                       = null;
     protected $responseSizeLimit          = null;
@@ -35,7 +35,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
          $serviceProviderId,
          $name,
          $responseSizeLimit = null,
-          $searchCriteriaDigitPattern = null
+         SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -52,78 +52,90 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Digit Pattern Criteria Name
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
              ? $name
              : new DigitPatternCriteriaName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Digit Pattern Criteria Name
+     * 
+     * @return DigitPatternCriteriaName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for digit pattern.
+     * 
      */
     public function setSearchCriteriaDigitPattern(SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null)
     {
-        $this->searchCriteriaDigitPattern =  $searchCriteriaDigitPattern;
+        if (!$searchCriteriaDigitPattern) return $this;
+        $this->searchCriteriaDigitPattern = ($searchCriteriaDigitPattern InstanceOf SearchCriteriaDigitPattern)
+             ? $searchCriteriaDigitPattern
+             : new SearchCriteriaDigitPattern($searchCriteriaDigitPattern);
+        $this->searchCriteriaDigitPattern->setName('searchCriteriaDigitPattern');
+        return $this;
     }
 
     /**
-     * Criteria for searching for digit pattern.
+     * 
+     * @return SearchCriteriaDigitPattern
      */
     public function getSearchCriteriaDigitPattern()
     {
-        return (!$this->searchCriteriaDigitPattern) ?: $this->searchCriteriaDigitPattern->getValue();
+        return $this->searchCriteriaDigitPattern;
     }
 }

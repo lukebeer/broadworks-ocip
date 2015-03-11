@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Physical
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'SystemZoneAddRequest';
     protected $zoneName                      = null;
     protected $netAddress                    = null;
     protected $netAddressRange               = null;
@@ -34,7 +33,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
     public function __construct(
          $zoneName,
          $netAddress = null,
-          $netAddressRange = null,
+         IPAddressRange $netAddressRange = null,
          $locationBasedPhysicalLocation = null,
          $callingZonePhysicalLocation = null
     ) {
@@ -46,7 +45,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return SystemZoneAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,90 +53,110 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Zone Name.
+     * 
      */
     public function setZoneName($zoneName = null)
     {
+        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
+        $this->zoneName->setName('zoneName');
+        return $this;
     }
 
     /**
-     * Zone Name.
+     * 
+     * @return ZoneName
      */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->getValue();
+        return $this->zoneName->getValue();
     }
 
     /**
-     * Numeric IP Address.
+     * 
      */
     public function setNetAddress($netAddress = null)
     {
+        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
+        $this->netAddress->setName('netAddress');
+        return $this;
     }
 
     /**
-     * Numeric IP Address.
+     * 
+     * @return IPAddress
      */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->getValue();
+        return $this->netAddress->getValue();
     }
 
     /**
-     * IP Address Range.
+     * 
      */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
-        $this->netAddressRange =  $netAddressRange;
+        if (!$netAddressRange) return $this;
+        $this->netAddressRange = $netAddressRange;
+        $this->netAddressRange->setName('netAddressRange');
+        return $this;
     }
 
     /**
-     * IP Address Range.
+     * 
+     * @return IPAddressRange
      */
     public function getNetAddressRange()
     {
-        return (!$this->netAddressRange) ?: $this->netAddressRange->getValue();
+        return $this->netAddressRange;
     }
 
     /**
-     * Physical geographic location of the zone
+     * 
      */
     public function setLocationBasedPhysicalLocation($locationBasedPhysicalLocation = null)
     {
+        if (!$locationBasedPhysicalLocation) return $this;
         $this->locationBasedPhysicalLocation = ($locationBasedPhysicalLocation InstanceOf PhysicalLocation)
              ? $locationBasedPhysicalLocation
              : new PhysicalLocation($locationBasedPhysicalLocation);
+        $this->locationBasedPhysicalLocation->setName('locationBasedPhysicalLocation');
+        return $this;
     }
 
     /**
-     * Physical geographic location of the zone
+     * 
+     * @return PhysicalLocation
      */
     public function getLocationBasedPhysicalLocation()
     {
-        return (!$this->locationBasedPhysicalLocation) ?: $this->locationBasedPhysicalLocation->getValue();
+        return $this->locationBasedPhysicalLocation->getValue();
     }
 
     /**
-     * Physical geographic location of the zone
+     * 
      */
     public function setCallingZonePhysicalLocation($callingZonePhysicalLocation = null)
     {
+        if (!$callingZonePhysicalLocation) return $this;
         $this->callingZonePhysicalLocation = ($callingZonePhysicalLocation InstanceOf PhysicalLocation)
              ? $callingZonePhysicalLocation
              : new PhysicalLocation($callingZonePhysicalLocation);
+        $this->callingZonePhysicalLocation->setName('callingZonePhysicalLocation');
+        return $this;
     }
 
     /**
-     * Physical geographic location of the zone
+     * 
+     * @return PhysicalLocation
      */
     public function getCallingZonePhysicalLocation()
     {
-        return (!$this->callingZonePhysicalLocation) ?: $this->callingZonePhysicalLocation->getValue();
+        return $this->callingZonePhysicalLocation->getValue();
     }
 }

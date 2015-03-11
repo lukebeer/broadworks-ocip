@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\TrunkGroupUserCreationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskDeleteResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'GroupTrunkGroupUserCreationTaskDeleteRequest14sp4';
     protected $trunkGroupKey = null;
     protected $taskName      = null;
 
     public function __construct(
-          $trunkGroupKey,
+         TrunkGroupKey $trunkGroupKey,
          $taskName
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
@@ -35,7 +34,7 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
     }
 
     /**
-     * @return GroupTrunkGroupUserCreationTaskDeleteResponse14sp4
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,44 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
     }
 
     /**
-     * Uniquely identifies a Trunk Group system-wide.
-     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     * 
      */
     public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
-        $this->trunkGroupKey =  $trunkGroupKey;
+        if (!$trunkGroupKey) return $this;
+        $this->trunkGroupKey = $trunkGroupKey;
+        $this->trunkGroupKey->setName('trunkGroupKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a Trunk Group system-wide.
-     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     * 
+     * @return TrunkGroupKey
      */
     public function getTrunkGroupKey()
     {
-        return (!$this->trunkGroupKey) ?: $this->trunkGroupKey->getValue();
+        return $this->trunkGroupKey;
     }
 
     /**
-     * The name of a Trunk Group User Creation Task.
+     * 
      */
     public function setTaskName($taskName = null)
     {
+        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf TrunkGroupUserCreationTaskName)
              ? $taskName
              : new TrunkGroupUserCreationTaskName($taskName);
+        $this->taskName->setName('taskName');
+        return $this;
     }
 
     /**
-     * The name of a Trunk Group User Creation Task.
+     * 
+     * @return TrunkGroupUserCreationTaskName
      */
     public function getTaskName()
     {
-        return (!$this->taskName) ?: $this->taskName->getValue();
+        return $this->taskName->getValue();
     }
 }

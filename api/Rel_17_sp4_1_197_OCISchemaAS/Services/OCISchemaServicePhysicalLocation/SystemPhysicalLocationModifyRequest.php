@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePhysicalLocation; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePhysicalLocation; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePhysicalLocation\SystemPhysicalLocationModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPhysicalLocationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'SystemPhysicalLocationModifyRequest';
     protected $alwaysAllowEmergencyCalls = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemPhysicalLocationModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return SystemPhysicalLocationModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,14 +42,18 @@ class SystemPhysicalLocationModifyRequest extends ComplexType implements Complex
      */
     public function setAlwaysAllowEmergencyCalls($alwaysAllowEmergencyCalls = null)
     {
-        $this->alwaysAllowEmergencyCalls = (boolean) $alwaysAllowEmergencyCalls;
+        if (!$alwaysAllowEmergencyCalls) return $this;
+        $this->alwaysAllowEmergencyCalls = new PrimitiveType($alwaysAllowEmergencyCalls);
+        $this->alwaysAllowEmergencyCalls->setName('alwaysAllowEmergencyCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAlwaysAllowEmergencyCalls()
     {
-        return (!$this->alwaysAllowEmergencyCalls) ?: $this->alwaysAllowEmergencyCalls;
+        return $this->alwaysAllowEmergencyCalls->getValue();
     }
 }

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,9 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList';
-    public    $name = __CLASS__;
+    public    $name = 'ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList';
+    protected $rule = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $rule = null
+    ) {
+        $this->setRule($rule);
     }
 
     /**
@@ -33,5 +37,25 @@ class ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleL
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setRule($rule = null)
+    {
+        if (!$rule) return $this;
+        $this->rule = new SimpleContent($rule);
+        $this->rule->setName('rule');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getRule()
+    {
+        return $this->rule->getValue();
     }
 }

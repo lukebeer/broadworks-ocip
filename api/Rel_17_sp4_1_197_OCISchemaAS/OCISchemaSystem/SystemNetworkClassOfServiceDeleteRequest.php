@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name = 'SystemNetworkClassOfServiceDeleteRequest';
     protected $name = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements Co
     }
 
     /**
-     * @return SystemNetworkClassOfServiceDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements Co
     }
 
     /**
-     * Network Class of Service name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf NetworkClassOfServiceName)
              ? $name
              : new NetworkClassOfServiceName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Network Class of Service name.
+     * 
+     * @return NetworkClassOfServiceName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 }

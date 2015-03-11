@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ApplicationControllerName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemApplicationControllerAddListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutePointExternalSystemApplicationControllerAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'SystemRoutePointExternalSystemApplicationControllerAddListRequest';
     protected $name                  = null;
     protected $applicationController = null;
 
@@ -35,7 +34,7 @@ class SystemRoutePointExternalSystemApplicationControllerAddListRequest extends 
     }
 
     /**
-     * @return SystemRoutePointExternalSystemApplicationControllerAddListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemRoutePointExternalSystemApplicationControllerAddListRequest extends 
     }
 
     /**
-     * The Route Point External System's name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf RoutePointExternalSystem)
              ? $name
              : new RoutePointExternalSystem($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * The Route Point External System's name.
+     * 
+     * @return RoutePointExternalSystem
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * The application controller name.
+     * 
      */
     public function setApplicationController($applicationController = null)
     {
+        if (!$applicationController) return $this;
         $this->applicationController = ($applicationController InstanceOf ApplicationControllerName)
              ? $applicationController
              : new ApplicationControllerName($applicationController);
+        $this->applicationController->setName('applicationController');
+        return $this;
     }
 
     /**
-     * The application controller name.
+     * 
+     * @return ApplicationControllerName
      */
     public function getApplicationController()
     {
-        return (!$this->applicationController) ?: $this->applicationController->getValue();
+        return $this->applicationController->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetBridgeDelegatesListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetBridgeDelegatesListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
+    public    $name      = 'UserInstantConferencingGetBridgeDelegatesListResponse';
     protected $userTable = null;
 
     /**
@@ -39,14 +38,17 @@ class UserInstantConferencingGetBridgeDelegatesListResponse extends ComplexType 
      */
     public function setUserTable(core:OCITable $userTable = null)
     {
-        $this->userTable =  $userTable;
+        if (!$userTable) return $this;
+        $this->userTable->setName('userTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getUserTable()
     {
-        return (!$this->userTable) ?: $this->userTable->getValue();
+        return $this->userTable->getValue();
     }
 }

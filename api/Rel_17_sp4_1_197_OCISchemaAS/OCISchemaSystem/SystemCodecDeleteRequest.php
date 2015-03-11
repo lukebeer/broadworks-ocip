@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\Codec;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCodecDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCodecDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
+    public    $name  = 'SystemCodecDeleteRequest';
     protected $codec = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemCodecDeleteRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return SystemCodecDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemCodecDeleteRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Codec.
+     * 
      */
     public function setCodec($codec = null)
     {
+        if (!$codec) return $this;
         $this->codec = ($codec InstanceOf Codec)
              ? $codec
              : new Codec($codec);
+        $this->codec->setName('codec');
+        return $this;
     }
 
     /**
-     * Codec.
+     * 
+     * @return Codec
      */
     public function getCodec()
     {
-        return (!$this->codec) ?: $this->codec->getValue();
+        return $this->codec->getValue();
     }
 }

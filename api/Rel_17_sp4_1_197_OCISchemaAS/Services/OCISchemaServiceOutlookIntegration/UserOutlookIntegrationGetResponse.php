@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutlookIntegration; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutlookIntegration; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutlookIntegration\OutlookIntegrationContactRetrievalSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutlookIntegration\UserOutlookIntegrationGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'UserOutlookIntegrationGetResponse';
     protected $isActive                  = null;
     protected $contactRetrievalSelection = null;
 
@@ -37,34 +37,40 @@ class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexIn
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Microsoft Outlook contact database search option.
-     *         Controls which contacts are retrieved from outlook.
-     */
     public function setContactRetrievalSelection($contactRetrievalSelection = null)
     {
+        if (!$contactRetrievalSelection) return $this;
         $this->contactRetrievalSelection = ($contactRetrievalSelection InstanceOf OutlookIntegrationContactRetrievalSelection)
              ? $contactRetrievalSelection
              : new OutlookIntegrationContactRetrievalSelection($contactRetrievalSelection);
+        $this->contactRetrievalSelection->setName('contactRetrievalSelection');
+        return $this;
     }
 
     /**
-     * Microsoft Outlook contact database search option.
-     *         Controls which contacts are retrieved from outlook.
+     * 
+     * @return OutlookIntegrationContactRetrievalSelection
      */
     public function getContactRetrievalSelection()
     {
-        return (!$this->contactRetrievalSelection) ?: $this->contactRetrievalSelection->getValue();
+        return $this->contactRetrievalSelection->getValue();
     }
 }

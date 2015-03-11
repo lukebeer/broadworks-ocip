@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHuntGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHuntGroup\HuntGroupUniformCallDistributionPolicyScope;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup\SystemHuntGroupGetResponse17;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
+    public    $name                               = 'SystemHuntGroupGetResponse17';
     protected $anonymousInsteadOfPrivateCLID      = null;
     protected $removeHuntGroupNameFromCLID        = null;
     protected $uniformCallDistributionPolicyScope = null;
@@ -38,15 +38,19 @@ class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterfa
      */
     public function setAnonymousInsteadOfPrivateCLID($anonymousInsteadOfPrivateCLID = null)
     {
-        $this->anonymousInsteadOfPrivateCLID = (boolean) $anonymousInsteadOfPrivateCLID;
+        if (!$anonymousInsteadOfPrivateCLID) return $this;
+        $this->anonymousInsteadOfPrivateCLID = new PrimitiveType($anonymousInsteadOfPrivateCLID);
+        $this->anonymousInsteadOfPrivateCLID->setName('anonymousInsteadOfPrivateCLID');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAnonymousInsteadOfPrivateCLID()
     {
-        return (!$this->anonymousInsteadOfPrivateCLID) ?: $this->anonymousInsteadOfPrivateCLID;
+        return $this->anonymousInsteadOfPrivateCLID->getValue();
     }
 
     /**
@@ -54,32 +58,40 @@ class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterfa
      */
     public function setRemoveHuntGroupNameFromCLID($removeHuntGroupNameFromCLID = null)
     {
-        $this->removeHuntGroupNameFromCLID = (boolean) $removeHuntGroupNameFromCLID;
+        if (!$removeHuntGroupNameFromCLID) return $this;
+        $this->removeHuntGroupNameFromCLID = new PrimitiveType($removeHuntGroupNameFromCLID);
+        $this->removeHuntGroupNameFromCLID->setName('removeHuntGroupNameFromCLID');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRemoveHuntGroupNameFromCLID()
+    {
+        return $this->removeHuntGroupNameFromCLID->getValue();
     }
 
     /**
      * 
      */
-    public function getRemoveHuntGroupNameFromCLID()
-    {
-        return (!$this->removeHuntGroupNameFromCLID) ?: $this->removeHuntGroupNameFromCLID;
-    }
-
-    /**
-     * Hunt group Uniform Call Distribution Policy Scope.
-     */
     public function setUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope = null)
     {
+        if (!$uniformCallDistributionPolicyScope) return $this;
         $this->uniformCallDistributionPolicyScope = ($uniformCallDistributionPolicyScope InstanceOf HuntGroupUniformCallDistributionPolicyScope)
              ? $uniformCallDistributionPolicyScope
              : new HuntGroupUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope);
+        $this->uniformCallDistributionPolicyScope->setName('uniformCallDistributionPolicyScope');
+        return $this;
     }
 
     /**
-     * Hunt group Uniform Call Distribution Policy Scope.
+     * 
+     * @return HuntGroupUniformCallDistributionPolicyScope
      */
     public function getUniformCallDistributionPolicyScope()
     {
-        return (!$this->uniformCallDistributionPolicyScope) ?: $this->uniformCallDistributionPolicyScope->getValue();
+        return $this->uniformCallDistributionPolicyScope->getValue();
     }
 }

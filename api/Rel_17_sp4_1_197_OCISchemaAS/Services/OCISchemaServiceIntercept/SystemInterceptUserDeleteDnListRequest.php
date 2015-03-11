@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\SystemInterceptUserDeleteDnListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInterceptUserDeleteDnListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'SystemInterceptUserDeleteDnListRequest';
     protected $phoneNumbers = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemInterceptUserDeleteDnListRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return SystemInterceptUserDeleteDnListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemInterceptUserDeleteDnListRequest extends ComplexType implements Comp
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setPhoneNumbers($phoneNumbers = null)
     {
+        if (!$phoneNumbers) return $this;
         $this->phoneNumbers = ($phoneNumbers InstanceOf DN)
              ? $phoneNumbers
              : new DN($phoneNumbers);
+        $this->phoneNumbers->setName('phoneNumbers');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getPhoneNumbers()
     {
-        return (!$this->phoneNumbers) ?: $this->phoneNumbers->getValue();
+        return $this->phoneNumbers->getValue();
     }
 }

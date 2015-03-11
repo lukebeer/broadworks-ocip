@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDTMFTransmissionGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDTMFTransmissionGetResponse';
-    public    $name = __CLASS__;
+    public    $name = 'SystemDTMFTransmissionGetRequest';
 
     public function __construct(    ) {
     }

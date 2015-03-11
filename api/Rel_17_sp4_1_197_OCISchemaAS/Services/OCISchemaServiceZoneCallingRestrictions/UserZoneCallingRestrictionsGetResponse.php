@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceZoneCallingRestrictions; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceZoneCallingRestrictions; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceZoneCallingRestrictions\UserZoneCallingRestrictionsGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserZoneCallingRestrictionsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'UserZoneCallingRestrictionsGetResponse';
     protected $homeZoneName = null;
 
     /**
@@ -33,20 +32,24 @@ class UserZoneCallingRestrictionsGetResponse extends ComplexType implements Comp
     }
 
     /**
-     * Zone Name.
+     * 
      */
     public function setHomeZoneName($homeZoneName = null)
     {
+        if (!$homeZoneName) return $this;
         $this->homeZoneName = ($homeZoneName InstanceOf ZoneName)
              ? $homeZoneName
              : new ZoneName($homeZoneName);
+        $this->homeZoneName->setName('homeZoneName');
+        return $this;
     }
 
     /**
-     * Zone Name.
+     * 
+     * @return ZoneName
      */
     public function getHomeZoneName()
     {
-        return (!$this->homeZoneName) ?: $this->homeZoneName->getValue();
+        return $this->homeZoneName->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticCallback; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackReleaseCause;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticCallback\SystemAutomaticCallbackDeleteReleaseCauseListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAutomaticCallbackDeleteReleaseCauseListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'SystemAutomaticCallbackDeleteReleaseCauseListRequest';
     protected $releaseCause = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemAutomaticCallbackDeleteReleaseCauseListRequest extends ComplexType i
     }
 
     /**
-     * @return SystemAutomaticCallbackDeleteReleaseCauseListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemAutomaticCallbackDeleteReleaseCauseListRequest extends ComplexType i
     }
 
     /**
-     * Callback Release Cause.
+     * 
      */
     public function setReleaseCause($releaseCause = null)
     {
+        if (!$releaseCause) return $this;
         $this->releaseCause = ($releaseCause InstanceOf AutomaticCallbackReleaseCause)
              ? $releaseCause
              : new AutomaticCallbackReleaseCause($releaseCause);
+        $this->releaseCause->setName('releaseCause');
+        return $this;
     }
 
     /**
-     * Callback Release Cause.
+     * 
+     * @return AutomaticCallbackReleaseCause
      */
     public function getReleaseCause()
     {
-        return (!$this->releaseCause) ?: $this->releaseCause->getValue();
+        return $this->releaseCause->getValue();
     }
 }

@@ -9,6 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriter
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupName;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaTrunkGroupName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaTrunkGroupName extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaTrunkGroupName';
-    public    $name              = __CLASS__;
+    public    $name              = 'SearchCriteriaTrunkGroupName';
     protected $mode              = null;
     protected $value             = null;
     protected $isCaseInsensitive = null;
@@ -46,41 +47,47 @@ class SearchCriteriaTrunkGroupName extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * Search mode when searching for string data.
+     * 
      */
     public function setMode($mode = null)
     {
+        if (!$mode) return $this;
         $this->mode = ($mode InstanceOf SearchMode)
              ? $mode
              : new SearchMode($mode);
+        $this->mode->setName('mode');
+        return $this;
     }
 
     /**
-     * Search mode when searching for string data.
+     * 
+     * @return SearchMode
      */
     public function getMode()
     {
-        return (!$this->mode) ?: $this->mode->getValue();
+        return $this->mode->getValue();
     }
 
     /**
-     * Trunk Group name.
-     *         Uniquely identifies a Trunk Group within a business (or family) group.
+     * 
      */
     public function setValue($value = null)
     {
+        if (!$value) return $this;
         $this->value = ($value InstanceOf TrunkGroupName)
              ? $value
              : new TrunkGroupName($value);
+        $this->value->setName('value');
+        return $this;
     }
 
     /**
-     * Trunk Group name.
-     *         Uniquely identifies a Trunk Group within a business (or family) group.
+     * 
+     * @return TrunkGroupName
      */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->getValue();
+        return $this->value->getValue();
     }
 
     /**
@@ -88,14 +95,18 @@ class SearchCriteriaTrunkGroupName extends ComplexType implements ComplexInterfa
      */
     public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
-        $this->isCaseInsensitive = (boolean) $isCaseInsensitive;
+        if (!$isCaseInsensitive) return $this;
+        $this->isCaseInsensitive = new PrimitiveType($isCaseInsensitive);
+        $this->isCaseInsensitive->setName('isCaseInsensitive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive;
+        return $this->isCaseInsensitive->getValue();
     }
 }

@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIncomingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanDepartmentPermissions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanPermissions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIncomingCallingPlan\GroupIncomingCallingPlanGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupIncomingCallingPlanGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupIncomingCallingPlanGetListResponse';
     protected $groupPermissions      = null;
     protected $departmentPermissions = null;
 
@@ -34,34 +33,42 @@ class GroupIncomingCallingPlanGetListResponse extends ComplexType implements Com
     }
 
     /**
-     * Allows or disallows various types of incoming calls for a user or group -- not any particular department.
+     * 
      */
     public function setGroupPermissions(IncomingCallingPlanPermissions $groupPermissions = null)
     {
-        $this->groupPermissions =  $groupPermissions;
+        if (!$groupPermissions) return $this;
+        $this->groupPermissions = $groupPermissions;
+        $this->groupPermissions->setName('groupPermissions');
+        return $this;
     }
 
     /**
-     * Allows or disallows various types of incoming calls for a user or group -- not any particular department.
+     * 
+     * @return IncomingCallingPlanPermissions
      */
     public function getGroupPermissions()
     {
-        return (!$this->groupPermissions) ?: $this->groupPermissions->getValue();
+        return $this->groupPermissions;
     }
 
     /**
-     * Allows or disallows various types of incoming calls for a specified department.
+     * 
      */
     public function setDepartmentPermissions(IncomingCallingPlanDepartmentPermissions $departmentPermissions = null)
     {
-        $this->departmentPermissions =  $departmentPermissions;
+        if (!$departmentPermissions) return $this;
+        $this->departmentPermissions = $departmentPermissions;
+        $this->departmentPermissions->setName('departmentPermissions');
+        return $this;
     }
 
     /**
-     * Allows or disallows various types of incoming calls for a specified department.
+     * 
+     * @return IncomingCallingPlanDepartmentPermissions
      */
     public function getDepartmentPermissions()
     {
-        return (!$this->departmentPermissions) ?: $this->departmentPermissions->getValue();
+        return $this->departmentPermissions;
     }
 }

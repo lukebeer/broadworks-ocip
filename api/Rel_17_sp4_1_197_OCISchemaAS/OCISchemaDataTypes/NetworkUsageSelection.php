@@ -16,12 +16,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class NetworkUsageSelection extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "NetworkUsageSelection";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "string";
+        $this->dataType = "";
         $this->addRestriction(new Enumeration([
             'Force All Calls',
             'Force All Except Extension and Location Calls',

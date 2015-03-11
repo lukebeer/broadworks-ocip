@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntelligentNetworkServiceControl; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntelligentNetworkServiceControl; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntelligentNetworkServiceControl\IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Treatment;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntelligentNetworkServiceControl\SystemIntelligentNetworkServiceControlGetResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'SystemIntelligentNetworkServiceControlGetResponse14';
     protected $preAnswerActionTimeoutSeconds = null;
     protected $msgRejectNoVoiceMail          = null;
     protected $msgRejectVoiceMail            = null;
@@ -42,182 +41,222 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
     }
 
     /**
-     * Pre-answer action timeout seconds.
+     * 
      */
     public function setPreAnswerActionTimeoutSeconds($preAnswerActionTimeoutSeconds = null)
     {
+        if (!$preAnswerActionTimeoutSeconds) return $this;
         $this->preAnswerActionTimeoutSeconds = ($preAnswerActionTimeoutSeconds InstanceOf IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds)
              ? $preAnswerActionTimeoutSeconds
              : new IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds($preAnswerActionTimeoutSeconds);
+        $this->preAnswerActionTimeoutSeconds->setName('preAnswerActionTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * Pre-answer action timeout seconds.
+     * 
+     * @return IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds
      */
     public function getPreAnswerActionTimeoutSeconds()
     {
-        return (!$this->preAnswerActionTimeoutSeconds) ?: $this->preAnswerActionTimeoutSeconds->getValue();
+        return $this->preAnswerActionTimeoutSeconds->getValue();
     }
 
     /**
-     * Treatment name.
+     * 
      */
     public function setMsgRejectNoVoiceMail($msgRejectNoVoiceMail = null)
     {
+        if (!$msgRejectNoVoiceMail) return $this;
         $this->msgRejectNoVoiceMail = ($msgRejectNoVoiceMail InstanceOf Treatment)
              ? $msgRejectNoVoiceMail
              : new Treatment($msgRejectNoVoiceMail);
+        $this->msgRejectNoVoiceMail->setName('msgRejectNoVoiceMail');
+        return $this;
     }
 
     /**
-     * Treatment name.
+     * 
+     * @return Treatment
      */
     public function getMsgRejectNoVoiceMail()
     {
-        return (!$this->msgRejectNoVoiceMail) ?: $this->msgRejectNoVoiceMail->getValue();
+        return $this->msgRejectNoVoiceMail->getValue();
     }
 
     /**
-     * Treatment name.
+     * 
      */
     public function setMsgRejectVoiceMail($msgRejectVoiceMail = null)
     {
+        if (!$msgRejectVoiceMail) return $this;
         $this->msgRejectVoiceMail = ($msgRejectVoiceMail InstanceOf Treatment)
              ? $msgRejectVoiceMail
              : new Treatment($msgRejectVoiceMail);
+        $this->msgRejectVoiceMail->setName('msgRejectVoiceMail');
+        return $this;
     }
 
     /**
-     * Treatment name.
+     * 
+     * @return Treatment
      */
     public function getMsgRejectVoiceMail()
     {
-        return (!$this->msgRejectVoiceMail) ?: $this->msgRejectVoiceMail->getValue();
+        return $this->msgRejectVoiceMail->getValue();
     }
 
     /**
-     * Treatment name.
+     * 
      */
     public function setMsgPreAnswerWait($msgPreAnswerWait = null)
     {
+        if (!$msgPreAnswerWait) return $this;
         $this->msgPreAnswerWait = ($msgPreAnswerWait InstanceOf Treatment)
              ? $msgPreAnswerWait
              : new Treatment($msgPreAnswerWait);
+        $this->msgPreAnswerWait->setName('msgPreAnswerWait');
+        return $this;
     }
 
     /**
-     * Treatment name.
+     * 
+     * @return Treatment
      */
     public function getMsgPreAnswerWait()
     {
-        return (!$this->msgPreAnswerWait) ?: $this->msgPreAnswerWait->getValue();
+        return $this->msgPreAnswerWait->getValue();
     }
 
     /**
-     * Treatment name.
+     * 
      */
     public function setMsgBusy($msgBusy = null)
     {
+        if (!$msgBusy) return $this;
         $this->msgBusy = ($msgBusy InstanceOf Treatment)
              ? $msgBusy
              : new Treatment($msgBusy);
+        $this->msgBusy->setName('msgBusy');
+        return $this;
     }
 
     /**
-     * Treatment name.
+     * 
+     * @return Treatment
      */
     public function getMsgBusy()
     {
-        return (!$this->msgBusy) ?: $this->msgBusy->getValue();
+        return $this->msgBusy->getValue();
     }
 
     /**
-     * Treatment name.
+     * 
      */
     public function setMsgRelease($msgRelease = null)
     {
+        if (!$msgRelease) return $this;
         $this->msgRelease = ($msgRelease InstanceOf Treatment)
              ? $msgRelease
              : new Treatment($msgRelease);
+        $this->msgRelease->setName('msgRelease');
+        return $this;
     }
 
     /**
-     * Treatment name.
+     * 
+     * @return Treatment
      */
     public function getMsgRelease()
     {
-        return (!$this->msgRelease) ?: $this->msgRelease->getValue();
+        return $this->msgRelease->getValue();
     }
 
     /**
-     * Treatment name.
+     * 
      */
     public function setMsgNoAnswer($msgNoAnswer = null)
     {
+        if (!$msgNoAnswer) return $this;
         $this->msgNoAnswer = ($msgNoAnswer InstanceOf Treatment)
              ? $msgNoAnswer
              : new Treatment($msgNoAnswer);
+        $this->msgNoAnswer->setName('msgNoAnswer');
+        return $this;
     }
 
     /**
-     * Treatment name.
+     * 
+     * @return Treatment
      */
     public function getMsgNoAnswer()
     {
-        return (!$this->msgNoAnswer) ?: $this->msgNoAnswer->getValue();
+        return $this->msgNoAnswer->getValue();
     }
 
     /**
-     * Treatment name.
+     * 
      */
     public function setMsgOCPReject($msgOCPReject = null)
     {
+        if (!$msgOCPReject) return $this;
         $this->msgOCPReject = ($msgOCPReject InstanceOf Treatment)
              ? $msgOCPReject
              : new Treatment($msgOCPReject);
+        $this->msgOCPReject->setName('msgOCPReject');
+        return $this;
     }
 
     /**
-     * Treatment name.
+     * 
+     * @return Treatment
      */
     public function getMsgOCPReject()
     {
-        return (!$this->msgOCPReject) ?: $this->msgOCPReject->getValue();
+        return $this->msgOCPReject->getValue();
     }
 
     /**
-     * Treatment name.
+     * 
      */
     public function setMsgForwardLoop($msgForwardLoop = null)
     {
+        if (!$msgForwardLoop) return $this;
         $this->msgForwardLoop = ($msgForwardLoop InstanceOf Treatment)
              ? $msgForwardLoop
              : new Treatment($msgForwardLoop);
+        $this->msgForwardLoop->setName('msgForwardLoop');
+        return $this;
     }
 
     /**
-     * Treatment name.
+     * 
+     * @return Treatment
      */
     public function getMsgForwardLoop()
     {
-        return (!$this->msgForwardLoop) ?: $this->msgForwardLoop->getValue();
+        return $this->msgForwardLoop->getValue();
     }
 
     /**
-     * Treatment name.
+     * 
      */
     public function setMsgTemporarilyUnavailable($msgTemporarilyUnavailable = null)
     {
+        if (!$msgTemporarilyUnavailable) return $this;
         $this->msgTemporarilyUnavailable = ($msgTemporarilyUnavailable InstanceOf Treatment)
              ? $msgTemporarilyUnavailable
              : new Treatment($msgTemporarilyUnavailable);
+        $this->msgTemporarilyUnavailable->setName('msgTemporarilyUnavailable');
+        return $this;
     }
 
     /**
-     * Treatment name.
+     * 
+     * @return Treatment
      */
     public function getMsgTemporarilyUnavailable()
     {
-        return (!$this->msgTemporarilyUnavailable) ?: $this->msgTemporarilyUnavailable->getValue();
+        return $this->msgTemporarilyUnavailable->getValue();
     }
 }

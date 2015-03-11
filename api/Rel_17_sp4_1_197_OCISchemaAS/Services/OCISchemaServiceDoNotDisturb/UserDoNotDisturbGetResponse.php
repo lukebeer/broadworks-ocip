@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDoNotDisturb; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDoNotDisturb; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDoNotDisturb\UserDoNotDisturbGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'UserDoNotDisturbGetResponse';
     protected $isActive   = null;
     protected $ringSplash = null;
 
@@ -37,15 +36,19 @@ class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -53,14 +56,18 @@ class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setRingSplash($ringSplash = null)
     {
-        $this->ringSplash = (boolean) $ringSplash;
+        if (!$ringSplash) return $this;
+        $this->ringSplash = new PrimitiveType($ringSplash);
+        $this->ringSplash->setName('ringSplash');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRingSplash()
     {
-        return (!$this->ringSplash) ?: $this->ringSplash;
+        return $this->ringSplash->getValue();
     }
 }

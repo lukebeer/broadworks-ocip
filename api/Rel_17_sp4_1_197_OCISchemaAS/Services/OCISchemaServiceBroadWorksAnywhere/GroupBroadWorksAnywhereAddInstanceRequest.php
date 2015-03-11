@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\BroadWorksAnywhereCLIDPrompt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\BroadWorksAnywhereScope;
@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceI
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\GroupBroadWorksAnywhereAddInstanceResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'GroupBroadWorksAnywhereAddInstanceRequest';
     protected $serviceProviderId       = null;
     protected $groupId                 = null;
     protected $serviceUserId           = null;
@@ -41,7 +41,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-          $serviceInstanceProfile,
+         ServiceInstanceAddProfile $serviceInstanceProfile,
          $broadWorksAnywhereScope,
          $promptForCLID,
          $silentPromptMode,
@@ -58,7 +58,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
     }
 
     /**
-     * @return GroupBroadWorksAnywhereAddInstanceResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,121 +66,133 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * Service Profile Information for group service.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
+     * 
+     * @return ServiceInstanceAddProfile
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Controls which users may use the BroadWorks Anywhere portal.
+     * 
      */
     public function setBroadWorksAnywhereScope($broadWorksAnywhereScope = null)
     {
+        if (!$broadWorksAnywhereScope) return $this;
         $this->broadWorksAnywhereScope = ($broadWorksAnywhereScope InstanceOf BroadWorksAnywhereScope)
              ? $broadWorksAnywhereScope
              : new BroadWorksAnywhereScope($broadWorksAnywhereScope);
+        $this->broadWorksAnywhereScope->setName('broadWorksAnywhereScope');
+        return $this;
     }
 
     /**
-     * Controls which users may use the BroadWorks Anywhere portal.
+     * 
+     * @return BroadWorksAnywhereScope
      */
     public function getBroadWorksAnywhereScope()
     {
-        return (!$this->broadWorksAnywhereScope) ?: $this->broadWorksAnywhereScope->getValue();
+        return $this->broadWorksAnywhereScope->getValue();
     }
 
     /**
-     * BroadWorks Anywhere Prompt for CLID options.
+     * 
      */
     public function setPromptForCLID($promptForCLID = null)
     {
+        if (!$promptForCLID) return $this;
         $this->promptForCLID = ($promptForCLID InstanceOf BroadWorksAnywhereCLIDPrompt)
              ? $promptForCLID
              : new BroadWorksAnywhereCLIDPrompt($promptForCLID);
+        $this->promptForCLID->setName('promptForCLID');
+        return $this;
     }
 
     /**
-     * BroadWorks Anywhere Prompt for CLID options.
+     * 
+     * @return BroadWorksAnywhereCLIDPrompt
      */
     public function getPromptForCLID()
     {
-        return (!$this->promptForCLID) ?: $this->promptForCLID->getValue();
+        return $this->promptForCLID->getValue();
     }
 
     /**
@@ -188,15 +200,19 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function setSilentPromptMode($silentPromptMode = null)
     {
-        $this->silentPromptMode = (boolean) $silentPromptMode;
+        if (!$silentPromptMode) return $this;
+        $this->silentPromptMode = new PrimitiveType($silentPromptMode);
+        $this->silentPromptMode->setName('silentPromptMode');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getSilentPromptMode()
     {
-        return (!$this->silentPromptMode) ?: $this->silentPromptMode;
+        return $this->silentPromptMode->getValue();
     }
 
     /**
@@ -204,14 +220,18 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function setPromptForPasscode($promptForPasscode = null)
     {
-        $this->promptForPasscode = (boolean) $promptForPasscode;
+        if (!$promptForPasscode) return $this;
+        $this->promptForPasscode = new PrimitiveType($promptForPasscode);
+        $this->promptForPasscode->setName('promptForPasscode');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPromptForPasscode()
     {
-        return (!$this->promptForPasscode) ?: $this->promptForPasscode;
+        return $this->promptForPasscode->getValue();
     }
 }

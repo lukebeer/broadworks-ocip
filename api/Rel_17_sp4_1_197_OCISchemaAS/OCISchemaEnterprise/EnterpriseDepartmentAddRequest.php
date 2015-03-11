@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseDepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'EnterpriseDepartmentAddRequest';
     protected $enterpriseId        = null;
     protected $departmentName      = null;
     protected $parentDepartmentKey = null;
@@ -31,7 +30,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
     public function __construct(
          $enterpriseId,
          $departmentName,
-          $parentDepartmentKey = null
+         EnterpriseDepartmentKey $parentDepartmentKey = null
     ) {
         $this->setEnterpriseId($enterpriseId);
         $this->setDepartmentName($departmentName);
@@ -39,7 +38,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return EnterpriseDepartmentAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,62 +46,66 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setEnterpriseId($enterpriseId = null)
     {
+        if (!$enterpriseId) return $this;
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
+        $this->enterpriseId->setName('enterpriseId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getEnterpriseId()
     {
-        return (!$this->enterpriseId) ?: $this->enterpriseId->getValue();
+        return $this->enterpriseId->getValue();
     }
 
     /**
-     * Department name. This is only the name of the department itself, not the full path name
-     *         of the department and all its parents.
+     * 
      */
     public function setDepartmentName($departmentName = null)
     {
+        if (!$departmentName) return $this;
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
+        $this->departmentName->setName('departmentName');
+        return $this;
     }
 
     /**
-     * Department name. This is only the name of the department itself, not the full path name
-     *         of the department and all its parents.
+     * 
+     * @return DepartmentName
      */
     public function getDepartmentName()
     {
-        return (!$this->departmentName) ?: $this->departmentName->getValue();
+        return $this->departmentName->getValue();
     }
 
     /**
-     * Uniquely identifies a department defined within an enterprise.
-     *         To uniquely identify an enterprise department, we must know the department name and which
-     *         enterprise contains the department.
+     * 
      */
     public function setParentDepartmentKey(EnterpriseDepartmentKey $parentDepartmentKey = null)
     {
-        $this->parentDepartmentKey =  $parentDepartmentKey;
+        if (!$parentDepartmentKey) return $this;
+        $this->parentDepartmentKey = $parentDepartmentKey;
+        $this->parentDepartmentKey->setName('parentDepartmentKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department defined within an enterprise.
-     *         To uniquely identify an enterprise department, we must know the department name and which
-     *         enterprise contains the department.
+     * 
+     * @return EnterpriseDepartmentKey
      */
     public function getParentDepartmentKey()
     {
-        return (!$this->parentDepartmentKey) ?: $this->parentDepartmentKey->getValue();
+        return $this->parentDepartmentKey;
     }
 }

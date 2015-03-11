@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceGetUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'ServiceProviderAccessDeviceGetUserListResponse';
     protected $deviceUserTable = null;
 
     /**
@@ -43,14 +42,17 @@ class ServiceProviderAccessDeviceGetUserListResponse extends ComplexType impleme
      */
     public function setDeviceUserTable(core:OCITable $deviceUserTable = null)
     {
-        $this->deviceUserTable =  $deviceUserTable;
+        if (!$deviceUserTable) return $this;
+        $this->deviceUserTable->setName('deviceUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDeviceUserTable()
     {
-        return (!$this->deviceUserTable) ?: $this->deviceUserTable->getValue();
+        return $this->deviceUserTable->getValue();
     }
 }

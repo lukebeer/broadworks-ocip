@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMTPFromAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMTPSubject;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMailParametersModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMailParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'SystemMailParametersModifyRequest';
     protected $primaryServerNetAddress          = null;
     protected $secondaryServerNetAddress        = null;
     protected $defaultFromAddress               = null;
@@ -45,7 +45,7 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return SystemMailParametersModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,75 +53,91 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setPrimaryServerNetAddress($primaryServerNetAddress = null)
     {
+        if (!$primaryServerNetAddress) return $this;
         $this->primaryServerNetAddress = ($primaryServerNetAddress InstanceOf NetAddress)
              ? $primaryServerNetAddress
              : new NetAddress($primaryServerNetAddress);
+        $this->primaryServerNetAddress->setName('primaryServerNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getPrimaryServerNetAddress()
     {
-        return (!$this->primaryServerNetAddress) ?: $this->primaryServerNetAddress->getValue();
+        return $this->primaryServerNetAddress->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setSecondaryServerNetAddress($secondaryServerNetAddress = null)
     {
+        if (!$secondaryServerNetAddress) return $this;
         $this->secondaryServerNetAddress = ($secondaryServerNetAddress InstanceOf NetAddress)
              ? $secondaryServerNetAddress
              : new NetAddress($secondaryServerNetAddress);
+        $this->secondaryServerNetAddress->setName('secondaryServerNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getSecondaryServerNetAddress()
     {
-        return (!$this->secondaryServerNetAddress) ?: $this->secondaryServerNetAddress->getValue();
+        return $this->secondaryServerNetAddress->getValue();
     }
 
     /**
-     * SMTP from address.
+     * 
      */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
+        if (!$defaultFromAddress) return $this;
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf SMTPFromAddress)
              ? $defaultFromAddress
              : new SMTPFromAddress($defaultFromAddress);
+        $this->defaultFromAddress->setName('defaultFromAddress');
+        return $this;
     }
 
     /**
-     * SMTP from address.
+     * 
+     * @return SMTPFromAddress
      */
     public function getDefaultFromAddress()
     {
-        return (!$this->defaultFromAddress) ?: $this->defaultFromAddress->getValue();
+        return $this->defaultFromAddress->getValue();
     }
 
     /**
-     * SMTP subject.
+     * 
      */
     public function setDefaultSubject($defaultSubject = null)
     {
+        if (!$defaultSubject) return $this;
         $this->defaultSubject = ($defaultSubject InstanceOf SMTPSubject)
              ? $defaultSubject
              : new SMTPSubject($defaultSubject);
+        $this->defaultSubject->setName('defaultSubject');
+        return $this;
     }
 
     /**
-     * SMTP subject.
+     * 
+     * @return SMTPSubject
      */
     public function getDefaultSubject()
     {
-        return (!$this->defaultSubject) ?: $this->defaultSubject->getValue();
+        return $this->defaultSubject->getValue();
     }
 
     /**
@@ -129,14 +145,18 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function setSupportDNSSRVForMailServerAccess($supportDNSSRVForMailServerAccess = null)
     {
-        $this->supportDNSSRVForMailServerAccess = (boolean) $supportDNSSRVForMailServerAccess;
+        if (!$supportDNSSRVForMailServerAccess) return $this;
+        $this->supportDNSSRVForMailServerAccess = new PrimitiveType($supportDNSSRVForMailServerAccess);
+        $this->supportDNSSRVForMailServerAccess->setName('supportDNSSRVForMailServerAccess');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getSupportDNSSRVForMailServerAccess()
     {
-        return (!$this->supportDNSSRVForMailServerAccess) ?: $this->supportDNSSRVForMailServerAccess;
+        return $this->supportDNSSRVForMailServerAccess->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAuthentication; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAuthentication; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPAuthenticationUserName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAuthentication\UserAuthenticationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAuthenticationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'UserAuthenticationGetResponse';
     protected $userName = null;
 
     /**
@@ -32,20 +31,24 @@ class UserAuthenticationGetResponse extends ComplexType implements ComplexInterf
     }
 
     /**
-     * SIP Authentication User Name.
+     * 
      */
     public function setUserName($userName = null)
     {
+        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf SIPAuthenticationUserName)
              ? $userName
              : new SIPAuthenticationUserName($userName);
+        $this->userName->setName('userName');
+        return $this;
     }
 
     /**
-     * SIP Authentication User Name.
+     * 
+     * @return SIPAuthenticationUserName
      */
     public function getUserName()
     {
-        return (!$this->userName) ?: $this->userName->getValue();
+        return $this->userName->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskGetServerRouteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIMessageDeskGetServerRouteListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'SystemSMDIMessageDeskGetServerRouteListResponse';
     protected $smdiServerRouteTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemSMDIMessageDeskGetServerRouteListResponse extends ComplexType implem
      */
     public function setSmdiServerRouteTable(core:OCITable $smdiServerRouteTable = null)
     {
-        $this->smdiServerRouteTable =  $smdiServerRouteTable;
+        if (!$smdiServerRouteTable) return $this;
+        $this->smdiServerRouteTable->setName('smdiServerRouteTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getSmdiServerRouteTable()
     {
-        return (!$this->smdiServerRouteTable) ?: $this->smdiServerRouteTable->getValue();
+        return $this->smdiServerRouteTable->getValue();
     }
 }

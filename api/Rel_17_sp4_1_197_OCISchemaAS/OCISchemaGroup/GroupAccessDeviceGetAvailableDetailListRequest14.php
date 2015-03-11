@@ -9,6 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -25,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14';
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupAccessDeviceGetAvailableDetailListRequest14';
     protected $serviceProviderId = null;
     protected $groupId           = null;
     protected $isMusicOnHold     = null;
@@ -52,43 +53,47 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
@@ -96,15 +101,19 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
      */
     public function setIsMusicOnHold($isMusicOnHold = null)
     {
-        $this->isMusicOnHold = (boolean) $isMusicOnHold;
+        if (!$isMusicOnHold) return $this;
+        $this->isMusicOnHold = new PrimitiveType($isMusicOnHold);
+        $this->isMusicOnHold->setName('isMusicOnHold');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsMusicOnHold()
     {
-        return (!$this->isMusicOnHold) ?: $this->isMusicOnHold;
+        return $this->isMusicOnHold->getValue();
     }
 
     /**
@@ -112,14 +121,18 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
      */
     public function setOnlyVideoCapable($onlyVideoCapable = null)
     {
-        $this->onlyVideoCapable = (boolean) $onlyVideoCapable;
+        if (!$onlyVideoCapable) return $this;
+        $this->onlyVideoCapable = new PrimitiveType($onlyVideoCapable);
+        $this->onlyVideoCapable->setName('onlyVideoCapable');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getOnlyVideoCapable()
     {
-        return (!$this->onlyVideoCapable) ?: $this->onlyVideoCapable;
+        return $this->onlyVideoCapable->getValue();
     }
 }

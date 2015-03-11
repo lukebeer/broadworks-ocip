@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseAccessDevice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'EnterpriseSessionAdmissionControlGroupGetResponse';
     protected $maxSession                      = null;
     protected $maxUserOriginatingSessions      = null;
     protected $maxUserTerminatingSessions      = null;
@@ -42,111 +42,135 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setMaxSession($maxSession = null)
     {
+        if (!$maxSession) return $this;
         $this->maxSession = ($maxSession InstanceOf NonNegativeInt)
              ? $maxSession
              : new NonNegativeInt($maxSession);
+        $this->maxSession->setName('maxSession');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getMaxSession()
     {
-        return (!$this->maxSession) ?: $this->maxSession->getValue();
+        return $this->maxSession->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
+        if (!$maxUserOriginatingSessions) return $this;
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $maxUserOriginatingSessions
              : new NonNegativeInt($maxUserOriginatingSessions);
+        $this->maxUserOriginatingSessions->setName('maxUserOriginatingSessions');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getMaxUserOriginatingSessions()
     {
-        return (!$this->maxUserOriginatingSessions) ?: $this->maxUserOriginatingSessions->getValue();
+        return $this->maxUserOriginatingSessions->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
+        if (!$maxUserTerminatingSessions) return $this;
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $maxUserTerminatingSessions
              : new NonNegativeInt($maxUserTerminatingSessions);
+        $this->maxUserTerminatingSessions->setName('maxUserTerminatingSessions');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getMaxUserTerminatingSessions()
     {
-        return (!$this->maxUserTerminatingSessions) ?: $this->maxUserTerminatingSessions->getValue();
+        return $this->maxUserTerminatingSessions->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setReservedSession($reservedSession = null)
     {
+        if (!$reservedSession) return $this;
         $this->reservedSession = ($reservedSession InstanceOf NonNegativeInt)
              ? $reservedSession
              : new NonNegativeInt($reservedSession);
+        $this->reservedSession->setName('reservedSession');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getReservedSession()
     {
-        return (!$this->reservedSession) ?: $this->reservedSession->getValue();
+        return $this->reservedSession->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setReservedUserOriginatingSessions($reservedUserOriginatingSessions = null)
     {
+        if (!$reservedUserOriginatingSessions) return $this;
         $this->reservedUserOriginatingSessions = ($reservedUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserOriginatingSessions
              : new NonNegativeInt($reservedUserOriginatingSessions);
+        $this->reservedUserOriginatingSessions->setName('reservedUserOriginatingSessions');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getReservedUserOriginatingSessions()
     {
-        return (!$this->reservedUserOriginatingSessions) ?: $this->reservedUserOriginatingSessions->getValue();
+        return $this->reservedUserOriginatingSessions->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setReservedUserTerminatingSessions($reservedUserTerminatingSessions = null)
     {
+        if (!$reservedUserTerminatingSessions) return $this;
         $this->reservedUserTerminatingSessions = ($reservedUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserTerminatingSessions
              : new NonNegativeInt($reservedUserTerminatingSessions);
+        $this->reservedUserTerminatingSessions->setName('reservedUserTerminatingSessions');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getReservedUserTerminatingSessions()
     {
-        return (!$this->reservedUserTerminatingSessions) ?: $this->reservedUserTerminatingSessions->getValue();
+        return $this->reservedUserTerminatingSessions->getValue();
     }
 
     /**
@@ -154,15 +178,19 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function setDefaultGroup($defaultGroup = null)
     {
-        $this->defaultGroup = (boolean) $defaultGroup;
+        if (!$defaultGroup) return $this;
+        $this->defaultGroup = new PrimitiveType($defaultGroup);
+        $this->defaultGroup->setName('defaultGroup');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDefaultGroup()
     {
-        return (!$this->defaultGroup) ?: $this->defaultGroup;
+        return $this->defaultGroup->getValue();
     }
 
     /**
@@ -170,30 +198,38 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function setCountIntraSACGroupSessions($countIntraSACGroupSessions = null)
     {
-        $this->countIntraSACGroupSessions = (boolean) $countIntraSACGroupSessions;
+        if (!$countIntraSACGroupSessions) return $this;
+        $this->countIntraSACGroupSessions = new PrimitiveType($countIntraSACGroupSessions);
+        $this->countIntraSACGroupSessions->setName('countIntraSACGroupSessions');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getCountIntraSACGroupSessions()
+    {
+        return $this->countIntraSACGroupSessions->getValue();
     }
 
     /**
      * 
      */
-    public function getCountIntraSACGroupSessions()
-    {
-        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions;
-    }
-
-    /**
-     * Uniquely identifies an access device accessible for an enterprise. It could be a system level device, an enterprise level device or a group level device.
-     */
     public function setDevices(EnterpriseAccessDevice $devices = null)
     {
-        $this->devices =  $devices;
+        if (!$devices) return $this;
+        $this->devices = $devices;
+        $this->devices->setName('devices');
+        return $this;
     }
 
     /**
-     * Uniquely identifies an access device accessible for an enterprise. It could be a system level device, an enterprise level device or a group level device.
+     * 
+     * @return EnterpriseAccessDevice
      */
     public function getDevices()
     {
-        return (!$this->devices) ?: $this->devices->getValue();
+        return $this->devices;
     }
 }

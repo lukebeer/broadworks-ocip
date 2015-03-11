@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsCallExpirationDays;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\EnhancedCallLogsMaxLoggedCalls;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderEnhancedCallLogsGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'ServiceProviderEnhancedCallLogsGetResponse';
     protected $maxLoggedCalls     = null;
     protected $callExpirationDays = null;
 
@@ -34,38 +33,46 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
     }
 
     /**
-     * Sets the maximum number of logged calls that can be stored.
+     * 
      */
     public function setMaxLoggedCalls($maxLoggedCalls = null)
     {
+        if (!$maxLoggedCalls) return $this;
         $this->maxLoggedCalls = ($maxLoggedCalls InstanceOf EnhancedCallLogsMaxLoggedCalls)
              ? $maxLoggedCalls
              : new EnhancedCallLogsMaxLoggedCalls($maxLoggedCalls);
+        $this->maxLoggedCalls->setName('maxLoggedCalls');
+        return $this;
     }
 
     /**
-     * Sets the maximum number of logged calls that can be stored.
+     * 
+     * @return EnhancedCallLogsMaxLoggedCalls
      */
     public function getMaxLoggedCalls()
     {
-        return (!$this->maxLoggedCalls) ?: $this->maxLoggedCalls->getValue();
+        return $this->maxLoggedCalls->getValue();
     }
 
     /**
-     * The maximum length of time the system will store logged calls.
+     * 
      */
     public function setCallExpirationDays($callExpirationDays = null)
     {
+        if (!$callExpirationDays) return $this;
         $this->callExpirationDays = ($callExpirationDays InstanceOf EnhancedCallLogsCallExpirationDays)
              ? $callExpirationDays
              : new EnhancedCallLogsCallExpirationDays($callExpirationDays);
+        $this->callExpirationDays->setName('callExpirationDays');
+        return $this;
     }
 
     /**
-     * The maximum length of time the system will store logged calls.
+     * 
+     * @return EnhancedCallLogsCallExpirationDays
      */
     public function getCallExpirationDays()
     {
-        return (!$this->callExpirationDays) ?: $this->callExpirationDays->getValue();
+        return $this->callExpirationDays->getValue();
     }
 }

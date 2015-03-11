@@ -12,7 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CAPConnecti
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CCC2MaxClientConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CAPMaxClientConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCAPParametersModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = __CLASS__;
+    public    $name                                    = 'SystemCAPParametersModifyRequest';
     protected $serverPort                              = null;
     protected $maxClientConnections                    = null;
     protected $enableConnectionPing                    = null;
@@ -56,7 +56,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return SystemCAPParametersModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,39 +64,47 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setServerPort($serverPort = null)
     {
+        if (!$serverPort) return $this;
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
+        $this->serverPort->setName('serverPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->getValue();
+        return $this->serverPort->getValue();
     }
 
     /**
-     * Number of client connections.
+     * 
      */
     public function setMaxClientConnections($maxClientConnections = null)
     {
+        if (!$maxClientConnections) return $this;
         $this->maxClientConnections = ($maxClientConnections InstanceOf CAPMaxClientConnections)
              ? $maxClientConnections
              : new CAPMaxClientConnections($maxClientConnections);
+        $this->maxClientConnections->setName('maxClientConnections');
+        return $this;
     }
 
     /**
-     * Number of client connections.
+     * 
+     * @return CAPMaxClientConnections
      */
     public function getMaxClientConnections()
     {
-        return (!$this->maxClientConnections) ?: $this->maxClientConnections->getValue();
+        return $this->maxClientConnections->getValue();
     }
 
     /**
@@ -104,104 +112,128 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function setEnableConnectionPing($enableConnectionPing = null)
     {
-        $this->enableConnectionPing = (boolean) $enableConnectionPing;
+        if (!$enableConnectionPing) return $this;
+        $this->enableConnectionPing = new PrimitiveType($enableConnectionPing);
+        $this->enableConnectionPing->setName('enableConnectionPing');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableConnectionPing()
+    {
+        return $this->enableConnectionPing->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableConnectionPing()
-    {
-        return (!$this->enableConnectionPing) ?: $this->enableConnectionPing;
-    }
-
-    /**
-     * Connection ping interval in minutes
-     */
     public function setConnectionPingIntervalMinutes($connectionPingIntervalMinutes = null)
     {
+        if (!$connectionPingIntervalMinutes) return $this;
         $this->connectionPingIntervalMinutes = ($connectionPingIntervalMinutes InstanceOf CAPConnectionPingIntervalMinutes)
              ? $connectionPingIntervalMinutes
              : new CAPConnectionPingIntervalMinutes($connectionPingIntervalMinutes);
+        $this->connectionPingIntervalMinutes->setName('connectionPingIntervalMinutes');
+        return $this;
     }
 
     /**
-     * Connection ping interval in minutes
+     * 
+     * @return CAPConnectionPingIntervalMinutes
      */
     public function getConnectionPingIntervalMinutes()
     {
-        return (!$this->connectionPingIntervalMinutes) ?: $this->connectionPingIntervalMinutes->getValue();
+        return $this->connectionPingIntervalMinutes->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setCCC2ServerPort($CCC2ServerPort = null)
     {
+        if (!$CCC2ServerPort) return $this;
         $this->CCC2ServerPort = ($CCC2ServerPort InstanceOf Port1025)
              ? $CCC2ServerPort
              : new Port1025($CCC2ServerPort);
+        $this->CCC2ServerPort->setName('CCC2ServerPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getCCC2ServerPort()
     {
-        return (!$this->CCC2ServerPort) ?: $this->CCC2ServerPort->getValue();
+        return $this->CCC2ServerPort->getValue();
     }
 
     /**
-     * CCC2 to number of client connections.
+     * 
      */
     public function setCCC2MaxClientConnections($CCC2MaxClientConnections = null)
     {
+        if (!$CCC2MaxClientConnections) return $this;
         $this->CCC2MaxClientConnections = ($CCC2MaxClientConnections InstanceOf CCC2MaxClientConnections)
              ? $CCC2MaxClientConnections
              : new CCC2MaxClientConnections($CCC2MaxClientConnections);
+        $this->CCC2MaxClientConnections->setName('CCC2MaxClientConnections');
+        return $this;
     }
 
     /**
-     * CCC2 to number of client connections.
+     * 
+     * @return CCC2MaxClientConnections
      */
     public function getCCC2MaxClientConnections()
     {
-        return (!$this->CCC2MaxClientConnections) ?: $this->CCC2MaxClientConnections->getValue();
+        return $this->CCC2MaxClientConnections->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setCapServerCallCenterPort($capServerCallCenterPort = null)
     {
+        if (!$capServerCallCenterPort) return $this;
         $this->capServerCallCenterPort = ($capServerCallCenterPort InstanceOf Port1025)
              ? $capServerCallCenterPort
              : new Port1025($capServerCallCenterPort);
+        $this->capServerCallCenterPort->setName('capServerCallCenterPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getCapServerCallCenterPort()
     {
-        return (!$this->capServerCallCenterPort) ?: $this->capServerCallCenterPort->getValue();
+        return $this->capServerCallCenterPort->getValue();
     }
 
     /**
-     * CAPServerCallCenter to number of client connections.
+     * 
      */
     public function setCapServerCallCenterMaxClientConnections($capServerCallCenterMaxClientConnections = null)
     {
+        if (!$capServerCallCenterMaxClientConnections) return $this;
         $this->capServerCallCenterMaxClientConnections = ($capServerCallCenterMaxClientConnections InstanceOf CAPServerCallCenterMaxClientConnections)
              ? $capServerCallCenterMaxClientConnections
              : new CAPServerCallCenterMaxClientConnections($capServerCallCenterMaxClientConnections);
+        $this->capServerCallCenterMaxClientConnections->setName('capServerCallCenterMaxClientConnections');
+        return $this;
     }
 
     /**
-     * CAPServerCallCenter to number of client connections.
+     * 
+     * @return CAPServerCallCenterMaxClientConnections
      */
     public function getCapServerCallCenterMaxClientConnections()
     {
-        return (!$this->capServerCallCenterMaxClientConnections) ?: $this->capServerCallCenterMaxClientConnections->getValue();
+        return $this->capServerCallCenterMaxClientConnections->getValue();
     }
 }

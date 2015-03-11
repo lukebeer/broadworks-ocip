@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBusyLampField; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField\SystemBusyLampFieldModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBusyLampFieldModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                  = __CLASS__;
+    public    $name                                  = 'SystemBusyLampFieldModifyRequest';
     protected $displayLocalUserIdentityLastNameFirst = null;
 
     public function __construct(
@@ -32,7 +31,7 @@ class SystemBusyLampFieldModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return SystemBusyLampFieldModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,14 +43,18 @@ class SystemBusyLampFieldModifyRequest extends ComplexType implements ComplexInt
      */
     public function setDisplayLocalUserIdentityLastNameFirst($displayLocalUserIdentityLastNameFirst = null)
     {
-        $this->displayLocalUserIdentityLastNameFirst = (boolean) $displayLocalUserIdentityLastNameFirst;
+        if (!$displayLocalUserIdentityLastNameFirst) return $this;
+        $this->displayLocalUserIdentityLastNameFirst = new PrimitiveType($displayLocalUserIdentityLastNameFirst);
+        $this->displayLocalUserIdentityLastNameFirst->setName('displayLocalUserIdentityLastNameFirst');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisplayLocalUserIdentityLastNameFirst()
     {
-        return (!$this->displayLocalUserIdentityLastNameFirst) ?: $this->displayLocalUserIdentityLastNameFirst;
+        return $this->displayLocalUserIdentityLastNameFirst->getValue();
     }
 }

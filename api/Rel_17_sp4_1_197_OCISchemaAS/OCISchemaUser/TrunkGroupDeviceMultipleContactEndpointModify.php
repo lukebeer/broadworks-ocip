@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\TrunkGroupDeviceMultipleContactEndpointModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,9 +21,19 @@ use Broadworks_OCIP\core\Client\Client;
 class TrunkGroupDeviceMultipleContactEndpointModify extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\TrunkGroupDeviceMultipleContactEndpointModify';
-    public    $name = __CLASS__;
+    public    $name        = 'TrunkGroupDeviceMultipleContactEndpointModify';
+    protected $name        = null;
+    protected $linePort    = null;
+    protected $contactList = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $name = null,
+         $linePort = null,
+         $contactList = null
+    ) {
+        $this->setName($name);
+        $this->setLinePort($linePort);
+        $this->setContactList($contactList);
     }
 
     /**
@@ -32,5 +42,65 @@ class TrunkGroupDeviceMultipleContactEndpointModify extends ComplexType implemen
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setName($name = null)
+    {
+        if (!$name) return $this;
+        $this->name = new SimpleContent($name);
+        $this->name->setName('name');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getName()
+    {
+        return $this->name->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setLinePort($linePort = null)
+    {
+        if (!$linePort) return $this;
+        $this->linePort = new SimpleContent($linePort);
+        $this->linePort->setName('linePort');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getLinePort()
+    {
+        return $this->linePort->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setContactList($contactList = null)
+    {
+        if (!$contactList) return $this;
+        $this->contactList = new SimpleContent($contactList);
+        $this->contactList->setName('contactList');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getContactList()
+    {
+        return $this->contactList->getValue();
     }
 }

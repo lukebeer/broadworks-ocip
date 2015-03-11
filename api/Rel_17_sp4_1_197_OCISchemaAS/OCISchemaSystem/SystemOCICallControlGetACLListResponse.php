@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCICallControlGetACLListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlGetACLListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'SystemOCICallControlGetACLListResponse';
     protected $aclTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemOCICallControlGetACLListResponse extends ComplexType implements Comp
      */
     public function setAclTable(core:OCITable $aclTable = null)
     {
-        $this->aclTable =  $aclTable;
+        if (!$aclTable) return $this;
+        $this->aclTable->setName('aclTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getAclTable()
     {
-        return (!$this->aclTable) ?: $this->aclTable->getValue();
+        return $this->aclTable->getValue();
     }
 }

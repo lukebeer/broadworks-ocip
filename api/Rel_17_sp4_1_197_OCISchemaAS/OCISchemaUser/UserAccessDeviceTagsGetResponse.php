@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceTagsGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAccessDeviceTagsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'UserAccessDeviceTagsGetResponse';
     protected $deviceTagsTable = null;
 
     /**
@@ -37,14 +36,17 @@ class UserAccessDeviceTagsGetResponse extends ComplexType implements ComplexInte
      */
     public function setDeviceTagsTable(core:OCITable $deviceTagsTable = null)
     {
-        $this->deviceTagsTable =  $deviceTagsTable;
+        if (!$deviceTagsTable) return $this;
+        $this->deviceTagsTable->setName('deviceTagsTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDeviceTagsTable()
     {
-        return (!$this->deviceTagsTable) ?: $this->deviceTagsTable->getValue();
+        return $this->deviceTagsTable->getValue();
     }
 }

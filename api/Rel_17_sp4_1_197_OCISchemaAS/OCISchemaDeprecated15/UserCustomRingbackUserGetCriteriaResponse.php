@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDesc
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaFromDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCustomRingbackUserGetCriteriaResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'UserCustomRingbackUserGetCriteriaResponse';
     protected $timeSchedule         = null;
     protected $fromDnCriteria       = null;
     protected $audioSelection       = null;
@@ -43,142 +42,174 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
     }
 
     /**
-     * The from dn criteria.
+     * 
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule =  $timeSchedule;
+        if (!$timeSchedule) return $this;
+        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule->setName('timeSchedule');
+        return $this;
     }
 
     /**
-     * The from dn criteria.
+     * 
+     * @return TimeSchedule
      */
     public function getTimeSchedule()
     {
-        return (!$this->timeSchedule) ?: $this->timeSchedule->getValue();
+        return $this->timeSchedule;
     }
 
     /**
-     * The from dn criteria used within an add/get request.
+     * 
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        $this->fromDnCriteria =  $fromDnCriteria;
+        if (!$fromDnCriteria) return $this;
+        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria->setName('fromDnCriteria');
+        return $this;
     }
 
     /**
-     * The from dn criteria used within an add/get request.
+     * 
+     * @return CriteriaFromDn
      */
     public function getFromDnCriteria()
     {
-        return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->getValue();
+        return $this->fromDnCriteria;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setAudioSelection($audioSelection = null)
     {
+        if (!$audioSelection) return $this;
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
+        $this->audioSelection->setName('audioSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getAudioSelection()
     {
-        return (!$this->audioSelection) ?: $this->audioSelection->getValue();
+        return $this->audioSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
+        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
+        $this->audioFileDescription->setName('audioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
+        return $this->audioFileDescription->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
+        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
+        $this->audioFileUrl->setName('audioFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getAudioFileUrl()
     {
-        return (!$this->audioFileUrl) ?: $this->audioFileUrl->getValue();
+        return $this->audioFileUrl->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setVideoSelection($videoSelection = null)
     {
+        if (!$videoSelection) return $this;
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
+        $this->videoSelection->setName('videoSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getVideoSelection()
     {
-        return (!$this->videoSelection) ?: $this->videoSelection->getValue();
+        return $this->videoSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
+        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
+        $this->videoFileDescription->setName('videoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
+        return $this->videoFileDescription->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
+        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
+        $this->videoFileUrl->setName('videoFileUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getVideoFileUrl()
     {
-        return (!$this->videoFileUrl) ?: $this->videoFileUrl->getValue();
+        return $this->videoFileUrl->getValue();
     }
 }

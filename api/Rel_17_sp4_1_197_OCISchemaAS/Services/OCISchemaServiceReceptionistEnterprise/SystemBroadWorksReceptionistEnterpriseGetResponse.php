@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MaximumMonitoredUsers;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceReceptionistEnterprise\SystemBroadWorksReceptionistEnterpriseGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksReceptionistEnterpriseGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'SystemBroadWorksReceptionistEnterpriseGetResponse';
     protected $maxMonitoredUsers = null;
 
     /**
@@ -33,20 +32,24 @@ class SystemBroadWorksReceptionistEnterpriseGetResponse extends ComplexType impl
     }
 
     /**
-     * Maximum number of users allowed in a monitored user list.
+     * 
      */
     public function setMaxMonitoredUsers($maxMonitoredUsers = null)
     {
+        if (!$maxMonitoredUsers) return $this;
         $this->maxMonitoredUsers = ($maxMonitoredUsers InstanceOf MaximumMonitoredUsers)
              ? $maxMonitoredUsers
              : new MaximumMonitoredUsers($maxMonitoredUsers);
+        $this->maxMonitoredUsers->setName('maxMonitoredUsers');
+        return $this;
     }
 
     /**
-     * Maximum number of users allowed in a monitored user list.
+     * 
+     * @return MaximumMonitoredUsers
      */
     public function getMaxMonitoredUsers()
     {
-        return (!$this->maxMonitoredUsers) ?: $this->maxMonitoredUsers->getValue();
+        return $this->maxMonitoredUsers->getValue();
     }
 }

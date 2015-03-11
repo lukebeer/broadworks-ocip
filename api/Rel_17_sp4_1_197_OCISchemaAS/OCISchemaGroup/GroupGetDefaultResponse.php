@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupUserLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetDefaultResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'GroupGetDefaultResponse';
     protected $defaultDomain       = null;
     protected $userLimit           = null;
     protected $timeZone            = null;
@@ -38,74 +37,90 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setDefaultDomain($defaultDomain = null)
     {
+        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
+        $this->defaultDomain->setName('defaultDomain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getDefaultDomain()
     {
-        return (!$this->defaultDomain) ?: $this->defaultDomain->getValue();
+        return $this->defaultDomain->getValue();
     }
 
     /**
-     * Configured maximum number of users in a group.
+     * 
      */
     public function setUserLimit($userLimit = null)
     {
+        if (!$userLimit) return $this;
         $this->userLimit = ($userLimit InstanceOf GroupUserLimit)
              ? $userLimit
              : new GroupUserLimit($userLimit);
+        $this->userLimit->setName('userLimit');
+        return $this;
     }
 
     /**
-     * Configured maximum number of users in a group.
+     * 
+     * @return GroupUserLimit
      */
     public function getUserLimit()
     {
-        return (!$this->userLimit) ?: $this->userLimit->getValue();
+        return $this->userLimit->getValue();
     }
 
     /**
-     * Time zone key.
+     * 
      */
     public function setTimeZone($timeZone = null)
     {
+        if (!$timeZone) return $this;
         $this->timeZone = ($timeZone InstanceOf TimeZone)
              ? $timeZone
              : new TimeZone($timeZone);
+        $this->timeZone->setName('timeZone');
+        return $this;
     }
 
     /**
-     * Time zone key.
+     * 
+     * @return TimeZone
      */
     public function getTimeZone()
     {
-        return (!$this->timeZone) ?: $this->timeZone->getValue();
+        return $this->timeZone->getValue();
     }
 
     /**
-     * Localized Time Zone Display Name
+     * 
      */
     public function setTimeZoneDisplayName($timeZoneDisplayName = null)
     {
+        if (!$timeZoneDisplayName) return $this;
         $this->timeZoneDisplayName = ($timeZoneDisplayName InstanceOf TimeZoneDisplayName)
              ? $timeZoneDisplayName
              : new TimeZoneDisplayName($timeZoneDisplayName);
+        $this->timeZoneDisplayName->setName('timeZoneDisplayName');
+        return $this;
     }
 
     /**
-     * Localized Time Zone Display Name
+     * 
+     * @return TimeZoneDisplayName
      */
     public function getTimeZoneDisplayName()
     {
-        return (!$this->timeZoneDisplayName) ?: $this->timeZoneDisplayName->getValue();
+        return $this->timeZoneDisplayName->getValue();
     }
 }

@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointModifyDNISParametersResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupRoutePointModifyDNISParametersRequest';
     protected $serviceUserId     = null;
     protected $displayDNISNumber = null;
     protected $displayDNISName   = null;
@@ -37,7 +37,7 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
     }
 
     /**
-     * @return GroupRoutePointModifyDNISParametersResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,29 +45,25 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
@@ -75,15 +71,19 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
      */
     public function setDisplayDNISNumber($displayDNISNumber = null)
     {
-        $this->displayDNISNumber = (boolean) $displayDNISNumber;
+        if (!$displayDNISNumber) return $this;
+        $this->displayDNISNumber = new PrimitiveType($displayDNISNumber);
+        $this->displayDNISNumber->setName('displayDNISNumber');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisplayDNISNumber()
     {
-        return (!$this->displayDNISNumber) ?: $this->displayDNISNumber;
+        return $this->displayDNISNumber->getValue();
     }
 
     /**
@@ -91,14 +91,18 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
      */
     public function setDisplayDNISName($displayDNISName = null)
     {
-        $this->displayDNISName = (boolean) $displayDNISName;
+        if (!$displayDNISName) return $this;
+        $this->displayDNISName = new PrimitiveType($displayDNISName);
+        $this->displayDNISName->setName('displayDNISName');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisplayDNISName()
     {
-        return (!$this->displayDNISName) ?: $this->displayDNISName;
+        return $this->displayDNISName->getValue();
     }
 }

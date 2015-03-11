@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentFullPathName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseDepartmentGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'EnterpriseDepartmentGetListResponse';
     protected $departmentKey = null;
     protected $fullPathName  = null;
 
@@ -35,48 +34,44 @@ class EnterpriseDepartmentGetListResponse extends ComplexType implements Complex
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
      */
     public function setDepartmentKey(DepartmentKey $departmentKey = null)
     {
-        $this->departmentKey =  $departmentKey;
+        if (!$departmentKey) return $this;
+        $this->departmentKey = $departmentKey;
+        $this->departmentKey->setName('departmentKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
+     * @return DepartmentKey
      */
     public function getDepartmentKey()
     {
-        return (!$this->departmentKey) ?: $this->departmentKey->getValue();
+        return $this->departmentKey;
     }
 
     /**
-     * Department Full Path name. This the full path name of the department.
+     * 
      */
     public function setFullPathName($fullPathName = null)
     {
+        if (!$fullPathName) return $this;
         $this->fullPathName = ($fullPathName InstanceOf DepartmentFullPathName)
              ? $fullPathName
              : new DepartmentFullPathName($fullPathName);
+        $this->fullPathName->setName('fullPathName');
+        return $this;
     }
 
     /**
-     * Department Full Path name. This the full path name of the department.
+     * 
+     * @return DepartmentFullPathName
      */
     public function getFullPathName()
     {
-        return (!$this->fullPathName) ?: $this->fullPathName->getValue();
+        return $this->fullPathName->getValue();
     }
 }

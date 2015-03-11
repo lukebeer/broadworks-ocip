@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceActivation;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\GroupBroadWorksAnywhereModifyActiveInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,17 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksAnywhereModifyActiveInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupBroadWorksAnywhereModifyActiveInstanceListRequest';
     protected $serviceActivation = null;
 
     public function __construct(
-          $serviceActivation = null
+         ServiceActivation $serviceActivation = null
     ) {
         $this->setServiceActivation($serviceActivation);
     }
 
     /**
-     * @return GroupBroadWorksAnywhereModifyActiveInstanceListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,18 +38,22 @@ class GroupBroadWorksAnywhereModifyActiveInstanceListRequest extends ComplexType
     }
 
     /**
-     * Service Instance active status indicator
+     * 
      */
     public function setServiceActivation(ServiceActivation $serviceActivation = null)
     {
-        $this->serviceActivation =  $serviceActivation;
+        if (!$serviceActivation) return $this;
+        $this->serviceActivation = $serviceActivation;
+        $this->serviceActivation->setName('serviceActivation');
+        return $this;
     }
 
     /**
-     * Service Instance active status indicator
+     * 
+     * @return ServiceActivation
      */
     public function getServiceActivation()
     {
-        return (!$this->serviceActivation) ?: $this->serviceActivation->getValue();
+        return $this->serviceActivation;
     }
 }

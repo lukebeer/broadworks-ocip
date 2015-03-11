@@ -40,7 +40,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupTrunkGroupAddInstanceResponse17sp3;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -55,7 +55,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = __CLASS__;
+    public    $name                                       = 'GroupTrunkGroupAddInstanceRequest17sp3';
     protected $serviceProviderId                          = null;
     protected $groupId                                    = null;
     protected $name                                       = null;
@@ -111,9 +111,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
          $serviceProviderId,
          $groupId,
          $name,
-          $pilotUser = null,
-          $department = null,
-          $accessDevice = null,
+         TrunkGroupPilotUser $pilotUser = null,
+         DepartmentKey $department = null,
+         AccessDevice $accessDevice = null,
          $maxActiveCalls,
          $maxIncomingCalls = null,
          $maxOutgoingCalls = null,
@@ -123,12 +123,12 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
          $burstingMaxOutgoingCalls = null,
          $capacityExceededAction = null,
          $capacityExceededForwardAddress = null,
-          $capacityExceededRerouteTrunkGroupKey = null,
+         TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null,
          $capacityExceededTrapInitialCalls,
          $capacityExceededTrapOffsetCalls,
          $unreachableDestinationAction = null,
          $unreachableDestinationForwardAddress = null,
-          $unreachableDestinationRerouteTrunkGroupKey = null,
+         TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null,
          $invitationTimeout,
          $requireAuthentication,
          $sipAuthenticationUserName = null,
@@ -145,7 +145,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
          $pilotUserChargeNumberPolicy,
          $callForwardingAlwaysAction = null,
          $callForwardingAlwaysForwardAddress = null,
-          $callForwardingAlwaysRerouteTrunkGroupKey = null,
+         TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey = null,
          $peeringDomain = null,
          $routeToPeeringDomain,
          $prefixEnabled,
@@ -212,7 +212,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     }
 
     /**
-     * @return GroupTrunkGroupAddInstanceResponse17sp3
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -220,177 +220,195 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Trunk Group name.
-     *         Uniquely identifies a Trunk Group within a business (or family) group.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf TrunkGroupName)
              ? $name
              : new TrunkGroupName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Trunk Group name.
-     *         Uniquely identifies a Trunk Group within a business (or family) group.
+     * 
+     * @return TrunkGroupName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * Trunk Group pilot user information used when adding a Trunk Group.
+     * 
      */
     public function setPilotUser(TrunkGroupPilotUser $pilotUser = null)
     {
-        $this->pilotUser =  $pilotUser;
+        if (!$pilotUser) return $this;
+        $this->pilotUser = $pilotUser;
+        $this->pilotUser->setName('pilotUser');
+        return $this;
     }
 
     /**
-     * Trunk Group pilot user information used when adding a Trunk Group.
+     * 
+     * @return TrunkGroupPilotUser
      */
     public function getPilotUser()
     {
-        return (!$this->pilotUser) ?: $this->pilotUser->getValue();
+        return $this->pilotUser;
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department =  $department;
+        if (!$department) return $this;
+        $this->department = $department;
+        $this->department->setName('department');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
+     * @return DepartmentKey
      */
     public function getDepartment()
     {
-        return (!$this->department) ?: $this->department->getValue();
+        return $this->department;
     }
 
     /**
-     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     * 
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $this->accessDevice =  $accessDevice;
+        if (!$accessDevice) return $this;
+        $this->accessDevice = $accessDevice;
+        $this->accessDevice->setName('accessDevice');
+        return $this;
     }
 
     /**
-     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     * 
+     * @return AccessDevice
      */
     public function getAccessDevice()
     {
-        return (!$this->accessDevice) ?: $this->accessDevice->getValue();
+        return $this->accessDevice;
     }
 
     /**
-     * Maximum Number of Active Calls
+     * 
      */
     public function setMaxActiveCalls($maxActiveCalls = null)
     {
+        if (!$maxActiveCalls) return $this;
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
              ? $maxActiveCalls
              : new MaxActiveCalls($maxActiveCalls);
+        $this->maxActiveCalls->setName('maxActiveCalls');
+        return $this;
     }
 
     /**
-     * Maximum Number of Active Calls
+     * 
+     * @return MaxActiveCalls
      */
     public function getMaxActiveCalls()
     {
-        return (!$this->maxActiveCalls) ?: $this->maxActiveCalls->getValue();
+        return $this->maxActiveCalls->getValue();
     }
 
     /**
-     * Maximum Number of Incoming Calls
+     * 
      */
     public function setMaxIncomingCalls($maxIncomingCalls = null)
     {
+        if (!$maxIncomingCalls) return $this;
         $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
              ? $maxIncomingCalls
              : new MaxIncomingCalls($maxIncomingCalls);
+        $this->maxIncomingCalls->setName('maxIncomingCalls');
+        return $this;
     }
 
     /**
-     * Maximum Number of Incoming Calls
+     * 
+     * @return MaxIncomingCalls
      */
     public function getMaxIncomingCalls()
     {
-        return (!$this->maxIncomingCalls) ?: $this->maxIncomingCalls->getValue();
+        return $this->maxIncomingCalls->getValue();
     }
 
     /**
-     * Maximum Number of Outgoing Calls
+     * 
      */
     public function setMaxOutgoingCalls($maxOutgoingCalls = null)
     {
+        if (!$maxOutgoingCalls) return $this;
         $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
              ? $maxOutgoingCalls
              : new MaxOutgoingCalls($maxOutgoingCalls);
+        $this->maxOutgoingCalls->setName('maxOutgoingCalls');
+        return $this;
     }
 
     /**
-     * Maximum Number of Outgoing Calls
+     * 
+     * @return MaxOutgoingCalls
      */
     public function getMaxOutgoingCalls()
     {
-        return (!$this->maxOutgoingCalls) ?: $this->maxOutgoingCalls->getValue();
+        return $this->maxOutgoingCalls->getValue();
     }
 
     /**
@@ -398,261 +416,279 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setEnableBursting($enableBursting = null)
     {
-        $this->enableBursting = (boolean) $enableBursting;
+        if (!$enableBursting) return $this;
+        $this->enableBursting = new PrimitiveType($enableBursting);
+        $this->enableBursting->setName('enableBursting');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableBursting()
+    {
+        return $this->enableBursting->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableBursting()
-    {
-        return (!$this->enableBursting) ?: $this->enableBursting;
-    }
-
-    /**
-     * Bursting Maximum Number of Active Calls
-     */
     public function setBurstingMaxActiveCalls($burstingMaxActiveCalls = null)
     {
+        if (!$burstingMaxActiveCalls) return $this;
         $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf BurstingMaxActiveCalls)
              ? $burstingMaxActiveCalls
              : new BurstingMaxActiveCalls($burstingMaxActiveCalls);
+        $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
+        return $this;
     }
 
     /**
-     * Bursting Maximum Number of Active Calls
+     * 
+     * @return BurstingMaxActiveCalls
      */
     public function getBurstingMaxActiveCalls()
     {
-        return (!$this->burstingMaxActiveCalls) ?: $this->burstingMaxActiveCalls->getValue();
+        return $this->burstingMaxActiveCalls->getValue();
     }
 
     /**
-     * Bursting Maximum Number of Incoming Calls
+     * 
      */
     public function setBurstingMaxIncomingCalls($burstingMaxIncomingCalls = null)
     {
+        if (!$burstingMaxIncomingCalls) return $this;
         $this->burstingMaxIncomingCalls = ($burstingMaxIncomingCalls InstanceOf BurstingMaxIncomingCalls)
              ? $burstingMaxIncomingCalls
              : new BurstingMaxIncomingCalls($burstingMaxIncomingCalls);
+        $this->burstingMaxIncomingCalls->setName('burstingMaxIncomingCalls');
+        return $this;
     }
 
     /**
-     * Bursting Maximum Number of Incoming Calls
+     * 
+     * @return BurstingMaxIncomingCalls
      */
     public function getBurstingMaxIncomingCalls()
     {
-        return (!$this->burstingMaxIncomingCalls) ?: $this->burstingMaxIncomingCalls->getValue();
+        return $this->burstingMaxIncomingCalls->getValue();
     }
 
     /**
-     * Bursting Maximum Number of Outgoing Calls
+     * 
      */
     public function setBurstingMaxOutgoingCalls($burstingMaxOutgoingCalls = null)
     {
+        if (!$burstingMaxOutgoingCalls) return $this;
         $this->burstingMaxOutgoingCalls = ($burstingMaxOutgoingCalls InstanceOf BurstingMaxOutgoingCalls)
              ? $burstingMaxOutgoingCalls
              : new BurstingMaxOutgoingCalls($burstingMaxOutgoingCalls);
+        $this->burstingMaxOutgoingCalls->setName('burstingMaxOutgoingCalls');
+        return $this;
     }
 
     /**
-     * Bursting Maximum Number of Outgoing Calls
+     * 
+     * @return BurstingMaxOutgoingCalls
      */
     public function getBurstingMaxOutgoingCalls()
     {
-        return (!$this->burstingMaxOutgoingCalls) ?: $this->burstingMaxOutgoingCalls->getValue();
+        return $this->burstingMaxOutgoingCalls->getValue();
     }
 
     /**
-     * Trunk Group capacity exceeded action.
+     * 
      */
     public function setCapacityExceededAction($capacityExceededAction = null)
     {
+        if (!$capacityExceededAction) return $this;
         $this->capacityExceededAction = ($capacityExceededAction InstanceOf TrunkGroupCapacityExceededAction)
              ? $capacityExceededAction
              : new TrunkGroupCapacityExceededAction($capacityExceededAction);
+        $this->capacityExceededAction->setName('capacityExceededAction');
+        return $this;
     }
 
     /**
-     * Trunk Group capacity exceeded action.
+     * 
+     * @return TrunkGroupCapacityExceededAction
      */
     public function getCapacityExceededAction()
     {
-        return (!$this->capacityExceededAction) ?: $this->capacityExceededAction->getValue();
+        return $this->capacityExceededAction->getValue();
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
      */
     public function setCapacityExceededForwardAddress($capacityExceededForwardAddress = null)
     {
+        if (!$capacityExceededForwardAddress) return $this;
         $this->capacityExceededForwardAddress = ($capacityExceededForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $capacityExceededForwardAddress
              : new OutgoingDNorSIPURI($capacityExceededForwardAddress);
+        $this->capacityExceededForwardAddress->setName('capacityExceededForwardAddress');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getCapacityExceededForwardAddress()
     {
-        return (!$this->capacityExceededForwardAddress) ?: $this->capacityExceededForwardAddress->getValue();
+        return $this->capacityExceededForwardAddress->getValue();
     }
 
     /**
-     * Uniquely identifies a Trunk Group system-wide.
-     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     * 
      */
     public function setCapacityExceededRerouteTrunkGroupKey(TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null)
     {
-        $this->capacityExceededRerouteTrunkGroupKey =  $capacityExceededRerouteTrunkGroupKey;
+        if (!$capacityExceededRerouteTrunkGroupKey) return $this;
+        $this->capacityExceededRerouteTrunkGroupKey = $capacityExceededRerouteTrunkGroupKey;
+        $this->capacityExceededRerouteTrunkGroupKey->setName('capacityExceededRerouteTrunkGroupKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a Trunk Group system-wide.
-     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     * 
+     * @return TrunkGroupKey
      */
     public function getCapacityExceededRerouteTrunkGroupKey()
     {
-        return (!$this->capacityExceededRerouteTrunkGroupKey) ?: $this->capacityExceededRerouteTrunkGroupKey->getValue();
+        return $this->capacityExceededRerouteTrunkGroupKey;
     }
 
     /**
-     * An SNMP trap will be sent when the number of counted events crosses this threshold value.
+     * 
      */
     public function setCapacityExceededTrapInitialCalls($capacityExceededTrapInitialCalls = null)
     {
+        if (!$capacityExceededTrapInitialCalls) return $this;
         $this->capacityExceededTrapInitialCalls = ($capacityExceededTrapInitialCalls InstanceOf TrapInitialThreshold)
              ? $capacityExceededTrapInitialCalls
              : new TrapInitialThreshold($capacityExceededTrapInitialCalls);
+        $this->capacityExceededTrapInitialCalls->setName('capacityExceededTrapInitialCalls');
+        return $this;
     }
 
     /**
-     * An SNMP trap will be sent when the number of counted events crosses this threshold value.
+     * 
+     * @return TrapInitialThreshold
      */
     public function getCapacityExceededTrapInitialCalls()
     {
-        return (!$this->capacityExceededTrapInitialCalls) ?: $this->capacityExceededTrapInitialCalls->getValue();
+        return $this->capacityExceededTrapInitialCalls->getValue();
     }
 
     /**
-     * Subsequent SNMP traps will be sent after the intial trap each time the number of
-     *         counted events increases by this value since the last trap.
+     * 
      */
     public function setCapacityExceededTrapOffsetCalls($capacityExceededTrapOffsetCalls = null)
     {
+        if (!$capacityExceededTrapOffsetCalls) return $this;
         $this->capacityExceededTrapOffsetCalls = ($capacityExceededTrapOffsetCalls InstanceOf TrapOffsetThreshold)
              ? $capacityExceededTrapOffsetCalls
              : new TrapOffsetThreshold($capacityExceededTrapOffsetCalls);
+        $this->capacityExceededTrapOffsetCalls->setName('capacityExceededTrapOffsetCalls');
+        return $this;
     }
 
     /**
-     * Subsequent SNMP traps will be sent after the intial trap each time the number of
-     *         counted events increases by this value since the last trap.
+     * 
+     * @return TrapOffsetThreshold
      */
     public function getCapacityExceededTrapOffsetCalls()
     {
-        return (!$this->capacityExceededTrapOffsetCalls) ?: $this->capacityExceededTrapOffsetCalls->getValue();
+        return $this->capacityExceededTrapOffsetCalls->getValue();
     }
 
     /**
-     * Trunk Group unreachable destination action.
+     * 
      */
     public function setUnreachableDestinationAction($unreachableDestinationAction = null)
     {
+        if (!$unreachableDestinationAction) return $this;
         $this->unreachableDestinationAction = ($unreachableDestinationAction InstanceOf TrunkGroupUnreachableDestinationAction)
              ? $unreachableDestinationAction
              : new TrunkGroupUnreachableDestinationAction($unreachableDestinationAction);
+        $this->unreachableDestinationAction->setName('unreachableDestinationAction');
+        return $this;
     }
 
     /**
-     * Trunk Group unreachable destination action.
+     * 
+     * @return TrunkGroupUnreachableDestinationAction
      */
     public function getUnreachableDestinationAction()
     {
-        return (!$this->unreachableDestinationAction) ?: $this->unreachableDestinationAction->getValue();
+        return $this->unreachableDestinationAction->getValue();
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
      */
     public function setUnreachableDestinationForwardAddress($unreachableDestinationForwardAddress = null)
     {
+        if (!$unreachableDestinationForwardAddress) return $this;
         $this->unreachableDestinationForwardAddress = ($unreachableDestinationForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $unreachableDestinationForwardAddress
              : new OutgoingDNorSIPURI($unreachableDestinationForwardAddress);
+        $this->unreachableDestinationForwardAddress->setName('unreachableDestinationForwardAddress');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getUnreachableDestinationForwardAddress()
     {
-        return (!$this->unreachableDestinationForwardAddress) ?: $this->unreachableDestinationForwardAddress->getValue();
+        return $this->unreachableDestinationForwardAddress->getValue();
     }
 
     /**
-     * Uniquely identifies a Trunk Group system-wide.
-     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     * 
      */
     public function setUnreachableDestinationRerouteTrunkGroupKey(TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null)
     {
-        $this->unreachableDestinationRerouteTrunkGroupKey =  $unreachableDestinationRerouteTrunkGroupKey;
+        if (!$unreachableDestinationRerouteTrunkGroupKey) return $this;
+        $this->unreachableDestinationRerouteTrunkGroupKey = $unreachableDestinationRerouteTrunkGroupKey;
+        $this->unreachableDestinationRerouteTrunkGroupKey->setName('unreachableDestinationRerouteTrunkGroupKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a Trunk Group system-wide.
-     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     * 
+     * @return TrunkGroupKey
      */
     public function getUnreachableDestinationRerouteTrunkGroupKey()
     {
-        return (!$this->unreachableDestinationRerouteTrunkGroupKey) ?: $this->unreachableDestinationRerouteTrunkGroupKey->getValue();
+        return $this->unreachableDestinationRerouteTrunkGroupKey;
     }
 
     /**
-     * The timer to start when an invitation is sent to a device associated with a trunk group.
+     * 
      */
     public function setInvitationTimeout($invitationTimeout = null)
     {
+        if (!$invitationTimeout) return $this;
         $this->invitationTimeout = ($invitationTimeout InstanceOf TrunkGroupInvitationTimeoutSeconds)
              ? $invitationTimeout
              : new TrunkGroupInvitationTimeoutSeconds($invitationTimeout);
+        $this->invitationTimeout->setName('invitationTimeout');
+        return $this;
     }
 
     /**
-     * The timer to start when an invitation is sent to a device associated with a trunk group.
+     * 
+     * @return TrunkGroupInvitationTimeoutSeconds
      */
     public function getInvitationTimeout()
     {
-        return (!$this->invitationTimeout) ?: $this->invitationTimeout->getValue();
+        return $this->invitationTimeout->getValue();
     }
 
     /**
@@ -660,33 +696,41 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setRequireAuthentication($requireAuthentication = null)
     {
-        $this->requireAuthentication = (boolean) $requireAuthentication;
+        if (!$requireAuthentication) return $this;
+        $this->requireAuthentication = new PrimitiveType($requireAuthentication);
+        $this->requireAuthentication->setName('requireAuthentication');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRequireAuthentication()
+    {
+        return $this->requireAuthentication->getValue();
     }
 
     /**
      * 
      */
-    public function getRequireAuthentication()
-    {
-        return (!$this->requireAuthentication) ?: $this->requireAuthentication;
-    }
-
-    /**
-     * SIP Authentication User Name.
-     */
     public function setSipAuthenticationUserName($sipAuthenticationUserName = null)
     {
+        if (!$sipAuthenticationUserName) return $this;
         $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
              ? $sipAuthenticationUserName
              : new SIPAuthenticationUserName($sipAuthenticationUserName);
+        $this->sipAuthenticationUserName->setName('sipAuthenticationUserName');
+        return $this;
     }
 
     /**
-     * SIP Authentication User Name.
+     * 
+     * @return SIPAuthenticationUserName
      */
     public function getSipAuthenticationUserName()
     {
-        return (!$this->sipAuthenticationUserName) ?: $this->sipAuthenticationUserName->getValue();
+        return $this->sipAuthenticationUserName->getValue();
     }
 
     /**
@@ -694,93 +738,87 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setSipAuthenticationPassword($sipAuthenticationPassword = null)
     {
+        if (!$sipAuthenticationPassword) return $this;
         $this->sipAuthenticationPassword = ($sipAuthenticationPassword InstanceOf Password)
              ? $sipAuthenticationPassword
              : new Password($sipAuthenticationPassword);
+        $this->sipAuthenticationPassword->setName('sipAuthenticationPassword');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return Password
+     */
+    public function getSipAuthenticationPassword()
+    {
+        return $this->sipAuthenticationPassword->getValue();
     }
 
     /**
      * 
      */
-    public function getSipAuthenticationPassword()
-    {
-        return (!$this->sipAuthenticationPassword) ?: $this->sipAuthenticationPassword->getValue();
-    }
-
-    /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
-     */
     public function setHostedUserId($hostedUserId = null)
     {
+        if (!$hostedUserId) return $this;
         $this->hostedUserId = ($hostedUserId InstanceOf UserId)
              ? $hostedUserId
              : new UserId($hostedUserId);
+        $this->hostedUserId->setName('hostedUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getHostedUserId()
     {
-        return (!$this->hostedUserId) ?: $this->hostedUserId->getValue();
+        return $this->hostedUserId->getValue();
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
      */
     public function setTrunkGroupIdentity($trunkGroupIdentity = null)
     {
+        if (!$trunkGroupIdentity) return $this;
         $this->trunkGroupIdentity = ($trunkGroupIdentity InstanceOf SIPURI)
              ? $trunkGroupIdentity
              : new SIPURI($trunkGroupIdentity);
+        $this->trunkGroupIdentity->setName('trunkGroupIdentity');
+        return $this;
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
+     * @return SIPURI
      */
     public function getTrunkGroupIdentity()
     {
-        return (!$this->trunkGroupIdentity) ?: $this->trunkGroupIdentity->getValue();
+        return $this->trunkGroupIdentity->getValue();
     }
 
     /**
-     * Otg Dtg Identity
+     * 
      */
     public function setOtgDtgIdentity($otgDtgIdentity = null)
     {
+        if (!$otgDtgIdentity) return $this;
         $this->otgDtgIdentity = ($otgDtgIdentity InstanceOf OtgDtgIdentity)
              ? $otgDtgIdentity
              : new OtgDtgIdentity($otgDtgIdentity);
+        $this->otgDtgIdentity->setName('otgDtgIdentity');
+        return $this;
     }
 
     /**
-     * Otg Dtg Identity
+     * 
+     * @return OtgDtgIdentity
      */
     public function getOtgDtgIdentity()
     {
-        return (!$this->otgDtgIdentity) ?: $this->otgDtgIdentity->getValue();
+        return $this->otgDtgIdentity->getValue();
     }
 
     /**
@@ -788,15 +826,19 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setIncludeTrunkGroupIdentity($includeTrunkGroupIdentity = null)
     {
-        $this->includeTrunkGroupIdentity = (boolean) $includeTrunkGroupIdentity;
+        if (!$includeTrunkGroupIdentity) return $this;
+        $this->includeTrunkGroupIdentity = new PrimitiveType($includeTrunkGroupIdentity);
+        $this->includeTrunkGroupIdentity->setName('includeTrunkGroupIdentity');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeTrunkGroupIdentity()
     {
-        return (!$this->includeTrunkGroupIdentity) ?: $this->includeTrunkGroupIdentity;
+        return $this->includeTrunkGroupIdentity->getValue();
     }
 
     /**
@@ -804,15 +846,19 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setIncludeDtgIdentity($includeDtgIdentity = null)
     {
-        $this->includeDtgIdentity = (boolean) $includeDtgIdentity;
+        if (!$includeDtgIdentity) return $this;
+        $this->includeDtgIdentity = new PrimitiveType($includeDtgIdentity);
+        $this->includeDtgIdentity->setName('includeDtgIdentity');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeDtgIdentity()
     {
-        return (!$this->includeDtgIdentity) ?: $this->includeDtgIdentity;
+        return $this->includeDtgIdentity->getValue();
     }
 
     /**
@@ -820,15 +866,19 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setEnableNetworkAddressIdentity($enableNetworkAddressIdentity = null)
     {
-        $this->enableNetworkAddressIdentity = (boolean) $enableNetworkAddressIdentity;
+        if (!$enableNetworkAddressIdentity) return $this;
+        $this->enableNetworkAddressIdentity = new PrimitiveType($enableNetworkAddressIdentity);
+        $this->enableNetworkAddressIdentity->setName('enableNetworkAddressIdentity');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableNetworkAddressIdentity()
     {
-        return (!$this->enableNetworkAddressIdentity) ?: $this->enableNetworkAddressIdentity;
+        return $this->enableNetworkAddressIdentity->getValue();
     }
 
     /**
@@ -836,15 +886,19 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setAllowUnscreenedCalls($allowUnscreenedCalls = null)
     {
-        $this->allowUnscreenedCalls = (boolean) $allowUnscreenedCalls;
+        if (!$allowUnscreenedCalls) return $this;
+        $this->allowUnscreenedCalls = new PrimitiveType($allowUnscreenedCalls);
+        $this->allowUnscreenedCalls->setName('allowUnscreenedCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowUnscreenedCalls()
     {
-        return (!$this->allowUnscreenedCalls) ?: $this->allowUnscreenedCalls;
+        return $this->allowUnscreenedCalls->getValue();
     }
 
     /**
@@ -852,137 +906,149 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setAllowUnscreenedEmergencyCalls($allowUnscreenedEmergencyCalls = null)
     {
-        $this->allowUnscreenedEmergencyCalls = (boolean) $allowUnscreenedEmergencyCalls;
+        if (!$allowUnscreenedEmergencyCalls) return $this;
+        $this->allowUnscreenedEmergencyCalls = new PrimitiveType($allowUnscreenedEmergencyCalls);
+        $this->allowUnscreenedEmergencyCalls->setName('allowUnscreenedEmergencyCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowUnscreenedEmergencyCalls()
+    {
+        return $this->allowUnscreenedEmergencyCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowUnscreenedEmergencyCalls()
-    {
-        return (!$this->allowUnscreenedEmergencyCalls) ?: $this->allowUnscreenedEmergencyCalls;
-    }
-
-    /**
-     * Trunk Group Pilot User Calling Line Identity policy
-     */
     public function setPilotUserCallingLineIdentityPolicy($pilotUserCallingLineIdentityPolicy = null)
     {
+        if (!$pilotUserCallingLineIdentityPolicy) return $this;
         $this->pilotUserCallingLineIdentityPolicy = ($pilotUserCallingLineIdentityPolicy InstanceOf TrunkGroupPilotUserCallingLineIdentityUsagePolicy)
              ? $pilotUserCallingLineIdentityPolicy
              : new TrunkGroupPilotUserCallingLineIdentityUsagePolicy($pilotUserCallingLineIdentityPolicy);
+        $this->pilotUserCallingLineIdentityPolicy->setName('pilotUserCallingLineIdentityPolicy');
+        return $this;
     }
 
     /**
-     * Trunk Group Pilot User Calling Line Identity policy
+     * 
+     * @return TrunkGroupPilotUserCallingLineIdentityUsagePolicy
      */
     public function getPilotUserCallingLineIdentityPolicy()
     {
-        return (!$this->pilotUserCallingLineIdentityPolicy) ?: $this->pilotUserCallingLineIdentityPolicy->getValue();
+        return $this->pilotUserCallingLineIdentityPolicy->getValue();
     }
 
     /**
-     * Trunk Group Pilot User Charge Number policy
+     * 
      */
     public function setPilotUserChargeNumberPolicy($pilotUserChargeNumberPolicy = null)
     {
+        if (!$pilotUserChargeNumberPolicy) return $this;
         $this->pilotUserChargeNumberPolicy = ($pilotUserChargeNumberPolicy InstanceOf TrunkGroupPilotUserChargeNumberUsagePolicy)
              ? $pilotUserChargeNumberPolicy
              : new TrunkGroupPilotUserChargeNumberUsagePolicy($pilotUserChargeNumberPolicy);
+        $this->pilotUserChargeNumberPolicy->setName('pilotUserChargeNumberPolicy');
+        return $this;
     }
 
     /**
-     * Trunk Group Pilot User Charge Number policy
+     * 
+     * @return TrunkGroupPilotUserChargeNumberUsagePolicy
      */
     public function getPilotUserChargeNumberPolicy()
     {
-        return (!$this->pilotUserChargeNumberPolicy) ?: $this->pilotUserChargeNumberPolicy->getValue();
+        return $this->pilotUserChargeNumberPolicy->getValue();
     }
 
     /**
-     * Trunk Group call forwarding always action.
+     * 
      */
     public function setCallForwardingAlwaysAction($callForwardingAlwaysAction = null)
     {
+        if (!$callForwardingAlwaysAction) return $this;
         $this->callForwardingAlwaysAction = ($callForwardingAlwaysAction InstanceOf TrunkGroupCallForwardingAlwaysAction)
              ? $callForwardingAlwaysAction
              : new TrunkGroupCallForwardingAlwaysAction($callForwardingAlwaysAction);
+        $this->callForwardingAlwaysAction->setName('callForwardingAlwaysAction');
+        return $this;
     }
 
     /**
-     * Trunk Group call forwarding always action.
+     * 
+     * @return TrunkGroupCallForwardingAlwaysAction
      */
     public function getCallForwardingAlwaysAction()
     {
-        return (!$this->callForwardingAlwaysAction) ?: $this->callForwardingAlwaysAction->getValue();
+        return $this->callForwardingAlwaysAction->getValue();
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
      */
     public function setCallForwardingAlwaysForwardAddress($callForwardingAlwaysForwardAddress = null)
     {
+        if (!$callForwardingAlwaysForwardAddress) return $this;
         $this->callForwardingAlwaysForwardAddress = ($callForwardingAlwaysForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $callForwardingAlwaysForwardAddress
              : new OutgoingDNorSIPURI($callForwardingAlwaysForwardAddress);
+        $this->callForwardingAlwaysForwardAddress->setName('callForwardingAlwaysForwardAddress');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getCallForwardingAlwaysForwardAddress()
     {
-        return (!$this->callForwardingAlwaysForwardAddress) ?: $this->callForwardingAlwaysForwardAddress->getValue();
+        return $this->callForwardingAlwaysForwardAddress->getValue();
     }
 
     /**
-     * Uniquely identifies a Trunk Group system-wide.
-     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     * 
      */
     public function setCallForwardingAlwaysRerouteTrunkGroupKey(TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey = null)
     {
-        $this->callForwardingAlwaysRerouteTrunkGroupKey =  $callForwardingAlwaysRerouteTrunkGroupKey;
+        if (!$callForwardingAlwaysRerouteTrunkGroupKey) return $this;
+        $this->callForwardingAlwaysRerouteTrunkGroupKey = $callForwardingAlwaysRerouteTrunkGroupKey;
+        $this->callForwardingAlwaysRerouteTrunkGroupKey->setName('callForwardingAlwaysRerouteTrunkGroupKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a Trunk Group system-wide.
-     *         The trunkGroupName is unique within a group, but not unique system-wide.
+     * 
+     * @return TrunkGroupKey
      */
     public function getCallForwardingAlwaysRerouteTrunkGroupKey()
     {
-        return (!$this->callForwardingAlwaysRerouteTrunkGroupKey) ?: $this->callForwardingAlwaysRerouteTrunkGroupKey->getValue();
+        return $this->callForwardingAlwaysRerouteTrunkGroupKey;
     }
 
     /**
-     * Network domain name.
+     * 
      */
     public function setPeeringDomain($peeringDomain = null)
     {
+        if (!$peeringDomain) return $this;
         $this->peeringDomain = ($peeringDomain InstanceOf DomainName)
              ? $peeringDomain
              : new DomainName($peeringDomain);
+        $this->peeringDomain->setName('peeringDomain');
+        return $this;
     }
 
     /**
-     * Network domain name.
+     * 
+     * @return DomainName
      */
     public function getPeeringDomain()
     {
-        return (!$this->peeringDomain) ?: $this->peeringDomain->getValue();
+        return $this->peeringDomain->getValue();
     }
 
     /**
@@ -990,15 +1056,19 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setRouteToPeeringDomain($routeToPeeringDomain = null)
     {
-        $this->routeToPeeringDomain = (boolean) $routeToPeeringDomain;
+        if (!$routeToPeeringDomain) return $this;
+        $this->routeToPeeringDomain = new PrimitiveType($routeToPeeringDomain);
+        $this->routeToPeeringDomain->setName('routeToPeeringDomain');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRouteToPeeringDomain()
     {
-        return (!$this->routeToPeeringDomain) ?: $this->routeToPeeringDomain;
+        return $this->routeToPeeringDomain->getValue();
     }
 
     /**
@@ -1006,33 +1076,41 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setPrefixEnabled($prefixEnabled = null)
     {
-        $this->prefixEnabled = (boolean) $prefixEnabled;
+        if (!$prefixEnabled) return $this;
+        $this->prefixEnabled = new PrimitiveType($prefixEnabled);
+        $this->prefixEnabled->setName('prefixEnabled');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPrefixEnabled()
+    {
+        return $this->prefixEnabled->getValue();
     }
 
     /**
      * 
      */
-    public function getPrefixEnabled()
-    {
-        return (!$this->prefixEnabled) ?: $this->prefixEnabled;
-    }
-
-    /**
-     * Numeric digit string prefix to be inserted to R-URI based on destination trunk group.
-     */
     public function setPrefix($prefix = null)
     {
+        if (!$prefix) return $this;
         $this->prefix = ($prefix InstanceOf TrunkGroupPrefix)
              ? $prefix
              : new TrunkGroupPrefix($prefix);
+        $this->prefix->setName('prefix');
+        return $this;
     }
 
     /**
-     * Numeric digit string prefix to be inserted to R-URI based on destination trunk group.
+     * 
+     * @return TrunkGroupPrefix
      */
     public function getPrefix()
     {
-        return (!$this->prefix) ?: $this->prefix->getValue();
+        return $this->prefix->getValue();
     }
 
     /**
@@ -1040,15 +1118,19 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setStatefulReroutingEnabled($statefulReroutingEnabled = null)
     {
-        $this->statefulReroutingEnabled = (boolean) $statefulReroutingEnabled;
+        if (!$statefulReroutingEnabled) return $this;
+        $this->statefulReroutingEnabled = new PrimitiveType($statefulReroutingEnabled);
+        $this->statefulReroutingEnabled->setName('statefulReroutingEnabled');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getStatefulReroutingEnabled()
     {
-        return (!$this->statefulReroutingEnabled) ?: $this->statefulReroutingEnabled;
+        return $this->statefulReroutingEnabled->getValue();
     }
 
     /**
@@ -1056,122 +1138,150 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function setSendContinuousOptionsMessage($sendContinuousOptionsMessage = null)
     {
-        $this->sendContinuousOptionsMessage = (boolean) $sendContinuousOptionsMessage;
+        if (!$sendContinuousOptionsMessage) return $this;
+        $this->sendContinuousOptionsMessage = new PrimitiveType($sendContinuousOptionsMessage);
+        $this->sendContinuousOptionsMessage->setName('sendContinuousOptionsMessage');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSendContinuousOptionsMessage()
+    {
+        return $this->sendContinuousOptionsMessage->getValue();
     }
 
     /**
      * 
      */
-    public function getSendContinuousOptionsMessage()
-    {
-        return (!$this->sendContinuousOptionsMessage) ?: $this->sendContinuousOptionsMessage;
-    }
-
-    /**
-     * Interval at which trunk group continuous OPTIONS messages are sent.
-     */
     public function setContinuousOptionsSendingIntervalSeconds($continuousOptionsSendingIntervalSeconds = null)
     {
+        if (!$continuousOptionsSendingIntervalSeconds) return $this;
         $this->continuousOptionsSendingIntervalSeconds = ($continuousOptionsSendingIntervalSeconds InstanceOf TrunkGroupContinuousOptionsSendingIntervalSeconds)
              ? $continuousOptionsSendingIntervalSeconds
              : new TrunkGroupContinuousOptionsSendingIntervalSeconds($continuousOptionsSendingIntervalSeconds);
+        $this->continuousOptionsSendingIntervalSeconds->setName('continuousOptionsSendingIntervalSeconds');
+        return $this;
     }
 
     /**
-     * Interval at which trunk group continuous OPTIONS messages are sent.
+     * 
+     * @return TrunkGroupContinuousOptionsSendingIntervalSeconds
      */
     public function getContinuousOptionsSendingIntervalSeconds()
     {
-        return (!$this->continuousOptionsSendingIntervalSeconds) ?: $this->continuousOptionsSendingIntervalSeconds->getValue();
+        return $this->continuousOptionsSendingIntervalSeconds->getValue();
     }
 
     /**
-     * Interval at which trunk group failure OPTIONS messages are sent.
+     * 
      */
     public function setFailureOptionsSendingIntervalSeconds($failureOptionsSendingIntervalSeconds = null)
     {
+        if (!$failureOptionsSendingIntervalSeconds) return $this;
         $this->failureOptionsSendingIntervalSeconds = ($failureOptionsSendingIntervalSeconds InstanceOf TrunkGroupFailureOptionsSendingIntervalSeconds)
              ? $failureOptionsSendingIntervalSeconds
              : new TrunkGroupFailureOptionsSendingIntervalSeconds($failureOptionsSendingIntervalSeconds);
+        $this->failureOptionsSendingIntervalSeconds->setName('failureOptionsSendingIntervalSeconds');
+        return $this;
     }
 
     /**
-     * Interval at which trunk group failure OPTIONS messages are sent.
+     * 
+     * @return TrunkGroupFailureOptionsSendingIntervalSeconds
      */
     public function getFailureOptionsSendingIntervalSeconds()
     {
-        return (!$this->failureOptionsSendingIntervalSeconds) ?: $this->failureOptionsSendingIntervalSeconds->getValue();
+        return $this->failureOptionsSendingIntervalSeconds->getValue();
     }
 
     /**
-     * Number of failure or success events to trigger a status change for trunk group.
+     * 
      */
     public function setFailureThresholdCounter($failureThresholdCounter = null)
     {
+        if (!$failureThresholdCounter) return $this;
         $this->failureThresholdCounter = ($failureThresholdCounter InstanceOf TrunkGroupThresholdCounter)
              ? $failureThresholdCounter
              : new TrunkGroupThresholdCounter($failureThresholdCounter);
+        $this->failureThresholdCounter->setName('failureThresholdCounter');
+        return $this;
     }
 
     /**
-     * Number of failure or success events to trigger a status change for trunk group.
+     * 
+     * @return TrunkGroupThresholdCounter
      */
     public function getFailureThresholdCounter()
     {
-        return (!$this->failureThresholdCounter) ?: $this->failureThresholdCounter->getValue();
+        return $this->failureThresholdCounter->getValue();
     }
 
     /**
-     * Number of failure or success events to trigger a status change for trunk group.
+     * 
      */
     public function setSuccessThresholdCounter($successThresholdCounter = null)
     {
+        if (!$successThresholdCounter) return $this;
         $this->successThresholdCounter = ($successThresholdCounter InstanceOf TrunkGroupThresholdCounter)
              ? $successThresholdCounter
              : new TrunkGroupThresholdCounter($successThresholdCounter);
+        $this->successThresholdCounter->setName('successThresholdCounter');
+        return $this;
     }
 
     /**
-     * Number of failure or success events to trigger a status change for trunk group.
+     * 
+     * @return TrunkGroupThresholdCounter
      */
     public function getSuccessThresholdCounter()
     {
-        return (!$this->successThresholdCounter) ?: $this->successThresholdCounter->getValue();
+        return $this->successThresholdCounter->getValue();
     }
 
     /**
-     * Number of failure or success events to trigger a status change for trunk group.
+     * 
      */
     public function setInviteFailureThresholdCounter($inviteFailureThresholdCounter = null)
     {
+        if (!$inviteFailureThresholdCounter) return $this;
         $this->inviteFailureThresholdCounter = ($inviteFailureThresholdCounter InstanceOf TrunkGroupThresholdCounter)
              ? $inviteFailureThresholdCounter
              : new TrunkGroupThresholdCounter($inviteFailureThresholdCounter);
+        $this->inviteFailureThresholdCounter->setName('inviteFailureThresholdCounter');
+        return $this;
     }
 
     /**
-     * Number of failure or success events to trigger a status change for trunk group.
+     * 
+     * @return TrunkGroupThresholdCounter
      */
     public function getInviteFailureThresholdCounter()
     {
-        return (!$this->inviteFailureThresholdCounter) ?: $this->inviteFailureThresholdCounter->getValue();
+        return $this->inviteFailureThresholdCounter->getValue();
     }
 
     /**
-     * Failure threshold time window in seconds.
+     * 
      */
     public function setInviteFailureThresholdWindowSeconds($inviteFailureThresholdWindowSeconds = null)
     {
+        if (!$inviteFailureThresholdWindowSeconds) return $this;
         $this->inviteFailureThresholdWindowSeconds = ($inviteFailureThresholdWindowSeconds InstanceOf TrunkGroupFailureThresholdWindowSeconds)
              ? $inviteFailureThresholdWindowSeconds
              : new TrunkGroupFailureThresholdWindowSeconds($inviteFailureThresholdWindowSeconds);
+        $this->inviteFailureThresholdWindowSeconds->setName('inviteFailureThresholdWindowSeconds');
+        return $this;
     }
 
     /**
-     * Failure threshold time window in seconds.
+     * 
+     * @return TrunkGroupFailureThresholdWindowSeconds
      */
     public function getInviteFailureThresholdWindowSeconds()
     {
-        return (!$this->inviteFailureThresholdWindowSeconds) ?: $this->inviteFailureThresholdWindowSeconds->getValue();
+        return $this->inviteFailureThresholdWindowSeconds->getValue();
     }
 }

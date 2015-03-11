@@ -9,6 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriter
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaUserLastName extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName';
-    public    $name              = __CLASS__;
+    public    $name              = 'SearchCriteriaUserLastName';
     protected $mode              = null;
     protected $value             = null;
     protected $isCaseInsensitive = null;
@@ -46,39 +47,47 @@ class SearchCriteriaUserLastName extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Search mode when searching for string data.
+     * 
      */
     public function setMode($mode = null)
     {
+        if (!$mode) return $this;
         $this->mode = ($mode InstanceOf SearchMode)
              ? $mode
              : new SearchMode($mode);
+        $this->mode->setName('mode');
+        return $this;
     }
 
     /**
-     * Search mode when searching for string data.
+     * 
+     * @return SearchMode
      */
     public function getMode()
     {
-        return (!$this->mode) ?: $this->mode->getValue();
+        return $this->mode->getValue();
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
      */
     public function setValue($value = null)
     {
+        if (!$value) return $this;
         $this->value = ($value InstanceOf LastName)
              ? $value
              : new LastName($value);
+        $this->value->setName('value');
+        return $this;
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
+     * @return LastName
      */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->getValue();
+        return $this->value->getValue();
     }
 
     /**
@@ -86,14 +95,18 @@ class SearchCriteriaUserLastName extends ComplexType implements ComplexInterface
      */
     public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
-        $this->isCaseInsensitive = (boolean) $isCaseInsensitive;
+        if (!$isCaseInsensitive) return $this;
+        $this->isCaseInsensitive = new PrimitiveType($isCaseInsensitive);
+        $this->isCaseInsensitive->setName('isCaseInsensitive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive;
+        return $this->isCaseInsensitive->getValue();
     }
 }

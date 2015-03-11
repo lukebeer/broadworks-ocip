@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCICallControlApplicationId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkACLEntryDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCICallControlApplicationAddACLEntryResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemOCICallControlApplicationAddACLEntryRequest';
     protected $applicationId = null;
     protected $netAddress    = null;
     protected $description   = null;
@@ -39,7 +38,7 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
     }
 
     /**
-     * @return SystemOCICallControlApplicationAddACLEntryResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,56 +46,68 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
     }
 
     /**
-     * A OCI Call Control Application Id.
+     * 
      */
     public function setApplicationId($applicationId = null)
     {
+        if (!$applicationId) return $this;
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
+        $this->applicationId->setName('applicationId');
+        return $this;
     }
 
     /**
-     * A OCI Call Control Application Id.
+     * 
+     * @return OCICallControlApplicationId
      */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->getValue();
+        return $this->applicationId->getValue();
     }
 
     /**
-     * Numeric IP Address.
+     * 
      */
     public function setNetAddress($netAddress = null)
     {
+        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
+        $this->netAddress->setName('netAddress');
+        return $this;
     }
 
     /**
-     * Numeric IP Address.
+     * 
+     * @return IPAddress
      */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->getValue();
+        return $this->netAddress->getValue();
     }
 
     /**
-     * The description for the entry in the network access control list.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
              ? $description
              : new NetworkACLEntryDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * The description for the entry in the network access control list.
+     * 
+     * @return NetworkACLEntryDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 }

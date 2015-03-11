@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
@@ -18,12 +18,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\Pattern;
  */
 class VoicePortalDigitSequence extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "VoicePortalDigitSequence";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "string";
+        $this->dataType = "";
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("3"));
         $this->addRestriction(new Pattern("([0-9]|\*|#){0,3}"));

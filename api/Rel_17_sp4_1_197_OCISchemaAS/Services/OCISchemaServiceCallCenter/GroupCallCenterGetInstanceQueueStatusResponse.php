@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceQueueStatusResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'GroupCallCenterGetInstanceQueueStatusResponse';
     protected $numberOfCallsQueuedNow = null;
     protected $agentsCurrentlyStaffed = null;
 
@@ -37,15 +36,19 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
      */
     public function setNumberOfCallsQueuedNow($numberOfCallsQueuedNow = null)
     {
-        $this->numberOfCallsQueuedNow = (int) $numberOfCallsQueuedNow;
+        if (!$numberOfCallsQueuedNow) return $this;
+        $this->numberOfCallsQueuedNow = new PrimitiveType($numberOfCallsQueuedNow);
+        $this->numberOfCallsQueuedNow->setName('numberOfCallsQueuedNow');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:int
      */
     public function getNumberOfCallsQueuedNow()
     {
-        return (!$this->numberOfCallsQueuedNow) ?: $this->numberOfCallsQueuedNow;
+        return $this->numberOfCallsQueuedNow->getValue();
     }
 
     /**
@@ -53,14 +56,17 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
      */
     public function setAgentsCurrentlyStaffed(core:OCITable $agentsCurrentlyStaffed = null)
     {
-        $this->agentsCurrentlyStaffed =  $agentsCurrentlyStaffed;
+        if (!$agentsCurrentlyStaffed) return $this;
+        $this->agentsCurrentlyStaffed->setName('agentsCurrentlyStaffed');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getAgentsCurrentlyStaffed()
     {
-        return (!$this->agentsCurrentlyStaffed) ?: $this->agentsCurrentlyStaffed->getValue();
+        return $this->agentsCurrentlyStaffed->getValue();
     }
 }

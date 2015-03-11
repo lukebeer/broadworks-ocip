@@ -5,14 +5,13 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZoneDisplayName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocale;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingLoginStandAloneResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'UserInstantConferencingLoginStandAloneResponse';
     protected $locale              = null;
     protected $encoding            = null;
     protected $timeZone            = null;
@@ -41,92 +40,112 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
     }
 
     /**
-     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     * 
      */
     public function setLocale($locale = null)
     {
+        if (!$locale) return $this;
         $this->locale = ($locale InstanceOf OCILocale)
              ? $locale
              : new OCILocale($locale);
+        $this->locale->setName('locale');
+        return $this;
     }
 
     /**
-     * (ISO Language Code)_(ISO Country Code) or (ISO Language Code) only.
+     * 
+     * @return OCILocale
      */
     public function getLocale()
     {
-        return (!$this->locale) ?: $this->locale->getValue();
+        return $this->locale->getValue();
     }
 
     /**
-     * Character-encoding scheme.
+     * 
      */
     public function setEncoding($encoding = null)
     {
+        if (!$encoding) return $this;
         $this->encoding = ($encoding InstanceOf Encoding)
              ? $encoding
              : new Encoding($encoding);
+        $this->encoding->setName('encoding');
+        return $this;
     }
 
     /**
-     * Character-encoding scheme.
+     * 
+     * @return Encoding
      */
     public function getEncoding()
     {
-        return (!$this->encoding) ?: $this->encoding->getValue();
+        return $this->encoding->getValue();
     }
 
     /**
-     * Time zone key.
+     * 
      */
     public function setTimeZone($timeZone = null)
     {
+        if (!$timeZone) return $this;
         $this->timeZone = ($timeZone InstanceOf TimeZone)
              ? $timeZone
              : new TimeZone($timeZone);
+        $this->timeZone->setName('timeZone');
+        return $this;
     }
 
     /**
-     * Time zone key.
+     * 
+     * @return TimeZone
      */
     public function getTimeZone()
     {
-        return (!$this->timeZone) ?: $this->timeZone->getValue();
+        return $this->timeZone->getValue();
     }
 
     /**
-     * Localized Time Zone Display Name
+     * 
      */
     public function setTimeZoneDisplayName($timeZoneDisplayName = null)
     {
+        if (!$timeZoneDisplayName) return $this;
         $this->timeZoneDisplayName = ($timeZoneDisplayName InstanceOf TimeZoneDisplayName)
              ? $timeZoneDisplayName
              : new TimeZoneDisplayName($timeZoneDisplayName);
+        $this->timeZoneDisplayName->setName('timeZoneDisplayName');
+        return $this;
     }
 
     /**
-     * Localized Time Zone Display Name
+     * 
+     * @return TimeZoneDisplayName
      */
     public function getTimeZoneDisplayName()
     {
-        return (!$this->timeZoneDisplayName) ?: $this->timeZoneDisplayName->getValue();
+        return $this->timeZoneDisplayName->getValue();
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setPhoneNumber($phoneNumber = null)
     {
+        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
+        return $this->phoneNumber->getValue();
     }
 }

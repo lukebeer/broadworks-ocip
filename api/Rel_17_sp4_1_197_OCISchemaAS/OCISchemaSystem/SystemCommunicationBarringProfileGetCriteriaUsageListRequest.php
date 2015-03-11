@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCommunicationBarringProfileGetCriteriaUsageListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetCriteriaUsageListResponse';
-    public    $name = __CLASS__;
+    public    $name = 'SystemCommunicationBarringProfileGetCriteriaUsageListRequest';
     protected $name = null;
 
     public function __construct(
@@ -42,20 +42,24 @@ class SystemCommunicationBarringProfileGetCriteriaUsageListRequest extends Compl
     }
 
     /**
-     * Communication Barring Criteria Name
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf CommunicationBarringCriteriaName)
              ? $name
              : new CommunicationBarringCriteriaName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Communication Barring Criteria Name
+     * 
+     * @return CommunicationBarringCriteriaName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 }

@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCICallControlApplicationDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCICallControlApplicationId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemOCICallControlApplicationAddResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlApplicationAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'SystemOCICallControlApplicationAddRequest';
     protected $applicationId    = null;
     protected $enableSystemWide = null;
     protected $description      = null;
@@ -38,7 +38,7 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
     }
 
     /**
-     * @return SystemOCICallControlApplicationAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,21 +46,25 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
     }
 
     /**
-     * A OCI Call Control Application Id.
+     * 
      */
     public function setApplicationId($applicationId = null)
     {
+        if (!$applicationId) return $this;
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
+        $this->applicationId->setName('applicationId');
+        return $this;
     }
 
     /**
-     * A OCI Call Control Application Id.
+     * 
+     * @return OCICallControlApplicationId
      */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->getValue();
+        return $this->applicationId->getValue();
     }
 
     /**
@@ -68,32 +72,40 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
      */
     public function setEnableSystemWide($enableSystemWide = null)
     {
-        $this->enableSystemWide = (boolean) $enableSystemWide;
+        if (!$enableSystemWide) return $this;
+        $this->enableSystemWide = new PrimitiveType($enableSystemWide);
+        $this->enableSystemWide->setName('enableSystemWide');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableSystemWide()
+    {
+        return $this->enableSystemWide->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableSystemWide()
-    {
-        return (!$this->enableSystemWide) ?: $this->enableSystemWide;
-    }
-
-    /**
-     * The description for the entry in the OCI call control application list.
-     */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf OCICallControlApplicationDescription)
              ? $description
              : new OCICallControlApplicationDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * The description for the entry in the OCI call control application list.
+     * 
+     * @return OCICallControlApplicationDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 }

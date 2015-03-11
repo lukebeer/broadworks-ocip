@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ApplicationControllerName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ChannelSetId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationControllerAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemApplicationControllerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'SystemApplicationControllerAddRequest';
     protected $name         = null;
     protected $subscriberId = null;
     protected $channelSetId = null;
@@ -40,7 +39,7 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return SystemApplicationControllerAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,64 +47,68 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
     }
 
     /**
-     * The application controller name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf ApplicationControllerName)
              ? $name
              : new ApplicationControllerName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * The application controller name.
+     * 
+     * @return ApplicationControllerName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setSubscriberId($subscriberId = null)
     {
+        if (!$subscriberId) return $this;
         $this->subscriberId = ($subscriberId InstanceOf UserId)
              ? $subscriberId
              : new UserId($subscriberId);
+        $this->subscriberId->setName('subscriberId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getSubscriberId()
     {
-        return (!$this->subscriberId) ?: $this->subscriberId->getValue();
+        return $this->subscriberId->getValue();
     }
 
     /**
-     * The channel set id.
+     * 
      */
     public function setChannelSetId($channelSetId = null)
     {
+        if (!$channelSetId) return $this;
         $this->channelSetId = ($channelSetId InstanceOf ChannelSetId)
              ? $channelSetId
              : new ChannelSetId($channelSetId);
+        $this->channelSetId->setName('channelSetId');
+        return $this;
     }
 
     /**
-     * The channel set id.
+     * 
+     * @return ChannelSetId
      */
     public function getChannelSetId()
     {
-        return (!$this->channelSetId) ?: $this->channelSetId->getValue();
+        return $this->channelSetId->getValue();
     }
 }

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
-
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserInTrunkGroup;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaExactUserInTrunkGroup extends ComplexType implements ComplexInterface
 {
     public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserInTrunkGroup';
-    public    $name             = __CLASS__;
+    public    $name             = 'SearchCriteriaExactUserInTrunkGroup';
     protected $userInTrunkGroup = null;
 
     public function __construct(
@@ -43,14 +43,18 @@ class SearchCriteriaExactUserInTrunkGroup extends ComplexType implements Complex
      */
     public function setUserInTrunkGroup($userInTrunkGroup = null)
     {
-        $this->userInTrunkGroup = (boolean) $userInTrunkGroup;
+        if (!$userInTrunkGroup) return $this;
+        $this->userInTrunkGroup = new PrimitiveType($userInTrunkGroup);
+        $this->userInTrunkGroup->setName('userInTrunkGroup');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUserInTrunkGroup()
     {
-        return (!$this->userInTrunkGroup) ?: $this->userInTrunkGroup;
+        return $this->userInTrunkGroup->getValue();
     }
 }

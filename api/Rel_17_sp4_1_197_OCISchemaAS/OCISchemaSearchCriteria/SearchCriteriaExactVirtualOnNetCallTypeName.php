@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaExactVirtualOnNetCallTypeName extends ComplexType implements ComplexInterface
 {
     public    $responseType             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactVirtualOnNetCallTypeName';
-    public    $name                     = __CLASS__;
+    public    $name                     = 'SearchCriteriaExactVirtualOnNetCallTypeName';
     protected $virtualOnNetCallTypeName = null;
 
     public function __construct(
@@ -39,20 +39,24 @@ class SearchCriteriaExactVirtualOnNetCallTypeName extends ComplexType implements
     }
 
     /**
-     * Virtual On-Net Call Type name.
+     * 
      */
     public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
     {
+        if (!$virtualOnNetCallTypeName) return $this;
         $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
              ? $virtualOnNetCallTypeName
              : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
+        $this->virtualOnNetCallTypeName->setName('virtualOnNetCallTypeName');
+        return $this;
     }
 
     /**
-     * Virtual On-Net Call Type name.
+     * 
+     * @return VirtualOnNetCallTypeName
      */
     public function getVirtualOnNetCallTypeName()
     {
-        return (!$this->virtualOnNetCallTypeName) ?: $this->virtualOnNetCallTypeName->getValue();
+        return $this->virtualOnNetCallTypeName->getValue();
     }
 }

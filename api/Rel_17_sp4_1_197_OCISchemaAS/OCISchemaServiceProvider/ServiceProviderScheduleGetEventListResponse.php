@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderScheduleGetEventListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
+    public    $name      = 'ServiceProviderScheduleGetEventListResponse';
     protected $eventName = null;
 
     /**
@@ -33,20 +32,24 @@ class ServiceProviderScheduleGetEventListResponse extends ComplexType implements
     }
 
     /**
-     * Event name.
+     * 
      */
     public function setEventName($eventName = null)
     {
+        if (!$eventName) return $this;
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
+        $this->eventName->setName('eventName');
+        return $this;
     }
 
     /**
-     * Event name.
+     * 
+     * @return EventName
      */
     public function getEventName()
     {
-        return (!$this->eventName) ?: $this->eventName->getValue();
+        return $this->eventName->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePhysicalLocation; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePhysicalLocation; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePhysicalLocation\SystemPhysicalLocationGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPhysicalLocationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'SystemPhysicalLocationGetResponse';
     protected $alwaysAllowEmergencyCalls = null;
 
     /**
@@ -37,14 +36,18 @@ class SystemPhysicalLocationGetResponse extends ComplexType implements ComplexIn
      */
     public function setAlwaysAllowEmergencyCalls($alwaysAllowEmergencyCalls = null)
     {
-        $this->alwaysAllowEmergencyCalls = (boolean) $alwaysAllowEmergencyCalls;
+        if (!$alwaysAllowEmergencyCalls) return $this;
+        $this->alwaysAllowEmergencyCalls = new PrimitiveType($alwaysAllowEmergencyCalls);
+        $this->alwaysAllowEmergencyCalls->setName('alwaysAllowEmergencyCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAlwaysAllowEmergencyCalls()
     {
-        return (!$this->alwaysAllowEmergencyCalls) ?: $this->alwaysAllowEmergencyCalls;
+        return $this->alwaysAllowEmergencyCalls->getValue();
     }
 }

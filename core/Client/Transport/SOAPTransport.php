@@ -50,11 +50,11 @@ class SOAPTransport implements TransportInterface
         $this->session = &$session;
     }
 
-    public function getResponse($responseType=false, $outputType = ResponseOutput::STD)
+    public function getResponse($responseType=false, $outputType = ResponseOutput::STD, $appends)
     {
         if (is_object($this->response)) {
             $response = html_entity_decode($this->response->getBody());
-            $response = new Response($response, $responseType, $outputType);
+            $response = new Response($response, $responseType, $outputType, $appends);
             return $response->getResponse();
         }
         return null;

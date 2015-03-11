@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupFeatureAccessCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'GroupFeatureAccessCodeModifyRequest';
     protected $serviceProviderId         = null;
     protected $groupId                   = null;
     protected $useFeatureAccessCodeLevel = null;
@@ -40,7 +39,7 @@ class GroupFeatureAccessCodeModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return GroupFeatureAccessCodeModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,60 +47,68 @@ class GroupFeatureAccessCodeModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Feature Access Code Level defining group policy how Feature Access Codes will be used by a group.
+     * 
      */
     public function setUseFeatureAccessCodeLevel($useFeatureAccessCodeLevel = null)
     {
+        if (!$useFeatureAccessCodeLevel) return $this;
         $this->useFeatureAccessCodeLevel = ($useFeatureAccessCodeLevel InstanceOf GroupFeatureAccessCodeLevel)
              ? $useFeatureAccessCodeLevel
              : new GroupFeatureAccessCodeLevel($useFeatureAccessCodeLevel);
+        $this->useFeatureAccessCodeLevel->setName('useFeatureAccessCodeLevel');
+        return $this;
     }
 
     /**
-     * Feature Access Code Level defining group policy how Feature Access Codes will be used by a group.
+     * 
+     * @return GroupFeatureAccessCodeLevel
      */
     public function getUseFeatureAccessCodeLevel()
     {
-        return (!$this->useFeatureAccessCodeLevel) ?: $this->useFeatureAccessCodeLevel->getValue();
+        return $this->useFeatureAccessCodeLevel->getValue();
     }
 }

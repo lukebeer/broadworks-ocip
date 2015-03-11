@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InCallServiceActivationDigits;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceProviderInCallServiceActivationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInCallServiceActivationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'ServiceProviderInCallServiceActivationGetResponse';
     protected $activationDigits = null;
 
     /**
@@ -34,20 +33,24 @@ class ServiceProviderInCallServiceActivationGetResponse extends ComplexType impl
     }
 
     /**
-     * In Call Service Activation DigitMap.
+     * 
      */
     public function setActivationDigits($activationDigits = null)
     {
+        if (!$activationDigits) return $this;
         $this->activationDigits = ($activationDigits InstanceOf InCallServiceActivationDigits)
              ? $activationDigits
              : new InCallServiceActivationDigits($activationDigits);
+        $this->activationDigits->setName('activationDigits');
+        return $this;
     }
 
     /**
-     * In Call Service Activation DigitMap.
+     * 
+     * @return InCallServiceActivationDigits
      */
     public function getActivationDigits()
     {
-        return (!$this->activationDigits) ?: $this->activationDigits->getValue();
+        return $this->activationDigits->getValue();
     }
 }

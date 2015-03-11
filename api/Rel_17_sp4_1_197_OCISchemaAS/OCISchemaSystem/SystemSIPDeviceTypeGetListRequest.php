@@ -25,15 +25,15 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeGetListResponse';
-    public    $name                                    = __CLASS__;
+    public    $name                                    = 'SystemSIPDeviceTypeGetListRequest';
     protected $responseSizeLimit                       = null;
     protected $searchCriteriaDeviceType                = null;
     protected $searchCriteriaExactSignalingAddressType = null;
 
     public function __construct(
          $responseSizeLimit = null,
-          $searchCriteriaDeviceType = null,
-          $searchCriteriaExactSignalingAddressType = null
+         SearchCriteriaDeviceType $searchCriteriaDeviceType = null,
+         SearchCriteriaExactSignalingAddressType $searchCriteriaExactSignalingAddressType = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaDeviceType($searchCriteriaDeviceType);
@@ -49,56 +49,68 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for device type.
+     * 
      */
     public function setSearchCriteriaDeviceType(SearchCriteriaDeviceType $searchCriteriaDeviceType = null)
     {
-        $this->searchCriteriaDeviceType =  $searchCriteriaDeviceType;
+        if (!$searchCriteriaDeviceType) return $this;
+        $this->searchCriteriaDeviceType = ($searchCriteriaDeviceType InstanceOf SearchCriteriaDeviceType)
+             ? $searchCriteriaDeviceType
+             : new SearchCriteriaDeviceType($searchCriteriaDeviceType);
+        $this->searchCriteriaDeviceType->setName('searchCriteriaDeviceType');
+        return $this;
     }
 
     /**
-     * Criteria for searching for device type.
+     * 
+     * @return SearchCriteriaDeviceType
      */
     public function getSearchCriteriaDeviceType()
     {
-        return (!$this->searchCriteriaDeviceType) ?: $this->searchCriteriaDeviceType->getValue();
+        return $this->searchCriteriaDeviceType;
     }
 
     /**
-     * Criteria for searching for a particular fully specified SignalingAddressType.
+     * 
      */
     public function setSearchCriteriaExactSignalingAddressType(SearchCriteriaExactSignalingAddressType $searchCriteriaExactSignalingAddressType = null)
     {
-        $this->searchCriteriaExactSignalingAddressType =  $searchCriteriaExactSignalingAddressType;
+        if (!$searchCriteriaExactSignalingAddressType) return $this;
+        $this->searchCriteriaExactSignalingAddressType = ($searchCriteriaExactSignalingAddressType InstanceOf SearchCriteriaExactSignalingAddressType)
+             ? $searchCriteriaExactSignalingAddressType
+             : new SearchCriteriaExactSignalingAddressType($searchCriteriaExactSignalingAddressType);
+        $this->searchCriteriaExactSignalingAddressType->setName('searchCriteriaExactSignalingAddressType');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a particular fully specified SignalingAddressType.
+     * 
+     * @return SearchCriteriaExactSignalingAddressType
      */
     public function getSearchCriteriaExactSignalingAddressType()
     {
-        return (!$this->searchCriteriaExactSignalingAddressType) ?: $this->searchCriteriaExactSignalingAddressType->getValue();
+        return $this->searchCriteriaExactSignalingAddressType;
     }
 }

@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRBusy;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRBusy;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRBusy extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRBusy';
-    public    $name = __CLASS__;
+    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRBusy';
+    public    $name               = 'CommPilotExpressSRBusy';
+    protected $incomingCalls      = null;
+    protected $incomingCallNotify = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $incomingCalls,
+         $incomingCallNotify
+    ) {
+        $this->setIncomingCalls($incomingCalls);
+        $this->setIncomingCallNotify($incomingCallNotify);
     }
 
     /**
@@ -32,5 +39,45 @@ class CommPilotExpressSRBusy extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setIncomingCalls($incomingCalls = null)
+    {
+        if (!$incomingCalls) return $this;
+        $this->incomingCalls = new SimpleContent($incomingCalls);
+        $this->incomingCalls->setName('incomingCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getIncomingCalls()
+    {
+        return $this->incomingCalls->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setIncomingCallNotify($incomingCallNotify = null)
+    {
+        if (!$incomingCallNotify) return $this;
+        $this->incomingCallNotify = new SimpleContent($incomingCallNotify);
+        $this->incomingCallNotify->setName('incomingCallNotify');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getIncomingCallNotify()
+    {
+        return $this->incomingCallNotify->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetAvailablePortalListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereGetAvailablePortalListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'UserBroadWorksAnywhereGetAvailablePortalListResponse';
     protected $portalTable = null;
 
     /**
@@ -37,14 +36,17 @@ class UserBroadWorksAnywhereGetAvailablePortalListResponse extends ComplexType i
      */
     public function setPortalTable(core:OCITable $portalTable = null)
     {
-        $this->portalTable =  $portalTable;
+        if (!$portalTable) return $this;
+        $this->portalTable->setName('portalTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getPortalTable()
     {
-        return (!$this->portalTable) ?: $this->portalTable->getValue();
+        return $this->portalTable->getValue();
     }
 }

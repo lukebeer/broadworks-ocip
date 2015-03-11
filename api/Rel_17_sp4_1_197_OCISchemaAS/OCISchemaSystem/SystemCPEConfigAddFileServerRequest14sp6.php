@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigAddFileServerResponse14sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigAddFileServerRequest14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'SystemCPEConfigAddFileServerRequest14sp6';
     protected $deviceType         = null;
     protected $fileRepositoryName = null;
     protected $cpeFileDirectory   = null;
@@ -39,7 +38,7 @@ class SystemCPEConfigAddFileServerRequest14sp6 extends ComplexType implements Co
     }
 
     /**
-     * @return SystemCPEConfigAddFileServerResponse14sp6
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,56 +46,68 @@ class SystemCPEConfigAddFileServerRequest14sp6 extends ComplexType implements Co
     }
 
     /**
-     * Access device type.
+     * 
      */
     public function setDeviceType($deviceType = null)
     {
+        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
+        $this->deviceType->setName('deviceType');
+        return $this;
     }
 
     /**
-     * Access device type.
+     * 
+     * @return AccessDeviceType
      */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->getValue();
+        return $this->deviceType->getValue();
     }
 
     /**
-     * File repository name.
+     * 
      */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
+        if (!$fileRepositoryName) return $this;
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
+        $this->fileRepositoryName->setName('fileRepositoryName');
+        return $this;
     }
 
     /**
-     * File repository name.
+     * 
+     * @return FileRepositoryName
      */
     public function getFileRepositoryName()
     {
-        return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->getValue();
+        return $this->fileRepositoryName->getValue();
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
      */
     public function setCpeFileDirectory($cpeFileDirectory = null)
     {
+        if (!$cpeFileDirectory) return $this;
         $this->cpeFileDirectory = ($cpeFileDirectory InstanceOf CPEFileDirectory)
              ? $cpeFileDirectory
              : new CPEFileDirectory($cpeFileDirectory);
+        $this->cpeFileDirectory->setName('cpeFileDirectory');
+        return $this;
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
+     * @return CPEFileDirectory
      */
     public function getCpeFileDirectory()
     {
-        return (!$this->cpeFileDirectory) ?: $this->cpeFileDirectory->getValue();
+        return $this->cpeFileDirectory->getValue();
     }
 }

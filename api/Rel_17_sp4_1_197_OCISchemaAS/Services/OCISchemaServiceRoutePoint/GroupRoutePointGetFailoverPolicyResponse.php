@@ -5,13 +5,13 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\RoutePointCallFailureTimeout;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\RoutePointFailoverStatus;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetFailoverPolicyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                     = __CLASS__;
+    public    $name                                     = 'GroupRoutePointGetFailoverPolicyResponse';
     protected $enableFailoverSupport                    = null;
     protected $externalSystem                           = null;
     protected $failoverPhoneNumber                      = null;
@@ -46,83 +46,85 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
      */
     public function setEnableFailoverSupport($enableFailoverSupport = null)
     {
-        $this->enableFailoverSupport = (boolean) $enableFailoverSupport;
+        if (!$enableFailoverSupport) return $this;
+        $this->enableFailoverSupport = new PrimitiveType($enableFailoverSupport);
+        $this->enableFailoverSupport->setName('enableFailoverSupport');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableFailoverSupport()
+    {
+        return $this->enableFailoverSupport->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableFailoverSupport()
-    {
-        return (!$this->enableFailoverSupport) ?: $this->enableFailoverSupport;
-    }
-
-    /**
-     * The Route Point External System's name.
-     */
     public function setExternalSystem($externalSystem = null)
     {
+        if (!$externalSystem) return $this;
         $this->externalSystem = ($externalSystem InstanceOf RoutePointExternalSystem)
              ? $externalSystem
              : new RoutePointExternalSystem($externalSystem);
+        $this->externalSystem->setName('externalSystem');
+        return $this;
     }
 
     /**
-     * The Route Point External System's name.
+     * 
+     * @return RoutePointExternalSystem
      */
     public function getExternalSystem()
     {
-        return (!$this->externalSystem) ?: $this->externalSystem->getValue();
+        return $this->externalSystem->getValue();
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
      */
     public function setFailoverPhoneNumber($failoverPhoneNumber = null)
     {
+        if (!$failoverPhoneNumber) return $this;
         $this->failoverPhoneNumber = ($failoverPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $failoverPhoneNumber
              : new OutgoingDNorSIPURI($failoverPhoneNumber);
+        $this->failoverPhoneNumber->setName('failoverPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getFailoverPhoneNumber()
     {
-        return (!$this->failoverPhoneNumber) ?: $this->failoverPhoneNumber->getValue();
+        return $this->failoverPhoneNumber->getValue();
     }
 
     /**
-     * The Route Point failover status.
+     * 
      */
     public function setFailoverStatus($failoverStatus = null)
     {
+        if (!$failoverStatus) return $this;
         $this->failoverStatus = ($failoverStatus InstanceOf RoutePointFailoverStatus)
              ? $failoverStatus
              : new RoutePointFailoverStatus($failoverStatus);
+        $this->failoverStatus->setName('failoverStatus');
+        return $this;
     }
 
     /**
-     * The Route Point failover status.
+     * 
+     * @return RoutePointFailoverStatus
      */
     public function getFailoverStatus()
     {
-        return (!$this->failoverStatus) ?: $this->failoverStatus->getValue();
+        return $this->failoverStatus->getValue();
     }
 
     /**
@@ -130,82 +132,84 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
      */
     public function setPerCallEnableFailoverSupport($perCallEnableFailoverSupport = null)
     {
-        $this->perCallEnableFailoverSupport = (boolean) $perCallEnableFailoverSupport;
+        if (!$perCallEnableFailoverSupport) return $this;
+        $this->perCallEnableFailoverSupport = new PrimitiveType($perCallEnableFailoverSupport);
+        $this->perCallEnableFailoverSupport->setName('perCallEnableFailoverSupport');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPerCallEnableFailoverSupport()
+    {
+        return $this->perCallEnableFailoverSupport->getValue();
     }
 
     /**
      * 
      */
-    public function getPerCallEnableFailoverSupport()
-    {
-        return (!$this->perCallEnableFailoverSupport) ?: $this->perCallEnableFailoverSupport;
-    }
-
-    /**
-     * The call failure timeout.
-     */
     public function setPerCallCallFailureTimeoutSeconds($perCallCallFailureTimeoutSeconds = null)
     {
+        if (!$perCallCallFailureTimeoutSeconds) return $this;
         $this->perCallCallFailureTimeoutSeconds = ($perCallCallFailureTimeoutSeconds InstanceOf RoutePointCallFailureTimeout)
              ? $perCallCallFailureTimeoutSeconds
              : new RoutePointCallFailureTimeout($perCallCallFailureTimeoutSeconds);
+        $this->perCallCallFailureTimeoutSeconds->setName('perCallCallFailureTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * The call failure timeout.
+     * 
+     * @return RoutePointCallFailureTimeout
      */
     public function getPerCallCallFailureTimeoutSeconds()
     {
-        return (!$this->perCallCallFailureTimeoutSeconds) ?: $this->perCallCallFailureTimeoutSeconds->getValue();
+        return $this->perCallCallFailureTimeoutSeconds->getValue();
     }
 
     /**
-     * The call failure timeout.
+     * 
      */
     public function setPerCallOutboundCallFailureTimeoutSeconds($perCallOutboundCallFailureTimeoutSeconds = null)
     {
+        if (!$perCallOutboundCallFailureTimeoutSeconds) return $this;
         $this->perCallOutboundCallFailureTimeoutSeconds = ($perCallOutboundCallFailureTimeoutSeconds InstanceOf RoutePointCallFailureTimeout)
              ? $perCallOutboundCallFailureTimeoutSeconds
              : new RoutePointCallFailureTimeout($perCallOutboundCallFailureTimeoutSeconds);
+        $this->perCallOutboundCallFailureTimeoutSeconds->setName('perCallOutboundCallFailureTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * The call failure timeout.
+     * 
+     * @return RoutePointCallFailureTimeout
      */
     public function getPerCallOutboundCallFailureTimeoutSeconds()
     {
-        return (!$this->perCallOutboundCallFailureTimeoutSeconds) ?: $this->perCallOutboundCallFailureTimeoutSeconds->getValue();
+        return $this->perCallOutboundCallFailureTimeoutSeconds->getValue();
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
      */
     public function setPerCallFailoverPhoneNumber($perCallFailoverPhoneNumber = null)
     {
+        if (!$perCallFailoverPhoneNumber) return $this;
         $this->perCallFailoverPhoneNumber = ($perCallFailoverPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $perCallFailoverPhoneNumber
              : new OutgoingDNorSIPURI($perCallFailoverPhoneNumber);
+        $this->perCallFailoverPhoneNumber->setName('perCallFailoverPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getPerCallFailoverPhoneNumber()
     {
-        return (!$this->perCallFailoverPhoneNumber) ?: $this->perCallFailoverPhoneNumber->getValue();
+        return $this->perCallFailoverPhoneNumber->getValue();
     }
 }

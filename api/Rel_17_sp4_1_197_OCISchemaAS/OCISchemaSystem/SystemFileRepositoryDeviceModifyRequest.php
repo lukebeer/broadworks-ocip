@@ -12,7 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEFileDirectory;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'SystemFileRepositoryDeviceModifyRequest';
     protected $name                  = null;
     protected $rootDirectory         = null;
     protected $secure                = null;
@@ -56,7 +56,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return SystemFileRepositoryDeviceModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,39 +64,47 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * File repository name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf FileRepositoryName)
              ? $name
              : new FileRepositoryName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * File repository name.
+     * 
+     * @return FileRepositoryName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
      */
     public function setRootDirectory($rootDirectory = null)
     {
+        if (!$rootDirectory) return $this;
         $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
              ? $rootDirectory
              : new CPEFileDirectory($rootDirectory);
+        $this->rootDirectory->setName('rootDirectory');
+        return $this;
     }
 
     /**
-     * CPE Configuration File Directory.
+     * 
+     * @return CPEFileDirectory
      */
     public function getRootDirectory()
     {
-        return (!$this->rootDirectory) ?: $this->rootDirectory->getValue();
+        return $this->rootDirectory->getValue();
     }
 
     /**
@@ -104,33 +112,41 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function setSecure($secure = null)
     {
-        $this->secure = (boolean) $secure;
+        if (!$secure) return $this;
+        $this->secure = new PrimitiveType($secure);
+        $this->secure->setName('secure');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSecure()
+    {
+        return $this->secure->getValue();
     }
 
     /**
      * 
      */
-    public function getSecure()
-    {
-        return (!$this->secure) ?: $this->secure;
-    }
-
-    /**
-     * IP Address, hostname, or domain.
-     */
     public function setNetAddress($netAddress = null)
     {
+        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
+        $this->netAddress->setName('netAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->getValue();
+        return $this->netAddress->getValue();
     }
 
     /**
@@ -138,51 +154,63 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function setFtpPassive($ftpPassive = null)
     {
-        $this->ftpPassive = (boolean) $ftpPassive;
+        if (!$ftpPassive) return $this;
+        $this->ftpPassive = new PrimitiveType($ftpPassive);
+        $this->ftpPassive->setName('ftpPassive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getFtpPassive()
+    {
+        return $this->ftpPassive->getValue();
     }
 
     /**
      * 
      */
-    public function getFtpPassive()
-    {
-        return (!$this->ftpPassive) ?: $this->ftpPassive;
-    }
-
-    /**
-     * File repository protocol.
-     */
     public function setProtocol($protocol = null)
     {
+        if (!$protocol) return $this;
         $this->protocol = ($protocol InstanceOf FileRepositoryProtocol)
              ? $protocol
              : new FileRepositoryProtocol($protocol);
+        $this->protocol->setName('protocol');
+        return $this;
     }
 
     /**
-     * File repository protocol.
+     * 
+     * @return FileRepositoryProtocol
      */
     public function getProtocol()
     {
-        return (!$this->protocol) ?: $this->protocol->getValue();
+        return $this->protocol->getValue();
     }
 
     /**
-     * TCP/IP Port.
+     * 
      */
     public function setPort($port = null)
     {
+        if (!$port) return $this;
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
+        $this->port->setName('port');
+        return $this;
     }
 
     /**
-     * TCP/IP Port.
+     * 
+     * @return Port
      */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->getValue();
+        return $this->port->getValue();
     }
 
     /**
@@ -190,14 +218,18 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function setFtpRemoteVerification($ftpRemoteVerification = null)
     {
-        $this->ftpRemoteVerification = (boolean) $ftpRemoteVerification;
+        if (!$ftpRemoteVerification) return $this;
+        $this->ftpRemoteVerification = new PrimitiveType($ftpRemoteVerification);
+        $this->ftpRemoteVerification->setName('ftpRemoteVerification');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getFtpRemoteVerification()
     {
-        return (!$this->ftpRemoteVerification) ?: $this->ftpRemoteVerification;
+        return $this->ftpRemoteVerification->getValue();
     }
 }

@@ -16,12 +16,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class MediaPolicySelection extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "MediaPolicySelection";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "string";
+        $this->dataType = "";
         $this->addRestriction(new Enumeration([
             'Use Uncompressed Codec',
             'Use Supported Media Set',

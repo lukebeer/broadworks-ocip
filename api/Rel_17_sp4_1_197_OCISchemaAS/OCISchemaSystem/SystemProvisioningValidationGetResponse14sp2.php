@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ProvisioningValidationTimeoutSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemProvisioningValidationGetResponse14sp2;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'SystemProvisioningValidationGetResponse14sp2';
     protected $isActive                   = null;
     protected $isNetworkServerQueryActive = null;
     protected $timeoutSeconds             = null;
@@ -38,15 +38,19 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -54,32 +58,40 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
      */
     public function setIsNetworkServerQueryActive($isNetworkServerQueryActive = null)
     {
-        $this->isNetworkServerQueryActive = (boolean) $isNetworkServerQueryActive;
+        if (!$isNetworkServerQueryActive) return $this;
+        $this->isNetworkServerQueryActive = new PrimitiveType($isNetworkServerQueryActive);
+        $this->isNetworkServerQueryActive->setName('isNetworkServerQueryActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsNetworkServerQueryActive()
+    {
+        return $this->isNetworkServerQueryActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsNetworkServerQueryActive()
-    {
-        return (!$this->isNetworkServerQueryActive) ?: $this->isNetworkServerQueryActive;
-    }
-
-    /**
-     * The timeout value in seconds for provisioning validation.
-     */
     public function setTimeoutSeconds($timeoutSeconds = null)
     {
+        if (!$timeoutSeconds) return $this;
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf ProvisioningValidationTimeoutSeconds)
              ? $timeoutSeconds
              : new ProvisioningValidationTimeoutSeconds($timeoutSeconds);
+        $this->timeoutSeconds->setName('timeoutSeconds');
+        return $this;
     }
 
     /**
-     * The timeout value in seconds for provisioning validation.
+     * 
+     * @return ProvisioningValidationTimeoutSeconds
      */
     public function getTimeoutSeconds()
     {
-        return (!$this->timeoutSeconds) ?: $this->timeoutSeconds->getValue();
+        return $this->timeoutSeconds->getValue();
     }
 }

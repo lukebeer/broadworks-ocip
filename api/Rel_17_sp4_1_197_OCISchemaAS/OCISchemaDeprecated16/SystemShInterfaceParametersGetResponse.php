@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ShInterfacePublicIdentityRefreshDelaySeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ShInterfaceRequestTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemShInterfaceParametersGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemShInterfaceParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
+    public    $name                              = 'SystemShInterfaceParametersGetResponse';
     protected $hssRealm                          = null;
     protected $requestTimeoutSeconds             = null;
     protected $publicIdentityRefreshDelaySeconds = null;
@@ -36,56 +35,68 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
     }
 
     /**
-     * Network domain name.
+     * 
      */
     public function setHssRealm($hssRealm = null)
     {
+        if (!$hssRealm) return $this;
         $this->hssRealm = ($hssRealm InstanceOf DomainName)
              ? $hssRealm
              : new DomainName($hssRealm);
+        $this->hssRealm->setName('hssRealm');
+        return $this;
     }
 
     /**
-     * Network domain name.
+     * 
+     * @return DomainName
      */
     public function getHssRealm()
     {
-        return (!$this->hssRealm) ?: $this->hssRealm->getValue();
+        return $this->hssRealm->getValue();
     }
 
     /**
-     * The amount of time to wait for a response to an Sh Interface request.
+     * 
      */
     public function setRequestTimeoutSeconds($requestTimeoutSeconds = null)
     {
+        if (!$requestTimeoutSeconds) return $this;
         $this->requestTimeoutSeconds = ($requestTimeoutSeconds InstanceOf ShInterfaceRequestTimeoutSeconds)
              ? $requestTimeoutSeconds
              : new ShInterfaceRequestTimeoutSeconds($requestTimeoutSeconds);
+        $this->requestTimeoutSeconds->setName('requestTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * The amount of time to wait for a response to an Sh Interface request.
+     * 
+     * @return ShInterfaceRequestTimeoutSeconds
      */
     public function getRequestTimeoutSeconds()
     {
-        return (!$this->requestTimeoutSeconds) ?: $this->requestTimeoutSeconds->getValue();
+        return $this->requestTimeoutSeconds->getValue();
     }
 
     /**
-     * The amount of time to wait after a Public Identity has been added before dispatching the Public Identity refresh procedure.  A value of 0 indicates no delay.
+     * 
      */
     public function setPublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds = null)
     {
+        if (!$publicIdentityRefreshDelaySeconds) return $this;
         $this->publicIdentityRefreshDelaySeconds = ($publicIdentityRefreshDelaySeconds InstanceOf ShInterfacePublicIdentityRefreshDelaySeconds)
              ? $publicIdentityRefreshDelaySeconds
              : new ShInterfacePublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds);
+        $this->publicIdentityRefreshDelaySeconds->setName('publicIdentityRefreshDelaySeconds');
+        return $this;
     }
 
     /**
-     * The amount of time to wait after a Public Identity has been added before dispatching the Public Identity refresh procedure.  A value of 0 indicates no delay.
+     * 
+     * @return ShInterfacePublicIdentityRefreshDelaySeconds
      */
     public function getPublicIdentityRefreshDelaySeconds()
     {
-        return (!$this->publicIdentityRefreshDelaySeconds) ?: $this->publicIdentityRefreshDelaySeconds->getValue();
+        return $this->publicIdentityRefreshDelaySeconds->getValue();
     }
 }

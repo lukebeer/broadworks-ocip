@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceFileGetResponse16sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceFileGetResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'SystemAccessDeviceFileGetResponse16sp1';
     protected $fileSource            = null;
     protected $configurationFileName = null;
     protected $accessUrl             = null;
@@ -38,92 +37,112 @@ class SystemAccessDeviceFileGetResponse16sp1 extends ComplexType implements Comp
     }
 
     /**
-     * Choices for the access device configuration mode.
+     * 
      */
     public function setFileSource($fileSource = null)
     {
+        if (!$fileSource) return $this;
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
+        $this->fileSource->setName('fileSource');
+        return $this;
     }
 
     /**
-     * Choices for the access device configuration mode.
+     * 
+     * @return AccessDeviceEnhancedConfigurationMode
      */
     public function getFileSource()
     {
-        return (!$this->fileSource) ?: $this->fileSource->getValue();
+        return $this->fileSource->getValue();
     }
 
     /**
-     * Access device enhanced configuration file name.
+     * 
      */
     public function setConfigurationFileName($configurationFileName = null)
     {
+        if (!$configurationFileName) return $this;
         $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
              ? $configurationFileName
              : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
+        $this->configurationFileName->setName('configurationFileName');
+        return $this;
     }
 
     /**
-     * Access device enhanced configuration file name.
+     * 
+     * @return AccessDeviceEnhancedConfigurationFileName
      */
     public function getConfigurationFileName()
     {
-        return (!$this->configurationFileName) ?: $this->configurationFileName->getValue();
+        return $this->configurationFileName->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setAccessUrl($accessUrl = null)
     {
+        if (!$accessUrl) return $this;
         $this->accessUrl = ($accessUrl InstanceOf URL)
              ? $accessUrl
              : new URL($accessUrl);
+        $this->accessUrl->setName('accessUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getAccessUrl()
     {
-        return (!$this->accessUrl) ?: $this->accessUrl->getValue();
+        return $this->accessUrl->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setRepositoryUrl($repositoryUrl = null)
     {
+        if (!$repositoryUrl) return $this;
         $this->repositoryUrl = ($repositoryUrl InstanceOf URL)
              ? $repositoryUrl
              : new URL($repositoryUrl);
+        $this->repositoryUrl->setName('repositoryUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getRepositoryUrl()
     {
-        return (!$this->repositoryUrl) ?: $this->repositoryUrl->getValue();
+        return $this->repositoryUrl->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setTemplateUrl($templateUrl = null)
     {
+        if (!$templateUrl) return $this;
         $this->templateUrl = ($templateUrl InstanceOf URL)
              ? $templateUrl
              : new URL($templateUrl);
+        $this->templateUrl->setName('templateUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getTemplateUrl()
     {
-        return (!$this->templateUrl) ?: $this->templateUrl->getValue();
+        return $this->templateUrl->getValue();
     }
 }

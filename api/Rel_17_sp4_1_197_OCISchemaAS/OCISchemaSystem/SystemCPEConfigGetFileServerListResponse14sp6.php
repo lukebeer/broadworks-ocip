@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigGetFileServerListResponse14sp6;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigGetFileServerListResponse14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'SystemCPEConfigGetFileServerListResponse14sp6';
     protected $fileServerTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemCPEConfigGetFileServerListResponse14sp6 extends ComplexType implemen
      */
     public function setFileServerTable(core:OCITable $fileServerTable = null)
     {
-        $this->fileServerTable =  $fileServerTable;
+        if (!$fileServerTable) return $this;
+        $this->fileServerTable->setName('fileServerTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getFileServerTable()
     {
-        return (!$this->fileServerTable) ?: $this->fileServerTable->getValue();
+        return $this->fileServerTable->getValue();
     }
 }

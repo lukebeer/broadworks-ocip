@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\IMRNTimeoutMilliseconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'SystemBroadWorksMobilityGetResponse';
     protected $enableLocationServices    = null;
     protected $enableMSRNLookup          = null;
     protected $enableMobileStateChecking = null;
@@ -45,15 +45,19 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
      */
     public function setEnableLocationServices($enableLocationServices = null)
     {
-        $this->enableLocationServices = (boolean) $enableLocationServices;
+        if (!$enableLocationServices) return $this;
+        $this->enableLocationServices = new PrimitiveType($enableLocationServices);
+        $this->enableLocationServices->setName('enableLocationServices');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableLocationServices()
     {
-        return (!$this->enableLocationServices) ?: $this->enableLocationServices;
+        return $this->enableLocationServices->getValue();
     }
 
     /**
@@ -61,15 +65,19 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
      */
     public function setEnableMSRNLookup($enableMSRNLookup = null)
     {
-        $this->enableMSRNLookup = (boolean) $enableMSRNLookup;
+        if (!$enableMSRNLookup) return $this;
+        $this->enableMSRNLookup = new PrimitiveType($enableMSRNLookup);
+        $this->enableMSRNLookup->setName('enableMSRNLookup');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableMSRNLookup()
     {
-        return (!$this->enableMSRNLookup) ?: $this->enableMSRNLookup;
+        return $this->enableMSRNLookup->getValue();
     }
 
     /**
@@ -77,15 +85,19 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
      */
     public function setEnableMobileStateChecking($enableMobileStateChecking = null)
     {
-        $this->enableMobileStateChecking = (boolean) $enableMobileStateChecking;
+        if (!$enableMobileStateChecking) return $this;
+        $this->enableMobileStateChecking = new PrimitiveType($enableMobileStateChecking);
+        $this->enableMobileStateChecking->setName('enableMobileStateChecking');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableMobileStateChecking()
     {
-        return (!$this->enableMobileStateChecking) ?: $this->enableMobileStateChecking;
+        return $this->enableMobileStateChecking->getValue();
     }
 
     /**
@@ -93,15 +105,19 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
      */
     public function setDenyCallOriginations($denyCallOriginations = null)
     {
-        $this->denyCallOriginations = (boolean) $denyCallOriginations;
+        if (!$denyCallOriginations) return $this;
+        $this->denyCallOriginations = new PrimitiveType($denyCallOriginations);
+        $this->denyCallOriginations->setName('denyCallOriginations');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDenyCallOriginations()
     {
-        return (!$this->denyCallOriginations) ?: $this->denyCallOriginations;
+        return $this->denyCallOriginations->getValue();
     }
 
     /**
@@ -109,68 +125,84 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
      */
     public function setDenyCallTerminations($denyCallTerminations = null)
     {
-        $this->denyCallTerminations = (boolean) $denyCallTerminations;
+        if (!$denyCallTerminations) return $this;
+        $this->denyCallTerminations = new PrimitiveType($denyCallTerminations);
+        $this->denyCallTerminations->setName('denyCallTerminations');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDenyCallTerminations()
+    {
+        return $this->denyCallTerminations->getValue();
     }
 
     /**
      * 
      */
-    public function getDenyCallTerminations()
-    {
-        return (!$this->denyCallTerminations) ?: $this->denyCallTerminations;
-    }
-
-    /**
-     * IMRN Timeout interval in milliseconds.
-     */
     public function setImrnTimeoutMillisecnds($imrnTimeoutMillisecnds = null)
     {
+        if (!$imrnTimeoutMillisecnds) return $this;
         $this->imrnTimeoutMillisecnds = ($imrnTimeoutMillisecnds InstanceOf IMRNTimeoutMilliseconds)
              ? $imrnTimeoutMillisecnds
              : new IMRNTimeoutMilliseconds($imrnTimeoutMillisecnds);
+        $this->imrnTimeoutMillisecnds->setName('imrnTimeoutMillisecnds');
+        return $this;
     }
 
     /**
-     * IMRN Timeout interval in milliseconds.
+     * 
+     * @return IMRNTimeoutMilliseconds
      */
     public function getImrnTimeoutMillisecnds()
     {
-        return (!$this->imrnTimeoutMillisecnds) ?: $this->imrnTimeoutMillisecnds->getValue();
+        return $this->imrnTimeoutMillisecnds->getValue();
     }
 
     /**
-     * Numeric IP Address.
+     * 
      */
     public function setScfSignalingIPAddress($scfSignalingIPAddress = null)
     {
+        if (!$scfSignalingIPAddress) return $this;
         $this->scfSignalingIPAddress = ($scfSignalingIPAddress InstanceOf IPAddress)
              ? $scfSignalingIPAddress
              : new IPAddress($scfSignalingIPAddress);
+        $this->scfSignalingIPAddress->setName('scfSignalingIPAddress');
+        return $this;
     }
 
     /**
-     * Numeric IP Address.
+     * 
+     * @return IPAddress
      */
     public function getScfSignalingIPAddress()
     {
-        return (!$this->scfSignalingIPAddress) ?: $this->scfSignalingIPAddress->getValue();
+        return $this->scfSignalingIPAddress->getValue();
     }
 
     /**
-     * TCP/IP Port.
+     * 
      */
     public function setScfSignalingPort($scfSignalingPort = null)
     {
+        if (!$scfSignalingPort) return $this;
         $this->scfSignalingPort = ($scfSignalingPort InstanceOf Port)
              ? $scfSignalingPort
              : new Port($scfSignalingPort);
+        $this->scfSignalingPort->setName('scfSignalingPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port.
+     * 
+     * @return Port
      */
     public function getScfSignalingPort()
     {
-        return (!$this->scfSignalingPort) ?: $this->scfSignalingPort->getValue();
+        return $this->scfSignalingPort->getValue();
     }
 }

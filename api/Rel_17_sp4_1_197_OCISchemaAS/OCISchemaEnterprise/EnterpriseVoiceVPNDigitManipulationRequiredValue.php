@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseVoiceVPNDigitManipulationRequiredValue extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationRequiredValue';
-    public    $name      = __CLASS__;
+    public    $name      = 'EnterpriseVoiceVPNDigitManipulationRequiredValue';
     protected $operation = null;
     protected $value     = null;
 
@@ -43,38 +43,46 @@ class EnterpriseVoiceVPNDigitManipulationRequiredValue extends ComplexType imple
     }
 
     /**
-     * Enterprise Voice VPN Digit Manipulation Operations that have a value.
+     * 
      */
     public function setOperation($operation = null)
     {
+        if (!$operation) return $this;
         $this->operation = ($operation InstanceOf EnterpriseVoiceVPNDigitManipulationOperationRequiredValue)
              ? $operation
              : new EnterpriseVoiceVPNDigitManipulationOperationRequiredValue($operation);
+        $this->operation->setName('operation');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Digit Manipulation Operations that have a value.
+     * 
+     * @return EnterpriseVoiceVPNDigitManipulationOperationRequiredValue
      */
     public function getOperation()
     {
-        return (!$this->operation) ?: $this->operation->getValue();
+        return $this->operation->getValue();
     }
 
     /**
-     * Enterprise Voice VPN Digit Manipulation value.
+     * 
      */
     public function setValue($value = null)
     {
+        if (!$value) return $this;
         $this->value = ($value InstanceOf EnterpriseVoiceVPNDigitManipulationValue)
              ? $value
              : new EnterpriseVoiceVPNDigitManipulationValue($value);
+        $this->value->setName('value');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Digit Manipulation value.
+     * 
+     * @return EnterpriseVoiceVPNDigitManipulationValue
      */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->getValue();
+        return $this->value->getValue();
     }
 }

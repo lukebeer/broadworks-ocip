@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterScheduledReportServiceLevelInclusionsModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportAbandonedCallThresholdReplacementList;
@@ -25,7 +25,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DayOfWeek;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingScheduledReportModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -38,7 +37,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'UserCallCenterEnhancedReportingScheduledReportModifyRequest';
     protected $supervisorUserId                = null;
     protected $name                            = null;
     protected $newName                         = null;
@@ -65,22 +64,22 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
          $name,
          $newName = null,
          $description = null,
-          $schedule = null,
+         CallCenterReportSchedule $schedule = null,
          $samplingPeriod = null,
          $startDayOfWeek = null,
          $reportTimeZone = null,
          $reportDateFormat = null,
          $reportTimeFormat = null,
-          $reportInterval = null,
+         CallCenterReportInterval $reportInterval = null,
          $reportFormat = null,
-          $agent = null,
+         CallCenterScheduledReportAgentSelection $agent = null,
          $callCompletionThresholdSeconds = null,
          $shortDurationThresholdSeconds = null,
-          $serviceLevelThresholdSeconds = null,
-          $serviceLevelInclusions = null,
+         CallCenterReportServiceLevelThresholdReplacementList $serviceLevelThresholdSeconds = null,
+         CallCenterScheduledReportServiceLevelInclusionsModify $serviceLevelInclusions = null,
          $serviceLevelObjectivePercentage = null,
-          $abandonedCallThresholdSeconds = null,
-          $emailAddress = null
+         CallCenterReportAbandonedCallThresholdReplacementList $abandonedCallThresholdSeconds = null,
+         CallCenterReportReplacementEmailList $emailAddress = null
     ) {
         $this->setSupervisorUserId($supervisorUserId);
         $this->setName($name);
@@ -105,7 +104,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
     }
 
     /**
-     * @return UserCallCenterEnhancedReportingScheduledReportModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -113,358 +112,428 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setSupervisorUserId($supervisorUserId = null)
     {
+        if (!$supervisorUserId) return $this;
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
+        $this->supervisorUserId->setName('supervisorUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getSupervisorUserId()
     {
-        return (!$this->supervisorUserId) ?: $this->supervisorUserId->getValue();
+        return $this->supervisorUserId->getValue();
     }
 
     /**
-     * The call center enhanced reporting scheduled report name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf CallCenterScheduledReportName)
              ? $name
              : new CallCenterScheduledReportName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting scheduled report name.
+     * 
+     * @return CallCenterScheduledReportName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * The call center enhanced reporting scheduled report name.
+     * 
      */
     public function setNewName($newName = null)
     {
+        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf CallCenterScheduledReportName)
              ? $newName
              : new CallCenterScheduledReportName($newName);
+        $this->newName->setName('newName');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting scheduled report name.
+     * 
+     * @return CallCenterScheduledReportName
      */
     public function getNewName()
     {
-        return (!$this->newName) ?: $this->newName->getValue();
+        return $this->newName->getValue();
     }
 
     /**
-     * The call center enhanced reporting scheduled report description.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf CallCenterScheduledReportDescription)
              ? $description
              : new CallCenterScheduledReportDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting scheduled report description.
+     * 
+     * @return CallCenterScheduledReportDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 
     /**
-     * A schedule for call center enhanced reporting scheduled report. It can either be a fixed time schedule
-     *         or recurring schedule
+     * 
      */
     public function setSchedule(CallCenterReportSchedule $schedule = null)
     {
-        $this->schedule =  $schedule;
+        if (!$schedule) return $this;
+        $this->schedule = $schedule;
+        $this->schedule->setName('schedule');
+        return $this;
     }
 
     /**
-     * A schedule for call center enhanced reporting scheduled report. It can either be a fixed time schedule
-     *         or recurring schedule
+     * 
+     * @return CallCenterReportSchedule
      */
     public function getSchedule()
     {
-        return (!$this->schedule) ?: $this->schedule->getValue();
+        return $this->schedule;
     }
 
     /**
-     * The call center enhanced reporting sampling period.
+     * 
      */
     public function setSamplingPeriod($samplingPeriod = null)
     {
+        if (!$samplingPeriod) return $this;
         $this->samplingPeriod = ($samplingPeriod InstanceOf CallCenterReportSamplingPeriod)
              ? $samplingPeriod
              : new CallCenterReportSamplingPeriod($samplingPeriod);
+        $this->samplingPeriod->setName('samplingPeriod');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting sampling period.
+     * 
+     * @return CallCenterReportSamplingPeriod
      */
     public function getSamplingPeriod()
     {
-        return (!$this->samplingPeriod) ?: $this->samplingPeriod->getValue();
+        return $this->samplingPeriod->getValue();
     }
 
     /**
-     * Days of the week (Sunday-Saturday).
+     * 
      */
     public function setStartDayOfWeek($startDayOfWeek = null)
     {
+        if (!$startDayOfWeek) return $this;
         $this->startDayOfWeek = ($startDayOfWeek InstanceOf DayOfWeek)
              ? $startDayOfWeek
              : new DayOfWeek($startDayOfWeek);
+        $this->startDayOfWeek->setName('startDayOfWeek');
+        return $this;
     }
 
     /**
-     * Days of the week (Sunday-Saturday).
+     * 
+     * @return DayOfWeek
      */
     public function getStartDayOfWeek()
     {
-        return (!$this->startDayOfWeek) ?: $this->startDayOfWeek->getValue();
+        return $this->startDayOfWeek->getValue();
     }
 
     /**
-     * Time zone key.
+     * 
      */
     public function setReportTimeZone($reportTimeZone = null)
     {
+        if (!$reportTimeZone) return $this;
         $this->reportTimeZone = ($reportTimeZone InstanceOf TimeZone)
              ? $reportTimeZone
              : new TimeZone($reportTimeZone);
+        $this->reportTimeZone->setName('reportTimeZone');
+        return $this;
     }
 
     /**
-     * Time zone key.
+     * 
+     * @return TimeZone
      */
     public function getReportTimeZone()
     {
-        return (!$this->reportTimeZone) ?: $this->reportTimeZone->getValue();
+        return $this->reportTimeZone->getValue();
     }
 
     /**
-     * Date format for a call center enhanced reporting report.
+     * 
      */
     public function setReportDateFormat($reportDateFormat = null)
     {
+        if (!$reportDateFormat) return $this;
         $this->reportDateFormat = ($reportDateFormat InstanceOf CallCenterReportDateFormat)
              ? $reportDateFormat
              : new CallCenterReportDateFormat($reportDateFormat);
+        $this->reportDateFormat->setName('reportDateFormat');
+        return $this;
     }
 
     /**
-     * Date format for a call center enhanced reporting report.
+     * 
+     * @return CallCenterReportDateFormat
      */
     public function getReportDateFormat()
     {
-        return (!$this->reportDateFormat) ?: $this->reportDateFormat->getValue();
+        return $this->reportDateFormat->getValue();
     }
 
     /**
-     * Time format for a call center enhanced reporting report.
+     * 
      */
     public function setReportTimeFormat($reportTimeFormat = null)
     {
+        if (!$reportTimeFormat) return $this;
         $this->reportTimeFormat = ($reportTimeFormat InstanceOf CallCenterReportTimeFormat)
              ? $reportTimeFormat
              : new CallCenterReportTimeFormat($reportTimeFormat);
+        $this->reportTimeFormat->setName('reportTimeFormat');
+        return $this;
     }
 
     /**
-     * Time format for a call center enhanced reporting report.
+     * 
+     * @return CallCenterReportTimeFormat
      */
     public function getReportTimeFormat()
     {
-        return (!$this->reportTimeFormat) ?: $this->reportTimeFormat->getValue();
+        return $this->reportTimeFormat->getValue();
     }
 
     /**
-     * Report interval for call center enhanced reporting scheduled reports.
+     * 
      */
     public function setReportInterval(CallCenterReportInterval $reportInterval = null)
     {
-        $this->reportInterval =  $reportInterval;
+        if (!$reportInterval) return $this;
+        $this->reportInterval = $reportInterval;
+        $this->reportInterval->setName('reportInterval');
+        return $this;
     }
 
     /**
-     * Report interval for call center enhanced reporting scheduled reports.
+     * 
+     * @return CallCenterReportInterval
      */
     public function getReportInterval()
     {
-        return (!$this->reportInterval) ?: $this->reportInterval->getValue();
+        return $this->reportInterval;
     }
 
     /**
-     * Call center enhanced reporting report file format.
+     * 
      */
     public function setReportFormat($reportFormat = null)
     {
+        if (!$reportFormat) return $this;
         $this->reportFormat = ($reportFormat InstanceOf CallCenterReportFileFormat)
              ? $reportFormat
              : new CallCenterReportFileFormat($reportFormat);
+        $this->reportFormat->setName('reportFormat');
+        return $this;
     }
 
     /**
-     * Call center enhanced reporting report file format.
+     * 
+     * @return CallCenterReportFileFormat
      */
     public function getReportFormat()
     {
-        return (!$this->reportFormat) ?: $this->reportFormat->getValue();
+        return $this->reportFormat->getValue();
     }
 
     /**
-     * Either all agents or list of agents.
+     * 
      */
     public function setAgent(CallCenterScheduledReportAgentSelection $agent = null)
     {
-        $this->agent =  $agent;
+        if (!$agent) return $this;
+        $this->agent = $agent;
+        $this->agent->setName('agent');
+        return $this;
     }
 
     /**
-     * Either all agents or list of agents.
+     * 
+     * @return CallCenterScheduledReportAgentSelection
      */
     public function getAgent()
     {
-        return (!$this->agent) ?: $this->agent->getValue();
+        return $this->agent;
     }
 
     /**
-     * The call center enhanced reporting report threshold.
+     * 
      */
     public function setCallCompletionThresholdSeconds($callCompletionThresholdSeconds = null)
     {
+        if (!$callCompletionThresholdSeconds) return $this;
         $this->callCompletionThresholdSeconds = ($callCompletionThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
              ? $callCompletionThresholdSeconds
              : new CallCenterReportThresholdSeconds($callCompletionThresholdSeconds);
+        $this->callCompletionThresholdSeconds->setName('callCompletionThresholdSeconds');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting report threshold.
+     * 
+     * @return CallCenterReportThresholdSeconds
      */
     public function getCallCompletionThresholdSeconds()
     {
-        return (!$this->callCompletionThresholdSeconds) ?: $this->callCompletionThresholdSeconds->getValue();
+        return $this->callCompletionThresholdSeconds->getValue();
     }
 
     /**
-     * The call center enhanced reporting report threshold.
+     * 
      */
     public function setShortDurationThresholdSeconds($shortDurationThresholdSeconds = null)
     {
+        if (!$shortDurationThresholdSeconds) return $this;
         $this->shortDurationThresholdSeconds = ($shortDurationThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
              ? $shortDurationThresholdSeconds
              : new CallCenterReportThresholdSeconds($shortDurationThresholdSeconds);
+        $this->shortDurationThresholdSeconds->setName('shortDurationThresholdSeconds');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting report threshold.
+     * 
+     * @return CallCenterReportThresholdSeconds
      */
     public function getShortDurationThresholdSeconds()
     {
-        return (!$this->shortDurationThresholdSeconds) ?: $this->shortDurationThresholdSeconds->getValue();
+        return $this->shortDurationThresholdSeconds->getValue();
     }
 
     /**
-     * A list of call center reporting service level threshold seconds that replaces a previously configured list.
+     * 
      */
     public function setServiceLevelThresholdSeconds(CallCenterReportServiceLevelThresholdReplacementList $serviceLevelThresholdSeconds = null)
     {
-        $this->serviceLevelThresholdSeconds =  $serviceLevelThresholdSeconds;
+        if (!$serviceLevelThresholdSeconds) return $this;
+        $this->serviceLevelThresholdSeconds = $serviceLevelThresholdSeconds;
+        $this->serviceLevelThresholdSeconds->setName('serviceLevelThresholdSeconds');
+        return $this;
     }
 
     /**
-     * A list of call center reporting service level threshold seconds that replaces a previously configured list.
+     * 
+     * @return CallCenterReportServiceLevelThresholdReplacementList
      */
     public function getServiceLevelThresholdSeconds()
     {
-        return (!$this->serviceLevelThresholdSeconds) ?: $this->serviceLevelThresholdSeconds->getValue();
+        return $this->serviceLevelThresholdSeconds;
     }
 
     /**
-     * The call center enhanced reporting scheduled report modified inclusions related to the Service Level thresholds
+     * 
      */
     public function setServiceLevelInclusions(CallCenterScheduledReportServiceLevelInclusionsModify $serviceLevelInclusions = null)
     {
-        $this->serviceLevelInclusions =  $serviceLevelInclusions;
+        if (!$serviceLevelInclusions) return $this;
+        $this->serviceLevelInclusions = $serviceLevelInclusions;
+        $this->serviceLevelInclusions->setName('serviceLevelInclusions');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting scheduled report modified inclusions related to the Service Level thresholds
+     * 
+     * @return CallCenterScheduledReportServiceLevelInclusionsModify
      */
     public function getServiceLevelInclusions()
     {
-        return (!$this->serviceLevelInclusions) ?: $this->serviceLevelInclusions->getValue();
+        return $this->serviceLevelInclusions;
     }
 
     /**
-     * The call center enhanced reporting report service level objective percentage.
+     * 
      */
     public function setServiceLevelObjectivePercentage($serviceLevelObjectivePercentage = null)
     {
+        if (!$serviceLevelObjectivePercentage) return $this;
         $this->serviceLevelObjectivePercentage = ($serviceLevelObjectivePercentage InstanceOf CallCenterReportServiceLevelObjective)
              ? $serviceLevelObjectivePercentage
              : new CallCenterReportServiceLevelObjective($serviceLevelObjectivePercentage);
+        $this->serviceLevelObjectivePercentage->setName('serviceLevelObjectivePercentage');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting report service level objective percentage.
+     * 
+     * @return CallCenterReportServiceLevelObjective
      */
     public function getServiceLevelObjectivePercentage()
     {
-        return (!$this->serviceLevelObjectivePercentage) ?: $this->serviceLevelObjectivePercentage->getValue();
+        return $this->serviceLevelObjectivePercentage->getValue();
     }
 
     /**
-     * A list of call center reporting abandoned call threshold seconds that replaces a previously configured list.
+     * 
      */
     public function setAbandonedCallThresholdSeconds(CallCenterReportAbandonedCallThresholdReplacementList $abandonedCallThresholdSeconds = null)
     {
-        $this->abandonedCallThresholdSeconds =  $abandonedCallThresholdSeconds;
+        if (!$abandonedCallThresholdSeconds) return $this;
+        $this->abandonedCallThresholdSeconds = $abandonedCallThresholdSeconds;
+        $this->abandonedCallThresholdSeconds->setName('abandonedCallThresholdSeconds');
+        return $this;
     }
 
     /**
-     * A list of call center reporting abandoned call threshold seconds that replaces a previously configured list.
+     * 
+     * @return CallCenterReportAbandonedCallThresholdReplacementList
      */
     public function getAbandonedCallThresholdSeconds()
     {
-        return (!$this->abandonedCallThresholdSeconds) ?: $this->abandonedCallThresholdSeconds->getValue();
+        return $this->abandonedCallThresholdSeconds;
     }
 
     /**
-     * A list of call center reporting email addresses that replaces a previously configured list.
+     * 
      */
     public function setEmailAddress(CallCenterReportReplacementEmailList $emailAddress = null)
     {
-        $this->emailAddress =  $emailAddress;
+        if (!$emailAddress) return $this;
+        $this->emailAddress = $emailAddress;
+        $this->emailAddress->setName('emailAddress');
+        return $this;
     }
 
     /**
-     * A list of call center reporting email addresses that replaces a previously configured list.
+     * 
+     * @return CallCenterReportReplacementEmailList
      */
     public function getEmailAddress()
     {
-        return (!$this->emailAddress) ?: $this->emailAddress->getValue();
+        return $this->emailAddress;
     }
 }

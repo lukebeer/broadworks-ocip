@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SpeedDialPrefix;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100\SystemSpeedDial100GetResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSpeedDial100GetResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name   = __CLASS__;
+    public    $name   = 'SystemSpeedDial100GetResponse17sp1';
     protected $prefix = null;
 
     /**
@@ -32,20 +31,24 @@ class SystemSpeedDial100GetResponse17sp1 extends ComplexType implements ComplexI
     }
 
     /**
-     * Speed dial prefix.
+     * 
      */
     public function setPrefix($prefix = null)
     {
+        if (!$prefix) return $this;
         $this->prefix = ($prefix InstanceOf SpeedDialPrefix)
              ? $prefix
              : new SpeedDialPrefix($prefix);
+        $this->prefix->setName('prefix');
+        return $this;
     }
 
     /**
-     * Speed dial prefix.
+     * 
+     * @return SpeedDialPrefix
      */
     public function getPrefix()
     {
-        return (!$this->prefix) ?: $this->prefix->getValue();
+        return $this->prefix->getValue();
     }
 }

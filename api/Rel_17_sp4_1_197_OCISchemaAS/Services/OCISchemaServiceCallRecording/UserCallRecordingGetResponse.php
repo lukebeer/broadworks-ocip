@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\RecordingOption;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\UserCallRecordingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallRecordingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'UserCallRecordingGetResponse';
     protected $recordingOption = null;
 
     /**
@@ -33,20 +32,24 @@ class UserCallRecordingGetResponse extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * Recording Service Configuration.
+     * 
      */
     public function setRecordingOption($recordingOption = null)
     {
+        if (!$recordingOption) return $this;
         $this->recordingOption = ($recordingOption InstanceOf RecordingOption)
              ? $recordingOption
              : new RecordingOption($recordingOption);
+        $this->recordingOption->setName('recordingOption');
+        return $this;
     }
 
     /**
-     * Recording Service Configuration.
+     * 
+     * @return RecordingOption
      */
     public function getRecordingOption()
     {
-        return (!$this->recordingOption) ?: $this->recordingOption->getValue();
+        return $this->recordingOption->getValue();
     }
 }

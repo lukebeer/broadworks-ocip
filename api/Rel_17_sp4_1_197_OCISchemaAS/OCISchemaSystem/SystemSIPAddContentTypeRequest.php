@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPSupportedInterface;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPContentType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPAddContentTypeResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPAddContentTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemSIPAddContentTypeRequest';
     protected $contentType = null;
     protected $interface   = null;
 
@@ -35,7 +34,7 @@ class SystemSIPAddContentTypeRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return SystemSIPAddContentTypeResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemSIPAddContentTypeRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * SIP content type.
+     * 
      */
     public function setContentType($contentType = null)
     {
+        if (!$contentType) return $this;
         $this->contentType = ($contentType InstanceOf SystemSIPContentType)
              ? $contentType
              : new SystemSIPContentType($contentType);
+        $this->contentType->setName('contentType');
+        return $this;
     }
 
     /**
-     * SIP content type.
+     * 
+     * @return SystemSIPContentType
      */
     public function getContentType()
     {
-        return (!$this->contentType) ?: $this->contentType->getValue();
+        return $this->contentType->getValue();
     }
 
     /**
-     * Network Server types.
+     * 
      */
     public function setInterface($interface = null)
     {
+        if (!$interface) return $this;
         $this->interface = ($interface InstanceOf SystemSIPSupportedInterface)
              ? $interface
              : new SystemSIPSupportedInterface($interface);
+        $this->interface->setName('interface');
+        return $this;
     }
 
     /**
-     * Network Server types.
+     * 
+     * @return SystemSIPSupportedInterface
      */
     public function getInterface()
     {
-        return (!$this->interface) ?: $this->interface->getValue();
+        return $this->interface->getValue();
     }
 }

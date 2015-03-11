@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CallBlockingService;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingCallBlockingServiceDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingCallBlockingServiceDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'SystemTreatmentMappingCallBlockingServiceDeleteRequest';
     protected $callBlockingService = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemTreatmentMappingCallBlockingServiceDeleteRequest extends ComplexType
     }
 
     /**
-     * @return SystemTreatmentMappingCallBlockingServiceDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,38 +38,24 @@ class SystemTreatmentMappingCallBlockingServiceDeleteRequest extends ComplexType
     }
 
     /**
-     * Possible types of Call Blocking Services.
-     *         The following enumeration values are only used in AS Data mode:
-     *            PTT
-     *            SAC
-     *            BroadWorks Mobility Deny Originations
-     *            BroadWorks Mobility Deny Terminations
-     *          The following types are only used in HSS data mode:
-     * 	    Incoming Communication Barring
-     * 	    Hierarchical Communication Barring
-     * 	    Incoming Hierarchical Communication Barring
+     * 
      */
     public function setCallBlockingService($callBlockingService = null)
     {
+        if (!$callBlockingService) return $this;
         $this->callBlockingService = ($callBlockingService InstanceOf CallBlockingService)
              ? $callBlockingService
              : new CallBlockingService($callBlockingService);
+        $this->callBlockingService->setName('callBlockingService');
+        return $this;
     }
 
     /**
-     * Possible types of Call Blocking Services.
-     *         The following enumeration values are only used in AS Data mode:
-     *            PTT
-     *            SAC
-     *            BroadWorks Mobility Deny Originations
-     *            BroadWorks Mobility Deny Terminations
-     *          The following types are only used in HSS data mode:
-     * 	    Incoming Communication Barring
-     * 	    Hierarchical Communication Barring
-     * 	    Incoming Hierarchical Communication Barring
+     * 
+     * @return CallBlockingService
      */
     public function getCallBlockingService()
     {
-        return (!$this->callBlockingService) ?: $this->callBlockingService->getValue();
+        return $this->callBlockingService->getValue();
     }
 }

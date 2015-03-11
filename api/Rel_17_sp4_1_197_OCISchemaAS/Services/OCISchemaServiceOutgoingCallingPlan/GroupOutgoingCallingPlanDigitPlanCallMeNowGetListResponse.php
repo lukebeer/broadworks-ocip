@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternCallMeNowPermissions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanDigitPlanCallMeNowGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanDigitPlanCallMeNowGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupOutgoingCallingPlanDigitPlanCallMeNowGetListResponse';
     protected $groupPermissions      = null;
     protected $departmentPermissions = null;
 
@@ -34,34 +33,42 @@ class GroupOutgoingCallingPlanDigitPlanCallMeNowGetListResponse extends ComplexT
     }
 
     /**
-     * Outgoing Calling Plan Call Me Now call permissions for specified digit patterns.
+     * 
      */
     public function setGroupPermissions(OutgoingCallingPlanDigitPatternCallMeNowPermissions $groupPermissions = null)
     {
-        $this->groupPermissions =  $groupPermissions;
+        if (!$groupPermissions) return $this;
+        $this->groupPermissions = $groupPermissions;
+        $this->groupPermissions->setName('groupPermissions');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan Call Me Now call permissions for specified digit patterns.
+     * 
+     * @return OutgoingCallingPlanDigitPatternCallMeNowPermissions
      */
     public function getGroupPermissions()
     {
-        return (!$this->groupPermissions) ?: $this->groupPermissions->getValue();
+        return $this->groupPermissions;
     }
 
     /**
-     * Outgoing Calling Plan Call Me Now call permissions for specified digit patterns.
+     * 
      */
     public function setDepartmentPermissions(OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissions $departmentPermissions = null)
     {
-        $this->departmentPermissions =  $departmentPermissions;
+        if (!$departmentPermissions) return $this;
+        $this->departmentPermissions = $departmentPermissions;
+        $this->departmentPermissions->setName('departmentPermissions');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan Call Me Now call permissions for specified digit patterns.
+     * 
+     * @return OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissions
      */
     public function getDepartmentPermissions()
     {
-        return (!$this->departmentPermissions) ?: $this->departmentPermissions->getValue();
+        return $this->departmentPermissions;
     }
 }

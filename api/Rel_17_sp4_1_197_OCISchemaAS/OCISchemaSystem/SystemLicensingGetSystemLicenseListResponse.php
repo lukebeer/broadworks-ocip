@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLicenseType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLicensingGetSystemLicenseListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLicensingGetSystemLicenseListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name    = __CLASS__;
+    public    $name    = 'SystemLicensingGetSystemLicenseListResponse';
     protected $license = null;
 
     /**
@@ -32,20 +31,24 @@ class SystemLicensingGetSystemLicenseListResponse extends ComplexType implements
     }
 
     /**
-     * System License type.
+     * 
      */
     public function setLicense($license = null)
     {
+        if (!$license) return $this;
         $this->license = ($license InstanceOf SystemLicenseType)
              ? $license
              : new SystemLicenseType($license);
+        $this->license->setName('license');
+        return $this;
     }
 
     /**
-     * System License type.
+     * 
+     * @return SystemLicenseType
      */
     public function getLicense()
     {
-        return (!$this->license) ?: $this->license->getValue();
+        return $this->license->getValue();
     }
 }

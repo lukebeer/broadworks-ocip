@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInventoryReport; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInventoryReportGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'GroupInventoryReportGetResponse';
     protected $inventoryReportTable = null;
 
     /**
@@ -36,14 +35,17 @@ class GroupInventoryReportGetResponse extends ComplexType implements ComplexInte
      */
     public function setInventoryReportTable(core:OCITable $inventoryReportTable = null)
     {
-        $this->inventoryReportTable =  $inventoryReportTable;
+        if (!$inventoryReportTable) return $this;
+        $this->inventoryReportTable->setName('inventoryReportTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getInventoryReportTable()
     {
-        return (!$this->inventoryReportTable) ?: $this->inventoryReportTable->getValue();
+        return $this->inventoryReportTable->getValue();
     }
 }

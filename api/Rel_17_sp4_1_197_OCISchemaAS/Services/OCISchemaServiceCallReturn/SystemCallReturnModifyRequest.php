@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallReturn; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallReturn; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitAny;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallReturn\SystemCallReturnModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
+    public    $name                                = 'SystemCallReturnModifyRequest';
     protected $twoLevelActivation                  = null;
     protected $provideDate                         = null;
     protected $lastUnansweredCallOnly              = null;
@@ -46,7 +46,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return SystemCallReturnModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,15 +58,19 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setTwoLevelActivation($twoLevelActivation = null)
     {
-        $this->twoLevelActivation = (boolean) $twoLevelActivation;
+        if (!$twoLevelActivation) return $this;
+        $this->twoLevelActivation = new PrimitiveType($twoLevelActivation);
+        $this->twoLevelActivation->setName('twoLevelActivation');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getTwoLevelActivation()
     {
-        return (!$this->twoLevelActivation) ?: $this->twoLevelActivation;
+        return $this->twoLevelActivation->getValue();
     }
 
     /**
@@ -74,15 +78,19 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setProvideDate($provideDate = null)
     {
-        $this->provideDate = (boolean) $provideDate;
+        if (!$provideDate) return $this;
+        $this->provideDate = new PrimitiveType($provideDate);
+        $this->provideDate->setName('provideDate');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getProvideDate()
     {
-        return (!$this->provideDate) ?: $this->provideDate;
+        return $this->provideDate->getValue();
     }
 
     /**
@@ -90,33 +98,41 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setLastUnansweredCallOnly($lastUnansweredCallOnly = null)
     {
-        $this->lastUnansweredCallOnly = (boolean) $lastUnansweredCallOnly;
+        if (!$lastUnansweredCallOnly) return $this;
+        $this->lastUnansweredCallOnly = new PrimitiveType($lastUnansweredCallOnly);
+        $this->lastUnansweredCallOnly->setName('lastUnansweredCallOnly');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getLastUnansweredCallOnly()
+    {
+        return $this->lastUnansweredCallOnly->getValue();
     }
 
     /**
      * 
      */
-    public function getLastUnansweredCallOnly()
-    {
-        return (!$this->lastUnansweredCallOnly) ?: $this->lastUnansweredCallOnly;
-    }
-
-    /**
-     * A single dialing digit. Valid values are 0-9,*,#.
-     */
     public function setConfirmationKey($confirmationKey = null)
     {
+        if (!$confirmationKey) return $this;
         $this->confirmationKey = ($confirmationKey InstanceOf DigitAny)
              ? $confirmationKey
              : new DigitAny($confirmationKey);
+        $this->confirmationKey->setName('confirmationKey');
+        return $this;
     }
 
     /**
-     * A single dialing digit. Valid values are 0-9,*,#.
+     * 
+     * @return DigitAny
      */
     public function getConfirmationKey()
     {
-        return (!$this->confirmationKey) ?: $this->confirmationKey->getValue();
+        return $this->confirmationKey->getValue();
     }
 
     /**
@@ -124,15 +140,19 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setAllowRestrictedNumber($allowRestrictedNumber = null)
     {
-        $this->allowRestrictedNumber = (boolean) $allowRestrictedNumber;
+        if (!$allowRestrictedNumber) return $this;
+        $this->allowRestrictedNumber = new PrimitiveType($allowRestrictedNumber);
+        $this->allowRestrictedNumber->setName('allowRestrictedNumber');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowRestrictedNumber()
     {
-        return (!$this->allowRestrictedNumber) ?: $this->allowRestrictedNumber;
+        return $this->allowRestrictedNumber->getValue();
     }
 
     /**
@@ -140,14 +160,18 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setDeleteNumberAfterAnsweredCallReturn($deleteNumberAfterAnsweredCallReturn = null)
     {
-        $this->deleteNumberAfterAnsweredCallReturn = (boolean) $deleteNumberAfterAnsweredCallReturn;
+        if (!$deleteNumberAfterAnsweredCallReturn) return $this;
+        $this->deleteNumberAfterAnsweredCallReturn = new PrimitiveType($deleteNumberAfterAnsweredCallReturn);
+        $this->deleteNumberAfterAnsweredCallReturn->setName('deleteNumberAfterAnsweredCallReturn');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDeleteNumberAfterAnsweredCallReturn()
     {
-        return (!$this->deleteNumberAfterAnsweredCallReturn) ?: $this->deleteNumberAfterAnsweredCallReturn;
+        return $this->deleteNumberAfterAnsweredCallReturn->getValue();
     }
 }

@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\Replace
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SessionAdmissionControlGroupName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'EnterpriseSessionAdmissionControlGroupModifyRequest';
     protected $serviceProviderId               = null;
     protected $name                            = null;
     protected $newName                         = null;
@@ -50,7 +50,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
          $reservedUserTerminatingSessions = null,
          $becomeDefaultGroup = null,
          $countIntraSACGroupSessions = null,
-          $deviceList = null
+         ReplacementEnterpriseDeviceList $deviceList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -67,7 +67,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
     }
 
     /**
-     * @return EnterpriseSessionAdmissionControlGroupModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,171 +75,201 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Session Admission Control Group name.
-     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
              ? $name
              : new SessionAdmissionControlGroupName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Session Admission Control Group name.
-     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     * 
+     * @return SessionAdmissionControlGroupName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * Session Admission Control Group name.
-     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     * 
      */
     public function setNewName($newName = null)
     {
+        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf SessionAdmissionControlGroupName)
              ? $newName
              : new SessionAdmissionControlGroupName($newName);
+        $this->newName->setName('newName');
+        return $this;
     }
 
     /**
-     * Session Admission Control Group name.
-     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     * 
+     * @return SessionAdmissionControlGroupName
      */
     public function getNewName()
     {
-        return (!$this->newName) ?: $this->newName->getValue();
+        return $this->newName->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setMaxSession($maxSession = null)
     {
+        if (!$maxSession) return $this;
         $this->maxSession = ($maxSession InstanceOf NonNegativeInt)
              ? $maxSession
              : new NonNegativeInt($maxSession);
+        $this->maxSession->setName('maxSession');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getMaxSession()
     {
-        return (!$this->maxSession) ?: $this->maxSession->getValue();
+        return $this->maxSession->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
+        if (!$maxUserOriginatingSessions) return $this;
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $maxUserOriginatingSessions
              : new NonNegativeInt($maxUserOriginatingSessions);
+        $this->maxUserOriginatingSessions->setName('maxUserOriginatingSessions');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getMaxUserOriginatingSessions()
     {
-        return (!$this->maxUserOriginatingSessions) ?: $this->maxUserOriginatingSessions->getValue();
+        return $this->maxUserOriginatingSessions->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
+        if (!$maxUserTerminatingSessions) return $this;
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $maxUserTerminatingSessions
              : new NonNegativeInt($maxUserTerminatingSessions);
+        $this->maxUserTerminatingSessions->setName('maxUserTerminatingSessions');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getMaxUserTerminatingSessions()
     {
-        return (!$this->maxUserTerminatingSessions) ?: $this->maxUserTerminatingSessions->getValue();
+        return $this->maxUserTerminatingSessions->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setReservedSession($reservedSession = null)
     {
+        if (!$reservedSession) return $this;
         $this->reservedSession = ($reservedSession InstanceOf NonNegativeInt)
              ? $reservedSession
              : new NonNegativeInt($reservedSession);
+        $this->reservedSession->setName('reservedSession');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getReservedSession()
     {
-        return (!$this->reservedSession) ?: $this->reservedSession->getValue();
+        return $this->reservedSession->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setReservedUserOriginatingSessions($reservedUserOriginatingSessions = null)
     {
+        if (!$reservedUserOriginatingSessions) return $this;
         $this->reservedUserOriginatingSessions = ($reservedUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserOriginatingSessions
              : new NonNegativeInt($reservedUserOriginatingSessions);
+        $this->reservedUserOriginatingSessions->setName('reservedUserOriginatingSessions');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getReservedUserOriginatingSessions()
     {
-        return (!$this->reservedUserOriginatingSessions) ?: $this->reservedUserOriginatingSessions->getValue();
+        return $this->reservedUserOriginatingSessions->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setReservedUserTerminatingSessions($reservedUserTerminatingSessions = null)
     {
+        if (!$reservedUserTerminatingSessions) return $this;
         $this->reservedUserTerminatingSessions = ($reservedUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserTerminatingSessions
              : new NonNegativeInt($reservedUserTerminatingSessions);
+        $this->reservedUserTerminatingSessions->setName('reservedUserTerminatingSessions');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getReservedUserTerminatingSessions()
     {
-        return (!$this->reservedUserTerminatingSessions) ?: $this->reservedUserTerminatingSessions->getValue();
+        return $this->reservedUserTerminatingSessions->getValue();
     }
 
     /**
@@ -247,15 +277,19 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
      */
     public function setBecomeDefaultGroup($becomeDefaultGroup = null)
     {
-        $this->becomeDefaultGroup = (boolean) $becomeDefaultGroup;
+        if (!$becomeDefaultGroup) return $this;
+        $this->becomeDefaultGroup = new PrimitiveType($becomeDefaultGroup);
+        $this->becomeDefaultGroup->setName('becomeDefaultGroup');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getBecomeDefaultGroup()
     {
-        return (!$this->becomeDefaultGroup) ?: $this->becomeDefaultGroup;
+        return $this->becomeDefaultGroup->getValue();
     }
 
     /**
@@ -263,32 +297,38 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
      */
     public function setCountIntraSACGroupSessions($countIntraSACGroupSessions = null)
     {
-        $this->countIntraSACGroupSessions = (boolean) $countIntraSACGroupSessions;
+        if (!$countIntraSACGroupSessions) return $this;
+        $this->countIntraSACGroupSessions = new PrimitiveType($countIntraSACGroupSessions);
+        $this->countIntraSACGroupSessions->setName('countIntraSACGroupSessions');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getCountIntraSACGroupSessions()
+    {
+        return $this->countIntraSACGroupSessions->getValue();
     }
 
     /**
      * 
      */
-    public function getCountIntraSACGroupSessions()
-    {
-        return (!$this->countIntraSACGroupSessions) ?: $this->countIntraSACGroupSessions;
-    }
-
-    /**
-     * A list of enterprise accessible devices that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
-     */
     public function setDeviceList(ReplacementEnterpriseDeviceList $deviceList = null)
     {
-        $this->deviceList =  $deviceList;
+        if (!$deviceList) return $this;
+        $this->deviceList = $deviceList;
+        $this->deviceList->setName('deviceList');
+        return $this;
     }
 
     /**
-     * A list of enterprise accessible devices that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementEnterpriseDeviceList
      */
     public function getDeviceList()
     {
-        return (!$this->deviceList) ?: $this->deviceList->getValue();
+        return $this->deviceList;
     }
 }

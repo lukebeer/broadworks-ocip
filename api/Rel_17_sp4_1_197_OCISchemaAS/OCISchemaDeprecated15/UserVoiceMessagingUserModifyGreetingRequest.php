@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\Voice
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserVoiceMessagingUserModifyGreetingResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -28,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'UserVoiceMessagingUserModifyGreetingRequest';
     protected $userId                        = null;
     protected $busyAnnouncementSelection     = null;
     protected $busyPersonalAudioFile         = null;
@@ -44,14 +43,14 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
     public function __construct(
          $userId,
          $busyAnnouncementSelection = null,
-          $busyPersonalAudioFile = null,
-          $busyPersonalVideoFile = null,
+         LabeledFileResource $busyPersonalAudioFile = null,
+         LabeledFileResource $busyPersonalVideoFile = null,
          $noAnswerAnnouncementSelection = null,
-          $noAnswerPersonalAudioFile = null,
-          $noAnswerPersonalVideoFile = null,
-          $noAnswerAlternateGreeting01 = null,
-          $noAnswerAlternateGreeting02 = null,
-          $noAnswerAlternateGreeting03 = null,
+         LabeledFileResource $noAnswerPersonalAudioFile = null,
+         LabeledFileResource $noAnswerPersonalVideoFile = null,
+         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting01 = null,
+         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting02 = null,
+         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting03 = null,
          $noAnswerNumberOfRings = null
     ) {
         $this->setUserId($userId);
@@ -68,7 +67,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
     }
 
     /**
-     * @return UserVoiceMessagingUserModifyGreetingResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -76,208 +75,230 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Announcement Selection.
+     * 
      */
     public function setBusyAnnouncementSelection($busyAnnouncementSelection = null)
     {
+        if (!$busyAnnouncementSelection) return $this;
         $this->busyAnnouncementSelection = ($busyAnnouncementSelection InstanceOf AnnouncementSelection)
              ? $busyAnnouncementSelection
              : new AnnouncementSelection($busyAnnouncementSelection);
+        $this->busyAnnouncementSelection->setName('busyAnnouncementSelection');
+        return $this;
     }
 
     /**
-     * Announcement Selection.
+     * 
+     * @return AnnouncementSelection
      */
     public function getBusyAnnouncementSelection()
     {
-        return (!$this->busyAnnouncementSelection) ?: $this->busyAnnouncementSelection->getValue();
+        return $this->busyAnnouncementSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setBusyPersonalAudioFile(LabeledFileResource $busyPersonalAudioFile = null)
     {
-        $this->busyPersonalAudioFile =  $busyPersonalAudioFile;
+        if (!$busyPersonalAudioFile) return $this;
+        $this->busyPersonalAudioFile = $busyPersonalAudioFile;
+        $this->busyPersonalAudioFile->setName('busyPersonalAudioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getBusyPersonalAudioFile()
     {
-        return (!$this->busyPersonalAudioFile) ?: $this->busyPersonalAudioFile->getValue();
+        return $this->busyPersonalAudioFile;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setBusyPersonalVideoFile(LabeledFileResource $busyPersonalVideoFile = null)
     {
-        $this->busyPersonalVideoFile =  $busyPersonalVideoFile;
+        if (!$busyPersonalVideoFile) return $this;
+        $this->busyPersonalVideoFile = $busyPersonalVideoFile;
+        $this->busyPersonalVideoFile->setName('busyPersonalVideoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getBusyPersonalVideoFile()
     {
-        return (!$this->busyPersonalVideoFile) ?: $this->busyPersonalVideoFile->getValue();
+        return $this->busyPersonalVideoFile;
     }
 
     /**
-     * Announcement Selection.
+     * 
      */
     public function setNoAnswerAnnouncementSelection($noAnswerAnnouncementSelection = null)
     {
+        if (!$noAnswerAnnouncementSelection) return $this;
         $this->noAnswerAnnouncementSelection = ($noAnswerAnnouncementSelection InstanceOf VoiceMessagingNoAnswerGreetingSelection)
              ? $noAnswerAnnouncementSelection
              : new VoiceMessagingNoAnswerGreetingSelection($noAnswerAnnouncementSelection);
+        $this->noAnswerAnnouncementSelection->setName('noAnswerAnnouncementSelection');
+        return $this;
     }
 
     /**
-     * Announcement Selection.
+     * 
+     * @return VoiceMessagingNoAnswerGreetingSelection
      */
     public function getNoAnswerAnnouncementSelection()
     {
-        return (!$this->noAnswerAnnouncementSelection) ?: $this->noAnswerAnnouncementSelection->getValue();
+        return $this->noAnswerAnnouncementSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setNoAnswerPersonalAudioFile(LabeledFileResource $noAnswerPersonalAudioFile = null)
     {
-        $this->noAnswerPersonalAudioFile =  $noAnswerPersonalAudioFile;
+        if (!$noAnswerPersonalAudioFile) return $this;
+        $this->noAnswerPersonalAudioFile = $noAnswerPersonalAudioFile;
+        $this->noAnswerPersonalAudioFile->setName('noAnswerPersonalAudioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getNoAnswerPersonalAudioFile()
     {
-        return (!$this->noAnswerPersonalAudioFile) ?: $this->noAnswerPersonalAudioFile->getValue();
+        return $this->noAnswerPersonalAudioFile;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setNoAnswerPersonalVideoFile(LabeledFileResource $noAnswerPersonalVideoFile = null)
     {
-        $this->noAnswerPersonalVideoFile =  $noAnswerPersonalVideoFile;
+        if (!$noAnswerPersonalVideoFile) return $this;
+        $this->noAnswerPersonalVideoFile = $noAnswerPersonalVideoFile;
+        $this->noAnswerPersonalVideoFile->setName('noAnswerPersonalVideoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getNoAnswerPersonalVideoFile()
     {
-        return (!$this->noAnswerPersonalVideoFile) ?: $this->noAnswerPersonalVideoFile->getValue();
+        return $this->noAnswerPersonalVideoFile;
     }
 
     /**
-     * The configuration of a alternate no answer greeting.
-     *         It is used when modifying a user's voice messaging greeting.
+     * 
      */
     public function setNoAnswerAlternateGreeting01(VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting01 = null)
     {
-        $this->noAnswerAlternateGreeting01 =  $noAnswerAlternateGreeting01;
+        if (!$noAnswerAlternateGreeting01) return $this;
+        $this->noAnswerAlternateGreeting01 = $noAnswerAlternateGreeting01;
+        $this->noAnswerAlternateGreeting01->setName('noAnswerAlternateGreeting01');
+        return $this;
     }
 
     /**
-     * The configuration of a alternate no answer greeting.
-     *         It is used when modifying a user's voice messaging greeting.
+     * 
+     * @return VoiceMessagingAlternateNoAnswerGreetingModify
      */
     public function getNoAnswerAlternateGreeting01()
     {
-        return (!$this->noAnswerAlternateGreeting01) ?: $this->noAnswerAlternateGreeting01->getValue();
+        return $this->noAnswerAlternateGreeting01;
     }
 
     /**
-     * The configuration of a alternate no answer greeting.
-     *         It is used when modifying a user's voice messaging greeting.
+     * 
      */
     public function setNoAnswerAlternateGreeting02(VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting02 = null)
     {
-        $this->noAnswerAlternateGreeting02 =  $noAnswerAlternateGreeting02;
+        if (!$noAnswerAlternateGreeting02) return $this;
+        $this->noAnswerAlternateGreeting02 = $noAnswerAlternateGreeting02;
+        $this->noAnswerAlternateGreeting02->setName('noAnswerAlternateGreeting02');
+        return $this;
     }
 
     /**
-     * The configuration of a alternate no answer greeting.
-     *         It is used when modifying a user's voice messaging greeting.
+     * 
+     * @return VoiceMessagingAlternateNoAnswerGreetingModify
      */
     public function getNoAnswerAlternateGreeting02()
     {
-        return (!$this->noAnswerAlternateGreeting02) ?: $this->noAnswerAlternateGreeting02->getValue();
+        return $this->noAnswerAlternateGreeting02;
     }
 
     /**
-     * The configuration of a alternate no answer greeting.
-     *         It is used when modifying a user's voice messaging greeting.
+     * 
      */
     public function setNoAnswerAlternateGreeting03(VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting03 = null)
     {
-        $this->noAnswerAlternateGreeting03 =  $noAnswerAlternateGreeting03;
+        if (!$noAnswerAlternateGreeting03) return $this;
+        $this->noAnswerAlternateGreeting03 = $noAnswerAlternateGreeting03;
+        $this->noAnswerAlternateGreeting03->setName('noAnswerAlternateGreeting03');
+        return $this;
     }
 
     /**
-     * The configuration of a alternate no answer greeting.
-     *         It is used when modifying a user's voice messaging greeting.
+     * 
+     * @return VoiceMessagingAlternateNoAnswerGreetingModify
      */
     public function getNoAnswerAlternateGreeting03()
     {
-        return (!$this->noAnswerAlternateGreeting03) ?: $this->noAnswerAlternateGreeting03->getValue();
+        return $this->noAnswerAlternateGreeting03;
     }
 
     /**
-     * The number of rings before greeting.
+     * 
      */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
+        if (!$noAnswerNumberOfRings) return $this;
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf VoiceMessagingNumberOfRings)
              ? $noAnswerNumberOfRings
              : new VoiceMessagingNumberOfRings($noAnswerNumberOfRings);
+        $this->noAnswerNumberOfRings->setName('noAnswerNumberOfRings');
+        return $this;
     }
 
     /**
-     * The number of rings before greeting.
+     * 
+     * @return VoiceMessagingNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {
-        return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->getValue();
+        return $this->noAnswerNumberOfRings->getValue();
     }
 }

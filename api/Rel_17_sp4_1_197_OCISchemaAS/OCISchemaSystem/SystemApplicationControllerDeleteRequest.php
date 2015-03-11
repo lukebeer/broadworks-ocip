@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ApplicationControllerName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationControllerDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemApplicationControllerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name = 'SystemApplicationControllerDeleteRequest';
     protected $name = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemApplicationControllerDeleteRequest extends ComplexType implements Co
     }
 
     /**
-     * @return SystemApplicationControllerDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemApplicationControllerDeleteRequest extends ComplexType implements Co
     }
 
     /**
-     * The application controller name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf ApplicationControllerName)
              ? $name
              : new ApplicationControllerName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * The application controller name.
+     * 
+     * @return ApplicationControllerName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 }

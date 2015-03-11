@@ -14,7 +14,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterNightServiceModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterNightServiceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'GroupCallCenterNightServiceModifyRequest';
     protected $serviceUserId                = null;
     protected $action                       = null;
     protected $businessHours                = null;
@@ -54,14 +54,14 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-          $audioFile = null,
+         ExtendedMediaFileResource $audioFile = null,
          $videoMessageSelection = null,
-          $videoFile = null,
+         ExtendedMediaFileResource $videoFile = null,
          $manualAnnouncementMode = null,
          $manualAudioMessageSelection = null,
-          $manualAudioFile = null,
+         ExtendedMediaFileResource $manualAudioFile = null,
          $manualVideoMessageSelection = null,
-          $manualVideoFile = null
+         ExtendedMediaFileResource $manualVideoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);
@@ -82,7 +82,7 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * @return GroupCallCenterNightServiceModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -90,65 +90,69 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * Call center scheduled service (Night Services, Holiday Services, etc.) processing action.
+     * 
      */
     public function setAction($action = null)
     {
+        if (!$action) return $this;
         $this->action = ($action InstanceOf CallCenterScheduledServiceAction)
              ? $action
              : new CallCenterScheduledServiceAction($action);
+        $this->action->setName('action');
+        return $this;
     }
 
     /**
-     * Call center scheduled service (Night Services, Holiday Services, etc.) processing action.
+     * 
+     * @return CallCenterScheduledServiceAction
      */
     public function getAction()
     {
-        return (!$this->action) ?: $this->action->getValue();
+        return $this->action->getValue();
     }
 
     /**
-     * Schedule name.
+     * 
      */
     public function setBusinessHours($businessHours = null)
     {
+        if (!$businessHours) return $this;
         $this->businessHours = ($businessHours InstanceOf ScheduleName)
              ? $businessHours
              : new ScheduleName($businessHours);
+        $this->businessHours->setName('businessHours');
+        return $this;
     }
 
     /**
-     * Schedule name.
+     * 
+     * @return ScheduleName
      */
     public function getBusinessHours()
     {
-        return (!$this->businessHours) ?: $this->businessHours->getValue();
+        return $this->businessHours->getValue();
     }
 
     /**
@@ -156,15 +160,19 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
      */
     public function setForceNightService($forceNightService = null)
     {
-        $this->forceNightService = (boolean) $forceNightService;
+        if (!$forceNightService) return $this;
+        $this->forceNightService = new PrimitiveType($forceNightService);
+        $this->forceNightService->setName('forceNightService');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getForceNightService()
     {
-        return (!$this->forceNightService) ?: $this->forceNightService;
+        return $this->forceNightService->getValue();
     }
 
     /**
@@ -172,47 +180,41 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
      */
     public function setAllowManualOverrideViaFAC($allowManualOverrideViaFAC = null)
     {
-        $this->allowManualOverrideViaFAC = (boolean) $allowManualOverrideViaFAC;
+        if (!$allowManualOverrideViaFAC) return $this;
+        $this->allowManualOverrideViaFAC = new PrimitiveType($allowManualOverrideViaFAC);
+        $this->allowManualOverrideViaFAC->setName('allowManualOverrideViaFAC');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowManualOverrideViaFAC()
+    {
+        return $this->allowManualOverrideViaFAC->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowManualOverrideViaFAC()
-    {
-        return (!$this->allowManualOverrideViaFAC) ?: $this->allowManualOverrideViaFAC;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
+        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
+        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getTransferPhoneNumber()
     {
-        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->getValue();
+        return $this->transferPhoneNumber->getValue();
     }
 
     /**
@@ -220,176 +222,208 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
      */
     public function setPlayAnnouncementBeforeAction($playAnnouncementBeforeAction = null)
     {
-        $this->playAnnouncementBeforeAction = (boolean) $playAnnouncementBeforeAction;
+        if (!$playAnnouncementBeforeAction) return $this;
+        $this->playAnnouncementBeforeAction = new PrimitiveType($playAnnouncementBeforeAction);
+        $this->playAnnouncementBeforeAction->setName('playAnnouncementBeforeAction');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPlayAnnouncementBeforeAction()
+    {
+        return $this->playAnnouncementBeforeAction->getValue();
     }
 
     /**
      * 
      */
-    public function getPlayAnnouncementBeforeAction()
-    {
-        return (!$this->playAnnouncementBeforeAction) ?: $this->playAnnouncementBeforeAction;
-    }
-
-    /**
-     * Choices for extended file resource usage.
-     */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
+        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
+        $this->audioMessageSelection->setName('audioMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getAudioMessageSelection()
     {
-        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->getValue();
+        return $this->audioMessageSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile =  $audioFile;
+        if (!$audioFile) return $this;
+        $this->audioFile = $audioFile;
+        $this->audioFile->setName('audioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedMediaFileResource
      */
     public function getAudioFile()
     {
-        return (!$this->audioFile) ?: $this->audioFile->getValue();
+        return $this->audioFile;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
+        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
+        $this->videoMessageSelection->setName('videoMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getVideoMessageSelection()
     {
-        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->getValue();
+        return $this->videoMessageSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile =  $videoFile;
+        if (!$videoFile) return $this;
+        $this->videoFile = $videoFile;
+        $this->videoFile->setName('videoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedMediaFileResource
      */
     public function getVideoFile()
     {
-        return (!$this->videoFile) ?: $this->videoFile->getValue();
+        return $this->videoFile;
     }
 
     /**
-     * Call center manual night service announcement mode.
+     * 
      */
     public function setManualAnnouncementMode($manualAnnouncementMode = null)
     {
+        if (!$manualAnnouncementMode) return $this;
         $this->manualAnnouncementMode = ($manualAnnouncementMode InstanceOf CallCenterManualNightServiceAnnouncementMode)
              ? $manualAnnouncementMode
              : new CallCenterManualNightServiceAnnouncementMode($manualAnnouncementMode);
+        $this->manualAnnouncementMode->setName('manualAnnouncementMode');
+        return $this;
     }
 
     /**
-     * Call center manual night service announcement mode.
+     * 
+     * @return CallCenterManualNightServiceAnnouncementMode
      */
     public function getManualAnnouncementMode()
     {
-        return (!$this->manualAnnouncementMode) ?: $this->manualAnnouncementMode->getValue();
+        return $this->manualAnnouncementMode->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setManualAudioMessageSelection($manualAudioMessageSelection = null)
     {
+        if (!$manualAudioMessageSelection) return $this;
         $this->manualAudioMessageSelection = ($manualAudioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $manualAudioMessageSelection
              : new ExtendedFileResourceSelection($manualAudioMessageSelection);
+        $this->manualAudioMessageSelection->setName('manualAudioMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getManualAudioMessageSelection()
     {
-        return (!$this->manualAudioMessageSelection) ?: $this->manualAudioMessageSelection->getValue();
+        return $this->manualAudioMessageSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setManualAudioFile(ExtendedMediaFileResource $manualAudioFile = null)
     {
-        $this->manualAudioFile =  $manualAudioFile;
+        if (!$manualAudioFile) return $this;
+        $this->manualAudioFile = $manualAudioFile;
+        $this->manualAudioFile->setName('manualAudioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedMediaFileResource
      */
     public function getManualAudioFile()
     {
-        return (!$this->manualAudioFile) ?: $this->manualAudioFile->getValue();
+        return $this->manualAudioFile;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setManualVideoMessageSelection($manualVideoMessageSelection = null)
     {
+        if (!$manualVideoMessageSelection) return $this;
         $this->manualVideoMessageSelection = ($manualVideoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $manualVideoMessageSelection
              : new ExtendedFileResourceSelection($manualVideoMessageSelection);
+        $this->manualVideoMessageSelection->setName('manualVideoMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getManualVideoMessageSelection()
     {
-        return (!$this->manualVideoMessageSelection) ?: $this->manualVideoMessageSelection->getValue();
+        return $this->manualVideoMessageSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setManualVideoFile(ExtendedMediaFileResource $manualVideoFile = null)
     {
-        $this->manualVideoFile =  $manualVideoFile;
+        if (!$manualVideoFile) return $this;
+        $this->manualVideoFile = $manualVideoFile;
+        $this->manualVideoFile->setName('manualVideoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedMediaFileResource
      */
     public function getManualVideoFile()
     {
-        return (!$this->manualVideoFile) ?: $this->manualVideoFile->getValue();
+        return $this->manualVideoFile;
     }
 }

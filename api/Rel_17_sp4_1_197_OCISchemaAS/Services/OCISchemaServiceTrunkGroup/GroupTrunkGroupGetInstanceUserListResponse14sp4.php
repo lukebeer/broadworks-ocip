@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceUserListResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetInstanceUserListResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'GroupTrunkGroupGetInstanceUserListResponse14sp4';
     protected $trunkGroupUserTable = null;
 
     /**
@@ -38,14 +37,17 @@ class GroupTrunkGroupGetInstanceUserListResponse14sp4 extends ComplexType implem
      */
     public function setTrunkGroupUserTable(core:OCITable $trunkGroupUserTable = null)
     {
-        $this->trunkGroupUserTable =  $trunkGroupUserTable;
+        if (!$trunkGroupUserTable) return $this;
+        $this->trunkGroupUserTable->setName('trunkGroupUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getTrunkGroupUserTable()
     {
-        return (!$this->trunkGroupUserTable) ?: $this->trunkGroupUserTable->getValue();
+        return $this->trunkGroupUserTable->getValue();
     }
 }

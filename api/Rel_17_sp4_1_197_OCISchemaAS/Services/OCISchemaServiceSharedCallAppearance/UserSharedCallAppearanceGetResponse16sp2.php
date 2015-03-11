@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSharedCallAppearance; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SharedCallAppearanceMaximumAppearances;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SharedCallAppearanceBridgeWarningTone;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetResponse16sp2;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = __CLASS__;
+    public    $name                                   = 'UserSharedCallAppearanceGetResponse16sp2';
     protected $alertAllAppearancesForClickToDialCalls = null;
     protected $alertAllAppearancesForGroupPagingCalls = null;
     protected $maxAppearances                         = null;
@@ -52,15 +52,19 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function setAlertAllAppearancesForClickToDialCalls($alertAllAppearancesForClickToDialCalls = null)
     {
-        $this->alertAllAppearancesForClickToDialCalls = (boolean) $alertAllAppearancesForClickToDialCalls;
+        if (!$alertAllAppearancesForClickToDialCalls) return $this;
+        $this->alertAllAppearancesForClickToDialCalls = new PrimitiveType($alertAllAppearancesForClickToDialCalls);
+        $this->alertAllAppearancesForClickToDialCalls->setName('alertAllAppearancesForClickToDialCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAlertAllAppearancesForClickToDialCalls()
     {
-        return (!$this->alertAllAppearancesForClickToDialCalls) ?: $this->alertAllAppearancesForClickToDialCalls;
+        return $this->alertAllAppearancesForClickToDialCalls->getValue();
     }
 
     /**
@@ -68,33 +72,41 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function setAlertAllAppearancesForGroupPagingCalls($alertAllAppearancesForGroupPagingCalls = null)
     {
-        $this->alertAllAppearancesForGroupPagingCalls = (boolean) $alertAllAppearancesForGroupPagingCalls;
+        if (!$alertAllAppearancesForGroupPagingCalls) return $this;
+        $this->alertAllAppearancesForGroupPagingCalls = new PrimitiveType($alertAllAppearancesForGroupPagingCalls);
+        $this->alertAllAppearancesForGroupPagingCalls->setName('alertAllAppearancesForGroupPagingCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAlertAllAppearancesForGroupPagingCalls()
+    {
+        return $this->alertAllAppearancesForGroupPagingCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getAlertAllAppearancesForGroupPagingCalls()
-    {
-        return (!$this->alertAllAppearancesForGroupPagingCalls) ?: $this->alertAllAppearancesForGroupPagingCalls;
-    }
-
-    /**
-     * Maximum Shared Call Appearances.
-     */
     public function setMaxAppearances($maxAppearances = null)
     {
+        if (!$maxAppearances) return $this;
         $this->maxAppearances = ($maxAppearances InstanceOf SharedCallAppearanceMaximumAppearances)
              ? $maxAppearances
              : new SharedCallAppearanceMaximumAppearances($maxAppearances);
+        $this->maxAppearances->setName('maxAppearances');
+        return $this;
     }
 
     /**
-     * Maximum Shared Call Appearances.
+     * 
+     * @return SharedCallAppearanceMaximumAppearances
      */
     public function getMaxAppearances()
     {
-        return (!$this->maxAppearances) ?: $this->maxAppearances->getValue();
+        return $this->maxAppearances->getValue();
     }
 
     /**
@@ -102,15 +114,19 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function setAllowSCACallRetrieve($allowSCACallRetrieve = null)
     {
-        $this->allowSCACallRetrieve = (boolean) $allowSCACallRetrieve;
+        if (!$allowSCACallRetrieve) return $this;
+        $this->allowSCACallRetrieve = new PrimitiveType($allowSCACallRetrieve);
+        $this->allowSCACallRetrieve->setName('allowSCACallRetrieve');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowSCACallRetrieve()
     {
-        return (!$this->allowSCACallRetrieve) ?: $this->allowSCACallRetrieve;
+        return $this->allowSCACallRetrieve->getValue();
     }
 
     /**
@@ -118,15 +134,19 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function setEnableMultipleCallArrangement($enableMultipleCallArrangement = null)
     {
-        $this->enableMultipleCallArrangement = (boolean) $enableMultipleCallArrangement;
+        if (!$enableMultipleCallArrangement) return $this;
+        $this->enableMultipleCallArrangement = new PrimitiveType($enableMultipleCallArrangement);
+        $this->enableMultipleCallArrangement->setName('enableMultipleCallArrangement');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableMultipleCallArrangement()
     {
-        return (!$this->enableMultipleCallArrangement) ?: $this->enableMultipleCallArrangement;
+        return $this->enableMultipleCallArrangement->getValue();
     }
 
     /**
@@ -134,15 +154,19 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function setMultipleCallArrangementIsActive($multipleCallArrangementIsActive = null)
     {
-        $this->multipleCallArrangementIsActive = (boolean) $multipleCallArrangementIsActive;
+        if (!$multipleCallArrangementIsActive) return $this;
+        $this->multipleCallArrangementIsActive = new PrimitiveType($multipleCallArrangementIsActive);
+        $this->multipleCallArrangementIsActive->setName('multipleCallArrangementIsActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMultipleCallArrangementIsActive()
     {
-        return (!$this->multipleCallArrangementIsActive) ?: $this->multipleCallArrangementIsActive;
+        return $this->multipleCallArrangementIsActive->getValue();
     }
 
     /**
@@ -150,15 +174,18 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function setEndpointTable(core:OCITable $endpointTable = null)
     {
-        $this->endpointTable =  $endpointTable;
+        if (!$endpointTable) return $this;
+        $this->endpointTable->setName('endpointTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getEndpointTable()
     {
-        return (!$this->endpointTable) ?: $this->endpointTable->getValue();
+        return $this->endpointTable->getValue();
     }
 
     /**
@@ -166,35 +193,41 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function setAllowBridgingBetweenLocations($allowBridgingBetweenLocations = null)
     {
-        $this->allowBridgingBetweenLocations = (boolean) $allowBridgingBetweenLocations;
+        if (!$allowBridgingBetweenLocations) return $this;
+        $this->allowBridgingBetweenLocations = new PrimitiveType($allowBridgingBetweenLocations);
+        $this->allowBridgingBetweenLocations->setName('allowBridgingBetweenLocations');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowBridgingBetweenLocations()
+    {
+        return $this->allowBridgingBetweenLocations->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowBridgingBetweenLocations()
-    {
-        return (!$this->allowBridgingBetweenLocations) ?: $this->allowBridgingBetweenLocations;
-    }
-
-    /**
-     * Warning tone types for Shared Call Appearance.
-     *         The bridge warning tone types are none, barge-in, barge-in repeat.
-     */
     public function setBridgeWarningTone($bridgeWarningTone = null)
     {
+        if (!$bridgeWarningTone) return $this;
         $this->bridgeWarningTone = ($bridgeWarningTone InstanceOf SharedCallAppearanceBridgeWarningTone)
              ? $bridgeWarningTone
              : new SharedCallAppearanceBridgeWarningTone($bridgeWarningTone);
+        $this->bridgeWarningTone->setName('bridgeWarningTone');
+        return $this;
     }
 
     /**
-     * Warning tone types for Shared Call Appearance.
-     *         The bridge warning tone types are none, barge-in, barge-in repeat.
+     * 
+     * @return SharedCallAppearanceBridgeWarningTone
      */
     public function getBridgeWarningTone()
     {
-        return (!$this->bridgeWarningTone) ?: $this->bridgeWarningTone->getValue();
+        return $this->bridgeWarningTone->getValue();
     }
 
     /**
@@ -202,14 +235,18 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
      */
     public function setEnableCallParkNotification($enableCallParkNotification = null)
     {
-        $this->enableCallParkNotification = (boolean) $enableCallParkNotification;
+        if (!$enableCallParkNotification) return $this;
+        $this->enableCallParkNotification = new PrimitiveType($enableCallParkNotification);
+        $this->enableCallParkNotification->setName('enableCallParkNotification');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableCallParkNotification()
     {
-        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification;
+        return $this->enableCallParkNotification->getValue();
     }
 }

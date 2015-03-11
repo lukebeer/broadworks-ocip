@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FeatureAccessCodeEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'GroupFeatureAccessCodeGetResponse';
     protected $useFeatureAccessCodeLevel = null;
     protected $featureAccessCode         = null;
 
@@ -34,36 +33,44 @@ class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexIn
     }
 
     /**
-     * Feature Access Code Level defining group policy how Feature Access Codes will be used by a group.
+     * 
      */
     public function setUseFeatureAccessCodeLevel($useFeatureAccessCodeLevel = null)
     {
+        if (!$useFeatureAccessCodeLevel) return $this;
         $this->useFeatureAccessCodeLevel = ($useFeatureAccessCodeLevel InstanceOf GroupFeatureAccessCodeLevel)
              ? $useFeatureAccessCodeLevel
              : new GroupFeatureAccessCodeLevel($useFeatureAccessCodeLevel);
+        $this->useFeatureAccessCodeLevel->setName('useFeatureAccessCodeLevel');
+        return $this;
     }
 
     /**
-     * Feature Access Code Level defining group policy how Feature Access Codes will be used by a group.
+     * 
+     * @return GroupFeatureAccessCodeLevel
      */
     public function getUseFeatureAccessCodeLevel()
     {
-        return (!$this->useFeatureAccessCodeLevel) ?: $this->useFeatureAccessCodeLevel->getValue();
+        return $this->useFeatureAccessCodeLevel->getValue();
     }
 
     /**
-     * Feature Access Code Entry
+     * 
      */
     public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
-        $this->featureAccessCode =  $featureAccessCode;
+        if (!$featureAccessCode) return $this;
+        $this->featureAccessCode = $featureAccessCode;
+        $this->featureAccessCode->setName('featureAccessCode');
+        return $this;
     }
 
     /**
-     * Feature Access Code Entry
+     * 
+     * @return FeatureAccessCodeEntry
      */
     public function getFeatureAccessCode()
     {
-        return (!$this->featureAccessCode) ?: $this->featureAccessCode->getValue();
+        return $this->featureAccessCode;
     }
 }

@@ -17,12 +17,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class EventNotificationChannelExpirationSeconds extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "EventNotificationChannelExpirationSeconds";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "int";
+        $this->dataType = "";
         $this->addRestriction(new MinInclusive("3600"));
         $this->addRestriction(new MaxInclusive("2147483647"));
     }

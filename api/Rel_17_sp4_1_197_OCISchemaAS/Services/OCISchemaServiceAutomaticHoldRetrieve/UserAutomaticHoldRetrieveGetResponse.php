@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticHoldRetrieve; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticHoldRetrieve; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticHoldRetrieve\AutomaticHoldRetrieveRecallTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticHoldRetrieve\UserAutomaticHoldRetrieveGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'UserAutomaticHoldRetrieveGetResponse';
     protected $isActive           = null;
     protected $recallTimerSeconds = null;
 
@@ -37,32 +37,40 @@ class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements Comple
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Call Timer
-     */
     public function setRecallTimerSeconds($recallTimerSeconds = null)
     {
+        if (!$recallTimerSeconds) return $this;
         $this->recallTimerSeconds = ($recallTimerSeconds InstanceOf AutomaticHoldRetrieveRecallTimerSeconds)
              ? $recallTimerSeconds
              : new AutomaticHoldRetrieveRecallTimerSeconds($recallTimerSeconds);
+        $this->recallTimerSeconds->setName('recallTimerSeconds');
+        return $this;
     }
 
     /**
-     * Call Timer
+     * 
+     * @return AutomaticHoldRetrieveRecallTimerSeconds
      */
     public function getRecallTimerSeconds()
     {
-        return (!$this->recallTimerSeconds) ?: $this->recallTimerSeconds->getValue();
+        return $this->recallTimerSeconds->getValue();
     }
 }

@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceCustomTagDeleteListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceCustomTagDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemAccessDeviceCustomTagDeleteListRequest';
     protected $deviceName = null;
     protected $tagName    = null;
 
@@ -35,7 +34,7 @@ class SystemAccessDeviceCustomTagDeleteListRequest extends ComplexType implement
     }
 
     /**
-     * @return SystemAccessDeviceCustomTagDeleteListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,42 +42,46 @@ class SystemAccessDeviceCustomTagDeleteListRequest extends ComplexType implement
     }
 
     /**
-     * Access device name.
+     * 
      */
     public function setDeviceName($deviceName = null)
     {
+        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
+        $this->deviceName->setName('deviceName');
+        return $this;
     }
 
     /**
-     * Access device name.
+     * 
+     * @return AccessDeviceName
      */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->getValue();
+        return $this->deviceName->getValue();
     }
 
     /**
-     * A static tag name for access device files managed by the Device Management System on BroadWorks.
-     *         The static tag name must start and end with a % with no other % in between. The tag must not
-     *         start with %BW.
+     * 
      */
     public function setTagName($tagName = null)
     {
+        if (!$tagName) return $this;
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
+        $this->tagName->setName('tagName');
+        return $this;
     }
 
     /**
-     * A static tag name for access device files managed by the Device Management System on BroadWorks.
-     *         The static tag name must start and end with a % with no other % in between. The tag must not
-     *         start with %BW.
+     * 
+     * @return DeviceManagementTagName
      */
     public function getTagName()
     {
-        return (!$this->tagName) ?: $this->tagName->getValue();
+        return $this->tagName->getValue();
     }
 }

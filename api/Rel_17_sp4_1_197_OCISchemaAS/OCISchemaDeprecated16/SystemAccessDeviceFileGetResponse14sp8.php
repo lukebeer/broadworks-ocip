@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationMode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemAccessDeviceFileGetResponse14sp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceFileGetResponse14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'SystemAccessDeviceFileGetResponse14sp8';
     protected $fileSource            = null;
     protected $configurationFileName = null;
 
@@ -35,38 +34,46 @@ class SystemAccessDeviceFileGetResponse14sp8 extends ComplexType implements Comp
     }
 
     /**
-     * Choices for the access device configuration mode.
+     * 
      */
     public function setFileSource($fileSource = null)
     {
+        if (!$fileSource) return $this;
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
+        $this->fileSource->setName('fileSource');
+        return $this;
     }
 
     /**
-     * Choices for the access device configuration mode.
+     * 
+     * @return AccessDeviceEnhancedConfigurationMode
      */
     public function getFileSource()
     {
-        return (!$this->fileSource) ?: $this->fileSource->getValue();
+        return $this->fileSource->getValue();
     }
 
     /**
-     * Access device enhanced configuration file name.
+     * 
      */
     public function setConfigurationFileName($configurationFileName = null)
     {
+        if (!$configurationFileName) return $this;
         $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
              ? $configurationFileName
              : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
+        $this->configurationFileName->setName('configurationFileName');
+        return $this;
     }
 
     /**
-     * Access device enhanced configuration file name.
+     * 
+     * @return AccessDeviceEnhancedConfigurationFileName
      */
     public function getConfigurationFileName()
     {
-        return (!$this->configurationFileName) ?: $this->configurationFileName->getValue();
+        return $this->configurationFileName->getValue();
     }
 }

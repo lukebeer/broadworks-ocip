@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHuntGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHuntGroup\GroupHuntGroupGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHuntGroupGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'GroupHuntGroupGetInstanceListResponse';
     protected $huntGroupTable = null;
 
     /**
@@ -40,14 +39,17 @@ class GroupHuntGroupGetInstanceListResponse extends ComplexType implements Compl
      */
     public function setHuntGroupTable(core:OCITable $huntGroupTable = null)
     {
-        $this->huntGroupTable =  $huntGroupTable;
+        if (!$huntGroupTable) return $this;
+        $this->huntGroupTable->setName('huntGroupTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getHuntGroupTable()
     {
-        return (!$this->huntGroupTable) ?: $this->huntGroupTable->getValue();
+        return $this->huntGroupTable->getValue();
     }
 }

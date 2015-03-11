@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOfficeZoneDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'SystemOfficeZoneDeleteRequest';
     protected $officeZoneName = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemOfficeZoneDeleteRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return SystemOfficeZoneDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemOfficeZoneDeleteRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * Office Zone name.
+     * 
      */
     public function setOfficeZoneName($officeZoneName = null)
     {
+        if (!$officeZoneName) return $this;
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
              ? $officeZoneName
              : new OfficeZoneName($officeZoneName);
+        $this->officeZoneName->setName('officeZoneName');
+        return $this;
     }
 
     /**
-     * Office Zone name.
+     * 
+     * @return OfficeZoneName
      */
     public function getOfficeZoneName()
     {
-        return (!$this->officeZoneName) ?: $this->officeZoneName->getValue();
+        return $this->officeZoneName->getValue();
     }
 }

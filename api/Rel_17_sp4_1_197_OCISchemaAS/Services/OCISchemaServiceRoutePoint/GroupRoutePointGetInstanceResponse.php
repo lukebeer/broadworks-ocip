@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterForceDeliveryWaitTimeSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\NoAnswerTimeoutRings;
@@ -16,7 +16,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterQueueLength16;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AgentACDAutomaticState;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AudioFileCodec;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
+    public    $name                                = 'GroupRoutePointGetInstanceResponse';
     protected $serviceInstanceProfile              = null;
     protected $networkClassOfService               = null;
     protected $externalPreferredAudioCodec         = null;
@@ -54,111 +54,133 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile17 $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     * 
+     * @return ServiceInstanceReadProfile17
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Network Class of Service name.
+     * 
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
+        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
+        $this->networkClassOfService->setName('networkClassOfService');
+        return $this;
     }
 
     /**
-     * Network Class of Service name.
+     * 
+     * @return NetworkClassOfServiceName
      */
     public function getNetworkClassOfService()
     {
-        return (!$this->networkClassOfService) ?: $this->networkClassOfService->getValue();
+        return $this->networkClassOfService->getValue();
     }
 
     /**
-     * Audio file codec.
+     * 
      */
     public function setExternalPreferredAudioCodec($externalPreferredAudioCodec = null)
     {
+        if (!$externalPreferredAudioCodec) return $this;
         $this->externalPreferredAudioCodec = ($externalPreferredAudioCodec InstanceOf AudioFileCodec)
              ? $externalPreferredAudioCodec
              : new AudioFileCodec($externalPreferredAudioCodec);
+        $this->externalPreferredAudioCodec->setName('externalPreferredAudioCodec');
+        return $this;
     }
 
     /**
-     * Audio file codec.
+     * 
+     * @return AudioFileCodec
      */
     public function getExternalPreferredAudioCodec()
     {
-        return (!$this->externalPreferredAudioCodec) ?: $this->externalPreferredAudioCodec->getValue();
+        return $this->externalPreferredAudioCodec->getValue();
     }
 
     /**
-     * Audio file codec.
+     * 
      */
     public function setInternalPreferredAudioCodec($internalPreferredAudioCodec = null)
     {
+        if (!$internalPreferredAudioCodec) return $this;
         $this->internalPreferredAudioCodec = ($internalPreferredAudioCodec InstanceOf AudioFileCodec)
              ? $internalPreferredAudioCodec
              : new AudioFileCodec($internalPreferredAudioCodec);
+        $this->internalPreferredAudioCodec->setName('internalPreferredAudioCodec');
+        return $this;
     }
 
     /**
-     * Audio file codec.
+     * 
+     * @return AudioFileCodec
      */
     public function getInternalPreferredAudioCodec()
     {
-        return (!$this->internalPreferredAudioCodec) ?: $this->internalPreferredAudioCodec->getValue();
+        return $this->internalPreferredAudioCodec->getValue();
     }
 
     /**
-     * The limit for the number of calls the system will keep in queue, waiting for an available agent.
+     * 
      */
     public function setQueueLength($queueLength = null)
     {
+        if (!$queueLength) return $this;
         $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength16)
              ? $queueLength
              : new CallCenterQueueLength16($queueLength);
+        $this->queueLength->setName('queueLength');
+        return $this;
     }
 
     /**
-     * The limit for the number of calls the system will keep in queue, waiting for an available agent.
+     * 
+     * @return CallCenterQueueLength16
      */
     public function getQueueLength()
     {
-        return (!$this->queueLength) ?: $this->queueLength->getValue();
+        return $this->queueLength->getValue();
     }
 
     /**
-     * Number of rings to wait before timeout the outgoing call.
+     * 
      */
     public function setNoAnswerTimeoutRings($noAnswerTimeoutRings = null)
     {
+        if (!$noAnswerTimeoutRings) return $this;
         $this->noAnswerTimeoutRings = ($noAnswerTimeoutRings InstanceOf NoAnswerTimeoutRings)
              ? $noAnswerTimeoutRings
              : new NoAnswerTimeoutRings($noAnswerTimeoutRings);
+        $this->noAnswerTimeoutRings->setName('noAnswerTimeoutRings');
+        return $this;
     }
 
     /**
-     * Number of rings to wait before timeout the outgoing call.
+     * 
+     * @return NoAnswerTimeoutRings
      */
     public function getNoAnswerTimeoutRings()
     {
-        return (!$this->noAnswerTimeoutRings) ?: $this->noAnswerTimeoutRings->getValue();
+        return $this->noAnswerTimeoutRings->getValue();
     }
 
     /**
@@ -166,15 +188,19 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setEnableVideo($enableVideo = null)
     {
-        $this->enableVideo = (boolean) $enableVideo;
+        if (!$enableVideo) return $this;
+        $this->enableVideo = new PrimitiveType($enableVideo);
+        $this->enableVideo->setName('enableVideo');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableVideo()
     {
-        return (!$this->enableVideo) ?: $this->enableVideo;
+        return $this->enableVideo->getValue();
     }
 
     /**
@@ -182,15 +208,19 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setPlayRingingWhenOfferingCall($playRingingWhenOfferingCall = null)
     {
-        $this->playRingingWhenOfferingCall = (boolean) $playRingingWhenOfferingCall;
+        if (!$playRingingWhenOfferingCall) return $this;
+        $this->playRingingWhenOfferingCall = new PrimitiveType($playRingingWhenOfferingCall);
+        $this->playRingingWhenOfferingCall->setName('playRingingWhenOfferingCall');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPlayRingingWhenOfferingCall()
     {
-        return (!$this->playRingingWhenOfferingCall) ?: $this->playRingingWhenOfferingCall;
+        return $this->playRingingWhenOfferingCall->getValue();
     }
 
     /**
@@ -198,33 +228,41 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime = null)
     {
-        $this->overrideAgentWrapUpTime = (boolean) $overrideAgentWrapUpTime;
+        if (!$overrideAgentWrapUpTime) return $this;
+        $this->overrideAgentWrapUpTime = new PrimitiveType($overrideAgentWrapUpTime);
+        $this->overrideAgentWrapUpTime->setName('overrideAgentWrapUpTime');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getOverrideAgentWrapUpTime()
+    {
+        return $this->overrideAgentWrapUpTime->getValue();
     }
 
     /**
      * 
      */
-    public function getOverrideAgentWrapUpTime()
-    {
-        return (!$this->overrideAgentWrapUpTime) ?: $this->overrideAgentWrapUpTime;
-    }
-
-    /**
-     * The ACD wrap up time in seconds.
-     */
     public function setWrapUpSeconds($wrapUpSeconds = null)
     {
+        if (!$wrapUpSeconds) return $this;
         $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
              ? $wrapUpSeconds
              : new CallCenterWrapUpSeconds($wrapUpSeconds);
+        $this->wrapUpSeconds->setName('wrapUpSeconds');
+        return $this;
     }
 
     /**
-     * The ACD wrap up time in seconds.
+     * 
+     * @return CallCenterWrapUpSeconds
      */
     public function getWrapUpSeconds()
     {
-        return (!$this->wrapUpSeconds) ?: $this->wrapUpSeconds->getValue();
+        return $this->wrapUpSeconds->getValue();
     }
 
     /**
@@ -232,53 +270,63 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setEnableAutomaticStateChangeForAgents($enableAutomaticStateChangeForAgents = null)
     {
-        $this->enableAutomaticStateChangeForAgents = (boolean) $enableAutomaticStateChangeForAgents;
+        if (!$enableAutomaticStateChangeForAgents) return $this;
+        $this->enableAutomaticStateChangeForAgents = new PrimitiveType($enableAutomaticStateChangeForAgents);
+        $this->enableAutomaticStateChangeForAgents->setName('enableAutomaticStateChangeForAgents');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableAutomaticStateChangeForAgents()
+    {
+        return $this->enableAutomaticStateChangeForAgents->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableAutomaticStateChangeForAgents()
-    {
-        return (!$this->enableAutomaticStateChangeForAgents) ?: $this->enableAutomaticStateChangeForAgents;
-    }
-
-    /**
-     * Agent Automatic Call Distribution (ACD) State.
-     *         States available for Wrap-Up agent state management.
-     */
     public function setAgentStateAfterCall($agentStateAfterCall = null)
     {
+        if (!$agentStateAfterCall) return $this;
         $this->agentStateAfterCall = ($agentStateAfterCall InstanceOf AgentACDAutomaticState)
              ? $agentStateAfterCall
              : new AgentACDAutomaticState($agentStateAfterCall);
+        $this->agentStateAfterCall->setName('agentStateAfterCall');
+        return $this;
     }
 
     /**
-     * Agent Automatic Call Distribution (ACD) State.
-     *         States available for Wrap-Up agent state management.
+     * 
+     * @return AgentACDAutomaticState
      */
     public function getAgentStateAfterCall()
     {
-        return (!$this->agentStateAfterCall) ?: $this->agentStateAfterCall->getValue();
+        return $this->agentStateAfterCall->getValue();
     }
 
     /**
-     * Call Center Agent Unavailable Code Value.
+     * 
      */
     public function setAgentUnavailableCode($agentUnavailableCode = null)
     {
+        if (!$agentUnavailableCode) return $this;
         $this->agentUnavailableCode = ($agentUnavailableCode InstanceOf CallCenterAgentUnavailableCode)
              ? $agentUnavailableCode
              : new CallCenterAgentUnavailableCode($agentUnavailableCode);
+        $this->agentUnavailableCode->setName('agentUnavailableCode');
+        return $this;
     }
 
     /**
-     * Call Center Agent Unavailable Code Value.
+     * 
+     * @return CallCenterAgentUnavailableCode
      */
     public function getAgentUnavailableCode()
     {
-        return (!$this->agentUnavailableCode) ?: $this->agentUnavailableCode->getValue();
+        return $this->agentUnavailableCode->getValue();
     }
 
     /**
@@ -286,32 +334,40 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setForceDeliveryOfCalls($forceDeliveryOfCalls = null)
     {
-        $this->forceDeliveryOfCalls = (boolean) $forceDeliveryOfCalls;
+        if (!$forceDeliveryOfCalls) return $this;
+        $this->forceDeliveryOfCalls = new PrimitiveType($forceDeliveryOfCalls);
+        $this->forceDeliveryOfCalls->setName('forceDeliveryOfCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getForceDeliveryOfCalls()
+    {
+        return $this->forceDeliveryOfCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getForceDeliveryOfCalls()
-    {
-        return (!$this->forceDeliveryOfCalls) ?: $this->forceDeliveryOfCalls;
-    }
-
-    /**
-     * Call center force delivery wait time in seconds.
-     */
     public function setForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds = null)
     {
+        if (!$forceDeliveryWaitTimeSeconds) return $this;
         $this->forceDeliveryWaitTimeSeconds = ($forceDeliveryWaitTimeSeconds InstanceOf CallCenterForceDeliveryWaitTimeSeconds)
              ? $forceDeliveryWaitTimeSeconds
              : new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
+        $this->forceDeliveryWaitTimeSeconds->setName('forceDeliveryWaitTimeSeconds');
+        return $this;
     }
 
     /**
-     * Call center force delivery wait time in seconds.
+     * 
+     * @return CallCenterForceDeliveryWaitTimeSeconds
      */
     public function getForceDeliveryWaitTimeSeconds()
     {
-        return (!$this->forceDeliveryWaitTimeSeconds) ?: $this->forceDeliveryWaitTimeSeconds->getValue();
+        return $this->forceDeliveryWaitTimeSeconds->getValue();
     }
 }

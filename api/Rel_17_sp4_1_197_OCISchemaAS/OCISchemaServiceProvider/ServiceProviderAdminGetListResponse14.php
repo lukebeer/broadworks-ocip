@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAdminGetListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAdminGetListResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'ServiceProviderAdminGetListResponse14';
     protected $serviceProviderAdminTable = null;
 
     /**
@@ -38,14 +37,17 @@ class ServiceProviderAdminGetListResponse14 extends ComplexType implements Compl
      */
     public function setServiceProviderAdminTable(core:OCITable $serviceProviderAdminTable = null)
     {
-        $this->serviceProviderAdminTable =  $serviceProviderAdminTable;
+        if (!$serviceProviderAdminTable) return $this;
+        $this->serviceProviderAdminTable->setName('serviceProviderAdminTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getServiceProviderAdminTable()
     {
-        return (!$this->serviceProviderAdminTable) ?: $this->serviceProviderAdminTable->getValue();
+        return $this->serviceProviderAdminTable->getValue();
     }
 }

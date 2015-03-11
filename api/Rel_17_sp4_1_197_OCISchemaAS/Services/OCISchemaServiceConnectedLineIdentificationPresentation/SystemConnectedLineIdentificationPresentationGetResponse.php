@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationPresentation; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceConnectedLineIdentificationPresentation; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceConnectedLineIdentificationPresentation\SystemConnectedLineIdentificationPresentationGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemConnectedLineIdentificationPresentationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'SystemConnectedLineIdentificationPresentationGetResponse';
     protected $enforceUserServiceAssignment = null;
 
     /**
@@ -36,14 +35,18 @@ class SystemConnectedLineIdentificationPresentationGetResponse extends ComplexTy
      */
     public function setEnforceUserServiceAssignment($enforceUserServiceAssignment = null)
     {
-        $this->enforceUserServiceAssignment = (boolean) $enforceUserServiceAssignment;
+        if (!$enforceUserServiceAssignment) return $this;
+        $this->enforceUserServiceAssignment = new PrimitiveType($enforceUserServiceAssignment);
+        $this->enforceUserServiceAssignment->setName('enforceUserServiceAssignment');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnforceUserServiceAssignment()
     {
-        return (!$this->enforceUserServiceAssignment) ?: $this->enforceUserServiceAssignment;
+        return $this->enforceUserServiceAssignment->getValue();
     }
 }

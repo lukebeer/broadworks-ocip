@@ -15,11 +15,6 @@ trait TypeTrait
 
     public function getType()
     {
-        return join('', array_slice(explode('\\', get_parent_class($this)), -1));
-    }
-
-    public function getName()
-    {
         return join('', array_slice(explode('\\', get_class($this)), -1));
     }
 
@@ -27,4 +22,6 @@ trait TypeTrait
     {
         return $this->value;
     }
+
+
 }

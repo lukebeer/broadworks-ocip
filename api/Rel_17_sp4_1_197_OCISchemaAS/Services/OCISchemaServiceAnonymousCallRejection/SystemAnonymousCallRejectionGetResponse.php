@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAnonymousCallRejection; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAnonymousCallRejection; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAnonymousCallRejection\SystemAnonymousCallRejectionGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAnonymousCallRejectionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'SystemAnonymousCallRejectionGetResponse';
     protected $paiRequired          = null;
     protected $screenOnlyLocalCalls = null;
 
@@ -38,15 +37,19 @@ class SystemAnonymousCallRejectionGetResponse extends ComplexType implements Com
      */
     public function setPaiRequired($paiRequired = null)
     {
-        $this->paiRequired = (boolean) $paiRequired;
+        if (!$paiRequired) return $this;
+        $this->paiRequired = new PrimitiveType($paiRequired);
+        $this->paiRequired->setName('paiRequired');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPaiRequired()
     {
-        return (!$this->paiRequired) ?: $this->paiRequired;
+        return $this->paiRequired->getValue();
     }
 
     /**
@@ -54,14 +57,18 @@ class SystemAnonymousCallRejectionGetResponse extends ComplexType implements Com
      */
     public function setScreenOnlyLocalCalls($screenOnlyLocalCalls = null)
     {
-        $this->screenOnlyLocalCalls = (boolean) $screenOnlyLocalCalls;
+        if (!$screenOnlyLocalCalls) return $this;
+        $this->screenOnlyLocalCalls = new PrimitiveType($screenOnlyLocalCalls);
+        $this->screenOnlyLocalCalls->setName('screenOnlyLocalCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getScreenOnlyLocalCalls()
     {
-        return (!$this->screenOnlyLocalCalls) ?: $this->screenOnlyLocalCalls;
+        return $this->screenOnlyLocalCalls->getValue();
     }
 }

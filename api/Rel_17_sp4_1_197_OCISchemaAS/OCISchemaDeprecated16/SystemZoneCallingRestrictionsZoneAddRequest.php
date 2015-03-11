@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhysicalLocation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsZoneAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneCallingRestrictionsZoneAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'SystemZoneCallingRestrictionsZoneAddRequest';
     protected $zoneName         = null;
     protected $physicalLocation = null;
 
@@ -36,7 +35,7 @@ class SystemZoneCallingRestrictionsZoneAddRequest extends ComplexType implements
     }
 
     /**
-     * @return SystemZoneCallingRestrictionsZoneAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,38 +43,46 @@ class SystemZoneCallingRestrictionsZoneAddRequest extends ComplexType implements
     }
 
     /**
-     * Zone Name.
+     * 
      */
     public function setZoneName($zoneName = null)
     {
+        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
+        $this->zoneName->setName('zoneName');
+        return $this;
     }
 
     /**
-     * Zone Name.
+     * 
+     * @return ZoneName
      */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->getValue();
+        return $this->zoneName->getValue();
     }
 
     /**
-     * Physical geographic location of the zone
+     * 
      */
     public function setPhysicalLocation($physicalLocation = null)
     {
+        if (!$physicalLocation) return $this;
         $this->physicalLocation = ($physicalLocation InstanceOf PhysicalLocation)
              ? $physicalLocation
              : new PhysicalLocation($physicalLocation);
+        $this->physicalLocation->setName('physicalLocation');
+        return $this;
     }
 
     /**
-     * Physical geographic location of the zone
+     * 
+     * @return PhysicalLocation
      */
     public function getPhysicalLocation()
     {
-        return (!$this->physicalLocation) ?: $this->physicalLocation->getValue();
+        return $this->physicalLocation->getValue();
     }
 }

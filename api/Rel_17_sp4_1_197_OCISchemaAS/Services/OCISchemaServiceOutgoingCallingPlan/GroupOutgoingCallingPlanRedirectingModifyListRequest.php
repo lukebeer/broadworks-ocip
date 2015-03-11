@@ -5,13 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanRedirectingDepartmentPermissionsModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanRedirectingPermissionsModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanRedirectingModifyListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupOutgoingCallingPlanRedirectingModifyListRequest';
     protected $serviceProviderId     = null;
     protected $groupId               = null;
     protected $groupPermissions      = null;
@@ -33,8 +32,8 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
     public function __construct(
          $serviceProviderId,
          $groupId,
-          $groupPermissions = null,
-          $departmentPermissions = null
+         OutgoingCallingPlanRedirectingPermissionsModify $groupPermissions = null,
+         OutgoingCallingPlanRedirectingDepartmentPermissionsModify $departmentPermissions = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -43,7 +42,7 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
     }
 
     /**
-     * @return GroupOutgoingCallingPlanRedirectingModifyListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,74 +50,86 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Outgoing Calling Plan initiating call forwards/transfer permissions.
+     * 
      */
     public function setGroupPermissions(OutgoingCallingPlanRedirectingPermissionsModify $groupPermissions = null)
     {
-        $this->groupPermissions =  $groupPermissions;
+        if (!$groupPermissions) return $this;
+        $this->groupPermissions = $groupPermissions;
+        $this->groupPermissions->setName('groupPermissions');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan initiating call forwards/transfer permissions.
+     * 
+     * @return OutgoingCallingPlanRedirectingPermissionsModify
      */
     public function getGroupPermissions()
     {
-        return (!$this->groupPermissions) ?: $this->groupPermissions->getValue();
+        return $this->groupPermissions;
     }
 
     /**
-     * Outgoing Calling Plan initiating call forwards/transfer permissions for a department.
+     * 
      */
     public function setDepartmentPermissions(OutgoingCallingPlanRedirectingDepartmentPermissionsModify $departmentPermissions = null)
     {
-        $this->departmentPermissions =  $departmentPermissions;
+        if (!$departmentPermissions) return $this;
+        $this->departmentPermissions = $departmentPermissions;
+        $this->departmentPermissions->setName('departmentPermissions');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan initiating call forwards/transfer permissions for a department.
+     * 
+     * @return OutgoingCallingPlanRedirectingDepartmentPermissionsModify
      */
     public function getDepartmentPermissions()
     {
-        return (!$this->departmentPermissions) ?: $this->departmentPermissions->getValue();
+        return $this->departmentPermissions;
     }
 }

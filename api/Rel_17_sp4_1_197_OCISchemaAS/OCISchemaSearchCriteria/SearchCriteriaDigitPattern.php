@@ -9,6 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriter
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPattern;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDigitPattern;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaDigitPattern extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDigitPattern';
-    public    $name              = __CLASS__;
+    public    $name              = 'SearchCriteriaDigitPattern';
     protected $mode              = null;
     protected $value             = null;
     protected $isCaseInsensitive = null;
@@ -46,47 +47,47 @@ class SearchCriteriaDigitPattern extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Search mode when searching for string data.
+     * 
      */
     public function setMode($mode = null)
     {
+        if (!$mode) return $this;
         $this->mode = ($mode InstanceOf SearchMode)
              ? $mode
              : new SearchMode($mode);
+        $this->mode->setName('mode');
+        return $this;
     }
 
     /**
-     * Search mode when searching for string data.
+     * 
+     * @return SearchMode
      */
     public function getMode()
     {
-        return (!$this->mode) ?: $this->mode->getValue();
+        return $this->mode->getValue();
     }
 
     /**
-     * Digit patterns that are used to restrict calls Communicaton Barring.
-     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
-     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
-     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
-     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     * 
      */
     public function setValue($value = null)
     {
+        if (!$value) return $this;
         $this->value = ($value InstanceOf DigitPattern)
              ? $value
              : new DigitPattern($value);
+        $this->value->setName('value');
+        return $this;
     }
 
     /**
-     * Digit patterns that are used to restrict calls Communicaton Barring.
-     *         The patterns can consist of the digits 0 through 9 and a leading + and the following wild cards:
-     *         *  - Any number of digits.  For example 555* matches any digit string beginning with 555 plus zroe or more additional digits. 
-     *         ? - a single-digit placeholder. For example, 555???? matches any string beginning with 555, plus at least four additional digits.  
-     *         []  -  Indicates a range of digits. A consecutive range indicated with a hyphen (-), or a nonconsecutive range with a comma (,). Hyphens and commas can be used in combination ie [5-7,9].  Only single-digit ranges are supported. ie. [98-102] is invalid.
+     * 
+     * @return DigitPattern
      */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->getValue();
+        return $this->value->getValue();
     }
 
     /**
@@ -94,14 +95,18 @@ class SearchCriteriaDigitPattern extends ComplexType implements ComplexInterface
      */
     public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
-        $this->isCaseInsensitive = (boolean) $isCaseInsensitive;
+        if (!$isCaseInsensitive) return $this;
+        $this->isCaseInsensitive = new PrimitiveType($isCaseInsensitive);
+        $this->isCaseInsensitive->setName('isCaseInsensitive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive;
+        return $this->isCaseInsensitive->getValue();
     }
 }

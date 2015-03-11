@@ -29,7 +29,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\YahooId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Title;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserModifyResponse14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -43,7 +42,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserModifyRequest14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'UserModifyRequest14sp9';
     protected $userId                   = null;
     protected $lastName                 = null;
     protected $firstName                = null;
@@ -83,10 +82,10 @@ class UserModifyRequest14sp9 extends ComplexType implements ComplexInterface
          $callingLineIdPhoneNumber = null,
          $oldPassword = null,
          $newPassword = null,
-          $department = null,
+         DepartmentKey $department = null,
          $language = null,
          $timeZone = null,
-          $sipAliasList = null,
+         ReplacementSIPAliasList $sipAliasList = null,
          $endpoint = null,
          $title = null,
          $pagerPhoneNumber = null,
@@ -94,7 +93,7 @@ class UserModifyRequest14sp9 extends ComplexType implements ComplexInterface
          $emailAddress = null,
          $yahooId = null,
          $addressLocation = null,
-          $address = null,
+         StreetAddress $address = null,
          $networkClassOfService = null
     ) {
         $this->setUserId($userId);
@@ -125,7 +124,7 @@ class UserModifyRequest14sp9 extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return UserModifyResponse14sp9
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -133,193 +132,223 @@ class UserModifyRequest14sp9 extends ComplexType implements ComplexInterface
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
      */
     public function setLastName($lastName = null)
     {
+        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
+        $this->lastName->setName('lastName');
+        return $this;
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
+     * @return LastName
      */
     public function getLastName()
     {
-        return (!$this->lastName) ?: $this->lastName->getValue();
+        return $this->lastName->getValue();
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
      */
     public function setFirstName($firstName = null)
     {
+        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
+        $this->firstName->setName('firstName');
+        return $this;
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
+     * @return FirstName
      */
     public function getFirstName()
     {
-        return (!$this->firstName) ?: $this->firstName->getValue();
+        return $this->firstName->getValue();
     }
 
     /**
-     * Last Name for Calling Line Id Display.
+     * 
      */
     public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
+        if (!$callingLineIdLastName) return $this;
         $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
              ? $callingLineIdLastName
              : new CallingLineIdLastName($callingLineIdLastName);
+        $this->callingLineIdLastName->setName('callingLineIdLastName');
+        return $this;
     }
 
     /**
-     * Last Name for Calling Line Id Display.
+     * 
+     * @return CallingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
-        return (!$this->callingLineIdLastName) ?: $this->callingLineIdLastName->getValue();
+        return $this->callingLineIdLastName->getValue();
     }
 
     /**
-     * First Name for Calling Line Id Display.
+     * 
      */
     public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
+        if (!$callingLineIdFirstName) return $this;
         $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
              ? $callingLineIdFirstName
              : new CallingLineIdFirstName($callingLineIdFirstName);
+        $this->callingLineIdFirstName->setName('callingLineIdFirstName');
+        return $this;
     }
 
     /**
-     * First Name for Calling Line Id Display.
+     * 
+     * @return CallingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
-        return (!$this->callingLineIdFirstName) ?: $this->callingLineIdFirstName->getValue();
+        return $this->callingLineIdFirstName->getValue();
     }
 
     /**
-     * Hiragana Last Name.
+     * 
      */
     public function setHiraganaLastName($hiraganaLastName = null)
     {
+        if (!$hiraganaLastName) return $this;
         $this->hiraganaLastName = ($hiraganaLastName InstanceOf HiraganaLastName)
              ? $hiraganaLastName
              : new HiraganaLastName($hiraganaLastName);
+        $this->hiraganaLastName->setName('hiraganaLastName');
+        return $this;
     }
 
     /**
-     * Hiragana Last Name.
+     * 
+     * @return HiraganaLastName
      */
     public function getHiraganaLastName()
     {
-        return (!$this->hiraganaLastName) ?: $this->hiraganaLastName->getValue();
+        return $this->hiraganaLastName->getValue();
     }
 
     /**
-     * Hiragana First Name.
+     * 
      */
     public function setHiraganaFirstName($hiraganaFirstName = null)
     {
+        if (!$hiraganaFirstName) return $this;
         $this->hiraganaFirstName = ($hiraganaFirstName InstanceOf HiraganaFirstName)
              ? $hiraganaFirstName
              : new HiraganaFirstName($hiraganaFirstName);
+        $this->hiraganaFirstName->setName('hiraganaFirstName');
+        return $this;
     }
 
     /**
-     * Hiragana First Name.
+     * 
+     * @return HiraganaFirstName
      */
     public function getHiraganaFirstName()
     {
-        return (!$this->hiraganaFirstName) ?: $this->hiraganaFirstName->getValue();
+        return $this->hiraganaFirstName->getValue();
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setPhoneNumber($phoneNumber = null)
     {
+        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
+        return $this->phoneNumber->getValue();
     }
 
     /**
-     * DEPRECATION NOTE: This is only used by deprecated R16 and R14 commands.
-     *         Extension.
+     * 
      */
     public function setExtension($extension = null)
     {
+        if (!$extension) return $this;
         $this->extension = ($extension InstanceOf Extension)
              ? $extension
              : new Extension($extension);
+        $this->extension->setName('extension');
+        return $this;
     }
 
     /**
-     * DEPRECATION NOTE: This is only used by deprecated R16 and R14 commands.
-     *         Extension.
+     * 
+     * @return Extension
      */
     public function getExtension()
     {
-        return (!$this->extension) ?: $this->extension->getValue();
+        return $this->extension->getValue();
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
+        if (!$callingLineIdPhoneNumber) return $this;
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
              ? $callingLineIdPhoneNumber
              : new DN($callingLineIdPhoneNumber);
+        $this->callingLineIdPhoneNumber->setName('callingLineIdPhoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getCallingLineIdPhoneNumber()
     {
-        return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->getValue();
+        return $this->callingLineIdPhoneNumber->getValue();
     }
 
     /**
@@ -327,17 +356,21 @@ class UserModifyRequest14sp9 extends ComplexType implements ComplexInterface
      */
     public function setOldPassword($oldPassword = null)
     {
+        if (!$oldPassword) return $this;
         $this->oldPassword = ($oldPassword InstanceOf Password)
              ? $oldPassword
              : new Password($oldPassword);
+        $this->oldPassword->setName('oldPassword');
+        return $this;
     }
 
     /**
      * 
+     * @return Password
      */
     public function getOldPassword()
     {
-        return (!$this->oldPassword) ?: $this->oldPassword->getValue();
+        return $this->oldPassword->getValue();
     }
 
     /**
@@ -345,99 +378,105 @@ class UserModifyRequest14sp9 extends ComplexType implements ComplexInterface
      */
     public function setNewPassword($newPassword = null)
     {
+        if (!$newPassword) return $this;
         $this->newPassword = ($newPassword InstanceOf Password)
              ? $newPassword
              : new Password($newPassword);
+        $this->newPassword->setName('newPassword');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return Password
+     */
+    public function getNewPassword()
+    {
+        return $this->newPassword->getValue();
     }
 
     /**
      * 
      */
-    public function getNewPassword()
-    {
-        return (!$this->newPassword) ?: $this->newPassword->getValue();
-    }
-
-    /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
-     */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department =  $department;
+        if (!$department) return $this;
+        $this->department = $department;
+        $this->department->setName('department');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
+     * @return DepartmentKey
      */
     public function getDepartment()
     {
-        return (!$this->department) ?: $this->department->getValue();
+        return $this->department;
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
      */
     public function setLanguage($language = null)
     {
+        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
+        $this->language->setName('language');
+        return $this;
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
+     * @return Language
      */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->getValue();
+        return $this->language->getValue();
     }
 
     /**
-     * Time zone key.
+     * 
      */
     public function setTimeZone($timeZone = null)
     {
+        if (!$timeZone) return $this;
         $this->timeZone = ($timeZone InstanceOf TimeZone)
              ? $timeZone
              : new TimeZone($timeZone);
+        $this->timeZone->setName('timeZone');
+        return $this;
     }
 
     /**
-     * Time zone key.
+     * 
+     * @return TimeZone
      */
     public function getTimeZone()
     {
-        return (!$this->timeZone) ?: $this->timeZone->getValue();
+        return $this->timeZone->getValue();
     }
 
     /**
-     * A list of SIP aliases that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
      */
     public function setSipAliasList(ReplacementSIPAliasList $sipAliasList = null)
     {
-        $this->sipAliasList =  $sipAliasList;
+        if (!$sipAliasList) return $this;
+        $this->sipAliasList = $sipAliasList;
+        $this->sipAliasList->setName('sipAliasList');
+        return $this;
     }
 
     /**
-     * A list of SIP aliases that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementSIPAliasList
      */
     public function getSipAliasList()
     {
-        return (!$this->sipAliasList) ?: $this->sipAliasList->getValue();
+        return $this->sipAliasList;
     }
 
     /**
@@ -445,162 +484,191 @@ class UserModifyRequest14sp9 extends ComplexType implements ComplexInterface
      */
     public function setEndpoint($endpoint = null)
     {
-        $this->endpoint = $endpoint;
+        if (!$endpoint) return $this;
+        $this->endpoint->setName('endpoint');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return 
+     */
+    public function getEndpoint()
+    {
+        return $this->endpoint->getValue();
     }
 
     /**
      * 
      */
-    public function getEndpoint()
-    {
-        return (!$this->endpoint) ?: $this->endpoint;
-    }
-
-    /**
-     * Title.
-     */
     public function setTitle($title = null)
     {
+        if (!$title) return $this;
         $this->title = ($title InstanceOf Title)
              ? $title
              : new Title($title);
+        $this->title->setName('title');
+        return $this;
     }
 
     /**
-     * Title.
+     * 
+     * @return Title
      */
     public function getTitle()
     {
-        return (!$this->title) ?: $this->title->getValue();
+        return $this->title->getValue();
     }
 
     /**
-     * A no validation DN field.  To be phased out, not for new
-     *         attributes.
+     * 
      */
     public function setPagerPhoneNumber($pagerPhoneNumber = null)
     {
+        if (!$pagerPhoneNumber) return $this;
         $this->pagerPhoneNumber = ($pagerPhoneNumber InstanceOf InformationalDN)
              ? $pagerPhoneNumber
              : new InformationalDN($pagerPhoneNumber);
+        $this->pagerPhoneNumber->setName('pagerPhoneNumber');
+        return $this;
     }
 
     /**
-     * A no validation DN field.  To be phased out, not for new
-     *         attributes.
+     * 
+     * @return InformationalDN
      */
     public function getPagerPhoneNumber()
     {
-        return (!$this->pagerPhoneNumber) ?: $this->pagerPhoneNumber->getValue();
+        return $this->pagerPhoneNumber->getValue();
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
      */
     public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
+        if (!$mobilePhoneNumber) return $this;
         $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf OutgoingDN)
              ? $mobilePhoneNumber
              : new OutgoingDN($mobilePhoneNumber);
+        $this->mobilePhoneNumber->setName('mobilePhoneNumber');
+        return $this;
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
+     * @return OutgoingDN
      */
     public function getMobilePhoneNumber()
     {
-        return (!$this->mobilePhoneNumber) ?: $this->mobilePhoneNumber->getValue();
+        return $this->mobilePhoneNumber->getValue();
     }
 
     /**
-     * Email Address
+     * 
      */
     public function setEmailAddress($emailAddress = null)
     {
+        if (!$emailAddress) return $this;
         $this->emailAddress = ($emailAddress InstanceOf EmailAddress)
              ? $emailAddress
              : new EmailAddress($emailAddress);
+        $this->emailAddress->setName('emailAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getEmailAddress()
     {
-        return (!$this->emailAddress) ?: $this->emailAddress->getValue();
+        return $this->emailAddress->getValue();
     }
 
     /**
-     * Yahoo Id.
+     * 
      */
     public function setYahooId($yahooId = null)
     {
+        if (!$yahooId) return $this;
         $this->yahooId = ($yahooId InstanceOf YahooId)
              ? $yahooId
              : new YahooId($yahooId);
+        $this->yahooId->setName('yahooId');
+        return $this;
     }
 
     /**
-     * Yahoo Id.
+     * 
+     * @return YahooId
      */
     public function getYahooId()
     {
-        return (!$this->yahooId) ?: $this->yahooId->getValue();
+        return $this->yahooId->getValue();
     }
 
     /**
-     * Address Location.
+     * 
      */
     public function setAddressLocation($addressLocation = null)
     {
+        if (!$addressLocation) return $this;
         $this->addressLocation = ($addressLocation InstanceOf AddressLocation)
              ? $addressLocation
              : new AddressLocation($addressLocation);
+        $this->addressLocation->setName('addressLocation');
+        return $this;
     }
 
     /**
-     * Address Location.
+     * 
+     * @return AddressLocation
      */
     public function getAddressLocation()
     {
-        return (!$this->addressLocation) ?: $this->addressLocation->getValue();
+        return $this->addressLocation->getValue();
     }
 
     /**
-     * Street address information.
+     * 
      */
     public function setAddress(StreetAddress $address = null)
     {
-        $this->address =  $address;
+        if (!$address) return $this;
+        $this->address = $address;
+        $this->address->setName('address');
+        return $this;
     }
 
     /**
-     * Street address information.
+     * 
+     * @return StreetAddress
      */
     public function getAddress()
     {
-        return (!$this->address) ?: $this->address->getValue();
+        return $this->address;
     }
 
     /**
-     * Network Class of Service name.
+     * 
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
+        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
+        $this->networkClassOfService->setName('networkClassOfService');
+        return $this;
     }
 
     /**
-     * Network Class of Service name.
+     * 
+     * @return NetworkClassOfServiceName
      */
     public function getNetworkClassOfService()
     {
-        return (!$this->networkClassOfService) ?: $this->networkClassOfService->getValue();
+        return $this->networkClassOfService->getValue();
     }
 }

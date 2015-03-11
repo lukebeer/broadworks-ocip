@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse';
     protected $useCustomSettings = null;
     protected $userPermissions   = null;
 
@@ -37,30 +37,38 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse extends Comple
      */
     public function setUseCustomSettings($useCustomSettings = null)
     {
-        $this->useCustomSettings = (boolean) $useCustomSettings;
+        if (!$useCustomSettings) return $this;
+        $this->useCustomSettings = new PrimitiveType($useCustomSettings);
+        $this->useCustomSettings->setName('useCustomSettings');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseCustomSettings()
+    {
+        return $this->useCustomSettings->getValue();
     }
 
     /**
      * 
      */
-    public function getUseCustomSettings()
-    {
-        return (!$this->useCustomSettings) ?: $this->useCustomSettings;
-    }
-
-    /**
-     * Outgoing Pinhole Digit Plan Call Me Now call permissions for specified digit patterns.
-     */
     public function setUserPermissions(OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $userPermissions = null)
     {
-        $this->userPermissions =  $userPermissions;
+        if (!$userPermissions) return $this;
+        $this->userPermissions = $userPermissions;
+        $this->userPermissions->setName('userPermissions');
+        return $this;
     }
 
     /**
-     * Outgoing Pinhole Digit Plan Call Me Now call permissions for specified digit patterns.
+     * 
+     * @return OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions
      */
     public function getUserPermissions()
     {
-        return (!$this->userPermissions) ?: $this->userPermissions->getValue();
+        return $this->userPermissions;
     }
 }

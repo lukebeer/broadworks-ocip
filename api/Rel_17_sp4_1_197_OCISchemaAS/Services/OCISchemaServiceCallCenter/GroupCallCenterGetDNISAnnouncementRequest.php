@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDNISAnnouncementResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetDNISAnnouncementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetDNISAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDNISAnnouncementResponse';
-    public    $name    = __CLASS__;
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetDNISAnnouncementResponse';
+    public    $name    = 'GroupCallCenterGetDNISAnnouncementRequest';
     protected $dnisKey = null;
 
     public function __construct(
-          $dnisKey
+         DNISKey $dnisKey
     ) {
         $this->setDnisKey($dnisKey);
     }
@@ -40,18 +40,22 @@ class GroupCallCenterGetDNISAnnouncementRequest extends ComplexType implements C
     }
 
     /**
-     * Uniquely identifies a Call Center DNIS.
+     * 
      */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
-        $this->dnisKey =  $dnisKey;
+        if (!$dnisKey) return $this;
+        $this->dnisKey = $dnisKey;
+        $this->dnisKey->setName('dnisKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a Call Center DNIS.
+     * 
+     * @return DNISKey
      */
     public function getDnisKey()
     {
-        return (!$this->dnisKey) ?: $this->dnisKey->getValue();
+        return $this->dnisKey;
     }
 }

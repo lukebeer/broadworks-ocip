@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\SpeedDial100Entry;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SpeedDialPrefix;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSpeedDial100\UserSpeedDial100GetListResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSpeedDial100GetListResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'UserSpeedDial100GetListResponse17sp1';
     protected $prefix         = null;
     protected $speedDialEntry = null;
 
@@ -34,38 +33,44 @@ class UserSpeedDial100GetListResponse17sp1 extends ComplexType implements Comple
     }
 
     /**
-     * Speed dial prefix.
+     * 
      */
     public function setPrefix($prefix = null)
     {
+        if (!$prefix) return $this;
         $this->prefix = ($prefix InstanceOf SpeedDialPrefix)
              ? $prefix
              : new SpeedDialPrefix($prefix);
+        $this->prefix->setName('prefix');
+        return $this;
     }
 
     /**
-     * Speed dial prefix.
+     * 
+     * @return SpeedDialPrefix
      */
     public function getPrefix()
     {
-        return (!$this->prefix) ?: $this->prefix->getValue();
+        return $this->prefix->getValue();
     }
 
     /**
-     * Modify the speed dial 100 prefix setting for a group.
-     *         The response is either a SuccessResponse or an ErrorResponse.
+     * 
      */
     public function setSpeedDialEntry(SpeedDial100Entry $speedDialEntry = null)
     {
-        $this->speedDialEntry =  $speedDialEntry;
+        if (!$speedDialEntry) return $this;
+        $this->speedDialEntry = $speedDialEntry;
+        $this->speedDialEntry->setName('speedDialEntry');
+        return $this;
     }
 
     /**
-     * Modify the speed dial 100 prefix setting for a group.
-     *         The response is either a SuccessResponse or an ErrorResponse.
+     * 
+     * @return SpeedDial100Entry
      */
     public function getSpeedDialEntry()
     {
-        return (!$this->speedDialEntry) ?: $this->speedDialEntry->getValue();
+        return $this->speedDialEntry;
     }
 }

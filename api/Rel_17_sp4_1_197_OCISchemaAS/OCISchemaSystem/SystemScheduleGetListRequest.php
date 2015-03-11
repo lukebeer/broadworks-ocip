@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemScheduleGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleGetListResponse';
-    public    $name         = __CLASS__;
+    public    $name         = 'SystemScheduleGetListRequest';
     protected $scheduleType = null;
 
     public function __construct(
@@ -40,20 +40,24 @@ class SystemScheduleGetListRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * Schedule type.
+     * 
      */
     public function setScheduleType($scheduleType = null)
     {
+        if (!$scheduleType) return $this;
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
+        $this->scheduleType->setName('scheduleType');
+        return $this;
     }
 
     /**
-     * Schedule type.
+     * 
+     * @return ScheduleType
      */
     public function getScheduleType()
     {
-        return (!$this->scheduleType) ?: $this->scheduleType->getValue();
+        return $this->scheduleType->getValue();
     }
 }

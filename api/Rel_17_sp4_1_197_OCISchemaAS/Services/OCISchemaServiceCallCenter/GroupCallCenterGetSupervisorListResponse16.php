@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetSupervisorListResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetSupervisorListResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'GroupCallCenterGetSupervisorListResponse16';
     protected $supervisorTable = null;
 
     /**
@@ -38,14 +37,17 @@ class GroupCallCenterGetSupervisorListResponse16 extends ComplexType implements 
      */
     public function setSupervisorTable(core:OCITable $supervisorTable = null)
     {
-        $this->supervisorTable =  $supervisorTable;
+        if (!$supervisorTable) return $this;
+        $this->supervisorTable->setName('supervisorTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getSupervisorTable()
     {
-        return (!$this->supervisorTable) ?: $this->supervisorTable->getValue();
+        return $this->supervisorTable->getValue();
     }
 }

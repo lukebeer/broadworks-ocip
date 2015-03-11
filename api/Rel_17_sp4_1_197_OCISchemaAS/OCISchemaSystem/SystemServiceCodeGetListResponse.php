@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServiceCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'SystemServiceCodeGetListResponse';
     protected $serviceCodeTable = null;
 
     /**
@@ -38,14 +37,17 @@ class SystemServiceCodeGetListResponse extends ComplexType implements ComplexInt
      */
     public function setServiceCodeTable(core:OCITable $serviceCodeTable = null)
     {
-        $this->serviceCodeTable =  $serviceCodeTable;
+        if (!$serviceCodeTable) return $this;
+        $this->serviceCodeTable->setName('serviceCodeTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getServiceCodeTable()
     {
-        return (!$this->serviceCodeTable) ?: $this->serviceCodeTable->getValue();
+        return $this->serviceCodeTable->getValue();
     }
 }

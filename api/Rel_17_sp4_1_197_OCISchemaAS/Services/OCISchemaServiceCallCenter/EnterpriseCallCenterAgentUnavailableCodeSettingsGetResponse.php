@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                            = __CLASS__;
+    public    $name                                            = 'EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse';
     protected $enableAgentUnavailableCodes                     = null;
     protected $defaultAgentUnavailableCodeOnDND                = null;
     protected $defaultAgentUnavailableCodeOnPersonalCalls      = null;
@@ -41,69 +41,85 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse extends Comple
      */
     public function setEnableAgentUnavailableCodes($enableAgentUnavailableCodes = null)
     {
-        $this->enableAgentUnavailableCodes = (boolean) $enableAgentUnavailableCodes;
+        if (!$enableAgentUnavailableCodes) return $this;
+        $this->enableAgentUnavailableCodes = new PrimitiveType($enableAgentUnavailableCodes);
+        $this->enableAgentUnavailableCodes->setName('enableAgentUnavailableCodes');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableAgentUnavailableCodes()
+    {
+        return $this->enableAgentUnavailableCodes->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableAgentUnavailableCodes()
-    {
-        return (!$this->enableAgentUnavailableCodes) ?: $this->enableAgentUnavailableCodes;
-    }
-
-    /**
-     * Call Center Agent Unavailable Code Value.
-     */
     public function setDefaultAgentUnavailableCodeOnDND($defaultAgentUnavailableCodeOnDND = null)
     {
+        if (!$defaultAgentUnavailableCodeOnDND) return $this;
         $this->defaultAgentUnavailableCodeOnDND = ($defaultAgentUnavailableCodeOnDND InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCodeOnDND
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCodeOnDND);
+        $this->defaultAgentUnavailableCodeOnDND->setName('defaultAgentUnavailableCodeOnDND');
+        return $this;
     }
 
     /**
-     * Call Center Agent Unavailable Code Value.
+     * 
+     * @return CallCenterAgentUnavailableCode
      */
     public function getDefaultAgentUnavailableCodeOnDND()
     {
-        return (!$this->defaultAgentUnavailableCodeOnDND) ?: $this->defaultAgentUnavailableCodeOnDND->getValue();
+        return $this->defaultAgentUnavailableCodeOnDND->getValue();
     }
 
     /**
-     * Call Center Agent Unavailable Code Value.
+     * 
      */
     public function setDefaultAgentUnavailableCodeOnPersonalCalls($defaultAgentUnavailableCodeOnPersonalCalls = null)
     {
+        if (!$defaultAgentUnavailableCodeOnPersonalCalls) return $this;
         $this->defaultAgentUnavailableCodeOnPersonalCalls = ($defaultAgentUnavailableCodeOnPersonalCalls InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCodeOnPersonalCalls
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCodeOnPersonalCalls);
+        $this->defaultAgentUnavailableCodeOnPersonalCalls->setName('defaultAgentUnavailableCodeOnPersonalCalls');
+        return $this;
     }
 
     /**
-     * Call Center Agent Unavailable Code Value.
+     * 
+     * @return CallCenterAgentUnavailableCode
      */
     public function getDefaultAgentUnavailableCodeOnPersonalCalls()
     {
-        return (!$this->defaultAgentUnavailableCodeOnPersonalCalls) ?: $this->defaultAgentUnavailableCodeOnPersonalCalls->getValue();
+        return $this->defaultAgentUnavailableCodeOnPersonalCalls->getValue();
     }
 
     /**
-     * Call Center Agent Unavailable Code Value.
+     * 
      */
     public function setDefaultAgentUnavailableCodeOnConsecutiveBounces($defaultAgentUnavailableCodeOnConsecutiveBounces = null)
     {
+        if (!$defaultAgentUnavailableCodeOnConsecutiveBounces) return $this;
         $this->defaultAgentUnavailableCodeOnConsecutiveBounces = ($defaultAgentUnavailableCodeOnConsecutiveBounces InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCodeOnConsecutiveBounces
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCodeOnConsecutiveBounces);
+        $this->defaultAgentUnavailableCodeOnConsecutiveBounces->setName('defaultAgentUnavailableCodeOnConsecutiveBounces');
+        return $this;
     }
 
     /**
-     * Call Center Agent Unavailable Code Value.
+     * 
+     * @return CallCenterAgentUnavailableCode
      */
     public function getDefaultAgentUnavailableCodeOnConsecutiveBounces()
     {
-        return (!$this->defaultAgentUnavailableCodeOnConsecutiveBounces) ?: $this->defaultAgentUnavailableCodeOnConsecutiveBounces->getValue();
+        return $this->defaultAgentUnavailableCodeOnConsecutiveBounces->getValue();
     }
 
     /**
@@ -111,32 +127,40 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsGetResponse extends Comple
      */
     public function setForceUseOfAgentUnavailableCodes($forceUseOfAgentUnavailableCodes = null)
     {
-        $this->forceUseOfAgentUnavailableCodes = (boolean) $forceUseOfAgentUnavailableCodes;
+        if (!$forceUseOfAgentUnavailableCodes) return $this;
+        $this->forceUseOfAgentUnavailableCodes = new PrimitiveType($forceUseOfAgentUnavailableCodes);
+        $this->forceUseOfAgentUnavailableCodes->setName('forceUseOfAgentUnavailableCodes');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getForceUseOfAgentUnavailableCodes()
+    {
+        return $this->forceUseOfAgentUnavailableCodes->getValue();
     }
 
     /**
      * 
      */
-    public function getForceUseOfAgentUnavailableCodes()
-    {
-        return (!$this->forceUseOfAgentUnavailableCodes) ?: $this->forceUseOfAgentUnavailableCodes;
-    }
-
-    /**
-     * Call Center Agent Unavailable Code Value.
-     */
     public function setDefaultAgentUnavailableCode($defaultAgentUnavailableCode = null)
     {
+        if (!$defaultAgentUnavailableCode) return $this;
         $this->defaultAgentUnavailableCode = ($defaultAgentUnavailableCode InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCode
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCode);
+        $this->defaultAgentUnavailableCode->setName('defaultAgentUnavailableCode');
+        return $this;
     }
 
     /**
-     * Call Center Agent Unavailable Code Value.
+     * 
+     * @return CallCenterAgentUnavailableCode
      */
     public function getDefaultAgentUnavailableCode()
     {
-        return (!$this->defaultAgentUnavailableCode) ?: $this->defaultAgentUnavailableCode->getValue();
+        return $this->defaultAgentUnavailableCode->getValue();
     }
 }

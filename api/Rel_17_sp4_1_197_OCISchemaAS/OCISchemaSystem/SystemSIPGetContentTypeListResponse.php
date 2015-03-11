@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPGetContentTypeListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPGetContentTypeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'SystemSIPGetContentTypeListResponse';
     protected $contentTypeTable = null;
 
     /**
@@ -38,14 +37,17 @@ class SystemSIPGetContentTypeListResponse extends ComplexType implements Complex
      */
     public function setContentTypeTable(core:OCITable $contentTypeTable = null)
     {
-        $this->contentTypeTable =  $contentTypeTable;
+        if (!$contentTypeTable) return $this;
+        $this->contentTypeTable->setName('contentTypeTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getContentTypeTable()
     {
-        return (!$this->contentTypeTable) ?: $this->contentTypeTable->getValue();
+        return $this->contentTypeTable->getValue();
     }
 }

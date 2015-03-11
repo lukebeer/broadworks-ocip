@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCIReportingMessageName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIReportingAddMessageNameListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'SystemOCIReportingAddMessageNameListRequest';
     protected $netAddress            = null;
     protected $messageNameStartsWith = null;
 
@@ -36,7 +35,7 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
     }
 
     /**
-     * @return SystemOCIReportingAddMessageNameListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,38 +43,46 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setNetAddress($netAddress = null)
     {
+        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
+        $this->netAddress->setName('netAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->getValue();
+        return $this->netAddress->getValue();
     }
 
     /**
-     * OCI Request name.
+     * 
      */
     public function setMessageNameStartsWith($messageNameStartsWith = null)
     {
+        if (!$messageNameStartsWith) return $this;
         $this->messageNameStartsWith = ($messageNameStartsWith InstanceOf OCIReportingMessageName)
              ? $messageNameStartsWith
              : new OCIReportingMessageName($messageNameStartsWith);
+        $this->messageNameStartsWith->setName('messageNameStartsWith');
+        return $this;
     }
 
     /**
-     * OCI Request name.
+     * 
+     * @return OCIReportingMessageName
      */
     public function getMessageNameStartsWith()
     {
-        return (!$this->messageNameStartsWith) ?: $this->messageNameStartsWith->getValue();
+        return $this->messageNameStartsWith->getValue();
     }
 }

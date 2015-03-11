@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\CommunicationBarringUserControlNumberOfAttempts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\CommunicationBarringUserControlLockoutMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl\SystemCommunicationBarringUserControlGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringUserControlGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'SystemCommunicationBarringUserControlGetResponse';
     protected $enableLockout             = null;
     protected $maxNumberOfFailedAttempts = null;
     protected $lockoutMinutes            = null;
@@ -40,50 +40,62 @@ class SystemCommunicationBarringUserControlGetResponse extends ComplexType imple
      */
     public function setEnableLockout($enableLockout = null)
     {
-        $this->enableLockout = (boolean) $enableLockout;
+        if (!$enableLockout) return $this;
+        $this->enableLockout = new PrimitiveType($enableLockout);
+        $this->enableLockout->setName('enableLockout');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableLockout()
+    {
+        return $this->enableLockout->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableLockout()
-    {
-        return (!$this->enableLockout) ?: $this->enableLockout;
-    }
-
-    /**
-     * Communication Barring User-Control number of attempts to get pin code correct.
-     */
     public function setMaxNumberOfFailedAttempts($maxNumberOfFailedAttempts = null)
     {
+        if (!$maxNumberOfFailedAttempts) return $this;
         $this->maxNumberOfFailedAttempts = ($maxNumberOfFailedAttempts InstanceOf CommunicationBarringUserControlNumberOfAttempts)
              ? $maxNumberOfFailedAttempts
              : new CommunicationBarringUserControlNumberOfAttempts($maxNumberOfFailedAttempts);
+        $this->maxNumberOfFailedAttempts->setName('maxNumberOfFailedAttempts');
+        return $this;
     }
 
     /**
-     * Communication Barring User-Control number of attempts to get pin code correct.
+     * 
+     * @return CommunicationBarringUserControlNumberOfAttempts
      */
     public function getMaxNumberOfFailedAttempts()
     {
-        return (!$this->maxNumberOfFailedAttempts) ?: $this->maxNumberOfFailedAttempts->getValue();
+        return $this->maxNumberOfFailedAttempts->getValue();
     }
 
     /**
-     * Communication Barring User-Control lockout time in minutes.
+     * 
      */
     public function setLockoutMinutes($lockoutMinutes = null)
     {
+        if (!$lockoutMinutes) return $this;
         $this->lockoutMinutes = ($lockoutMinutes InstanceOf CommunicationBarringUserControlLockoutMinutes)
              ? $lockoutMinutes
              : new CommunicationBarringUserControlLockoutMinutes($lockoutMinutes);
+        $this->lockoutMinutes->setName('lockoutMinutes');
+        return $this;
     }
 
     /**
-     * Communication Barring User-Control lockout time in minutes.
+     * 
+     * @return CommunicationBarringUserControlLockoutMinutes
      */
     public function getLockoutMinutes()
     {
-        return (!$this->lockoutMinutes) ?: $this->lockoutMinutes->getValue();
+        return $this->lockoutMinutes->getValue();
     }
 }

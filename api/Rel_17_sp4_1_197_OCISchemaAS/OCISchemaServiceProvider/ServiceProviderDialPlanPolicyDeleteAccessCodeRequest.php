@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyDeleteAccessCodeResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderDialPlanPolicyDeleteAccessCodeRequest';
     protected $serviceProviderId = null;
     protected $accessCode        = null;
 
@@ -35,7 +34,7 @@ class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType i
     }
 
     /**
-     * @return ServiceProviderDialPlanPolicyDeleteAccessCodeResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,42 +42,46 @@ class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType i
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Dial Plan Access Code.
-     *         The Access Code may contain digits 0-9, *, and #.
+     * 
      */
     public function setAccessCode($accessCode = null)
     {
+        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
              ? $accessCode
              : new DialPlanAccessCode($accessCode);
+        $this->accessCode->setName('accessCode');
+        return $this;
     }
 
     /**
-     * Dial Plan Access Code.
-     *         The Access Code may contain digits 0-9, *, and #.
+     * 
+     * @return DialPlanAccessCode
      */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->getValue();
+        return $this->accessCode->getValue();
     }
 }

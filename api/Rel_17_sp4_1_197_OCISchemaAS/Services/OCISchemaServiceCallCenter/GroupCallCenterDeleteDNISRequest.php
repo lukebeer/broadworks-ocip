@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterDeleteDNISResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,17 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterDeleteDNISRequest extends ComplexType implements ComplexInterface
 {
-    public    $name    = __CLASS__;
+    public    $name    = 'GroupCallCenterDeleteDNISRequest';
     protected $dnisKey = null;
 
     public function __construct(
-          $dnisKey
+         DNISKey $dnisKey
     ) {
         $this->setDnisKey($dnisKey);
     }
 
     /**
-     * @return GroupCallCenterDeleteDNISResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,18 +38,22 @@ class GroupCallCenterDeleteDNISRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * Uniquely identifies a Call Center DNIS.
+     * 
      */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
-        $this->dnisKey =  $dnisKey;
+        if (!$dnisKey) return $this;
+        $this->dnisKey = $dnisKey;
+        $this->dnisKey->setName('dnisKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a Call Center DNIS.
+     * 
+     * @return DNISKey
      */
     public function getDnisKey()
     {
-        return (!$this->dnisKey) ?: $this->dnisKey->getValue();
+        return $this->dnisKey;
     }
 }

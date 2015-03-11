@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CommunicationBarringOriginatingRule;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,10 +20,26 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommunicationBarringOriginatingRule extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CommunicationBarringOriginatingRule';
-    public    $name = __CLASS__;
+    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CommunicationBarringOriginatingRule';
+    public    $name               = 'CommunicationBarringOriginatingRule';
+    protected $criteria           = null;
+    protected $action             = null;
+    protected $treatmentId        = null;
+    protected $transferNumber     = null;
+    protected $callTimeoutSeconds = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $criteria,
+         $action,
+         $treatmentId = null,
+         $transferNumber = null,
+         $callTimeoutSeconds = null
+    ) {
+        $this->setCriteria($criteria);
+        $this->setAction($action);
+        $this->setTreatmentId($treatmentId);
+        $this->setTransferNumber($transferNumber);
+        $this->setCallTimeoutSeconds($callTimeoutSeconds);
     }
 
     /**
@@ -32,5 +48,105 @@ class CommunicationBarringOriginatingRule extends ComplexType implements Complex
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setCriteria($criteria = null)
+    {
+        if (!$criteria) return $this;
+        $this->criteria = new SimpleContent($criteria);
+        $this->criteria->setName('criteria');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getCriteria()
+    {
+        return $this->criteria->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setAction($action = null)
+    {
+        if (!$action) return $this;
+        $this->action = new SimpleContent($action);
+        $this->action->setName('action');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getAction()
+    {
+        return $this->action->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setTreatmentId($treatmentId = null)
+    {
+        if (!$treatmentId) return $this;
+        $this->treatmentId = new SimpleContent($treatmentId);
+        $this->treatmentId->setName('treatmentId');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getTreatmentId()
+    {
+        return $this->treatmentId->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setTransferNumber($transferNumber = null)
+    {
+        if (!$transferNumber) return $this;
+        $this->transferNumber = new SimpleContent($transferNumber);
+        $this->transferNumber->setName('transferNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getTransferNumber()
+    {
+        return $this->transferNumber->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setCallTimeoutSeconds($callTimeoutSeconds = null)
+    {
+        if (!$callTimeoutSeconds) return $this;
+        $this->callTimeoutSeconds = new SimpleContent($callTimeoutSeconds);
+        $this->callTimeoutSeconds->setName('callTimeoutSeconds');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getCallTimeoutSeconds()
+    {
+        return $this->callTimeoutSeconds->getValue();
     }
 }

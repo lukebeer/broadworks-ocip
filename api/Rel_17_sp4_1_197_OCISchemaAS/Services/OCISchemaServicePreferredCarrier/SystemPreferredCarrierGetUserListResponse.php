@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPreferredCarrierGetUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'SystemPreferredCarrierGetUserListResponse';
     protected $usersUsingCarrierTable = null;
 
     /**
@@ -39,14 +38,17 @@ class SystemPreferredCarrierGetUserListResponse extends ComplexType implements C
      */
     public function setUsersUsingCarrierTable(core:OCITable $usersUsingCarrierTable = null)
     {
-        $this->usersUsingCarrierTable =  $usersUsingCarrierTable;
+        if (!$usersUsingCarrierTable) return $this;
+        $this->usersUsingCarrierTable->setName('usersUsingCarrierTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getUsersUsingCarrierTable()
     {
-        return (!$this->usersUsingCarrierTable) ?: $this->usersUsingCarrierTable->getValue();
+        return $this->usersUsingCarrierTable->getValue();
     }
 }

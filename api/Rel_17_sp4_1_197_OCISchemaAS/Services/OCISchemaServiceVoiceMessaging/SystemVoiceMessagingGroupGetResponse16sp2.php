@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingMessageWaitingIndicatorDelayInSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingMaxMessageLengthMinutes;
@@ -16,7 +16,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetResponse16sp2;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
+    public    $name                                 = 'SystemVoiceMessagingGroupGetResponse16sp2';
     protected $realDeleteForImap                    = null;
     protected $useDnInMailBody                      = null;
     protected $useShortSubjectLine                  = null;
@@ -63,15 +63,19 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function setRealDeleteForImap($realDeleteForImap = null)
     {
-        $this->realDeleteForImap = (boolean) $realDeleteForImap;
+        if (!$realDeleteForImap) return $this;
+        $this->realDeleteForImap = new PrimitiveType($realDeleteForImap);
+        $this->realDeleteForImap->setName('realDeleteForImap');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRealDeleteForImap()
     {
-        return (!$this->realDeleteForImap) ?: $this->realDeleteForImap;
+        return $this->realDeleteForImap->getValue();
     }
 
     /**
@@ -79,15 +83,19 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function setUseDnInMailBody($useDnInMailBody = null)
     {
-        $this->useDnInMailBody = (boolean) $useDnInMailBody;
+        if (!$useDnInMailBody) return $this;
+        $this->useDnInMailBody = new PrimitiveType($useDnInMailBody);
+        $this->useDnInMailBody->setName('useDnInMailBody');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseDnInMailBody()
     {
-        return (!$this->useDnInMailBody) ?: $this->useDnInMailBody;
+        return $this->useDnInMailBody->getValue();
     }
 
     /**
@@ -95,51 +103,63 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function setUseShortSubjectLine($useShortSubjectLine = null)
     {
-        $this->useShortSubjectLine = (boolean) $useShortSubjectLine;
+        if (!$useShortSubjectLine) return $this;
+        $this->useShortSubjectLine = new PrimitiveType($useShortSubjectLine);
+        $this->useShortSubjectLine->setName('useShortSubjectLine');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseShortSubjectLine()
+    {
+        return $this->useShortSubjectLine->getValue();
     }
 
     /**
      * 
      */
-    public function getUseShortSubjectLine()
-    {
-        return (!$this->useShortSubjectLine) ?: $this->useShortSubjectLine;
-    }
-
-    /**
-     * Maximum length of message in minutes.
-     */
     public function setMaxMessageLengthMinutes($maxMessageLengthMinutes = null)
     {
+        if (!$maxMessageLengthMinutes) return $this;
         $this->maxMessageLengthMinutes = ($maxMessageLengthMinutes InstanceOf VoiceMessagingMaxMessageLengthMinutes)
              ? $maxMessageLengthMinutes
              : new VoiceMessagingMaxMessageLengthMinutes($maxMessageLengthMinutes);
+        $this->maxMessageLengthMinutes->setName('maxMessageLengthMinutes');
+        return $this;
     }
 
     /**
-     * Maximum length of message in minutes.
+     * 
+     * @return VoiceMessagingMaxMessageLengthMinutes
      */
     public function getMaxMessageLengthMinutes()
     {
-        return (!$this->maxMessageLengthMinutes) ?: $this->maxMessageLengthMinutes->getValue();
+        return $this->maxMessageLengthMinutes->getValue();
     }
 
     /**
-     * Mailbox length for voice messages
+     * 
      */
     public function setMaxMailboxLengthMinutes($maxMailboxLengthMinutes = null)
     {
+        if (!$maxMailboxLengthMinutes) return $this;
         $this->maxMailboxLengthMinutes = ($maxMailboxLengthMinutes InstanceOf VoiceMessagingMailboxLengthMinutes)
              ? $maxMailboxLengthMinutes
              : new VoiceMessagingMailboxLengthMinutes($maxMailboxLengthMinutes);
+        $this->maxMailboxLengthMinutes->setName('maxMailboxLengthMinutes');
+        return $this;
     }
 
     /**
-     * Mailbox length for voice messages
+     * 
+     * @return VoiceMessagingMailboxLengthMinutes
      */
     public function getMaxMailboxLengthMinutes()
     {
-        return (!$this->maxMailboxLengthMinutes) ?: $this->maxMailboxLengthMinutes->getValue();
+        return $this->maxMailboxLengthMinutes->getValue();
     }
 
     /**
@@ -147,123 +167,151 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function setDoesMessageAge($doesMessageAge = null)
     {
-        $this->doesMessageAge = (boolean) $doesMessageAge;
+        if (!$doesMessageAge) return $this;
+        $this->doesMessageAge = new PrimitiveType($doesMessageAge);
+        $this->doesMessageAge->setName('doesMessageAge');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDoesMessageAge()
+    {
+        return $this->doesMessageAge->getValue();
     }
 
     /**
      * 
      */
-    public function getDoesMessageAge()
-    {
-        return (!$this->doesMessageAge) ?: $this->doesMessageAge;
-    }
-
-    /**
-     * Hold period for voice messages
-     */
     public function setHoldPeriodDays($holdPeriodDays = null)
     {
+        if (!$holdPeriodDays) return $this;
         $this->holdPeriodDays = ($holdPeriodDays InstanceOf VoiceMessagingHoldPeriodDays)
              ? $holdPeriodDays
              : new VoiceMessagingHoldPeriodDays($holdPeriodDays);
+        $this->holdPeriodDays->setName('holdPeriodDays');
+        return $this;
     }
 
     /**
-     * Hold period for voice messages
+     * 
+     * @return VoiceMessagingHoldPeriodDays
      */
     public function getHoldPeriodDays()
     {
-        return (!$this->holdPeriodDays) ?: $this->holdPeriodDays->getValue();
+        return $this->holdPeriodDays->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setMailServerNetAddress($mailServerNetAddress = null)
     {
+        if (!$mailServerNetAddress) return $this;
         $this->mailServerNetAddress = ($mailServerNetAddress InstanceOf NetAddress)
              ? $mailServerNetAddress
              : new NetAddress($mailServerNetAddress);
+        $this->mailServerNetAddress->setName('mailServerNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getMailServerNetAddress()
     {
-        return (!$this->mailServerNetAddress) ?: $this->mailServerNetAddress->getValue();
+        return $this->mailServerNetAddress->getValue();
     }
 
     /**
-     * Protocol used by mail server holding voice messages
+     * 
      */
     public function setMailServerProtocol($mailServerProtocol = null)
     {
+        if (!$mailServerProtocol) return $this;
         $this->mailServerProtocol = ($mailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
              ? $mailServerProtocol
              : new VoiceMessagingMailServerProtocol($mailServerProtocol);
+        $this->mailServerProtocol->setName('mailServerProtocol');
+        return $this;
     }
 
     /**
-     * Protocol used by mail server holding voice messages
+     * 
+     * @return VoiceMessagingMailServerProtocol
      */
     public function getMailServerProtocol()
     {
-        return (!$this->mailServerProtocol) ?: $this->mailServerProtocol->getValue();
+        return $this->mailServerProtocol->getValue();
     }
 
     /**
-     * Email Address
+     * 
      */
     public function setDefaultDeliveryFromAddress($defaultDeliveryFromAddress = null)
     {
+        if (!$defaultDeliveryFromAddress) return $this;
         $this->defaultDeliveryFromAddress = ($defaultDeliveryFromAddress InstanceOf EmailAddress)
              ? $defaultDeliveryFromAddress
              : new EmailAddress($defaultDeliveryFromAddress);
+        $this->defaultDeliveryFromAddress->setName('defaultDeliveryFromAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getDefaultDeliveryFromAddress()
     {
-        return (!$this->defaultDeliveryFromAddress) ?: $this->defaultDeliveryFromAddress->getValue();
+        return $this->defaultDeliveryFromAddress->getValue();
     }
 
     /**
-     * Email Address
+     * 
      */
     public function setDefaultNotificationFromAddress($defaultNotificationFromAddress = null)
     {
+        if (!$defaultNotificationFromAddress) return $this;
         $this->defaultNotificationFromAddress = ($defaultNotificationFromAddress InstanceOf EmailAddress)
              ? $defaultNotificationFromAddress
              : new EmailAddress($defaultNotificationFromAddress);
+        $this->defaultNotificationFromAddress->setName('defaultNotificationFromAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getDefaultNotificationFromAddress()
     {
-        return (!$this->defaultNotificationFromAddress) ?: $this->defaultNotificationFromAddress->getValue();
+        return $this->defaultNotificationFromAddress->getValue();
     }
 
     /**
-     * Email Address
+     * 
      */
     public function setDefaultVoicePortalLockoutFromAddress($defaultVoicePortalLockoutFromAddress = null)
     {
+        if (!$defaultVoicePortalLockoutFromAddress) return $this;
         $this->defaultVoicePortalLockoutFromAddress = ($defaultVoicePortalLockoutFromAddress InstanceOf EmailAddress)
              ? $defaultVoicePortalLockoutFromAddress
              : new EmailAddress($defaultVoicePortalLockoutFromAddress);
+        $this->defaultVoicePortalLockoutFromAddress->setName('defaultVoicePortalLockoutFromAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getDefaultVoicePortalLockoutFromAddress()
     {
-        return (!$this->defaultVoicePortalLockoutFromAddress) ?: $this->defaultVoicePortalLockoutFromAddress->getValue();
+        return $this->defaultVoicePortalLockoutFromAddress->getValue();
     }
 
     /**
@@ -271,57 +319,63 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function setUseOutgoingMWIOnSMDI($useOutgoingMWIOnSMDI = null)
     {
-        $this->useOutgoingMWIOnSMDI = (boolean) $useOutgoingMWIOnSMDI;
+        if (!$useOutgoingMWIOnSMDI) return $this;
+        $this->useOutgoingMWIOnSMDI = new PrimitiveType($useOutgoingMWIOnSMDI);
+        $this->useOutgoingMWIOnSMDI->setName('useOutgoingMWIOnSMDI');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseOutgoingMWIOnSMDI()
+    {
+        return $this->useOutgoingMWIOnSMDI->getValue();
     }
 
     /**
      * 
      */
-    public function getUseOutgoingMWIOnSMDI()
-    {
-        return (!$this->useOutgoingMWIOnSMDI) ?: $this->useOutgoingMWIOnSMDI;
-    }
-
-    /**
-     * Message Waiting Indicator delay in seconds.
-     */
     public function setMwiDelayInSeconds($mwiDelayInSeconds = null)
     {
+        if (!$mwiDelayInSeconds) return $this;
         $this->mwiDelayInSeconds = ($mwiDelayInSeconds InstanceOf VoiceMessagingMessageWaitingIndicatorDelayInSeconds)
              ? $mwiDelayInSeconds
              : new VoiceMessagingMessageWaitingIndicatorDelayInSeconds($mwiDelayInSeconds);
+        $this->mwiDelayInSeconds->setName('mwiDelayInSeconds');
+        return $this;
     }
 
     /**
-     * Message Waiting Indicator delay in seconds.
+     * 
+     * @return VoiceMessagingMessageWaitingIndicatorDelayInSeconds
      */
     public function getMwiDelayInSeconds()
     {
-        return (!$this->mwiDelayInSeconds) ?: $this->mwiDelayInSeconds->getValue();
+        return $this->mwiDelayInSeconds->getValue();
     }
 
     /**
-     * Voice Portal Scope.
-     *         When set to System, users can call any group voice portal hosted on the same Application Server
-     *         as themselves rather than only the voice portal of their own group to initiate the login process.
-     *         When set to Service Providers, the voice portal scope is configured within the Service Provider.
+     * 
      */
     public function setVoicePortalScope($voicePortalScope = null)
     {
+        if (!$voicePortalScope) return $this;
         $this->voicePortalScope = ($voicePortalScope InstanceOf SystemVoicePortalScope)
              ? $voicePortalScope
              : new SystemVoicePortalScope($voicePortalScope);
+        $this->voicePortalScope->setName('voicePortalScope');
+        return $this;
     }
 
     /**
-     * Voice Portal Scope.
-     *         When set to System, users can call any group voice portal hosted on the same Application Server
-     *         as themselves rather than only the voice portal of their own group to initiate the login process.
-     *         When set to Service Providers, the voice portal scope is configured within the Service Provider.
+     * 
+     * @return SystemVoicePortalScope
      */
     public function getVoicePortalScope()
     {
-        return (!$this->voicePortalScope) ?: $this->voicePortalScope->getValue();
+        return $this->voicePortalScope->getValue();
     }
 
     /**
@@ -329,15 +383,19 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function setEnterpriseVoicePortalLicensed($enterpriseVoicePortalLicensed = null)
     {
-        $this->enterpriseVoicePortalLicensed = (boolean) $enterpriseVoicePortalLicensed;
+        if (!$enterpriseVoicePortalLicensed) return $this;
+        $this->enterpriseVoicePortalLicensed = new PrimitiveType($enterpriseVoicePortalLicensed);
+        $this->enterpriseVoicePortalLicensed->setName('enterpriseVoicePortalLicensed');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnterpriseVoicePortalLicensed()
     {
-        return (!$this->enterpriseVoicePortalLicensed) ?: $this->enterpriseVoicePortalLicensed;
+        return $this->enterpriseVoicePortalLicensed->getValue();
     }
 
     /**
@@ -345,15 +403,19 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function setNetworkWideMessaging($networkWideMessaging = null)
     {
-        $this->networkWideMessaging = (boolean) $networkWideMessaging;
+        if (!$networkWideMessaging) return $this;
+        $this->networkWideMessaging = new PrimitiveType($networkWideMessaging);
+        $this->networkWideMessaging->setName('networkWideMessaging');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getNetworkWideMessaging()
     {
-        return (!$this->networkWideMessaging) ?: $this->networkWideMessaging;
+        return $this->networkWideMessaging->getValue();
     }
 
     /**
@@ -361,47 +423,41 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function setUseExternalRouting($useExternalRouting = null)
     {
-        $this->useExternalRouting = (boolean) $useExternalRouting;
+        if (!$useExternalRouting) return $this;
+        $this->useExternalRouting = new PrimitiveType($useExternalRouting);
+        $this->useExternalRouting->setName('useExternalRouting');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseExternalRouting()
+    {
+        return $this->useExternalRouting->getValue();
     }
 
     /**
      * 
      */
-    public function getUseExternalRouting()
-    {
-        return (!$this->useExternalRouting) ?: $this->useExternalRouting;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setDefaultExternalRoutingAddress($defaultExternalRoutingAddress = null)
     {
+        if (!$defaultExternalRoutingAddress) return $this;
         $this->defaultExternalRoutingAddress = ($defaultExternalRoutingAddress InstanceOf OutgoingDNorSIPURI)
              ? $defaultExternalRoutingAddress
              : new OutgoingDNorSIPURI($defaultExternalRoutingAddress);
+        $this->defaultExternalRoutingAddress->setName('defaultExternalRoutingAddress');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getDefaultExternalRoutingAddress()
     {
-        return (!$this->defaultExternalRoutingAddress) ?: $this->defaultExternalRoutingAddress->getValue();
+        return $this->defaultExternalRoutingAddress->getValue();
     }
 
     /**
@@ -409,14 +465,18 @@ class SystemVoiceMessagingGroupGetResponse16sp2 extends ComplexType implements C
      */
     public function setVmOnlySystem($vmOnlySystem = null)
     {
-        $this->vmOnlySystem = (boolean) $vmOnlySystem;
+        if (!$vmOnlySystem) return $this;
+        $this->vmOnlySystem = new PrimitiveType($vmOnlySystem);
+        $this->vmOnlySystem->setName('vmOnlySystem');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getVmOnlySystem()
     {
-        return (!$this->vmOnlySystem) ?: $this->vmOnlySystem;
+        return $this->vmOnlySystem->getValue();
     }
 }

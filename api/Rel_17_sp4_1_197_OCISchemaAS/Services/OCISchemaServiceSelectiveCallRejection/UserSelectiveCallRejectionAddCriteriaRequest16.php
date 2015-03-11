@@ -5,14 +5,14 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelectiveCallRejection; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection\SelectiveCallRejectionCriteriaCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSelectiveCallRejection\UserSelectiveCallRejectionAddCriteriaResponse16;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'UserSelectiveCallRejectionAddCriteriaRequest16';
     protected $userId          = null;
     protected $criteriaName    = null;
     protected $timeSchedule    = null;
@@ -36,9 +36,9 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
     public function __construct(
          $userId,
          $criteriaName,
-          $timeSchedule = null,
-          $fromDnCriteria,
-          $holidaySchedule = null,
+         TimeSchedule $timeSchedule = null,
+         SelectiveCallRejectionCriteriaCallType $fromDnCriteria,
+         HolidaySchedule $holidaySchedule = null,
          $blacklisted
     ) {
         $this->setUserId($userId);
@@ -50,7 +50,7 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
     }
 
     /**
-     * @return UserSelectiveCallRejectionAddCriteriaResponse16
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,95 +58,107 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Criteria Name
+     * 
      */
     public function setCriteriaName($criteriaName = null)
     {
+        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
+        $this->criteriaName->setName('criteriaName');
+        return $this;
     }
 
     /**
-     * Criteria Name
+     * 
+     * @return CriteriaName
      */
     public function getCriteriaName()
     {
-        return (!$this->criteriaName) ?: $this->criteriaName->getValue();
+        return $this->criteriaName->getValue();
     }
 
     /**
-     * The from dn criteria.
+     * 
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule =  $timeSchedule;
+        if (!$timeSchedule) return $this;
+        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule->setName('timeSchedule');
+        return $this;
     }
 
     /**
-     * The from dn criteria.
+     * 
+     * @return TimeSchedule
      */
     public function getTimeSchedule()
     {
-        return (!$this->timeSchedule) ?: $this->timeSchedule->getValue();
+        return $this->timeSchedule;
     }
 
     /**
-     * The call type criteria used within an add/get request.
+     * 
      */
     public function setFromDnCriteria(SelectiveCallRejectionCriteriaCallType $fromDnCriteria = null)
     {
-        $this->fromDnCriteria =  $fromDnCriteria;
+        if (!$fromDnCriteria) return $this;
+        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria->setName('fromDnCriteria');
+        return $this;
     }
 
     /**
-     * The call type criteria used within an add/get request.
+     * 
+     * @return SelectiveCallRejectionCriteriaCallType
      */
     public function getFromDnCriteria()
     {
-        return (!$this->fromDnCriteria) ?: $this->fromDnCriteria->getValue();
+        return $this->fromDnCriteria;
     }
 
     /**
-     * Holiday Schedule.
+     * 
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule =  $holidaySchedule;
+        if (!$holidaySchedule) return $this;
+        $this->holidaySchedule = $holidaySchedule;
+        $this->holidaySchedule->setName('holidaySchedule');
+        return $this;
     }
 
     /**
-     * Holiday Schedule.
+     * 
+     * @return HolidaySchedule
      */
     public function getHolidaySchedule()
     {
-        return (!$this->holidaySchedule) ?: $this->holidaySchedule->getValue();
+        return $this->holidaySchedule;
     }
 
     /**
@@ -154,14 +166,18 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
      */
     public function setBlacklisted($blacklisted = null)
     {
-        $this->blacklisted = (boolean) $blacklisted;
+        if (!$blacklisted) return $this;
+        $this->blacklisted = new PrimitiveType($blacklisted);
+        $this->blacklisted->setName('blacklisted');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getBlacklisted()
     {
-        return (!$this->blacklisted) ?: $this->blacklisted;
+        return $this->blacklisted->getValue();
     }
 }

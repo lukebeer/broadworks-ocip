@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,9 +21,16 @@ use Broadworks_OCIP\core\Client\Client;
 class IPAddressRange extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange';
-    public    $name = __CLASS__;
+    public    $name         = 'IPAddressRange';
+    protected $minIpAddress = null;
+    protected $maxIpAddress = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $minIpAddress,
+         $maxIpAddress
+    ) {
+        $this->setMinIpAddress($minIpAddress);
+        $this->setMaxIpAddress($maxIpAddress);
     }
 
     /**
@@ -32,5 +39,45 @@ class IPAddressRange extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setMinIpAddress($minIpAddress = null)
+    {
+        if (!$minIpAddress) return $this;
+        $this->minIpAddress = new SimpleContent($minIpAddress);
+        $this->minIpAddress->setName('minIpAddress');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getMinIpAddress()
+    {
+        return $this->minIpAddress->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setMaxIpAddress($maxIpAddress = null)
+    {
+        if (!$maxIpAddress) return $this;
+        $this->maxIpAddress = new SimpleContent($maxIpAddress);
+        $this->maxIpAddress->setName('maxIpAddress');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getMaxIpAddress()
+    {
+        return $this->maxIpAddress->getValue();
     }
 }

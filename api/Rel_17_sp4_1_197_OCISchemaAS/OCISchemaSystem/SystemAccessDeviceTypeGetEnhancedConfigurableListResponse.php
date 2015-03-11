@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceTypeGetEnhancedConfigurableListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceTypeGetEnhancedConfigurableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'SystemAccessDeviceTypeGetEnhancedConfigurableListResponse';
     protected $deviceTypeTable = null;
 
     /**
@@ -40,14 +39,17 @@ class SystemAccessDeviceTypeGetEnhancedConfigurableListResponse extends ComplexT
      */
     public function setDeviceTypeTable(core:OCITable $deviceTypeTable = null)
     {
-        $this->deviceTypeTable =  $deviceTypeTable;
+        if (!$deviceTypeTable) return $this;
+        $this->deviceTypeTable->setName('deviceTypeTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDeviceTypeTable()
     {
-        return (!$this->deviceTypeTable) ?: $this->deviceTypeTable->getValue();
+        return $this->deviceTypeTable->getValue();
     }
 }

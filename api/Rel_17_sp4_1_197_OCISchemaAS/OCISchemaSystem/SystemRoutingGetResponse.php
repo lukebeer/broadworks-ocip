@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RoutingDNSR
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RoutingStatefulExpirationMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RoutingMaxAddresses;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RouteTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
+    public    $name                              = 'SystemRoutingGetResponse';
     protected $isRouteRoundRobin                 = null;
     protected $routeTimerSeconds                 = null;
     protected $dnsResolvedAddressSelectionPolicy = null;
@@ -44,104 +44,128 @@ class SystemRoutingGetResponse extends ComplexType implements ComplexInterface
      */
     public function setIsRouteRoundRobin($isRouteRoundRobin = null)
     {
-        $this->isRouteRoundRobin = (boolean) $isRouteRoundRobin;
+        if (!$isRouteRoundRobin) return $this;
+        $this->isRouteRoundRobin = new PrimitiveType($isRouteRoundRobin);
+        $this->isRouteRoundRobin->setName('isRouteRoundRobin');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsRouteRoundRobin()
+    {
+        return $this->isRouteRoundRobin->getValue();
     }
 
     /**
      * 
      */
-    public function getIsRouteRoundRobin()
-    {
-        return (!$this->isRouteRoundRobin) ?: $this->isRouteRoundRobin;
-    }
-
-    /**
-     * Route timer seconds.
-     */
     public function setRouteTimerSeconds($routeTimerSeconds = null)
     {
+        if (!$routeTimerSeconds) return $this;
         $this->routeTimerSeconds = ($routeTimerSeconds InstanceOf RouteTimerSeconds)
              ? $routeTimerSeconds
              : new RouteTimerSeconds($routeTimerSeconds);
+        $this->routeTimerSeconds->setName('routeTimerSeconds');
+        return $this;
     }
 
     /**
-     * Route timer seconds.
+     * 
+     * @return RouteTimerSeconds
      */
     public function getRouteTimerSeconds()
     {
-        return (!$this->routeTimerSeconds) ?: $this->routeTimerSeconds->getValue();
+        return $this->routeTimerSeconds->getValue();
     }
 
     /**
-     * Policy for choosing an address from the the results of a DNS lookup.
+     * 
      */
     public function setDnsResolvedAddressSelectionPolicy($dnsResolvedAddressSelectionPolicy = null)
     {
+        if (!$dnsResolvedAddressSelectionPolicy) return $this;
         $this->dnsResolvedAddressSelectionPolicy = ($dnsResolvedAddressSelectionPolicy InstanceOf RoutingDNSResolvedAddressSelectionPolicy)
              ? $dnsResolvedAddressSelectionPolicy
              : new RoutingDNSResolvedAddressSelectionPolicy($dnsResolvedAddressSelectionPolicy);
+        $this->dnsResolvedAddressSelectionPolicy->setName('dnsResolvedAddressSelectionPolicy');
+        return $this;
     }
 
     /**
-     * Policy for choosing an address from the the results of a DNS lookup.
+     * 
+     * @return RoutingDNSResolvedAddressSelectionPolicy
      */
     public function getDnsResolvedAddressSelectionPolicy()
     {
-        return (!$this->dnsResolvedAddressSelectionPolicy) ?: $this->dnsResolvedAddressSelectionPolicy->getValue();
+        return $this->dnsResolvedAddressSelectionPolicy->getValue();
     }
 
     /**
-     * Routing stateful expiration minutes.
+     * 
      */
     public function setStatefulExpirationMinutes($statefulExpirationMinutes = null)
     {
+        if (!$statefulExpirationMinutes) return $this;
         $this->statefulExpirationMinutes = ($statefulExpirationMinutes InstanceOf RoutingStatefulExpirationMinutes)
              ? $statefulExpirationMinutes
              : new RoutingStatefulExpirationMinutes($statefulExpirationMinutes);
+        $this->statefulExpirationMinutes->setName('statefulExpirationMinutes');
+        return $this;
     }
 
     /**
-     * Routing stateful expiration minutes.
+     * 
+     * @return RoutingStatefulExpirationMinutes
      */
     public function getStatefulExpirationMinutes()
     {
-        return (!$this->statefulExpirationMinutes) ?: $this->statefulExpirationMinutes->getValue();
+        return $this->statefulExpirationMinutes->getValue();
     }
 
     /**
-     * Routing max addresses.
+     * 
      */
     public function setMaxAddressesPerHostname($maxAddressesPerHostname = null)
     {
+        if (!$maxAddressesPerHostname) return $this;
         $this->maxAddressesPerHostname = ($maxAddressesPerHostname InstanceOf RoutingMaxAddresses)
              ? $maxAddressesPerHostname
              : new RoutingMaxAddresses($maxAddressesPerHostname);
+        $this->maxAddressesPerHostname->setName('maxAddressesPerHostname');
+        return $this;
     }
 
     /**
-     * Routing max addresses.
+     * 
+     * @return RoutingMaxAddresses
      */
     public function getMaxAddressesPerHostname()
     {
-        return (!$this->maxAddressesPerHostname) ?: $this->maxAddressesPerHostname->getValue();
+        return $this->maxAddressesPerHostname->getValue();
     }
 
     /**
-     * Routing max addresses.
+     * 
      */
     public function setMaxAddressesDuringSetup($maxAddressesDuringSetup = null)
     {
+        if (!$maxAddressesDuringSetup) return $this;
         $this->maxAddressesDuringSetup = ($maxAddressesDuringSetup InstanceOf RoutingMaxAddresses)
              ? $maxAddressesDuringSetup
              : new RoutingMaxAddresses($maxAddressesDuringSetup);
+        $this->maxAddressesDuringSetup->setName('maxAddressesDuringSetup');
+        return $this;
     }
 
     /**
-     * Routing max addresses.
+     * 
+     * @return RoutingMaxAddresses
      */
     public function getMaxAddressesDuringSetup()
     {
-        return (!$this->maxAddressesDuringSetup) ?: $this->maxAddressesDuringSetup->getValue();
+        return $this->maxAddressesDuringSetup->getValue();
     }
 }

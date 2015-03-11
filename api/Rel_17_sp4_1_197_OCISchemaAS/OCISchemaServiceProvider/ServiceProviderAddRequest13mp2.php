@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAd
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Contact;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAddResponse13mp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'ServiceProviderAddRequest13mp2';
     protected $serviceProviderId   = null;
     protected $defaultDomain       = null;
     protected $serviceProviderName = null;
@@ -39,8 +38,8 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
          $defaultDomain,
          $serviceProviderName = null,
          $supportEmail = null,
-          $contact = null,
-          $address = null
+         Contact $contact = null,
+         StreetAddress $address = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDefaultDomain($defaultDomain);
@@ -51,7 +50,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return ServiceProviderAddResponse13mp2
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,108 +58,130 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setDefaultDomain($defaultDomain = null)
     {
+        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
+        $this->defaultDomain->setName('defaultDomain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getDefaultDomain()
     {
-        return (!$this->defaultDomain) ?: $this->defaultDomain->getValue();
+        return $this->defaultDomain->getValue();
     }
 
     /**
-     * Service Provider display name.
+     * 
      */
     public function setServiceProviderName($serviceProviderName = null)
     {
+        if (!$serviceProviderName) return $this;
         $this->serviceProviderName = ($serviceProviderName InstanceOf ServiceProviderName)
              ? $serviceProviderName
              : new ServiceProviderName($serviceProviderName);
+        $this->serviceProviderName->setName('serviceProviderName');
+        return $this;
     }
 
     /**
-     * Service Provider display name.
+     * 
+     * @return ServiceProviderName
      */
     public function getServiceProviderName()
     {
-        return (!$this->serviceProviderName) ?: $this->serviceProviderName->getValue();
+        return $this->serviceProviderName->getValue();
     }
 
     /**
-     * Email Address
+     * 
      */
     public function setSupportEmail($supportEmail = null)
     {
+        if (!$supportEmail) return $this;
         $this->supportEmail = ($supportEmail InstanceOf EmailAddress)
              ? $supportEmail
              : new EmailAddress($supportEmail);
+        $this->supportEmail->setName('supportEmail');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getSupportEmail()
     {
-        return (!$this->supportEmail) ?: $this->supportEmail->getValue();
+        return $this->supportEmail->getValue();
     }
 
     /**
-     * Contact information.
+     * 
      */
     public function setContact(Contact $contact = null)
     {
-        $this->contact =  $contact;
+        if (!$contact) return $this;
+        $this->contact = $contact;
+        $this->contact->setName('contact');
+        return $this;
     }
 
     /**
-     * Contact information.
+     * 
+     * @return Contact
      */
     public function getContact()
     {
-        return (!$this->contact) ?: $this->contact->getValue();
+        return $this->contact;
     }
 
     /**
-     * Street address information.
+     * 
      */
     public function setAddress(StreetAddress $address = null)
     {
-        $this->address =  $address;
+        if (!$address) return $this;
+        $this->address = $address;
+        $this->address->setName('address');
+        return $this;
     }
 
     /**
-     * Street address information.
+     * 
+     * @return StreetAddress
      */
     public function getAddress()
     {
-        return (!$this->address) ?: $this->address->getValue();
+        return $this->address;
     }
 }

@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\MusicOnHoldSourceRead16;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetInstanceResponse16;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
+    public    $name                               = 'GroupMusicOnHoldGetInstanceResponse16';
     protected $serviceUserId                      = null;
     protected $isActiveDuringCallHold             = null;
     protected $isActiveDuringCallPark             = null;
@@ -40,29 +40,25 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
@@ -70,15 +66,19 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setIsActiveDuringCallHold($isActiveDuringCallHold = null)
     {
-        $this->isActiveDuringCallHold = (boolean) $isActiveDuringCallHold;
+        if (!$isActiveDuringCallHold) return $this;
+        $this->isActiveDuringCallHold = new PrimitiveType($isActiveDuringCallHold);
+        $this->isActiveDuringCallHold->setName('isActiveDuringCallHold');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActiveDuringCallHold()
     {
-        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold;
+        return $this->isActiveDuringCallHold->getValue();
     }
 
     /**
@@ -86,15 +86,19 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setIsActiveDuringCallPark($isActiveDuringCallPark = null)
     {
-        $this->isActiveDuringCallPark = (boolean) $isActiveDuringCallPark;
+        if (!$isActiveDuringCallPark) return $this;
+        $this->isActiveDuringCallPark = new PrimitiveType($isActiveDuringCallPark);
+        $this->isActiveDuringCallPark->setName('isActiveDuringCallPark');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActiveDuringCallPark()
     {
-        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark;
+        return $this->isActiveDuringCallPark->getValue();
     }
 
     /**
@@ -102,15 +106,19 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn = null)
     {
-        $this->isActiveDuringBusyCampOn = (boolean) $isActiveDuringBusyCampOn;
+        if (!$isActiveDuringBusyCampOn) return $this;
+        $this->isActiveDuringBusyCampOn = new PrimitiveType($isActiveDuringBusyCampOn);
+        $this->isActiveDuringBusyCampOn->setName('isActiveDuringBusyCampOn');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActiveDuringBusyCampOn()
     {
-        return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn;
+        return $this->isActiveDuringBusyCampOn->getValue();
     }
 
     /**
@@ -118,31 +126,39 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setEnableVideo($enableVideo = null)
     {
-        $this->enableVideo = (boolean) $enableVideo;
+        if (!$enableVideo) return $this;
+        $this->enableVideo = new PrimitiveType($enableVideo);
+        $this->enableVideo->setName('enableVideo');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableVideo()
+    {
+        return $this->enableVideo->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableVideo()
-    {
-        return (!$this->enableVideo) ?: $this->enableVideo;
-    }
-
-    /**
-     * Contains the music on hold source configuration.
-     */
     public function setSource(MusicOnHoldSourceRead16 $source = null)
     {
-        $this->source =  $source;
+        if (!$source) return $this;
+        $this->source = $source;
+        $this->source->setName('source');
+        return $this;
     }
 
     /**
-     * Contains the music on hold source configuration.
+     * 
+     * @return MusicOnHoldSourceRead16
      */
     public function getSource()
     {
-        return (!$this->source) ?: $this->source->getValue();
+        return $this->source;
     }
 
     /**
@@ -150,30 +166,38 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls = null)
     {
-        $this->useAlternateSourceForInternalCalls = (boolean) $useAlternateSourceForInternalCalls;
+        if (!$useAlternateSourceForInternalCalls) return $this;
+        $this->useAlternateSourceForInternalCalls = new PrimitiveType($useAlternateSourceForInternalCalls);
+        $this->useAlternateSourceForInternalCalls->setName('useAlternateSourceForInternalCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseAlternateSourceForInternalCalls()
+    {
+        return $this->useAlternateSourceForInternalCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getUseAlternateSourceForInternalCalls()
-    {
-        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls;
-    }
-
-    /**
-     * Contains the music on hold source configuration.
-     */
     public function setInternalSource(MusicOnHoldSourceRead16 $internalSource = null)
     {
-        $this->internalSource =  $internalSource;
+        if (!$internalSource) return $this;
+        $this->internalSource = $internalSource;
+        $this->internalSource->setName('internalSource');
+        return $this;
     }
 
     /**
-     * Contains the music on hold source configuration.
+     * 
+     * @return MusicOnHoldSourceRead16
      */
     public function getInternalSource()
     {
-        return (!$this->internalSource) ?: $this->internalSource->getValue();
+        return $this->internalSource;
     }
 }

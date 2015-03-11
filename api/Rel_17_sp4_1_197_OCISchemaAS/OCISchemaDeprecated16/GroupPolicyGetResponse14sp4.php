@@ -17,7 +17,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUse
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCallingPlanAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupUserCallLogAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupExtensionAccess;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupPolicyGetResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -30,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'GroupPolicyGetResponse14sp4';
     protected $callingPlanAccess               = null;
     protected $extensionAccess                 = null;
     protected $ldapIntegrationAccess           = null;
@@ -51,218 +50,222 @@ class GroupPolicyGetResponse14sp4 extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * Group's policy for accessing group level and user level calling plan configuration.
-     *         "Full" provides full control over the configuration of group-level and user-level calling plans.
-     *         "Restricted" indicates
-     *         1) not to provide access to group-level calling plan configuration,
-     *         2) to provide access to only collect calls for user level incoming calling plan,
-     *         3) to provide access to only international, operator assisted, 700/900, 976, and casual calls for user level outgoing calling plan.
+     * 
      */
     public function setCallingPlanAccess($callingPlanAccess = null)
     {
+        if (!$callingPlanAccess) return $this;
         $this->callingPlanAccess = ($callingPlanAccess InstanceOf GroupCallingPlanAccess)
              ? $callingPlanAccess
              : new GroupCallingPlanAccess($callingPlanAccess);
+        $this->callingPlanAccess->setName('callingPlanAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for accessing group level and user level calling plan configuration.
-     *         "Full" provides full control over the configuration of group-level and user-level calling plans.
-     *         "Restricted" indicates
-     *         1) not to provide access to group-level calling plan configuration,
-     *         2) to provide access to only collect calls for user level incoming calling plan,
-     *         3) to provide access to only international, operator assisted, 700/900, 976, and casual calls for user level outgoing calling plan.
+     * 
+     * @return GroupCallingPlanAccess
      */
     public function getCallingPlanAccess()
     {
-        return (!$this->callingPlanAccess) ?: $this->callingPlanAccess->getValue();
+        return $this->callingPlanAccess->getValue();
     }
 
     /**
-     * Group's policy for accessing extension dialing configuration (i.e. - length of extensions).
+     * 
      */
     public function setExtensionAccess($extensionAccess = null)
     {
+        if (!$extensionAccess) return $this;
         $this->extensionAccess = ($extensionAccess InstanceOf GroupExtensionAccess)
              ? $extensionAccess
              : new GroupExtensionAccess($extensionAccess);
+        $this->extensionAccess->setName('extensionAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for accessing extension dialing configuration (i.e. - length of extensions).
+     * 
+     * @return GroupExtensionAccess
      */
     public function getExtensionAccess()
     {
-        return (!$this->extensionAccess) ?: $this->extensionAccess->getValue();
+        return $this->extensionAccess->getValue();
     }
 
     /**
-     * Group's policy for accessing LDAP Integration configuration.
+     * 
      */
     public function setLdapIntegrationAccess($ldapIntegrationAccess = null)
     {
+        if (!$ldapIntegrationAccess) return $this;
         $this->ldapIntegrationAccess = ($ldapIntegrationAccess InstanceOf GroupLDAPIntegrationAccess)
              ? $ldapIntegrationAccess
              : new GroupLDAPIntegrationAccess($ldapIntegrationAccess);
+        $this->ldapIntegrationAccess->setName('ldapIntegrationAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for accessing LDAP Integration configuration.
+     * 
+     * @return GroupLDAPIntegrationAccess
      */
     public function getLdapIntegrationAccess()
     {
-        return (!$this->ldapIntegrationAccess) ?: $this->ldapIntegrationAccess->getValue();
+        return $this->ldapIntegrationAccess->getValue();
     }
 
     /**
-     * Group's policy for user access to his voice messaging configuration.
-     *         "Full" indicates full control over the voice messaging configuration.
-     *         "Restricted" indicates that the choice to either use unified messaging option (whereby the user can configure a mail server on which messages are stored)
-     *         or to forward the voice message to a designated email address is not available.
+     * 
      */
     public function setVoiceMessagingAccess($voiceMessagingAccess = null)
     {
+        if (!$voiceMessagingAccess) return $this;
         $this->voiceMessagingAccess = ($voiceMessagingAccess InstanceOf GroupVoiceMessagingAccess)
              ? $voiceMessagingAccess
              : new GroupVoiceMessagingAccess($voiceMessagingAccess);
+        $this->voiceMessagingAccess->setName('voiceMessagingAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for user access to his voice messaging configuration.
-     *         "Full" indicates full control over the voice messaging configuration.
-     *         "Restricted" indicates that the choice to either use unified messaging option (whereby the user can configure a mail server on which messages are stored)
-     *         or to forward the voice message to a designated email address is not available.
+     * 
+     * @return GroupVoiceMessagingAccess
      */
     public function getVoiceMessagingAccess()
     {
-        return (!$this->voiceMessagingAccess) ?: $this->voiceMessagingAccess->getValue();
+        return $this->voiceMessagingAccess->getValue();
     }
 
     /**
-     * Group's policy for department administrator's access to user configuration.
-     *         "Full" indicates full access to users in the department.
-     *         "Read-Only Profile" indicates
-     *           1) the department administrator is restricted from adding or removing users, and
-     *           2) read-only access is granted to the user's profile.
-     *         "No Profile" indicates
-     *           1) the department administrator is restricted from adding or removing users, and
-     *           2) no access is granted to the user's profile.
-     *         "None" indicates no access to users in the department.
+     * 
      */
     public function setDepartmentAdminUserAccess($departmentAdminUserAccess = null)
     {
+        if (!$departmentAdminUserAccess) return $this;
         $this->departmentAdminUserAccess = ($departmentAdminUserAccess InstanceOf GroupDepartmentAdminUserAccess)
              ? $departmentAdminUserAccess
              : new GroupDepartmentAdminUserAccess($departmentAdminUserAccess);
+        $this->departmentAdminUserAccess->setName('departmentAdminUserAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for department administrator's access to user configuration.
-     *         "Full" indicates full access to users in the department.
-     *         "Read-Only Profile" indicates
-     *           1) the department administrator is restricted from adding or removing users, and
-     *           2) read-only access is granted to the user's profile.
-     *         "No Profile" indicates
-     *           1) the department administrator is restricted from adding or removing users, and
-     *           2) no access is granted to the user's profile.
-     *         "None" indicates no access to users in the department.
+     * 
+     * @return GroupDepartmentAdminUserAccess
      */
     public function getDepartmentAdminUserAccess()
     {
-        return (!$this->departmentAdminUserAccess) ?: $this->departmentAdminUserAccess->getValue();
+        return $this->departmentAdminUserAccess->getValue();
     }
 
     /**
-     * Group's policy for department administrator's access to trunk group configuration.
-     *         "Full" indicates full access to trunk groups in the department.
-     *         "None" indicates no access to trunk groups in the department.
+     * 
      */
     public function setDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess = null)
     {
+        if (!$departmentAdminTrunkGroupAccess) return $this;
         $this->departmentAdminTrunkGroupAccess = ($departmentAdminTrunkGroupAccess InstanceOf GroupDepartmentAdminTrunkGroupAccess)
              ? $departmentAdminTrunkGroupAccess
              : new GroupDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess);
+        $this->departmentAdminTrunkGroupAccess->setName('departmentAdminTrunkGroupAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for department administrator's access to trunk group configuration.
-     *         "Full" indicates full access to trunk groups in the department.
-     *         "None" indicates no access to trunk groups in the department.
+     * 
+     * @return GroupDepartmentAdminTrunkGroupAccess
      */
     public function getDepartmentAdminTrunkGroupAccess()
     {
-        return (!$this->departmentAdminTrunkGroupAccess) ?: $this->departmentAdminTrunkGroupAccess->getValue();
+        return $this->departmentAdminTrunkGroupAccess->getValue();
     }
 
     /**
-     * Group's policy for a user's access to their Authentication service configuration.
+     * 
      */
     public function setUserAuthenticationAccess($userAuthenticationAccess = null)
     {
+        if (!$userAuthenticationAccess) return $this;
         $this->userAuthenticationAccess = ($userAuthenticationAccess InstanceOf GroupUserAuthenticationAccess)
              ? $userAuthenticationAccess
              : new GroupUserAuthenticationAccess($userAuthenticationAccess);
+        $this->userAuthenticationAccess->setName('userAuthenticationAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for a user's access to their Authentication service configuration.
+     * 
+     * @return GroupUserAuthenticationAccess
      */
     public function getUserAuthenticationAccess()
     {
-        return (!$this->userAuthenticationAccess) ?: $this->userAuthenticationAccess->getValue();
+        return $this->userAuthenticationAccess->getValue();
     }
 
     /**
-     * Group's policy for a user's access to the group or enterprise directory.
+     * 
      */
     public function setUserGroupDirectoryAccess($userGroupDirectoryAccess = null)
     {
+        if (!$userGroupDirectoryAccess) return $this;
         $this->userGroupDirectoryAccess = ($userGroupDirectoryAccess InstanceOf GroupUserGroupDirectoryAccess)
              ? $userGroupDirectoryAccess
              : new GroupUserGroupDirectoryAccess($userGroupDirectoryAccess);
+        $this->userGroupDirectoryAccess->setName('userGroupDirectoryAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for a user's access to the group or enterprise directory.
+     * 
+     * @return GroupUserGroupDirectoryAccess
      */
     public function getUserGroupDirectoryAccess()
     {
-        return (!$this->userGroupDirectoryAccess) ?: $this->userGroupDirectoryAccess->getValue();
+        return $this->userGroupDirectoryAccess->getValue();
     }
 
     /**
-     * Group's policy for a user's access to his profile.
+     * 
      */
     public function setUserProfileAccess($userProfileAccess = null)
     {
+        if (!$userProfileAccess) return $this;
         $this->userProfileAccess = ($userProfileAccess InstanceOf GroupUserProfileAccess)
              ? $userProfileAccess
              : new GroupUserProfileAccess($userProfileAccess);
+        $this->userProfileAccess->setName('userProfileAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for a user's access to his profile.
+     * 
+     * @return GroupUserProfileAccess
      */
     public function getUserProfileAccess()
     {
-        return (!$this->userProfileAccess) ?: $this->userProfileAccess->getValue();
+        return $this->userProfileAccess->getValue();
     }
 
     /**
-     * Policy for user to delete call logs
+     * 
      */
     public function setUserEnhancedCallLogAccess($userEnhancedCallLogAccess = null)
     {
+        if (!$userEnhancedCallLogAccess) return $this;
         $this->userEnhancedCallLogAccess = ($userEnhancedCallLogAccess InstanceOf GroupUserCallLogAccess)
              ? $userEnhancedCallLogAccess
              : new GroupUserCallLogAccess($userEnhancedCallLogAccess);
+        $this->userEnhancedCallLogAccess->setName('userEnhancedCallLogAccess');
+        return $this;
     }
 
     /**
-     * Policy for user to delete call logs
+     * 
+     * @return GroupUserCallLogAccess
      */
     public function getUserEnhancedCallLogAccess()
     {
-        return (!$this->userEnhancedCallLogAccess) ?: $this->userEnhancedCallLogAccess->getValue();
+        return $this->userEnhancedCallLogAccess->getValue();
     }
 }

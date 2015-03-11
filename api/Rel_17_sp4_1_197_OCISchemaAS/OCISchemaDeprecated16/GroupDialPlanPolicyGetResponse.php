@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDialPlanPolicySettingLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupDialPlanPolicyGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'GroupDialPlanPolicyGetResponse';
     protected $useSetting                       = null;
     protected $requiresAccessCodeForPublicCalls = null;
     protected $allowE164PublicCalls             = null;
@@ -39,25 +39,25 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
     }
 
     /**
-     * Choices for the group Dial Plan Policy to decide which type of settings shall be used.
-     *         Notes: Choice cannot be 'sp' or 'group' if Service Provider or group does not have
-     *         public digit map set.
+     * 
      */
     public function setUseSetting($useSetting = null)
     {
+        if (!$useSetting) return $this;
         $this->useSetting = ($useSetting InstanceOf GroupDialPlanPolicySettingLevel)
              ? $useSetting
              : new GroupDialPlanPolicySettingLevel($useSetting);
+        $this->useSetting->setName('useSetting');
+        return $this;
     }
 
     /**
-     * Choices for the group Dial Plan Policy to decide which type of settings shall be used.
-     *         Notes: Choice cannot be 'sp' or 'group' if Service Provider or group does not have
-     *         public digit map set.
+     * 
+     * @return GroupDialPlanPolicySettingLevel
      */
     public function getUseSetting()
     {
-        return (!$this->useSetting) ?: $this->useSetting->getValue();
+        return $this->useSetting->getValue();
     }
 
     /**
@@ -65,15 +65,19 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function setRequiresAccessCodeForPublicCalls($requiresAccessCodeForPublicCalls = null)
     {
-        $this->requiresAccessCodeForPublicCalls = (boolean) $requiresAccessCodeForPublicCalls;
+        if (!$requiresAccessCodeForPublicCalls) return $this;
+        $this->requiresAccessCodeForPublicCalls = new PrimitiveType($requiresAccessCodeForPublicCalls);
+        $this->requiresAccessCodeForPublicCalls->setName('requiresAccessCodeForPublicCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
-        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls;
+        return $this->requiresAccessCodeForPublicCalls->getValue();
     }
 
     /**
@@ -81,50 +85,62 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function setAllowE164PublicCalls($allowE164PublicCalls = null)
     {
-        $this->allowE164PublicCalls = (boolean) $allowE164PublicCalls;
+        if (!$allowE164PublicCalls) return $this;
+        $this->allowE164PublicCalls = new PrimitiveType($allowE164PublicCalls);
+        $this->allowE164PublicCalls->setName('allowE164PublicCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowE164PublicCalls()
+    {
+        return $this->allowE164PublicCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowE164PublicCalls()
-    {
-        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls;
-    }
-
-    /**
-     * Digit Collection Digit Map.
-     */
     public function setPublicDigitMap($publicDigitMap = null)
     {
+        if (!$publicDigitMap) return $this;
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
+        $this->publicDigitMap->setName('publicDigitMap');
+        return $this;
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
+     * @return DigitMap
      */
     public function getPublicDigitMap()
     {
-        return (!$this->publicDigitMap) ?: $this->publicDigitMap->getValue();
+        return $this->publicDigitMap->getValue();
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
      */
     public function setPrivateDigitMap($privateDigitMap = null)
     {
+        if (!$privateDigitMap) return $this;
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
+        $this->privateDigitMap->setName('privateDigitMap');
+        return $this;
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
+     * @return DigitMap
      */
     public function getPrivateDigitMap()
     {
-        return (!$this->privateDigitMap) ?: $this->privateDigitMap->getValue();
+        return $this->privateDigitMap->getValue();
     }
 }

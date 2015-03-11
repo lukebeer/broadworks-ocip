@@ -12,7 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupInstantConferencingGetInstanceResponse15sp2;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
+    public    $name                           = 'GroupInstantConferencingGetInstanceResponse15sp2';
     protected $serviceInstanceProfile         = null;
     protected $conferenceBridgeLinePort       = null;
     protected $allocatedPorts                 = null;
@@ -45,95 +45,87 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
-     *         Prior to release 14 this was called ServiceInstanceProfile.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
-     *         Prior to release 14 this was called ServiceInstanceProfile.
+     * 
+     * @return ServiceInstanceReadProfile
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Also known as address of record, the Line/Port identifies a device endpoint
-     *         in standalone mode  or a SIPURI public identity in IMS mode.
-     *         Line/port user@host or just the port.
-     *         Validation:
-     *         - don't allow sip:
-     *         - allow a leading +
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - lineports for sip devices configured with Proxy Addressing must have a host portion
-     *         - lineports for sip devices configured with Device Addressing must not have a host portion
+     * 
      */
     public function setConferenceBridgeLinePort($conferenceBridgeLinePort = null)
     {
+        if (!$conferenceBridgeLinePort) return $this;
         $this->conferenceBridgeLinePort = ($conferenceBridgeLinePort InstanceOf AccessDeviceEndpointLinePort)
              ? $conferenceBridgeLinePort
              : new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
+        $this->conferenceBridgeLinePort->setName('conferenceBridgeLinePort');
+        return $this;
     }
 
     /**
-     * Also known as address of record, the Line/Port identifies a device endpoint
-     *         in standalone mode  or a SIPURI public identity in IMS mode.
-     *         Line/port user@host or just the port.
-     *         Validation:
-     *         - don't allow sip:
-     *         - allow a leading +
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - lineports for sip devices configured with Proxy Addressing must have a host portion
-     *         - lineports for sip devices configured with Device Addressing must not have a host portion
+     * 
+     * @return AccessDeviceEndpointLinePort
      */
     public function getConferenceBridgeLinePort()
     {
-        return (!$this->conferenceBridgeLinePort) ?: $this->conferenceBridgeLinePort->getValue();
+        return $this->conferenceBridgeLinePort->getValue();
     }
 
     /**
-     * Number of allocated ports.
-     *         Unbounded Quantity. Can either be unlimited or an int quantity.
+     * 
      */
     public function setAllocatedPorts(InstantConferencingAllocatedPorts $allocatedPorts = null)
     {
-        $this->allocatedPorts =  $allocatedPorts;
+        if (!$allocatedPorts) return $this;
+        $this->allocatedPorts = $allocatedPorts;
+        $this->allocatedPorts->setName('allocatedPorts');
+        return $this;
     }
 
     /**
-     * Number of allocated ports.
-     *         Unbounded Quantity. Can either be unlimited or an int quantity.
+     * 
+     * @return InstantConferencingAllocatedPorts
      */
     public function getAllocatedPorts()
     {
-        return (!$this->allocatedPorts) ?: $this->allocatedPorts->getValue();
+        return $this->allocatedPorts;
     }
 
     /**
-     * Profile used by an Instance Conferencing Instance.
+     * 
      */
     public function setServiceProfileAppliedOnOutcall($serviceProfileAppliedOnOutcall = null)
     {
+        if (!$serviceProfileAppliedOnOutcall) return $this;
         $this->serviceProfileAppliedOnOutcall = ($serviceProfileAppliedOnOutcall InstanceOf InstantConferencingOutcallProfile)
              ? $serviceProfileAppliedOnOutcall
              : new InstantConferencingOutcallProfile($serviceProfileAppliedOnOutcall);
+        $this->serviceProfileAppliedOnOutcall->setName('serviceProfileAppliedOnOutcall');
+        return $this;
     }
 
     /**
-     * Profile used by an Instance Conferencing Instance.
+     * 
+     * @return InstantConferencingOutcallProfile
      */
     public function getServiceProfileAppliedOnOutcall()
     {
-        return (!$this->serviceProfileAppliedOnOutcall) ?: $this->serviceProfileAppliedOnOutcall->getValue();
+        return $this->serviceProfileAppliedOnOutcall->getValue();
     }
 
     /**
@@ -141,15 +133,19 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
      */
     public function setAllowOutdialInInvitation($allowOutdialInInvitation = null)
     {
-        $this->allowOutdialInInvitation = (boolean) $allowOutdialInInvitation;
+        if (!$allowOutdialInInvitation) return $this;
+        $this->allowOutdialInInvitation = new PrimitiveType($allowOutdialInInvitation);
+        $this->allowOutdialInInvitation->setName('allowOutdialInInvitation');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowOutdialInInvitation()
     {
-        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation;
+        return $this->allowOutdialInInvitation->getValue();
     }
 
     /**
@@ -157,15 +153,19 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
      */
     public function setAllowDocumentDownload($allowDocumentDownload = null)
     {
-        $this->allowDocumentDownload = (boolean) $allowDocumentDownload;
+        if (!$allowDocumentDownload) return $this;
+        $this->allowDocumentDownload = new PrimitiveType($allowDocumentDownload);
+        $this->allowDocumentDownload->setName('allowDocumentDownload');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowDocumentDownload()
     {
-        return (!$this->allowDocumentDownload) ?: $this->allowDocumentDownload;
+        return $this->allowDocumentDownload->getValue();
     }
 
     /**
@@ -173,32 +173,39 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
      */
     public function setBridgeAdministratorUserTable(core:OCITable $bridgeAdministratorUserTable = null)
     {
-        $this->bridgeAdministratorUserTable =  $bridgeAdministratorUserTable;
+        if (!$bridgeAdministratorUserTable) return $this;
+        $this->bridgeAdministratorUserTable->setName('bridgeAdministratorUserTable');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return core:OCITable
+     */
+    public function getBridgeAdministratorUserTable()
+    {
+        return $this->bridgeAdministratorUserTable->getValue();
     }
 
     /**
      * 
      */
-    public function getBridgeAdministratorUserTable()
-    {
-        return (!$this->bridgeAdministratorUserTable) ?: $this->bridgeAdministratorUserTable->getValue();
-    }
-
-    /**
-     * Network Class of Service name.
-     */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
+        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
+        $this->networkClassOfService->setName('networkClassOfService');
+        return $this;
     }
 
     /**
-     * Network Class of Service name.
+     * 
+     * @return NetworkClassOfServiceName
      */
     public function getNetworkClassOfService()
     {
-        return (!$this->networkClassOfService) ?: $this->networkClassOfService->getValue();
+        return $this->networkClassOfService->getValue();
     }
 }

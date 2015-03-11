@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingReplacementNumberList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,10 +21,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SimultaneousRingReplacementNumberList extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingReplacementNumberList';
-    public    $name = __CLASS__;
+    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingReplacementNumberList';
+    public    $name                   = 'SimultaneousRingReplacementNumberList';
+    protected $simultaneousRingNumber = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $simultaneousRingNumber = null
+    ) {
+        $this->setSimultaneousRingNumber($simultaneousRingNumber);
     }
 
     /**
@@ -33,5 +37,25 @@ class SimultaneousRingReplacementNumberList extends ComplexType implements Compl
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setSimultaneousRingNumber($simultaneousRingNumber = null)
+    {
+        if (!$simultaneousRingNumber) return $this;
+        $this->simultaneousRingNumber = new SimpleContent($simultaneousRingNumber);
+        $this->simultaneousRingNumber->setName('simultaneousRingNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getSimultaneousRingNumber()
+    {
+        return $this->simultaneousRingNumber->getValue();
     }
 }

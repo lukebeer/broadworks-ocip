@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaExactDeviceLevel extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDeviceLevel';
-    public    $name        = __CLASS__;
+    public    $name        = 'SearchCriteriaExactDeviceLevel';
     protected $deviceLevel = null;
 
     public function __construct(
@@ -39,20 +39,24 @@ class SearchCriteriaExactDeviceLevel extends ComplexType implements ComplexInter
     }
 
     /**
-     * Identifies at which level in the system an identity/device profile is created.
+     * 
      */
     public function setDeviceLevel($deviceLevel = null)
     {
+        if (!$deviceLevel) return $this;
         $this->deviceLevel = ($deviceLevel InstanceOf AccessDeviceLevel)
              ? $deviceLevel
              : new AccessDeviceLevel($deviceLevel);
+        $this->deviceLevel->setName('deviceLevel');
+        return $this;
     }
 
     /**
-     * Identifies at which level in the system an identity/device profile is created.
+     * 
+     * @return AccessDeviceLevel
      */
     public function getDeviceLevel()
     {
-        return (!$this->deviceLevel) ?: $this->deviceLevel->getValue();
+        return $this->deviceLevel->getValue();
     }
 }

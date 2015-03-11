@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSREmailNotify;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSREmailNotify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSREmailNotify extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSREmailNotify';
-    public    $name = __CLASS__;
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSREmailNotify';
+    public    $name         = 'CommPilotExpressSREmailNotify';
+    protected $sendEmail    = null;
+    protected $emailAddress = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $sendEmail,
+         $emailAddress = null
+    ) {
+        $this->setSendEmail($sendEmail);
+        $this->setEmailAddress($emailAddress);
     }
 
     /**
@@ -32,5 +39,45 @@ class CommPilotExpressSREmailNotify extends ComplexType implements ComplexInterf
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setSendEmail($sendEmail = null)
+    {
+        if (!$sendEmail) return $this;
+        $this->sendEmail = new SimpleContent($sendEmail);
+        $this->sendEmail->setName('sendEmail');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getSendEmail()
+    {
+        return $this->sendEmail->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setEmailAddress($emailAddress = null)
+    {
+        if (!$emailAddress) return $this;
+        $this->emailAddress = new SimpleContent($emailAddress);
+        $this->emailAddress->setName('emailAddress');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getEmailAddress()
+    {
+        return $this->emailAddress->getValue();
     }
 }

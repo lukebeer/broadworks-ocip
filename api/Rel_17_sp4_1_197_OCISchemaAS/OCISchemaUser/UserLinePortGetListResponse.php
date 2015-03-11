@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserLinePortGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserLinePortGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'UserLinePortGetListResponse';
     protected $linePortTable = null;
 
     /**
@@ -40,14 +39,17 @@ class UserLinePortGetListResponse extends ComplexType implements ComplexInterfac
      */
     public function setLinePortTable(core:OCITable $linePortTable = null)
     {
-        $this->linePortTable =  $linePortTable;
+        if (!$linePortTable) return $this;
+        $this->linePortTable->setName('linePortTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getLinePortTable()
     {
-        return (!$this->linePortTable) ?: $this->linePortTable->getValue();
+        return $this->linePortTable->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetListResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupUserCreationTaskGetListResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
+    public    $name      = 'GroupTrunkGroupUserCreationTaskGetListResponse14sp4';
     protected $taskTable = null;
 
     /**
@@ -38,14 +37,17 @@ class GroupTrunkGroupUserCreationTaskGetListResponse14sp4 extends ComplexType im
      */
     public function setTaskTable(core:OCITable $taskTable = null)
     {
-        $this->taskTable =  $taskTable;
+        if (!$taskTable) return $this;
+        $this->taskTable->setName('taskTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getTaskTable()
     {
-        return (!$this->taskTable) ?: $this->taskTable->getValue();
+        return $this->taskTable->getValue();
     }
 }

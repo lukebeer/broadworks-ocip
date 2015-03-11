@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DayOfMonth;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthlyByDay;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthlyByDay;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthlyByDay';
-    public    $name       = __CLASS__;
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthlyByDay';
+    public    $name       = 'InstantConferencingRecurrenceScheduleMonthlyByDay';
     protected $dayOfMonth = null;
 
     public function __construct(
@@ -39,20 +39,24 @@ class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType impl
     }
 
     /**
-     * The day of month.
+     * 
      */
     public function setDayOfMonth($dayOfMonth = null)
     {
+        if (!$dayOfMonth) return $this;
         $this->dayOfMonth = ($dayOfMonth InstanceOf DayOfMonth)
              ? $dayOfMonth
              : new DayOfMonth($dayOfMonth);
+        $this->dayOfMonth->setName('dayOfMonth');
+        return $this;
     }
 
     /**
-     * The day of month.
+     * 
+     * @return DayOfMonth
      */
     public function getDayOfMonth()
     {
-        return (!$this->dayOfMonth) ?: $this->dayOfMonth->getValue();
+        return $this->dayOfMonth->getValue();
     }
 }

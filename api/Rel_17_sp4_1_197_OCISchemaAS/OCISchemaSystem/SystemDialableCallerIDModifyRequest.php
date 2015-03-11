@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaPriorityOrder;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialableCallerIDModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,17 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'SystemDialableCallerIDModifyRequest';
     protected $criteriaPriorityOrder = null;
 
     public function __construct(
-          $criteriaPriorityOrder = null
+         DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
     ) {
         $this->setCriteriaPriorityOrder($criteriaPriorityOrder);
     }
 
     /**
-     * @return SystemDialableCallerIDModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,18 +38,22 @@ class SystemDialableCallerIDModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * Dialable Caller ID routing order
+     * 
      */
     public function setCriteriaPriorityOrder(DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null)
     {
-        $this->criteriaPriorityOrder =  $criteriaPriorityOrder;
+        if (!$criteriaPriorityOrder) return $this;
+        $this->criteriaPriorityOrder = $criteriaPriorityOrder;
+        $this->criteriaPriorityOrder->setName('criteriaPriorityOrder');
+        return $this;
     }
 
     /**
-     * Dialable Caller ID routing order
+     * 
+     * @return DialableCallerIDCriteriaPriorityOrder
      */
     public function getCriteriaPriorityOrder()
     {
-        return (!$this->criteriaPriorityOrder) ?: $this->criteriaPriorityOrder->getValue();
+        return $this->criteriaPriorityOrder;
     }
 }

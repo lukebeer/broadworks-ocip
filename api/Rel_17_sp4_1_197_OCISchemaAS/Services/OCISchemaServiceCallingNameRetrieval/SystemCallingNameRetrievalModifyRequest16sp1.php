@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameRetrieval; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingNameRetrieval; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingNameRetrieval\CallingNameRetrievalQueryTimeoutMilliseconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingNameRetrieval\CallingNameRetrievalSourceIdentity;
@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TransportProtocol;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameRetrieval\SystemCallingNameRetrievalModifyResponse16sp1;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name                                         = __CLASS__;
+    public    $name                                         = 'SystemCallingNameRetrievalModifyRequest16sp1';
     protected $triggerCNAMQueriesForAllNetworkCalls         = null;
     protected $triggerCNAMQueriesForGroupAndEnterpriseCalls = null;
     protected $queryProtocol                                = null;
@@ -63,7 +63,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
     }
 
     /**
-     * @return SystemCallingNameRetrievalModifyResponse16sp1
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,15 +75,19 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
      */
     public function setTriggerCNAMQueriesForAllNetworkCalls($triggerCNAMQueriesForAllNetworkCalls = null)
     {
-        $this->triggerCNAMQueriesForAllNetworkCalls = (boolean) $triggerCNAMQueriesForAllNetworkCalls;
+        if (!$triggerCNAMQueriesForAllNetworkCalls) return $this;
+        $this->triggerCNAMQueriesForAllNetworkCalls = new PrimitiveType($triggerCNAMQueriesForAllNetworkCalls);
+        $this->triggerCNAMQueriesForAllNetworkCalls->setName('triggerCNAMQueriesForAllNetworkCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getTriggerCNAMQueriesForAllNetworkCalls()
     {
-        return (!$this->triggerCNAMQueriesForAllNetworkCalls) ?: $this->triggerCNAMQueriesForAllNetworkCalls;
+        return $this->triggerCNAMQueriesForAllNetworkCalls->getValue();
     }
 
     /**
@@ -91,123 +95,151 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
      */
     public function setTriggerCNAMQueriesForGroupAndEnterpriseCalls($triggerCNAMQueriesForGroupAndEnterpriseCalls = null)
     {
-        $this->triggerCNAMQueriesForGroupAndEnterpriseCalls = (boolean) $triggerCNAMQueriesForGroupAndEnterpriseCalls;
+        if (!$triggerCNAMQueriesForGroupAndEnterpriseCalls) return $this;
+        $this->triggerCNAMQueriesForGroupAndEnterpriseCalls = new PrimitiveType($triggerCNAMQueriesForGroupAndEnterpriseCalls);
+        $this->triggerCNAMQueriesForGroupAndEnterpriseCalls->setName('triggerCNAMQueriesForGroupAndEnterpriseCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getTriggerCNAMQueriesForGroupAndEnterpriseCalls()
+    {
+        return $this->triggerCNAMQueriesForGroupAndEnterpriseCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getTriggerCNAMQueriesForGroupAndEnterpriseCalls()
-    {
-        return (!$this->triggerCNAMQueriesForGroupAndEnterpriseCalls) ?: $this->triggerCNAMQueriesForGroupAndEnterpriseCalls;
-    }
-
-    /**
-     * Query Protocol.
-     */
     public function setQueryProtocol($queryProtocol = null)
     {
+        if (!$queryProtocol) return $this;
         $this->queryProtocol = ($queryProtocol InstanceOf CallingNameRetrievalQueryProtocol)
              ? $queryProtocol
              : new CallingNameRetrievalQueryProtocol($queryProtocol);
+        $this->queryProtocol->setName('queryProtocol');
+        return $this;
     }
 
     /**
-     * Query Protocol.
+     * 
+     * @return CallingNameRetrievalQueryProtocol
      */
     public function getQueryProtocol()
     {
-        return (!$this->queryProtocol) ?: $this->queryProtocol->getValue();
+        return $this->queryProtocol->getValue();
     }
 
     /**
-     * Query time out milli-seconds.
+     * 
      */
     public function setQueryTimeoutMilliseconds($queryTimeoutMilliseconds = null)
     {
+        if (!$queryTimeoutMilliseconds) return $this;
         $this->queryTimeoutMilliseconds = ($queryTimeoutMilliseconds InstanceOf CallingNameRetrievalQueryTimeoutMilliseconds)
              ? $queryTimeoutMilliseconds
              : new CallingNameRetrievalQueryTimeoutMilliseconds($queryTimeoutMilliseconds);
+        $this->queryTimeoutMilliseconds->setName('queryTimeoutMilliseconds');
+        return $this;
     }
 
     /**
-     * Query time out milli-seconds.
+     * 
+     * @return CallingNameRetrievalQueryTimeoutMilliseconds
      */
     public function getQueryTimeoutMilliseconds()
     {
-        return (!$this->queryTimeoutMilliseconds) ?: $this->queryTimeoutMilliseconds->getValue();
+        return $this->queryTimeoutMilliseconds->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setSipExternalDatabaseNetAddress($sipExternalDatabaseNetAddress = null)
     {
+        if (!$sipExternalDatabaseNetAddress) return $this;
         $this->sipExternalDatabaseNetAddress = ($sipExternalDatabaseNetAddress InstanceOf NetAddress)
              ? $sipExternalDatabaseNetAddress
              : new NetAddress($sipExternalDatabaseNetAddress);
+        $this->sipExternalDatabaseNetAddress->setName('sipExternalDatabaseNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getSipExternalDatabaseNetAddress()
     {
-        return (!$this->sipExternalDatabaseNetAddress) ?: $this->sipExternalDatabaseNetAddress->getValue();
+        return $this->sipExternalDatabaseNetAddress->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setSipExternalDatabasePort($sipExternalDatabasePort = null)
     {
+        if (!$sipExternalDatabasePort) return $this;
         $this->sipExternalDatabasePort = ($sipExternalDatabasePort InstanceOf Port1025)
              ? $sipExternalDatabasePort
              : new Port1025($sipExternalDatabasePort);
+        $this->sipExternalDatabasePort->setName('sipExternalDatabasePort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getSipExternalDatabasePort()
     {
-        return (!$this->sipExternalDatabasePort) ?: $this->sipExternalDatabasePort->getValue();
+        return $this->sipExternalDatabasePort->getValue();
     }
 
     /**
-     * Network Transport Protocol.
+     * 
      */
     public function setSipExternalDatabaseTransport($sipExternalDatabaseTransport = null)
     {
+        if (!$sipExternalDatabaseTransport) return $this;
         $this->sipExternalDatabaseTransport = ($sipExternalDatabaseTransport InstanceOf TransportProtocol)
              ? $sipExternalDatabaseTransport
              : new TransportProtocol($sipExternalDatabaseTransport);
+        $this->sipExternalDatabaseTransport->setName('sipExternalDatabaseTransport');
+        return $this;
     }
 
     /**
-     * Network Transport Protocol.
+     * 
+     * @return TransportProtocol
      */
     public function getSipExternalDatabaseTransport()
     {
-        return (!$this->sipExternalDatabaseTransport) ?: $this->sipExternalDatabaseTransport->getValue();
+        return $this->sipExternalDatabaseTransport->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setSoapExternalDatabaseNetAddress($soapExternalDatabaseNetAddress = null)
     {
+        if (!$soapExternalDatabaseNetAddress) return $this;
         $this->soapExternalDatabaseNetAddress = ($soapExternalDatabaseNetAddress InstanceOf NetAddress)
              ? $soapExternalDatabaseNetAddress
              : new NetAddress($soapExternalDatabaseNetAddress);
+        $this->soapExternalDatabaseNetAddress->setName('soapExternalDatabaseNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getSoapExternalDatabaseNetAddress()
     {
-        return (!$this->soapExternalDatabaseNetAddress) ?: $this->soapExternalDatabaseNetAddress->getValue();
+        return $this->soapExternalDatabaseNetAddress->getValue();
     }
 
     /**
@@ -215,32 +247,40 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
      */
     public function setSoapSupportsDNSSRV($soapSupportsDNSSRV = null)
     {
-        $this->soapSupportsDNSSRV = (boolean) $soapSupportsDNSSRV;
+        if (!$soapSupportsDNSSRV) return $this;
+        $this->soapSupportsDNSSRV = new PrimitiveType($soapSupportsDNSSRV);
+        $this->soapSupportsDNSSRV->setName('soapSupportsDNSSRV');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSoapSupportsDNSSRV()
+    {
+        return $this->soapSupportsDNSSRV->getValue();
     }
 
     /**
      * 
      */
-    public function getSoapSupportsDNSSRV()
-    {
-        return (!$this->soapSupportsDNSSRV) ?: $this->soapSupportsDNSSRV;
-    }
-
-    /**
-     * Query Protocol.
-     */
     public function setCallingNameSource($callingNameSource = null)
     {
+        if (!$callingNameSource) return $this;
         $this->callingNameSource = ($callingNameSource InstanceOf CallingNameRetrievalSourceIdentity)
              ? $callingNameSource
              : new CallingNameRetrievalSourceIdentity($callingNameSource);
+        $this->callingNameSource->setName('callingNameSource');
+        return $this;
     }
 
     /**
-     * Query Protocol.
+     * 
+     * @return CallingNameRetrievalSourceIdentity
      */
     public function getCallingNameSource()
     {
-        return (!$this->callingNameSource) ?: $this->callingNameSource->getValue();
+        return $this->callingNameSource->getValue();
     }
 }

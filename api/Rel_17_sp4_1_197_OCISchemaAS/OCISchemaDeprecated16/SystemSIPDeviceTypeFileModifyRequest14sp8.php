@@ -12,7 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceMa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementAccessURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileResource;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemSIPDeviceTypeFileModifyResponse14sp8;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
+    public    $name                               = 'SystemSIPDeviceTypeFileModifyRequest14sp8';
     protected $deviceType                         = null;
     protected $fileFormat                         = null;
     protected $allowFileCustomization             = null;
@@ -42,7 +42,7 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
          $fileFormat,
          $allowFileCustomization = null,
          $fileSource = null,
-          $uploadFile = null,
+         FileResource $uploadFile = null,
          $useHttpDigestAuthentication = null,
          $macBasedFileAuthentication = null,
          $userNamePasswordFileAuthentication = null,
@@ -62,7 +62,7 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
     }
 
     /**
-     * @return SystemSIPDeviceTypeFileModifyResponse14sp8
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,39 +70,47 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
     }
 
     /**
-     * Access device type.
+     * 
      */
     public function setDeviceType($deviceType = null)
     {
+        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
+        $this->deviceType->setName('deviceType');
+        return $this;
     }
 
     /**
-     * Access device type.
+     * 
+     * @return AccessDeviceType
      */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->getValue();
+        return $this->deviceType->getValue();
     }
 
     /**
-     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     * 
      */
     public function setFileFormat($fileFormat = null)
     {
+        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
+        $this->fileFormat->setName('fileFormat');
+        return $this;
     }
 
     /**
-     * The file name format for an access device file managed by the Device Management System on BroadWorks.
+     * 
+     * @return DeviceManagementFileFormat
      */
     public function getFileFormat()
     {
-        return (!$this->fileFormat) ?: $this->fileFormat->getValue();
+        return $this->fileFormat->getValue();
     }
 
     /**
@@ -110,51 +118,61 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
      */
     public function setAllowFileCustomization($allowFileCustomization = null)
     {
-        $this->allowFileCustomization = (boolean) $allowFileCustomization;
+        if (!$allowFileCustomization) return $this;
+        $this->allowFileCustomization = new PrimitiveType($allowFileCustomization);
+        $this->allowFileCustomization->setName('allowFileCustomization');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowFileCustomization()
+    {
+        return $this->allowFileCustomization->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowFileCustomization()
-    {
-        return (!$this->allowFileCustomization) ?: $this->allowFileCustomization;
-    }
-
-    /**
-     * Choices for the device type configuration mode.
-     */
     public function setFileSource($fileSource = null)
     {
+        if (!$fileSource) return $this;
         $this->fileSource = ($fileSource InstanceOf DeviceTypeFileEnhancedConfigurationMode)
              ? $fileSource
              : new DeviceTypeFileEnhancedConfigurationMode($fileSource);
+        $this->fileSource->setName('fileSource');
+        return $this;
     }
 
     /**
-     * Choices for the device type configuration mode.
+     * 
+     * @return DeviceTypeFileEnhancedConfigurationMode
      */
     public function getFileSource()
     {
-        return (!$this->fileSource) ?: $this->fileSource->getValue();
+        return $this->fileSource->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer.
+     * 
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        $this->uploadFile =  $uploadFile;
+        if (!$uploadFile) return $this;
+        $this->uploadFile = $uploadFile;
+        $this->uploadFile->setName('uploadFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer.
+     * 
+     * @return FileResource
      */
     public function getUploadFile()
     {
-        return (!$this->uploadFile) ?: $this->uploadFile->getValue();
+        return $this->uploadFile;
     }
 
     /**
@@ -162,15 +180,19 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
      */
     public function setUseHttpDigestAuthentication($useHttpDigestAuthentication = null)
     {
-        $this->useHttpDigestAuthentication = (boolean) $useHttpDigestAuthentication;
+        if (!$useHttpDigestAuthentication) return $this;
+        $this->useHttpDigestAuthentication = new PrimitiveType($useHttpDigestAuthentication);
+        $this->useHttpDigestAuthentication->setName('useHttpDigestAuthentication');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseHttpDigestAuthentication()
     {
-        return (!$this->useHttpDigestAuthentication) ?: $this->useHttpDigestAuthentication;
+        return $this->useHttpDigestAuthentication->getValue();
     }
 
     /**
@@ -178,15 +200,19 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
      */
     public function setMacBasedFileAuthentication($macBasedFileAuthentication = null)
     {
-        $this->macBasedFileAuthentication = (boolean) $macBasedFileAuthentication;
+        if (!$macBasedFileAuthentication) return $this;
+        $this->macBasedFileAuthentication = new PrimitiveType($macBasedFileAuthentication);
+        $this->macBasedFileAuthentication->setName('macBasedFileAuthentication');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMacBasedFileAuthentication()
     {
-        return (!$this->macBasedFileAuthentication) ?: $this->macBasedFileAuthentication;
+        return $this->macBasedFileAuthentication->getValue();
     }
 
     /**
@@ -194,15 +220,19 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
      */
     public function setUserNamePasswordFileAuthentication($userNamePasswordFileAuthentication = null)
     {
-        $this->userNamePasswordFileAuthentication = (boolean) $userNamePasswordFileAuthentication;
+        if (!$userNamePasswordFileAuthentication) return $this;
+        $this->userNamePasswordFileAuthentication = new PrimitiveType($userNamePasswordFileAuthentication);
+        $this->userNamePasswordFileAuthentication->setName('userNamePasswordFileAuthentication');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUserNamePasswordFileAuthentication()
     {
-        return (!$this->userNamePasswordFileAuthentication) ?: $this->userNamePasswordFileAuthentication;
+        return $this->userNamePasswordFileAuthentication->getValue();
     }
 
     /**
@@ -210,32 +240,40 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
      */
     public function setMacInNonRequestURI($macInNonRequestURI = null)
     {
-        $this->macInNonRequestURI = (boolean) $macInNonRequestURI;
+        if (!$macInNonRequestURI) return $this;
+        $this->macInNonRequestURI = new PrimitiveType($macInNonRequestURI);
+        $this->macInNonRequestURI->setName('macInNonRequestURI');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getMacInNonRequestURI()
+    {
+        return $this->macInNonRequestURI->getValue();
     }
 
     /**
      * 
      */
-    public function getMacInNonRequestURI()
-    {
-        return (!$this->macInNonRequestURI) ?: $this->macInNonRequestURI;
-    }
-
-    /**
-     * The access URI that a device uses to access files on BroadWorks.
-     */
     public function setMacFormatInNonRequestURI($macFormatInNonRequestURI = null)
     {
+        if (!$macFormatInNonRequestURI) return $this;
         $this->macFormatInNonRequestURI = ($macFormatInNonRequestURI InstanceOf DeviceManagementAccessURI)
              ? $macFormatInNonRequestURI
              : new DeviceManagementAccessURI($macFormatInNonRequestURI);
+        $this->macFormatInNonRequestURI->setName('macFormatInNonRequestURI');
+        return $this;
     }
 
     /**
-     * The access URI that a device uses to access files on BroadWorks.
+     * 
+     * @return DeviceManagementAccessURI
      */
     public function getMacFormatInNonRequestURI()
     {
-        return (!$this->macFormatInNonRequestURI) ?: $this->macFormatInNonRequestURI->getValue();
+        return $this->macFormatInNonRequestURI->getValue();
     }
 }

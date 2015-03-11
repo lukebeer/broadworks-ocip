@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtensionLength;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupExtensionLengthGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'GroupExtensionLengthGetResponse17';
     protected $minExtensionLength     = null;
     protected $maxExtensionLength     = null;
     protected $defaultExtensionLength = null;
@@ -34,56 +33,68 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
     }
 
     /**
-     * The group's extension length.
+     * 
      */
     public function setMinExtensionLength($minExtensionLength = null)
     {
+        if (!$minExtensionLength) return $this;
         $this->minExtensionLength = ($minExtensionLength InstanceOf ExtensionLength)
              ? $minExtensionLength
              : new ExtensionLength($minExtensionLength);
+        $this->minExtensionLength->setName('minExtensionLength');
+        return $this;
     }
 
     /**
-     * The group's extension length.
+     * 
+     * @return ExtensionLength
      */
     public function getMinExtensionLength()
     {
-        return (!$this->minExtensionLength) ?: $this->minExtensionLength->getValue();
+        return $this->minExtensionLength->getValue();
     }
 
     /**
-     * The group's extension length.
+     * 
      */
     public function setMaxExtensionLength($maxExtensionLength = null)
     {
+        if (!$maxExtensionLength) return $this;
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf ExtensionLength)
              ? $maxExtensionLength
              : new ExtensionLength($maxExtensionLength);
+        $this->maxExtensionLength->setName('maxExtensionLength');
+        return $this;
     }
 
     /**
-     * The group's extension length.
+     * 
+     * @return ExtensionLength
      */
     public function getMaxExtensionLength()
     {
-        return (!$this->maxExtensionLength) ?: $this->maxExtensionLength->getValue();
+        return $this->maxExtensionLength->getValue();
     }
 
     /**
-     * The group's extension length.
+     * 
      */
     public function setDefaultExtensionLength($defaultExtensionLength = null)
     {
+        if (!$defaultExtensionLength) return $this;
         $this->defaultExtensionLength = ($defaultExtensionLength InstanceOf ExtensionLength)
              ? $defaultExtensionLength
              : new ExtensionLength($defaultExtensionLength);
+        $this->defaultExtensionLength->setName('defaultExtensionLength');
+        return $this;
     }
 
     /**
-     * The group's extension length.
+     * 
+     * @return ExtensionLength
      */
     public function getDefaultExtensionLength()
     {
-        return (!$this->defaultExtensionLength) ?: $this->defaultExtensionLength->getValue();
+        return $this->defaultExtensionLength->getValue();
     }
 }

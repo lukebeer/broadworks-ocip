@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowPasscodeTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowPasscodeLength;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\SystemCallMeNowModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'SystemCallMeNowModifyRequest';
     protected $passcodeLength         = null;
     protected $passcodeTimeoutSeconds = null;
 
@@ -35,7 +34,7 @@ class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return SystemCallMeNowModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * Maximum number of characters for Call Me Now passcode.
+     * 
      */
     public function setPasscodeLength($passcodeLength = null)
     {
+        if (!$passcodeLength) return $this;
         $this->passcodeLength = ($passcodeLength InstanceOf CallMeNowPasscodeLength)
              ? $passcodeLength
              : new CallMeNowPasscodeLength($passcodeLength);
+        $this->passcodeLength->setName('passcodeLength');
+        return $this;
     }
 
     /**
-     * Maximum number of characters for Call Me Now passcode.
+     * 
+     * @return CallMeNowPasscodeLength
      */
     public function getPasscodeLength()
     {
-        return (!$this->passcodeLength) ?: $this->passcodeLength->getValue();
+        return $this->passcodeLength->getValue();
     }
 
     /**
-     * Timeout in seconds for call me now passcode validation.
+     * 
      */
     public function setPasscodeTimeoutSeconds($passcodeTimeoutSeconds = null)
     {
+        if (!$passcodeTimeoutSeconds) return $this;
         $this->passcodeTimeoutSeconds = ($passcodeTimeoutSeconds InstanceOf CallMeNowPasscodeTimeoutSeconds)
              ? $passcodeTimeoutSeconds
              : new CallMeNowPasscodeTimeoutSeconds($passcodeTimeoutSeconds);
+        $this->passcodeTimeoutSeconds->setName('passcodeTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * Timeout in seconds for call me now passcode validation.
+     * 
+     * @return CallMeNowPasscodeTimeoutSeconds
      */
     public function getPasscodeTimeoutSeconds()
     {
-        return (!$this->passcodeTimeoutSeconds) ?: $this->passcodeTimeoutSeconds->getValue();
+        return $this->passcodeTimeoutSeconds->getValue();
     }
 }

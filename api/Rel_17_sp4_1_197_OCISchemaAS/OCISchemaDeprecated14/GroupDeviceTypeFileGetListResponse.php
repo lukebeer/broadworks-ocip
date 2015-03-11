@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupDeviceTypeFileGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDeviceTypeFileGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'GroupDeviceTypeFileGetListResponse';
     protected $groupDeviceTypeFilesTable = null;
 
     /**
@@ -39,14 +38,17 @@ class GroupDeviceTypeFileGetListResponse extends ComplexType implements ComplexI
      */
     public function setGroupDeviceTypeFilesTable(core:OCITable $groupDeviceTypeFilesTable = null)
     {
-        $this->groupDeviceTypeFilesTable =  $groupDeviceTypeFilesTable;
+        if (!$groupDeviceTypeFilesTable) return $this;
+        $this->groupDeviceTypeFilesTable->setName('groupDeviceTypeFilesTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getGroupDeviceTypeFilesTable()
     {
-        return (!$this->groupDeviceTypeFilesTable) ?: $this->groupDeviceTypeFilesTable->getValue();
+        return $this->groupDeviceTypeFilesTable->getValue();
     }
 }

@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extended
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedMediaFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterForcedForwardingModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'GroupCallCenterForcedForwardingModifyRequest';
     protected $serviceUserId                    = null;
     protected $isActive                         = null;
     protected $forwardToPhoneNumber             = null;
@@ -42,9 +42,9 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
          $allowEnableViaFAC = null,
          $playAnnouncementBeforeForwarding = null,
          $audioMessageSelection = null,
-          $audioFile = null,
+         ExtendedMediaFileResource $audioFile = null,
          $videoMessageSelection = null,
-          $videoFile = null
+         ExtendedMediaFileResource $videoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setIsActive($isActive);
@@ -58,7 +58,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
     }
 
     /**
-     * @return GroupCallCenterForcedForwardingModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,29 +66,25 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
@@ -96,47 +92,41 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
+        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
+        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getForwardToPhoneNumber()
     {
-        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->getValue();
+        return $this->forwardToPhoneNumber->getValue();
     }
 
     /**
@@ -144,15 +134,19 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setAllowEnableViaFAC($allowEnableViaFAC = null)
     {
-        $this->allowEnableViaFAC = (boolean) $allowEnableViaFAC;
+        if (!$allowEnableViaFAC) return $this;
+        $this->allowEnableViaFAC = new PrimitiveType($allowEnableViaFAC);
+        $this->allowEnableViaFAC->setName('allowEnableViaFAC');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowEnableViaFAC()
     {
-        return (!$this->allowEnableViaFAC) ?: $this->allowEnableViaFAC;
+        return $this->allowEnableViaFAC->getValue();
     }
 
     /**
@@ -160,86 +154,102 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setPlayAnnouncementBeforeForwarding($playAnnouncementBeforeForwarding = null)
     {
-        $this->playAnnouncementBeforeForwarding = (boolean) $playAnnouncementBeforeForwarding;
+        if (!$playAnnouncementBeforeForwarding) return $this;
+        $this->playAnnouncementBeforeForwarding = new PrimitiveType($playAnnouncementBeforeForwarding);
+        $this->playAnnouncementBeforeForwarding->setName('playAnnouncementBeforeForwarding');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPlayAnnouncementBeforeForwarding()
+    {
+        return $this->playAnnouncementBeforeForwarding->getValue();
     }
 
     /**
      * 
      */
-    public function getPlayAnnouncementBeforeForwarding()
-    {
-        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding;
-    }
-
-    /**
-     * Choices for extended file resource usage.
-     */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
+        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
+        $this->audioMessageSelection->setName('audioMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getAudioMessageSelection()
     {
-        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->getValue();
+        return $this->audioMessageSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        $this->audioFile =  $audioFile;
+        if (!$audioFile) return $this;
+        $this->audioFile = $audioFile;
+        $this->audioFile->setName('audioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedMediaFileResource
      */
     public function getAudioFile()
     {
-        return (!$this->audioFile) ?: $this->audioFile->getValue();
+        return $this->audioFile;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
+        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
+        $this->videoMessageSelection->setName('videoMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getVideoMessageSelection()
     {
-        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->getValue();
+        return $this->videoMessageSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        $this->videoFile =  $videoFile;
+        if (!$videoFile) return $this;
+        $this->videoFile = $videoFile;
+        $this->videoFile->setName('videoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *           the contents of a file to transfer and an URL.
+     * 
+     * @return ExtendedMediaFileResource
      */
     public function getVideoFile()
     {
-        return (!$this->videoFile) ?: $this->videoFile->getValue();
+        return $this->videoFile;
     }
 }

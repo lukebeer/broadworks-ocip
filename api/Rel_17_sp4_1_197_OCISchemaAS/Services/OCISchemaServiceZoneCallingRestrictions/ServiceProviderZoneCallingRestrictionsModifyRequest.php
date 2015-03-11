@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceZoneCallingRestrictions; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceZoneCallingRestrictions; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceZoneCallingRestrictions\ServiceProviderZoneCallingRestrictionsModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                          = __CLASS__;
+    public    $name                                          = 'ServiceProviderZoneCallingRestrictionsModifyRequest';
     protected $serviceProviderId                             = null;
     protected $enableZoneCallingRestrictions                 = null;
     protected $enableOriginationRoamingRestrictions          = null;
@@ -43,7 +43,7 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
     }
 
     /**
-     * @return ServiceProviderZoneCallingRestrictionsModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,23 +51,25 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
@@ -75,15 +77,19 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function setEnableZoneCallingRestrictions($enableZoneCallingRestrictions = null)
     {
-        $this->enableZoneCallingRestrictions = (boolean) $enableZoneCallingRestrictions;
+        if (!$enableZoneCallingRestrictions) return $this;
+        $this->enableZoneCallingRestrictions = new PrimitiveType($enableZoneCallingRestrictions);
+        $this->enableZoneCallingRestrictions->setName('enableZoneCallingRestrictions');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableZoneCallingRestrictions()
     {
-        return (!$this->enableZoneCallingRestrictions) ?: $this->enableZoneCallingRestrictions;
+        return $this->enableZoneCallingRestrictions->getValue();
     }
 
     /**
@@ -91,15 +97,19 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function setEnableOriginationRoamingRestrictions($enableOriginationRoamingRestrictions = null)
     {
-        $this->enableOriginationRoamingRestrictions = (boolean) $enableOriginationRoamingRestrictions;
+        if (!$enableOriginationRoamingRestrictions) return $this;
+        $this->enableOriginationRoamingRestrictions = new PrimitiveType($enableOriginationRoamingRestrictions);
+        $this->enableOriginationRoamingRestrictions->setName('enableOriginationRoamingRestrictions');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableOriginationRoamingRestrictions()
     {
-        return (!$this->enableOriginationRoamingRestrictions) ?: $this->enableOriginationRoamingRestrictions;
+        return $this->enableOriginationRoamingRestrictions->getValue();
     }
 
     /**
@@ -107,15 +117,19 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function setEnableEmergencyOriginationRoamingRestrictions($enableEmergencyOriginationRoamingRestrictions = null)
     {
-        $this->enableEmergencyOriginationRoamingRestrictions = (boolean) $enableEmergencyOriginationRoamingRestrictions;
+        if (!$enableEmergencyOriginationRoamingRestrictions) return $this;
+        $this->enableEmergencyOriginationRoamingRestrictions = new PrimitiveType($enableEmergencyOriginationRoamingRestrictions);
+        $this->enableEmergencyOriginationRoamingRestrictions->setName('enableEmergencyOriginationRoamingRestrictions');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableEmergencyOriginationRoamingRestrictions()
     {
-        return (!$this->enableEmergencyOriginationRoamingRestrictions) ?: $this->enableEmergencyOriginationRoamingRestrictions;
+        return $this->enableEmergencyOriginationRoamingRestrictions->getValue();
     }
 
     /**
@@ -123,14 +137,18 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function setEnableTerminationRoamingRestrictions($enableTerminationRoamingRestrictions = null)
     {
-        $this->enableTerminationRoamingRestrictions = (boolean) $enableTerminationRoamingRestrictions;
+        if (!$enableTerminationRoamingRestrictions) return $this;
+        $this->enableTerminationRoamingRestrictions = new PrimitiveType($enableTerminationRoamingRestrictions);
+        $this->enableTerminationRoamingRestrictions->setName('enableTerminationRoamingRestrictions');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableTerminationRoamingRestrictions()
     {
-        return (!$this->enableTerminationRoamingRestrictions) ?: $this->enableTerminationRoamingRestrictions;
+        return $this->enableTerminationRoamingRestrictions->getValue();
     }
 }

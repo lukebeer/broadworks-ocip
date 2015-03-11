@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UnboundedNonNegativeInt extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt';
-    public    $name = __CLASS__;
+    public    $name = 'UnboundedNonNegativeInt';
 
     public function __construct(    ) {
     }

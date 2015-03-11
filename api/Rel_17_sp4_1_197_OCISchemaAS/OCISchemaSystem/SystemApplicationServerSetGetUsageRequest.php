@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemApplicationServerSetGetUsageRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetGetUsageResponse';
-    public    $name = __CLASS__;
+    public    $name = 'SystemApplicationServerSetGetUsageRequest';
     protected $name = null;
 
     public function __construct(
@@ -40,20 +40,24 @@ class SystemApplicationServerSetGetUsageRequest extends ComplexType implements C
     }
 
     /**
-     * Application Server set name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf ApplicationServerSetName)
              ? $name
              : new ApplicationServerSetName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Application Server set name.
+     * 
+     * @return ApplicationServerSetName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 }

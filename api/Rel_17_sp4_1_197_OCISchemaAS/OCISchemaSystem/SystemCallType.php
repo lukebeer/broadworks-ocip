@@ -16,12 +16,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SystemCallType extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "SystemCallType";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "string";
+        $this->dataType = "";
         $this->addRestriction(new Enumeration([
             'Emergency',
             'Repair'

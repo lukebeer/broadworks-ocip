@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationNoValue';
-    public    $name      = __CLASS__;
+    public    $name      = 'EnterpriseVoiceVPNDigitManipulationNoValue';
     protected $operation = null;
 
     public function __construct(
@@ -39,20 +39,24 @@ class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements 
     }
 
     /**
-     * Enterprise Voice VPN Digit Manipulation Operations that have no value.
+     * 
      */
     public function setOperation($operation = null)
     {
+        if (!$operation) return $this;
         $this->operation = ($operation InstanceOf EnterpriseVoiceVPNDigitManipulationOperationNoValue)
              ? $operation
              : new EnterpriseVoiceVPNDigitManipulationOperationNoValue($operation);
+        $this->operation->setName('operation');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Digit Manipulation Operations that have no value.
+     * 
+     * @return EnterpriseVoiceVPNDigitManipulationOperationNoValue
      */
     public function getOperation()
     {
-        return (!$this->operation) ?: $this->operation->getValue();
+        return $this->operation->getValue();
     }
 }

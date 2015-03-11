@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterAgentUnavailableCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterAgentUnavailableCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'EnterpriseCallCenterAgentUnavailableCodeGetListResponse';
     protected $unavailableCodesTable = null;
 
     /**
@@ -37,14 +36,17 @@ class EnterpriseCallCenterAgentUnavailableCodeGetListResponse extends ComplexTyp
      */
     public function setUnavailableCodesTable(core:OCITable $unavailableCodesTable = null)
     {
-        $this->unavailableCodesTable =  $unavailableCodesTable;
+        if (!$unavailableCodesTable) return $this;
+        $this->unavailableCodesTable->setName('unavailableCodesTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getUnavailableCodesTable()
     {
-        return (!$this->unavailableCodesTable) ?: $this->unavailableCodesTable->getValue();
+        return $this->unavailableCodesTable->getValue();
     }
 }

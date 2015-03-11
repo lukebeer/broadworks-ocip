@@ -11,6 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaEnterpriseCommonPhoneListName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -32,7 +33,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListGetListResponse';
-    public    $name                                          = __CLASS__;
+    public    $name                                          = 'EnterpriseCommonPhoneListGetListRequest';
     protected $serviceProviderId                             = null;
     protected $responseSizeLimit                             = null;
     protected $searchCriteriaModeOr                          = null;
@@ -43,8 +44,8 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
          $serviceProviderId,
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-          $searchCriteriaEnterpriseCommonPhoneListName = null,
-          $searchCriteriaEnterpriseCommonPhoneListNumber = null
+         SearchCriteriaEnterpriseCommonPhoneListName $searchCriteriaEnterpriseCommonPhoneListName = null,
+         SearchCriteriaEnterpriseCommonPhoneListNumber $searchCriteriaEnterpriseCommonPhoneListNumber = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -62,45 +63,47 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
@@ -108,46 +111,62 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
-        $this->searchCriteriaModeOr = (boolean) $searchCriteriaModeOr;
+        if (!$searchCriteriaModeOr) return $this;
+        $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
+        $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSearchCriteriaModeOr()
+    {
+        return $this->searchCriteriaModeOr->getValue();
     }
 
     /**
      * 
      */
-    public function getSearchCriteriaModeOr()
-    {
-        return (!$this->searchCriteriaModeOr) ?: $this->searchCriteriaModeOr;
-    }
-
-    /**
-     * Criteria for searching for a name in an enterprise common phone list.
-     */
     public function setSearchCriteriaEnterpriseCommonPhoneListName(SearchCriteriaEnterpriseCommonPhoneListName $searchCriteriaEnterpriseCommonPhoneListName = null)
     {
-        $this->searchCriteriaEnterpriseCommonPhoneListName =  $searchCriteriaEnterpriseCommonPhoneListName;
+        if (!$searchCriteriaEnterpriseCommonPhoneListName) return $this;
+        $this->searchCriteriaEnterpriseCommonPhoneListName = ($searchCriteriaEnterpriseCommonPhoneListName InstanceOf SearchCriteriaEnterpriseCommonPhoneListName)
+             ? $searchCriteriaEnterpriseCommonPhoneListName
+             : new SearchCriteriaEnterpriseCommonPhoneListName($searchCriteriaEnterpriseCommonPhoneListName);
+        $this->searchCriteriaEnterpriseCommonPhoneListName->setName('searchCriteriaEnterpriseCommonPhoneListName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a name in an enterprise common phone list.
+     * 
+     * @return SearchCriteriaEnterpriseCommonPhoneListName
      */
     public function getSearchCriteriaEnterpriseCommonPhoneListName()
     {
-        return (!$this->searchCriteriaEnterpriseCommonPhoneListName) ?: $this->searchCriteriaEnterpriseCommonPhoneListName->getValue();
+        return $this->searchCriteriaEnterpriseCommonPhoneListName;
     }
 
     /**
-     * Criteria for searching for a phone number in an enterprise common phone list.
+     * 
      */
     public function setSearchCriteriaEnterpriseCommonPhoneListNumber(SearchCriteriaEnterpriseCommonPhoneListNumber $searchCriteriaEnterpriseCommonPhoneListNumber = null)
     {
-        $this->searchCriteriaEnterpriseCommonPhoneListNumber =  $searchCriteriaEnterpriseCommonPhoneListNumber;
+        if (!$searchCriteriaEnterpriseCommonPhoneListNumber) return $this;
+        $this->searchCriteriaEnterpriseCommonPhoneListNumber = ($searchCriteriaEnterpriseCommonPhoneListNumber InstanceOf SearchCriteriaEnterpriseCommonPhoneListNumber)
+             ? $searchCriteriaEnterpriseCommonPhoneListNumber
+             : new SearchCriteriaEnterpriseCommonPhoneListNumber($searchCriteriaEnterpriseCommonPhoneListNumber);
+        $this->searchCriteriaEnterpriseCommonPhoneListNumber->setName('searchCriteriaEnterpriseCommonPhoneListNumber');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a phone number in an enterprise common phone list.
+     * 
+     * @return SearchCriteriaEnterpriseCommonPhoneListNumber
      */
     public function getSearchCriteriaEnterpriseCommonPhoneListNumber()
     {
-        return (!$this->searchCriteriaEnterpriseCommonPhoneListNumber) ?: $this->searchCriteriaEnterpriseCommonPhoneListNumber->getValue();
+        return $this->searchCriteriaEnterpriseCommonPhoneListNumber;
     }
 }

@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\ServiceProviderVoicePortalScope;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\ServiceProviderVoiceMessagingGroupModifyVoicePortalResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest';
     protected $serviceProviderId = null;
     protected $voicePortalScope  = null;
 
@@ -35,7 +34,7 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
     }
 
     /**
-     * @return ServiceProviderVoiceMessagingGroupModifyVoicePortalResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,50 +42,46 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Voice Portal Scope.
-     *         The Service Provider option allows users to log in to their voice portal using the voice portal
-     *         of any group that is both hosted on the same application server and within the same service provider
-     *         or enterprise.
-     *         The Group option keeps groups completely independent. Users can only log in to their voice portal
-     *         using the access number for their group.
+     * 
      */
     public function setVoicePortalScope($voicePortalScope = null)
     {
+        if (!$voicePortalScope) return $this;
         $this->voicePortalScope = ($voicePortalScope InstanceOf ServiceProviderVoicePortalScope)
              ? $voicePortalScope
              : new ServiceProviderVoicePortalScope($voicePortalScope);
+        $this->voicePortalScope->setName('voicePortalScope');
+        return $this;
     }
 
     /**
-     * Voice Portal Scope.
-     *         The Service Provider option allows users to log in to their voice portal using the voice portal
-     *         of any group that is both hosted on the same application server and within the same service provider
-     *         or enterprise.
-     *         The Group option keeps groups completely independent. Users can only log in to their voice portal
-     *         using the access number for their group.
+     * 
+     * @return ServiceProviderVoicePortalScope
      */
     public function getVoicePortalScope()
     {
-        return (!$this->voicePortalScope) ?: $this->voicePortalScope->getValue();
+        return $this->voicePortalScope->getValue();
     }
 }

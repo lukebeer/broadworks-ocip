@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingHost; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingHost; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingHost\HotelingHostAccessLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HotelingAssociationLimitHours;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingHost\UserHotelingHostModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'UserHotelingHostModifyRequest';
     protected $userId                  = null;
     protected $isActive                = null;
     protected $enforceAssociationLimit = null;
@@ -48,7 +48,7 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return UserHotelingHostModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,29 +56,25 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
@@ -86,15 +82,19 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -102,51 +102,63 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setEnforceAssociationLimit($enforceAssociationLimit = null)
     {
-        $this->enforceAssociationLimit = (boolean) $enforceAssociationLimit;
+        if (!$enforceAssociationLimit) return $this;
+        $this->enforceAssociationLimit = new PrimitiveType($enforceAssociationLimit);
+        $this->enforceAssociationLimit->setName('enforceAssociationLimit');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnforceAssociationLimit()
+    {
+        return $this->enforceAssociationLimit->getValue();
     }
 
     /**
      * 
      */
-    public function getEnforceAssociationLimit()
-    {
-        return (!$this->enforceAssociationLimit) ?: $this->enforceAssociationLimit;
-    }
-
-    /**
-     * Maximum time limit for hoteling guests association to hoteling hosts
-     */
     public function setAssociationLimitHours($associationLimitHours = null)
     {
+        if (!$associationLimitHours) return $this;
         $this->associationLimitHours = ($associationLimitHours InstanceOf HotelingAssociationLimitHours)
              ? $associationLimitHours
              : new HotelingAssociationLimitHours($associationLimitHours);
+        $this->associationLimitHours->setName('associationLimitHours');
+        return $this;
     }
 
     /**
-     * Maximum time limit for hoteling guests association to hoteling hosts
+     * 
+     * @return HotelingAssociationLimitHours
      */
     public function getAssociationLimitHours()
     {
-        return (!$this->associationLimitHours) ?: $this->associationLimitHours->getValue();
+        return $this->associationLimitHours->getValue();
     }
 
     /**
-     * Access level of the Hoteling Host Service
+     * 
      */
     public function setAccessLevel($accessLevel = null)
     {
+        if (!$accessLevel) return $this;
         $this->accessLevel = ($accessLevel InstanceOf HotelingHostAccessLevel)
              ? $accessLevel
              : new HotelingHostAccessLevel($accessLevel);
+        $this->accessLevel->setName('accessLevel');
+        return $this;
     }
 
     /**
-     * Access level of the Hoteling Host Service
+     * 
+     * @return HotelingHostAccessLevel
      */
     public function getAccessLevel()
     {
-        return (!$this->accessLevel) ?: $this->accessLevel->getValue();
+        return $this->accessLevel->getValue();
     }
 
     /**
@@ -154,14 +166,18 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setRemoveGuestAssociation($removeGuestAssociation = null)
     {
-        $this->removeGuestAssociation = (boolean) $removeGuestAssociation;
+        if (!$removeGuestAssociation) return $this;
+        $this->removeGuestAssociation = new PrimitiveType($removeGuestAssociation);
+        $this->removeGuestAssociation->setName('removeGuestAssociation');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRemoveGuestAssociation()
     {
-        return (!$this->removeGuestAssociation) ?: $this->removeGuestAssociation;
+        return $this->removeGuestAssociation->getValue();
     }
 }

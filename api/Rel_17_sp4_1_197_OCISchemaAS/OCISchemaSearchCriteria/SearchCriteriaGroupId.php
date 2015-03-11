@@ -9,6 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriter
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaGroupId extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId';
-    public    $name              = __CLASS__;
+    public    $name              = 'SearchCriteriaGroupId';
     protected $mode              = null;
     protected $value             = null;
     protected $isCaseInsensitive = null;
@@ -46,41 +47,47 @@ class SearchCriteriaGroupId extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Search mode when searching for string data.
+     * 
      */
     public function setMode($mode = null)
     {
+        if (!$mode) return $this;
         $this->mode = ($mode InstanceOf SearchMode)
              ? $mode
              : new SearchMode($mode);
+        $this->mode->setName('mode');
+        return $this;
     }
 
     /**
-     * Search mode when searching for string data.
+     * 
+     * @return SearchMode
      */
     public function getMode()
     {
-        return (!$this->mode) ?: $this->mode->getValue();
+        return $this->mode->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setValue($value = null)
     {
+        if (!$value) return $this;
         $this->value = ($value InstanceOf GroupId)
              ? $value
              : new GroupId($value);
+        $this->value->setName('value');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->getValue();
+        return $this->value->getValue();
     }
 
     /**
@@ -88,14 +95,18 @@ class SearchCriteriaGroupId extends ComplexType implements ComplexInterface
      */
     public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
-        $this->isCaseInsensitive = (boolean) $isCaseInsensitive;
+        if (!$isCaseInsensitive) return $this;
+        $this->isCaseInsensitive = new PrimitiveType($isCaseInsensitive);
+        $this->isCaseInsensitive->setName('isCaseInsensitive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsCaseInsensitive()
     {
-        return (!$this->isCaseInsensitive) ?: $this->isCaseInsensitive;
+        return $this->isCaseInsensitive->getValue();
     }
 }

@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'GroupDepartmentAdminAddRequest';
     protected $departmentKey = null;
     protected $userId        = null;
     protected $firstName     = null;
@@ -35,7 +34,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
     protected $language      = null;
 
     public function __construct(
-          $departmentKey,
+         GroupDepartmentKey $departmentKey,
          $userId,
          $firstName = null,
          $lastName = null,
@@ -51,7 +50,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return GroupDepartmentAdminAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,85 +58,89 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * Uniquely identifies a department defined within a group.
-     *         To uniquely identify a group department, we must know the department name and which
-     *         group contains the department.
+     * 
      */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
-        $this->departmentKey =  $departmentKey;
+        if (!$departmentKey) return $this;
+        $this->departmentKey = $departmentKey;
+        $this->departmentKey->setName('departmentKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department defined within a group.
-     *         To uniquely identify a group department, we must know the department name and which
-     *         group contains the department.
+     * 
+     * @return GroupDepartmentKey
      */
     public function getDepartmentKey()
     {
-        return (!$this->departmentKey) ?: $this->departmentKey->getValue();
+        return $this->departmentKey;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
      */
     public function setFirstName($firstName = null)
     {
+        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
+        $this->firstName->setName('firstName');
+        return $this;
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
+     * @return FirstName
      */
     public function getFirstName()
     {
-        return (!$this->firstName) ?: $this->firstName->getValue();
+        return $this->firstName->getValue();
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
      */
     public function setLastName($lastName = null)
     {
+        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
+        $this->lastName->setName('lastName');
+        return $this;
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
+     * @return LastName
      */
     public function getLastName()
     {
-        return (!$this->lastName) ?: $this->lastName->getValue();
+        return $this->lastName->getValue();
     }
 
     /**
@@ -145,34 +148,42 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function setPassword($password = null)
     {
+        if (!$password) return $this;
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
+        $this->password->setName('password');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return Password
+     */
+    public function getPassword()
+    {
+        return $this->password->getValue();
     }
 
     /**
      * 
      */
-    public function getPassword()
-    {
-        return (!$this->password) ?: $this->password->getValue();
-    }
-
-    /**
-     * Language identifies the language of a user or an administrator.
-     */
     public function setLanguage($language = null)
     {
+        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
+        $this->language->setName('language');
+        return $this;
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
+     * @return Language
      */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->getValue();
+        return $this->language->getValue();
     }
 }

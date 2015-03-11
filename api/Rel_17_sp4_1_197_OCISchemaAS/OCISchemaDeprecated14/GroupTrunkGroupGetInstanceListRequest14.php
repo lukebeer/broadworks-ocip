@@ -9,6 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -24,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupTrunkGroupGetInstanceListRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceListResponse14';
-    public    $name                      = __CLASS__;
+    public    $name                      = 'GroupTrunkGroupGetInstanceListRequest14';
     protected $serviceProviderId         = null;
     protected $groupId                   = null;
     protected $onlyTrunkGroupsWithDevice = null;
@@ -48,43 +49,47 @@ class GroupTrunkGroupGetInstanceListRequest14 extends ComplexType implements Com
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
@@ -92,14 +97,18 @@ class GroupTrunkGroupGetInstanceListRequest14 extends ComplexType implements Com
      */
     public function setOnlyTrunkGroupsWithDevice($onlyTrunkGroupsWithDevice = null)
     {
-        $this->onlyTrunkGroupsWithDevice = (boolean) $onlyTrunkGroupsWithDevice;
+        if (!$onlyTrunkGroupsWithDevice) return $this;
+        $this->onlyTrunkGroupsWithDevice = new PrimitiveType($onlyTrunkGroupsWithDevice);
+        $this->onlyTrunkGroupsWithDevice->setName('onlyTrunkGroupsWithDevice');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getOnlyTrunkGroupsWithDevice()
     {
-        return (!$this->onlyTrunkGroupsWithDevice) ?: $this->onlyTrunkGroupsWithDevice;
+        return $this->onlyTrunkGroupsWithDevice->getValue();
     }
 }

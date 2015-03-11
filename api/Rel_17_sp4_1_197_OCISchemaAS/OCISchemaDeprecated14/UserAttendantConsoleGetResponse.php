@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\AttendantConsoleDisplayColumn;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserAttendantConsoleGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'UserAttendantConsoleGetResponse';
     protected $launchOnLogin              = null;
     protected $allowUserConfigCallDetails = null;
     protected $allowUserViewCallDetails   = null;
@@ -39,15 +39,19 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
      */
     public function setLaunchOnLogin($launchOnLogin = null)
     {
-        $this->launchOnLogin = (boolean) $launchOnLogin;
+        if (!$launchOnLogin) return $this;
+        $this->launchOnLogin = new PrimitiveType($launchOnLogin);
+        $this->launchOnLogin->setName('launchOnLogin');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getLaunchOnLogin()
     {
-        return (!$this->launchOnLogin) ?: $this->launchOnLogin;
+        return $this->launchOnLogin->getValue();
     }
 
     /**
@@ -55,15 +59,19 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
      */
     public function setAllowUserConfigCallDetails($allowUserConfigCallDetails = null)
     {
-        $this->allowUserConfigCallDetails = (boolean) $allowUserConfigCallDetails;
+        if (!$allowUserConfigCallDetails) return $this;
+        $this->allowUserConfigCallDetails = new PrimitiveType($allowUserConfigCallDetails);
+        $this->allowUserConfigCallDetails->setName('allowUserConfigCallDetails');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowUserConfigCallDetails()
     {
-        return (!$this->allowUserConfigCallDetails) ?: $this->allowUserConfigCallDetails;
+        return $this->allowUserConfigCallDetails->getValue();
     }
 
     /**
@@ -71,32 +79,40 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
      */
     public function setAllowUserViewCallDetails($allowUserViewCallDetails = null)
     {
-        $this->allowUserViewCallDetails = (boolean) $allowUserViewCallDetails;
+        if (!$allowUserViewCallDetails) return $this;
+        $this->allowUserViewCallDetails = new PrimitiveType($allowUserViewCallDetails);
+        $this->allowUserViewCallDetails->setName('allowUserViewCallDetails');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowUserViewCallDetails()
+    {
+        return $this->allowUserViewCallDetails->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowUserViewCallDetails()
-    {
-        return (!$this->allowUserViewCallDetails) ?: $this->allowUserViewCallDetails;
-    }
-
-    /**
-     * Attendant Console Display Columns.
-     */
     public function setDisplayColumn($displayColumn = null)
     {
+        if (!$displayColumn) return $this;
         $this->displayColumn = ($displayColumn InstanceOf AttendantConsoleDisplayColumn)
              ? $displayColumn
              : new AttendantConsoleDisplayColumn($displayColumn);
+        $this->displayColumn->setName('displayColumn');
+        return $this;
     }
 
     /**
-     * Attendant Console Display Columns.
+     * 
+     * @return AttendantConsoleDisplayColumn
      */
     public function getDisplayColumn()
     {
-        return (!$this->displayColumn) ?: $this->displayColumn->getValue();
+        return $this->displayColumn->getValue();
     }
 }

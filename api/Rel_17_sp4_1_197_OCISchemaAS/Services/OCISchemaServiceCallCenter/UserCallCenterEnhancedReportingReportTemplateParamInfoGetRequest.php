@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse';
-    public    $name           = __CLASS__;
+    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse';
+    public    $name           = 'UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest';
     protected $reportTemplate = null;
 
     public function __construct(
-          $reportTemplate
+         CallCenterReportTemplateKey $reportTemplate
     ) {
         $this->setReportTemplate($reportTemplate);
     }
@@ -40,18 +40,22 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest extends C
     }
 
     /**
-     * Uniquely identifies a call center report template created in the system.
+     * 
      */
     public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
-        $this->reportTemplate =  $reportTemplate;
+        if (!$reportTemplate) return $this;
+        $this->reportTemplate = $reportTemplate;
+        $this->reportTemplate->setName('reportTemplate');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a call center report template created in the system.
+     * 
+     * @return CallCenterReportTemplateKey
      */
     public function getReportTemplate()
     {
-        return (!$this->reportTemplate) ?: $this->reportTemplate->getValue();
+        return $this->reportTemplate;
     }
 }

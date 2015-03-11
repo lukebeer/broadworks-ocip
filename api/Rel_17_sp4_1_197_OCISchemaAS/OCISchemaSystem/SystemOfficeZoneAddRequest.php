@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OfficeZoneDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'SystemOfficeZoneAddRequest';
     protected $officeZoneName  = null;
     protected $description     = null;
     protected $zoneName        = null;
@@ -42,7 +41,7 @@ class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return SystemOfficeZoneAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,74 +49,90 @@ class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Office Zone name.
+     * 
      */
     public function setOfficeZoneName($officeZoneName = null)
     {
+        if (!$officeZoneName) return $this;
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
              ? $officeZoneName
              : new OfficeZoneName($officeZoneName);
+        $this->officeZoneName->setName('officeZoneName');
+        return $this;
     }
 
     /**
-     * Office Zone name.
+     * 
+     * @return OfficeZoneName
      */
     public function getOfficeZoneName()
     {
-        return (!$this->officeZoneName) ?: $this->officeZoneName->getValue();
+        return $this->officeZoneName->getValue();
     }
 
     /**
-     * Office Zone description.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf OfficeZoneDescription)
              ? $description
              : new OfficeZoneDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Office Zone description.
+     * 
+     * @return OfficeZoneDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 
     /**
-     * Zone Name.
+     * 
      */
     public function setZoneName($zoneName = null)
     {
+        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
+        $this->zoneName->setName('zoneName');
+        return $this;
     }
 
     /**
-     * Zone Name.
+     * 
+     * @return ZoneName
      */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->getValue();
+        return $this->zoneName->getValue();
     }
 
     /**
-     * Zone Name.
+     * 
      */
     public function setPrimaryZoneName($primaryZoneName = null)
     {
+        if (!$primaryZoneName) return $this;
         $this->primaryZoneName = ($primaryZoneName InstanceOf ZoneName)
              ? $primaryZoneName
              : new ZoneName($primaryZoneName);
+        $this->primaryZoneName->setName('primaryZoneName');
+        return $this;
     }
 
     /**
-     * Zone Name.
+     * 
+     * @return ZoneName
      */
     public function getPrimaryZoneName()
     {
-        return (!$this->primaryZoneName) ?: $this->primaryZoneName->getValue();
+        return $this->primaryZoneName->getValue();
     }
 }

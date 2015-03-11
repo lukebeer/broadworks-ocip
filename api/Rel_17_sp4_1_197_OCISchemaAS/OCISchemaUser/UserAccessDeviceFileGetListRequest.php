@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserAccessDeviceFileGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceFileGetListResponse';
-    public    $name         = __CLASS__;
+    public    $name         = 'UserAccessDeviceFileGetListRequest';
     protected $userId       = null;
     protected $accessDevice = null;
 
     public function __construct(
          $userId,
-          $accessDevice
+         AccessDevice $accessDevice
     ) {
         $this->setUserId($userId);
         $this->setAccessDevice($accessDevice);
@@ -44,44 +44,44 @@ class UserAccessDeviceFileGetListRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     * 
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $this->accessDevice =  $accessDevice;
+        if (!$accessDevice) return $this;
+        $this->accessDevice = $accessDevice;
+        $this->accessDevice->setName('accessDevice');
+        return $this;
     }
 
     /**
-     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     * 
+     * @return AccessDevice
      */
     public function getAccessDevice()
     {
-        return (!$this->accessDevice) ?: $this->accessDevice->getValue();
+        return $this->accessDevice;
     }
 }

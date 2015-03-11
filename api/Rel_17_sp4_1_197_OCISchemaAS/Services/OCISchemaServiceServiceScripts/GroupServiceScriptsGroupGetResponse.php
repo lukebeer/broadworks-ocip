@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts\ServiceScriptsName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceServiceScripts\GroupServiceScriptsGroupGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceScriptsGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'GroupServiceScriptsGroupGetResponse';
     protected $isActive      = null;
     protected $scriptName    = null;
     protected $scriptContent = null;
@@ -38,33 +38,41 @@ class GroupServiceScriptsGroupGetResponse extends ComplexType implements Complex
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Service Script name.
-     */
     public function setScriptName($scriptName = null)
     {
+        if (!$scriptName) return $this;
         $this->scriptName = ($scriptName InstanceOf ServiceScriptsName)
              ? $scriptName
              : new ServiceScriptsName($scriptName);
+        $this->scriptName->setName('scriptName');
+        return $this;
     }
 
     /**
-     * Service Script name.
+     * 
+     * @return ServiceScriptsName
      */
     public function getScriptName()
     {
-        return (!$this->scriptName) ?: $this->scriptName->getValue();
+        return $this->scriptName->getValue();
     }
 
     /**
@@ -72,14 +80,17 @@ class GroupServiceScriptsGroupGetResponse extends ComplexType implements Complex
      */
     public function setScriptContent(xs:base64Binary $scriptContent = null)
     {
-        $this->scriptContent =  $scriptContent;
+        if (!$scriptContent) return $this;
+        $this->scriptContent->setName('scriptContent');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:base64Binary
      */
     public function getScriptContent()
     {
-        return (!$this->scriptContent) ?: $this->scriptContent->getValue();
+        return $this->scriptContent->getValue();
     }
 }

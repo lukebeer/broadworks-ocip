@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\CallingPartyCategoryName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingPartyCategory\UserCallingPartyCategoryGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallingPartyCategoryGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'UserCallingPartyCategoryGetResponse16';
     protected $category = null;
 
     /**
@@ -32,20 +31,24 @@ class UserCallingPartyCategoryGetResponse16 extends ComplexType implements Compl
     }
 
     /**
-     * Name for the Calling Party Category.
+     * 
      */
     public function setCategory($category = null)
     {
+        if (!$category) return $this;
         $this->category = ($category InstanceOf CallingPartyCategoryName)
              ? $category
              : new CallingPartyCategoryName($category);
+        $this->category->setName('category');
+        return $this;
     }
 
     /**
-     * Name for the Calling Party Category.
+     * 
+     * @return CallingPartyCategoryName
      */
     public function getCategory()
     {
-        return (!$this->category) ?: $this->category->getValue();
+        return $this->category->getValue();
     }
 }

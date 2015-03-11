@@ -5,14 +5,14 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementMediaFileTypeList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementDescriptionList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterForcedForwardingGetResponse17;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'GroupCallCenterForcedForwardingGetResponse17';
     protected $isActive                         = null;
     protected $forwardToPhoneNumber             = null;
     protected $allowEnableViaFAC                = null;
@@ -51,47 +51,41 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
+        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
+        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getForwardToPhoneNumber()
     {
-        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->getValue();
+        return $this->forwardToPhoneNumber->getValue();
     }
 
     /**
@@ -99,15 +93,19 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function setAllowEnableViaFAC($allowEnableViaFAC = null)
     {
-        $this->allowEnableViaFAC = (boolean) $allowEnableViaFAC;
+        if (!$allowEnableViaFAC) return $this;
+        $this->allowEnableViaFAC = new PrimitiveType($allowEnableViaFAC);
+        $this->allowEnableViaFAC->setName('allowEnableViaFAC');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowEnableViaFAC()
     {
-        return (!$this->allowEnableViaFAC) ?: $this->allowEnableViaFAC;
+        return $this->allowEnableViaFAC->getValue();
     }
 
     /**
@@ -115,146 +113,182 @@ class GroupCallCenterForcedForwardingGetResponse17 extends ComplexType implement
      */
     public function setPlayAnnouncementBeforeForwarding($playAnnouncementBeforeForwarding = null)
     {
-        $this->playAnnouncementBeforeForwarding = (boolean) $playAnnouncementBeforeForwarding;
+        if (!$playAnnouncementBeforeForwarding) return $this;
+        $this->playAnnouncementBeforeForwarding = new PrimitiveType($playAnnouncementBeforeForwarding);
+        $this->playAnnouncementBeforeForwarding->setName('playAnnouncementBeforeForwarding');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPlayAnnouncementBeforeForwarding()
+    {
+        return $this->playAnnouncementBeforeForwarding->getValue();
     }
 
     /**
      * 
      */
-    public function getPlayAnnouncementBeforeForwarding()
-    {
-        return (!$this->playAnnouncementBeforeForwarding) ?: $this->playAnnouncementBeforeForwarding;
-    }
-
-    /**
-     * Choices for extended file resource usage.
-     */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
+        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
+        $this->audioMessageSelection->setName('audioMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getAudioMessageSelection()
     {
-        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->getValue();
+        return $this->audioMessageSelection->getValue();
     }
 
     /**
-     * Contains list of urls
+     * 
      */
     public function setAudioUrlList(CallCenterAnnouncementURLList $audioUrlList = null)
     {
-        $this->audioUrlList =  $audioUrlList;
+        if (!$audioUrlList) return $this;
+        $this->audioUrlList = $audioUrlList;
+        $this->audioUrlList->setName('audioUrlList');
+        return $this;
     }
 
     /**
-     * Contains list of urls
+     * 
+     * @return CallCenterAnnouncementURLList
      */
     public function getAudioUrlList()
     {
-        return (!$this->audioUrlList) ?: $this->audioUrlList->getValue();
+        return $this->audioUrlList;
     }
 
     /**
-     * Contains list of file descriptions for audio or video files
+     * 
      */
     public function setAudioFileList(CallCenterAnnouncementDescriptionList $audioFileList = null)
     {
-        $this->audioFileList =  $audioFileList;
+        if (!$audioFileList) return $this;
+        $this->audioFileList = $audioFileList;
+        $this->audioFileList->setName('audioFileList');
+        return $this;
     }
 
     /**
-     * Contains list of file descriptions for audio or video files
+     * 
+     * @return CallCenterAnnouncementDescriptionList
      */
     public function getAudioFileList()
     {
-        return (!$this->audioFileList) ?: $this->audioFileList->getValue();
+        return $this->audioFileList;
     }
 
     /**
-     * Contains list of file media types for audio or video files
+     * 
      */
     public function setAudioMediaTypeList(CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList = null)
     {
-        $this->audioMediaTypeList =  $audioMediaTypeList;
+        if (!$audioMediaTypeList) return $this;
+        $this->audioMediaTypeList = $audioMediaTypeList;
+        $this->audioMediaTypeList->setName('audioMediaTypeList');
+        return $this;
     }
 
     /**
-     * Contains list of file media types for audio or video files
+     * 
+     * @return CallCenterAnnouncementMediaFileTypeList
      */
     public function getAudioMediaTypeList()
     {
-        return (!$this->audioMediaTypeList) ?: $this->audioMediaTypeList->getValue();
+        return $this->audioMediaTypeList;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
+        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
+        $this->videoMessageSelection->setName('videoMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getVideoMessageSelection()
     {
-        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->getValue();
+        return $this->videoMessageSelection->getValue();
     }
 
     /**
-     * Contains list of urls
+     * 
      */
     public function setVideoUrlList(CallCenterAnnouncementURLList $videoUrlList = null)
     {
-        $this->videoUrlList =  $videoUrlList;
+        if (!$videoUrlList) return $this;
+        $this->videoUrlList = $videoUrlList;
+        $this->videoUrlList->setName('videoUrlList');
+        return $this;
     }
 
     /**
-     * Contains list of urls
+     * 
+     * @return CallCenterAnnouncementURLList
      */
     public function getVideoUrlList()
     {
-        return (!$this->videoUrlList) ?: $this->videoUrlList->getValue();
+        return $this->videoUrlList;
     }
 
     /**
-     * Contains list of file descriptions for audio or video files
+     * 
      */
     public function setVideoFileList(CallCenterAnnouncementDescriptionList $videoFileList = null)
     {
-        $this->videoFileList =  $videoFileList;
+        if (!$videoFileList) return $this;
+        $this->videoFileList = $videoFileList;
+        $this->videoFileList->setName('videoFileList');
+        return $this;
     }
 
     /**
-     * Contains list of file descriptions for audio or video files
+     * 
+     * @return CallCenterAnnouncementDescriptionList
      */
     public function getVideoFileList()
     {
-        return (!$this->videoFileList) ?: $this->videoFileList->getValue();
+        return $this->videoFileList;
     }
 
     /**
-     * Contains list of file media types for audio or video files
+     * 
      */
     public function setVideoMediaTypeList(CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList = null)
     {
-        $this->videoMediaTypeList =  $videoMediaTypeList;
+        if (!$videoMediaTypeList) return $this;
+        $this->videoMediaTypeList = $videoMediaTypeList;
+        $this->videoMediaTypeList->setName('videoMediaTypeList');
+        return $this;
     }
 
     /**
-     * Contains list of file media types for audio or video files
+     * 
+     * @return CallCenterAnnouncementMediaFileTypeList
      */
     public function getVideoMediaTypeList()
     {
-        return (!$this->videoMediaTypeList) ?: $this->videoMediaTypeList->getValue();
+        return $this->videoMediaTypeList;
     }
 }

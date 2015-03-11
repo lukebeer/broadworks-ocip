@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallProcessingMaxConferenceParties;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserNetworkConferencingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserNetworkConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'UserNetworkConferencingGetResponse';
     protected $conferenceURI        = null;
     protected $maxConferenceParties = null;
 
@@ -34,52 +33,46 @@ class UserNetworkConferencingGetResponse extends ComplexType implements ComplexI
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
      */
     public function setConferenceURI($conferenceURI = null)
     {
+        if (!$conferenceURI) return $this;
         $this->conferenceURI = ($conferenceURI InstanceOf SIPURI)
              ? $conferenceURI
              : new SIPURI($conferenceURI);
+        $this->conferenceURI->setName('conferenceURI');
+        return $this;
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
+     * @return SIPURI
      */
     public function getConferenceURI()
     {
-        return (!$this->conferenceURI) ?: $this->conferenceURI->getValue();
+        return $this->conferenceURI->getValue();
     }
 
     /**
-     * Maximum number of Parties allowed in a conference call.
+     * 
      */
     public function setMaxConferenceParties($maxConferenceParties = null)
     {
+        if (!$maxConferenceParties) return $this;
         $this->maxConferenceParties = ($maxConferenceParties InstanceOf CallProcessingMaxConferenceParties)
              ? $maxConferenceParties
              : new CallProcessingMaxConferenceParties($maxConferenceParties);
+        $this->maxConferenceParties->setName('maxConferenceParties');
+        return $this;
     }
 
     /**
-     * Maximum number of Parties allowed in a conference call.
+     * 
+     * @return CallProcessingMaxConferenceParties
      */
     public function getMaxConferenceParties()
     {
-        return (!$this->maxConferenceParties) ?: $this->maxConferenceParties->getValue();
+        return $this->maxConferenceParties->getValue();
     }
 }

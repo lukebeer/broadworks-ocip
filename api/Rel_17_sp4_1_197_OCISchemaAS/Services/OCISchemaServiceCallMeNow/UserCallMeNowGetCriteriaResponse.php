@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowToDnCriteria;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HolidaySchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\UserCallMeNowGetCriteriaResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'UserCallMeNowGetCriteriaResponse';
     protected $timeSchedule    = null;
     protected $holidaySchedule = null;
     protected $rejectCall      = null;
@@ -37,35 +37,43 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
     }
 
     /**
-     * The from dn criteria.
+     * 
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        $this->timeSchedule =  $timeSchedule;
+        if (!$timeSchedule) return $this;
+        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule->setName('timeSchedule');
+        return $this;
     }
 
     /**
-     * The from dn criteria.
+     * 
+     * @return TimeSchedule
      */
     public function getTimeSchedule()
     {
-        return (!$this->timeSchedule) ?: $this->timeSchedule->getValue();
+        return $this->timeSchedule;
     }
 
     /**
-     * Holiday Schedule.
+     * 
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        $this->holidaySchedule =  $holidaySchedule;
+        if (!$holidaySchedule) return $this;
+        $this->holidaySchedule = $holidaySchedule;
+        $this->holidaySchedule->setName('holidaySchedule');
+        return $this;
     }
 
     /**
-     * Holiday Schedule.
+     * 
+     * @return HolidaySchedule
      */
     public function getHolidaySchedule()
     {
-        return (!$this->holidaySchedule) ?: $this->holidaySchedule->getValue();
+        return $this->holidaySchedule;
     }
 
     /**
@@ -73,30 +81,38 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
      */
     public function setRejectCall($rejectCall = null)
     {
-        $this->rejectCall = (boolean) $rejectCall;
+        if (!$rejectCall) return $this;
+        $this->rejectCall = new PrimitiveType($rejectCall);
+        $this->rejectCall->setName('rejectCall');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRejectCall()
+    {
+        return $this->rejectCall->getValue();
     }
 
     /**
      * 
      */
-    public function getRejectCall()
-    {
-        return (!$this->rejectCall) ?: $this->rejectCall;
-    }
-
-    /**
-     * The To dn criteria used on the call me now external number.
-     */
     public function setToDnCriteria(CallMeNowToDnCriteria $toDnCriteria = null)
     {
-        $this->toDnCriteria =  $toDnCriteria;
+        if (!$toDnCriteria) return $this;
+        $this->toDnCriteria = $toDnCriteria;
+        $this->toDnCriteria->setName('toDnCriteria');
+        return $this;
     }
 
     /**
-     * The To dn criteria used on the call me now external number.
+     * 
+     * @return CallMeNowToDnCriteria
      */
     public function getToDnCriteria()
     {
-        return (!$this->toDnCriteria) ?: $this->toDnCriteria->getValue();
+        return $this->toDnCriteria;
     }
 }

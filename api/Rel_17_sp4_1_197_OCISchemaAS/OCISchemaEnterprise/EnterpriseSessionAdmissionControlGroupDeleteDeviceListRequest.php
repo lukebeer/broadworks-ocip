@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SessionAdmissionControlGroupName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseAccessDevice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupDeleteDeviceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest';
     protected $serviceProviderId = null;
     protected $name              = null;
     protected $devices           = null;
@@ -31,7 +30,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
     public function __construct(
          $serviceProviderId,
          $name,
-          $devices = null
+         EnterpriseAccessDevice $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -39,7 +38,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
     }
 
     /**
-     * @return EnterpriseSessionAdmissionControlGroupDeleteDeviceListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,58 +46,66 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Session Admission Control Group name.
-     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
              ? $name
              : new SessionAdmissionControlGroupName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Session Admission Control Group name.
-     *         Uniquely identifies a Session Admission Control Group within a group or enterprise.
+     * 
+     * @return SessionAdmissionControlGroupName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * Uniquely identifies an access device accessible for an enterprise. It could be a system level device, an enterprise level device or a group level device.
+     * 
      */
     public function setDevices(EnterpriseAccessDevice $devices = null)
     {
-        $this->devices =  $devices;
+        if (!$devices) return $this;
+        $this->devices = $devices;
+        $this->devices->setName('devices');
+        return $this;
     }
 
     /**
-     * Uniquely identifies an access device accessible for an enterprise. It could be a system level device, an enterprise level device or a group level device.
+     * 
+     * @return EnterpriseAccessDevice
      */
     public function getDevices()
     {
-        return (!$this->devices) ?: $this->devices->getValue();
+        return $this->devices;
     }
 }

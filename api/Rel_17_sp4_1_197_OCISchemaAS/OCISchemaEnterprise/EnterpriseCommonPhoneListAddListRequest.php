@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneListEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListAddListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,20 +21,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'EnterpriseCommonPhoneListAddListRequest';
     protected $serviceProviderId = null;
     protected $entry             = null;
 
     public function __construct(
          $serviceProviderId,
-          $entry
+         PhoneListEntry $entry
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setEntry($entry);
     }
 
     /**
-     * @return EnterpriseCommonPhoneListAddListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,44 @@ class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements Com
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Phone list entry.
+     * 
      */
     public function setEntry(PhoneListEntry $entry = null)
     {
-        $this->entry =  $entry;
+        if (!$entry) return $this;
+        $this->entry = $entry;
+        $this->entry->setName('entry');
+        return $this;
     }
 
     /**
-     * Phone list entry.
+     * 
+     * @return PhoneListEntry
      */
     public function getEntry()
     {
-        return (!$this->entry) ?: $this->entry->getValue();
+        return $this->entry;
     }
 }

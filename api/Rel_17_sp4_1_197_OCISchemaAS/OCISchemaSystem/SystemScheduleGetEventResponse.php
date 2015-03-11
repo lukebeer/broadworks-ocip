@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Recurrence;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleGetEventResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemScheduleGetEventResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemScheduleGetEventResponse';
     protected $startDate  = null;
     protected $endDate    = null;
     protected $recurrence = null;
@@ -39,15 +38,18 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        $this->startDate =  $startDate;
+        if (!$startDate) return $this;
+        $this->startDate->setName('startDate');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:date
      */
     public function getStartDate()
     {
-        return (!$this->startDate) ?: $this->startDate->getValue();
+        return $this->startDate->getValue();
     }
 
     /**
@@ -55,30 +57,37 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        $this->endDate =  $endDate;
+        if (!$endDate) return $this;
+        $this->endDate->setName('endDate');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:date
+     */
+    public function getEndDate()
+    {
+        return $this->endDate->getValue();
     }
 
     /**
      * 
      */
-    public function getEndDate()
-    {
-        return (!$this->endDate) ?: $this->endDate->getValue();
-    }
-
-    /**
-     * Defines recurrence.
-     */
     public function setRecurrence(Recurrence $recurrence = null)
     {
-        $this->recurrence =  $recurrence;
+        if (!$recurrence) return $this;
+        $this->recurrence = $recurrence;
+        $this->recurrence->setName('recurrence');
+        return $this;
     }
 
     /**
-     * Defines recurrence.
+     * 
+     * @return Recurrence
      */
     public function getRecurrence()
     {
-        return (!$this->recurrence) ?: $this->recurrence->getValue();
+        return $this->recurrence;
     }
 }

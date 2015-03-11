@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserTimeScheduleGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserTimeScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserTimeScheduleGetListResponse';
     protected $timeScheduleTable = null;
 
     /**
@@ -38,14 +37,17 @@ class UserTimeScheduleGetListResponse extends ComplexType implements ComplexInte
      */
     public function setTimeScheduleTable(core:OCITable $timeScheduleTable = null)
     {
-        $this->timeScheduleTable =  $timeScheduleTable;
+        if (!$timeScheduleTable) return $this;
+        $this->timeScheduleTable->setName('timeScheduleTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getTimeScheduleTable()
     {
-        return (!$this->timeScheduleTable) ?: $this->timeScheduleTable->getValue();
+        return $this->timeScheduleTable->getValue();
     }
 }

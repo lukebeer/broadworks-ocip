@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ClientSessionTimeoutMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemClientSessionParametersModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemClientSessionParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'SystemClientSessionParametersModifyRequest';
     protected $enableInactivityTimeout  = null;
     protected $inactivityTimeoutMinutes = null;
 
@@ -34,7 +34,7 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return SystemClientSessionParametersModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,32 +46,40 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
      */
     public function setEnableInactivityTimeout($enableInactivityTimeout = null)
     {
-        $this->enableInactivityTimeout = (boolean) $enableInactivityTimeout;
+        if (!$enableInactivityTimeout) return $this;
+        $this->enableInactivityTimeout = new PrimitiveType($enableInactivityTimeout);
+        $this->enableInactivityTimeout->setName('enableInactivityTimeout');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableInactivityTimeout()
+    {
+        return $this->enableInactivityTimeout->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableInactivityTimeout()
-    {
-        return (!$this->enableInactivityTimeout) ?: $this->enableInactivityTimeout;
-    }
-
-    /**
-     * Client session (web and CLI) inactivity timeout in minutes.
-     */
     public function setInactivityTimeoutMinutes($inactivityTimeoutMinutes = null)
     {
+        if (!$inactivityTimeoutMinutes) return $this;
         $this->inactivityTimeoutMinutes = ($inactivityTimeoutMinutes InstanceOf ClientSessionTimeoutMinutes)
              ? $inactivityTimeoutMinutes
              : new ClientSessionTimeoutMinutes($inactivityTimeoutMinutes);
+        $this->inactivityTimeoutMinutes->setName('inactivityTimeoutMinutes');
+        return $this;
     }
 
     /**
-     * Client session (web and CLI) inactivity timeout in minutes.
+     * 
+     * @return ClientSessionTimeoutMinutes
      */
     public function getInactivityTimeoutMinutes()
     {
-        return (!$this->inactivityTimeoutMinutes) ?: $this->inactivityTimeoutMinutes->getValue();
+        return $this->inactivityTimeoutMinutes->getValue();
     }
 }

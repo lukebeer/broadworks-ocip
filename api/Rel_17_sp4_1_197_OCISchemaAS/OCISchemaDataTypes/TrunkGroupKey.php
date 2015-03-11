@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,10 +21,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkGroupKey extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey';
-    public    $name = __CLASS__;
+    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey';
+    public    $name              = 'TrunkGroupKey';
+    protected $serviceProviderId = null;
+    protected $groupId           = null;
+    protected $name              = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $serviceProviderId,
+         $groupId,
+         $name
+    ) {
+        $this->setServiceProviderId($serviceProviderId);
+        $this->setGroupId($groupId);
+        $this->setName($name);
     }
 
     /**
@@ -33,5 +43,65 @@ class TrunkGroupKey extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setServiceProviderId($serviceProviderId = null)
+    {
+        if (!$serviceProviderId) return $this;
+        $this->serviceProviderId = new SimpleContent($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getServiceProviderId()
+    {
+        return $this->serviceProviderId->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setGroupId($groupId = null)
+    {
+        if (!$groupId) return $this;
+        $this->groupId = new SimpleContent($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getGroupId()
+    {
+        return $this->groupId->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setName($name = null)
+    {
+        if (!$name) return $this;
+        $this->name = new SimpleContent($name);
+        $this->name->setName('name');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getName()
+    {
+        return $this->name->getValue();
     }
 }

@@ -17,12 +17,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class OutgoingCallingPlanAuthorizationCode extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "OutgoingCallingPlanAuthorizationCode";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "string";
+        $this->dataType = "";
         $this->addRestriction(new MinLength("2"));
         $this->addRestriction(new MaxLength("14"));
     }

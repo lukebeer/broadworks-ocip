@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemOutgoingCallingPlanGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'SystemOutgoingCallingPlanGetResponse';
     protected $directTransferScreening = null;
 
     /**
@@ -36,14 +35,18 @@ class SystemOutgoingCallingPlanGetResponse extends ComplexType implements Comple
      */
     public function setDirectTransferScreening($directTransferScreening = null)
     {
-        $this->directTransferScreening = (boolean) $directTransferScreening;
+        if (!$directTransferScreening) return $this;
+        $this->directTransferScreening = new PrimitiveType($directTransferScreening);
+        $this->directTransferScreening->setName('directTransferScreening');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDirectTransferScreening()
     {
-        return (!$this->directTransferScreening) ?: $this->directTransferScreening;
+        return $this->directTransferScreening->getValue();
     }
 }

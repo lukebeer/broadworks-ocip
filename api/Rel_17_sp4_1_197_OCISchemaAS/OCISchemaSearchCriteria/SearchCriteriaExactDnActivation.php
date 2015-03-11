@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
-
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDnActivation;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaExactDnActivation extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDnActivation';
-    public    $name      = __CLASS__;
+    public    $name      = 'SearchCriteriaExactDnActivation';
     protected $activated = null;
 
     public function __construct(
@@ -43,14 +43,18 @@ class SearchCriteriaExactDnActivation extends ComplexType implements ComplexInte
      */
     public function setActivated($activated = null)
     {
-        $this->activated = (boolean) $activated;
+        if (!$activated) return $this;
+        $this->activated = new PrimitiveType($activated);
+        $this->activated->setName('activated');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getActivated()
     {
-        return (!$this->activated) ?: $this->activated;
+        return $this->activated->getValue();
     }
 }

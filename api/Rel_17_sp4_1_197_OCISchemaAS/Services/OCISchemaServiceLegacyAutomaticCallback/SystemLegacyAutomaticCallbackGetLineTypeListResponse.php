@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback\SystemLegacyAutomaticCallbackGetLineTypeListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLegacyAutomaticCallbackGetLineTypeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemLegacyAutomaticCallbackGetLineTypeListResponse';
     protected $lineTypeTable = null;
 
     /**
@@ -38,14 +37,17 @@ class SystemLegacyAutomaticCallbackGetLineTypeListResponse extends ComplexType i
      */
     public function setLineTypeTable(core:OCITable $lineTypeTable = null)
     {
-        $this->lineTypeTable =  $lineTypeTable;
+        if (!$lineTypeTable) return $this;
+        $this->lineTypeTable->setName('lineTypeTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getLineTypeTable()
     {
-        return (!$this->lineTypeTable) ?: $this->lineTypeTable->getValue();
+        return $this->lineTypeTable->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'UserInstantConferencingGetInstanceListResponse';
     protected $instantConferencingTable = null;
 
     /**
@@ -39,14 +38,17 @@ class UserInstantConferencingGetInstanceListResponse extends ComplexType impleme
      */
     public function setInstantConferencingTable(core:OCITable $instantConferencingTable = null)
     {
-        $this->instantConferencingTable =  $instantConferencingTable;
+        if (!$instantConferencingTable) return $this;
+        $this->instantConferencingTable->setName('instantConferencingTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getInstantConferencingTable()
     {
-        return (!$this->instantConferencingTable) ?: $this->instantConferencingTable->getValue();
+        return $this->instantConferencingTable->getValue();
     }
 }

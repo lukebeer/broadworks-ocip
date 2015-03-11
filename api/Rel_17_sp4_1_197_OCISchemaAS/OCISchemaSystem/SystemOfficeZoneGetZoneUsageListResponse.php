@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetZoneUsageListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOfficeZoneGetZoneUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'SystemOfficeZoneGetZoneUsageListResponse';
     protected $officeZoneTable = null;
 
     /**
@@ -39,14 +38,17 @@ class SystemOfficeZoneGetZoneUsageListResponse extends ComplexType implements Co
      */
     public function setOfficeZoneTable(core:OCITable $officeZoneTable = null)
     {
-        $this->officeZoneTable =  $officeZoneTable;
+        if (!$officeZoneTable) return $this;
+        $this->officeZoneTable->setName('officeZoneTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getOfficeZoneTable()
     {
-        return (!$this->officeZoneTable) ?: $this->officeZoneTable->getValue();
+        return $this->officeZoneTable->getValue();
     }
 }

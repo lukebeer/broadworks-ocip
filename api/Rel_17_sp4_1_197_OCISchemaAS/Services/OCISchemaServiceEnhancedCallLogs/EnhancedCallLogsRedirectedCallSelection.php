@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsRedirectedCallSelection;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsRedirectedCallSelection;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,10 +25,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnhancedCallLogsRedirectedCallSelection extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsRedirectedCallSelection';
-    public    $name = __CLASS__;
+    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsRedirectedCallSelection';
+    public    $name           = 'EnhancedCallLogsRedirectedCallSelection';
+    protected $redirectedCall = null;
+    protected $redirectType   = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $redirectedCall,
+         $redirectType = null
+    ) {
+        $this->setRedirectedCall($redirectedCall);
+        $this->setRedirectType($redirectType);
     }
 
     /**
@@ -37,5 +44,45 @@ class EnhancedCallLogsRedirectedCallSelection extends ComplexType implements Com
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setRedirectedCall($redirectedCall = null)
+    {
+        if (!$redirectedCall) return $this;
+        $this->redirectedCall = new SimpleContent($redirectedCall);
+        $this->redirectedCall->setName('redirectedCall');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getRedirectedCall()
+    {
+        return $this->redirectedCall->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setRedirectType($redirectType = null)
+    {
+        if (!$redirectType) return $this;
+        $this->redirectType = new SimpleContent($redirectType);
+        $this->redirectType->setName('redirectType');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getRedirectType()
+    {
+        return $this->redirectType->getValue();
     }
 }

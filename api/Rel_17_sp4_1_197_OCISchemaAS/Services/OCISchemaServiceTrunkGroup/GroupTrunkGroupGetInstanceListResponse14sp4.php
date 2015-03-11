@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceListResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetInstanceListResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'GroupTrunkGroupGetInstanceListResponse14sp4';
     protected $trunkGroupTable = null;
 
     /**
@@ -39,14 +38,17 @@ class GroupTrunkGroupGetInstanceListResponse14sp4 extends ComplexType implements
      */
     public function setTrunkGroupTable(core:OCITable $trunkGroupTable = null)
     {
-        $this->trunkGroupTable =  $trunkGroupTable;
+        if (!$trunkGroupTable) return $this;
+        $this->trunkGroupTable->setName('trunkGroupTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getTrunkGroupTable()
     {
-        return (!$this->trunkGroupTable) ?: $this->trunkGroupTable->getValue();
+        return $this->trunkGroupTable->getValue();
     }
 }

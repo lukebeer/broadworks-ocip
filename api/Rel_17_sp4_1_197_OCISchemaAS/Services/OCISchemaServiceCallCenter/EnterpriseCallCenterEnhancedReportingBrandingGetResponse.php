@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterEnhancedReportingBrandingChoice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingBrandingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'EnterpriseCallCenterEnhancedReportingBrandingGetResponse';
     protected $brandingChoice          = null;
     protected $brandingFileDescription = null;
 
@@ -34,38 +33,46 @@ class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexTy
     }
 
     /**
-     * The call center enhanced reporting Enterprise or Group level branding choice.
+     * 
      */
     public function setBrandingChoice($brandingChoice = null)
     {
+        if (!$brandingChoice) return $this;
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
+        $this->brandingChoice->setName('brandingChoice');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting Enterprise or Group level branding choice.
+     * 
+     * @return CallCenterEnhancedReportingBrandingChoice
      */
     public function getBrandingChoice()
     {
-        return (!$this->brandingChoice) ?: $this->brandingChoice->getValue();
+        return $this->brandingChoice->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setBrandingFileDescription($brandingFileDescription = null)
     {
+        if (!$brandingFileDescription) return $this;
         $this->brandingFileDescription = ($brandingFileDescription InstanceOf FileDescription)
              ? $brandingFileDescription
              : new FileDescription($brandingFileDescription);
+        $this->brandingFileDescription->setName('brandingFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getBrandingFileDescription()
     {
-        return (!$this->brandingFileDescription) ?: $this->brandingFileDescription->getValue();
+        return $this->brandingFileDescription->getValue();
     }
 }

@@ -17,12 +17,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class SIPSessionExpiresMaximumSeconds extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "SIPSessionExpiresMaximumSeconds";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "int";
+        $this->dataType = "";
         $this->addRestriction(new MinInclusive("3600"));
         $this->addRestriction(new MaxInclusive("86400"));
     }

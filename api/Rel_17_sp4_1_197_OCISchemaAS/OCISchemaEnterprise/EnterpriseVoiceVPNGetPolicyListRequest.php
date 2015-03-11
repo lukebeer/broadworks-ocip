@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse';
-    public    $name                               = __CLASS__;
+    public    $name                               = 'EnterpriseVoiceVPNGetPolicyListRequest';
     protected $serviceProviderId                  = null;
     protected $responseSizeLimit                  = null;
     protected $searchCriteriaGroupLocationCode    = null;
@@ -36,8 +36,8 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
     public function __construct(
          $serviceProviderId,
          $responseSizeLimit = null,
-          $searchCriteriaGroupLocationCode = null,
-          $searchCriteriaExactPolicySelection = null
+         SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null,
+         SearchCriteriaExactPolicySelection $searchCriteriaExactPolicySelection = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -54,76 +54,90 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a group location dialing code.
+     * 
      */
     public function setSearchCriteriaGroupLocationCode(SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null)
     {
-        $this->searchCriteriaGroupLocationCode =  $searchCriteriaGroupLocationCode;
+        if (!$searchCriteriaGroupLocationCode) return $this;
+        $this->searchCriteriaGroupLocationCode = ($searchCriteriaGroupLocationCode InstanceOf SearchCriteriaGroupLocationCode)
+             ? $searchCriteriaGroupLocationCode
+             : new SearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
+        $this->searchCriteriaGroupLocationCode->setName('searchCriteriaGroupLocationCode');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a group location dialing code.
+     * 
+     * @return SearchCriteriaGroupLocationCode
      */
     public function getSearchCriteriaGroupLocationCode()
     {
-        return (!$this->searchCriteriaGroupLocationCode) ?: $this->searchCriteriaGroupLocationCode->getValue();
+        return $this->searchCriteriaGroupLocationCode;
     }
 
     /**
-     * Criteria for searching for a particular Voice VPN policy selection.
+     * 
      */
     public function setSearchCriteriaExactPolicySelection(SearchCriteriaExactPolicySelection $searchCriteriaExactPolicySelection = null)
     {
-        $this->searchCriteriaExactPolicySelection =  $searchCriteriaExactPolicySelection;
+        if (!$searchCriteriaExactPolicySelection) return $this;
+        $this->searchCriteriaExactPolicySelection = ($searchCriteriaExactPolicySelection InstanceOf SearchCriteriaExactPolicySelection)
+             ? $searchCriteriaExactPolicySelection
+             : new SearchCriteriaExactPolicySelection($searchCriteriaExactPolicySelection);
+        $this->searchCriteriaExactPolicySelection->setName('searchCriteriaExactPolicySelection');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a particular Voice VPN policy selection.
+     * 
+     * @return SearchCriteriaExactPolicySelection
      */
     public function getSearchCriteriaExactPolicySelection()
     {
-        return (!$this->searchCriteriaExactPolicySelection) ?: $this->searchCriteriaExactPolicySelection->getValue();
+        return $this->searchCriteriaExactPolicySelection;
     }
 }

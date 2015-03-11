@@ -7,10 +7,16 @@
 
 namespace Broadworks_OCIP\core\Response;
 
+use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Logging\ErrorControl;
+use Broadworks_OCIP\core\Builder\Builder;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress;
+
 
 class Response
 {
@@ -18,14 +24,14 @@ class Response
     private $responseBody = null;
 
 
-    public function __construct($response, $responseType, $outputType)
+    public function __construct($response, $responseType, $outputType, $appends)
     {
         $this->response = $response;
         $this->responseBody = $response;
         if (preg_match('/SuccessResponse/', $this->response)) return $this->SuccessResponse();
         if (preg_match('/ErrorResponse/', $this->response)) return $this->ErrorResponse();
         if (preg_match('/<command .*>(.*)<\/command>/', $this->response, $cmdResponse)) {
-            $this->OCIResponse($cmdResponse[0], $responseType, $outputType);
+            $this->OCIResponse($cmdResponse[0], $responseType, $outputType, $appends);
             return true;
         }
         return false;
@@ -50,9 +56,20 @@ class Response
         return false;
     }
 
-    private function OCIResponse($cmdResponse, $responseType, $outputType)
+    private function OCIResponse($cmdResponse, $responseType, $outputType, $appends)
     {
         $cmdResponse = str_replace('xsi:type', 'type', $cmdResponse);
+        if (count($appends) >= 1) {
+            $cmdResponse = str_replace("</command>", '', $cmdResponse);
+            foreach ($appends as $element) {
+                if ($element InstanceOf ComplexType) {
+                    $cmdResponse .= Builder::buildComplex($element);
+                } elseif ($element InstanceOf SimpleType) {
+                    $cmdResponse .= Builder::buildSimple($element);
+                }
+            }
+            $cmdResponse .= "</command>";
+        }
         switch ($outputType) {
             case ResponseOutput::STD:
                 $normalizer = new GetSetMethodNormalizer();

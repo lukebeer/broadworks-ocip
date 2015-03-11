@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierIdCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'SystemPreferredCarrierGetResponse';
     protected $cic             = null;
     protected $countryCode     = null;
     protected $isIntraLata     = null;
@@ -38,39 +38,47 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
     }
 
     /**
-     * A digit code used by network signaling to identifiy a carrier.
+     * 
      */
     public function setCic($cic = null)
     {
+        if (!$cic) return $this;
         $this->cic = ($cic InstanceOf PreferredCarrierIdCode)
              ? $cic
              : new PreferredCarrierIdCode($cic);
+        $this->cic->setName('cic');
+        return $this;
     }
 
     /**
-     * A digit code used by network signaling to identifiy a carrier.
+     * 
+     * @return PreferredCarrierIdCode
      */
     public function getCic()
     {
-        return (!$this->cic) ?: $this->cic->getValue();
+        return $this->cic->getValue();
     }
 
     /**
-     * Country dialing code.
+     * 
      */
     public function setCountryCode($countryCode = null)
     {
+        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
+        $this->countryCode->setName('countryCode');
+        return $this;
     }
 
     /**
-     * Country dialing code.
+     * 
+     * @return CountryCode
      */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->getValue();
+        return $this->countryCode->getValue();
     }
 
     /**
@@ -78,15 +86,19 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
      */
     public function setIsIntraLata($isIntraLata = null)
     {
-        $this->isIntraLata = (boolean) $isIntraLata;
+        if (!$isIntraLata) return $this;
+        $this->isIntraLata = new PrimitiveType($isIntraLata);
+        $this->isIntraLata->setName('isIntraLata');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsIntraLata()
     {
-        return (!$this->isIntraLata) ?: $this->isIntraLata;
+        return $this->isIntraLata->getValue();
     }
 
     /**
@@ -94,15 +106,19 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
      */
     public function setIsInterLata($isInterLata = null)
     {
-        $this->isInterLata = (boolean) $isInterLata;
+        if (!$isInterLata) return $this;
+        $this->isInterLata = new PrimitiveType($isInterLata);
+        $this->isInterLata->setName('isInterLata');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsInterLata()
     {
-        return (!$this->isInterLata) ?: $this->isInterLata;
+        return $this->isInterLata->getValue();
     }
 
     /**
@@ -110,14 +126,18 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
      */
     public function setIsInternational($isInternational = null)
     {
-        $this->isInternational = (boolean) $isInternational;
+        if (!$isInternational) return $this;
+        $this->isInternational = new PrimitiveType($isInternational);
+        $this->isInternational->setName('isInternational');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsInternational()
     {
-        return (!$this->isInternational) ?: $this->isInternational;
+        return $this->isInternational->getValue();
     }
 }

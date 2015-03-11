@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowAnswerConfirmation;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\UserCallMeNowGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'UserCallMeNowGetResponse';
     protected $isActive           = null;
     protected $answerConfirmation = null;
     protected $criteriaTable      = null;
@@ -39,33 +39,41 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Possible type of answer confirmation for Call Me Now.
-     */
     public function setAnswerConfirmation($answerConfirmation = null)
     {
+        if (!$answerConfirmation) return $this;
         $this->answerConfirmation = ($answerConfirmation InstanceOf CallMeNowAnswerConfirmation)
              ? $answerConfirmation
              : new CallMeNowAnswerConfirmation($answerConfirmation);
+        $this->answerConfirmation->setName('answerConfirmation');
+        return $this;
     }
 
     /**
-     * Possible type of answer confirmation for Call Me Now.
+     * 
+     * @return CallMeNowAnswerConfirmation
      */
     public function getAnswerConfirmation()
     {
-        return (!$this->answerConfirmation) ?: $this->answerConfirmation->getValue();
+        return $this->answerConfirmation->getValue();
     }
 
     /**
@@ -73,14 +81,17 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
      */
     public function setCriteriaTable(core:OCITable $criteriaTable = null)
     {
-        $this->criteriaTable =  $criteriaTable;
+        if (!$criteriaTable) return $this;
+        $this->criteriaTable->setName('criteriaTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCriteriaTable()
     {
-        return (!$this->criteriaTable) ?: $this->criteriaTable->getValue();
+        return $this->criteriaTable->getValue();
     }
 }

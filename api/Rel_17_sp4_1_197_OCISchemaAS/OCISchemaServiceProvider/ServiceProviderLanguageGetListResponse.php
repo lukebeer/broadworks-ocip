@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderLanguageGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderLanguageGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'ServiceProviderLanguageGetListResponse';
     protected $language        = null;
     protected $defaultLanguage = null;
 
@@ -33,38 +32,46 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
      */
     public function setLanguage($language = null)
     {
+        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
+        $this->language->setName('language');
+        return $this;
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
+     * @return Language
      */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->getValue();
+        return $this->language->getValue();
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
      */
     public function setDefaultLanguage($defaultLanguage = null)
     {
+        if (!$defaultLanguage) return $this;
         $this->defaultLanguage = ($defaultLanguage InstanceOf Language)
              ? $defaultLanguage
              : new Language($defaultLanguage);
+        $this->defaultLanguage->setName('defaultLanguage');
+        return $this;
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
+     * @return Language
      */
     public function getDefaultLanguage()
     {
-        return (!$this->defaultLanguage) ?: $this->defaultLanguage->getValue();
+        return $this->defaultLanguage->getValue();
     }
 }

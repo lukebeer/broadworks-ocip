@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutoAttendant\GroupAutoAttendantGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAutoAttendantGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'GroupAutoAttendantGetInstanceListResponse';
     protected $autoAttendantTable = null;
 
     /**
@@ -39,14 +38,17 @@ class GroupAutoAttendantGetInstanceListResponse extends ComplexType implements C
      */
     public function setAutoAttendantTable(core:OCITable $autoAttendantTable = null)
     {
-        $this->autoAttendantTable =  $autoAttendantTable;
+        if (!$autoAttendantTable) return $this;
+        $this->autoAttendantTable->setName('autoAttendantTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getAutoAttendantTable()
     {
-        return (!$this->autoAttendantTable) ?: $this->autoAttendantTable->getValue();
+        return $this->autoAttendantTable->getValue();
     }
 }

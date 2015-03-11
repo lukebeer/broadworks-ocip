@@ -22,7 +22,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderAccessDeviceGetResponse14sp6;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,7 +35,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceGetResponse14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name                                        = __CLASS__;
+    public    $name                                        = 'ServiceProviderAccessDeviceGetResponse14sp6';
     protected $deviceType                                  = null;
     protected $protocol                                    = null;
     protected $netAddress                                  = null;
@@ -66,181 +66,221 @@ class ServiceProviderAccessDeviceGetResponse14sp6 extends ComplexType implements
     }
 
     /**
-     * Access device type.
+     * 
      */
     public function setDeviceType($deviceType = null)
     {
+        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
+        $this->deviceType->setName('deviceType');
+        return $this;
     }
 
     /**
-     * Access device type.
+     * 
+     * @return AccessDeviceType
      */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->getValue();
+        return $this->deviceType->getValue();
     }
 
     /**
-     * Access device protocol.
+     * 
      */
     public function setProtocol($protocol = null)
     {
+        if (!$protocol) return $this;
         $this->protocol = ($protocol InstanceOf AccessDeviceProtocol)
              ? $protocol
              : new AccessDeviceProtocol($protocol);
+        $this->protocol->setName('protocol');
+        return $this;
     }
 
     /**
-     * Access device protocol.
+     * 
+     * @return AccessDeviceProtocol
      */
     public function getProtocol()
     {
-        return (!$this->protocol) ?: $this->protocol->getValue();
+        return $this->protocol->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setNetAddress($netAddress = null)
     {
+        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
+        $this->netAddress->setName('netAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->getValue();
+        return $this->netAddress->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setPort($port = null)
     {
+        if (!$port) return $this;
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
+        $this->port->setName('port');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->getValue();
+        return $this->port->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setOutboundProxyServerNetAddress($outboundProxyServerNetAddress = null)
     {
+        if (!$outboundProxyServerNetAddress) return $this;
         $this->outboundProxyServerNetAddress = ($outboundProxyServerNetAddress InstanceOf NetAddress)
              ? $outboundProxyServerNetAddress
              : new NetAddress($outboundProxyServerNetAddress);
+        $this->outboundProxyServerNetAddress->setName('outboundProxyServerNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getOutboundProxyServerNetAddress()
     {
-        return (!$this->outboundProxyServerNetAddress) ?: $this->outboundProxyServerNetAddress->getValue();
+        return $this->outboundProxyServerNetAddress->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setStunServerNetAddress($stunServerNetAddress = null)
     {
+        if (!$stunServerNetAddress) return $this;
         $this->stunServerNetAddress = ($stunServerNetAddress InstanceOf NetAddress)
              ? $stunServerNetAddress
              : new NetAddress($stunServerNetAddress);
+        $this->stunServerNetAddress->setName('stunServerNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getStunServerNetAddress()
     {
-        return (!$this->stunServerNetAddress) ?: $this->stunServerNetAddress->getValue();
+        return $this->stunServerNetAddress->getValue();
     }
 
     /**
-     * Access device MAC address.
+     * 
      */
     public function setMacAddress($macAddress = null)
     {
+        if (!$macAddress) return $this;
         $this->macAddress = ($macAddress InstanceOf AccessDeviceMACAddress)
              ? $macAddress
              : new AccessDeviceMACAddress($macAddress);
+        $this->macAddress->setName('macAddress');
+        return $this;
     }
 
     /**
-     * Access device MAC address.
+     * 
+     * @return AccessDeviceMACAddress
      */
     public function getMacAddress()
     {
-        return (!$this->macAddress) ?: $this->macAddress->getValue();
+        return $this->macAddress->getValue();
     }
 
     /**
-     * Access device serial number.
+     * 
      */
     public function setSerialNumber($serialNumber = null)
     {
+        if (!$serialNumber) return $this;
         $this->serialNumber = ($serialNumber InstanceOf AccessDeviceSerialNumber)
              ? $serialNumber
              : new AccessDeviceSerialNumber($serialNumber);
+        $this->serialNumber->setName('serialNumber');
+        return $this;
     }
 
     /**
-     * Access device serial number.
+     * 
+     * @return AccessDeviceSerialNumber
      */
     public function getSerialNumber()
     {
-        return (!$this->serialNumber) ?: $this->serialNumber->getValue();
+        return $this->serialNumber->getValue();
     }
 
     /**
-     * Access device description.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf AccessDeviceDescription)
              ? $description
              : new AccessDeviceDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Access device description.
+     * 
+     * @return AccessDeviceDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     * 
      */
     public function setNumberOfPorts(UnboundedPositiveInt $numberOfPorts = null)
     {
-        $this->numberOfPorts =  $numberOfPorts;
+        if (!$numberOfPorts) return $this;
+        $this->numberOfPorts = $numberOfPorts;
+        $this->numberOfPorts->setName('numberOfPorts');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     * 
+     * @return UnboundedPositiveInt
      */
     public function getNumberOfPorts()
     {
-        return (!$this->numberOfPorts) ?: $this->numberOfPorts->getValue();
+        return $this->numberOfPorts;
     }
 
     /**
@@ -248,141 +288,173 @@ class ServiceProviderAccessDeviceGetResponse14sp6 extends ComplexType implements
      */
     public function setNumberOfAssignedPorts($numberOfAssignedPorts = null)
     {
-        $this->numberOfAssignedPorts = (int) $numberOfAssignedPorts;
+        if (!$numberOfAssignedPorts) return $this;
+        $this->numberOfAssignedPorts = new PrimitiveType($numberOfAssignedPorts);
+        $this->numberOfAssignedPorts->setName('numberOfAssignedPorts');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:int
+     */
+    public function getNumberOfAssignedPorts()
+    {
+        return $this->numberOfAssignedPorts->getValue();
     }
 
     /**
      * 
      */
-    public function getNumberOfAssignedPorts()
-    {
-        return (!$this->numberOfAssignedPorts) ?: $this->numberOfAssignedPorts;
-    }
-
-    /**
-     * Choices for the access device status.
-     */
     public function setStatus($status = null)
     {
+        if (!$status) return $this;
         $this->status = ($status InstanceOf AccessDeviceStatus)
              ? $status
              : new AccessDeviceStatus($status);
+        $this->status->setName('status');
+        return $this;
     }
 
     /**
-     * Choices for the access device status.
+     * 
+     * @return AccessDeviceStatus
      */
     public function getStatus()
     {
-        return (!$this->status) ?: $this->status->getValue();
+        return $this->status->getValue();
     }
 
     /**
-     * Physical geographic location of the device, used in conjunction with the Physical Location user service.
+     * 
      */
     public function setPhysicalLocation($physicalLocation = null)
     {
+        if (!$physicalLocation) return $this;
         $this->physicalLocation = ($physicalLocation InstanceOf AccessDevicePhysicalLocation)
              ? $physicalLocation
              : new AccessDevicePhysicalLocation($physicalLocation);
+        $this->physicalLocation->setName('physicalLocation');
+        return $this;
     }
 
     /**
-     * Physical geographic location of the device, used in conjunction with the Physical Location user service.
+     * 
+     * @return AccessDevicePhysicalLocation
      */
     public function getPhysicalLocation()
     {
-        return (!$this->physicalLocation) ?: $this->physicalLocation->getValue();
+        return $this->physicalLocation->getValue();
     }
 
     /**
-     * Network Transport Protocol.
+     * 
      */
     public function setTransportProtocol($transportProtocol = null)
     {
+        if (!$transportProtocol) return $this;
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
+        $this->transportProtocol->setName('transportProtocol');
+        return $this;
     }
 
     /**
-     * Network Transport Protocol.
+     * 
+     * @return TransportProtocol
      */
     public function getTransportProtocol()
     {
-        return (!$this->transportProtocol) ?: $this->transportProtocol->getValue();
+        return $this->transportProtocol->getValue();
     }
 
     /**
-     * URL.
+     * 
      */
     public function setMobilityManagerProvisioningURL($mobilityManagerProvisioningURL = null)
     {
+        if (!$mobilityManagerProvisioningURL) return $this;
         $this->mobilityManagerProvisioningURL = ($mobilityManagerProvisioningURL InstanceOf URL)
              ? $mobilityManagerProvisioningURL
              : new URL($mobilityManagerProvisioningURL);
+        $this->mobilityManagerProvisioningURL->setName('mobilityManagerProvisioningURL');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getMobilityManagerProvisioningURL()
     {
-        return (!$this->mobilityManagerProvisioningURL) ?: $this->mobilityManagerProvisioningURL->getValue();
+        return $this->mobilityManagerProvisioningURL->getValue();
     }
 
     /**
-     * Mobility Manager provisioning user name
+     * 
      */
     public function setMobilityManagerProvisioningUserName($mobilityManagerProvisioningUserName = null)
     {
+        if (!$mobilityManagerProvisioningUserName) return $this;
         $this->mobilityManagerProvisioningUserName = ($mobilityManagerProvisioningUserName InstanceOf MobilityManagerProvisioningUserName)
              ? $mobilityManagerProvisioningUserName
              : new MobilityManagerProvisioningUserName($mobilityManagerProvisioningUserName);
+        $this->mobilityManagerProvisioningUserName->setName('mobilityManagerProvisioningUserName');
+        return $this;
     }
 
     /**
-     * Mobility Manager provisioning user name
+     * 
+     * @return MobilityManagerProvisioningUserName
      */
     public function getMobilityManagerProvisioningUserName()
     {
-        return (!$this->mobilityManagerProvisioningUserName) ?: $this->mobilityManagerProvisioningUserName->getValue();
+        return $this->mobilityManagerProvisioningUserName->getValue();
     }
 
     /**
-     * Mobility Manager service key
+     * 
      */
     public function setMobilityManagerDefaultOriginatingServiceKey($mobilityManagerDefaultOriginatingServiceKey = null)
     {
+        if (!$mobilityManagerDefaultOriginatingServiceKey) return $this;
         $this->mobilityManagerDefaultOriginatingServiceKey = ($mobilityManagerDefaultOriginatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $mobilityManagerDefaultOriginatingServiceKey
              : new MobilityManagerServiceKey($mobilityManagerDefaultOriginatingServiceKey);
+        $this->mobilityManagerDefaultOriginatingServiceKey->setName('mobilityManagerDefaultOriginatingServiceKey');
+        return $this;
     }
 
     /**
-     * Mobility Manager service key
+     * 
+     * @return MobilityManagerServiceKey
      */
     public function getMobilityManagerDefaultOriginatingServiceKey()
     {
-        return (!$this->mobilityManagerDefaultOriginatingServiceKey) ?: $this->mobilityManagerDefaultOriginatingServiceKey->getValue();
+        return $this->mobilityManagerDefaultOriginatingServiceKey->getValue();
     }
 
     /**
-     * Mobility Manager service key
+     * 
      */
     public function setMobilityManagerDefaultTerminatingServiceKey($mobilityManagerDefaultTerminatingServiceKey = null)
     {
+        if (!$mobilityManagerDefaultTerminatingServiceKey) return $this;
         $this->mobilityManagerDefaultTerminatingServiceKey = ($mobilityManagerDefaultTerminatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $mobilityManagerDefaultTerminatingServiceKey
              : new MobilityManagerServiceKey($mobilityManagerDefaultTerminatingServiceKey);
+        $this->mobilityManagerDefaultTerminatingServiceKey->setName('mobilityManagerDefaultTerminatingServiceKey');
+        return $this;
     }
 
     /**
-     * Mobility Manager service key
+     * 
+     * @return MobilityManagerServiceKey
      */
     public function getMobilityManagerDefaultTerminatingServiceKey()
     {
-        return (!$this->mobilityManagerDefaultTerminatingServiceKey) ?: $this->mobilityManagerDefaultTerminatingServiceKey->getValue();
+        return $this->mobilityManagerDefaultTerminatingServiceKey->getValue();
     }
 
     /**
@@ -390,32 +462,40 @@ class ServiceProviderAccessDeviceGetResponse14sp6 extends ComplexType implements
      */
     public function setUseCustomUserNamePassword($useCustomUserNamePassword = null)
     {
-        $this->useCustomUserNamePassword = (boolean) $useCustomUserNamePassword;
+        if (!$useCustomUserNamePassword) return $this;
+        $this->useCustomUserNamePassword = new PrimitiveType($useCustomUserNamePassword);
+        $this->useCustomUserNamePassword->setName('useCustomUserNamePassword');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseCustomUserNamePassword()
+    {
+        return $this->useCustomUserNamePassword->getValue();
     }
 
     /**
      * 
      */
-    public function getUseCustomUserNamePassword()
-    {
-        return (!$this->useCustomUserNamePassword) ?: $this->useCustomUserNamePassword;
-    }
-
-    /**
-     * A user name for an access device accessing files on BroadWorks.
-     */
     public function setUserName($userName = null)
     {
+        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf DeviceManagementUserName)
              ? $userName
              : new DeviceManagementUserName($userName);
+        $this->userName->setName('userName');
+        return $this;
     }
 
     /**
-     * A user name for an access device accessing files on BroadWorks.
+     * 
+     * @return DeviceManagementUserName
      */
     public function getUserName()
     {
-        return (!$this->userName) ?: $this->userName->getValue();
+        return $this->userName->getValue();
     }
 }

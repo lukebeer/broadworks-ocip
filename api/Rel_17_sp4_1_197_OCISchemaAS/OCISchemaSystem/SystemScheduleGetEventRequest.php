@@ -23,12 +23,12 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleGetEventResponse';
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemScheduleGetEventRequest';
     protected $scheduleKey = null;
     protected $eventName   = null;
 
     public function __construct(
-          $scheduleKey,
+         ScheduleKey $scheduleKey,
          $eventName
     ) {
         $this->setScheduleKey($scheduleKey);
@@ -44,36 +44,44 @@ class SystemScheduleGetEventRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey =  $scheduleKey;
+        if (!$scheduleKey) return $this;
+        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey->setName('scheduleKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
+     * @return ScheduleKey
      */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
+        return $this->scheduleKey;
     }
 
     /**
-     * Event name.
+     * 
      */
     public function setEventName($eventName = null)
     {
+        if (!$eventName) return $this;
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
+        $this->eventName->setName('eventName');
+        return $this;
     }
 
     /**
-     * Event name.
+     * 
+     * @return EventName
      */
     public function getEventName()
     {
-        return (!$this->eventName) ?: $this->eventName->getValue();
+        return $this->eventName->getValue();
     }
 }

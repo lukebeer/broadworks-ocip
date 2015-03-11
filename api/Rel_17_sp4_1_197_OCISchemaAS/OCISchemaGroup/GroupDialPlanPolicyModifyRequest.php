@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupDia
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialPlanPolicyModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialPlanPolicyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                      = __CLASS__;
+    public    $name                                      = 'GroupDialPlanPolicyModifyRequest';
     protected $serviceProviderId                         = null;
     protected $groupId                                   = null;
     protected $useSetting                                = null;
@@ -55,7 +55,7 @@ class GroupDialPlanPolicyModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return GroupDialPlanPolicyModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,65 +63,69 @@ class GroupDialPlanPolicyModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Choices for the group Dial Plan Policy to decide which type of settings shall be used.
-     *         Notes: Choice cannot be 'sp' or 'group' if Service Provider or group does not have
-     *         public digit map set.
+     * 
      */
     public function setUseSetting($useSetting = null)
     {
+        if (!$useSetting) return $this;
         $this->useSetting = ($useSetting InstanceOf GroupDialPlanPolicySettingLevel)
              ? $useSetting
              : new GroupDialPlanPolicySettingLevel($useSetting);
+        $this->useSetting->setName('useSetting');
+        return $this;
     }
 
     /**
-     * Choices for the group Dial Plan Policy to decide which type of settings shall be used.
-     *         Notes: Choice cannot be 'sp' or 'group' if Service Provider or group does not have
-     *         public digit map set.
+     * 
+     * @return GroupDialPlanPolicySettingLevel
      */
     public function getUseSetting()
     {
-        return (!$this->useSetting) ?: $this->useSetting->getValue();
+        return $this->useSetting->getValue();
     }
 
     /**
@@ -129,15 +133,19 @@ class GroupDialPlanPolicyModifyRequest extends ComplexType implements ComplexInt
      */
     public function setRequiresAccessCodeForPublicCalls($requiresAccessCodeForPublicCalls = null)
     {
-        $this->requiresAccessCodeForPublicCalls = (boolean) $requiresAccessCodeForPublicCalls;
+        if (!$requiresAccessCodeForPublicCalls) return $this;
+        $this->requiresAccessCodeForPublicCalls = new PrimitiveType($requiresAccessCodeForPublicCalls);
+        $this->requiresAccessCodeForPublicCalls->setName('requiresAccessCodeForPublicCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
-        return (!$this->requiresAccessCodeForPublicCalls) ?: $this->requiresAccessCodeForPublicCalls;
+        return $this->requiresAccessCodeForPublicCalls->getValue();
     }
 
     /**
@@ -145,15 +153,19 @@ class GroupDialPlanPolicyModifyRequest extends ComplexType implements ComplexInt
      */
     public function setAllowE164PublicCalls($allowE164PublicCalls = null)
     {
-        $this->allowE164PublicCalls = (boolean) $allowE164PublicCalls;
+        if (!$allowE164PublicCalls) return $this;
+        $this->allowE164PublicCalls = new PrimitiveType($allowE164PublicCalls);
+        $this->allowE164PublicCalls->setName('allowE164PublicCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowE164PublicCalls()
     {
-        return (!$this->allowE164PublicCalls) ?: $this->allowE164PublicCalls;
+        return $this->allowE164PublicCalls->getValue();
     }
 
     /**
@@ -161,50 +173,62 @@ class GroupDialPlanPolicyModifyRequest extends ComplexType implements ComplexInt
      */
     public function setPreferE164NumberFormatForCallbackServices($preferE164NumberFormatForCallbackServices = null)
     {
-        $this->preferE164NumberFormatForCallbackServices = (boolean) $preferE164NumberFormatForCallbackServices;
+        if (!$preferE164NumberFormatForCallbackServices) return $this;
+        $this->preferE164NumberFormatForCallbackServices = new PrimitiveType($preferE164NumberFormatForCallbackServices);
+        $this->preferE164NumberFormatForCallbackServices->setName('preferE164NumberFormatForCallbackServices');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPreferE164NumberFormatForCallbackServices()
+    {
+        return $this->preferE164NumberFormatForCallbackServices->getValue();
     }
 
     /**
      * 
      */
-    public function getPreferE164NumberFormatForCallbackServices()
-    {
-        return (!$this->preferE164NumberFormatForCallbackServices) ?: $this->preferE164NumberFormatForCallbackServices;
-    }
-
-    /**
-     * Digit Collection Digit Map.
-     */
     public function setPublicDigitMap($publicDigitMap = null)
     {
+        if (!$publicDigitMap) return $this;
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
+        $this->publicDigitMap->setName('publicDigitMap');
+        return $this;
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
+     * @return DigitMap
      */
     public function getPublicDigitMap()
     {
-        return (!$this->publicDigitMap) ?: $this->publicDigitMap->getValue();
+        return $this->publicDigitMap->getValue();
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
      */
     public function setPrivateDigitMap($privateDigitMap = null)
     {
+        if (!$privateDigitMap) return $this;
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
+        $this->privateDigitMap->setName('privateDigitMap');
+        return $this;
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
+     * @return DigitMap
      */
     public function getPrivateDigitMap()
     {
-        return (!$this->privateDigitMap) ?: $this->privateDigitMap->getValue();
+        return $this->privateDigitMap->getValue();
     }
 }

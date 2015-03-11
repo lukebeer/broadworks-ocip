@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPContentType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeleteContentTypeResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeleteContentTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemSIPDeleteContentTypeRequest';
     protected $contentType = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemSIPDeleteContentTypeRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return SystemSIPDeleteContentTypeResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemSIPDeleteContentTypeRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * SIP content type.
+     * 
      */
     public function setContentType($contentType = null)
     {
+        if (!$contentType) return $this;
         $this->contentType = ($contentType InstanceOf SystemSIPContentType)
              ? $contentType
              : new SystemSIPContentType($contentType);
+        $this->contentType->setName('contentType');
+        return $this;
     }
 
     /**
-     * SIP content type.
+     * 
+     * @return SystemSIPContentType
      */
     public function getContentType()
     {
-        return (!$this->contentType) ?: $this->contentType->getValue();
+        return $this->contentType->getValue();
     }
 }

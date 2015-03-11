@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\CommunicationBarringUserControlProfileCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Passcode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl\UserCommunicationBarringUserControlModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommunicationBarringUserControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'UserCommunicationBarringUserControlModifyRequest';
     protected $userId        = null;
     protected $enableProfile = null;
     protected $oldPasscode   = null;
@@ -48,7 +48,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
     }
 
     /**
-     * @return UserCommunicationBarringUserControlModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,83 +56,91 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Communication Barring Profile code identifying a profile within a Network Class of Service.
+     * 
      */
     public function setEnableProfile($enableProfile = null)
     {
+        if (!$enableProfile) return $this;
         $this->enableProfile = ($enableProfile InstanceOf CommunicationBarringUserControlProfileCode)
              ? $enableProfile
              : new CommunicationBarringUserControlProfileCode($enableProfile);
+        $this->enableProfile->setName('enableProfile');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile code identifying a profile within a Network Class of Service.
+     * 
+     * @return CommunicationBarringUserControlProfileCode
      */
     public function getEnableProfile()
     {
-        return (!$this->enableProfile) ?: $this->enableProfile->getValue();
+        return $this->enableProfile->getValue();
     }
 
     /**
-     * Portal passcode
+     * 
      */
     public function setOldPasscode($oldPasscode = null)
     {
+        if (!$oldPasscode) return $this;
         $this->oldPasscode = ($oldPasscode InstanceOf Passcode)
              ? $oldPasscode
              : new Passcode($oldPasscode);
+        $this->oldPasscode->setName('oldPasscode');
+        return $this;
     }
 
     /**
-     * Portal passcode
+     * 
+     * @return Passcode
      */
     public function getOldPasscode()
     {
-        return (!$this->oldPasscode) ?: $this->oldPasscode->getValue();
+        return $this->oldPasscode->getValue();
     }
 
     /**
-     * Portal passcode
+     * 
      */
     public function setNewPasscode($newPasscode = null)
     {
+        if (!$newPasscode) return $this;
         $this->newPasscode = ($newPasscode InstanceOf Passcode)
              ? $newPasscode
              : new Passcode($newPasscode);
+        $this->newPasscode->setName('newPasscode');
+        return $this;
     }
 
     /**
-     * Portal passcode
+     * 
+     * @return Passcode
      */
     public function getNewPasscode()
     {
-        return (!$this->newPasscode) ?: $this->newPasscode->getValue();
+        return $this->newPasscode->getValue();
     }
 
     /**
@@ -140,14 +148,18 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function setResetLockout($resetLockout = null)
     {
-        $this->resetLockout = (boolean) $resetLockout;
+        if (!$resetLockout) return $this;
+        $this->resetLockout = new PrimitiveType($resetLockout);
+        $this->resetLockout->setName('resetLockout');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getResetLockout()
     {
-        return (!$this->resetLockout) ?: $this->resetLockout;
+        return $this->resetLockout->getValue();
     }
 }

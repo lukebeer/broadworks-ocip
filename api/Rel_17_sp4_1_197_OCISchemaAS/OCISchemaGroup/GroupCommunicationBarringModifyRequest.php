@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommunicationBarringModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommunicationBarringModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'GroupCommunicationBarringModifyRequest';
     protected $serviceProviderId                = null;
     protected $groupId                          = null;
     protected $useDefaultServiceProviderProfile = null;
@@ -42,7 +42,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return GroupCommunicationBarringModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,43 +50,47 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
@@ -94,32 +98,40 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function setUseDefaultServiceProviderProfile($useDefaultServiceProviderProfile = null)
     {
-        $this->useDefaultServiceProviderProfile = (boolean) $useDefaultServiceProviderProfile;
+        if (!$useDefaultServiceProviderProfile) return $this;
+        $this->useDefaultServiceProviderProfile = new PrimitiveType($useDefaultServiceProviderProfile);
+        $this->useDefaultServiceProviderProfile->setName('useDefaultServiceProviderProfile');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseDefaultServiceProviderProfile()
+    {
+        return $this->useDefaultServiceProviderProfile->getValue();
     }
 
     /**
      * 
      */
-    public function getUseDefaultServiceProviderProfile()
-    {
-        return (!$this->useDefaultServiceProviderProfile) ?: $this->useDefaultServiceProviderProfile;
-    }
-
-    /**
-     * Communication Barring Profile Name
-     */
     public function setProfile($profile = null)
     {
+        if (!$profile) return $this;
         $this->profile = ($profile InstanceOf CommunicationBarringProfileName)
              ? $profile
              : new CommunicationBarringProfileName($profile);
+        $this->profile->setName('profile');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile Name
+     * 
+     * @return CommunicationBarringProfileName
      */
     public function getProfile()
     {
-        return (!$this->profile) ?: $this->profile->getValue();
+        return $this->profile->getValue();
     }
 }

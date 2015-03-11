@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementServicePackNameList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,10 +21,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementServicePackNameList extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementServicePackNameList';
-    public    $name = __CLASS__;
+    public    $responseType    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementServicePackNameList';
+    public    $name            = 'ReplacementServicePackNameList';
+    protected $servicePackName = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $servicePackName = null
+    ) {
+        $this->setServicePackName($servicePackName);
     }
 
     /**
@@ -33,5 +37,25 @@ class ReplacementServicePackNameList extends ComplexType implements ComplexInter
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setServicePackName($servicePackName = null)
+    {
+        if (!$servicePackName) return $this;
+        $this->servicePackName = new SimpleContent($servicePackName);
+        $this->servicePackName->setName('servicePackName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getServicePackName()
+    {
+        return $this->servicePackName->getValue();
     }
 }

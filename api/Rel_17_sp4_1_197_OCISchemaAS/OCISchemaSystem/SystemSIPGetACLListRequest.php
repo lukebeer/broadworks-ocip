@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSIPGetACLListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPGetACLListResponse';
-    public    $name = __CLASS__;
+    public    $name = 'SystemSIPGetACLListRequest';
 
     public function __construct(    ) {
     }

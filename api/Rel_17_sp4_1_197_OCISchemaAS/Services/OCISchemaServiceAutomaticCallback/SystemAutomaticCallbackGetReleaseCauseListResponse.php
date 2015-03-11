@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticCallback; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\AutomaticCallbackReleaseCause;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAutomaticCallback\SystemAutomaticCallbackGetReleaseCauseListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAutomaticCallbackGetReleaseCauseListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'SystemAutomaticCallbackGetReleaseCauseListResponse';
     protected $releaseCause = null;
 
     /**
@@ -32,20 +31,24 @@ class SystemAutomaticCallbackGetReleaseCauseListResponse extends ComplexType imp
     }
 
     /**
-     * Callback Release Cause.
+     * 
      */
     public function setReleaseCause($releaseCause = null)
     {
+        if (!$releaseCause) return $this;
         $this->releaseCause = ($releaseCause InstanceOf AutomaticCallbackReleaseCause)
              ? $releaseCause
              : new AutomaticCallbackReleaseCause($releaseCause);
+        $this->releaseCause->setName('releaseCause');
+        return $this;
     }
 
     /**
-     * Callback Release Cause.
+     * 
+     * @return AutomaticCallbackReleaseCause
      */
     public function getReleaseCause()
     {
-        return (!$this->releaseCause) ?: $this->releaseCause->getValue();
+        return $this->releaseCause->getValue();
     }
 }

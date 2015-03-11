@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallTypeGetMappingListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallTypeGetMappingListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'SystemCallTypeGetMappingListResponse';
     protected $callTypeMapping = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemCallTypeGetMappingListResponse extends ComplexType implements Comple
      */
     public function setCallTypeMapping(core:OCITable $callTypeMapping = null)
     {
-        $this->callTypeMapping =  $callTypeMapping;
+        if (!$callTypeMapping) return $this;
+        $this->callTypeMapping->setName('callTypeMapping');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCallTypeMapping()
     {
-        return (!$this->callTypeMapping) ?: $this->callTypeMapping->getValue();
+        return $this->callTypeMapping->getValue();
     }
 }

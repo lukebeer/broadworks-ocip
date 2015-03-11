@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallTypeDigitMap;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanCallTypeDeleteMappingResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanCallTypeDeleteMappingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemOutgoingCallingPlanCallTypeDeleteMappingRequest';
     protected $countryCode = null;
     protected $digitMap    = null;
 
@@ -35,7 +34,7 @@ class SystemOutgoingCallingPlanCallTypeDeleteMappingRequest extends ComplexType 
     }
 
     /**
-     * @return SystemOutgoingCallingPlanCallTypeDeleteMappingResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemOutgoingCallingPlanCallTypeDeleteMappingRequest extends ComplexType 
     }
 
     /**
-     * Country dialing code.
+     * 
      */
     public function setCountryCode($countryCode = null)
     {
+        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
+        $this->countryCode->setName('countryCode');
+        return $this;
     }
 
     /**
-     * Country dialing code.
+     * 
+     * @return CountryCode
      */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->getValue();
+        return $this->countryCode->getValue();
     }
 
     /**
-     * Call Type Digit Map.
+     * 
      */
     public function setDigitMap($digitMap = null)
     {
+        if (!$digitMap) return $this;
         $this->digitMap = ($digitMap InstanceOf CallTypeDigitMap)
              ? $digitMap
              : new CallTypeDigitMap($digitMap);
+        $this->digitMap->setName('digitMap');
+        return $this;
     }
 
     /**
-     * Call Type Digit Map.
+     * 
+     * @return CallTypeDigitMap
      */
     public function getDigitMap()
     {
-        return (!$this->digitMap) ?: $this->digitMap->getValue();
+        return $this->digitMap->getValue();
     }
 }

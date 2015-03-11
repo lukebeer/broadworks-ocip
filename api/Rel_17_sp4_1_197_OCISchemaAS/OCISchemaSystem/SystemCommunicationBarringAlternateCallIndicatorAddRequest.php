@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringAlternateCallIndicator;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringAlternateCallIndicatorAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringAlternateCallIndicatorAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
+    public    $name                                = 'SystemCommunicationBarringAlternateCallIndicatorAddRequest';
     protected $alternateCallIndicator              = null;
     protected $networkServerAlternateCallIndicator = null;
 
@@ -35,7 +34,7 @@ class SystemCommunicationBarringAlternateCallIndicatorAddRequest extends Complex
     }
 
     /**
-     * @return SystemCommunicationBarringAlternateCallIndicatorAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemCommunicationBarringAlternateCallIndicatorAddRequest extends Complex
     }
 
     /**
-     * Communication Barring Alternate Call Indicator.
+     * 
      */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
+        if (!$alternateCallIndicator) return $this;
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf CommunicationBarringAlternateCallIndicator)
              ? $alternateCallIndicator
              : new CommunicationBarringAlternateCallIndicator($alternateCallIndicator);
+        $this->alternateCallIndicator->setName('alternateCallIndicator');
+        return $this;
     }
 
     /**
-     * Communication Barring Alternate Call Indicator.
+     * 
+     * @return CommunicationBarringAlternateCallIndicator
      */
     public function getAlternateCallIndicator()
     {
-        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->getValue();
+        return $this->alternateCallIndicator->getValue();
     }
 
     /**
-     * Network Server Alternate Call Indicator.
+     * 
      */
     public function setNetworkServerAlternateCallIndicator($networkServerAlternateCallIndicator = null)
     {
+        if (!$networkServerAlternateCallIndicator) return $this;
         $this->networkServerAlternateCallIndicator = ($networkServerAlternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
              ? $networkServerAlternateCallIndicator
              : new NetworkServerAlternateCallIndicator($networkServerAlternateCallIndicator);
+        $this->networkServerAlternateCallIndicator->setName('networkServerAlternateCallIndicator');
+        return $this;
     }
 
     /**
-     * Network Server Alternate Call Indicator.
+     * 
+     * @return NetworkServerAlternateCallIndicator
      */
     public function getNetworkServerAlternateCallIndicator()
     {
-        return (!$this->networkServerAlternateCallIndicator) ?: $this->networkServerAlternateCallIndicator->getValue();
+        return $this->networkServerAlternateCallIndicator->getValue();
     }
 }

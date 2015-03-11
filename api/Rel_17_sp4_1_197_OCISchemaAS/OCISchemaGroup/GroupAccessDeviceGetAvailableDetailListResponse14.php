@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceGetAvailableDetailListResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupAccessDeviceGetAvailableDetailListResponse14';
     protected $availableAccessDevice = null;
 
     /**
@@ -36,14 +35,17 @@ class GroupAccessDeviceGetAvailableDetailListResponse14 extends ComplexType impl
      */
     public function setAvailableAccessDevice($availableAccessDevice = null)
     {
-        $this->availableAccessDevice = $availableAccessDevice;
+        if (!$availableAccessDevice) return $this;
+        $this->availableAccessDevice->setName('availableAccessDevice');
+        return $this;
     }
 
     /**
      * 
+     * @return 
      */
     public function getAvailableAccessDevice()
     {
-        return (!$this->availableAccessDevice) ?: $this->availableAccessDevice;
+        return $this->availableAccessDevice->getValue();
     }
 }

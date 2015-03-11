@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterComfortMessageBypassThresholdSeconds;
@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCent
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLListModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ExtendedFileResourceSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterComfortMessageBypassModifyResponse17;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterComfortMessageBypassModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name                                     = __CLASS__;
+    public    $name                                     = 'GroupCallCenterComfortMessageBypassModifyRequest17';
     protected $serviceUserId                            = null;
     protected $isActive                                 = null;
     protected $callWaitingAgeThresholdSeconds           = null;
@@ -46,11 +46,11 @@ class GroupCallCenterComfortMessageBypassModifyRequest17 extends ComplexType imp
          $playAnnouncementAfterRinging = null,
          $ringTimeBeforePlayingAnnouncementSeconds = null,
          $audioMessageSelection = null,
-          $audioUrlList = null,
-          $audioFileList = null,
+         CallCenterAnnouncementURLListModify $audioUrlList = null,
+         CallCenterAnnouncementFileListModify $audioFileList = null,
          $videoMessageSelection = null,
-          $videoUrlList = null,
-          $videoFileList = null
+         CallCenterAnnouncementURLListModify $videoUrlList = null,
+         CallCenterAnnouncementFileListModify $videoFileList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setIsActive($isActive);
@@ -66,7 +66,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest17 extends ComplexType imp
     }
 
     /**
-     * @return GroupCallCenterComfortMessageBypassModifyResponse17
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,29 +74,25 @@ class GroupCallCenterComfortMessageBypassModifyRequest17 extends ComplexType imp
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
@@ -104,35 +100,41 @@ class GroupCallCenterComfortMessageBypassModifyRequest17 extends ComplexType imp
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Call center comfort message bypass threshold. This is the maximum estimated wait time to allow 
-     *         bypassing the comfort message.
-     */
     public function setCallWaitingAgeThresholdSeconds($callWaitingAgeThresholdSeconds = null)
     {
+        if (!$callWaitingAgeThresholdSeconds) return $this;
         $this->callWaitingAgeThresholdSeconds = ($callWaitingAgeThresholdSeconds InstanceOf CallCenterComfortMessageBypassThresholdSeconds)
              ? $callWaitingAgeThresholdSeconds
              : new CallCenterComfortMessageBypassThresholdSeconds($callWaitingAgeThresholdSeconds);
+        $this->callWaitingAgeThresholdSeconds->setName('callWaitingAgeThresholdSeconds');
+        return $this;
     }
 
     /**
-     * Call center comfort message bypass threshold. This is the maximum estimated wait time to allow 
-     *         bypassing the comfort message.
+     * 
+     * @return CallCenterComfortMessageBypassThresholdSeconds
      */
     public function getCallWaitingAgeThresholdSeconds()
     {
-        return (!$this->callWaitingAgeThresholdSeconds) ?: $this->callWaitingAgeThresholdSeconds->getValue();
+        return $this->callWaitingAgeThresholdSeconds->getValue();
     }
 
     /**
@@ -140,132 +142,164 @@ class GroupCallCenterComfortMessageBypassModifyRequest17 extends ComplexType imp
      */
     public function setPlayAnnouncementAfterRinging($playAnnouncementAfterRinging = null)
     {
-        $this->playAnnouncementAfterRinging = (boolean) $playAnnouncementAfterRinging;
+        if (!$playAnnouncementAfterRinging) return $this;
+        $this->playAnnouncementAfterRinging = new PrimitiveType($playAnnouncementAfterRinging);
+        $this->playAnnouncementAfterRinging->setName('playAnnouncementAfterRinging');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPlayAnnouncementAfterRinging()
+    {
+        return $this->playAnnouncementAfterRinging->getValue();
     }
 
     /**
      * 
      */
-    public function getPlayAnnouncementAfterRinging()
-    {
-        return (!$this->playAnnouncementAfterRinging) ?: $this->playAnnouncementAfterRinging;
-    }
-
-    /**
-     * Call center ring time before playing comfort message bypass announcement.
-     */
     public function setRingTimeBeforePlayingAnnouncementSeconds($ringTimeBeforePlayingAnnouncementSeconds = null)
     {
+        if (!$ringTimeBeforePlayingAnnouncementSeconds) return $this;
         $this->ringTimeBeforePlayingAnnouncementSeconds = ($ringTimeBeforePlayingAnnouncementSeconds InstanceOf CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds)
              ? $ringTimeBeforePlayingAnnouncementSeconds
              : new CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds($ringTimeBeforePlayingAnnouncementSeconds);
+        $this->ringTimeBeforePlayingAnnouncementSeconds->setName('ringTimeBeforePlayingAnnouncementSeconds');
+        return $this;
     }
 
     /**
-     * Call center ring time before playing comfort message bypass announcement.
+     * 
+     * @return CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds
      */
     public function getRingTimeBeforePlayingAnnouncementSeconds()
     {
-        return (!$this->ringTimeBeforePlayingAnnouncementSeconds) ?: $this->ringTimeBeforePlayingAnnouncementSeconds->getValue();
+        return $this->ringTimeBeforePlayingAnnouncementSeconds->getValue();
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
+        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
+        $this->audioMessageSelection->setName('audioMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getAudioMessageSelection()
     {
-        return (!$this->audioMessageSelection) ?: $this->audioMessageSelection->getValue();
+        return $this->audioMessageSelection->getValue();
     }
 
     /**
-     * Contains a list of URLs for modify.
+     * 
      */
     public function setAudioUrlList(CallCenterAnnouncementURLListModify $audioUrlList = null)
     {
-        $this->audioUrlList =  $audioUrlList;
+        if (!$audioUrlList) return $this;
+        $this->audioUrlList = $audioUrlList;
+        $this->audioUrlList->setName('audioUrlList');
+        return $this;
     }
 
     /**
-     * Contains a list of URLs for modify.
+     * 
+     * @return CallCenterAnnouncementURLListModify
      */
     public function getAudioUrlList()
     {
-        return (!$this->audioUrlList) ?: $this->audioUrlList->getValue();
+        return $this->audioUrlList;
     }
 
     /**
-     * Contains a list of audio or video files to modify.
+     * 
      */
     public function setAudioFileList(CallCenterAnnouncementFileListModify $audioFileList = null)
     {
-        $this->audioFileList =  $audioFileList;
+        if (!$audioFileList) return $this;
+        $this->audioFileList = $audioFileList;
+        $this->audioFileList->setName('audioFileList');
+        return $this;
     }
 
     /**
-     * Contains a list of audio or video files to modify.
+     * 
+     * @return CallCenterAnnouncementFileListModify
      */
     public function getAudioFileList()
     {
-        return (!$this->audioFileList) ?: $this->audioFileList->getValue();
+        return $this->audioFileList;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
+        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
+        $this->videoMessageSelection->setName('videoMessageSelection');
+        return $this;
     }
 
     /**
-     * Choices for extended file resource usage.
+     * 
+     * @return ExtendedFileResourceSelection
      */
     public function getVideoMessageSelection()
     {
-        return (!$this->videoMessageSelection) ?: $this->videoMessageSelection->getValue();
+        return $this->videoMessageSelection->getValue();
     }
 
     /**
-     * Contains a list of URLs for modify.
+     * 
      */
     public function setVideoUrlList(CallCenterAnnouncementURLListModify $videoUrlList = null)
     {
-        $this->videoUrlList =  $videoUrlList;
+        if (!$videoUrlList) return $this;
+        $this->videoUrlList = $videoUrlList;
+        $this->videoUrlList->setName('videoUrlList');
+        return $this;
     }
 
     /**
-     * Contains a list of URLs for modify.
+     * 
+     * @return CallCenterAnnouncementURLListModify
      */
     public function getVideoUrlList()
     {
-        return (!$this->videoUrlList) ?: $this->videoUrlList->getValue();
+        return $this->videoUrlList;
     }
 
     /**
-     * Contains a list of audio or video files to modify.
+     * 
      */
     public function setVideoFileList(CallCenterAnnouncementFileListModify $videoFileList = null)
     {
-        $this->videoFileList =  $videoFileList;
+        if (!$videoFileList) return $this;
+        $this->videoFileList = $videoFileList;
+        $this->videoFileList->setName('videoFileList');
+        return $this;
     }
 
     /**
-     * Contains a list of audio or video files to modify.
+     * 
+     * @return CallCenterAnnouncementFileListModify
      */
     public function getVideoFileList()
     {
-        return (!$this->videoFileList) ?: $this->videoFileList->getValue();
+        return $this->videoFileList;
     }
 }

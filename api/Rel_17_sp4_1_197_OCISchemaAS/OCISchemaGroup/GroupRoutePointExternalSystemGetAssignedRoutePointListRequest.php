@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutePointExternalSystemGetAssignedRoutePointListResponse';
-    public    $name                         = __CLASS__;
+    public    $name                         = 'GroupRoutePointExternalSystemGetAssignedRoutePointListRequest';
     protected $serviceProviderId            = null;
     protected $groupId                      = null;
     protected $externalSystem               = null;
@@ -38,7 +38,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
          $groupId,
          $externalSystem,
          $responseSizeLimit = null,
-          $searchCriteriaRoutePointName = null
+         SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -56,98 +56,112 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * The Route Point External System's name.
+     * 
      */
     public function setExternalSystem($externalSystem = null)
     {
+        if (!$externalSystem) return $this;
         $this->externalSystem = ($externalSystem InstanceOf RoutePointExternalSystem)
              ? $externalSystem
              : new RoutePointExternalSystem($externalSystem);
+        $this->externalSystem->setName('externalSystem');
+        return $this;
     }
 
     /**
-     * The Route Point External System's name.
+     * 
+     * @return RoutePointExternalSystem
      */
     public function getExternalSystem()
     {
-        return (!$this->externalSystem) ?: $this->externalSystem->getValue();
+        return $this->externalSystem->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a route point
+     * 
      */
     public function setSearchCriteriaRoutePointName(SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null)
     {
-        $this->searchCriteriaRoutePointName =  $searchCriteriaRoutePointName;
+        if (!$searchCriteriaRoutePointName) return $this;
+        $this->searchCriteriaRoutePointName = ($searchCriteriaRoutePointName InstanceOf SearchCriteriaRoutePointName)
+             ? $searchCriteriaRoutePointName
+             : new SearchCriteriaRoutePointName($searchCriteriaRoutePointName);
+        $this->searchCriteriaRoutePointName->setName('searchCriteriaRoutePointName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a route point
+     * 
+     * @return SearchCriteriaRoutePointName
      */
     public function getSearchCriteriaRoutePointName()
     {
-        return (!$this->searchCriteriaRoutePointName) ?: $this->searchCriteriaRoutePointName->getValue();
+        return $this->searchCriteriaRoutePointName;
     }
 }

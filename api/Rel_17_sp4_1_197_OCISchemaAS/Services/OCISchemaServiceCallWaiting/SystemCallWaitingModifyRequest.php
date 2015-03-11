@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallWaiting; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallWaiting\SystemCallWaitingModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'SystemCallWaitingModifyRequest';
     protected $playDistinctiveRingback = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return SystemCallWaitingModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,14 +42,18 @@ class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInter
      */
     public function setPlayDistinctiveRingback($playDistinctiveRingback = null)
     {
-        $this->playDistinctiveRingback = (boolean) $playDistinctiveRingback;
+        if (!$playDistinctiveRingback) return $this;
+        $this->playDistinctiveRingback = new PrimitiveType($playDistinctiveRingback);
+        $this->playDistinctiveRingback->setName('playDistinctiveRingback');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPlayDistinctiveRingback()
     {
-        return (!$this->playDistinctiveRingback) ?: $this->playDistinctiveRingback;
+        return $this->playDistinctiveRingback->getValue();
     }
 }

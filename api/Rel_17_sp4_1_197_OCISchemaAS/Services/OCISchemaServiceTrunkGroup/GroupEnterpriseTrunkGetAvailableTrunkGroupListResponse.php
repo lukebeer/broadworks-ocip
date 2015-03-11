@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse';
     protected $trunkGroupName = null;
 
     /**
@@ -32,22 +31,24 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse extends ComplexType
     }
 
     /**
-     * Trunk Group name.
-     *         Uniquely identifies a Trunk Group within a business (or family) group.
+     * 
      */
     public function setTrunkGroupName($trunkGroupName = null)
     {
+        if (!$trunkGroupName) return $this;
         $this->trunkGroupName = ($trunkGroupName InstanceOf TrunkGroupName)
              ? $trunkGroupName
              : new TrunkGroupName($trunkGroupName);
+        $this->trunkGroupName->setName('trunkGroupName');
+        return $this;
     }
 
     /**
-     * Trunk Group name.
-     *         Uniquely identifies a Trunk Group within a business (or family) group.
+     * 
+     * @return TrunkGroupName
      */
     public function getTrunkGroupName()
     {
-        return (!$this->trunkGroupName) ?: $this->trunkGroupName->getValue();
+        return $this->trunkGroupName->getValue();
     }
 }

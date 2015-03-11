@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\SystemInterceptUserModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
+    public    $name                        = 'SystemInterceptUserModifyRequest';
     protected $emergencyAndRepairIntercept = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return SystemInterceptUserModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,14 +42,18 @@ class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInt
      */
     public function setEmergencyAndRepairIntercept($emergencyAndRepairIntercept = null)
     {
-        $this->emergencyAndRepairIntercept = (boolean) $emergencyAndRepairIntercept;
+        if (!$emergencyAndRepairIntercept) return $this;
+        $this->emergencyAndRepairIntercept = new PrimitiveType($emergencyAndRepairIntercept);
+        $this->emergencyAndRepairIntercept->setName('emergencyAndRepairIntercept');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEmergencyAndRepairIntercept()
     {
-        return (!$this->emergencyAndRepairIntercept) ?: $this->emergencyAndRepairIntercept;
+        return $this->emergencyAndRepairIntercept->getValue();
     }
 }

@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNumberActivationModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNumberActivationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'SystemNumberActivationModifyRequest';
     protected $useNumberActivation = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemNumberActivationModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return SystemNumberActivationModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,14 +42,18 @@ class SystemNumberActivationModifyRequest extends ComplexType implements Complex
      */
     public function setUseNumberActivation($useNumberActivation = null)
     {
-        $this->useNumberActivation = (boolean) $useNumberActivation;
+        if (!$useNumberActivation) return $this;
+        $this->useNumberActivation = new PrimitiveType($useNumberActivation);
+        $this->useNumberActivation->setName('useNumberActivation');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseNumberActivation()
     {
-        return (!$this->useNumberActivation) ?: $this->useNumberActivation;
+        return $this->useNumberActivation->getValue();
     }
 }

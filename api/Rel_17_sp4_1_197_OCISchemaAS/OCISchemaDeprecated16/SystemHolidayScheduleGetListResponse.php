@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemHolidayScheduleGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemHolidayScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'SystemHolidayScheduleGetListResponse';
     protected $holidayScheduleName = null;
 
     /**
@@ -33,20 +32,24 @@ class SystemHolidayScheduleGetListResponse extends ComplexType implements Comple
     }
 
     /**
-     * Schedule name.
+     * 
      */
     public function setHolidayScheduleName($holidayScheduleName = null)
     {
+        if (!$holidayScheduleName) return $this;
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
              ? $holidayScheduleName
              : new ScheduleName($holidayScheduleName);
+        $this->holidayScheduleName->setName('holidayScheduleName');
+        return $this;
     }
 
     /**
-     * Schedule name.
+     * 
+     * @return ScheduleName
      */
     public function getHolidayScheduleName()
     {
-        return (!$this->holidayScheduleName) ?: $this->holidayScheduleName->getValue();
+        return $this->holidayScheduleName->getValue();
     }
 }

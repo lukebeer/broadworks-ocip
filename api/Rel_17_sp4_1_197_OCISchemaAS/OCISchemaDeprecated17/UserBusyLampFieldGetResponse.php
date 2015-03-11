@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserBusyLampFieldGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'UserBusyLampFieldGetResponse';
     protected $listURI            = null;
     protected $monitoredUserTable = null;
 
@@ -37,35 +36,25 @@ class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
      */
     public function setListURI($listURI = null)
     {
+        if (!$listURI) return $this;
         $this->listURI = ($listURI InstanceOf SIPURI)
              ? $listURI
              : new SIPURI($listURI);
+        $this->listURI->setName('listURI');
+        return $this;
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
+     * @return SIPURI
      */
     public function getListURI()
     {
-        return (!$this->listURI) ?: $this->listURI->getValue();
+        return $this->listURI->getValue();
     }
 
     /**
@@ -73,14 +62,17 @@ class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
     {
-        $this->monitoredUserTable =  $monitoredUserTable;
+        if (!$monitoredUserTable) return $this;
+        $this->monitoredUserTable->setName('monitoredUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getMonitoredUserTable()
     {
-        return (!$this->monitoredUserTable) ?: $this->monitoredUserTable->getValue();
+        return $this->monitoredUserTable->getValue();
     }
 }

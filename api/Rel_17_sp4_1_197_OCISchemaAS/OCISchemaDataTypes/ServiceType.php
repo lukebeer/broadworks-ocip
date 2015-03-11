@@ -16,12 +16,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ServiceType extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "ServiceType";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "string";
+        $this->dataType = "";
         $this->addRestriction(new Enumeration([
             'Auto Attendant',
             'BroadWorks Anywhere Portal',

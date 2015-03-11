@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupServiceAuthorization;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserServiceAuthorization;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServiceModifyAuthorizationListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'ServiceProviderServiceModifyAuthorizationListRequest';
     protected $serviceProviderId         = null;
     protected $groupServiceAuthorization = null;
     protected $userServiceAuthorization  = null;
 
     public function __construct(
          $serviceProviderId,
-          $groupServiceAuthorization = null,
-          $userServiceAuthorization = null
+         GroupServiceAuthorization $groupServiceAuthorization = null,
+         UserServiceAuthorization $userServiceAuthorization = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupServiceAuthorization($groupServiceAuthorization);
@@ -40,7 +39,7 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
     }
 
     /**
-     * @return ServiceProviderServiceModifyAuthorizationListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,54 +47,64 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Authorize (with quantity) or unauthorize a group service.
+     * 
      */
     public function setGroupServiceAuthorization(GroupServiceAuthorization $groupServiceAuthorization = null)
     {
-        $this->groupServiceAuthorization =  $groupServiceAuthorization;
+        if (!$groupServiceAuthorization) return $this;
+        $this->groupServiceAuthorization = $groupServiceAuthorization;
+        $this->groupServiceAuthorization->setName('groupServiceAuthorization');
+        return $this;
     }
 
     /**
-     * Authorize (with quantity) or unauthorize a group service.
+     * 
+     * @return GroupServiceAuthorization
      */
     public function getGroupServiceAuthorization()
     {
-        return (!$this->groupServiceAuthorization) ?: $this->groupServiceAuthorization->getValue();
+        return $this->groupServiceAuthorization;
     }
 
     /**
-     * Authorize (with quantity) or unauthorize a user service.
+     * 
      */
     public function setUserServiceAuthorization(UserServiceAuthorization $userServiceAuthorization = null)
     {
-        $this->userServiceAuthorization =  $userServiceAuthorization;
+        if (!$userServiceAuthorization) return $this;
+        $this->userServiceAuthorization = $userServiceAuthorization;
+        $this->userServiceAuthorization->setName('userServiceAuthorization');
+        return $this;
     }
 
     /**
-     * Authorize (with quantity) or unauthorize a user service.
+     * 
+     * @return UserServiceAuthorization
      */
     public function getUserServiceAuthorization()
     {
-        return (!$this->userServiceAuthorization) ?: $this->userServiceAuthorization->getValue();
+        return $this->userServiceAuthorization;
     }
 }

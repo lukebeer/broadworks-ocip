@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'GroupDepartmentModifyRequest';
     protected $serviceProviderId      = null;
     protected $groupId                = null;
     protected $departmentName         = null;
@@ -36,7 +35,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
          $groupId,
          $departmentName,
          $newDepartmentName = null,
-          $newParentDepartmentKey = null
+         DepartmentKey $newParentDepartmentKey = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -46,7 +45,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return GroupDepartmentModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,110 +53,110 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Department name. This is only the name of the department itself, not the full path name
-     *         of the department and all its parents.
+     * 
      */
     public function setDepartmentName($departmentName = null)
     {
+        if (!$departmentName) return $this;
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
+        $this->departmentName->setName('departmentName');
+        return $this;
     }
 
     /**
-     * Department name. This is only the name of the department itself, not the full path name
-     *         of the department and all its parents.
+     * 
+     * @return DepartmentName
      */
     public function getDepartmentName()
     {
-        return (!$this->departmentName) ?: $this->departmentName->getValue();
+        return $this->departmentName->getValue();
     }
 
     /**
-     * Department name. This is only the name of the department itself, not the full path name
-     *         of the department and all its parents.
+     * 
      */
     public function setNewDepartmentName($newDepartmentName = null)
     {
+        if (!$newDepartmentName) return $this;
         $this->newDepartmentName = ($newDepartmentName InstanceOf DepartmentName)
              ? $newDepartmentName
              : new DepartmentName($newDepartmentName);
+        $this->newDepartmentName->setName('newDepartmentName');
+        return $this;
     }
 
     /**
-     * Department name. This is only the name of the department itself, not the full path name
-     *         of the department and all its parents.
+     * 
+     * @return DepartmentName
      */
     public function getNewDepartmentName()
     {
-        return (!$this->newDepartmentName) ?: $this->newDepartmentName->getValue();
+        return $this->newDepartmentName->getValue();
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
      */
     public function setNewParentDepartmentKey(DepartmentKey $newParentDepartmentKey = null)
     {
-        $this->newParentDepartmentKey =  $newParentDepartmentKey;
+        if (!$newParentDepartmentKey) return $this;
+        $this->newParentDepartmentKey = $newParentDepartmentKey;
+        $this->newParentDepartmentKey->setName('newParentDepartmentKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
+     * @return DepartmentKey
      */
     public function getNewParentDepartmentKey()
     {
-        return (!$this->newParentDepartmentKey) ?: $this->newParentDepartmentKey->getValue();
+        return $this->newParentDepartmentKey;
     }
 }

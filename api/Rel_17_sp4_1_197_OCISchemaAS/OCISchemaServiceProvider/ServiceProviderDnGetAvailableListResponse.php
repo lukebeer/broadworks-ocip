@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDnGetAvailableListResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDnGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'ServiceProviderDnGetAvailableListResponse';
     protected $availableDn = null;
 
     /**
@@ -37,14 +36,18 @@ class ServiceProviderDnGetAvailableListResponse extends ComplexType implements C
      */
     public function setAvailableDn($availableDn = null)
     {
-        $this->availableDn = (string) $availableDn;
+        if (!$availableDn) return $this;
+        $this->availableDn = new PrimitiveType($availableDn);
+        $this->availableDn->setName('availableDn');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:token
      */
     public function getAvailableDn()
     {
-        return (!$this->availableDn) ?: $this->availableDn;
+        return $this->availableDn->getValue();
     }
 }

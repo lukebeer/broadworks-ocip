@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceThirdPartyVoiceMailSupport; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\ThirdPartyVoiceMailSupportMailServer;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceThirdPartyVoiceMailSupport\GroupThirdPartyVoiceMailSupportGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'GroupThirdPartyVoiceMailSupportGetResponse';
     protected $isActive    = null;
     protected $groupServer = null;
 
@@ -37,32 +37,40 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Uniquely identifies an external voice mail server.
-     */
     public function setGroupServer($groupServer = null)
     {
+        if (!$groupServer) return $this;
         $this->groupServer = ($groupServer InstanceOf ThirdPartyVoiceMailSupportMailServer)
              ? $groupServer
              : new ThirdPartyVoiceMailSupportMailServer($groupServer);
+        $this->groupServer->setName('groupServer');
+        return $this;
     }
 
     /**
-     * Uniquely identifies an external voice mail server.
+     * 
+     * @return ThirdPartyVoiceMailSupportMailServer
      */
     public function getGroupServer()
     {
-        return (!$this->groupServer) ?: $this->groupServer->getValue();
+        return $this->groupServer->getValue();
     }
 }

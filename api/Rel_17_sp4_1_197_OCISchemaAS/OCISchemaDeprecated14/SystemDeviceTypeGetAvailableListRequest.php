@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDeviceTypeGetAvailableListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDeviceTypeGetAvailableListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDeviceTypeGetAvailableListResponse';
-    public    $name                  = __CLASS__;
+    public    $name                  = 'SystemDeviceTypeGetAvailableListRequest';
     protected $allowConference       = null;
     protected $allowMusicOnHold      = null;
     protected $onlyConference        = null;
@@ -59,15 +59,19 @@ class SystemDeviceTypeGetAvailableListRequest extends ComplexType implements Com
      */
     public function setAllowConference($allowConference = null)
     {
-        $this->allowConference = (boolean) $allowConference;
+        if (!$allowConference) return $this;
+        $this->allowConference = new PrimitiveType($allowConference);
+        $this->allowConference->setName('allowConference');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowConference()
     {
-        return (!$this->allowConference) ?: $this->allowConference;
+        return $this->allowConference->getValue();
     }
 
     /**
@@ -75,15 +79,19 @@ class SystemDeviceTypeGetAvailableListRequest extends ComplexType implements Com
      */
     public function setAllowMusicOnHold($allowMusicOnHold = null)
     {
-        $this->allowMusicOnHold = (boolean) $allowMusicOnHold;
+        if (!$allowMusicOnHold) return $this;
+        $this->allowMusicOnHold = new PrimitiveType($allowMusicOnHold);
+        $this->allowMusicOnHold->setName('allowMusicOnHold');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowMusicOnHold()
     {
-        return (!$this->allowMusicOnHold) ?: $this->allowMusicOnHold;
+        return $this->allowMusicOnHold->getValue();
     }
 
     /**
@@ -91,15 +99,19 @@ class SystemDeviceTypeGetAvailableListRequest extends ComplexType implements Com
      */
     public function setOnlyConference($onlyConference = null)
     {
-        $this->onlyConference = (boolean) $onlyConference;
+        if (!$onlyConference) return $this;
+        $this->onlyConference = new PrimitiveType($onlyConference);
+        $this->onlyConference->setName('onlyConference');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getOnlyConference()
     {
-        return (!$this->onlyConference) ?: $this->onlyConference;
+        return $this->onlyConference->getValue();
     }
 
     /**
@@ -107,15 +119,19 @@ class SystemDeviceTypeGetAvailableListRequest extends ComplexType implements Com
      */
     public function setOnlyVideoCapable($onlyVideoCapable = null)
     {
-        $this->onlyVideoCapable = (boolean) $onlyVideoCapable;
+        if (!$onlyVideoCapable) return $this;
+        $this->onlyVideoCapable = new PrimitiveType($onlyVideoCapable);
+        $this->onlyVideoCapable->setName('onlyVideoCapable');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getOnlyVideoCapable()
     {
-        return (!$this->onlyVideoCapable) ?: $this->onlyVideoCapable;
+        return $this->onlyVideoCapable->getValue();
     }
 
     /**
@@ -123,14 +139,18 @@ class SystemDeviceTypeGetAvailableListRequest extends ComplexType implements Com
      */
     public function setOnlyOptionalIpAddress($onlyOptionalIpAddress = null)
     {
-        $this->onlyOptionalIpAddress = (boolean) $onlyOptionalIpAddress;
+        if (!$onlyOptionalIpAddress) return $this;
+        $this->onlyOptionalIpAddress = new PrimitiveType($onlyOptionalIpAddress);
+        $this->onlyOptionalIpAddress->setName('onlyOptionalIpAddress');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getOnlyOptionalIpAddress()
     {
-        return (!$this->onlyOptionalIpAddress) ?: $this->onlyOptionalIpAddress;
+        return $this->onlyOptionalIpAddress->getValue();
     }
 }

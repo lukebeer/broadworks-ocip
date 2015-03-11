@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDomainGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainGetListResponse';
-    public    $name = __CLASS__;
+    public    $name = 'SystemDomainGetListRequest';
 
     public function __construct(    ) {
     }

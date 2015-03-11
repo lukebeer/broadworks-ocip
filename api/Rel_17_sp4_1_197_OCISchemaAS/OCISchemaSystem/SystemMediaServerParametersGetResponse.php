@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\MediaServerSelectionRouteTimerMilliseconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\MediaServerResponseTimerMilliseconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaServerParametersGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaServerParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = __CLASS__;
+    public    $name                                       = 'SystemMediaServerParametersGetResponse';
     protected $mediaServerResponseTimerMilliseconds       = null;
     protected $mediaServerSelectionRouteTimerMilliseconds = null;
     protected $useStaticMediaServerDevice                 = null;
@@ -36,39 +36,47 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
     }
 
     /**
-     * Media Server timer length.
+     * 
      */
     public function setMediaServerResponseTimerMilliseconds($mediaServerResponseTimerMilliseconds = null)
     {
+        if (!$mediaServerResponseTimerMilliseconds) return $this;
         $this->mediaServerResponseTimerMilliseconds = ($mediaServerResponseTimerMilliseconds InstanceOf MediaServerResponseTimerMilliseconds)
              ? $mediaServerResponseTimerMilliseconds
              : new MediaServerResponseTimerMilliseconds($mediaServerResponseTimerMilliseconds);
+        $this->mediaServerResponseTimerMilliseconds->setName('mediaServerResponseTimerMilliseconds');
+        return $this;
     }
 
     /**
-     * Media Server timer length.
+     * 
+     * @return MediaServerResponseTimerMilliseconds
      */
     public function getMediaServerResponseTimerMilliseconds()
     {
-        return (!$this->mediaServerResponseTimerMilliseconds) ?: $this->mediaServerResponseTimerMilliseconds->getValue();
+        return $this->mediaServerResponseTimerMilliseconds->getValue();
     }
 
     /**
-     * Media Server selection route timer length.
+     * 
      */
     public function setMediaServerSelectionRouteTimerMilliseconds($mediaServerSelectionRouteTimerMilliseconds = null)
     {
+        if (!$mediaServerSelectionRouteTimerMilliseconds) return $this;
         $this->mediaServerSelectionRouteTimerMilliseconds = ($mediaServerSelectionRouteTimerMilliseconds InstanceOf MediaServerSelectionRouteTimerMilliseconds)
              ? $mediaServerSelectionRouteTimerMilliseconds
              : new MediaServerSelectionRouteTimerMilliseconds($mediaServerSelectionRouteTimerMilliseconds);
+        $this->mediaServerSelectionRouteTimerMilliseconds->setName('mediaServerSelectionRouteTimerMilliseconds');
+        return $this;
     }
 
     /**
-     * Media Server selection route timer length.
+     * 
+     * @return MediaServerSelectionRouteTimerMilliseconds
      */
     public function getMediaServerSelectionRouteTimerMilliseconds()
     {
-        return (!$this->mediaServerSelectionRouteTimerMilliseconds) ?: $this->mediaServerSelectionRouteTimerMilliseconds->getValue();
+        return $this->mediaServerSelectionRouteTimerMilliseconds->getValue();
     }
 
     /**
@@ -76,14 +84,18 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
      */
     public function setUseStaticMediaServerDevice($useStaticMediaServerDevice = null)
     {
-        $this->useStaticMediaServerDevice = (boolean) $useStaticMediaServerDevice;
+        if (!$useStaticMediaServerDevice) return $this;
+        $this->useStaticMediaServerDevice = new PrimitiveType($useStaticMediaServerDevice);
+        $this->useStaticMediaServerDevice->setName('useStaticMediaServerDevice');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseStaticMediaServerDevice()
     {
-        return (!$this->useStaticMediaServerDevice) ?: $this->useStaticMediaServerDevice;
+        return $this->useStaticMediaServerDevice->getValue();
     }
 }

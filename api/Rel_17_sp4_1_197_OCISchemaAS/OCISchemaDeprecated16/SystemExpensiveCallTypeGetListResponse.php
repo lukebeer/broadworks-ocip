@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemExpensiveCallTypeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExpensiveCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'SystemExpensiveCallTypeGetListResponse';
     protected $alternateCallIndicator = null;
 
     /**
@@ -33,20 +32,24 @@ class SystemExpensiveCallTypeGetListResponse extends ComplexType implements Comp
     }
 
     /**
-     * Network Server Alternate Call Indicator.
+     * 
      */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
+        if (!$alternateCallIndicator) return $this;
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
              ? $alternateCallIndicator
              : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
+        $this->alternateCallIndicator->setName('alternateCallIndicator');
+        return $this;
     }
 
     /**
-     * Network Server Alternate Call Indicator.
+     * 
+     * @return NetworkServerAlternateCallIndicator
      */
     public function getAlternateCallIndicator()
     {
-        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->getValue();
+        return $this->alternateCallIndicator->getValue();
     }
 }

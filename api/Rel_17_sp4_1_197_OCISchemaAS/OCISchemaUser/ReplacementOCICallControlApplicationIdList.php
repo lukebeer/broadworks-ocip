@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\ReplacementOCICallControlApplicationIdList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -21,10 +21,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementOCICallControlApplicationIdList extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\ReplacementOCICallControlApplicationIdList';
-    public    $name = __CLASS__;
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\ReplacementOCICallControlApplicationIdList';
+    public    $name          = 'ReplacementOCICallControlApplicationIdList';
+    protected $applicationId = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $applicationId = null
+    ) {
+        $this->setApplicationId($applicationId);
     }
 
     /**
@@ -33,5 +37,25 @@ class ReplacementOCICallControlApplicationIdList extends ComplexType implements 
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setApplicationId($applicationId = null)
+    {
+        if (!$applicationId) return $this;
+        $this->applicationId = new SimpleContent($applicationId);
+        $this->applicationId->setName('applicationId');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getApplicationId()
+    {
+        return $this->applicationId->getValue();
     }
 }

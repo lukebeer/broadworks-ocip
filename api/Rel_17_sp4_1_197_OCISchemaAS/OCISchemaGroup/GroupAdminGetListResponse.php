@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAdminGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAdminGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'GroupAdminGetListResponse';
     protected $groupAdminTable = null;
 
     /**
@@ -38,14 +37,17 @@ class GroupAdminGetListResponse extends ComplexType implements ComplexInterface
      */
     public function setGroupAdminTable(core:OCITable $groupAdminTable = null)
     {
-        $this->groupAdminTable =  $groupAdminTable;
+        if (!$groupAdminTable) return $this;
+        $this->groupAdminTable->setName('groupAdminTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getGroupAdminTable()
     {
-        return (!$this->groupAdminTable) ?: $this->groupAdminTable->getValue();
+        return $this->groupAdminTable->getValue();
     }
 }

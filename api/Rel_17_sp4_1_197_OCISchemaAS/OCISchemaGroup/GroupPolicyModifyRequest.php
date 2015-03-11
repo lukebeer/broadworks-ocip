@@ -21,7 +21,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupCal
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupExtensionAccess;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPolicyModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,7 +33,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                      = __CLASS__;
+    public    $name                                      = 'GroupPolicyModifyRequest';
     protected $serviceProviderId                         = null;
     protected $groupId                                   = null;
     protected $callingPlanAccess                         = null;
@@ -83,7 +82,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return GroupPolicyModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -91,294 +90,310 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Group's policy for accessing group level and user level calling plan configuration.
-     *         "Full" provides full control over the configuration of group-level and user-level calling plans.
-     *         "Restricted" indicates
-     *         1) not to provide access to group-level calling plan configuration,
-     *         2) to provide access to only collect calls for user level incoming calling plan,
-     *         3) to provide access to only international, operator assisted, 700/900, 976, and casual calls for user level outgoing calling plan.
+     * 
      */
     public function setCallingPlanAccess($callingPlanAccess = null)
     {
+        if (!$callingPlanAccess) return $this;
         $this->callingPlanAccess = ($callingPlanAccess InstanceOf GroupCallingPlanAccess)
              ? $callingPlanAccess
              : new GroupCallingPlanAccess($callingPlanAccess);
+        $this->callingPlanAccess->setName('callingPlanAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for accessing group level and user level calling plan configuration.
-     *         "Full" provides full control over the configuration of group-level and user-level calling plans.
-     *         "Restricted" indicates
-     *         1) not to provide access to group-level calling plan configuration,
-     *         2) to provide access to only collect calls for user level incoming calling plan,
-     *         3) to provide access to only international, operator assisted, 700/900, 976, and casual calls for user level outgoing calling plan.
+     * 
+     * @return GroupCallingPlanAccess
      */
     public function getCallingPlanAccess()
     {
-        return (!$this->callingPlanAccess) ?: $this->callingPlanAccess->getValue();
+        return $this->callingPlanAccess->getValue();
     }
 
     /**
-     * Group's policy for accessing extension dialing configuration (i.e. - length of extensions).
+     * 
      */
     public function setExtensionAccess($extensionAccess = null)
     {
+        if (!$extensionAccess) return $this;
         $this->extensionAccess = ($extensionAccess InstanceOf GroupExtensionAccess)
              ? $extensionAccess
              : new GroupExtensionAccess($extensionAccess);
+        $this->extensionAccess->setName('extensionAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for accessing extension dialing configuration (i.e. - length of extensions).
+     * 
+     * @return GroupExtensionAccess
      */
     public function getExtensionAccess()
     {
-        return (!$this->extensionAccess) ?: $this->extensionAccess->getValue();
+        return $this->extensionAccess->getValue();
     }
 
     /**
-     * Group's policy for accessing LDAP Integration configuration.
+     * 
      */
     public function setLdapIntegrationAccess($ldapIntegrationAccess = null)
     {
+        if (!$ldapIntegrationAccess) return $this;
         $this->ldapIntegrationAccess = ($ldapIntegrationAccess InstanceOf GroupLDAPIntegrationAccess)
              ? $ldapIntegrationAccess
              : new GroupLDAPIntegrationAccess($ldapIntegrationAccess);
+        $this->ldapIntegrationAccess->setName('ldapIntegrationAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for accessing LDAP Integration configuration.
+     * 
+     * @return GroupLDAPIntegrationAccess
      */
     public function getLdapIntegrationAccess()
     {
-        return (!$this->ldapIntegrationAccess) ?: $this->ldapIntegrationAccess->getValue();
+        return $this->ldapIntegrationAccess->getValue();
     }
 
     /**
-     * Group's policy for user access to his voice messaging configuration.
-     *         "Full" indicates full control over the voice messaging configuration.
-     *         "Restricted" indicates that the choice to either use unified messaging option (whereby the user can configure a mail server on which messages are stored)
-     *         or to forward the voice message to a designated email address is not available.
+     * 
      */
     public function setVoiceMessagingAccess($voiceMessagingAccess = null)
     {
+        if (!$voiceMessagingAccess) return $this;
         $this->voiceMessagingAccess = ($voiceMessagingAccess InstanceOf GroupVoiceMessagingAccess)
              ? $voiceMessagingAccess
              : new GroupVoiceMessagingAccess($voiceMessagingAccess);
+        $this->voiceMessagingAccess->setName('voiceMessagingAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for user access to his voice messaging configuration.
-     *         "Full" indicates full control over the voice messaging configuration.
-     *         "Restricted" indicates that the choice to either use unified messaging option (whereby the user can configure a mail server on which messages are stored)
-     *         or to forward the voice message to a designated email address is not available.
+     * 
+     * @return GroupVoiceMessagingAccess
      */
     public function getVoiceMessagingAccess()
     {
-        return (!$this->voiceMessagingAccess) ?: $this->voiceMessagingAccess->getValue();
+        return $this->voiceMessagingAccess->getValue();
     }
 
     /**
-     * Group's policy for department administrator's access to user configuration.
-     *         "Full" indicates full access to users in the department.
-     *         "Read-Only Profile" indicates
-     *           1) the department administrator is restricted from adding or removing users, and
-     *           2) read-only access is granted to the user's profile.
-     *         "No Profile" indicates
-     *           1) the department administrator is restricted from adding or removing users, and
-     *           2) no access is granted to the user's profile.
-     *         "None" indicates no access to users in the department.
+     * 
      */
     public function setDepartmentAdminUserAccess($departmentAdminUserAccess = null)
     {
+        if (!$departmentAdminUserAccess) return $this;
         $this->departmentAdminUserAccess = ($departmentAdminUserAccess InstanceOf GroupDepartmentAdminUserAccess)
              ? $departmentAdminUserAccess
              : new GroupDepartmentAdminUserAccess($departmentAdminUserAccess);
+        $this->departmentAdminUserAccess->setName('departmentAdminUserAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for department administrator's access to user configuration.
-     *         "Full" indicates full access to users in the department.
-     *         "Read-Only Profile" indicates
-     *           1) the department administrator is restricted from adding or removing users, and
-     *           2) read-only access is granted to the user's profile.
-     *         "No Profile" indicates
-     *           1) the department administrator is restricted from adding or removing users, and
-     *           2) no access is granted to the user's profile.
-     *         "None" indicates no access to users in the department.
+     * 
+     * @return GroupDepartmentAdminUserAccess
      */
     public function getDepartmentAdminUserAccess()
     {
-        return (!$this->departmentAdminUserAccess) ?: $this->departmentAdminUserAccess->getValue();
+        return $this->departmentAdminUserAccess->getValue();
     }
 
     /**
-     * Group's policy for department administrator's access to trunk group configuration.
-     *         "Full" indicates full access to trunk groups in the department.
-     *         "None" indicates no access to trunk groups in the department.
+     * 
      */
     public function setDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess = null)
     {
+        if (!$departmentAdminTrunkGroupAccess) return $this;
         $this->departmentAdminTrunkGroupAccess = ($departmentAdminTrunkGroupAccess InstanceOf GroupDepartmentAdminTrunkGroupAccess)
              ? $departmentAdminTrunkGroupAccess
              : new GroupDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess);
+        $this->departmentAdminTrunkGroupAccess->setName('departmentAdminTrunkGroupAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for department administrator's access to trunk group configuration.
-     *         "Full" indicates full access to trunk groups in the department.
-     *         "None" indicates no access to trunk groups in the department.
+     * 
+     * @return GroupDepartmentAdminTrunkGroupAccess
      */
     public function getDepartmentAdminTrunkGroupAccess()
     {
-        return (!$this->departmentAdminTrunkGroupAccess) ?: $this->departmentAdminTrunkGroupAccess->getValue();
+        return $this->departmentAdminTrunkGroupAccess->getValue();
     }
 
     /**
-     * Policy for a department administrator's access to assigning phone numbers and extensions.
+     * 
      */
     public function setDepartmentAdminPhoneNumberExtensionAccess($departmentAdminPhoneNumberExtensionAccess = null)
     {
+        if (!$departmentAdminPhoneNumberExtensionAccess) return $this;
         $this->departmentAdminPhoneNumberExtensionAccess = ($departmentAdminPhoneNumberExtensionAccess InstanceOf GroupDepartmentAdminPhoneNumberExtensionAccess)
              ? $departmentAdminPhoneNumberExtensionAccess
              : new GroupDepartmentAdminPhoneNumberExtensionAccess($departmentAdminPhoneNumberExtensionAccess);
+        $this->departmentAdminPhoneNumberExtensionAccess->setName('departmentAdminPhoneNumberExtensionAccess');
+        return $this;
     }
 
     /**
-     * Policy for a department administrator's access to assigning phone numbers and extensions.
+     * 
+     * @return GroupDepartmentAdminPhoneNumberExtensionAccess
      */
     public function getDepartmentAdminPhoneNumberExtensionAccess()
     {
-        return (!$this->departmentAdminPhoneNumberExtensionAccess) ?: $this->departmentAdminPhoneNumberExtensionAccess->getValue();
+        return $this->departmentAdminPhoneNumberExtensionAccess->getValue();
     }
 
     /**
-     * Department Administrator's policy for accessing calling line id number.
+     * 
      */
     public function setDepartmentAdminCallingLineIdNumberAccess($departmentAdminCallingLineIdNumberAccess = null)
     {
+        if (!$departmentAdminCallingLineIdNumberAccess) return $this;
         $this->departmentAdminCallingLineIdNumberAccess = ($departmentAdminCallingLineIdNumberAccess InstanceOf GroupDepartmentAdminCallingLineIdNumberAccess)
              ? $departmentAdminCallingLineIdNumberAccess
              : new GroupDepartmentAdminCallingLineIdNumberAccess($departmentAdminCallingLineIdNumberAccess);
+        $this->departmentAdminCallingLineIdNumberAccess->setName('departmentAdminCallingLineIdNumberAccess');
+        return $this;
     }
 
     /**
-     * Department Administrator's policy for accessing calling line id number.
+     * 
+     * @return GroupDepartmentAdminCallingLineIdNumberAccess
      */
     public function getDepartmentAdminCallingLineIdNumberAccess()
     {
-        return (!$this->departmentAdminCallingLineIdNumberAccess) ?: $this->departmentAdminCallingLineIdNumberAccess->getValue();
+        return $this->departmentAdminCallingLineIdNumberAccess->getValue();
     }
 
     /**
-     * Group's policy for a user's access to their Authentication service configuration.
+     * 
      */
     public function setUserAuthenticationAccess($userAuthenticationAccess = null)
     {
+        if (!$userAuthenticationAccess) return $this;
         $this->userAuthenticationAccess = ($userAuthenticationAccess InstanceOf GroupUserAuthenticationAccess)
              ? $userAuthenticationAccess
              : new GroupUserAuthenticationAccess($userAuthenticationAccess);
+        $this->userAuthenticationAccess->setName('userAuthenticationAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for a user's access to their Authentication service configuration.
+     * 
+     * @return GroupUserAuthenticationAccess
      */
     public function getUserAuthenticationAccess()
     {
-        return (!$this->userAuthenticationAccess) ?: $this->userAuthenticationAccess->getValue();
+        return $this->userAuthenticationAccess->getValue();
     }
 
     /**
-     * Group's policy for a user's access to the group or enterprise directory.
+     * 
      */
     public function setUserGroupDirectoryAccess($userGroupDirectoryAccess = null)
     {
+        if (!$userGroupDirectoryAccess) return $this;
         $this->userGroupDirectoryAccess = ($userGroupDirectoryAccess InstanceOf GroupUserGroupDirectoryAccess)
              ? $userGroupDirectoryAccess
              : new GroupUserGroupDirectoryAccess($userGroupDirectoryAccess);
+        $this->userGroupDirectoryAccess->setName('userGroupDirectoryAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for a user's access to the group or enterprise directory.
+     * 
+     * @return GroupUserGroupDirectoryAccess
      */
     public function getUserGroupDirectoryAccess()
     {
-        return (!$this->userGroupDirectoryAccess) ?: $this->userGroupDirectoryAccess->getValue();
+        return $this->userGroupDirectoryAccess->getValue();
     }
 
     /**
-     * Group's policy for a user's access to his profile.
+     * 
      */
     public function setUserProfileAccess($userProfileAccess = null)
     {
+        if (!$userProfileAccess) return $this;
         $this->userProfileAccess = ($userProfileAccess InstanceOf GroupUserProfileAccess)
              ? $userProfileAccess
              : new GroupUserProfileAccess($userProfileAccess);
+        $this->userProfileAccess->setName('userProfileAccess');
+        return $this;
     }
 
     /**
-     * Group's policy for a user's access to his profile.
+     * 
+     * @return GroupUserProfileAccess
      */
     public function getUserProfileAccess()
     {
-        return (!$this->userProfileAccess) ?: $this->userProfileAccess->getValue();
+        return $this->userProfileAccess->getValue();
     }
 
     /**
-     * Policy for user to delete call logs
+     * 
      */
     public function setUserEnhancedCallLogAccess($userEnhancedCallLogAccess = null)
     {
+        if (!$userEnhancedCallLogAccess) return $this;
         $this->userEnhancedCallLogAccess = ($userEnhancedCallLogAccess InstanceOf GroupUserCallLogAccess)
              ? $userEnhancedCallLogAccess
              : new GroupUserCallLogAccess($userEnhancedCallLogAccess);
+        $this->userEnhancedCallLogAccess->setName('userEnhancedCallLogAccess');
+        return $this;
     }
 
     /**
-     * Policy for user to delete call logs
+     * 
+     * @return GroupUserCallLogAccess
      */
     public function getUserEnhancedCallLogAccess()
     {
-        return (!$this->userEnhancedCallLogAccess) ?: $this->userEnhancedCallLogAccess->getValue();
+        return $this->userEnhancedCallLogAccess->getValue();
     }
 }

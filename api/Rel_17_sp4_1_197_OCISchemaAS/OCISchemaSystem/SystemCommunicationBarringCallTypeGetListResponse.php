@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCallTypeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemCommunicationBarringCallTypeGetListResponse';
     protected $callTypeTable = null;
 
     /**
@@ -36,14 +35,17 @@ class SystemCommunicationBarringCallTypeGetListResponse extends ComplexType impl
      */
     public function setCallTypeTable(core:OCITable $callTypeTable = null)
     {
-        $this->callTypeTable =  $callTypeTable;
+        if (!$callTypeTable) return $this;
+        $this->callTypeTable->setName('callTypeTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCallTypeTable()
     {
-        return (!$this->callTypeTable) ?: $this->callTypeTable->getValue();
+        return $this->callTypeTable->getValue();
     }
 }

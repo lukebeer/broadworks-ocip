@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Recurrence;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleAddEventResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderScheduleAddEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderScheduleAddEventRequest';
     protected $serviceProviderId = null;
     protected $scheduleKey       = null;
     protected $eventName         = null;
@@ -34,11 +33,11 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
 
     public function __construct(
          $serviceProviderId,
-          $scheduleKey,
+         ScheduleKey $scheduleKey,
          $eventName,
          $startDate,
          $endDate,
-          $recurrence = null
+         Recurrence $recurrence = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setScheduleKey($scheduleKey);
@@ -49,7 +48,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return ServiceProviderScheduleAddEventResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,57 +56,67 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        $this->scheduleKey =  $scheduleKey;
+        if (!$scheduleKey) return $this;
+        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey->setName('scheduleKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies Holiday and Time Schedules within a level(System, Service Provider, Group or User level).
+     * 
+     * @return ScheduleKey
      */
     public function getScheduleKey()
     {
-        return (!$this->scheduleKey) ?: $this->scheduleKey->getValue();
+        return $this->scheduleKey;
     }
 
     /**
-     * Event name.
+     * 
      */
     public function setEventName($eventName = null)
     {
+        if (!$eventName) return $this;
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
+        $this->eventName->setName('eventName');
+        return $this;
     }
 
     /**
-     * Event name.
+     * 
+     * @return EventName
      */
     public function getEventName()
     {
-        return (!$this->eventName) ?: $this->eventName->getValue();
+        return $this->eventName->getValue();
     }
 
     /**
@@ -115,15 +124,18 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        $this->startDate =  $startDate;
+        if (!$startDate) return $this;
+        $this->startDate->setName('startDate');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:date
      */
     public function getStartDate()
     {
-        return (!$this->startDate) ?: $this->startDate->getValue();
+        return $this->startDate->getValue();
     }
 
     /**
@@ -131,30 +143,37 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        $this->endDate =  $endDate;
+        if (!$endDate) return $this;
+        $this->endDate->setName('endDate');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:date
+     */
+    public function getEndDate()
+    {
+        return $this->endDate->getValue();
     }
 
     /**
      * 
      */
-    public function getEndDate()
-    {
-        return (!$this->endDate) ?: $this->endDate->getValue();
-    }
-
-    /**
-     * Defines recurrence.
-     */
     public function setRecurrence(Recurrence $recurrence = null)
     {
-        $this->recurrence =  $recurrence;
+        if (!$recurrence) return $this;
+        $this->recurrence = $recurrence;
+        $this->recurrence->setName('recurrence');
+        return $this;
     }
 
     /**
-     * Defines recurrence.
+     * 
+     * @return Recurrence
      */
     public function getRecurrence()
     {
-        return (!$this->recurrence) ?: $this->recurrence->getValue();
+        return $this->recurrence;
     }
 }

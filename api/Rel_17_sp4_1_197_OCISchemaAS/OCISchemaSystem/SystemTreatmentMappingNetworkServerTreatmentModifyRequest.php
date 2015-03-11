@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerTreatment;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingNetworkServerTreatmentModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingNetworkServerTreatmentModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemTreatmentMappingNetworkServerTreatmentModifyRequest';
     protected $nsTreatment = null;
     protected $treatmentId = null;
 
@@ -35,7 +34,7 @@ class SystemTreatmentMappingNetworkServerTreatmentModifyRequest extends ComplexT
     }
 
     /**
-     * @return SystemTreatmentMappingNetworkServerTreatmentModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemTreatmentMappingNetworkServerTreatmentModifyRequest extends ComplexT
     }
 
     /**
-     * Possible string value for Network Server Treatment.
+     * 
      */
     public function setNsTreatment($nsTreatment = null)
     {
+        if (!$nsTreatment) return $this;
         $this->nsTreatment = ($nsTreatment InstanceOf NetworkServerTreatment)
              ? $nsTreatment
              : new NetworkServerTreatment($nsTreatment);
+        $this->nsTreatment->setName('nsTreatment');
+        return $this;
     }
 
     /**
-     * Possible string value for Network Server Treatment.
+     * 
+     * @return NetworkServerTreatment
      */
     public function getNsTreatment()
     {
-        return (!$this->nsTreatment) ?: $this->nsTreatment->getValue();
+        return $this->nsTreatment->getValue();
     }
 
     /**
-     * Configurable Treatment Name
+     * 
      */
     public function setTreatmentId($treatmentId = null)
     {
+        if (!$treatmentId) return $this;
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
+        $this->treatmentId->setName('treatmentId');
+        return $this;
     }
 
     /**
-     * Configurable Treatment Name
+     * 
+     * @return TreatmentId
      */
     public function getTreatmentId()
     {
-        return (!$this->treatmentId) ?: $this->treatmentId->getValue();
+        return $this->treatmentId->getValue();
     }
 }

@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingFamilyGetResponse14sp4;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'UserSimultaneousRingFamilyGetResponse14sp4';
     protected $isActive         = null;
     protected $incomingCalls    = null;
     protected $phoneNumberTable = null;
@@ -39,33 +39,41 @@ class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements 
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Simultaneous Ring Selection.
-     */
     public function setIncomingCalls($incomingCalls = null)
     {
+        if (!$incomingCalls) return $this;
         $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
              ? $incomingCalls
              : new SimultaneousRingSelection($incomingCalls);
+        $this->incomingCalls->setName('incomingCalls');
+        return $this;
     }
 
     /**
-     * Simultaneous Ring Selection.
+     * 
+     * @return SimultaneousRingSelection
      */
     public function getIncomingCalls()
     {
-        return (!$this->incomingCalls) ?: $this->incomingCalls->getValue();
+        return $this->incomingCalls->getValue();
     }
 
     /**
@@ -73,14 +81,17 @@ class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements 
      */
     public function setPhoneNumberTable(core:OCITable $phoneNumberTable = null)
     {
-        $this->phoneNumberTable =  $phoneNumberTable;
+        if (!$phoneNumberTable) return $this;
+        $this->phoneNumberTable->setName('phoneNumberTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getPhoneNumberTable()
     {
-        return (!$this->phoneNumberTable) ?: $this->phoneNumberTable->getValue();
+        return $this->phoneNumberTable->getValue();
     }
 }

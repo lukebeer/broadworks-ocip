@@ -5,14 +5,14 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\DNISPriority;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdFirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetDNISResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
+    public    $name                              = 'GroupCallCenterGetDNISResponse';
     protected $dnisPhoneNumber                   = null;
     protected $extension                         = null;
     protected $useCustomCLIDSettings             = null;
@@ -44,39 +44,47 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setDnisPhoneNumber($dnisPhoneNumber = null)
     {
+        if (!$dnisPhoneNumber) return $this;
         $this->dnisPhoneNumber = ($dnisPhoneNumber InstanceOf DN)
              ? $dnisPhoneNumber
              : new DN($dnisPhoneNumber);
+        $this->dnisPhoneNumber->setName('dnisPhoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getDnisPhoneNumber()
     {
-        return (!$this->dnisPhoneNumber) ?: $this->dnisPhoneNumber->getValue();
+        return $this->dnisPhoneNumber->getValue();
     }
 
     /**
-     * Extension.
+     * 
      */
     public function setExtension($extension = null)
     {
+        if (!$extension) return $this;
         $this->extension = ($extension InstanceOf Extension17)
              ? $extension
              : new Extension17($extension);
+        $this->extension->setName('extension');
+        return $this;
     }
 
     /**
-     * Extension.
+     * 
+     * @return Extension17
      */
     public function getExtension()
     {
-        return (!$this->extension) ?: $this->extension->getValue();
+        return $this->extension->getValue();
     }
 
     /**
@@ -84,69 +92,85 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function setUseCustomCLIDSettings($useCustomCLIDSettings = null)
     {
-        $this->useCustomCLIDSettings = (boolean) $useCustomCLIDSettings;
+        if (!$useCustomCLIDSettings) return $this;
+        $this->useCustomCLIDSettings = new PrimitiveType($useCustomCLIDSettings);
+        $this->useCustomCLIDSettings->setName('useCustomCLIDSettings');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseCustomCLIDSettings()
+    {
+        return $this->useCustomCLIDSettings->getValue();
     }
 
     /**
      * 
      */
-    public function getUseCustomCLIDSettings()
-    {
-        return (!$this->useCustomCLIDSettings) ?: $this->useCustomCLIDSettings;
-    }
-
-    /**
-     * Directory Number in E164 Format.
-     */
     public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
+        if (!$callingLineIdPhoneNumber) return $this;
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
              ? $callingLineIdPhoneNumber
              : new DN($callingLineIdPhoneNumber);
+        $this->callingLineIdPhoneNumber->setName('callingLineIdPhoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getCallingLineIdPhoneNumber()
     {
-        return (!$this->callingLineIdPhoneNumber) ?: $this->callingLineIdPhoneNumber->getValue();
+        return $this->callingLineIdPhoneNumber->getValue();
     }
 
     /**
-     * Last Name for Calling Line Id Display.
+     * 
      */
     public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
+        if (!$callingLineIdLastName) return $this;
         $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
              ? $callingLineIdLastName
              : new CallingLineIdLastName($callingLineIdLastName);
+        $this->callingLineIdLastName->setName('callingLineIdLastName');
+        return $this;
     }
 
     /**
-     * Last Name for Calling Line Id Display.
+     * 
+     * @return CallingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
-        return (!$this->callingLineIdLastName) ?: $this->callingLineIdLastName->getValue();
+        return $this->callingLineIdLastName->getValue();
     }
 
     /**
-     * First Name for Calling Line Id Display.
+     * 
      */
     public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
+        if (!$callingLineIdFirstName) return $this;
         $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
              ? $callingLineIdFirstName
              : new CallingLineIdFirstName($callingLineIdFirstName);
+        $this->callingLineIdFirstName->setName('callingLineIdFirstName');
+        return $this;
     }
 
     /**
-     * First Name for Calling Line Id Display.
+     * 
+     * @return CallingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
-        return (!$this->callingLineIdFirstName) ?: $this->callingLineIdFirstName->getValue();
+        return $this->callingLineIdFirstName->getValue();
     }
 
     /**
@@ -154,33 +178,41 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function setUseCustomDnisAnnouncementSettings($useCustomDnisAnnouncementSettings = null)
     {
-        $this->useCustomDnisAnnouncementSettings = (boolean) $useCustomDnisAnnouncementSettings;
+        if (!$useCustomDnisAnnouncementSettings) return $this;
+        $this->useCustomDnisAnnouncementSettings = new PrimitiveType($useCustomDnisAnnouncementSettings);
+        $this->useCustomDnisAnnouncementSettings->setName('useCustomDnisAnnouncementSettings');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseCustomDnisAnnouncementSettings()
+    {
+        return $this->useCustomDnisAnnouncementSettings->getValue();
     }
 
     /**
      * 
      */
-    public function getUseCustomDnisAnnouncementSettings()
-    {
-        return (!$this->useCustomDnisAnnouncementSettings) ?: $this->useCustomDnisAnnouncementSettings;
-    }
-
-    /**
-     * Choices for DNIS priority.
-     */
     public function setPriority($priority = null)
     {
+        if (!$priority) return $this;
         $this->priority = ($priority InstanceOf DNISPriority)
              ? $priority
              : new DNISPriority($priority);
+        $this->priority->setName('priority');
+        return $this;
     }
 
     /**
-     * Choices for DNIS priority.
+     * 
+     * @return DNISPriority
      */
     public function getPriority()
     {
-        return (!$this->priority) ?: $this->priority->getValue();
+        return $this->priority->getValue();
     }
 
     /**
@@ -188,14 +220,18 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function setAllowOutgoingACDCall($allowOutgoingACDCall = null)
     {
-        $this->allowOutgoingACDCall = (boolean) $allowOutgoingACDCall;
+        if (!$allowOutgoingACDCall) return $this;
+        $this->allowOutgoingACDCall = new PrimitiveType($allowOutgoingACDCall);
+        $this->allowOutgoingACDCall->setName('allowOutgoingACDCall');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowOutgoingACDCall()
     {
-        return (!$this->allowOutgoingACDCall) ?: $this->allowOutgoingACDCall;
+        return $this->allowOutgoingACDCall->getValue();
     }
 }

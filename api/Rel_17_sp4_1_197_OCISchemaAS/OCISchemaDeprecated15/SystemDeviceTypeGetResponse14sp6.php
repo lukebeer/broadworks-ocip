@@ -8,10 +8,10 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CPEDeviceOptionsRead;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignalingAddressType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceProtocol;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignalingAddressType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebBasedConfigURL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemDeviceTypeGetResponse14sp6;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'SystemDeviceTypeGetResponse14sp6';
     protected $isObsolete                = null;
     protected $profile                   = null;
     protected $webBasedConfigURL         = null;
@@ -48,51 +48,63 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
      */
     public function setIsObsolete($isObsolete = null)
     {
-        $this->isObsolete = (boolean) $isObsolete;
+        if (!$isObsolete) return $this;
+        $this->isObsolete = new PrimitiveType($isObsolete);
+        $this->isObsolete->setName('isObsolete');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsObsolete()
+    {
+        return $this->isObsolete->getValue();
     }
 
     /**
      * 
      */
-    public function getIsObsolete()
-    {
-        return (!$this->isObsolete) ?: $this->isObsolete;
-    }
-
-    /**
-     * Device type signaling address types.
-     */
     public function setProfile($profile = null)
     {
+        if (!$profile) return $this;
         $this->profile = ($profile InstanceOf SignalingAddressType)
              ? $profile
              : new SignalingAddressType($profile);
+        $this->profile->setName('profile');
+        return $this;
     }
 
     /**
-     * Device type signaling address types.
+     * 
+     * @return SignalingAddressType
      */
     public function getProfile()
     {
-        return (!$this->profile) ?: $this->profile->getValue();
+        return $this->profile->getValue();
     }
 
     /**
-     * Web based configuration URL.
+     * 
      */
     public function setWebBasedConfigURL($webBasedConfigURL = null)
     {
+        if (!$webBasedConfigURL) return $this;
         $this->webBasedConfigURL = ($webBasedConfigURL InstanceOf WebBasedConfigURL)
              ? $webBasedConfigURL
              : new WebBasedConfigURL($webBasedConfigURL);
+        $this->webBasedConfigURL->setName('webBasedConfigURL');
+        return $this;
     }
 
     /**
-     * Web based configuration URL.
+     * 
+     * @return WebBasedConfigURL
      */
     public function getWebBasedConfigURL()
     {
-        return (!$this->webBasedConfigURL) ?: $this->webBasedConfigURL->getValue();
+        return $this->webBasedConfigURL->getValue();
     }
 
     /**
@@ -100,49 +112,61 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
      */
     public function setStaticRegistrationCapable($staticRegistrationCapable = null)
     {
-        $this->staticRegistrationCapable = (boolean) $staticRegistrationCapable;
+        if (!$staticRegistrationCapable) return $this;
+        $this->staticRegistrationCapable = new PrimitiveType($staticRegistrationCapable);
+        $this->staticRegistrationCapable->setName('staticRegistrationCapable');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getStaticRegistrationCapable()
+    {
+        return $this->staticRegistrationCapable->getValue();
     }
 
     /**
      * 
      */
-    public function getStaticRegistrationCapable()
-    {
-        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable;
-    }
-
-    /**
-     * CPE device's options.
-     */
     public function setCpeDeviceOptions(CPEDeviceOptionsRead $cpeDeviceOptions = null)
     {
-        $this->cpeDeviceOptions =  $cpeDeviceOptions;
+        if (!$cpeDeviceOptions) return $this;
+        $this->cpeDeviceOptions = $cpeDeviceOptions;
+        $this->cpeDeviceOptions->setName('cpeDeviceOptions');
+        return $this;
     }
 
     /**
-     * CPE device's options.
+     * 
+     * @return CPEDeviceOptionsRead
      */
     public function getCpeDeviceOptions()
     {
-        return (!$this->cpeDeviceOptions) ?: $this->cpeDeviceOptions->getValue();
+        return $this->cpeDeviceOptions;
     }
 
     /**
-     * Access device protocol.
+     * 
      */
     public function setProtocolChoice($protocolChoice = null)
     {
+        if (!$protocolChoice) return $this;
         $this->protocolChoice = ($protocolChoice InstanceOf AccessDeviceProtocol)
              ? $protocolChoice
              : new AccessDeviceProtocol($protocolChoice);
+        $this->protocolChoice->setName('protocolChoice');
+        return $this;
     }
 
     /**
-     * Access device protocol.
+     * 
+     * @return AccessDeviceProtocol
      */
     public function getProtocolChoice()
     {
-        return (!$this->protocolChoice) ?: $this->protocolChoice->getValue();
+        return $this->protocolChoice->getValue();
     }
 
     /**
@@ -150,15 +174,19 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
      */
     public function setIsIpAddressOptional($isIpAddressOptional = null)
     {
-        $this->isIpAddressOptional = (boolean) $isIpAddressOptional;
+        if (!$isIpAddressOptional) return $this;
+        $this->isIpAddressOptional = new PrimitiveType($isIpAddressOptional);
+        $this->isIpAddressOptional->setName('isIpAddressOptional');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsIpAddressOptional()
     {
-        return (!$this->isIpAddressOptional) ?: $this->isIpAddressOptional;
+        return $this->isIpAddressOptional->getValue();
     }
 
     /**
@@ -166,15 +194,19 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
      */
     public function setUseDomain($useDomain = null)
     {
-        $this->useDomain = (boolean) $useDomain;
+        if (!$useDomain) return $this;
+        $this->useDomain = new PrimitiveType($useDomain);
+        $this->useDomain->setName('useDomain');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseDomain()
     {
-        return (!$this->useDomain) ?: $this->useDomain;
+        return $this->useDomain->getValue();
     }
 
     /**
@@ -182,14 +214,18 @@ class SystemDeviceTypeGetResponse14sp6 extends ComplexType implements ComplexInt
      */
     public function setIsMobilityManagerDevice($isMobilityManagerDevice = null)
     {
-        $this->isMobilityManagerDevice = (boolean) $isMobilityManagerDevice;
+        if (!$isMobilityManagerDevice) return $this;
+        $this->isMobilityManagerDevice = new PrimitiveType($isMobilityManagerDevice);
+        $this->isMobilityManagerDevice->setName('isMobilityManagerDevice');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsMobilityManagerDevice()
     {
-        return (!$this->isMobilityManagerDevice) ?: $this->isMobilityManagerDevice;
+        return $this->isMobilityManagerDevice->getValue();
     }
 }

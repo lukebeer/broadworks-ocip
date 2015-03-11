@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceFileGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAccessDeviceFileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'UserAccessDeviceFileGetResponse';
     protected $templateUrl = null;
 
     /**
@@ -32,20 +31,24 @@ class UserAccessDeviceFileGetResponse extends ComplexType implements ComplexInte
     }
 
     /**
-     * URL.
+     * 
      */
     public function setTemplateUrl($templateUrl = null)
     {
+        if (!$templateUrl) return $this;
         $this->templateUrl = ($templateUrl InstanceOf URL)
              ? $templateUrl
              : new URL($templateUrl);
+        $this->templateUrl->setName('templateUrl');
+        return $this;
     }
 
     /**
-     * URL.
+     * 
+     * @return URL
      */
     public function getTemplateUrl()
     {
-        return (!$this->templateUrl) ?: $this->templateUrl->getValue();
+        return $this->templateUrl->getValue();
     }
 }

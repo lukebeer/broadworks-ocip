@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportingServerName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterSupervisorReportingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'GroupCallCenterSupervisorReportingGetResponse';
     protected $reportingServerName = null;
     protected $supervisorTable     = null;
 
@@ -35,21 +34,25 @@ class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implemen
     }
 
     /**
-     * Call Center Reporting Server Name.
+     * 
      */
     public function setReportingServerName($reportingServerName = null)
     {
+        if (!$reportingServerName) return $this;
         $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
              ? $reportingServerName
              : new CallCenterReportingServerName($reportingServerName);
+        $this->reportingServerName->setName('reportingServerName');
+        return $this;
     }
 
     /**
-     * Call Center Reporting Server Name.
+     * 
+     * @return CallCenterReportingServerName
      */
     public function getReportingServerName()
     {
-        return (!$this->reportingServerName) ?: $this->reportingServerName->getValue();
+        return $this->reportingServerName->getValue();
     }
 
     /**
@@ -57,14 +60,17 @@ class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implemen
      */
     public function setSupervisorTable(core:OCITable $supervisorTable = null)
     {
-        $this->supervisorTable =  $supervisorTable;
+        if (!$supervisorTable) return $this;
+        $this->supervisorTable->setName('supervisorTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getSupervisorTable()
     {
-        return (!$this->supervisorTable) ?: $this->supervisorTable->getValue();
+        return $this->supervisorTable->getValue();
     }
 }

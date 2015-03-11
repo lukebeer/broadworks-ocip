@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\ServiceProviderInstantConferencingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'ServiceProviderInstantConferencingGetResponse';
     protected $portsAllocatedToServiceProvider = null;
 
     /**
@@ -32,18 +31,22 @@ class ServiceProviderInstantConferencingGetResponse extends ComplexType implemen
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
      */
     public function setPortsAllocatedToServiceProvider(UnboundedNonNegativeInt $portsAllocatedToServiceProvider = null)
     {
-        $this->portsAllocatedToServiceProvider =  $portsAllocatedToServiceProvider;
+        if (!$portsAllocatedToServiceProvider) return $this;
+        $this->portsAllocatedToServiceProvider = $portsAllocatedToServiceProvider;
+        $this->portsAllocatedToServiceProvider->setName('portsAllocatedToServiceProvider');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
+     * @return UnboundedNonNegativeInt
      */
     public function getPortsAllocatedToServiceProvider()
     {
-        return (!$this->portsAllocatedToServiceProvider) ?: $this->portsAllocatedToServiceProvider->getValue();
+        return $this->portsAllocatedToServiceProvider;
     }
 }

@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerDeleteHomeZoneResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest';
     protected $serviceProviderId = null;
     protected $homeZoneId        = null;
 
@@ -34,7 +34,7 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType
     }
 
     /**
-     * @return EnterpriseBroadWorksMobileManagerDeleteHomeZoneResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -42,23 +42,25 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
@@ -66,14 +68,18 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType
      */
     public function setHomeZoneId($homeZoneId = null)
     {
-        $this->homeZoneId = (string) $homeZoneId;
+        if (!$homeZoneId) return $this;
+        $this->homeZoneId = new PrimitiveType($homeZoneId);
+        $this->homeZoneId->setName('homeZoneId');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:string
      */
     public function getHomeZoneId()
     {
-        return (!$this->homeZoneId) ?: $this->homeZoneId;
+        return $this->homeZoneId->getValue();
     }
 }

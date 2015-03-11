@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SIPFailureStatusCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingAccessSIPStatusDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingAccessSIPStatusDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemTreatmentMappingAccessSIPStatusDeleteRequest';
     protected $sipStatusCode = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemTreatmentMappingAccessSIPStatusDeleteRequest extends ComplexType imp
     }
 
     /**
-     * @return SystemTreatmentMappingAccessSIPStatusDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemTreatmentMappingAccessSIPStatusDeleteRequest extends ComplexType imp
     }
 
     /**
-     * The possible range values for SIP failure status codes.
+     * 
      */
     public function setSipStatusCode($sipStatusCode = null)
     {
+        if (!$sipStatusCode) return $this;
         $this->sipStatusCode = ($sipStatusCode InstanceOf SIPFailureStatusCode)
              ? $sipStatusCode
              : new SIPFailureStatusCode($sipStatusCode);
+        $this->sipStatusCode->setName('sipStatusCode');
+        return $this;
     }
 
     /**
-     * The possible range values for SIP failure status codes.
+     * 
+     * @return SIPFailureStatusCode
      */
     public function getSipStatusCode()
     {
-        return (!$this->sipStatusCode) ?: $this->sipStatusCode->getValue();
+        return $this->sipStatusCode->getValue();
     }
 }

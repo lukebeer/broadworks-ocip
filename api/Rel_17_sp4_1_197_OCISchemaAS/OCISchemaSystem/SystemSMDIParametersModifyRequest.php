@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMDIMaxConnections;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSMDIParametersModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'SystemSMDIParametersModifyRequest';
     protected $enableSMDI     = null;
     protected $listeningPort  = null;
     protected $maxConnections = null;
@@ -38,7 +38,7 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return SystemSMDIParametersModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,50 +50,62 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function setEnableSMDI($enableSMDI = null)
     {
-        $this->enableSMDI = (boolean) $enableSMDI;
+        if (!$enableSMDI) return $this;
+        $this->enableSMDI = new PrimitiveType($enableSMDI);
+        $this->enableSMDI->setName('enableSMDI');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableSMDI()
+    {
+        return $this->enableSMDI->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableSMDI()
-    {
-        return (!$this->enableSMDI) ?: $this->enableSMDI;
-    }
-
-    /**
-     * TCP/IP Port number above the well-known range.
-     */
     public function setListeningPort($listeningPort = null)
     {
+        if (!$listeningPort) return $this;
         $this->listeningPort = ($listeningPort InstanceOf Port1025)
              ? $listeningPort
              : new Port1025($listeningPort);
+        $this->listeningPort->setName('listeningPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getListeningPort()
     {
-        return (!$this->listeningPort) ?: $this->listeningPort->getValue();
+        return $this->listeningPort->getValue();
     }
 
     /**
-     * Maximum Number of SMDI connections.
+     * 
      */
     public function setMaxConnections($maxConnections = null)
     {
+        if (!$maxConnections) return $this;
         $this->maxConnections = ($maxConnections InstanceOf SMDIMaxConnections)
              ? $maxConnections
              : new SMDIMaxConnections($maxConnections);
+        $this->maxConnections->setName('maxConnections');
+        return $this;
     }
 
     /**
-     * Maximum Number of SMDI connections.
+     * 
+     * @return SMDIMaxConnections
      */
     public function getMaxConnections()
     {
-        return (!$this->maxConnections) ?: $this->maxConnections->getValue();
+        return $this->maxConnections->getValue();
     }
 }

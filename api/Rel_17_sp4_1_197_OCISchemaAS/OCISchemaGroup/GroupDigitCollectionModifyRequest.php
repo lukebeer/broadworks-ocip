@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDigitCollectionModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupDigitCollectionModifyRequest';
     protected $serviceProviderId = null;
     protected $groupId           = null;
     protected $useSetting        = null;
@@ -50,7 +49,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return GroupDigitCollectionModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,114 +57,134 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Choices for the group digit collection feature to decide which type of settings to use.
+     * 
      */
     public function setUseSetting($useSetting = null)
     {
+        if (!$useSetting) return $this;
         $this->useSetting = ($useSetting InstanceOf GroupDigitCollectionSettingLevel)
              ? $useSetting
              : new GroupDigitCollectionSettingLevel($useSetting);
+        $this->useSetting->setName('useSetting');
+        return $this;
     }
 
     /**
-     * Choices for the group digit collection feature to decide which type of settings to use.
+     * 
+     * @return GroupDigitCollectionSettingLevel
      */
     public function getUseSetting()
     {
-        return (!$this->useSetting) ?: $this->useSetting->getValue();
+        return $this->useSetting->getValue();
     }
 
     /**
-     * Digit Collection Access Code.
+     * 
      */
     public function setAccessCode($accessCode = null)
     {
+        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf AccessCode)
              ? $accessCode
              : new AccessCode($accessCode);
+        $this->accessCode->setName('accessCode');
+        return $this;
     }
 
     /**
-     * Digit Collection Access Code.
+     * 
+     * @return AccessCode
      */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->getValue();
+        return $this->accessCode->getValue();
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
      */
     public function setPublicDigitMap($publicDigitMap = null)
     {
+        if (!$publicDigitMap) return $this;
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
+        $this->publicDigitMap->setName('publicDigitMap');
+        return $this;
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
+     * @return DigitMap
      */
     public function getPublicDigitMap()
     {
-        return (!$this->publicDigitMap) ?: $this->publicDigitMap->getValue();
+        return $this->publicDigitMap->getValue();
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
      */
     public function setPrivateDigitMap($privateDigitMap = null)
     {
+        if (!$privateDigitMap) return $this;
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
+        $this->privateDigitMap->setName('privateDigitMap');
+        return $this;
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
+     * @return DigitMap
      */
     public function getPrivateDigitMap()
     {
-        return (!$this->privateDigitMap) ?: $this->privateDigitMap->getValue();
+        return $this->privateDigitMap->getValue();
     }
 }

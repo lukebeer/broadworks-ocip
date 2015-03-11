@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\InterceptDNListEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntercept\SystemInterceptUserGetDnListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInterceptUserGetDnListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'SystemInterceptUserGetDnListResponse';
     protected $interceptUserList = null;
 
     /**
@@ -33,18 +32,22 @@ class SystemInterceptUserGetDnListResponse extends ComplexType implements Comple
     }
 
     /**
-     * Intercept User Entry containing the phone number and a Description.
+     * 
      */
     public function setInterceptUserList(InterceptDNListEntry $interceptUserList = null)
     {
-        $this->interceptUserList =  $interceptUserList;
+        if (!$interceptUserList) return $this;
+        $this->interceptUserList = $interceptUserList;
+        $this->interceptUserList->setName('interceptUserList');
+        return $this;
     }
 
     /**
-     * Intercept User Entry containing the phone number and a Description.
+     * 
+     * @return InterceptDNListEntry
      */
     public function getInterceptUserList()
     {
-        return (!$this->interceptUserList) ?: $this->interceptUserList->getValue();
+        return $this->interceptUserList;
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVirtualOnNetEnterpriseExtensions\SystemVirtualOnNetCallTypeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVirtualOnNetCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = __CLASS__;
+    public    $name                      = 'SystemVirtualOnNetCallTypeGetListResponse';
     protected $virtualOnNetCallTypeTable = null;
 
     /**
@@ -39,14 +38,17 @@ class SystemVirtualOnNetCallTypeGetListResponse extends ComplexType implements C
      */
     public function setVirtualOnNetCallTypeTable(core:OCITable $virtualOnNetCallTypeTable = null)
     {
-        $this->virtualOnNetCallTypeTable =  $virtualOnNetCallTypeTable;
+        if (!$virtualOnNetCallTypeTable) return $this;
+        $this->virtualOnNetCallTypeTable->setName('virtualOnNetCallTypeTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getVirtualOnNetCallTypeTable()
     {
-        return (!$this->virtualOnNetCallTypeTable) ?: $this->virtualOnNetCallTypeTable->getValue();
+        return $this->virtualOnNetCallTypeTable->getValue();
     }
 }

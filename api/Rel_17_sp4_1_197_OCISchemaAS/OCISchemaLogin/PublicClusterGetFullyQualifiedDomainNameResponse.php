@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PublicClusterGetFullyQualifiedDomainNameResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class PublicClusterGetFullyQualifiedDomainNameResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'PublicClusterGetFullyQualifiedDomainNameResponse';
     protected $publicClusterFQDN = null;
 
     /**
@@ -32,20 +31,24 @@ class PublicClusterGetFullyQualifiedDomainNameResponse extends ComplexType imple
     }
 
     /**
-     * Network domain name.
+     * 
      */
     public function setPublicClusterFQDN($publicClusterFQDN = null)
     {
+        if (!$publicClusterFQDN) return $this;
         $this->publicClusterFQDN = ($publicClusterFQDN InstanceOf DomainName)
              ? $publicClusterFQDN
              : new DomainName($publicClusterFQDN);
+        $this->publicClusterFQDN->setName('publicClusterFQDN');
+        return $this;
     }
 
     /**
-     * Network domain name.
+     * 
+     * @return DomainName
      */
     public function getPublicClusterFQDN()
     {
-        return (!$this->publicClusterFQDN) ?: $this->publicClusterFQDN->getValue();
+        return $this->publicClusterFQDN->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFileRepositoryDeviceUserGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupFileRepositoryDeviceUserGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'GroupFileRepositoryDeviceUserGetListResponse';
     protected $fileRepositoryUserTable = null;
 
     /**
@@ -37,14 +36,17 @@ class GroupFileRepositoryDeviceUserGetListResponse extends ComplexType implement
      */
     public function setFileRepositoryUserTable(core:OCITable $fileRepositoryUserTable = null)
     {
-        $this->fileRepositoryUserTable =  $fileRepositoryUserTable;
+        if (!$fileRepositoryUserTable) return $this;
+        $this->fileRepositoryUserTable->setName('fileRepositoryUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getFileRepositoryUserTable()
     {
-        return (!$this->fileRepositoryUserTable) ?: $this->fileRepositoryUserTable->getValue();
+        return $this->fileRepositoryUserTable->getValue();
     }
 }

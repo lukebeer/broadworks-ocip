@@ -5,12 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterEnhancedReportingBrandingChoice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingBrandingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'EnterpriseCallCenterEnhancedReportingBrandingModifyRequest';
     protected $serviceProviderId = null;
     protected $brandingChoice    = null;
     protected $brandingFile      = null;
@@ -31,7 +30,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
     public function __construct(
          $serviceProviderId,
          $brandingChoice = null,
-          $brandingFile = null
+         LabeledFileResource $brandingFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setBrandingChoice($brandingChoice);
@@ -39,7 +38,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
     }
 
     /**
-     * @return EnterpriseCallCenterEnhancedReportingBrandingModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,58 +46,66 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * The call center enhanced reporting Enterprise or Group level branding choice.
+     * 
      */
     public function setBrandingChoice($brandingChoice = null)
     {
+        if (!$brandingChoice) return $this;
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
+        $this->brandingChoice->setName('brandingChoice');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting Enterprise or Group level branding choice.
+     * 
+     * @return CallCenterEnhancedReportingBrandingChoice
      */
     public function getBrandingChoice()
     {
-        return (!$this->brandingChoice) ?: $this->brandingChoice->getValue();
+        return $this->brandingChoice->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setBrandingFile(LabeledFileResource $brandingFile = null)
     {
-        $this->brandingFile =  $brandingFile;
+        if (!$brandingFile) return $this;
+        $this->brandingFile = $brandingFile;
+        $this->brandingFile->setName('brandingFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getBrandingFile()
     {
-        return (!$this->brandingFile) ?: $this->brandingFile->getValue();
+        return $this->brandingFile;
     }
 }

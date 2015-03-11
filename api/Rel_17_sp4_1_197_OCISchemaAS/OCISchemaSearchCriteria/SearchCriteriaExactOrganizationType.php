@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaExactOrganizationType extends ComplexType implements ComplexInterface
 {
     public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactOrganizationType';
-    public    $name             = __CLASS__;
+    public    $name             = 'SearchCriteriaExactOrganizationType';
     protected $organizationType = null;
 
     public function __construct(
@@ -39,20 +39,24 @@ class SearchCriteriaExactOrganizationType extends ComplexType implements Complex
     }
 
     /**
-     * Types of organizations.
+     * 
      */
     public function setOrganizationType($organizationType = null)
     {
+        if (!$organizationType) return $this;
         $this->organizationType = ($organizationType InstanceOf OrganizationType)
              ? $organizationType
              : new OrganizationType($organizationType);
+        $this->organizationType->setName('organizationType');
+        return $this;
     }
 
     /**
-     * Types of organizations.
+     * 
+     * @return OrganizationType
      */
     public function getOrganizationType()
     {
-        return (!$this->organizationType) ?: $this->organizationType->getValue();
+        return $this->organizationType->getValue();
     }
 }

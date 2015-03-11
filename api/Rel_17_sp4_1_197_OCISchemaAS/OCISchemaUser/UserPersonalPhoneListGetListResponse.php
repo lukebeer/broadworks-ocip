@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhoneListEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPersonalPhoneListGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = __CLASS__;
+    public    $name  = 'UserPersonalPhoneListGetListResponse';
     protected $entry = null;
 
     /**
@@ -33,18 +32,22 @@ class UserPersonalPhoneListGetListResponse extends ComplexType implements Comple
     }
 
     /**
-     * Phone list entry.
+     * 
      */
     public function setEntry(PhoneListEntry $entry = null)
     {
-        $this->entry =  $entry;
+        if (!$entry) return $this;
+        $this->entry = $entry;
+        $this->entry->setName('entry');
+        return $this;
     }
 
     /**
-     * Phone list entry.
+     * 
+     * @return PhoneListEntry
      */
     public function getEntry()
     {
-        return (!$this->entry) ?: $this->entry->getValue();
+        return $this->entry;
     }
 }

@@ -14,7 +14,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupUserCreationTaskAddResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupTrunkGroupUserCreationTaskAddRequest';
     protected $serviceUserId     = null;
     protected $taskName          = null;
     protected $userIdFormat      = null;
@@ -70,7 +70,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
     }
 
     /**
-     * @return GroupTrunkGroupUserCreationTaskAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,83 +78,91 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * The name of a Trunk Group User Creation Task.
+     * 
      */
     public function setTaskName($taskName = null)
     {
+        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf TrunkGroupUserCreationTaskName)
              ? $taskName
              : new TrunkGroupUserCreationTaskName($taskName);
+        $this->taskName->setName('taskName');
+        return $this;
     }
 
     /**
-     * The name of a Trunk Group User Creation Task.
+     * 
+     * @return TrunkGroupUserCreationTaskName
      */
     public function getTaskName()
     {
-        return (!$this->taskName) ?: $this->taskName->getValue();
+        return $this->taskName->getValue();
     }
 
     /**
-     * User Id format for Trunk Group User Creation.
+     * 
      */
     public function setUserIdFormat($userIdFormat = null)
     {
+        if (!$userIdFormat) return $this;
         $this->userIdFormat = ($userIdFormat InstanceOf TrunkGroupUserCreationUserIdFormat)
              ? $userIdFormat
              : new TrunkGroupUserCreationUserIdFormat($userIdFormat);
+        $this->userIdFormat->setName('userIdFormat');
+        return $this;
     }
 
     /**
-     * User Id format for Trunk Group User Creation.
+     * 
+     * @return TrunkGroupUserCreationUserIdFormat
      */
     public function getUserIdFormat()
     {
-        return (!$this->userIdFormat) ?: $this->userIdFormat->getValue();
+        return $this->userIdFormat->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setUserIdDomain($userIdDomain = null)
     {
+        if (!$userIdDomain) return $this;
         $this->userIdDomain = ($userIdDomain InstanceOf NetAddress)
              ? $userIdDomain
              : new NetAddress($userIdDomain);
+        $this->userIdDomain->setName('userIdDomain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getUserIdDomain()
     {
-        return (!$this->userIdDomain) ?: $this->userIdDomain->getValue();
+        return $this->userIdDomain->getValue();
     }
 
     /**
@@ -162,51 +170,63 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
      */
     public function setPopulateExtension($populateExtension = null)
     {
-        $this->populateExtension = (boolean) $populateExtension;
+        if (!$populateExtension) return $this;
+        $this->populateExtension = new PrimitiveType($populateExtension);
+        $this->populateExtension->setName('populateExtension');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPopulateExtension()
+    {
+        return $this->populateExtension->getValue();
     }
 
     /**
      * 
      */
-    public function getPopulateExtension()
-    {
-        return (!$this->populateExtension) ?: $this->populateExtension;
-    }
-
-    /**
-     * SIP URI format for Trunk Group User Creation.
-     */
     public function setLinePortFormat($linePortFormat = null)
     {
+        if (!$linePortFormat) return $this;
         $this->linePortFormat = ($linePortFormat InstanceOf TrunkGroupUserCreationSIPURIFormat)
              ? $linePortFormat
              : new TrunkGroupUserCreationSIPURIFormat($linePortFormat);
+        $this->linePortFormat->setName('linePortFormat');
+        return $this;
     }
 
     /**
-     * SIP URI format for Trunk Group User Creation.
+     * 
+     * @return TrunkGroupUserCreationSIPURIFormat
      */
     public function getLinePortFormat()
     {
-        return (!$this->linePortFormat) ?: $this->linePortFormat->getValue();
+        return $this->linePortFormat->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setLinePortDomain($linePortDomain = null)
     {
+        if (!$linePortDomain) return $this;
         $this->linePortDomain = ($linePortDomain InstanceOf NetAddress)
              ? $linePortDomain
              : new NetAddress($linePortDomain);
+        $this->linePortDomain->setName('linePortDomain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getLinePortDomain()
     {
-        return (!$this->linePortDomain) ?: $this->linePortDomain->getValue();
+        return $this->linePortDomain->getValue();
     }
 
     /**
@@ -214,86 +234,106 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
      */
     public function setPopulateContact($populateContact = null)
     {
-        $this->populateContact = (boolean) $populateContact;
+        if (!$populateContact) return $this;
+        $this->populateContact = new PrimitiveType($populateContact);
+        $this->populateContact->setName('populateContact');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPopulateContact()
+    {
+        return $this->populateContact->getValue();
     }
 
     /**
      * 
      */
-    public function getPopulateContact()
-    {
-        return (!$this->populateContact) ?: $this->populateContact;
-    }
-
-    /**
-     * SIP URI format for Trunk Group User Creation.
-     */
     public function setContactFormat($contactFormat = null)
     {
+        if (!$contactFormat) return $this;
         $this->contactFormat = ($contactFormat InstanceOf TrunkGroupUserCreationSIPURIFormat)
              ? $contactFormat
              : new TrunkGroupUserCreationSIPURIFormat($contactFormat);
+        $this->contactFormat->setName('contactFormat');
+        return $this;
     }
 
     /**
-     * SIP URI format for Trunk Group User Creation.
+     * 
+     * @return TrunkGroupUserCreationSIPURIFormat
      */
     public function getContactFormat()
     {
-        return (!$this->contactFormat) ?: $this->contactFormat->getValue();
+        return $this->contactFormat->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setContactDomain($contactDomain = null)
     {
+        if (!$contactDomain) return $this;
         $this->contactDomain = ($contactDomain InstanceOf NetAddress)
              ? $contactDomain
              : new NetAddress($contactDomain);
+        $this->contactDomain->setName('contactDomain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getContactDomain()
     {
-        return (!$this->contactDomain) ?: $this->contactDomain->getValue();
+        return $this->contactDomain->getValue();
     }
 
     /**
-     * Service Pack name.
+     * 
      */
     public function setServicePackName($servicePackName = null)
     {
+        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
+        $this->servicePackName->setName('servicePackName');
+        return $this;
     }
 
     /**
-     * Service Pack name.
+     * 
+     * @return ServicePackName
      */
     public function getServicePackName()
     {
-        return (!$this->servicePackName) ?: $this->servicePackName->getValue();
+        return $this->servicePackName->getValue();
     }
 
     /**
-     * User level services.
+     * 
      */
     public function setUserService($userService = null)
     {
+        if (!$userService) return $this;
         $this->userService = ($userService InstanceOf UserService)
              ? $userService
              : new UserService($userService);
+        $this->userService->setName('userService');
+        return $this;
     }
 
     /**
-     * User level services.
+     * 
+     * @return UserService
      */
     public function getUserService()
     {
-        return (!$this->userService) ?: $this->userService->getValue();
+        return $this->userService->getValue();
     }
 }

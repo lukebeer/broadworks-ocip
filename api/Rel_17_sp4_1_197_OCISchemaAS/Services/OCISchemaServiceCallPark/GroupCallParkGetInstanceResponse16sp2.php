@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\CallParkRecallTo;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallPark\GroupCallParkGetInstanceResponse16sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'GroupCallParkGetInstanceResponse16sp2';
     protected $recallAlternateUserId = null;
     protected $recallTo              = null;
     protected $userTable             = null;
@@ -41,47 +40,47 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setRecallAlternateUserId($recallAlternateUserId = null)
     {
+        if (!$recallAlternateUserId) return $this;
         $this->recallAlternateUserId = ($recallAlternateUserId InstanceOf UserId)
              ? $recallAlternateUserId
              : new UserId($recallAlternateUserId);
+        $this->recallAlternateUserId->setName('recallAlternateUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getRecallAlternateUserId()
     {
-        return (!$this->recallAlternateUserId) ?: $this->recallAlternateUserId->getValue();
+        return $this->recallAlternateUserId->getValue();
     }
 
     /**
-     * Call Park recall user options
+     * 
      */
     public function setRecallTo($recallTo = null)
     {
+        if (!$recallTo) return $this;
         $this->recallTo = ($recallTo InstanceOf CallParkRecallTo)
              ? $recallTo
              : new CallParkRecallTo($recallTo);
+        $this->recallTo->setName('recallTo');
+        return $this;
     }
 
     /**
-     * Call Park recall user options
+     * 
+     * @return CallParkRecallTo
      */
     public function getRecallTo()
     {
-        return (!$this->recallTo) ?: $this->recallTo->getValue();
+        return $this->recallTo->getValue();
     }
 
     /**
@@ -89,14 +88,17 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
      */
     public function setUserTable(core:OCITable $userTable = null)
     {
-        $this->userTable =  $userTable;
+        if (!$userTable) return $this;
+        $this->userTable->setName('userTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getUserTable()
     {
-        return (!$this->userTable) ?: $this->userTable->getValue();
+        return $this->userTable->getValue();
     }
 }

@@ -5,13 +5,13 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingGuest; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingGuest; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HotelingAssociationLimitHours;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingGuest\UserHotelingGuestGetResponse14sp4;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'UserHotelingGuestGetResponse14sp4';
     protected $isActive                     = null;
     protected $enableAssociationLimit       = null;
     protected $associationLimitHours        = null;
@@ -47,15 +47,19 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -63,95 +67,107 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
      */
     public function setEnableAssociationLimit($enableAssociationLimit = null)
     {
-        $this->enableAssociationLimit = (boolean) $enableAssociationLimit;
+        if (!$enableAssociationLimit) return $this;
+        $this->enableAssociationLimit = new PrimitiveType($enableAssociationLimit);
+        $this->enableAssociationLimit->setName('enableAssociationLimit');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableAssociationLimit()
+    {
+        return $this->enableAssociationLimit->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableAssociationLimit()
-    {
-        return (!$this->enableAssociationLimit) ?: $this->enableAssociationLimit;
-    }
-
-    /**
-     * Maximum time limit for hoteling guests association to hoteling hosts
-     */
     public function setAssociationLimitHours($associationLimitHours = null)
     {
+        if (!$associationLimitHours) return $this;
         $this->associationLimitHours = ($associationLimitHours InstanceOf HotelingAssociationLimitHours)
              ? $associationLimitHours
              : new HotelingAssociationLimitHours($associationLimitHours);
+        $this->associationLimitHours->setName('associationLimitHours');
+        return $this;
     }
 
     /**
-     * Maximum time limit for hoteling guests association to hoteling hosts
+     * 
+     * @return HotelingAssociationLimitHours
      */
     public function getAssociationLimitHours()
     {
-        return (!$this->associationLimitHours) ?: $this->associationLimitHours->getValue();
+        return $this->associationLimitHours->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setHostUserId($hostUserId = null)
     {
+        if (!$hostUserId) return $this;
         $this->hostUserId = ($hostUserId InstanceOf UserId)
              ? $hostUserId
              : new UserId($hostUserId);
+        $this->hostUserId->setName('hostUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getHostUserId()
     {
-        return (!$this->hostUserId) ?: $this->hostUserId->getValue();
+        return $this->hostUserId->getValue();
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
      */
     public function setHostLastName($hostLastName = null)
     {
+        if (!$hostLastName) return $this;
         $this->hostLastName = ($hostLastName InstanceOf LastName)
              ? $hostLastName
              : new LastName($hostLastName);
+        $this->hostLastName->setName('hostLastName');
+        return $this;
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
+     * @return LastName
      */
     public function getHostLastName()
     {
-        return (!$this->hostLastName) ?: $this->hostLastName->getValue();
+        return $this->hostLastName->getValue();
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
      */
     public function setHostFirstName($hostFirstName = null)
     {
+        if (!$hostFirstName) return $this;
         $this->hostFirstName = ($hostFirstName InstanceOf FirstName)
              ? $hostFirstName
              : new FirstName($hostFirstName);
+        $this->hostFirstName->setName('hostFirstName');
+        return $this;
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
+     * @return FirstName
      */
     public function getHostFirstName()
     {
-        return (!$this->hostFirstName) ?: $this->hostFirstName->getValue();
+        return $this->hostFirstName->getValue();
     }
 
     /**
@@ -159,15 +175,18 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
      */
     public function setHostAssociationDateTime(xs:dateTime $hostAssociationDateTime = null)
     {
-        $this->hostAssociationDateTime =  $hostAssociationDateTime;
+        if (!$hostAssociationDateTime) return $this;
+        $this->hostAssociationDateTime->setName('hostAssociationDateTime');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:dateTime
      */
     public function getHostAssociationDateTime()
     {
-        return (!$this->hostAssociationDateTime) ?: $this->hostAssociationDateTime->getValue();
+        return $this->hostAssociationDateTime->getValue();
     }
 
     /**
@@ -175,32 +194,40 @@ class UserHotelingGuestGetResponse14sp4 extends ComplexType implements ComplexIn
      */
     public function setHostEnforcesAssociationLimit($hostEnforcesAssociationLimit = null)
     {
-        $this->hostEnforcesAssociationLimit = (boolean) $hostEnforcesAssociationLimit;
+        if (!$hostEnforcesAssociationLimit) return $this;
+        $this->hostEnforcesAssociationLimit = new PrimitiveType($hostEnforcesAssociationLimit);
+        $this->hostEnforcesAssociationLimit->setName('hostEnforcesAssociationLimit');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getHostEnforcesAssociationLimit()
+    {
+        return $this->hostEnforcesAssociationLimit->getValue();
     }
 
     /**
      * 
      */
-    public function getHostEnforcesAssociationLimit()
-    {
-        return (!$this->hostEnforcesAssociationLimit) ?: $this->hostEnforcesAssociationLimit;
-    }
-
-    /**
-     * Maximum time limit for hoteling guests association to hoteling hosts
-     */
     public function setHostAssociationLimitHours($hostAssociationLimitHours = null)
     {
+        if (!$hostAssociationLimitHours) return $this;
         $this->hostAssociationLimitHours = ($hostAssociationLimitHours InstanceOf HotelingAssociationLimitHours)
              ? $hostAssociationLimitHours
              : new HotelingAssociationLimitHours($hostAssociationLimitHours);
+        $this->hostAssociationLimitHours->setName('hostAssociationLimitHours');
+        return $this;
     }
 
     /**
-     * Maximum time limit for hoteling guests association to hoteling hosts
+     * 
+     * @return HotelingAssociationLimitHours
      */
     public function getHostAssociationLimitHours()
     {
-        return (!$this->hostAssociationLimitHours) ?: $this->hostAssociationLimitHours->getValue();
+        return $this->hostAssociationLimitHours->getValue();
     }
 }

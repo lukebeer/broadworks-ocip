@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanAuthorizationCodeGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanAuthorizationCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserOutgoingCallingPlanAuthorizationCodeGetResponse';
     protected $useCustomSettings = null;
 
     /**
@@ -36,14 +35,18 @@ class UserOutgoingCallingPlanAuthorizationCodeGetResponse extends ComplexType im
      */
     public function setUseCustomSettings($useCustomSettings = null)
     {
-        $this->useCustomSettings = (boolean) $useCustomSettings;
+        if (!$useCustomSettings) return $this;
+        $this->useCustomSettings = new PrimitiveType($useCustomSettings);
+        $this->useCustomSettings->setName('useCustomSettings');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseCustomSettings()
     {
-        return (!$this->useCustomSettings) ?: $this->useCustomSettings;
+        return $this->useCustomSettings->getValue();
     }
 }

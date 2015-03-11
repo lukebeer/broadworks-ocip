@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDnGetUtilizationRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDnGetUtilizationResponse';
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemDnGetUtilizationRequest';
     protected $phoneNumber = null;
 
     public function __construct(
@@ -41,20 +41,24 @@ class SystemDnGetUtilizationRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setPhoneNumber($phoneNumber = null)
     {
+        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
+        return $this->phoneNumber->getValue();
     }
 }

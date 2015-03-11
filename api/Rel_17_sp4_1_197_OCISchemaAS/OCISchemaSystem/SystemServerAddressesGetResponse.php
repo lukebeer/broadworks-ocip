@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServerAddressesGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServerAddressesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                         = __CLASS__;
+    public    $name                                         = 'SystemServerAddressesGetResponse';
     protected $webServerClusterPublicFQDN                   = null;
     protected $applicationServerClusterPrimaryPublicFQDN    = null;
     protected $applicationServerClusterSecondaryPublicFQDN  = null;
@@ -41,92 +40,112 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setWebServerClusterPublicFQDN($webServerClusterPublicFQDN = null)
     {
+        if (!$webServerClusterPublicFQDN) return $this;
         $this->webServerClusterPublicFQDN = ($webServerClusterPublicFQDN InstanceOf NetAddress)
              ? $webServerClusterPublicFQDN
              : new NetAddress($webServerClusterPublicFQDN);
+        $this->webServerClusterPublicFQDN->setName('webServerClusterPublicFQDN');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getWebServerClusterPublicFQDN()
     {
-        return (!$this->webServerClusterPublicFQDN) ?: $this->webServerClusterPublicFQDN->getValue();
+        return $this->webServerClusterPublicFQDN->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setApplicationServerClusterPrimaryPublicFQDN($applicationServerClusterPrimaryPublicFQDN = null)
     {
+        if (!$applicationServerClusterPrimaryPublicFQDN) return $this;
         $this->applicationServerClusterPrimaryPublicFQDN = ($applicationServerClusterPrimaryPublicFQDN InstanceOf NetAddress)
              ? $applicationServerClusterPrimaryPublicFQDN
              : new NetAddress($applicationServerClusterPrimaryPublicFQDN);
+        $this->applicationServerClusterPrimaryPublicFQDN->setName('applicationServerClusterPrimaryPublicFQDN');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getApplicationServerClusterPrimaryPublicFQDN()
     {
-        return (!$this->applicationServerClusterPrimaryPublicFQDN) ?: $this->applicationServerClusterPrimaryPublicFQDN->getValue();
+        return $this->applicationServerClusterPrimaryPublicFQDN->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setApplicationServerClusterSecondaryPublicFQDN($applicationServerClusterSecondaryPublicFQDN = null)
     {
+        if (!$applicationServerClusterSecondaryPublicFQDN) return $this;
         $this->applicationServerClusterSecondaryPublicFQDN = ($applicationServerClusterSecondaryPublicFQDN InstanceOf NetAddress)
              ? $applicationServerClusterSecondaryPublicFQDN
              : new NetAddress($applicationServerClusterSecondaryPublicFQDN);
+        $this->applicationServerClusterSecondaryPublicFQDN->setName('applicationServerClusterSecondaryPublicFQDN');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getApplicationServerClusterSecondaryPublicFQDN()
     {
-        return (!$this->applicationServerClusterSecondaryPublicFQDN) ?: $this->applicationServerClusterSecondaryPublicFQDN->getValue();
+        return $this->applicationServerClusterSecondaryPublicFQDN->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setApplicationServerClusterPrimaryPrivateFQDN($applicationServerClusterPrimaryPrivateFQDN = null)
     {
+        if (!$applicationServerClusterPrimaryPrivateFQDN) return $this;
         $this->applicationServerClusterPrimaryPrivateFQDN = ($applicationServerClusterPrimaryPrivateFQDN InstanceOf NetAddress)
              ? $applicationServerClusterPrimaryPrivateFQDN
              : new NetAddress($applicationServerClusterPrimaryPrivateFQDN);
+        $this->applicationServerClusterPrimaryPrivateFQDN->setName('applicationServerClusterPrimaryPrivateFQDN');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getApplicationServerClusterPrimaryPrivateFQDN()
     {
-        return (!$this->applicationServerClusterPrimaryPrivateFQDN) ?: $this->applicationServerClusterPrimaryPrivateFQDN->getValue();
+        return $this->applicationServerClusterPrimaryPrivateFQDN->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setApplicationServerClusterSecondaryPrivateFQDN($applicationServerClusterSecondaryPrivateFQDN = null)
     {
+        if (!$applicationServerClusterSecondaryPrivateFQDN) return $this;
         $this->applicationServerClusterSecondaryPrivateFQDN = ($applicationServerClusterSecondaryPrivateFQDN InstanceOf NetAddress)
              ? $applicationServerClusterSecondaryPrivateFQDN
              : new NetAddress($applicationServerClusterSecondaryPrivateFQDN);
+        $this->applicationServerClusterSecondaryPrivateFQDN->setName('applicationServerClusterSecondaryPrivateFQDN');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getApplicationServerClusterSecondaryPrivateFQDN()
     {
-        return (!$this->applicationServerClusterSecondaryPrivateFQDN) ?: $this->applicationServerClusterSecondaryPrivateFQDN->getValue();
+        return $this->applicationServerClusterSecondaryPrivateFQDN->getValue();
     }
 }

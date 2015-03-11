@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallTransfer\CallTransferRecallNumberOfRings;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserCallTransferGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallTransferGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                      = __CLASS__;
+    public    $name                                      = 'UserCallTransferGetResponse';
     protected $isRecallActive                            = null;
     protected $recallNumberOfRings                       = null;
     protected $useDiversionInhibitorForBlindTransfer     = null;
@@ -39,33 +39,41 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setIsRecallActive($isRecallActive = null)
     {
-        $this->isRecallActive = (boolean) $isRecallActive;
+        if (!$isRecallActive) return $this;
+        $this->isRecallActive = new PrimitiveType($isRecallActive);
+        $this->isRecallActive->setName('isRecallActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsRecallActive()
+    {
+        return $this->isRecallActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsRecallActive()
-    {
-        return (!$this->isRecallActive) ?: $this->isRecallActive;
-    }
-
-    /**
-     * Number of Rings until a transferred call is recalled.
-     */
     public function setRecallNumberOfRings($recallNumberOfRings = null)
     {
+        if (!$recallNumberOfRings) return $this;
         $this->recallNumberOfRings = ($recallNumberOfRings InstanceOf CallTransferRecallNumberOfRings)
              ? $recallNumberOfRings
              : new CallTransferRecallNumberOfRings($recallNumberOfRings);
+        $this->recallNumberOfRings->setName('recallNumberOfRings');
+        return $this;
     }
 
     /**
-     * Number of Rings until a transferred call is recalled.
+     * 
+     * @return CallTransferRecallNumberOfRings
      */
     public function getRecallNumberOfRings()
     {
-        return (!$this->recallNumberOfRings) ?: $this->recallNumberOfRings->getValue();
+        return $this->recallNumberOfRings->getValue();
     }
 
     /**
@@ -73,15 +81,19 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setUseDiversionInhibitorForBlindTransfer($useDiversionInhibitorForBlindTransfer = null)
     {
-        $this->useDiversionInhibitorForBlindTransfer = (boolean) $useDiversionInhibitorForBlindTransfer;
+        if (!$useDiversionInhibitorForBlindTransfer) return $this;
+        $this->useDiversionInhibitorForBlindTransfer = new PrimitiveType($useDiversionInhibitorForBlindTransfer);
+        $this->useDiversionInhibitorForBlindTransfer->setName('useDiversionInhibitorForBlindTransfer');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
-        return (!$this->useDiversionInhibitorForBlindTransfer) ?: $this->useDiversionInhibitorForBlindTransfer;
+        return $this->useDiversionInhibitorForBlindTransfer->getValue();
     }
 
     /**
@@ -89,14 +101,18 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setUseDiversionInhibitorForConsultativeCalls($useDiversionInhibitorForConsultativeCalls = null)
     {
-        $this->useDiversionInhibitorForConsultativeCalls = (boolean) $useDiversionInhibitorForConsultativeCalls;
+        if (!$useDiversionInhibitorForConsultativeCalls) return $this;
+        $this->useDiversionInhibitorForConsultativeCalls = new PrimitiveType($useDiversionInhibitorForConsultativeCalls);
+        $this->useDiversionInhibitorForConsultativeCalls->setName('useDiversionInhibitorForConsultativeCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {
-        return (!$this->useDiversionInhibitorForConsultativeCalls) ?: $this->useDiversionInhibitorForConsultativeCalls;
+        return $this->useDiversionInhibitorForConsultativeCalls->getValue();
     }
 }

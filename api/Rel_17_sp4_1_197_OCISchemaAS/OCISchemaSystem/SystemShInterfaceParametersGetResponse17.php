@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ShInterfacePublicIdentityRefreshDelaySeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemShInterfaceParametersGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemShInterfaceParametersGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
+    public    $name                              = 'SystemShInterfaceParametersGetResponse17';
     protected $hssRealm                          = null;
     protected $publicIdentityRefreshDelaySeconds = null;
 
@@ -34,38 +33,46 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
     }
 
     /**
-     * Network domain name.
+     * 
      */
     public function setHssRealm($hssRealm = null)
     {
+        if (!$hssRealm) return $this;
         $this->hssRealm = ($hssRealm InstanceOf DomainName)
              ? $hssRealm
              : new DomainName($hssRealm);
+        $this->hssRealm->setName('hssRealm');
+        return $this;
     }
 
     /**
-     * Network domain name.
+     * 
+     * @return DomainName
      */
     public function getHssRealm()
     {
-        return (!$this->hssRealm) ?: $this->hssRealm->getValue();
+        return $this->hssRealm->getValue();
     }
 
     /**
-     * The amount of time to wait after a Public Identity has been added before dispatching the Public Identity refresh procedure.  A value of 0 indicates no delay.
+     * 
      */
     public function setPublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds = null)
     {
+        if (!$publicIdentityRefreshDelaySeconds) return $this;
         $this->publicIdentityRefreshDelaySeconds = ($publicIdentityRefreshDelaySeconds InstanceOf ShInterfacePublicIdentityRefreshDelaySeconds)
              ? $publicIdentityRefreshDelaySeconds
              : new ShInterfacePublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds);
+        $this->publicIdentityRefreshDelaySeconds->setName('publicIdentityRefreshDelaySeconds');
+        return $this;
     }
 
     /**
-     * The amount of time to wait after a Public Identity has been added before dispatching the Public Identity refresh procedure.  A value of 0 indicates no delay.
+     * 
+     * @return ShInterfacePublicIdentityRefreshDelaySeconds
      */
     public function getPublicIdentityRefreshDelaySeconds()
     {
-        return (!$this->publicIdentityRefreshDelaySeconds) ?: $this->publicIdentityRefreshDelaySeconds->getValue();
+        return $this->publicIdentityRefreshDelaySeconds->getValue();
     }
 }

@@ -16,12 +16,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinInclusive;
  */
 class ServicePackMigrationAbortErrorThreshold extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "ServicePackMigrationAbortErrorThreshold";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "int";
+        $this->dataType = "";
         $this->addRestriction(new MinInclusive("1"));
     }
 }

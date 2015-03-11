@@ -17,12 +17,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CommunicationBarringCriteriaPriority extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "CommunicationBarringCriteriaPriority";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "";
+        $this->dataType = "xs:float";
         $this->addRestriction(new MinInclusive("0.0"));
         $this->addRestriction(new MaxInclusive("1000000.0"));
     }

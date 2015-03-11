@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemTimeScheduleDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'SystemTimeScheduleDeleteRequest';
     protected $timeScheduleName = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return SystemTimeScheduleDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * Schedule name.
+     * 
      */
     public function setTimeScheduleName($timeScheduleName = null)
     {
+        if (!$timeScheduleName) return $this;
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
              ? $timeScheduleName
              : new ScheduleName($timeScheduleName);
+        $this->timeScheduleName->setName('timeScheduleName');
+        return $this;
     }
 
     /**
-     * Schedule name.
+     * 
+     * @return ScheduleName
      */
     public function getTimeScheduleName()
     {
-        return (!$this->timeScheduleName) ?: $this->timeScheduleName->getValue();
+        return $this->timeScheduleName->getValue();
     }
 }

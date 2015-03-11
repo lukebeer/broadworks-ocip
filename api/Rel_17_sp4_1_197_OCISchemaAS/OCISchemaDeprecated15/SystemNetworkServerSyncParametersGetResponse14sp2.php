@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemNetworkServerSyncParametersGetResponse14sp2;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkServerSyncParametersGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemNetworkServerSyncParametersGetResponse14sp2';
     protected $enableSync    = null;
     protected $syncLinePorts = null;
 
@@ -39,15 +38,19 @@ class SystemNetworkServerSyncParametersGetResponse14sp2 extends ComplexType impl
      */
     public function setEnableSync($enableSync = null)
     {
-        $this->enableSync = (boolean) $enableSync;
+        if (!$enableSync) return $this;
+        $this->enableSync = new PrimitiveType($enableSync);
+        $this->enableSync->setName('enableSync');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableSync()
     {
-        return (!$this->enableSync) ?: $this->enableSync;
+        return $this->enableSync->getValue();
     }
 
     /**
@@ -55,14 +58,18 @@ class SystemNetworkServerSyncParametersGetResponse14sp2 extends ComplexType impl
      */
     public function setSyncLinePorts($syncLinePorts = null)
     {
-        $this->syncLinePorts = (boolean) $syncLinePorts;
+        if (!$syncLinePorts) return $this;
+        $this->syncLinePorts = new PrimitiveType($syncLinePorts);
+        $this->syncLinePorts->setName('syncLinePorts');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getSyncLinePorts()
     {
-        return (!$this->syncLinePorts) ?: $this->syncLinePorts;
+        return $this->syncLinePorts->getValue();
     }
 }

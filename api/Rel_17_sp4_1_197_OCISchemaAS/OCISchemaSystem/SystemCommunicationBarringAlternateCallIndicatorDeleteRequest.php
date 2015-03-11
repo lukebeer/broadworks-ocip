@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringAlternateCallIndicator;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringAlternateCallIndicatorDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringAlternateCallIndicatorDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'SystemCommunicationBarringAlternateCallIndicatorDeleteRequest';
     protected $alternateCallIndicator = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemCommunicationBarringAlternateCallIndicatorDeleteRequest extends Comp
     }
 
     /**
-     * @return SystemCommunicationBarringAlternateCallIndicatorDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemCommunicationBarringAlternateCallIndicatorDeleteRequest extends Comp
     }
 
     /**
-     * Communication Barring Alternate Call Indicator.
+     * 
      */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
+        if (!$alternateCallIndicator) return $this;
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf CommunicationBarringAlternateCallIndicator)
              ? $alternateCallIndicator
              : new CommunicationBarringAlternateCallIndicator($alternateCallIndicator);
+        $this->alternateCallIndicator->setName('alternateCallIndicator');
+        return $this;
     }
 
     /**
-     * Communication Barring Alternate Call Indicator.
+     * 
+     * @return CommunicationBarringAlternateCallIndicator
      */
     public function getAlternateCallIndicator()
     {
-        return (!$this->alternateCallIndicator) ?: $this->alternateCallIndicator->getValue();
+        return $this->alternateCallIndicator->getValue();
     }
 }

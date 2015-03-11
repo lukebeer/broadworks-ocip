@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OfficeZoneD
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ReplacementZoneList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'SystemOfficeZoneModifyRequest';
     protected $officeZoneName      = null;
     protected $newOfficeZoneName   = null;
     protected $description         = null;
@@ -35,7 +34,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
          $officeZoneName,
          $newOfficeZoneName = null,
          $description = null,
-          $replacementZoneList = null,
+         ReplacementZoneList $replacementZoneList = null,
          $primaryZoneName = null
     ) {
         $this->setOfficeZoneName($officeZoneName);
@@ -46,7 +45,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return SystemOfficeZoneModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,90 +53,110 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * Office Zone name.
+     * 
      */
     public function setOfficeZoneName($officeZoneName = null)
     {
+        if (!$officeZoneName) return $this;
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
              ? $officeZoneName
              : new OfficeZoneName($officeZoneName);
+        $this->officeZoneName->setName('officeZoneName');
+        return $this;
     }
 
     /**
-     * Office Zone name.
+     * 
+     * @return OfficeZoneName
      */
     public function getOfficeZoneName()
     {
-        return (!$this->officeZoneName) ?: $this->officeZoneName->getValue();
+        return $this->officeZoneName->getValue();
     }
 
     /**
-     * Office Zone name.
+     * 
      */
     public function setNewOfficeZoneName($newOfficeZoneName = null)
     {
+        if (!$newOfficeZoneName) return $this;
         $this->newOfficeZoneName = ($newOfficeZoneName InstanceOf OfficeZoneName)
              ? $newOfficeZoneName
              : new OfficeZoneName($newOfficeZoneName);
+        $this->newOfficeZoneName->setName('newOfficeZoneName');
+        return $this;
     }
 
     /**
-     * Office Zone name.
+     * 
+     * @return OfficeZoneName
      */
     public function getNewOfficeZoneName()
     {
-        return (!$this->newOfficeZoneName) ?: $this->newOfficeZoneName->getValue();
+        return $this->newOfficeZoneName->getValue();
     }
 
     /**
-     * Office Zone description.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf OfficeZoneDescription)
              ? $description
              : new OfficeZoneDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Office Zone description.
+     * 
+     * @return OfficeZoneDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 
     /**
-     * Contains an ordered list of zones to use to replace the current list of zones in an Office Zone.
+     * 
      */
     public function setReplacementZoneList(ReplacementZoneList $replacementZoneList = null)
     {
-        $this->replacementZoneList =  $replacementZoneList;
+        if (!$replacementZoneList) return $this;
+        $this->replacementZoneList = $replacementZoneList;
+        $this->replacementZoneList->setName('replacementZoneList');
+        return $this;
     }
 
     /**
-     * Contains an ordered list of zones to use to replace the current list of zones in an Office Zone.
+     * 
+     * @return ReplacementZoneList
      */
     public function getReplacementZoneList()
     {
-        return (!$this->replacementZoneList) ?: $this->replacementZoneList->getValue();
+        return $this->replacementZoneList;
     }
 
     /**
-     * Zone Name.
+     * 
      */
     public function setPrimaryZoneName($primaryZoneName = null)
     {
+        if (!$primaryZoneName) return $this;
         $this->primaryZoneName = ($primaryZoneName InstanceOf ZoneName)
              ? $primaryZoneName
              : new ZoneName($primaryZoneName);
+        $this->primaryZoneName->setName('primaryZoneName');
+        return $this;
     }
 
     /**
-     * Zone Name.
+     * 
+     * @return ZoneName
      */
     public function getPrimaryZoneName()
     {
-        return (!$this->primaryZoneName) ?: $this->primaryZoneName->getValue();
+        return $this->primaryZoneName->getValue();
     }
 }

@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\ServiceAccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityServiceAccessCodeDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'SystemBroadWorksMobilityServiceAccessCodeDeleteRequest';
     protected $countryCode       = null;
     protected $serviceAccessCode = null;
 
@@ -35,7 +34,7 @@ class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType
     }
 
     /**
-     * @return SystemBroadWorksMobilityServiceAccessCodeDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType
     }
 
     /**
-     * Country dialing code.
+     * 
      */
     public function setCountryCode($countryCode = null)
     {
+        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
+        $this->countryCode->setName('countryCode');
+        return $this;
     }
 
     /**
-     * Country dialing code.
+     * 
+     * @return CountryCode
      */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->getValue();
+        return $this->countryCode->getValue();
     }
 
     /**
-     * The Service Access Code composed of DTMF digits 0-9, # or *.
+     * 
      */
     public function setServiceAccessCode($serviceAccessCode = null)
     {
+        if (!$serviceAccessCode) return $this;
         $this->serviceAccessCode = ($serviceAccessCode InstanceOf ServiceAccessCode)
              ? $serviceAccessCode
              : new ServiceAccessCode($serviceAccessCode);
+        $this->serviceAccessCode->setName('serviceAccessCode');
+        return $this;
     }
 
     /**
-     * The Service Access Code composed of DTMF digits 0-9, # or *.
+     * 
+     * @return ServiceAccessCode
      */
     public function getServiceAccessCode()
     {
-        return (!$this->serviceAccessCode) ?: $this->serviceAccessCode->getValue();
+        return $this->serviceAccessCode->getValue();
     }
 }

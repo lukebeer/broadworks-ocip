@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanCallType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanCallTypeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'SystemOutgoingCallingPlanCallTypeGetListResponse';
     protected $callType = null;
 
     /**
@@ -32,20 +31,24 @@ class SystemOutgoingCallingPlanCallTypeGetListResponse extends ComplexType imple
     }
 
     /**
-     * Outgoing Calling Plan Call Type
+     * 
      */
     public function setCallType($callType = null)
     {
+        if (!$callType) return $this;
         $this->callType = ($callType InstanceOf OutgoingCallingPlanCallType)
              ? $callType
              : new OutgoingCallingPlanCallType($callType);
+        $this->callType->setName('callType');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan Call Type
+     * 
+     * @return OutgoingCallingPlanCallType
      */
     public function getCallType()
     {
-        return (!$this->callType) ?: $this->callType->getValue();
+        return $this->callType->getValue();
     }
 }

@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterPeerInstance;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterPeerDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'SystemBwDiameterPeerDeleteRequest';
     protected $instance = null;
     protected $identity = null;
 
@@ -35,7 +34,7 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return SystemBwDiameterPeerDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * The diameter peer instance type for an entry in the Peer Table.
+     * 
      */
     public function setInstance($instance = null)
     {
+        if (!$instance) return $this;
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
              ? $instance
              : new BwDiameterPeerInstance($instance);
+        $this->instance->setName('instance');
+        return $this;
     }
 
     /**
-     * The diameter peer instance type for an entry in the Peer Table.
+     * 
+     * @return BwDiameterPeerInstance
      */
     public function getInstance()
     {
-        return (!$this->instance) ?: $this->instance->getValue();
+        return $this->instance->getValue();
     }
 
     /**
-     * Network domain name.
+     * 
      */
     public function setIdentity($identity = null)
     {
+        if (!$identity) return $this;
         $this->identity = ($identity InstanceOf DomainName)
              ? $identity
              : new DomainName($identity);
+        $this->identity->setName('identity');
+        return $this;
     }
 
     /**
-     * Network domain name.
+     * 
+     * @return DomainName
      */
     public function getIdentity()
     {
-        return (!$this->identity) ?: $this->identity->getValue();
+        return $this->identity->getValue();
     }
 }

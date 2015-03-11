@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordedConferenceHoldPeriodDays;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingExpiredConferenceHoldPeriodDays;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\SystemInstantConferencingModifyHoldPolicyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'SystemInstantConferencingModifyHoldPolicyRequest';
     protected $deleteExpiredConferences         = null;
     protected $expiredConferenceHoldPeriodDays  = null;
     protected $deleteRecordedConferences        = null;
@@ -41,7 +41,7 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
     }
 
     /**
-     * @return SystemInstantConferencingModifyHoldPolicyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,33 +53,41 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
      */
     public function setDeleteExpiredConferences($deleteExpiredConferences = null)
     {
-        $this->deleteExpiredConferences = (boolean) $deleteExpiredConferences;
+        if (!$deleteExpiredConferences) return $this;
+        $this->deleteExpiredConferences = new PrimitiveType($deleteExpiredConferences);
+        $this->deleteExpiredConferences->setName('deleteExpiredConferences');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDeleteExpiredConferences()
+    {
+        return $this->deleteExpiredConferences->getValue();
     }
 
     /**
      * 
      */
-    public function getDeleteExpiredConferences()
-    {
-        return (!$this->deleteExpiredConferences) ?: $this->deleteExpiredConferences;
-    }
-
-    /**
-     * Hold period for expired conferences, in days.
-     */
     public function setExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays = null)
     {
+        if (!$expiredConferenceHoldPeriodDays) return $this;
         $this->expiredConferenceHoldPeriodDays = ($expiredConferenceHoldPeriodDays InstanceOf InstantConferencingExpiredConferenceHoldPeriodDays)
              ? $expiredConferenceHoldPeriodDays
              : new InstantConferencingExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays);
+        $this->expiredConferenceHoldPeriodDays->setName('expiredConferenceHoldPeriodDays');
+        return $this;
     }
 
     /**
-     * Hold period for expired conferences, in days.
+     * 
+     * @return InstantConferencingExpiredConferenceHoldPeriodDays
      */
     public function getExpiredConferenceHoldPeriodDays()
     {
-        return (!$this->expiredConferenceHoldPeriodDays) ?: $this->expiredConferenceHoldPeriodDays->getValue();
+        return $this->expiredConferenceHoldPeriodDays->getValue();
     }
 
     /**
@@ -87,32 +95,40 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
      */
     public function setDeleteRecordedConferences($deleteRecordedConferences = null)
     {
-        $this->deleteRecordedConferences = (boolean) $deleteRecordedConferences;
+        if (!$deleteRecordedConferences) return $this;
+        $this->deleteRecordedConferences = new PrimitiveType($deleteRecordedConferences);
+        $this->deleteRecordedConferences->setName('deleteRecordedConferences');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDeleteRecordedConferences()
+    {
+        return $this->deleteRecordedConferences->getValue();
     }
 
     /**
      * 
      */
-    public function getDeleteRecordedConferences()
-    {
-        return (!$this->deleteRecordedConferences) ?: $this->deleteRecordedConferences;
-    }
-
-    /**
-     * Hold period for recorded conferences, in days.
-     */
     public function setRecordedConferenceHoldPeriodDays($recordedConferenceHoldPeriodDays = null)
     {
+        if (!$recordedConferenceHoldPeriodDays) return $this;
         $this->recordedConferenceHoldPeriodDays = ($recordedConferenceHoldPeriodDays InstanceOf InstantConferencingRecordedConferenceHoldPeriodDays)
              ? $recordedConferenceHoldPeriodDays
              : new InstantConferencingRecordedConferenceHoldPeriodDays($recordedConferenceHoldPeriodDays);
+        $this->recordedConferenceHoldPeriodDays->setName('recordedConferenceHoldPeriodDays');
+        return $this;
     }
 
     /**
-     * Hold period for recorded conferences, in days.
+     * 
+     * @return InstantConferencingRecordedConferenceHoldPeriodDays
      */
     public function getRecordedConferenceHoldPeriodDays()
     {
-        return (!$this->recordedConferenceHoldPeriodDays) ?: $this->recordedConferenceHoldPeriodDays->getValue();
+        return $this->recordedConferenceHoldPeriodDays->getValue();
     }
 }

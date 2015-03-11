@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserGetLoginInfoRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\UserGetLoginInfoResponse';
-    public    $name = __CLASS__;
+    public    $name = 'UserGetLoginInfoRequest';
 
     public function __construct(    ) {
     }

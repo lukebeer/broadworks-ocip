@@ -12,7 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepo
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFileRepositoryDeviceUserAddResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'GroupFileRepositoryDeviceUserAddRequest';
     protected $serviceProviderId  = null;
     protected $groupId            = null;
     protected $fileRepositoryName = null;
@@ -56,7 +56,7 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
     }
 
     /**
-     * @return GroupFileRepositoryDeviceUserAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,97 +64,113 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * File repository name.
+     * 
      */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
+        if (!$fileRepositoryName) return $this;
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
+        $this->fileRepositoryName->setName('fileRepositoryName');
+        return $this;
     }
 
     /**
-     * File repository name.
+     * 
+     * @return FileRepositoryName
      */
     public function getFileRepositoryName()
     {
-        return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->getValue();
+        return $this->fileRepositoryName->getValue();
     }
 
     /**
-     * A user id for a File Repository.
+     * 
      */
     public function setUserName($userName = null)
     {
+        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
              ? $userName
              : new FileRepositoryUserName($userName);
+        $this->userName->setName('userName');
+        return $this;
     }
 
     /**
-     * A user id for a File Repository.
+     * 
+     * @return FileRepositoryUserName
      */
     public function getUserName()
     {
-        return (!$this->userName) ?: $this->userName->getValue();
+        return $this->userName->getValue();
     }
 
     /**
-     * A password for a File Repository.
+     * 
      */
     public function setPassword($password = null)
     {
+        if (!$password) return $this;
         $this->password = ($password InstanceOf FileRepositoryUserPassword)
              ? $password
              : new FileRepositoryUserPassword($password);
+        $this->password->setName('password');
+        return $this;
     }
 
     /**
-     * A password for a File Repository.
+     * 
+     * @return FileRepositoryUserPassword
      */
     public function getPassword()
     {
-        return (!$this->password) ?: $this->password->getValue();
+        return $this->password->getValue();
     }
 
     /**
@@ -162,15 +178,19 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
      */
     public function setAllowPut($allowPut = null)
     {
-        $this->allowPut = (boolean) $allowPut;
+        if (!$allowPut) return $this;
+        $this->allowPut = new PrimitiveType($allowPut);
+        $this->allowPut->setName('allowPut');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowPut()
     {
-        return (!$this->allowPut) ?: $this->allowPut;
+        return $this->allowPut->getValue();
     }
 
     /**
@@ -178,15 +198,19 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
      */
     public function setAllowDelete($allowDelete = null)
     {
-        $this->allowDelete = (boolean) $allowDelete;
+        if (!$allowDelete) return $this;
+        $this->allowDelete = new PrimitiveType($allowDelete);
+        $this->allowDelete->setName('allowDelete');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowDelete()
     {
-        return (!$this->allowDelete) ?: $this->allowDelete;
+        return $this->allowDelete->getValue();
     }
 
     /**
@@ -194,14 +218,18 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
      */
     public function setAllowGet($allowGet = null)
     {
-        $this->allowGet = (boolean) $allowGet;
+        if (!$allowGet) return $this;
+        $this->allowGet = new PrimitiveType($allowGet);
+        $this->allowGet->setName('allowGet');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowGet()
     {
-        return (!$this->allowGet) ?: $this->allowGet;
+        return $this->allowGet->getValue();
     }
 }

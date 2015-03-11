@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\UserPreferredCarrierNameModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\UserPreferredCarrierUserModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPreferredCarrierUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'UserPreferredCarrierUserModifyRequest';
     protected $userId               = null;
     protected $intraLataCarrier     = null;
     protected $interLataCarrier     = null;
@@ -30,9 +29,9 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
 
     public function __construct(
          $userId,
-          $intraLataCarrier = null,
-          $interLataCarrier = null,
-          $internationalCarrier = null
+         UserPreferredCarrierNameModify $intraLataCarrier = null,
+         UserPreferredCarrierNameModify $interLataCarrier = null,
+         UserPreferredCarrierNameModify $internationalCarrier = null
     ) {
         $this->setUserId($userId);
         $this->setIntraLataCarrier($intraLataCarrier);
@@ -41,7 +40,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return UserPreferredCarrierUserModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,88 +48,84 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         You can use the group's preferred carrier without clearing the user carrier name --
-     *         in this case, the user carrier name is retained.
+     * 
      */
     public function setIntraLataCarrier(UserPreferredCarrierNameModify $intraLataCarrier = null)
     {
-        $this->intraLataCarrier =  $intraLataCarrier;
+        if (!$intraLataCarrier) return $this;
+        $this->intraLataCarrier = $intraLataCarrier;
+        $this->intraLataCarrier->setName('intraLataCarrier');
+        return $this;
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         You can use the group's preferred carrier without clearing the user carrier name --
-     *         in this case, the user carrier name is retained.
+     * 
+     * @return UserPreferredCarrierNameModify
      */
     public function getIntraLataCarrier()
     {
-        return (!$this->intraLataCarrier) ?: $this->intraLataCarrier->getValue();
+        return $this->intraLataCarrier;
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         You can use the group's preferred carrier without clearing the user carrier name --
-     *         in this case, the user carrier name is retained.
+     * 
      */
     public function setInterLataCarrier(UserPreferredCarrierNameModify $interLataCarrier = null)
     {
-        $this->interLataCarrier =  $interLataCarrier;
+        if (!$interLataCarrier) return $this;
+        $this->interLataCarrier = $interLataCarrier;
+        $this->interLataCarrier->setName('interLataCarrier');
+        return $this;
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         You can use the group's preferred carrier without clearing the user carrier name --
-     *         in this case, the user carrier name is retained.
+     * 
+     * @return UserPreferredCarrierNameModify
      */
     public function getInterLataCarrier()
     {
-        return (!$this->interLataCarrier) ?: $this->interLataCarrier->getValue();
+        return $this->interLataCarrier;
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         You can use the group's preferred carrier without clearing the user carrier name --
-     *         in this case, the user carrier name is retained.
+     * 
      */
     public function setInternationalCarrier(UserPreferredCarrierNameModify $internationalCarrier = null)
     {
-        $this->internationalCarrier =  $internationalCarrier;
+        if (!$internationalCarrier) return $this;
+        $this->internationalCarrier = $internationalCarrier;
+        $this->internationalCarrier->setName('internationalCarrier');
+        return $this;
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         You can use the group's preferred carrier without clearing the user carrier name --
-     *         in this case, the user carrier name is retained.
+     * 
+     * @return UserPreferredCarrierNameModify
      */
     public function getInternationalCarrier()
     {
-        return (!$this->internationalCarrier) ?: $this->internationalCarrier->getValue();
+        return $this->internationalCarrier;
     }
 }

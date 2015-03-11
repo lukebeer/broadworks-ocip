@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Endpoint
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceGetPublicIdDataResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'UserShInterfaceGetPublicIdDataResponse';
     protected $userId       = null;
     protected $userType     = null;
     protected $endpointType = null;
@@ -42,114 +41,112 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Types of users in BroadWorks.
+     * 
      */
     public function setUserType($userType = null)
     {
+        if (!$userType) return $this;
         $this->userType = ($userType InstanceOf UserType)
              ? $userType
              : new UserType($userType);
+        $this->userType->setName('userType');
+        return $this;
     }
 
     /**
-     * Types of users in BroadWorks.
+     * 
+     * @return UserType
      */
     public function getUserType()
     {
-        return (!$this->userType) ?: $this->userType->getValue();
+        return $this->userType->getValue();
     }
 
     /**
-     * Types of Endpoints in Broadworks.
+     * 
      */
     public function setEndpointType($endpointType = null)
     {
+        if (!$endpointType) return $this;
         $this->endpointType = ($endpointType InstanceOf EndpointType)
              ? $endpointType
              : new EndpointType($endpointType);
+        $this->endpointType->setName('endpointType');
+        return $this;
     }
 
     /**
-     * Types of Endpoints in Broadworks.
+     * 
+     * @return EndpointType
      */
     public function getEndpointType()
     {
-        return (!$this->endpointType) ?: $this->endpointType->getValue();
+        return $this->endpointType->getValue();
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
      */
     public function setSCSCFName($SCSCFName = null)
     {
+        if (!$SCSCFName) return $this;
         $this->SCSCFName = ($SCSCFName InstanceOf SIPURI)
              ? $SCSCFName
              : new SIPURI($SCSCFName);
+        $this->SCSCFName->setName('SCSCFName');
+        return $this;
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
+     * @return SIPURI
      */
     public function getSCSCFName()
     {
-        return (!$this->SCSCFName) ?: $this->SCSCFName->getValue();
+        return $this->SCSCFName->getValue();
     }
 
     /**
-     * IMS User State per the 3GPP TS 29.328 V6.3.0 spec.
+     * 
      */
     public function setIMSUserState($IMSUserState = null)
     {
+        if (!$IMSUserState) return $this;
         $this->IMSUserState = ($IMSUserState InstanceOf IMSUserState)
              ? $IMSUserState
              : new IMSUserState($IMSUserState);
+        $this->IMSUserState->setName('IMSUserState');
+        return $this;
     }
 
     /**
-     * IMS User State per the 3GPP TS 29.328 V6.3.0 spec.
+     * 
+     * @return IMSUserState
      */
     public function getIMSUserState()
     {
-        return (!$this->IMSUserState) ?: $this->IMSUserState->getValue();
+        return $this->IMSUserState->getValue();
     }
 }

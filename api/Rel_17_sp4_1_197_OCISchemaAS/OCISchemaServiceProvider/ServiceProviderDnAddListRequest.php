@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDnAddListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDnAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderDnAddListRequest';
     protected $serviceProviderId = null;
     protected $phoneNumber       = null;
     protected $dnRange           = null;
@@ -32,7 +31,7 @@ class ServiceProviderDnAddListRequest extends ComplexType implements ComplexInte
     public function __construct(
          $serviceProviderId,
          $phoneNumber = null,
-          $dnRange = null
+         DNRange $dnRange = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setPhoneNumber($phoneNumber);
@@ -40,7 +39,7 @@ class ServiceProviderDnAddListRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return ServiceProviderDnAddListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,56 +47,66 @@ class ServiceProviderDnAddListRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setPhoneNumber($phoneNumber = null)
     {
+        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
+        return $this->phoneNumber->getValue();
     }
 
     /**
-     * Directory number range. The minimum and maximum values are inclusive.
+     * 
      */
     public function setDnRange(DNRange $dnRange = null)
     {
-        $this->dnRange =  $dnRange;
+        if (!$dnRange) return $this;
+        $this->dnRange = $dnRange;
+        $this->dnRange->setName('dnRange');
+        return $this;
     }
 
     /**
-     * Directory number range. The minimum and maximum values are inclusive.
+     * 
+     * @return DNRange
      */
     public function getDnRange()
     {
-        return (!$this->dnRange) ?: $this->dnRange->getValue();
+        return $this->dnRange;
     }
 }

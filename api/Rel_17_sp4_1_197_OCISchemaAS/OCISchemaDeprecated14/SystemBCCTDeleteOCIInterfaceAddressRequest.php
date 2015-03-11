@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemBCCTDeleteOCIInterfaceAddressResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBCCTDeleteOCIInterfaceAddressRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'SystemBCCTDeleteOCIInterfaceAddressRequest';
     protected $interfaceNetAddress = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemBCCTDeleteOCIInterfaceAddressRequest extends ComplexType implements 
     }
 
     /**
-     * @return SystemBCCTDeleteOCIInterfaceAddressResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemBCCTDeleteOCIInterfaceAddressRequest extends ComplexType implements 
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setInterfaceNetAddress($interfaceNetAddress = null)
     {
+        if (!$interfaceNetAddress) return $this;
         $this->interfaceNetAddress = ($interfaceNetAddress InstanceOf NetAddress)
              ? $interfaceNetAddress
              : new NetAddress($interfaceNetAddress);
+        $this->interfaceNetAddress->setName('interfaceNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getInterfaceNetAddress()
     {
-        return (!$this->interfaceNetAddress) ?: $this->interfaceNetAddress->getValue();
+        return $this->interfaceNetAddress->getValue();
     }
 }

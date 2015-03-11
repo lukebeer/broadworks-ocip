@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCIReportingMessageName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIReportingGetMessageNameListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingGetMessageNameListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'SystemOCIReportingGetMessageNameListResponse';
     protected $messageNameStartsWith = null;
 
     /**
@@ -32,20 +31,24 @@ class SystemOCIReportingGetMessageNameListResponse extends ComplexType implement
     }
 
     /**
-     * OCI Request name.
+     * 
      */
     public function setMessageNameStartsWith($messageNameStartsWith = null)
     {
+        if (!$messageNameStartsWith) return $this;
         $this->messageNameStartsWith = ($messageNameStartsWith InstanceOf OCIReportingMessageName)
              ? $messageNameStartsWith
              : new OCIReportingMessageName($messageNameStartsWith);
+        $this->messageNameStartsWith->setName('messageNameStartsWith');
+        return $this;
     }
 
     /**
-     * OCI Request name.
+     * 
+     * @return OCIReportingMessageName
      */
     public function getMessageNameStartsWith()
     {
-        return (!$this->messageNameStartsWith) ?: $this->messageNameStartsWith->getValue();
+        return $this->messageNameStartsWith->getValue();
     }
 }

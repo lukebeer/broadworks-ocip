@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsNetAddressGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneCallingRestrictionsNetAddressGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'SystemZoneCallingRestrictionsNetAddressGetListResponse';
     protected $netAddress      = null;
     protected $netAddressRange = null;
 
@@ -35,36 +34,44 @@ class SystemZoneCallingRestrictionsNetAddressGetListResponse extends ComplexType
     }
 
     /**
-     * Numeric IP Address.
+     * 
      */
     public function setNetAddress($netAddress = null)
     {
+        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
+        $this->netAddress->setName('netAddress');
+        return $this;
     }
 
     /**
-     * Numeric IP Address.
+     * 
+     * @return IPAddress
      */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->getValue();
+        return $this->netAddress->getValue();
     }
 
     /**
-     * IP Address Range.
+     * 
      */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
-        $this->netAddressRange =  $netAddressRange;
+        if (!$netAddressRange) return $this;
+        $this->netAddressRange = $netAddressRange;
+        $this->netAddressRange->setName('netAddressRange');
+        return $this;
     }
 
     /**
-     * IP Address Range.
+     * 
+     * @return IPAddressRange
      */
     public function getNetAddressRange()
     {
-        return (!$this->netAddressRange) ?: $this->netAddressRange->getValue();
+        return $this->netAddressRange;
     }
 }

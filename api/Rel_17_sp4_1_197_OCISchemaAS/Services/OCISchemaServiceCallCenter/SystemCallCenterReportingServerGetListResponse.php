@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterReportingServerGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterReportingServerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'SystemCallCenterReportingServerGetListResponse';
     protected $reportingServerTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemCallCenterReportingServerGetListResponse extends ComplexType impleme
      */
     public function setReportingServerTable(core:OCITable $reportingServerTable = null)
     {
-        $this->reportingServerTable =  $reportingServerTable;
+        if (!$reportingServerTable) return $this;
+        $this->reportingServerTable->setName('reportingServerTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getReportingServerTable()
     {
-        return (!$this->reportingServerTable) ?: $this->reportingServerTable->getValue();
+        return $this->reportingServerTable->getValue();
     }
 }

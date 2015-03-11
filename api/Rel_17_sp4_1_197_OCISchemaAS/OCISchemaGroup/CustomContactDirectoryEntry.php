@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class CustomContactDirectoryEntry extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\CustomContactDirectoryEntry';
-    public    $name = __CLASS__;
+    public    $name = 'CustomContactDirectoryEntry';
 
     public function __construct(    ) {
     }

@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingScheduleReservationless;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingScheduleReservationless;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingScheduleReservationless extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingScheduleReservationless';
-    public    $name    = __CLASS__;
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingScheduleReservationless';
+    public    $name    = 'InstantConferencingScheduleReservationless';
     protected $endDate = null;
 
     public function __construct(
@@ -43,14 +43,17 @@ class InstantConferencingScheduleReservationless extends ComplexType implements 
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        $this->endDate =  $endDate;
+        if (!$endDate) return $this;
+        $this->endDate->setName('endDate');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:date
      */
     public function getEndDate()
     {
-        return (!$this->endDate) ?: $this->endDate->getValue();
+        return $this->endDate->getValue();
     }
 }

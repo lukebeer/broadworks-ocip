@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePorts;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'GroupMeetMeConferencingGetResponse';
     protected $availablePorts = null;
     protected $allocatedPorts = null;
 
@@ -33,34 +32,42 @@ class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexI
     }
 
     /**
-     * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
+     * 
      */
     public function setAvailablePorts(MeetMeConferencingConferencePorts $availablePorts = null)
     {
-        $this->availablePorts =  $availablePorts;
+        if (!$availablePorts) return $this;
+        $this->availablePorts = $availablePorts;
+        $this->availablePorts->setName('availablePorts');
+        return $this;
     }
 
     /**
-     * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
+     * 
+     * @return MeetMeConferencingConferencePorts
      */
     public function getAvailablePorts()
     {
-        return (!$this->availablePorts) ?: $this->availablePorts->getValue();
+        return $this->availablePorts;
     }
 
     /**
-     * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
+     * 
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        $this->allocatedPorts =  $allocatedPorts;
+        if (!$allocatedPorts) return $this;
+        $this->allocatedPorts = $allocatedPorts;
+        $this->allocatedPorts->setName('allocatedPorts');
+        return $this;
     }
 
     /**
-     * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
+     * 
+     * @return MeetMeConferencingConferencePorts
      */
     public function getAllocatedPorts()
     {
-        return (!$this->allocatedPorts) ?: $this->allocatedPorts->getValue();
+        return $this->allocatedPorts;
     }
 }

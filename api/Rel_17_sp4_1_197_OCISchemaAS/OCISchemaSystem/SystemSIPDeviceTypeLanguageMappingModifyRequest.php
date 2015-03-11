@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementLanguageMapping;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeLanguageMappingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,20 +21,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'SystemSIPDeviceTypeLanguageMappingModifyRequest';
     protected $deviceType      = null;
     protected $languageMapping = null;
 
     public function __construct(
          $deviceType,
-          $languageMapping = null
+         DeviceManagementLanguageMapping $languageMapping = null
     ) {
         $this->setDeviceType($deviceType);
         $this->setLanguageMapping($languageMapping);
     }
 
     /**
-     * @return SystemSIPDeviceTypeLanguageMappingModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,36 +42,44 @@ class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implem
     }
 
     /**
-     * Access device type.
+     * 
      */
     public function setDeviceType($deviceType = null)
     {
+        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
+        $this->deviceType->setName('deviceType');
+        return $this;
     }
 
     /**
-     * Access device type.
+     * 
+     * @return AccessDeviceType
      */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->getValue();
+        return $this->deviceType->getValue();
     }
 
     /**
-     * Maps a BroadWorks language to a device-equivalent language.
+     * 
      */
     public function setLanguageMapping(DeviceManagementLanguageMapping $languageMapping = null)
     {
-        $this->languageMapping =  $languageMapping;
+        if (!$languageMapping) return $this;
+        $this->languageMapping = $languageMapping;
+        $this->languageMapping->setName('languageMapping');
+        return $this;
     }
 
     /**
-     * Maps a BroadWorks language to a device-equivalent language.
+     * 
+     * @return DeviceManagementLanguageMapping
      */
     public function getLanguageMapping()
     {
-        return (!$this->languageMapping) ?: $this->languageMapping->getValue();
+        return $this->languageMapping;
     }
 }

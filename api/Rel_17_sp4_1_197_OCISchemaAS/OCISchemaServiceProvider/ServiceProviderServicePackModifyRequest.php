@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'ServiceProviderServicePackModifyRequest';
     protected $serviceProviderId      = null;
     protected $servicePackName        = null;
     protected $newServicePackName     = null;
@@ -38,7 +38,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
          $newServicePackName = null,
          $servicePackDescription = null,
          $isAvailableForUse = null,
-          $servicePackQuantity = null
+         UnboundedPositiveInt $servicePackQuantity = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setServicePackName($servicePackName);
@@ -49,7 +49,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return ServiceProviderServicePackModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,77 +57,91 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Service Pack name.
+     * 
      */
     public function setServicePackName($servicePackName = null)
     {
+        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
+        $this->servicePackName->setName('servicePackName');
+        return $this;
     }
 
     /**
-     * Service Pack name.
+     * 
+     * @return ServicePackName
      */
     public function getServicePackName()
     {
-        return (!$this->servicePackName) ?: $this->servicePackName->getValue();
+        return $this->servicePackName->getValue();
     }
 
     /**
-     * Service Pack name.
+     * 
      */
     public function setNewServicePackName($newServicePackName = null)
     {
+        if (!$newServicePackName) return $this;
         $this->newServicePackName = ($newServicePackName InstanceOf ServicePackName)
              ? $newServicePackName
              : new ServicePackName($newServicePackName);
+        $this->newServicePackName->setName('newServicePackName');
+        return $this;
     }
 
     /**
-     * Service Pack name.
+     * 
+     * @return ServicePackName
      */
     public function getNewServicePackName()
     {
-        return (!$this->newServicePackName) ?: $this->newServicePackName->getValue();
+        return $this->newServicePackName->getValue();
     }
 
     /**
-     * Service Pack description.
+     * 
      */
     public function setServicePackDescription($servicePackDescription = null)
     {
+        if (!$servicePackDescription) return $this;
         $this->servicePackDescription = ($servicePackDescription InstanceOf ServicePackDescription)
              ? $servicePackDescription
              : new ServicePackDescription($servicePackDescription);
+        $this->servicePackDescription->setName('servicePackDescription');
+        return $this;
     }
 
     /**
-     * Service Pack description.
+     * 
+     * @return ServicePackDescription
      */
     public function getServicePackDescription()
     {
-        return (!$this->servicePackDescription) ?: $this->servicePackDescription->getValue();
+        return $this->servicePackDescription->getValue();
     }
 
     /**
@@ -135,30 +149,38 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
      */
     public function setIsAvailableForUse($isAvailableForUse = null)
     {
-        $this->isAvailableForUse = (boolean) $isAvailableForUse;
+        if (!$isAvailableForUse) return $this;
+        $this->isAvailableForUse = new PrimitiveType($isAvailableForUse);
+        $this->isAvailableForUse->setName('isAvailableForUse');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsAvailableForUse()
+    {
+        return $this->isAvailableForUse->getValue();
     }
 
     /**
      * 
      */
-    public function getIsAvailableForUse()
-    {
-        return (!$this->isAvailableForUse) ?: $this->isAvailableForUse;
-    }
-
-    /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
-     */
     public function setServicePackQuantity(UnboundedPositiveInt $servicePackQuantity = null)
     {
-        $this->servicePackQuantity =  $servicePackQuantity;
+        if (!$servicePackQuantity) return $this;
+        $this->servicePackQuantity = $servicePackQuantity;
+        $this->servicePackQuantity->setName('servicePackQuantity');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     * 
+     * @return UnboundedPositiveInt
      */
     public function getServicePackQuantity()
     {
-        return (!$this->servicePackQuantity) ?: $this->servicePackQuantity->getValue();
+        return $this->servicePackQuantity;
     }
 }

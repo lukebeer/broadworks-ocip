@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCodecGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCodecGetListResponse';
-    public    $name = __CLASS__;
+    public    $name = 'SystemCodecGetListRequest';
 
     public function __construct(    ) {
     }

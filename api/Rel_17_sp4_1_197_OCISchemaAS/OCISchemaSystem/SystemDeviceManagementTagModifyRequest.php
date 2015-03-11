@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceManagementTagModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'SystemDeviceManagementTagModifyRequest';
     protected $tagName  = null;
     protected $tagValue = null;
 
@@ -35,7 +34,7 @@ class SystemDeviceManagementTagModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return SystemDeviceManagementTagModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,42 +42,46 @@ class SystemDeviceManagementTagModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * A static tag name for access device files managed by the Device Management System on BroadWorks.
-     *         The static tag name must start and end with a % with no other % in between. The tag must not
-     *         start with %BW.
+     * 
      */
     public function setTagName($tagName = null)
     {
+        if (!$tagName) return $this;
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
+        $this->tagName->setName('tagName');
+        return $this;
     }
 
     /**
-     * A static tag name for access device files managed by the Device Management System on BroadWorks.
-     *         The static tag name must start and end with a % with no other % in between. The tag must not
-     *         start with %BW.
+     * 
+     * @return DeviceManagementTagName
      */
     public function getTagName()
     {
-        return (!$this->tagName) ?: $this->tagName->getValue();
+        return $this->tagName->getValue();
     }
 
     /**
-     * A static tag value for access device files managed by the Device Management System on BroadWorks.
+     * 
      */
     public function setTagValue($tagValue = null)
     {
+        if (!$tagValue) return $this;
         $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
              ? $tagValue
              : new DeviceManagementTagValue($tagValue);
+        $this->tagValue->setName('tagValue');
+        return $this;
     }
 
     /**
-     * A static tag value for access device files managed by the Device Management System on BroadWorks.
+     * 
+     * @return DeviceManagementTagValue
      */
     public function getTagValue()
     {
-        return (!$this->tagValue) ?: $this->tagValue->getValue();
+        return $this->tagValue->getValue();
     }
 }

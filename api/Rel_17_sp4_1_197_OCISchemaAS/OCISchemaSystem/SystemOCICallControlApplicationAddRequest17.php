@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCICallAppl
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\OCICallControlApplicationDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventNotificationChannelsPerSet;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCICallControlApplicationId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCICallControlApplicationAddResponse17;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'SystemOCICallControlApplicationAddRequest17';
     protected $applicationId              = null;
     protected $enableSystemWide           = null;
     protected $notificationTimeoutSeconds = null;
@@ -46,7 +46,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
     }
 
     /**
-     * @return SystemOCICallControlApplicationAddResponse17
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,21 +54,25 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
     }
 
     /**
-     * A OCI Call Control Application Id.
+     * 
      */
     public function setApplicationId($applicationId = null)
     {
+        if (!$applicationId) return $this;
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
+        $this->applicationId->setName('applicationId');
+        return $this;
     }
 
     /**
-     * A OCI Call Control Application Id.
+     * 
+     * @return OCICallControlApplicationId
      */
     public function getApplicationId()
     {
-        return (!$this->applicationId) ?: $this->applicationId->getValue();
+        return $this->applicationId->getValue();
     }
 
     /**
@@ -76,68 +80,84 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
      */
     public function setEnableSystemWide($enableSystemWide = null)
     {
-        $this->enableSystemWide = (boolean) $enableSystemWide;
+        if (!$enableSystemWide) return $this;
+        $this->enableSystemWide = new PrimitiveType($enableSystemWide);
+        $this->enableSystemWide->setName('enableSystemWide');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableSystemWide()
+    {
+        return $this->enableSystemWide->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableSystemWide()
-    {
-        return (!$this->enableSystemWide) ?: $this->enableSystemWide;
-    }
-
-    /**
-     * The timeout value for OCI Call Application notifications.
-     */
     public function setNotificationTimeoutSeconds($notificationTimeoutSeconds = null)
     {
+        if (!$notificationTimeoutSeconds) return $this;
         $this->notificationTimeoutSeconds = ($notificationTimeoutSeconds InstanceOf OCICallApplicationNotificationTimeOutSeconds)
              ? $notificationTimeoutSeconds
              : new OCICallApplicationNotificationTimeOutSeconds($notificationTimeoutSeconds);
+        $this->notificationTimeoutSeconds->setName('notificationTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * The timeout value for OCI Call Application notifications.
+     * 
+     * @return OCICallApplicationNotificationTimeOutSeconds
      */
     public function getNotificationTimeoutSeconds()
     {
-        return (!$this->notificationTimeoutSeconds) ?: $this->notificationTimeoutSeconds->getValue();
+        return $this->notificationTimeoutSeconds->getValue();
     }
 
     /**
-     * The description for the entry in the OCI call control application list.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf OCICallControlApplicationDescription)
              ? $description
              : new OCICallControlApplicationDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * The description for the entry in the OCI call control application list.
+     * 
+     * @return OCICallControlApplicationDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 
     /**
-     * Event Notification Event Channels Per Set.
+     * 
      */
     public function setMaxEventChannelsPerSet($maxEventChannelsPerSet = null)
     {
+        if (!$maxEventChannelsPerSet) return $this;
         $this->maxEventChannelsPerSet = ($maxEventChannelsPerSet InstanceOf EventNotificationChannelsPerSet)
              ? $maxEventChannelsPerSet
              : new EventNotificationChannelsPerSet($maxEventChannelsPerSet);
+        $this->maxEventChannelsPerSet->setName('maxEventChannelsPerSet');
+        return $this;
     }
 
     /**
-     * Event Notification Event Channels Per Set.
+     * 
+     * @return EventNotificationChannelsPerSet
      */
     public function getMaxEventChannelsPerSet()
     {
-        return (!$this->maxEventChannelsPerSet) ?: $this->maxEventChannelsPerSet->getValue();
+        return $this->maxEventChannelsPerSet->getValue();
     }
 }

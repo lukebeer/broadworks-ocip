@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Unbounde
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetDetailListResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackGetDetailListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'ServiceProviderServicePackGetDetailListResponse';
     protected $servicePackName        = null;
     protected $servicePackDescription = null;
     protected $isAvailableForUse      = null;
@@ -43,39 +43,47 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
     }
 
     /**
-     * Service Pack name.
+     * 
      */
     public function setServicePackName($servicePackName = null)
     {
+        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
+        $this->servicePackName->setName('servicePackName');
+        return $this;
     }
 
     /**
-     * Service Pack name.
+     * 
+     * @return ServicePackName
      */
     public function getServicePackName()
     {
-        return (!$this->servicePackName) ?: $this->servicePackName->getValue();
+        return $this->servicePackName->getValue();
     }
 
     /**
-     * Service Pack description.
+     * 
      */
     public function setServicePackDescription($servicePackDescription = null)
     {
+        if (!$servicePackDescription) return $this;
         $this->servicePackDescription = ($servicePackDescription InstanceOf ServicePackDescription)
              ? $servicePackDescription
              : new ServicePackDescription($servicePackDescription);
+        $this->servicePackDescription->setName('servicePackDescription');
+        return $this;
     }
 
     /**
-     * Service Pack description.
+     * 
+     * @return ServicePackDescription
      */
     public function getServicePackDescription()
     {
-        return (!$this->servicePackDescription) ?: $this->servicePackDescription->getValue();
+        return $this->servicePackDescription->getValue();
     }
 
     /**
@@ -83,63 +91,79 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setIsAvailableForUse($isAvailableForUse = null)
     {
-        $this->isAvailableForUse = (boolean) $isAvailableForUse;
+        if (!$isAvailableForUse) return $this;
+        $this->isAvailableForUse = new PrimitiveType($isAvailableForUse);
+        $this->isAvailableForUse->setName('isAvailableForUse');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsAvailableForUse()
+    {
+        return $this->isAvailableForUse->getValue();
     }
 
     /**
      * 
      */
-    public function getIsAvailableForUse()
-    {
-        return (!$this->isAvailableForUse) ?: $this->isAvailableForUse;
-    }
-
-    /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
-     */
     public function setServicePackQuantity(UnboundedPositiveInt $servicePackQuantity = null)
     {
-        $this->servicePackQuantity =  $servicePackQuantity;
+        if (!$servicePackQuantity) return $this;
+        $this->servicePackQuantity = $servicePackQuantity;
+        $this->servicePackQuantity->setName('servicePackQuantity');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     * 
+     * @return UnboundedPositiveInt
      */
     public function getServicePackQuantity()
     {
-        return (!$this->servicePackQuantity) ?: $this->servicePackQuantity->getValue();
+        return $this->servicePackQuantity;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
      */
     public function setAssignedQuantity(UnboundedNonNegativeInt $assignedQuantity = null)
     {
-        $this->assignedQuantity =  $assignedQuantity;
+        if (!$assignedQuantity) return $this;
+        $this->assignedQuantity = $assignedQuantity;
+        $this->assignedQuantity->setName('assignedQuantity');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
+     * @return UnboundedNonNegativeInt
      */
     public function getAssignedQuantity()
     {
-        return (!$this->assignedQuantity) ?: $this->assignedQuantity->getValue();
+        return $this->assignedQuantity;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     * 
      */
     public function setAllowedQuantity(UnboundedPositiveInt $allowedQuantity = null)
     {
-        $this->allowedQuantity =  $allowedQuantity;
+        if (!$allowedQuantity) return $this;
+        $this->allowedQuantity = $allowedQuantity;
+        $this->allowedQuantity->setName('allowedQuantity');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     * 
+     * @return UnboundedPositiveInt
      */
     public function getAllowedQuantity()
     {
-        return (!$this->allowedQuantity) ?: $this->allowedQuantity->getValue();
+        return $this->allowedQuantity;
     }
 
     /**
@@ -147,14 +171,17 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setUserServiceTable(core:OCITable $userServiceTable = null)
     {
-        $this->userServiceTable =  $userServiceTable;
+        if (!$userServiceTable) return $this;
+        $this->userServiceTable->setName('userServiceTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getUserServiceTable()
     {
-        return (!$this->userServiceTable) ?: $this->userServiceTable->getValue();
+        return $this->userServiceTable->getValue();
     }
 }

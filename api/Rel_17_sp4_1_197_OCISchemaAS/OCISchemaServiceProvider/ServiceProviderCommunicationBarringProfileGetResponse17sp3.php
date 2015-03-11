@@ -7,19 +7,19 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderCommunicationBarringHierarchicalRedirectingRule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderCommunicationBarringHierarchicalOriginatingRule;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderCommunicationBarringHierarchicalRedirectingRule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderCommunicationBarringHierarchicalCallMeNowRule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringOriginatingAction;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringRedirectingAction;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringOriginatingAction;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCallMeNowAction;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringIncomingAction;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringIncomingRule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetResponse17sp3;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -37,7 +37,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringProfileGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'ServiceProviderCommunicationBarringProfileGetResponse17sp3';
     protected $description                      = null;
     protected $originatingDefaultAction         = null;
     protected $originatingDefaultTreatmentId    = null;
@@ -64,269 +64,325 @@ class ServiceProviderCommunicationBarringProfileGetResponse17sp3 extends Complex
     }
 
     /**
-     * Communication Barring Profile description
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf CommunicationBarringProfileDescription)
              ? $description
              : new CommunicationBarringProfileDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile description
+     * 
+     * @return CommunicationBarringProfileDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 
     /**
-     * Possible originating actions for Communication Barring.
+     * 
      */
     public function setOriginatingDefaultAction($originatingDefaultAction = null)
     {
+        if (!$originatingDefaultAction) return $this;
         $this->originatingDefaultAction = ($originatingDefaultAction InstanceOf CommunicationBarringOriginatingAction)
              ? $originatingDefaultAction
              : new CommunicationBarringOriginatingAction($originatingDefaultAction);
+        $this->originatingDefaultAction->setName('originatingDefaultAction');
+        return $this;
     }
 
     /**
-     * Possible originating actions for Communication Barring.
+     * 
+     * @return CommunicationBarringOriginatingAction
      */
     public function getOriginatingDefaultAction()
     {
-        return (!$this->originatingDefaultAction) ?: $this->originatingDefaultAction->getValue();
+        return $this->originatingDefaultAction->getValue();
     }
 
     /**
-     * Configurable Treatment Name
+     * 
      */
     public function setOriginatingDefaultTreatmentId($originatingDefaultTreatmentId = null)
     {
+        if (!$originatingDefaultTreatmentId) return $this;
         $this->originatingDefaultTreatmentId = ($originatingDefaultTreatmentId InstanceOf TreatmentId)
              ? $originatingDefaultTreatmentId
              : new TreatmentId($originatingDefaultTreatmentId);
+        $this->originatingDefaultTreatmentId->setName('originatingDefaultTreatmentId');
+        return $this;
     }
 
     /**
-     * Configurable Treatment Name
+     * 
+     * @return TreatmentId
      */
     public function getOriginatingDefaultTreatmentId()
     {
-        return (!$this->originatingDefaultTreatmentId) ?: $this->originatingDefaultTreatmentId->getValue();
+        return $this->originatingDefaultTreatmentId->getValue();
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
      */
     public function setOriginatingDefaultTransferNumber($originatingDefaultTransferNumber = null)
     {
+        if (!$originatingDefaultTransferNumber) return $this;
         $this->originatingDefaultTransferNumber = ($originatingDefaultTransferNumber InstanceOf OutgoingDN)
              ? $originatingDefaultTransferNumber
              : new OutgoingDN($originatingDefaultTransferNumber);
+        $this->originatingDefaultTransferNumber->setName('originatingDefaultTransferNumber');
+        return $this;
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
+     * @return OutgoingDN
      */
     public function getOriginatingDefaultTransferNumber()
     {
-        return (!$this->originatingDefaultTransferNumber) ?: $this->originatingDefaultTransferNumber->getValue();
+        return $this->originatingDefaultTransferNumber->getValue();
     }
 
     /**
-     * Time to wait before shutting down a call.
+     * 
      */
     public function setOriginatingDefaultCallTimeout($originatingDefaultCallTimeout = null)
     {
+        if (!$originatingDefaultCallTimeout) return $this;
         $this->originatingDefaultCallTimeout = ($originatingDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
              ? $originatingDefaultCallTimeout
              : new CommunicationBarringTimeoutSeconds($originatingDefaultCallTimeout);
+        $this->originatingDefaultCallTimeout->setName('originatingDefaultCallTimeout');
+        return $this;
     }
 
     /**
-     * Time to wait before shutting down a call.
+     * 
+     * @return CommunicationBarringTimeoutSeconds
      */
     public function getOriginatingDefaultCallTimeout()
     {
-        return (!$this->originatingDefaultCallTimeout) ?: $this->originatingDefaultCallTimeout->getValue();
+        return $this->originatingDefaultCallTimeout->getValue();
     }
 
     /**
-     * Service Provider Communication Barring Hierarchical Originating Rule
+     * 
      */
     public function setOriginatingRule(ServiceProviderCommunicationBarringHierarchicalOriginatingRule $originatingRule = null)
     {
-        $this->originatingRule =  $originatingRule;
+        if (!$originatingRule) return $this;
+        $this->originatingRule = $originatingRule;
+        $this->originatingRule->setName('originatingRule');
+        return $this;
     }
 
     /**
-     * Service Provider Communication Barring Hierarchical Originating Rule
+     * 
+     * @return ServiceProviderCommunicationBarringHierarchicalOriginatingRule
      */
     public function getOriginatingRule()
     {
-        return (!$this->originatingRule) ?: $this->originatingRule->getValue();
+        return $this->originatingRule;
     }
 
     /**
-     * Possible redirecting actions for Communication Barring.
+     * 
      */
     public function setRedirectingDefaultAction($redirectingDefaultAction = null)
     {
+        if (!$redirectingDefaultAction) return $this;
         $this->redirectingDefaultAction = ($redirectingDefaultAction InstanceOf CommunicationBarringRedirectingAction)
              ? $redirectingDefaultAction
              : new CommunicationBarringRedirectingAction($redirectingDefaultAction);
+        $this->redirectingDefaultAction->setName('redirectingDefaultAction');
+        return $this;
     }
 
     /**
-     * Possible redirecting actions for Communication Barring.
+     * 
+     * @return CommunicationBarringRedirectingAction
      */
     public function getRedirectingDefaultAction()
     {
-        return (!$this->redirectingDefaultAction) ?: $this->redirectingDefaultAction->getValue();
+        return $this->redirectingDefaultAction->getValue();
     }
 
     /**
-     * Time to wait before shutting down a call.
+     * 
      */
     public function setRedirectingDefaultCallTimeout($redirectingDefaultCallTimeout = null)
     {
+        if (!$redirectingDefaultCallTimeout) return $this;
         $this->redirectingDefaultCallTimeout = ($redirectingDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
              ? $redirectingDefaultCallTimeout
              : new CommunicationBarringTimeoutSeconds($redirectingDefaultCallTimeout);
+        $this->redirectingDefaultCallTimeout->setName('redirectingDefaultCallTimeout');
+        return $this;
     }
 
     /**
-     * Time to wait before shutting down a call.
+     * 
+     * @return CommunicationBarringTimeoutSeconds
      */
     public function getRedirectingDefaultCallTimeout()
     {
-        return (!$this->redirectingDefaultCallTimeout) ?: $this->redirectingDefaultCallTimeout->getValue();
+        return $this->redirectingDefaultCallTimeout->getValue();
     }
 
     /**
-     * Service Provider Communication Barring Hierarchical Redirecting Rule
+     * 
      */
     public function setRedirectingRule(ServiceProviderCommunicationBarringHierarchicalRedirectingRule $redirectingRule = null)
     {
-        $this->redirectingRule =  $redirectingRule;
+        if (!$redirectingRule) return $this;
+        $this->redirectingRule = $redirectingRule;
+        $this->redirectingRule->setName('redirectingRule');
+        return $this;
     }
 
     /**
-     * Service Provider Communication Barring Hierarchical Redirecting Rule
+     * 
+     * @return ServiceProviderCommunicationBarringHierarchicalRedirectingRule
      */
     public function getRedirectingRule()
     {
-        return (!$this->redirectingRule) ?: $this->redirectingRule->getValue();
+        return $this->redirectingRule;
     }
 
     /**
-     * Possible Call Me Now actions for Communication Barring.
+     * 
      */
     public function setCallMeNowDefaultAction($callMeNowDefaultAction = null)
     {
+        if (!$callMeNowDefaultAction) return $this;
         $this->callMeNowDefaultAction = ($callMeNowDefaultAction InstanceOf CommunicationBarringCallMeNowAction)
              ? $callMeNowDefaultAction
              : new CommunicationBarringCallMeNowAction($callMeNowDefaultAction);
+        $this->callMeNowDefaultAction->setName('callMeNowDefaultAction');
+        return $this;
     }
 
     /**
-     * Possible Call Me Now actions for Communication Barring.
+     * 
+     * @return CommunicationBarringCallMeNowAction
      */
     public function getCallMeNowDefaultAction()
     {
-        return (!$this->callMeNowDefaultAction) ?: $this->callMeNowDefaultAction->getValue();
+        return $this->callMeNowDefaultAction->getValue();
     }
 
     /**
-     * Time to wait before shutting down a call.
+     * 
      */
     public function setCallMeNowDefaultCallTimeout($callMeNowDefaultCallTimeout = null)
     {
+        if (!$callMeNowDefaultCallTimeout) return $this;
         $this->callMeNowDefaultCallTimeout = ($callMeNowDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
              ? $callMeNowDefaultCallTimeout
              : new CommunicationBarringTimeoutSeconds($callMeNowDefaultCallTimeout);
+        $this->callMeNowDefaultCallTimeout->setName('callMeNowDefaultCallTimeout');
+        return $this;
     }
 
     /**
-     * Time to wait before shutting down a call.
+     * 
+     * @return CommunicationBarringTimeoutSeconds
      */
     public function getCallMeNowDefaultCallTimeout()
     {
-        return (!$this->callMeNowDefaultCallTimeout) ?: $this->callMeNowDefaultCallTimeout->getValue();
+        return $this->callMeNowDefaultCallTimeout->getValue();
     }
 
     /**
-     * Service Provider Communication Barring Hierarchical Call Me Now Rule
+     * 
      */
     public function setCallMeNowRule(ServiceProviderCommunicationBarringHierarchicalCallMeNowRule $callMeNowRule = null)
     {
-        $this->callMeNowRule =  $callMeNowRule;
+        if (!$callMeNowRule) return $this;
+        $this->callMeNowRule = $callMeNowRule;
+        $this->callMeNowRule->setName('callMeNowRule');
+        return $this;
     }
 
     /**
-     * Service Provider Communication Barring Hierarchical Call Me Now Rule
+     * 
+     * @return ServiceProviderCommunicationBarringHierarchicalCallMeNowRule
      */
     public function getCallMeNowRule()
     {
-        return (!$this->callMeNowRule) ?: $this->callMeNowRule->getValue();
+        return $this->callMeNowRule;
     }
 
     /**
-     * Possible incoming call actions for Communication Barring.
+     * 
      */
     public function setIncomingDefaultAction($incomingDefaultAction = null)
     {
+        if (!$incomingDefaultAction) return $this;
         $this->incomingDefaultAction = ($incomingDefaultAction InstanceOf CommunicationBarringIncomingAction)
              ? $incomingDefaultAction
              : new CommunicationBarringIncomingAction($incomingDefaultAction);
+        $this->incomingDefaultAction->setName('incomingDefaultAction');
+        return $this;
     }
 
     /**
-     * Possible incoming call actions for Communication Barring.
+     * 
+     * @return CommunicationBarringIncomingAction
      */
     public function getIncomingDefaultAction()
     {
-        return (!$this->incomingDefaultAction) ?: $this->incomingDefaultAction->getValue();
+        return $this->incomingDefaultAction->getValue();
     }
 
     /**
-     * Time to wait before shutting down a call.
+     * 
      */
     public function setIncomingDefaultCallTimeout($incomingDefaultCallTimeout = null)
     {
+        if (!$incomingDefaultCallTimeout) return $this;
         $this->incomingDefaultCallTimeout = ($incomingDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
              ? $incomingDefaultCallTimeout
              : new CommunicationBarringTimeoutSeconds($incomingDefaultCallTimeout);
+        $this->incomingDefaultCallTimeout->setName('incomingDefaultCallTimeout');
+        return $this;
     }
 
     /**
-     * Time to wait before shutting down a call.
+     * 
+     * @return CommunicationBarringTimeoutSeconds
      */
     public function getIncomingDefaultCallTimeout()
     {
-        return (!$this->incomingDefaultCallTimeout) ?: $this->incomingDefaultCallTimeout->getValue();
+        return $this->incomingDefaultCallTimeout->getValue();
     }
 
     /**
-     * Communication Barring Incoming Rule
+     * 
      */
     public function setIncomingRule(CommunicationBarringIncomingRule $incomingRule = null)
     {
-        $this->incomingRule =  $incomingRule;
+        if (!$incomingRule) return $this;
+        $this->incomingRule = $incomingRule;
+        $this->incomingRule->setName('incomingRule');
+        return $this;
     }
 
     /**
-     * Communication Barring Incoming Rule
+     * 
+     * @return CommunicationBarringIncomingRule
      */
     public function getIncomingRule()
     {
-        return (!$this->incomingRule) ?: $this->incomingRule->getValue();
+        return $this->incomingRule;
     }
 
     /**
@@ -334,14 +390,18 @@ class ServiceProviderCommunicationBarringProfileGetResponse17sp3 extends Complex
      */
     public function setIsDefault($isDefault = null)
     {
-        $this->isDefault = (boolean) $isDefault;
+        if (!$isDefault) return $this;
+        $this->isDefault = new PrimitiveType($isDefault);
+        $this->isDefault->setName('isDefault');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsDefault()
     {
-        return (!$this->isDefault) ?: $this->isDefault;
+        return $this->isDefault->getValue();
     }
 }

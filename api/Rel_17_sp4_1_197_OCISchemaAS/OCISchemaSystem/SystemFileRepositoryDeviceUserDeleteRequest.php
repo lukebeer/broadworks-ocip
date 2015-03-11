@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'SystemFileRepositoryDeviceUserDeleteRequest';
     protected $fileRepositoryName = null;
     protected $userName           = null;
 
@@ -35,7 +34,7 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
     }
 
     /**
-     * @return SystemFileRepositoryDeviceUserDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
     }
 
     /**
-     * File repository name.
+     * 
      */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
+        if (!$fileRepositoryName) return $this;
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
+        $this->fileRepositoryName->setName('fileRepositoryName');
+        return $this;
     }
 
     /**
-     * File repository name.
+     * 
+     * @return FileRepositoryName
      */
     public function getFileRepositoryName()
     {
-        return (!$this->fileRepositoryName) ?: $this->fileRepositoryName->getValue();
+        return $this->fileRepositoryName->getValue();
     }
 
     /**
-     * A user id for a File Repository.
+     * 
      */
     public function setUserName($userName = null)
     {
+        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
              ? $userName
              : new FileRepositoryUserName($userName);
+        $this->userName->setName('userName');
+        return $this;
     }
 
     /**
-     * A user id for a File Repository.
+     * 
+     * @return FileRepositoryUserName
      */
     public function getUserName()
     {
-        return (!$this->userName) ?: $this->userName->getValue();
+        return $this->userName->getValue();
     }
 }

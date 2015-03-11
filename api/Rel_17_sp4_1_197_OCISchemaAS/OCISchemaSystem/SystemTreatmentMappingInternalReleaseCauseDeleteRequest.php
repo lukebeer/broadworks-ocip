@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\InternalReleaseCause16;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingInternalReleaseCauseDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'SystemTreatmentMappingInternalReleaseCauseDeleteRequest';
     protected $internalReleaseCause = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexTyp
     }
 
     /**
-     * @return SystemTreatmentMappingInternalReleaseCauseDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexTyp
     }
 
     /**
-     * Possible values for the protocol-neutral internal release cause.
+     * 
      */
     public function setInternalReleaseCause($internalReleaseCause = null)
     {
+        if (!$internalReleaseCause) return $this;
         $this->internalReleaseCause = ($internalReleaseCause InstanceOf InternalReleaseCause16)
              ? $internalReleaseCause
              : new InternalReleaseCause16($internalReleaseCause);
+        $this->internalReleaseCause->setName('internalReleaseCause');
+        return $this;
     }
 
     /**
-     * Possible values for the protocol-neutral internal release cause.
+     * 
+     * @return InternalReleaseCause16
      */
     public function getInternalReleaseCause()
     {
-        return (!$this->internalReleaseCause) ?: $this->internalReleaseCause->getValue();
+        return $this->internalReleaseCause->getValue();
     }
 }

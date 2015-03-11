@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutePointExternalSystemGetAssignedRoutePointListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointExternalSystemGetAssignedRoutePointListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'GroupRoutePointExternalSystemGetAssignedRoutePointListResponse';
     protected $routePointTable = null;
 
     /**
@@ -39,14 +38,17 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListResponse extends Com
      */
     public function setRoutePointTable(core:OCITable $routePointTable = null)
     {
-        $this->routePointTable =  $routePointTable;
+        if (!$routePointTable) return $this;
+        $this->routePointTable->setName('routePointTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getRoutePointTable()
     {
-        return (!$this->routePointTable) ?: $this->routePointTable->getValue();
+        return $this->routePointTable->getValue();
     }
 }

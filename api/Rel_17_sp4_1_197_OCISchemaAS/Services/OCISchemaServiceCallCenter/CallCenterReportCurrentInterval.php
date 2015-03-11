@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterReportCurrentInterval;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportCurrentInterval;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,10 +20,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportCurrentInterval extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\CallCenterReportCurrentInterval';
-    public    $name = __CLASS__;
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportCurrentInterval';
+    public    $name     = 'CallCenterReportCurrentInterval';
+    protected $timeUnit = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $timeUnit
+    ) {
+        $this->setTimeUnit($timeUnit);
     }
 
     /**
@@ -32,5 +36,25 @@ class CallCenterReportCurrentInterval extends ComplexType implements ComplexInte
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setTimeUnit($timeUnit = null)
+    {
+        if (!$timeUnit) return $this;
+        $this->timeUnit = new SimpleContent($timeUnit);
+        $this->timeUnit->setName('timeUnit');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getTimeUnit()
+    {
+        return $this->timeUnit->getValue();
     }
 }

@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaSystemServiceDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTwoStageDialingGetDnListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse';
-    public    $name                          = __CLASS__;
+    public    $responseType                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse';
+    public    $name                          = 'SystemTwoStageDialingGetDnListRequest';
     protected $responseSizeLimit             = null;
     protected $searchCriteriaSystemServiceDn = null;
 
     public function __construct(
          $responseSizeLimit = null,
-          $searchCriteriaSystemServiceDn = null
+         SearchCriteriaSystemServiceDn $searchCriteriaSystemServiceDn = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaSystemServiceDn($searchCriteriaSystemServiceDn);
@@ -45,40 +45,46 @@ class SystemTwoStageDialingGetDnListRequest extends ComplexType implements Compl
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a system service DN.
+     * 
      */
     public function setSearchCriteriaSystemServiceDn(SearchCriteriaSystemServiceDn $searchCriteriaSystemServiceDn = null)
     {
-        $this->searchCriteriaSystemServiceDn =  $searchCriteriaSystemServiceDn;
+        if (!$searchCriteriaSystemServiceDn) return $this;
+        $this->searchCriteriaSystemServiceDn = ($searchCriteriaSystemServiceDn InstanceOf SearchCriteriaSystemServiceDn)
+             ? $searchCriteriaSystemServiceDn
+             : new SearchCriteriaSystemServiceDn($searchCriteriaSystemServiceDn);
+        $this->searchCriteriaSystemServiceDn->setName('searchCriteriaSystemServiceDn');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a system service DN.
+     * 
+     * @return SearchCriteriaSystemServiceDn
      */
     public function getSearchCriteriaSystemServiceDn()
     {
-        return (!$this->searchCriteriaSystemServiceDn) ?: $this->searchCriteriaSystemServiceDn->getValue();
+        return $this->searchCriteriaSystemServiceDn;
     }
 }

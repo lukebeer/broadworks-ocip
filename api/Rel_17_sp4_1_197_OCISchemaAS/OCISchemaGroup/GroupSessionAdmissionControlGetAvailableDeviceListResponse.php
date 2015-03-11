@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDevice;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGetAvailableDeviceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSessionAdmissionControlGetAvailableDeviceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'GroupSessionAdmissionControlGetAvailableDeviceListResponse';
     protected $accessDevice = null;
 
     /**
@@ -33,18 +32,22 @@ class GroupSessionAdmissionControlGetAvailableDeviceListResponse extends Complex
     }
 
     /**
-     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     * 
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        $this->accessDevice =  $accessDevice;
+        if (!$accessDevice) return $this;
+        $this->accessDevice = $accessDevice;
+        $this->accessDevice->setName('accessDevice');
+        return $this;
     }
 
     /**
-     * Uniquely identifies an Identity/device profile created anywhere in the system.
+     * 
+     * @return AccessDevice
      */
     public function getAccessDevice()
     {
-        return (!$this->accessDevice) ?: $this->accessDevice->getValue();
+        return $this->accessDevice;
     }
 }

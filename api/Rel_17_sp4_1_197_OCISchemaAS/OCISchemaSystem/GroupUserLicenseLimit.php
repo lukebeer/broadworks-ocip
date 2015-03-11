@@ -19,12 +19,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinInclusive;
  */
 class GroupUserLicenseLimit extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "GroupUserLicenseLimit";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "int";
+        $this->dataType = "";
         $this->addRestriction(new MinInclusive("1"));
     }
 }

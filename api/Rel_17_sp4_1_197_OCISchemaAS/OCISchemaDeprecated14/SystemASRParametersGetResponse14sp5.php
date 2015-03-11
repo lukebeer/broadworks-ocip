@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ASRRetransm
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ASRMaxTransmissions;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemASRParametersGetResponse14sp5;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemASRParametersGetResponse14sp5 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'SystemASRParametersGetResponse14sp5';
     protected $maxTransmissions                = null;
     protected $retransmissionDelayMilliSeconds = null;
     protected $listeningPort                   = null;
@@ -39,74 +38,90 @@ class SystemASRParametersGetResponse14sp5 extends ComplexType implements Complex
     }
 
     /**
-     * Maximum number of transmissions.
+     * 
      */
     public function setMaxTransmissions($maxTransmissions = null)
     {
+        if (!$maxTransmissions) return $this;
         $this->maxTransmissions = ($maxTransmissions InstanceOf ASRMaxTransmissions)
              ? $maxTransmissions
              : new ASRMaxTransmissions($maxTransmissions);
+        $this->maxTransmissions->setName('maxTransmissions');
+        return $this;
     }
 
     /**
-     * Maximum number of transmissions.
+     * 
+     * @return ASRMaxTransmissions
      */
     public function getMaxTransmissions()
     {
-        return (!$this->maxTransmissions) ?: $this->maxTransmissions->getValue();
+        return $this->maxTransmissions->getValue();
     }
 
     /**
-     * Retransmission timer
+     * 
      */
     public function setRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds = null)
     {
+        if (!$retransmissionDelayMilliSeconds) return $this;
         $this->retransmissionDelayMilliSeconds = ($retransmissionDelayMilliSeconds InstanceOf ASRRetransmissionDelayMilliSeconds)
              ? $retransmissionDelayMilliSeconds
              : new ASRRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
+        $this->retransmissionDelayMilliSeconds->setName('retransmissionDelayMilliSeconds');
+        return $this;
     }
 
     /**
-     * Retransmission timer
+     * 
+     * @return ASRRetransmissionDelayMilliSeconds
      */
     public function getRetransmissionDelayMilliSeconds()
     {
-        return (!$this->retransmissionDelayMilliSeconds) ?: $this->retransmissionDelayMilliSeconds->getValue();
+        return $this->retransmissionDelayMilliSeconds->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setListeningPort($listeningPort = null)
     {
+        if (!$listeningPort) return $this;
         $this->listeningPort = ($listeningPort InstanceOf Port1025)
              ? $listeningPort
              : new Port1025($listeningPort);
+        $this->listeningPort->setName('listeningPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getListeningPort()
     {
-        return (!$this->listeningPort) ?: $this->listeningPort->getValue();
+        return $this->listeningPort->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setSourceAddress($sourceAddress = null)
     {
+        if (!$sourceAddress) return $this;
         $this->sourceAddress = ($sourceAddress InstanceOf NetAddress)
              ? $sourceAddress
              : new NetAddress($sourceAddress);
+        $this->sourceAddress->setName('sourceAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getSourceAddress()
     {
-        return (!$this->sourceAddress) ?: $this->sourceAddress->getValue();
+        return $this->sourceAddress->getValue();
     }
 }

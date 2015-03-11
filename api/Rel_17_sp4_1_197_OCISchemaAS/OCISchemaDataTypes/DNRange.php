@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DNRange extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange';
-    public    $name = __CLASS__;
+    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNRange';
+    public    $name           = 'DNRange';
+    protected $minPhoneNumber = null;
+    protected $maxPhoneNumber = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $minPhoneNumber,
+         $maxPhoneNumber
+    ) {
+        $this->setMinPhoneNumber($minPhoneNumber);
+        $this->setMaxPhoneNumber($maxPhoneNumber);
     }
 
     /**
@@ -32,5 +39,45 @@ class DNRange extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setMinPhoneNumber($minPhoneNumber = null)
+    {
+        if (!$minPhoneNumber) return $this;
+        $this->minPhoneNumber = new SimpleContent($minPhoneNumber);
+        $this->minPhoneNumber->setName('minPhoneNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getMinPhoneNumber()
+    {
+        return $this->minPhoneNumber->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setMaxPhoneNumber($maxPhoneNumber = null)
+    {
+        if (!$maxPhoneNumber) return $this;
+        $this->maxPhoneNumber = new SimpleContent($maxPhoneNumber);
+        $this->maxPhoneNumber->setName('maxPhoneNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getMaxPhoneNumber()
+    {
+        return $this->maxPhoneNumber->getValue();
     }
 }

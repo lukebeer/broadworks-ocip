@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkACLEntryDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIReportingAddACLEntryResponse13mp9;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'SystemOCIReportingAddACLEntryRequest13mp9';
     protected $netAddress       = null;
     protected $description      = null;
     protected $restrictMessages = null;
@@ -38,7 +38,7 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
     }
 
     /**
-     * @return SystemOCIReportingAddACLEntryResponse13mp9
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,39 +46,47 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setNetAddress($netAddress = null)
     {
+        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
+        $this->netAddress->setName('netAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->getValue();
+        return $this->netAddress->getValue();
     }
 
     /**
-     * The description for the entry in the network access control list.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
              ? $description
              : new NetworkACLEntryDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * The description for the entry in the network access control list.
+     * 
+     * @return NetworkACLEntryDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 
     /**
@@ -86,14 +94,18 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
      */
     public function setRestrictMessages($restrictMessages = null)
     {
-        $this->restrictMessages = (boolean) $restrictMessages;
+        if (!$restrictMessages) return $this;
+        $this->restrictMessages = new PrimitiveType($restrictMessages);
+        $this->restrictMessages->setName('restrictMessages');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRestrictMessages()
     {
-        return (!$this->restrictMessages) ?: $this->restrictMessages;
+        return $this->restrictMessages->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLanguageGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLanguageGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'SystemLanguageGetListResponse';
     protected $defaultLanguage = null;
     protected $languageTable   = null;
 
@@ -34,21 +33,25 @@ class SystemLanguageGetListResponse extends ComplexType implements ComplexInterf
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
      */
     public function setDefaultLanguage($defaultLanguage = null)
     {
+        if (!$defaultLanguage) return $this;
         $this->defaultLanguage = ($defaultLanguage InstanceOf Language)
              ? $defaultLanguage
              : new Language($defaultLanguage);
+        $this->defaultLanguage->setName('defaultLanguage');
+        return $this;
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
+     * @return Language
      */
     public function getDefaultLanguage()
     {
-        return (!$this->defaultLanguage) ?: $this->defaultLanguage->getValue();
+        return $this->defaultLanguage->getValue();
     }
 
     /**
@@ -56,14 +59,17 @@ class SystemLanguageGetListResponse extends ComplexType implements ComplexInterf
      */
     public function setLanguageTable(core:OCITable $languageTable = null)
     {
-        $this->languageTable =  $languageTable;
+        if (!$languageTable) return $this;
+        $this->languageTable->setName('languageTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getLanguageTable()
     {
-        return (!$this->languageTable) ?: $this->languageTable->getValue();
+        return $this->languageTable->getValue();
     }
 }

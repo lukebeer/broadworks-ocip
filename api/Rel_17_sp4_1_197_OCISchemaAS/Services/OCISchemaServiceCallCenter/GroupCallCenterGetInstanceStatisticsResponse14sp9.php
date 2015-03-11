@@ -5,12 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentStatistics14sp9;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterQueueStatistics14sp9;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterStatisticsRange;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'GroupCallCenterGetInstanceStatisticsResponse14sp9';
     protected $statisticsRange = null;
     protected $queueStatistics = null;
     protected $agentStatistics = null;
@@ -36,50 +35,62 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
     }
 
     /**
-     * Statistics Range
+     * 
      */
     public function setStatisticsRange(CallCenterStatisticsRange $statisticsRange = null)
     {
-        $this->statisticsRange =  $statisticsRange;
+        if (!$statisticsRange) return $this;
+        $this->statisticsRange = $statisticsRange;
+        $this->statisticsRange->setName('statisticsRange');
+        return $this;
     }
 
     /**
-     * Statistics Range
+     * 
+     * @return CallCenterStatisticsRange
      */
     public function getStatisticsRange()
     {
-        return (!$this->statisticsRange) ?: $this->statisticsRange->getValue();
+        return $this->statisticsRange;
     }
 
     /**
-     * Contains Call Center Queue statistics.
+     * 
      */
     public function setQueueStatistics(CallCenterQueueStatistics14sp9 $queueStatistics = null)
     {
-        $this->queueStatistics =  $queueStatistics;
+        if (!$queueStatistics) return $this;
+        $this->queueStatistics = $queueStatistics;
+        $this->queueStatistics->setName('queueStatistics');
+        return $this;
     }
 
     /**
-     * Contains Call Center Queue statistics.
+     * 
+     * @return CallCenterQueueStatistics14sp9
      */
     public function getQueueStatistics()
     {
-        return (!$this->queueStatistics) ?: $this->queueStatistics->getValue();
+        return $this->queueStatistics;
     }
 
     /**
-     * Contains Call Center statistics for a specified agent.
+     * 
      */
     public function setAgentStatistics(CallCenterAgentStatistics14sp9 $agentStatistics = null)
     {
-        $this->agentStatistics =  $agentStatistics;
+        if (!$agentStatistics) return $this;
+        $this->agentStatistics = $agentStatistics;
+        $this->agentStatistics->setName('agentStatistics');
+        return $this;
     }
 
     /**
-     * Contains Call Center statistics for a specified agent.
+     * 
+     * @return CallCenterAgentStatistics14sp9
      */
     public function getAgentStatistics()
     {
-        return (!$this->agentStatistics) ?: $this->agentStatistics->getValue();
+        return $this->agentStatistics;
     }
 }

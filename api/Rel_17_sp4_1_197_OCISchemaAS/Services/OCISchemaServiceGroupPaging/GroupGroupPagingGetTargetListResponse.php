@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\GroupGroupPagingGetTargetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetTargetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'GroupGroupPagingGetTargetListResponse';
     protected $targetTable = null;
 
     /**
@@ -38,14 +37,17 @@ class GroupGroupPagingGetTargetListResponse extends ComplexType implements Compl
      */
     public function setTargetTable(core:OCITable $targetTable = null)
     {
-        $this->targetTable =  $targetTable;
+        if (!$targetTable) return $this;
+        $this->targetTable->setName('targetTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getTargetTable()
     {
-        return (!$this->targetTable) ?: $this->targetTable->getValue();
+        return $this->targetTable->getValue();
     }
 }

@@ -5,12 +5,12 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBusyLampField; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField\UserBusyLampFieldModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'UserBusyLampFieldModifyRequest';
     protected $userId                     = null;
     protected $listURI                    = null;
     protected $monitoredUserIdList        = null;
@@ -32,7 +32,7 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
     public function __construct(
          $userId,
          $listURI = null,
-          $monitoredUserIdList = null,
+         ReplacementUserIdList $monitoredUserIdList = null,
          $enableCallParkNotification = null
     ) {
         $this->setUserId($userId);
@@ -42,7 +42,7 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return UserBusyLampFieldModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,79 +50,67 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
      */
     public function setListURI($listURI = null)
     {
+        if (!$listURI) return $this;
         $this->listURI = ($listURI InstanceOf SIPURI)
              ? $listURI
              : new SIPURI($listURI);
+        $this->listURI->setName('listURI');
+        return $this;
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
+     * @return SIPURI
      */
     public function getListURI()
     {
-        return (!$this->listURI) ?: $this->listURI->getValue();
+        return $this->listURI->getValue();
     }
 
     /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
      */
     public function setMonitoredUserIdList(ReplacementUserIdList $monitoredUserIdList = null)
     {
-        $this->monitoredUserIdList =  $monitoredUserIdList;
+        if (!$monitoredUserIdList) return $this;
+        $this->monitoredUserIdList = $monitoredUserIdList;
+        $this->monitoredUserIdList->setName('monitoredUserIdList');
+        return $this;
     }
 
     /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementUserIdList
      */
     public function getMonitoredUserIdList()
     {
-        return (!$this->monitoredUserIdList) ?: $this->monitoredUserIdList->getValue();
+        return $this->monitoredUserIdList;
     }
 
     /**
@@ -130,14 +118,18 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
      */
     public function setEnableCallParkNotification($enableCallParkNotification = null)
     {
-        $this->enableCallParkNotification = (boolean) $enableCallParkNotification;
+        if (!$enableCallParkNotification) return $this;
+        $this->enableCallParkNotification = new PrimitiveType($enableCallParkNotification);
+        $this->enableCallParkNotification->setName('enableCallParkNotification');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableCallParkNotification()
     {
-        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification;
+        return $this->enableCallParkNotification->getValue();
     }
 }

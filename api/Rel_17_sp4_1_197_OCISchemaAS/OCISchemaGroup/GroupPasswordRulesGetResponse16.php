@@ -16,7 +16,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinLength;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PasswordMinDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPasswordRulesGetResponse16;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -29,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPasswordRulesGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
+    public    $name                                 = 'GroupPasswordRulesGetResponse16';
     protected $disallowUserId                       = null;
     protected $disallowOldPassword                  = null;
     protected $disallowReversedOldPassword          = null;
@@ -63,15 +63,19 @@ class GroupPasswordRulesGetResponse16 extends ComplexType implements ComplexInte
      */
     public function setDisallowUserId($disallowUserId = null)
     {
-        $this->disallowUserId = (boolean) $disallowUserId;
+        if (!$disallowUserId) return $this;
+        $this->disallowUserId = new PrimitiveType($disallowUserId);
+        $this->disallowUserId->setName('disallowUserId');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisallowUserId()
     {
-        return (!$this->disallowUserId) ?: $this->disallowUserId;
+        return $this->disallowUserId->getValue();
     }
 
     /**
@@ -79,15 +83,19 @@ class GroupPasswordRulesGetResponse16 extends ComplexType implements ComplexInte
      */
     public function setDisallowOldPassword($disallowOldPassword = null)
     {
-        $this->disallowOldPassword = (boolean) $disallowOldPassword;
+        if (!$disallowOldPassword) return $this;
+        $this->disallowOldPassword = new PrimitiveType($disallowOldPassword);
+        $this->disallowOldPassword->setName('disallowOldPassword');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisallowOldPassword()
     {
-        return (!$this->disallowOldPassword) ?: $this->disallowOldPassword;
+        return $this->disallowOldPassword->getValue();
     }
 
     /**
@@ -95,15 +103,19 @@ class GroupPasswordRulesGetResponse16 extends ComplexType implements ComplexInte
      */
     public function setDisallowReversedOldPassword($disallowReversedOldPassword = null)
     {
-        $this->disallowReversedOldPassword = (boolean) $disallowReversedOldPassword;
+        if (!$disallowReversedOldPassword) return $this;
+        $this->disallowReversedOldPassword = new PrimitiveType($disallowReversedOldPassword);
+        $this->disallowReversedOldPassword->setName('disallowReversedOldPassword');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisallowReversedOldPassword()
     {
-        return (!$this->disallowReversedOldPassword) ?: $this->disallowReversedOldPassword;
+        return $this->disallowReversedOldPassword->getValue();
     }
 
     /**
@@ -111,33 +123,41 @@ class GroupPasswordRulesGetResponse16 extends ComplexType implements ComplexInte
      */
     public function setRestrictMinDigits($restrictMinDigits = null)
     {
-        $this->restrictMinDigits = (boolean) $restrictMinDigits;
+        if (!$restrictMinDigits) return $this;
+        $this->restrictMinDigits = new PrimitiveType($restrictMinDigits);
+        $this->restrictMinDigits->setName('restrictMinDigits');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRestrictMinDigits()
+    {
+        return $this->restrictMinDigits->getValue();
     }
 
     /**
      * 
      */
-    public function getRestrictMinDigits()
-    {
-        return (!$this->restrictMinDigits) ?: $this->restrictMinDigits;
-    }
-
-    /**
-     * Password Rules can be used to require at least this many numeric digits in passwords.
-     */
     public function setMinDigits($minDigits = null)
     {
+        if (!$minDigits) return $this;
         $this->minDigits = ($minDigits InstanceOf PasswordMinDigits)
              ? $minDigits
              : new PasswordMinDigits($minDigits);
+        $this->minDigits->setName('minDigits');
+        return $this;
     }
 
     /**
-     * Password Rules can be used to require at least this many numeric digits in passwords.
+     * 
+     * @return PasswordMinDigits
      */
     public function getMinDigits()
     {
-        return (!$this->minDigits) ?: $this->minDigits->getValue();
+        return $this->minDigits->getValue();
     }
 
     /**
@@ -145,33 +165,41 @@ class GroupPasswordRulesGetResponse16 extends ComplexType implements ComplexInte
      */
     public function setRestrictMinUpperCaseLetters($restrictMinUpperCaseLetters = null)
     {
-        $this->restrictMinUpperCaseLetters = (boolean) $restrictMinUpperCaseLetters;
+        if (!$restrictMinUpperCaseLetters) return $this;
+        $this->restrictMinUpperCaseLetters = new PrimitiveType($restrictMinUpperCaseLetters);
+        $this->restrictMinUpperCaseLetters->setName('restrictMinUpperCaseLetters');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRestrictMinUpperCaseLetters()
+    {
+        return $this->restrictMinUpperCaseLetters->getValue();
     }
 
     /**
      * 
      */
-    public function getRestrictMinUpperCaseLetters()
-    {
-        return (!$this->restrictMinUpperCaseLetters) ?: $this->restrictMinUpperCaseLetters;
-    }
-
-    /**
-     * Password Rules can be used to require at least this many uppercase letters in passwords.
-     */
     public function setMinUpperCaseLetters($minUpperCaseLetters = null)
     {
+        if (!$minUpperCaseLetters) return $this;
         $this->minUpperCaseLetters = ($minUpperCaseLetters InstanceOf PasswordMinUpperCaseLetters)
              ? $minUpperCaseLetters
              : new PasswordMinUpperCaseLetters($minUpperCaseLetters);
+        $this->minUpperCaseLetters->setName('minUpperCaseLetters');
+        return $this;
     }
 
     /**
-     * Password Rules can be used to require at least this many uppercase letters in passwords.
+     * 
+     * @return PasswordMinUpperCaseLetters
      */
     public function getMinUpperCaseLetters()
     {
-        return (!$this->minUpperCaseLetters) ?: $this->minUpperCaseLetters->getValue();
+        return $this->minUpperCaseLetters->getValue();
     }
 
     /**
@@ -179,33 +207,41 @@ class GroupPasswordRulesGetResponse16 extends ComplexType implements ComplexInte
      */
     public function setRestrictMinLowerCaseLetters($restrictMinLowerCaseLetters = null)
     {
-        $this->restrictMinLowerCaseLetters = (boolean) $restrictMinLowerCaseLetters;
+        if (!$restrictMinLowerCaseLetters) return $this;
+        $this->restrictMinLowerCaseLetters = new PrimitiveType($restrictMinLowerCaseLetters);
+        $this->restrictMinLowerCaseLetters->setName('restrictMinLowerCaseLetters');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRestrictMinLowerCaseLetters()
+    {
+        return $this->restrictMinLowerCaseLetters->getValue();
     }
 
     /**
      * 
      */
-    public function getRestrictMinLowerCaseLetters()
-    {
-        return (!$this->restrictMinLowerCaseLetters) ?: $this->restrictMinLowerCaseLetters;
-    }
-
-    /**
-     * Password Rules can be used to require at least this many lowercase letters in passwords.
-     */
     public function setMinLowerCaseLetters($minLowerCaseLetters = null)
     {
+        if (!$minLowerCaseLetters) return $this;
         $this->minLowerCaseLetters = ($minLowerCaseLetters InstanceOf PasswordMinLowerCaseLetters)
              ? $minLowerCaseLetters
              : new PasswordMinLowerCaseLetters($minLowerCaseLetters);
+        $this->minLowerCaseLetters->setName('minLowerCaseLetters');
+        return $this;
     }
 
     /**
-     * Password Rules can be used to require at least this many lowercase letters in passwords.
+     * 
+     * @return PasswordMinLowerCaseLetters
      */
     public function getMinLowerCaseLetters()
     {
-        return (!$this->minLowerCaseLetters) ?: $this->minLowerCaseLetters->getValue();
+        return $this->minLowerCaseLetters->getValue();
     }
 
     /**
@@ -213,87 +249,107 @@ class GroupPasswordRulesGetResponse16 extends ComplexType implements ComplexInte
      */
     public function setRestrictMinNonAlphanumericCharacters($restrictMinNonAlphanumericCharacters = null)
     {
-        $this->restrictMinNonAlphanumericCharacters = (boolean) $restrictMinNonAlphanumericCharacters;
+        if (!$restrictMinNonAlphanumericCharacters) return $this;
+        $this->restrictMinNonAlphanumericCharacters = new PrimitiveType($restrictMinNonAlphanumericCharacters);
+        $this->restrictMinNonAlphanumericCharacters->setName('restrictMinNonAlphanumericCharacters');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRestrictMinNonAlphanumericCharacters()
+    {
+        return $this->restrictMinNonAlphanumericCharacters->getValue();
     }
 
     /**
      * 
      */
-    public function getRestrictMinNonAlphanumericCharacters()
-    {
-        return (!$this->restrictMinNonAlphanumericCharacters) ?: $this->restrictMinNonAlphanumericCharacters;
-    }
-
-    /**
-     * Password Rules can be used to require at least this many non-alphanumeric characters in passwords.
-     */
     public function setMinNonAlphanumericCharacters($minNonAlphanumericCharacters = null)
     {
+        if (!$minNonAlphanumericCharacters) return $this;
         $this->minNonAlphanumericCharacters = ($minNonAlphanumericCharacters InstanceOf PasswordMinNonAlphanumericCharacters)
              ? $minNonAlphanumericCharacters
              : new PasswordMinNonAlphanumericCharacters($minNonAlphanumericCharacters);
+        $this->minNonAlphanumericCharacters->setName('minNonAlphanumericCharacters');
+        return $this;
     }
 
     /**
-     * Password Rules can be used to require at least this many non-alphanumeric characters in passwords.
+     * 
+     * @return PasswordMinNonAlphanumericCharacters
      */
     public function getMinNonAlphanumericCharacters()
     {
-        return (!$this->minNonAlphanumericCharacters) ?: $this->minNonAlphanumericCharacters->getValue();
+        return $this->minNonAlphanumericCharacters->getValue();
     }
 
     /**
-     * Password Rules can be used to require at least this total characters in passwords.
+     * 
      */
     public function setMinLength($minLength = null)
     {
+        if (!$minLength) return $this;
         $this->minLength = ($minLength InstanceOf PasswordMinLength)
              ? $minLength
              : new PasswordMinLength($minLength);
+        $this->minLength->setName('minLength');
+        return $this;
     }
 
     /**
-     * Password Rules can be used to require at least this total characters in passwords.
+     * 
+     * @return PasswordMinLength
      */
     public function getMinLength()
     {
-        return (!$this->minLength) ?: $this->minLength->getValue();
+        return $this->minLength->getValue();
     }
 
     /**
-     * Password Rules can be used to specify the maximum allowed failed login attempts.
+     * 
      */
     public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
+        if (!$maxFailedLoginAttempts) return $this;
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf MaxFailedLoginAttempts)
              ? $maxFailedLoginAttempts
              : new MaxFailedLoginAttempts($maxFailedLoginAttempts);
+        $this->maxFailedLoginAttempts->setName('maxFailedLoginAttempts');
+        return $this;
     }
 
     /**
-     * Password Rules can be used to specify the maximum allowed failed login attempts.
+     * 
+     * @return MaxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
-        return (!$this->maxFailedLoginAttempts) ?: $this->maxFailedLoginAttempts->getValue();
+        return $this->maxFailedLoginAttempts->getValue();
     }
 
     /**
-     * Password Rules can be used to specify when passwords expire.
+     * 
      */
     public function setPasswordExpiresDays($passwordExpiresDays = null)
     {
+        if (!$passwordExpiresDays) return $this;
         $this->passwordExpiresDays = ($passwordExpiresDays InstanceOf PasswordExpiresDays)
              ? $passwordExpiresDays
              : new PasswordExpiresDays($passwordExpiresDays);
+        $this->passwordExpiresDays->setName('passwordExpiresDays');
+        return $this;
     }
 
     /**
-     * Password Rules can be used to specify when passwords expire.
+     * 
+     * @return PasswordExpiresDays
      */
     public function getPasswordExpiresDays()
     {
-        return (!$this->passwordExpiresDays) ?: $this->passwordExpiresDays->getValue();
+        return $this->passwordExpiresDays->getValue();
     }
 
     /**
@@ -301,33 +357,41 @@ class GroupPasswordRulesGetResponse16 extends ComplexType implements ComplexInte
      */
     public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail = null)
     {
-        $this->sendLoginDisabledNotifyEmail = (boolean) $sendLoginDisabledNotifyEmail;
+        if (!$sendLoginDisabledNotifyEmail) return $this;
+        $this->sendLoginDisabledNotifyEmail = new PrimitiveType($sendLoginDisabledNotifyEmail);
+        $this->sendLoginDisabledNotifyEmail->setName('sendLoginDisabledNotifyEmail');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSendLoginDisabledNotifyEmail()
+    {
+        return $this->sendLoginDisabledNotifyEmail->getValue();
     }
 
     /**
      * 
      */
-    public function getSendLoginDisabledNotifyEmail()
-    {
-        return (!$this->sendLoginDisabledNotifyEmail) ?: $this->sendLoginDisabledNotifyEmail;
-    }
-
-    /**
-     * Email Address
-     */
     public function setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress = null)
     {
+        if (!$loginDisabledNotifyEmailAddress) return $this;
         $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
              ? $loginDisabledNotifyEmailAddress
              : new EmailAddress($loginDisabledNotifyEmailAddress);
+        $this->loginDisabledNotifyEmailAddress->setName('loginDisabledNotifyEmailAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
-        return (!$this->loginDisabledNotifyEmailAddress) ?: $this->loginDisabledNotifyEmailAddress->getValue();
+        return $this->loginDisabledNotifyEmailAddress->getValue();
     }
 
     /**
@@ -335,15 +399,19 @@ class GroupPasswordRulesGetResponse16 extends ComplexType implements ComplexInte
      */
     public function setDisallowRulesModification($disallowRulesModification = null)
     {
-        $this->disallowRulesModification = (boolean) $disallowRulesModification;
+        if (!$disallowRulesModification) return $this;
+        $this->disallowRulesModification = new PrimitiveType($disallowRulesModification);
+        $this->disallowRulesModification->setName('disallowRulesModification');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDisallowRulesModification()
     {
-        return (!$this->disallowRulesModification) ?: $this->disallowRulesModification;
+        return $this->disallowRulesModification->getValue();
     }
 
     /**
@@ -351,32 +419,40 @@ class GroupPasswordRulesGetResponse16 extends ComplexType implements ComplexInte
      */
     public function setDisallowPreviousPasswords($disallowPreviousPasswords = null)
     {
-        $this->disallowPreviousPasswords = (boolean) $disallowPreviousPasswords;
+        if (!$disallowPreviousPasswords) return $this;
+        $this->disallowPreviousPasswords = new PrimitiveType($disallowPreviousPasswords);
+        $this->disallowPreviousPasswords->setName('disallowPreviousPasswords');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDisallowPreviousPasswords()
+    {
+        return $this->disallowPreviousPasswords->getValue();
     }
 
     /**
      * 
      */
-    public function getDisallowPreviousPasswords()
-    {
-        return (!$this->disallowPreviousPasswords) ?: $this->disallowPreviousPasswords;
-    }
-
-    /**
-     * Number of previous passwords to keep.
-     */
     public function setNumberOfPreviousPasswords($numberOfPreviousPasswords = null)
     {
+        if (!$numberOfPreviousPasswords) return $this;
         $this->numberOfPreviousPasswords = ($numberOfPreviousPasswords InstanceOf PasswordHistoryCount)
              ? $numberOfPreviousPasswords
              : new PasswordHistoryCount($numberOfPreviousPasswords);
+        $this->numberOfPreviousPasswords->setName('numberOfPreviousPasswords');
+        return $this;
     }
 
     /**
-     * Number of previous passwords to keep.
+     * 
+     * @return PasswordHistoryCount
      */
     public function getNumberOfPreviousPasswords()
     {
-        return (!$this->numberOfPreviousPasswords) ?: $this->numberOfPreviousPasswords->getValue();
+        return $this->numberOfPreviousPasswords->getValue();
     }
 }

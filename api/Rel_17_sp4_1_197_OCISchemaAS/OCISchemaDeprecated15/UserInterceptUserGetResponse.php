@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Announce
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserInterceptUserGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInterceptUserGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
+    public    $name                        = 'UserInterceptUserGetResponse';
     protected $isActive                    = null;
     protected $announcementSelection       = null;
     protected $audioFileDescription        = null;
@@ -47,69 +47,85 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Announcement Selection.
-     */
     public function setAnnouncementSelection($announcementSelection = null)
     {
+        if (!$announcementSelection) return $this;
         $this->announcementSelection = ($announcementSelection InstanceOf AnnouncementSelection)
              ? $announcementSelection
              : new AnnouncementSelection($announcementSelection);
+        $this->announcementSelection->setName('announcementSelection');
+        return $this;
     }
 
     /**
-     * Announcement Selection.
+     * 
+     * @return AnnouncementSelection
      */
     public function getAnnouncementSelection()
     {
-        return (!$this->announcementSelection) ?: $this->announcementSelection->getValue();
+        return $this->announcementSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
+        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
+        $this->audioFileDescription->setName('audioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getAudioFileDescription()
     {
-        return (!$this->audioFileDescription) ?: $this->audioFileDescription->getValue();
+        return $this->audioFileDescription->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
+        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
+        $this->videoFileDescription->setName('videoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getVideoFileDescription()
     {
-        return (!$this->videoFileDescription) ?: $this->videoFileDescription->getValue();
+        return $this->videoFileDescription->getValue();
     }
 
     /**
@@ -117,33 +133,41 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setPlayNewPhoneNumber($playNewPhoneNumber = null)
     {
-        $this->playNewPhoneNumber = (boolean) $playNewPhoneNumber;
+        if (!$playNewPhoneNumber) return $this;
+        $this->playNewPhoneNumber = new PrimitiveType($playNewPhoneNumber);
+        $this->playNewPhoneNumber->setName('playNewPhoneNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPlayNewPhoneNumber()
+    {
+        return $this->playNewPhoneNumber->getValue();
     }
 
     /**
      * 
      */
-    public function getPlayNewPhoneNumber()
-    {
-        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber;
-    }
-
-    /**
-     * Directory Number in E164 Format.
-     */
     public function setNewPhoneNumber($newPhoneNumber = null)
     {
+        if (!$newPhoneNumber) return $this;
         $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
              ? $newPhoneNumber
              : new DN($newPhoneNumber);
+        $this->newPhoneNumber->setName('newPhoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getNewPhoneNumber()
     {
-        return (!$this->newPhoneNumber) ?: $this->newPhoneNumber->getValue();
+        return $this->newPhoneNumber->getValue();
     }
 
     /**
@@ -151,36 +175,40 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber = null)
     {
-        $this->transferOnZeroToPhoneNumber = (boolean) $transferOnZeroToPhoneNumber;
+        if (!$transferOnZeroToPhoneNumber) return $this;
+        $this->transferOnZeroToPhoneNumber = new PrimitiveType($transferOnZeroToPhoneNumber);
+        $this->transferOnZeroToPhoneNumber->setName('transferOnZeroToPhoneNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getTransferOnZeroToPhoneNumber()
+    {
+        return $this->transferOnZeroToPhoneNumber->getValue();
     }
 
     /**
      * 
      */
-    public function getTransferOnZeroToPhoneNumber()
-    {
-        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber;
-    }
-
-    /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
-     */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
+        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
              ? $transferPhoneNumber
              : new OutgoingDN($transferPhoneNumber);
+        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        return $this;
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
+     * @return OutgoingDN
      */
     public function getTransferPhoneNumber()
     {
-        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->getValue();
+        return $this->transferPhoneNumber->getValue();
     }
 }

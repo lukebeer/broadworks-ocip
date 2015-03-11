@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemRoutePointExternalSystemApplicationControllerGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemApplicationControllerGetResponse';
-    public    $name           = __CLASS__;
+    public    $name           = 'SystemRoutePointExternalSystemApplicationControllerGetRequest';
     protected $externalSystem = null;
 
     public function __construct(
@@ -40,20 +40,24 @@ class SystemRoutePointExternalSystemApplicationControllerGetRequest extends Comp
     }
 
     /**
-     * The Route Point External System's name.
+     * 
      */
     public function setExternalSystem($externalSystem = null)
     {
+        if (!$externalSystem) return $this;
         $this->externalSystem = ($externalSystem InstanceOf RoutePointExternalSystem)
              ? $externalSystem
              : new RoutePointExternalSystem($externalSystem);
+        $this->externalSystem->setName('externalSystem');
+        return $this;
     }
 
     /**
-     * The Route Point External System's name.
+     * 
+     * @return RoutePointExternalSystem
      */
     public function getExternalSystem()
     {
-        return (!$this->externalSystem) ?: $this->externalSystem->getValue();
+        return $this->externalSystem->getValue();
     }
 }

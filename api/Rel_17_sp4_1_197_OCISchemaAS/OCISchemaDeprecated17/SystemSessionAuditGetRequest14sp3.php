@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSessionAuditGetRequest14sp3 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemSessionAuditGetResponse14sp3';
-    public    $name = __CLASS__;
+    public    $name = 'SystemSessionAuditGetRequest14sp3';
 
     public function __construct(    ) {
     }

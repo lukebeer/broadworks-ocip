@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTwoStageDialingGetDnListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'SystemTwoStageDialingGetDnListResponse';
     protected $phoneNumberTable = null;
 
     /**
@@ -38,14 +37,17 @@ class SystemTwoStageDialingGetDnListResponse extends ComplexType implements Comp
      */
     public function setPhoneNumberTable(core:OCITable $phoneNumberTable = null)
     {
-        $this->phoneNumberTable =  $phoneNumberTable;
+        if (!$phoneNumberTable) return $this;
+        $this->phoneNumberTable->setName('phoneNumberTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getPhoneNumberTable()
     {
-        return (!$this->phoneNumberTable) ?: $this->phoneNumberTable->getValue();
+        return $this->phoneNumberTable->getValue();
     }
 }

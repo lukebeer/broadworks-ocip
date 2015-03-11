@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'SystemCommunicationBarringModifyRequest';
     protected $directTransferScreening = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemCommunicationBarringModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return SystemCommunicationBarringModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,14 +42,18 @@ class SystemCommunicationBarringModifyRequest extends ComplexType implements Com
      */
     public function setDirectTransferScreening($directTransferScreening = null)
     {
-        $this->directTransferScreening = (boolean) $directTransferScreening;
+        if (!$directTransferScreening) return $this;
+        $this->directTransferScreening = new PrimitiveType($directTransferScreening);
+        $this->directTransferScreening->setName('directTransferScreening');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getDirectTransferScreening()
     {
-        return (!$this->directTransferScreening) ?: $this->directTransferScreening;
+        return $this->directTransferScreening->getValue();
     }
 }

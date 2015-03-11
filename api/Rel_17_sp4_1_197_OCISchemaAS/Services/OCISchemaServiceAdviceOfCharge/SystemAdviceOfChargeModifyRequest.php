@@ -5,12 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdviceOfCharge; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\AdviceOfChargeDelayBetweenNotificationSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\AdviceOfChargeIncomingAocHandling;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAdviceOfCharge\SystemAdviceOfChargeModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'SystemAdviceOfChargeModifyRequest';
     protected $delayBetweenNotificationSeconds = null;
     protected $incomingAocHandling             = null;
     protected $costInformationSource           = null;
@@ -39,7 +38,7 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return SystemAdviceOfChargeModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,56 +46,68 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * The time in seconds used for the interval for sending AoC-D information to the caller.
+     * 
      */
     public function setDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds = null)
     {
+        if (!$delayBetweenNotificationSeconds) return $this;
         $this->delayBetweenNotificationSeconds = ($delayBetweenNotificationSeconds InstanceOf AdviceOfChargeDelayBetweenNotificationSeconds)
              ? $delayBetweenNotificationSeconds
              : new AdviceOfChargeDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds);
+        $this->delayBetweenNotificationSeconds->setName('delayBetweenNotificationSeconds');
+        return $this;
     }
 
     /**
-     * The time in seconds used for the interval for sending AoC-D information to the caller.
+     * 
+     * @return AdviceOfChargeDelayBetweenNotificationSeconds
      */
     public function getDelayBetweenNotificationSeconds()
     {
-        return (!$this->delayBetweenNotificationSeconds) ?: $this->delayBetweenNotificationSeconds->getValue();
+        return $this->delayBetweenNotificationSeconds->getValue();
     }
 
     /**
-     * Choices for method of how the Advice of Charge is processed by the Application Server.
+     * 
      */
     public function setIncomingAocHandling($incomingAocHandling = null)
     {
+        if (!$incomingAocHandling) return $this;
         $this->incomingAocHandling = ($incomingAocHandling InstanceOf AdviceOfChargeIncomingAocHandling)
              ? $incomingAocHandling
              : new AdviceOfChargeIncomingAocHandling($incomingAocHandling);
+        $this->incomingAocHandling->setName('incomingAocHandling');
+        return $this;
     }
 
     /**
-     * Choices for method of how the Advice of Charge is processed by the Application Server.
+     * 
+     * @return AdviceOfChargeIncomingAocHandling
      */
     public function getIncomingAocHandling()
     {
-        return (!$this->incomingAocHandling) ?: $this->incomingAocHandling->getValue();
+        return $this->incomingAocHandling->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setCostInformationSource($costInformationSource = null)
     {
+        if (!$costInformationSource) return $this;
         $this->costInformationSource = ($costInformationSource InstanceOf NetAddress)
              ? $costInformationSource
              : new NetAddress($costInformationSource);
+        $this->costInformationSource->setName('costInformationSource');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getCostInformationSource()
     {
-        return (!$this->costInformationSource) ?: $this->costInformationSource->getValue();
+        return $this->costInformationSource->getValue();
     }
 }

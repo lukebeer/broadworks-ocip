@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyGetAccessCodeResponse';
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderDialPlanPolicyGetAccessCodeRequest';
     protected $serviceProviderId = null;
     protected $accessCode        = null;
 
@@ -44,42 +44,46 @@ class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType impl
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Dial Plan Access Code.
-     *         The Access Code may contain digits 0-9, *, and #.
+     * 
      */
     public function setAccessCode($accessCode = null)
     {
+        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
              ? $accessCode
              : new DialPlanAccessCode($accessCode);
+        $this->accessCode->setName('accessCode');
+        return $this;
     }
 
     /**
-     * Dial Plan Access Code.
-     *         The Access Code may contain digits 0-9, *, and #.
+     * 
+     * @return DialPlanAccessCode
      */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->getValue();
+        return $this->accessCode->getValue();
     }
 }

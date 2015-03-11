@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse';
-    public    $name                    = __CLASS__;
+    public    $name                    = 'ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest';
     protected $serviceProviderId       = null;
     protected $externalSystem          = null;
     protected $responseSizeLimit       = null;
@@ -39,8 +39,8 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
          $serviceProviderId,
          $externalSystem,
          $responseSizeLimit = null,
-          $searchCriteriaGroupId = null,
-          $searchCriteriaGroupName = null
+         SearchCriteriaGroupId $searchCriteriaGroupId = null,
+         SearchCriteriaGroupName $searchCriteriaGroupName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setExternalSystem($externalSystem);
@@ -58,94 +58,112 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * The Route Point External System's name.
+     * 
      */
     public function setExternalSystem($externalSystem = null)
     {
+        if (!$externalSystem) return $this;
         $this->externalSystem = ($externalSystem InstanceOf RoutePointExternalSystem)
              ? $externalSystem
              : new RoutePointExternalSystem($externalSystem);
+        $this->externalSystem->setName('externalSystem');
+        return $this;
     }
 
     /**
-     * The Route Point External System's name.
+     * 
+     * @return RoutePointExternalSystem
      */
     public function getExternalSystem()
     {
-        return (!$this->externalSystem) ?: $this->externalSystem->getValue();
+        return $this->externalSystem->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a group ID.
+     * 
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        $this->searchCriteriaGroupId =  $searchCriteriaGroupId;
+        if (!$searchCriteriaGroupId) return $this;
+        $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
+             ? $searchCriteriaGroupId
+             : new SearchCriteriaGroupId($searchCriteriaGroupId);
+        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a group ID.
+     * 
+     * @return SearchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
-        return (!$this->searchCriteriaGroupId) ?: $this->searchCriteriaGroupId->getValue();
+        return $this->searchCriteriaGroupId;
     }
 
     /**
-     * Criteria for searching for a group name.
+     * 
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        $this->searchCriteriaGroupName =  $searchCriteriaGroupName;
+        if (!$searchCriteriaGroupName) return $this;
+        $this->searchCriteriaGroupName = ($searchCriteriaGroupName InstanceOf SearchCriteriaGroupName)
+             ? $searchCriteriaGroupName
+             : new SearchCriteriaGroupName($searchCriteriaGroupName);
+        $this->searchCriteriaGroupName->setName('searchCriteriaGroupName');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a group name.
+     * 
+     * @return SearchCriteriaGroupName
      */
     public function getSearchCriteriaGroupName()
     {
-        return (!$this->searchCriteriaGroupName) ?: $this->searchCriteriaGroupName->getValue();
+        return $this->searchCriteriaGroupName;
     }
 }

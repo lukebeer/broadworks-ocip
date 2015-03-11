@@ -8,6 +8,8 @@
 namespace Broadworks_OCIP\core\Builder\Types;
 
 
+use Broadworks_OCIP\core\Builder\Restrictions\RestrictionInterface;
+
 interface SimpleInterface
 {
     public function validate();
@@ -18,7 +20,7 @@ interface SimpleInterface
 
     public function getValue();
 
-    public function addRestriction();
+    public function addRestriction(RestrictionInterface $restriction);
 
     public function getErrors();
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemServiceCodeDeleteRequest';
     protected $serviceCode = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return SystemServiceCodeDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,22 +38,24 @@ class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * Service Codes that are used for dialing in lieu of phone numbers.
-     *         The digit pattern may contain digits 0-9, ?, *, and #.
+     * 
      */
     public function setServiceCode($serviceCode = null)
     {
+        if (!$serviceCode) return $this;
         $this->serviceCode = ($serviceCode InstanceOf ServiceCode)
              ? $serviceCode
              : new ServiceCode($serviceCode);
+        $this->serviceCode->setName('serviceCode');
+        return $this;
     }
 
     /**
-     * Service Codes that are used for dialing in lieu of phone numbers.
-     *         The digit pattern may contain digits 0-9, ?, *, and #.
+     * 
+     * @return ServiceCode
      */
     public function getServiceCode()
     {
-        return (!$this->serviceCode) ?: $this->serviceCode->getValue();
+        return $this->serviceCode->getValue();
     }
 }

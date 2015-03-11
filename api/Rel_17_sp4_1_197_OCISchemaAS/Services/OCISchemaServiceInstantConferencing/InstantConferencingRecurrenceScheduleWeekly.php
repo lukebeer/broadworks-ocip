@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceWeekInterval;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DayOfWeek;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleWeekly;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleWeekly;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements ComplexInterface
 {
-    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleWeekly';
-    public    $name                   = __CLASS__;
+    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleWeekly';
+    public    $name                   = 'InstantConferencingRecurrenceScheduleWeekly';
     protected $recurrenceWeekInterval = null;
     protected $dayOfWeek              = null;
 
@@ -43,38 +43,46 @@ class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements
     }
 
     /**
-     * The recurrence interval for weekly schedule.
+     * 
      */
     public function setRecurrenceWeekInterval($recurrenceWeekInterval = null)
     {
+        if (!$recurrenceWeekInterval) return $this;
         $this->recurrenceWeekInterval = ($recurrenceWeekInterval InstanceOf InstantConferencingRecurrenceWeekInterval)
              ? $recurrenceWeekInterval
              : new InstantConferencingRecurrenceWeekInterval($recurrenceWeekInterval);
+        $this->recurrenceWeekInterval->setName('recurrenceWeekInterval');
+        return $this;
     }
 
     /**
-     * The recurrence interval for weekly schedule.
+     * 
+     * @return InstantConferencingRecurrenceWeekInterval
      */
     public function getRecurrenceWeekInterval()
     {
-        return (!$this->recurrenceWeekInterval) ?: $this->recurrenceWeekInterval->getValue();
+        return $this->recurrenceWeekInterval->getValue();
     }
 
     /**
-     * Days of the week (Sunday-Saturday).
+     * 
      */
     public function setDayOfWeek($dayOfWeek = null)
     {
+        if (!$dayOfWeek) return $this;
         $this->dayOfWeek = ($dayOfWeek InstanceOf DayOfWeek)
              ? $dayOfWeek
              : new DayOfWeek($dayOfWeek);
+        $this->dayOfWeek->setName('dayOfWeek');
+        return $this;
     }
 
     /**
-     * Days of the week (Sunday-Saturday).
+     * 
+     * @return DayOfWeek
      */
     public function getDayOfWeek()
     {
-        return (!$this->dayOfWeek) ?: $this->dayOfWeek->getValue();
+        return $this->dayOfWeek->getValue();
     }
 }

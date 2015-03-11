@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -25,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetListResponse';
-    public    $name                    = __CLASS__;
+    public    $name                    = 'EnterpriseDepartmentGetListRequest';
     protected $enterpriseId            = null;
     protected $includeGroupDepartments = null;
 
@@ -46,23 +47,25 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setEnterpriseId($enterpriseId = null)
     {
+        if (!$enterpriseId) return $this;
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
+        $this->enterpriseId->setName('enterpriseId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getEnterpriseId()
     {
-        return (!$this->enterpriseId) ?: $this->enterpriseId->getValue();
+        return $this->enterpriseId->getValue();
     }
 
     /**
@@ -70,14 +73,18 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
      */
     public function setIncludeGroupDepartments($includeGroupDepartments = null)
     {
-        $this->includeGroupDepartments = (boolean) $includeGroupDepartments;
+        if (!$includeGroupDepartments) return $this;
+        $this->includeGroupDepartments = new PrimitiveType($includeGroupDepartments);
+        $this->includeGroupDepartments->setName('includeGroupDepartments');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIncludeGroupDepartments()
     {
-        return (!$this->includeGroupDepartments) ?: $this->includeGroupDepartments;
+        return $this->includeGroupDepartments->getValue();
     }
 }

@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedNonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\ServiceProviderInstantConferencingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,20 +21,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInstantConferencingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'ServiceProviderInstantConferencingModifyRequest';
     protected $serviceProviderId               = null;
     protected $portsAllocatedToServiceProvider = null;
 
     public function __construct(
          $serviceProviderId,
-          $portsAllocatedToServiceProvider = null
+         UnboundedNonNegativeInt $portsAllocatedToServiceProvider = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setPortsAllocatedToServiceProvider($portsAllocatedToServiceProvider);
     }
 
     /**
-     * @return ServiceProviderInstantConferencingModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,44 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
      */
     public function setPortsAllocatedToServiceProvider(UnboundedNonNegativeInt $portsAllocatedToServiceProvider = null)
     {
-        $this->portsAllocatedToServiceProvider =  $portsAllocatedToServiceProvider;
+        if (!$portsAllocatedToServiceProvider) return $this;
+        $this->portsAllocatedToServiceProvider = $portsAllocatedToServiceProvider;
+        $this->portsAllocatedToServiceProvider->setName('portsAllocatedToServiceProvider');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a non-negative int quantity.
+     * 
+     * @return UnboundedNonNegativeInt
      */
     public function getPortsAllocatedToServiceProvider()
     {
-        return (!$this->portsAllocatedToServiceProvider) ?: $this->portsAllocatedToServiceProvider->getValue();
+        return $this->portsAllocatedToServiceProvider;
     }
 }

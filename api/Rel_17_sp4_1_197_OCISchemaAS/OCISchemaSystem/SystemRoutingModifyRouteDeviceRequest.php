@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Transpor
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\RouteName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingModifyRouteDeviceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'SystemRoutingModifyRouteDeviceRequest';
     protected $routeName         = null;
     protected $netAddress        = null;
     protected $port              = null;
@@ -47,7 +46,7 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return SystemRoutingModifyRouteDeviceResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,92 +54,112 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
     }
 
     /**
-     * Route name.
+     * 
      */
     public function setRouteName($routeName = null)
     {
+        if (!$routeName) return $this;
         $this->routeName = ($routeName InstanceOf RouteName)
              ? $routeName
              : new RouteName($routeName);
+        $this->routeName->setName('routeName');
+        return $this;
     }
 
     /**
-     * Route name.
+     * 
+     * @return RouteName
      */
     public function getRouteName()
     {
-        return (!$this->routeName) ?: $this->routeName->getValue();
+        return $this->routeName->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setNetAddress($netAddress = null)
     {
+        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
+        $this->netAddress->setName('netAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getNetAddress()
     {
-        return (!$this->netAddress) ?: $this->netAddress->getValue();
+        return $this->netAddress->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setPort($port = null)
     {
+        if (!$port) return $this;
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
+        $this->port->setName('port');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->getValue();
+        return $this->port->getValue();
     }
 
     /**
-     * Network Transport Protocol.
+     * 
      */
     public function setTransportProtocol($transportProtocol = null)
     {
+        if (!$transportProtocol) return $this;
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
+        $this->transportProtocol->setName('transportProtocol');
+        return $this;
     }
 
     /**
-     * Network Transport Protocol.
+     * 
+     * @return TransportProtocol
      */
     public function getTransportProtocol()
     {
-        return (!$this->transportProtocol) ?: $this->transportProtocol->getValue();
+        return $this->transportProtocol->getValue();
     }
 
     /**
-     * Route device description.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf RouteDeviceDescription)
              ? $description
              : new RouteDeviceDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Route device description.
+     * 
+     * @return RouteDeviceDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 }

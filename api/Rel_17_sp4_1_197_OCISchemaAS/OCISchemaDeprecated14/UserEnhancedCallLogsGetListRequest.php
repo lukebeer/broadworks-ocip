@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserEnhancedCallLogsGetListResponse';
-    public    $name           = __CLASS__;
+    public    $name           = 'UserEnhancedCallLogsGetListRequest';
     protected $userId         = null;
     protected $callLogType    = null;
     protected $startingOffset = null;
@@ -55,84 +55,90 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Call Log type.
-     *        Replaced By: CallLogsType
+     * 
      */
     public function setCallLogType($callLogType = null)
     {
+        if (!$callLogType) return $this;
         $this->callLogType = ($callLogType InstanceOf EnhancedCallLogsType)
              ? $callLogType
              : new EnhancedCallLogsType($callLogType);
+        $this->callLogType->setName('callLogType');
+        return $this;
     }
 
     /**
-     * Call Log type.
-     *        Replaced By: CallLogsType
+     * 
+     * @return EnhancedCallLogsType
      */
     public function getCallLogType()
     {
-        return (!$this->callLogType) ?: $this->callLogType->getValue();
+        return $this->callLogType->getValue();
     }
 
     /**
-     * The offset into the list of calls in the call log.
+     * 
      */
     public function setStartingOffset($startingOffset = null)
     {
+        if (!$startingOffset) return $this;
         $this->startingOffset = ($startingOffset InstanceOf EnhancedCallLogsOffset)
              ? $startingOffset
              : new EnhancedCallLogsOffset($startingOffset);
+        $this->startingOffset->setName('startingOffset');
+        return $this;
     }
 
     /**
-     * The offset into the list of calls in the call log.
+     * 
+     * @return EnhancedCallLogsOffset
      */
     public function getStartingOffset()
     {
-        return (!$this->startingOffset) ?: $this->startingOffset->getValue();
+        return $this->startingOffset->getValue();
     }
 
     /**
-     * Sets the maximum number of logged calls that can be stored.
+     * 
      */
     public function setNumCalls($numCalls = null)
     {
+        if (!$numCalls) return $this;
         $this->numCalls = ($numCalls InstanceOf EnhancedCallLogsMaxLoggedCalls)
              ? $numCalls
              : new EnhancedCallLogsMaxLoggedCalls($numCalls);
+        $this->numCalls->setName('numCalls');
+        return $this;
     }
 
     /**
-     * Sets the maximum number of logged calls that can be stored.
+     * 
+     * @return EnhancedCallLogsMaxLoggedCalls
      */
     public function getNumCalls()
     {
-        return (!$this->numCalls) ?: $this->numCalls->getValue();
+        return $this->numCalls->getValue();
     }
 }

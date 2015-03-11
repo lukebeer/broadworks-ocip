@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones\EmergencyZonesProhibition;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEmergencyZones\GroupEmergencyZonesGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'GroupEmergencyZonesGetResponse';
     protected $isActive                        = null;
     protected $emergencyZonesProhibition       = null;
     protected $sendEmergencyCallNotifyEmail    = null;
@@ -40,35 +40,41 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Emergency zone policy to specify what kind of calls will be prohibited by the service when
-     *         originated from outside the home zone.
-     */
     public function setEmergencyZonesProhibition($emergencyZonesProhibition = null)
     {
+        if (!$emergencyZonesProhibition) return $this;
         $this->emergencyZonesProhibition = ($emergencyZonesProhibition InstanceOf EmergencyZonesProhibition)
              ? $emergencyZonesProhibition
              : new EmergencyZonesProhibition($emergencyZonesProhibition);
+        $this->emergencyZonesProhibition->setName('emergencyZonesProhibition');
+        return $this;
     }
 
     /**
-     * Emergency zone policy to specify what kind of calls will be prohibited by the service when
-     *         originated from outside the home zone.
+     * 
+     * @return EmergencyZonesProhibition
      */
     public function getEmergencyZonesProhibition()
     {
-        return (!$this->emergencyZonesProhibition) ?: $this->emergencyZonesProhibition->getValue();
+        return $this->emergencyZonesProhibition->getValue();
     }
 
     /**
@@ -76,32 +82,40 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
      */
     public function setSendEmergencyCallNotifyEmail($sendEmergencyCallNotifyEmail = null)
     {
-        $this->sendEmergencyCallNotifyEmail = (boolean) $sendEmergencyCallNotifyEmail;
+        if (!$sendEmergencyCallNotifyEmail) return $this;
+        $this->sendEmergencyCallNotifyEmail = new PrimitiveType($sendEmergencyCallNotifyEmail);
+        $this->sendEmergencyCallNotifyEmail->setName('sendEmergencyCallNotifyEmail');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSendEmergencyCallNotifyEmail()
+    {
+        return $this->sendEmergencyCallNotifyEmail->getValue();
     }
 
     /**
      * 
      */
-    public function getSendEmergencyCallNotifyEmail()
-    {
-        return (!$this->sendEmergencyCallNotifyEmail) ?: $this->sendEmergencyCallNotifyEmail;
-    }
-
-    /**
-     * Email Address
-     */
     public function setEmergencyCallNotifyEmailAddress($emergencyCallNotifyEmailAddress = null)
     {
+        if (!$emergencyCallNotifyEmailAddress) return $this;
         $this->emergencyCallNotifyEmailAddress = ($emergencyCallNotifyEmailAddress InstanceOf EmailAddress)
              ? $emergencyCallNotifyEmailAddress
              : new EmailAddress($emergencyCallNotifyEmailAddress);
+        $this->emergencyCallNotifyEmailAddress->setName('emergencyCallNotifyEmailAddress');
+        return $this;
     }
 
     /**
-     * Email Address
+     * 
+     * @return EmailAddress
      */
     public function getEmergencyCallNotifyEmailAddress()
     {
-        return (!$this->emergencyCallNotifyEmailAddress) ?: $this->emergencyCallNotifyEmailAddress->getValue();
+        return $this->emergencyCallNotifyEmailAddress->getValue();
     }
 }

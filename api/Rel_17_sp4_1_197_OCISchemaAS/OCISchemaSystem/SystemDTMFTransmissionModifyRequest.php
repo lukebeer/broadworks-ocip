@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DtmfTransmissionSignalingContentType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DTMFTransmissionMethod;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDTMFTransmissionModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDTMFTransmissionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'SystemDTMFTransmissionModifyRequest';
     protected $transmissionMethod   = null;
     protected $signalingContentType = null;
 
@@ -35,7 +34,7 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return SystemDTMFTransmissionModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * The DTMF transmission method.
+     * 
      */
     public function setTransmissionMethod($transmissionMethod = null)
     {
+        if (!$transmissionMethod) return $this;
         $this->transmissionMethod = ($transmissionMethod InstanceOf DTMFTransmissionMethod)
              ? $transmissionMethod
              : new DTMFTransmissionMethod($transmissionMethod);
+        $this->transmissionMethod->setName('transmissionMethod');
+        return $this;
     }
 
     /**
-     * The DTMF transmission method.
+     * 
+     * @return DTMFTransmissionMethod
      */
     public function getTransmissionMethod()
     {
-        return (!$this->transmissionMethod) ?: $this->transmissionMethod->getValue();
+        return $this->transmissionMethod->getValue();
     }
 
     /**
-     * The signaling content type.
+     * 
      */
     public function setSignalingContentType($signalingContentType = null)
     {
+        if (!$signalingContentType) return $this;
         $this->signalingContentType = ($signalingContentType InstanceOf DtmfTransmissionSignalingContentType)
              ? $signalingContentType
              : new DtmfTransmissionSignalingContentType($signalingContentType);
+        $this->signalingContentType->setName('signalingContentType');
+        return $this;
     }
 
     /**
-     * The signaling content type.
+     * 
+     * @return DtmfTransmissionSignalingContentType
      */
     public function getSignalingContentType()
     {
-        return (!$this->signalingContentType) ?: $this->signalingContentType->getValue();
+        return $this->signalingContentType->getValue();
     }
 }

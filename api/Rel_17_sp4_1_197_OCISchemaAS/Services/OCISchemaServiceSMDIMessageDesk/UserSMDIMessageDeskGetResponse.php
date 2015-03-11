@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SMDIMessageDeskNumber;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSMDIMessageDesk\UserSMDIMessageDeskGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserSMDIMessageDeskGetResponse';
     protected $isActive          = null;
     protected $messageDeskNumber = null;
 
@@ -37,32 +37,40 @@ class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInter
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * SMDI Message Desk number.
-     */
     public function setMessageDeskNumber($messageDeskNumber = null)
     {
+        if (!$messageDeskNumber) return $this;
         $this->messageDeskNumber = ($messageDeskNumber InstanceOf SMDIMessageDeskNumber)
              ? $messageDeskNumber
              : new SMDIMessageDeskNumber($messageDeskNumber);
+        $this->messageDeskNumber->setName('messageDeskNumber');
+        return $this;
     }
 
     /**
-     * SMDI Message Desk number.
+     * 
+     * @return SMDIMessageDeskNumber
      */
     public function getMessageDeskNumber()
     {
-        return (!$this->messageDeskNumber) ?: $this->messageDeskNumber->getValue();
+        return $this->messageDeskNumber->getValue();
     }
 }

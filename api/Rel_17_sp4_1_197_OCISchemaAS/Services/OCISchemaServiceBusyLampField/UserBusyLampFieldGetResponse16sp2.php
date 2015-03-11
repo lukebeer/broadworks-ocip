@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBusyLampField; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBusyLampField\UserBusyLampFieldGetResponse16sp2;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'UserBusyLampFieldGetResponse16sp2';
     protected $listURI                    = null;
     protected $enableCallParkNotification = null;
     protected $monitoredUserTable         = null;
@@ -36,35 +36,25 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
      */
     public function setListURI($listURI = null)
     {
+        if (!$listURI) return $this;
         $this->listURI = ($listURI InstanceOf SIPURI)
              ? $listURI
              : new SIPURI($listURI);
+        $this->listURI->setName('listURI');
+        return $this;
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
+     * @return SIPURI
      */
     public function getListURI()
     {
-        return (!$this->listURI) ?: $this->listURI->getValue();
+        return $this->listURI->getValue();
     }
 
     /**
@@ -72,15 +62,19 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
      */
     public function setEnableCallParkNotification($enableCallParkNotification = null)
     {
-        $this->enableCallParkNotification = (boolean) $enableCallParkNotification;
+        if (!$enableCallParkNotification) return $this;
+        $this->enableCallParkNotification = new PrimitiveType($enableCallParkNotification);
+        $this->enableCallParkNotification->setName('enableCallParkNotification');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableCallParkNotification()
     {
-        return (!$this->enableCallParkNotification) ?: $this->enableCallParkNotification;
+        return $this->enableCallParkNotification->getValue();
     }
 
     /**
@@ -88,14 +82,17 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
      */
     public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
     {
-        $this->monitoredUserTable =  $monitoredUserTable;
+        if (!$monitoredUserTable) return $this;
+        $this->monitoredUserTable->setName('monitoredUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getMonitoredUserTable()
     {
-        return (!$this->monitoredUserTable) ?: $this->monitoredUserTable->getValue();
+        return $this->monitoredUserTable->getValue();
     }
 }

@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSlideShowPasswordHex;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSlideShowPassword;
@@ -17,7 +17,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceI
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserDisplayNames;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceRecordingResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -30,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
+    public    $name                        = 'UserInstantConferencingGetStandAloneConferenceRecordingResponse';
     protected $recordingCallId             = null;
     protected $conferenceOwnerDisplayNames = null;
     protected $title                       = null;
@@ -55,75 +55,89 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
     }
 
     /**
-     * Conference recording call Id.
+     * 
      */
     public function setRecordingCallId($recordingCallId = null)
     {
+        if (!$recordingCallId) return $this;
         $this->recordingCallId = ($recordingCallId InstanceOf InstantConferencingRecordingCallId)
              ? $recordingCallId
              : new InstantConferencingRecordingCallId($recordingCallId);
+        $this->recordingCallId->setName('recordingCallId');
+        return $this;
     }
 
     /**
-     * Conference recording call Id.
+     * 
+     * @return InstantConferencingRecordingCallId
      */
     public function getRecordingCallId()
     {
-        return (!$this->recordingCallId) ?: $this->recordingCallId->getValue();
+        return $this->recordingCallId->getValue();
     }
 
     /**
-     * The parts of a user's display name that a client can display in whatever way is appropriate
-     *         for the client application.
+     * 
      */
     public function setConferenceOwnerDisplayNames(UserDisplayNames $conferenceOwnerDisplayNames = null)
     {
-        $this->conferenceOwnerDisplayNames =  $conferenceOwnerDisplayNames;
+        if (!$conferenceOwnerDisplayNames) return $this;
+        $this->conferenceOwnerDisplayNames = $conferenceOwnerDisplayNames;
+        $this->conferenceOwnerDisplayNames->setName('conferenceOwnerDisplayNames');
+        return $this;
     }
 
     /**
-     * The parts of a user's display name that a client can display in whatever way is appropriate
-     *         for the client application.
+     * 
+     * @return UserDisplayNames
      */
     public function getConferenceOwnerDisplayNames()
     {
-        return (!$this->conferenceOwnerDisplayNames) ?: $this->conferenceOwnerDisplayNames->getValue();
+        return $this->conferenceOwnerDisplayNames;
     }
 
     /**
-     * Title of instant conference.
+     * 
      */
     public function setTitle($title = null)
     {
+        if (!$title) return $this;
         $this->title = ($title InstanceOf InstantConferencingTitle)
              ? $title
              : new InstantConferencingTitle($title);
+        $this->title->setName('title');
+        return $this;
     }
 
     /**
-     * Title of instant conference.
+     * 
+     * @return InstantConferencingTitle
      */
     public function getTitle()
     {
-        return (!$this->title) ?: $this->title->getValue();
+        return $this->title->getValue();
     }
 
     /**
-     * Uniquely identifies an instant conferencing document.
+     * 
      */
     public function setDocumentId($documentId = null)
     {
+        if (!$documentId) return $this;
         $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
              ? $documentId
              : new InstantConferencingDocumentId($documentId);
+        $this->documentId->setName('documentId');
+        return $this;
     }
 
     /**
-     * Uniquely identifies an instant conferencing document.
+     * 
+     * @return InstantConferencingDocumentId
      */
     public function getDocumentId()
     {
-        return (!$this->documentId) ?: $this->documentId->getValue();
+        return $this->documentId->getValue();
     }
 
     /**
@@ -131,15 +145,18 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
      */
     public function setStartDateTime(xs:dateTime $startDateTime = null)
     {
-        $this->startDateTime =  $startDateTime;
+        if (!$startDateTime) return $this;
+        $this->startDateTime->setName('startDateTime');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:dateTime
      */
     public function getStartDateTime()
     {
-        return (!$this->startDateTime) ?: $this->startDateTime->getValue();
+        return $this->startDateTime->getValue();
     }
 
     /**
@@ -147,15 +164,18 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
      */
     public function setDuration(xs:duration $duration = null)
     {
-        $this->duration =  $duration;
+        if (!$duration) return $this;
+        $this->duration->setName('duration');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:duration
      */
     public function getDuration()
     {
-        return (!$this->duration) ?: $this->duration->getValue();
+        return $this->duration->getValue();
     }
 
     /**
@@ -163,69 +183,85 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
      */
     public function setIsBridgeActive($isBridgeActive = null)
     {
-        $this->isBridgeActive = (boolean) $isBridgeActive;
+        if (!$isBridgeActive) return $this;
+        $this->isBridgeActive = new PrimitiveType($isBridgeActive);
+        $this->isBridgeActive->setName('isBridgeActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsBridgeActive()
+    {
+        return $this->isBridgeActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsBridgeActive()
-    {
-        return (!$this->isBridgeActive) ?: $this->isBridgeActive;
-    }
-
-    /**
-     * Service Instance Name for a service with a user id.
-     */
     public function setBridgeName($bridgeName = null)
     {
+        if (!$bridgeName) return $this;
         $this->bridgeName = ($bridgeName InstanceOf ServiceInstanceProfileName)
              ? $bridgeName
              : new ServiceInstanceProfileName($bridgeName);
+        $this->bridgeName->setName('bridgeName');
+        return $this;
     }
 
     /**
-     * Service Instance Name for a service with a user id.
+     * 
+     * @return ServiceInstanceProfileName
      */
     public function getBridgeName()
     {
-        return (!$this->bridgeName) ?: $this->bridgeName->getValue();
+        return $this->bridgeName->getValue();
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setBridgePhoneNumber($bridgePhoneNumber = null)
     {
+        if (!$bridgePhoneNumber) return $this;
         $this->bridgePhoneNumber = ($bridgePhoneNumber InstanceOf DN)
              ? $bridgePhoneNumber
              : new DN($bridgePhoneNumber);
+        $this->bridgePhoneNumber->setName('bridgePhoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getBridgePhoneNumber()
     {
-        return (!$this->bridgePhoneNumber) ?: $this->bridgePhoneNumber->getValue();
+        return $this->bridgePhoneNumber->getValue();
     }
 
     /**
-     * Conference access code for a conference.
+     * 
      */
     public function setAccessCode($accessCode = null)
     {
+        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf InstantConferencingAccessCode)
              ? $accessCode
              : new InstantConferencingAccessCode($accessCode);
+        $this->accessCode->setName('accessCode');
+        return $this;
     }
 
     /**
-     * Conference access code for a conference.
+     * 
+     * @return InstantConferencingAccessCode
      */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->getValue();
+        return $this->accessCode->getValue();
     }
 
     /**
@@ -233,68 +269,84 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
      */
     public function setHasSlideShow($hasSlideShow = null)
     {
-        $this->hasSlideShow = (boolean) $hasSlideShow;
+        if (!$hasSlideShow) return $this;
+        $this->hasSlideShow = new PrimitiveType($hasSlideShow);
+        $this->hasSlideShow->setName('hasSlideShow');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getHasSlideShow()
+    {
+        return $this->hasSlideShow->getValue();
     }
 
     /**
      * 
      */
-    public function getHasSlideShow()
-    {
-        return (!$this->hasSlideShow) ?: $this->hasSlideShow;
-    }
-
-    /**
-     * Conference slide show password.
-     */
     public function setSlideShowPassword($slideShowPassword = null)
     {
+        if (!$slideShowPassword) return $this;
         $this->slideShowPassword = ($slideShowPassword InstanceOf InstantConferencingSlideShowPassword)
              ? $slideShowPassword
              : new InstantConferencingSlideShowPassword($slideShowPassword);
+        $this->slideShowPassword->setName('slideShowPassword');
+        return $this;
     }
 
     /**
-     * Conference slide show password.
+     * 
+     * @return InstantConferencingSlideShowPassword
      */
     public function getSlideShowPassword()
     {
-        return (!$this->slideShowPassword) ?: $this->slideShowPassword->getValue();
+        return $this->slideShowPassword->getValue();
     }
 
     /**
-     * Conference slide show password in hexadecimal format.
+     * 
      */
     public function setSlideShowPasswordHex($slideShowPasswordHex = null)
     {
+        if (!$slideShowPasswordHex) return $this;
         $this->slideShowPasswordHex = ($slideShowPasswordHex InstanceOf InstantConferencingSlideShowPasswordHex)
              ? $slideShowPasswordHex
              : new InstantConferencingSlideShowPasswordHex($slideShowPasswordHex);
+        $this->slideShowPasswordHex->setName('slideShowPasswordHex');
+        return $this;
     }
 
     /**
-     * Conference slide show password in hexadecimal format.
+     * 
+     * @return InstantConferencingSlideShowPasswordHex
      */
     public function getSlideShowPasswordHex()
     {
-        return (!$this->slideShowPasswordHex) ?: $this->slideShowPasswordHex->getValue();
+        return $this->slideShowPasswordHex->getValue();
     }
 
     /**
-     * Network domain name.
+     * 
      */
     public function setConferenceServerFQDN($conferenceServerFQDN = null)
     {
+        if (!$conferenceServerFQDN) return $this;
         $this->conferenceServerFQDN = ($conferenceServerFQDN InstanceOf DomainName)
              ? $conferenceServerFQDN
              : new DomainName($conferenceServerFQDN);
+        $this->conferenceServerFQDN->setName('conferenceServerFQDN');
+        return $this;
     }
 
     /**
-     * Network domain name.
+     * 
+     * @return DomainName
      */
     public function getConferenceServerFQDN()
     {
-        return (!$this->conferenceServerFQDN) ?: $this->conferenceServerFQDN->getValue();
+        return $this->conferenceServerFQDN->getValue();
     }
 }

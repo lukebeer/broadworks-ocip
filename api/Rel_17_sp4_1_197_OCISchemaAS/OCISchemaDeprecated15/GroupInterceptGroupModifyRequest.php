@@ -13,7 +13,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupInterceptGroupModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
+    public    $name                        = 'GroupInterceptGroupModifyRequest';
     protected $serviceProviderId           = null;
     protected $groupId                     = null;
     protected $isActive                    = null;
@@ -44,8 +44,8 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
          $groupId,
          $isActive = null,
          $announcementSelection = null,
-          $audioFile = null,
-          $videoFile = null,
+         LabeledFileResource $audioFile = null,
+         LabeledFileResource $videoFile = null,
          $playNewPhoneNumber = null,
          $newPhoneNumber = null,
          $transferOnZeroToPhoneNumber = null,
@@ -64,7 +64,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return GroupInterceptGroupModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,43 +72,47 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
@@ -116,69 +120,81 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Announcement Selection.
-     */
     public function setAnnouncementSelection($announcementSelection = null)
     {
+        if (!$announcementSelection) return $this;
         $this->announcementSelection = ($announcementSelection InstanceOf AnnouncementSelection)
              ? $announcementSelection
              : new AnnouncementSelection($announcementSelection);
+        $this->announcementSelection->setName('announcementSelection');
+        return $this;
     }
 
     /**
-     * Announcement Selection.
+     * 
+     * @return AnnouncementSelection
      */
     public function getAnnouncementSelection()
     {
-        return (!$this->announcementSelection) ?: $this->announcementSelection->getValue();
+        return $this->announcementSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setAudioFile(LabeledFileResource $audioFile = null)
     {
-        $this->audioFile =  $audioFile;
+        if (!$audioFile) return $this;
+        $this->audioFile = $audioFile;
+        $this->audioFile->setName('audioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getAudioFile()
     {
-        return (!$this->audioFile) ?: $this->audioFile->getValue();
+        return $this->audioFile;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setVideoFile(LabeledFileResource $videoFile = null)
     {
-        $this->videoFile =  $videoFile;
+        if (!$videoFile) return $this;
+        $this->videoFile = $videoFile;
+        $this->videoFile->setName('videoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getVideoFile()
     {
-        return (!$this->videoFile) ?: $this->videoFile->getValue();
+        return $this->videoFile;
     }
 
     /**
@@ -186,33 +202,41 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setPlayNewPhoneNumber($playNewPhoneNumber = null)
     {
-        $this->playNewPhoneNumber = (boolean) $playNewPhoneNumber;
+        if (!$playNewPhoneNumber) return $this;
+        $this->playNewPhoneNumber = new PrimitiveType($playNewPhoneNumber);
+        $this->playNewPhoneNumber->setName('playNewPhoneNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPlayNewPhoneNumber()
+    {
+        return $this->playNewPhoneNumber->getValue();
     }
 
     /**
      * 
      */
-    public function getPlayNewPhoneNumber()
-    {
-        return (!$this->playNewPhoneNumber) ?: $this->playNewPhoneNumber;
-    }
-
-    /**
-     * Directory Number in E164 Format.
-     */
     public function setNewPhoneNumber($newPhoneNumber = null)
     {
+        if (!$newPhoneNumber) return $this;
         $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
              ? $newPhoneNumber
              : new DN($newPhoneNumber);
+        $this->newPhoneNumber->setName('newPhoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getNewPhoneNumber()
     {
-        return (!$this->newPhoneNumber) ?: $this->newPhoneNumber->getValue();
+        return $this->newPhoneNumber->getValue();
     }
 
     /**
@@ -220,36 +244,40 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber = null)
     {
-        $this->transferOnZeroToPhoneNumber = (boolean) $transferOnZeroToPhoneNumber;
+        if (!$transferOnZeroToPhoneNumber) return $this;
+        $this->transferOnZeroToPhoneNumber = new PrimitiveType($transferOnZeroToPhoneNumber);
+        $this->transferOnZeroToPhoneNumber->setName('transferOnZeroToPhoneNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getTransferOnZeroToPhoneNumber()
+    {
+        return $this->transferOnZeroToPhoneNumber->getValue();
     }
 
     /**
      * 
      */
-    public function getTransferOnZeroToPhoneNumber()
-    {
-        return (!$this->transferOnZeroToPhoneNumber) ?: $this->transferOnZeroToPhoneNumber;
-    }
-
-    /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
-     */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
+        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
              ? $transferPhoneNumber
              : new OutgoingDN($transferPhoneNumber);
+        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        return $this;
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
+     * @return OutgoingDN
      */
     public function getTransferPhoneNumber()
     {
-        return (!$this->transferPhoneNumber) ?: $this->transferPhoneNumber->getValue();
+        return $this->transferPhoneNumber->getValue();
     }
 }

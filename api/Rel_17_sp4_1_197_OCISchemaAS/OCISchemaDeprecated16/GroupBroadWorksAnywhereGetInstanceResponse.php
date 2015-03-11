@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\BroadWorksAnywhereCLIDPrompt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\BroadWorksAnywhereScope;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupBroadWorksAnywhereGetInstanceResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'GroupBroadWorksAnywhereGetInstanceResponse';
     protected $serviceInstanceProfile  = null;
     protected $broadWorksAnywhereScope = null;
     protected $promptForCLID           = null;
@@ -39,59 +39,67 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
-     *         Prior to release 14 this was called ServiceInstanceProfile.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
-     *         Prior to release 14 this was called ServiceInstanceProfile.
+     * 
+     * @return ServiceInstanceReadProfile
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Controls which users may use the BroadWorks Anywhere portal.
+     * 
      */
     public function setBroadWorksAnywhereScope($broadWorksAnywhereScope = null)
     {
+        if (!$broadWorksAnywhereScope) return $this;
         $this->broadWorksAnywhereScope = ($broadWorksAnywhereScope InstanceOf BroadWorksAnywhereScope)
              ? $broadWorksAnywhereScope
              : new BroadWorksAnywhereScope($broadWorksAnywhereScope);
+        $this->broadWorksAnywhereScope->setName('broadWorksAnywhereScope');
+        return $this;
     }
 
     /**
-     * Controls which users may use the BroadWorks Anywhere portal.
+     * 
+     * @return BroadWorksAnywhereScope
      */
     public function getBroadWorksAnywhereScope()
     {
-        return (!$this->broadWorksAnywhereScope) ?: $this->broadWorksAnywhereScope->getValue();
+        return $this->broadWorksAnywhereScope->getValue();
     }
 
     /**
-     * BroadWorks Anywhere Prompt for CLID options.
+     * 
      */
     public function setPromptForCLID($promptForCLID = null)
     {
+        if (!$promptForCLID) return $this;
         $this->promptForCLID = ($promptForCLID InstanceOf BroadWorksAnywhereCLIDPrompt)
              ? $promptForCLID
              : new BroadWorksAnywhereCLIDPrompt($promptForCLID);
+        $this->promptForCLID->setName('promptForCLID');
+        return $this;
     }
 
     /**
-     * BroadWorks Anywhere Prompt for CLID options.
+     * 
+     * @return BroadWorksAnywhereCLIDPrompt
      */
     public function getPromptForCLID()
     {
-        return (!$this->promptForCLID) ?: $this->promptForCLID->getValue();
+        return $this->promptForCLID->getValue();
     }
 
     /**
@@ -99,15 +107,19 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
      */
     public function setSilentPromptMode($silentPromptMode = null)
     {
-        $this->silentPromptMode = (boolean) $silentPromptMode;
+        if (!$silentPromptMode) return $this;
+        $this->silentPromptMode = new PrimitiveType($silentPromptMode);
+        $this->silentPromptMode->setName('silentPromptMode');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getSilentPromptMode()
     {
-        return (!$this->silentPromptMode) ?: $this->silentPromptMode;
+        return $this->silentPromptMode->getValue();
     }
 
     /**
@@ -115,14 +127,18 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
      */
     public function setPromptForPasscode($promptForPasscode = null)
     {
-        $this->promptForPasscode = (boolean) $promptForPasscode;
+        if (!$promptForPasscode) return $this;
+        $this->promptForPasscode = new PrimitiveType($promptForPasscode);
+        $this->promptForPasscode->setName('promptForPasscode');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPromptForPasscode()
     {
-        return (!$this->promptForPasscode) ?: $this->promptForPasscode;
+        return $this->promptForPasscode->getValue();
     }
 }

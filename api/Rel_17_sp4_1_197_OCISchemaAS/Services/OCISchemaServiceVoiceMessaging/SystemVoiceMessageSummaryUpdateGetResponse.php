@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessageSummaryUpdateSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceVoiceMessaging\SystemVoiceMessageSummaryUpdateGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVoiceMessageSummaryUpdateGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
+    public    $name                                = 'SystemVoiceMessageSummaryUpdateGetResponse';
     protected $sendSavedAndUrgentMWIOnNotification = null;
     protected $sendMessageSummaryUpdateOnRegister  = null;
     protected $minTimeBetweenMWIOnRegister         = null;
@@ -38,15 +38,19 @@ class SystemVoiceMessageSummaryUpdateGetResponse extends ComplexType implements 
      */
     public function setSendSavedAndUrgentMWIOnNotification($sendSavedAndUrgentMWIOnNotification = null)
     {
-        $this->sendSavedAndUrgentMWIOnNotification = (boolean) $sendSavedAndUrgentMWIOnNotification;
+        if (!$sendSavedAndUrgentMWIOnNotification) return $this;
+        $this->sendSavedAndUrgentMWIOnNotification = new PrimitiveType($sendSavedAndUrgentMWIOnNotification);
+        $this->sendSavedAndUrgentMWIOnNotification->setName('sendSavedAndUrgentMWIOnNotification');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getSendSavedAndUrgentMWIOnNotification()
     {
-        return (!$this->sendSavedAndUrgentMWIOnNotification) ?: $this->sendSavedAndUrgentMWIOnNotification;
+        return $this->sendSavedAndUrgentMWIOnNotification->getValue();
     }
 
     /**
@@ -54,38 +58,40 @@ class SystemVoiceMessageSummaryUpdateGetResponse extends ComplexType implements 
      */
     public function setSendMessageSummaryUpdateOnRegister($sendMessageSummaryUpdateOnRegister = null)
     {
-        $this->sendMessageSummaryUpdateOnRegister = (boolean) $sendMessageSummaryUpdateOnRegister;
+        if (!$sendMessageSummaryUpdateOnRegister) return $this;
+        $this->sendMessageSummaryUpdateOnRegister = new PrimitiveType($sendMessageSummaryUpdateOnRegister);
+        $this->sendMessageSummaryUpdateOnRegister->setName('sendMessageSummaryUpdateOnRegister');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSendMessageSummaryUpdateOnRegister()
+    {
+        return $this->sendMessageSummaryUpdateOnRegister->getValue();
     }
 
     /**
      * 
      */
-    public function getSendMessageSummaryUpdateOnRegister()
-    {
-        return (!$this->sendMessageSummaryUpdateOnRegister) ?: $this->sendMessageSummaryUpdateOnRegister;
-    }
-
-    /**
-     * Minimum time interval between message summary update notifications in seconds.
-     *         This parameter is used to avoid SIP signaling overload due to frequent device registration.
-     *         Broadworks sends the message-summary only if the minimum time interval has elapsed.
-     *         Configuring a value of zero causes the message-summary to be sent on every incoming registration (thus disabling the throttling mechanism).
-     */
     public function setMinTimeBetweenMWIOnRegister($minTimeBetweenMWIOnRegister = null)
     {
+        if (!$minTimeBetweenMWIOnRegister) return $this;
         $this->minTimeBetweenMWIOnRegister = ($minTimeBetweenMWIOnRegister InstanceOf VoiceMessageSummaryUpdateSeconds)
              ? $minTimeBetweenMWIOnRegister
              : new VoiceMessageSummaryUpdateSeconds($minTimeBetweenMWIOnRegister);
+        $this->minTimeBetweenMWIOnRegister->setName('minTimeBetweenMWIOnRegister');
+        return $this;
     }
 
     /**
-     * Minimum time interval between message summary update notifications in seconds.
-     *         This parameter is used to avoid SIP signaling overload due to frequent device registration.
-     *         Broadworks sends the message-summary only if the minimum time interval has elapsed.
-     *         Configuring a value of zero causes the message-summary to be sent on every incoming registration (thus disabling the throttling mechanism).
+     * 
+     * @return VoiceMessageSummaryUpdateSeconds
      */
     public function getMinTimeBetweenMWIOnRegister()
     {
-        return (!$this->minTimeBetweenMWIOnRegister) ?: $this->minTimeBetweenMWIOnRegister->getValue();
+        return $this->minTimeBetweenMWIOnRegister->getValue();
     }
 }

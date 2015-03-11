@@ -5,13 +5,13 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferencePorts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetInstanceResponse17sp3;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'GroupMeetMeConferencingGetInstanceResponse17sp3';
     protected $serviceInstanceProfile  = null;
     protected $allocatedPorts          = null;
     protected $networkClassOfService   = null;
@@ -42,55 +42,65 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile17 $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
-     *         It is identical to the ServiceInstanceAddProfile, but without the password.
+     * 
+     * @return ServiceInstanceReadProfile17
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
+     * 
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        $this->allocatedPorts =  $allocatedPorts;
+        if (!$allocatedPorts) return $this;
+        $this->allocatedPorts = $allocatedPorts;
+        $this->allocatedPorts->setName('allocatedPorts');
+        return $this;
     }
 
     /**
-     * Number of conference ports. Can either be unlimited or limited to a value between 0 and 999999.
+     * 
+     * @return MeetMeConferencingConferencePorts
      */
     public function getAllocatedPorts()
     {
-        return (!$this->allocatedPorts) ?: $this->allocatedPorts->getValue();
+        return $this->allocatedPorts;
     }
 
     /**
-     * Network Class of Service name.
+     * 
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
+        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
+        $this->networkClassOfService->setName('networkClassOfService');
+        return $this;
     }
 
     /**
-     * Network Class of Service name.
+     * 
+     * @return NetworkClassOfServiceName
      */
     public function getNetworkClassOfService()
     {
-        return (!$this->networkClassOfService) ?: $this->networkClassOfService->getValue();
+        return $this->networkClassOfService->getValue();
     }
 
     /**
@@ -98,47 +108,41 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
      */
     public function setAllowIndividualOutDial($allowIndividualOutDial = null)
     {
-        $this->allowIndividualOutDial = (boolean) $allowIndividualOutDial;
+        if (!$allowIndividualOutDial) return $this;
+        $this->allowIndividualOutDial = new PrimitiveType($allowIndividualOutDial);
+        $this->allowIndividualOutDial->setName('allowIndividualOutDial');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowIndividualOutDial()
+    {
+        return $this->allowIndividualOutDial->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowIndividualOutDial()
-    {
-        return (!$this->allowIndividualOutDial) ?: $this->allowIndividualOutDial;
-    }
-
-    /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
-     */
     public function setOperatorNumber($operatorNumber = null)
     {
+        if (!$operatorNumber) return $this;
         $this->operatorNumber = ($operatorNumber InstanceOf OutgoingDNorSIPURI)
              ? $operatorNumber
              : new OutgoingDNorSIPURI($operatorNumber);
+        $this->operatorNumber->setName('operatorNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getOperatorNumber()
     {
-        return (!$this->operatorNumber) ?: $this->operatorNumber->getValue();
+        return $this->operatorNumber->getValue();
     }
 
     /**
@@ -146,14 +150,17 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
      */
     public function setConferenceHostUserTable(core:OCITable $conferenceHostUserTable = null)
     {
-        $this->conferenceHostUserTable =  $conferenceHostUserTable;
+        if (!$conferenceHostUserTable) return $this;
+        $this->conferenceHostUserTable->setName('conferenceHostUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getConferenceHostUserTable()
     {
-        return (!$this->conferenceHostUserTable) ?: $this->conferenceHostUserTable->getValue();
+        return $this->conferenceHostUserTable->getValue();
     }
 }

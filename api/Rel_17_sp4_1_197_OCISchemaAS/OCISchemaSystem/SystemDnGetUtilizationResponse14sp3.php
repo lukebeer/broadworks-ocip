@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDnGetUtilizationResponse14sp3;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'SystemDnGetUtilizationResponse14sp3';
     protected $serviceProviderId    = null;
     protected $groupId              = null;
     protected $userId               = null;
@@ -42,87 +42,91 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Types of users in BroadWorks.
+     * 
      */
     public function setUserType($userType = null)
     {
+        if (!$userType) return $this;
         $this->userType = ($userType InstanceOf UserType)
              ? $userType
              : new UserType($userType);
+        $this->userType->setName('userType');
+        return $this;
     }
 
     /**
-     * Types of users in BroadWorks.
+     * 
+     * @return UserType
      */
     public function getUserType()
     {
-        return (!$this->userType) ?: $this->userType->getValue();
+        return $this->userType->getValue();
     }
 
     /**
@@ -130,15 +134,19 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
      */
     public function setIsGroupCallingLineId($isGroupCallingLineId = null)
     {
-        $this->isGroupCallingLineId = (boolean) $isGroupCallingLineId;
+        if (!$isGroupCallingLineId) return $this;
+        $this->isGroupCallingLineId = new PrimitiveType($isGroupCallingLineId);
+        $this->isGroupCallingLineId->setName('isGroupCallingLineId');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsGroupCallingLineId()
     {
-        return (!$this->isGroupCallingLineId) ?: $this->isGroupCallingLineId;
+        return $this->isGroupCallingLineId->getValue();
     }
 
     /**
@@ -146,14 +154,18 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
      */
     public function setIsActivated($isActivated = null)
     {
-        $this->isActivated = (boolean) $isActivated;
+        if (!$isActivated) return $this;
+        $this->isActivated = new PrimitiveType($isActivated);
+        $this->isActivated->setName('isActivated');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActivated()
     {
-        return (!$this->isActivated) ?: $this->isActivated;
+        return $this->isActivated->getValue();
     }
 }

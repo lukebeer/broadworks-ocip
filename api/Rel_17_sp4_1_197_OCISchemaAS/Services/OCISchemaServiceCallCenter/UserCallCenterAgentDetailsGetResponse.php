@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterAgentDetailsGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterAgentDetailsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'UserCallCenterAgentDetailsGetResponse';
     protected $isCallCenterBasicAssigned    = null;
     protected $isCallCenterStandardAssigned = null;
     protected $isCallCenterPremiumAssigned  = null;
@@ -39,15 +38,19 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function setIsCallCenterBasicAssigned($isCallCenterBasicAssigned = null)
     {
-        $this->isCallCenterBasicAssigned = (boolean) $isCallCenterBasicAssigned;
+        if (!$isCallCenterBasicAssigned) return $this;
+        $this->isCallCenterBasicAssigned = new PrimitiveType($isCallCenterBasicAssigned);
+        $this->isCallCenterBasicAssigned->setName('isCallCenterBasicAssigned');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsCallCenterBasicAssigned()
     {
-        return (!$this->isCallCenterBasicAssigned) ?: $this->isCallCenterBasicAssigned;
+        return $this->isCallCenterBasicAssigned->getValue();
     }
 
     /**
@@ -55,15 +58,19 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function setIsCallCenterStandardAssigned($isCallCenterStandardAssigned = null)
     {
-        $this->isCallCenterStandardAssigned = (boolean) $isCallCenterStandardAssigned;
+        if (!$isCallCenterStandardAssigned) return $this;
+        $this->isCallCenterStandardAssigned = new PrimitiveType($isCallCenterStandardAssigned);
+        $this->isCallCenterStandardAssigned->setName('isCallCenterStandardAssigned');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsCallCenterStandardAssigned()
     {
-        return (!$this->isCallCenterStandardAssigned) ?: $this->isCallCenterStandardAssigned;
+        return $this->isCallCenterStandardAssigned->getValue();
     }
 
     /**
@@ -71,14 +78,18 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function setIsCallCenterPremiumAssigned($isCallCenterPremiumAssigned = null)
     {
-        $this->isCallCenterPremiumAssigned = (boolean) $isCallCenterPremiumAssigned;
+        if (!$isCallCenterPremiumAssigned) return $this;
+        $this->isCallCenterPremiumAssigned = new PrimitiveType($isCallCenterPremiumAssigned);
+        $this->isCallCenterPremiumAssigned->setName('isCallCenterPremiumAssigned');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsCallCenterPremiumAssigned()
     {
-        return (!$this->isCallCenterPremiumAssigned) ?: $this->isCallCenterPremiumAssigned;
+        return $this->isCallCenterPremiumAssigned->getValue();
     }
 }

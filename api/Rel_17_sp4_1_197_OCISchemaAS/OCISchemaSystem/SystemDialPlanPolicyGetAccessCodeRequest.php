@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDialPlanPolicyGetAccessCodeRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialPlanPolicyGetAccessCodeResponse';
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemDialPlanPolicyGetAccessCodeRequest';
     protected $accessCode = null;
 
     public function __construct(
@@ -40,22 +40,24 @@ class SystemDialPlanPolicyGetAccessCodeRequest extends ComplexType implements Co
     }
 
     /**
-     * Dial Plan Access Code.
-     *         The Access Code may contain digits 0-9, *, and #.
+     * 
      */
     public function setAccessCode($accessCode = null)
     {
+        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
              ? $accessCode
              : new DialPlanAccessCode($accessCode);
+        $this->accessCode->setName('accessCode');
+        return $this;
     }
 
     /**
-     * Dial Plan Access Code.
-     *         The Access Code may contain digits 0-9, *, and #.
+     * 
+     * @return DialPlanAccessCode
      */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->getValue();
+        return $this->accessCode->getValue();
     }
 }

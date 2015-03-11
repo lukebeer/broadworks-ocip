@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MusicOnHoldUserSourceModify;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserMusicOnHoldUserModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
+    public    $name                               = 'UserMusicOnHoldUserModifyRequest';
     protected $userId                             = null;
     protected $source                             = null;
     protected $useAlternateSourceForInternalCalls = null;
@@ -32,9 +32,9 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
 
     public function __construct(
          $userId,
-          $source = null,
+         MusicOnHoldUserSourceModify $source = null,
          $useAlternateSourceForInternalCalls = null,
-          $internalSource = null
+         MusicOnHoldUserSourceModify $internalSource = null
     ) {
         $this->setUserId($userId);
         $this->setSource($source);
@@ -43,7 +43,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return UserMusicOnHoldUserModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,45 +51,45 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Contains the music on hold user source configuration.
+     * 
      */
     public function setSource(MusicOnHoldUserSourceModify $source = null)
     {
-        $this->source =  $source;
+        if (!$source) return $this;
+        $this->source = $source;
+        $this->source->setName('source');
+        return $this;
     }
 
     /**
-     * Contains the music on hold user source configuration.
+     * 
+     * @return MusicOnHoldUserSourceModify
      */
     public function getSource()
     {
-        return (!$this->source) ?: $this->source->getValue();
+        return $this->source;
     }
 
     /**
@@ -97,30 +97,38 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
      */
     public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls = null)
     {
-        $this->useAlternateSourceForInternalCalls = (boolean) $useAlternateSourceForInternalCalls;
+        if (!$useAlternateSourceForInternalCalls) return $this;
+        $this->useAlternateSourceForInternalCalls = new PrimitiveType($useAlternateSourceForInternalCalls);
+        $this->useAlternateSourceForInternalCalls->setName('useAlternateSourceForInternalCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseAlternateSourceForInternalCalls()
+    {
+        return $this->useAlternateSourceForInternalCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getUseAlternateSourceForInternalCalls()
-    {
-        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls;
-    }
-
-    /**
-     * Contains the music on hold user source configuration.
-     */
     public function setInternalSource(MusicOnHoldUserSourceModify $internalSource = null)
     {
-        $this->internalSource =  $internalSource;
+        if (!$internalSource) return $this;
+        $this->internalSource = $internalSource;
+        $this->internalSource->setName('internalSource');
+        return $this;
     }
 
     /**
-     * Contains the music on hold user source configuration.
+     * 
+     * @return MusicOnHoldUserSourceModify
      */
     public function getInternalSource()
     {
-        return (!$this->internalSource) ?: $this->internalSource->getValue();
+        return $this->internalSource;
     }
 }

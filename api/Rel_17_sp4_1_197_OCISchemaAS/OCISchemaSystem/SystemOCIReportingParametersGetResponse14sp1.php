@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCIReportingConnectionPingIntervalSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIReportingParametersGetResponse14sp1;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingParametersGetResponse14sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'SystemOCIReportingParametersGetResponse14sp1';
     protected $serverPort                    = null;
     protected $enableConnectionPing          = null;
     protected $connectionPingIntervalSeconds = null;
@@ -38,21 +38,25 @@ class SystemOCIReportingParametersGetResponse14sp1 extends ComplexType implement
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setServerPort($serverPort = null)
     {
+        if (!$serverPort) return $this;
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
+        $this->serverPort->setName('serverPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->getValue();
+        return $this->serverPort->getValue();
     }
 
     /**
@@ -60,33 +64,41 @@ class SystemOCIReportingParametersGetResponse14sp1 extends ComplexType implement
      */
     public function setEnableConnectionPing($enableConnectionPing = null)
     {
-        $this->enableConnectionPing = (boolean) $enableConnectionPing;
+        if (!$enableConnectionPing) return $this;
+        $this->enableConnectionPing = new PrimitiveType($enableConnectionPing);
+        $this->enableConnectionPing->setName('enableConnectionPing');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableConnectionPing()
+    {
+        return $this->enableConnectionPing->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableConnectionPing()
-    {
-        return (!$this->enableConnectionPing) ?: $this->enableConnectionPing;
-    }
-
-    /**
-     * Connection ping interval in seconds
-     */
     public function setConnectionPingIntervalSeconds($connectionPingIntervalSeconds = null)
     {
+        if (!$connectionPingIntervalSeconds) return $this;
         $this->connectionPingIntervalSeconds = ($connectionPingIntervalSeconds InstanceOf OCIReportingConnectionPingIntervalSeconds)
              ? $connectionPingIntervalSeconds
              : new OCIReportingConnectionPingIntervalSeconds($connectionPingIntervalSeconds);
+        $this->connectionPingIntervalSeconds->setName('connectionPingIntervalSeconds');
+        return $this;
     }
 
     /**
-     * Connection ping interval in seconds
+     * 
+     * @return OCIReportingConnectionPingIntervalSeconds
      */
     public function getConnectionPingIntervalSeconds()
     {
-        return (!$this->connectionPingIntervalSeconds) ?: $this->connectionPingIntervalSeconds->getValue();
+        return $this->connectionPingIntervalSeconds->getValue();
     }
 
     /**
@@ -94,15 +106,19 @@ class SystemOCIReportingParametersGetResponse14sp1 extends ComplexType implement
      */
     public function setAlterPasswords($alterPasswords = null)
     {
-        $this->alterPasswords = (boolean) $alterPasswords;
+        if (!$alterPasswords) return $this;
+        $this->alterPasswords = new PrimitiveType($alterPasswords);
+        $this->alterPasswords->setName('alterPasswords');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAlterPasswords()
     {
-        return (!$this->alterPasswords) ?: $this->alterPasswords;
+        return $this->alterPasswords->getValue();
     }
 
     /**
@@ -110,14 +126,18 @@ class SystemOCIReportingParametersGetResponse14sp1 extends ComplexType implement
      */
     public function setEnablePublicIdentityReporting($enablePublicIdentityReporting = null)
     {
-        $this->enablePublicIdentityReporting = (boolean) $enablePublicIdentityReporting;
+        if (!$enablePublicIdentityReporting) return $this;
+        $this->enablePublicIdentityReporting = new PrimitiveType($enablePublicIdentityReporting);
+        $this->enablePublicIdentityReporting->setName('enablePublicIdentityReporting');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnablePublicIdentityReporting()
     {
-        return (!$this->enablePublicIdentityReporting) ?: $this->enablePublicIdentityReporting;
+        return $this->enablePublicIdentityReporting->getValue();
     }
 }

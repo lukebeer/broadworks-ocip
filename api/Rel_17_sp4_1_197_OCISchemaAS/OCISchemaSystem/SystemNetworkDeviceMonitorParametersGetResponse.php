@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkDeviceMonitorFailedPollingIntervalMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkDeviceMonitorPollingIntervalMinutes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkDeviceMonitorParametersGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'SystemNetworkDeviceMonitorParametersGetResponse';
     protected $pollingIntervalMinutes       = null;
     protected $failedPollingIntervalMinutes = null;
 
@@ -35,38 +34,46 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
     }
 
     /**
-     * Network Device polling interval in minutes.
+     * 
      */
     public function setPollingIntervalMinutes($pollingIntervalMinutes = null)
     {
+        if (!$pollingIntervalMinutes) return $this;
         $this->pollingIntervalMinutes = ($pollingIntervalMinutes InstanceOf NetworkDeviceMonitorPollingIntervalMinutes)
              ? $pollingIntervalMinutes
              : new NetworkDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
+        $this->pollingIntervalMinutes->setName('pollingIntervalMinutes');
+        return $this;
     }
 
     /**
-     * Network Device polling interval in minutes.
+     * 
+     * @return NetworkDeviceMonitorPollingIntervalMinutes
      */
     public function getPollingIntervalMinutes()
     {
-        return (!$this->pollingIntervalMinutes) ?: $this->pollingIntervalMinutes->getValue();
+        return $this->pollingIntervalMinutes->getValue();
     }
 
     /**
-     * Network Device failed polling interval in minutes.
+     * 
      */
     public function setFailedPollingIntervalMinutes($failedPollingIntervalMinutes = null)
     {
+        if (!$failedPollingIntervalMinutes) return $this;
         $this->failedPollingIntervalMinutes = ($failedPollingIntervalMinutes InstanceOf NetworkDeviceMonitorFailedPollingIntervalMinutes)
              ? $failedPollingIntervalMinutes
              : new NetworkDeviceMonitorFailedPollingIntervalMinutes($failedPollingIntervalMinutes);
+        $this->failedPollingIntervalMinutes->setName('failedPollingIntervalMinutes');
+        return $this;
     }
 
     /**
-     * Network Device failed polling interval in minutes.
+     * 
+     * @return NetworkDeviceMonitorFailedPollingIntervalMinutes
      */
     public function getFailedPollingIntervalMinutes()
     {
-        return (!$this->failedPollingIntervalMinutes) ?: $this->failedPollingIntervalMinutes->getValue();
+        return $this->failedPollingIntervalMinutes->getValue();
     }
 }

@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaIMRN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,12 +22,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse';
-    public    $name               = __CLASS__;
+    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse';
+    public    $name               = 'SystemBroadWorksMobilityGetIMRNListRequest';
     protected $searchCriteriaIMRN = null;
 
     public function __construct(
-          $searchCriteriaIMRN = null
+         SearchCriteriaIMRN $searchCriteriaIMRN = null
     ) {
         $this->setSearchCriteriaIMRN($searchCriteriaIMRN);
     }
@@ -41,18 +41,24 @@ class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements 
     }
 
     /**
-     * Criteria for searching for an IMRN Number.
+     * 
      */
     public function setSearchCriteriaIMRN(SearchCriteriaIMRN $searchCriteriaIMRN = null)
     {
-        $this->searchCriteriaIMRN =  $searchCriteriaIMRN;
+        if (!$searchCriteriaIMRN) return $this;
+        $this->searchCriteriaIMRN = ($searchCriteriaIMRN InstanceOf SearchCriteriaIMRN)
+             ? $searchCriteriaIMRN
+             : new SearchCriteriaIMRN($searchCriteriaIMRN);
+        $this->searchCriteriaIMRN->setName('searchCriteriaIMRN');
+        return $this;
     }
 
     /**
-     * Criteria for searching for an IMRN Number.
+     * 
+     * @return SearchCriteriaIMRN
      */
     public function getSearchCriteriaIMRN()
     {
-        return (!$this->searchCriteriaIMRN) ?: $this->searchCriteriaIMRN->getValue();
+        return $this->searchCriteriaIMRN;
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityServiceAccessCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityServiceAccessCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'SystemBroadWorksMobilityServiceAccessCodeGetListResponse';
     protected $serviceAccessCodeTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemBroadWorksMobilityServiceAccessCodeGetListResponse extends ComplexTy
      */
     public function setServiceAccessCodeTable(core:OCITable $serviceAccessCodeTable = null)
     {
-        $this->serviceAccessCodeTable =  $serviceAccessCodeTable;
+        if (!$serviceAccessCodeTable) return $this;
+        $this->serviceAccessCodeTable->setName('serviceAccessCodeTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getServiceAccessCodeTable()
     {
-        return (!$this->serviceAccessCodeTable) ?: $this->serviceAccessCodeTable->getValue();
+        return $this->serviceAccessCodeTable->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserServiceGetAssignmentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserServiceGetAssignmentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = __CLASS__;
+    public    $name                        = 'UserServiceGetAssignmentListResponse';
     protected $servicePacksAssignmentTable = null;
     protected $userServicesAssignmentTable = null;
 
@@ -41,15 +40,18 @@ class UserServiceGetAssignmentListResponse extends ComplexType implements Comple
      */
     public function setServicePacksAssignmentTable(core:OCITable $servicePacksAssignmentTable = null)
     {
-        $this->servicePacksAssignmentTable =  $servicePacksAssignmentTable;
+        if (!$servicePacksAssignmentTable) return $this;
+        $this->servicePacksAssignmentTable->setName('servicePacksAssignmentTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getServicePacksAssignmentTable()
     {
-        return (!$this->servicePacksAssignmentTable) ?: $this->servicePacksAssignmentTable->getValue();
+        return $this->servicePacksAssignmentTable->getValue();
     }
 
     /**
@@ -57,14 +59,17 @@ class UserServiceGetAssignmentListResponse extends ComplexType implements Comple
      */
     public function setUserServicesAssignmentTable(core:OCITable $userServicesAssignmentTable = null)
     {
-        $this->userServicesAssignmentTable =  $userServicesAssignmentTable;
+        if (!$userServicesAssignmentTable) return $this;
+        $this->userServicesAssignmentTable->setName('userServicesAssignmentTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getUserServicesAssignmentTable()
     {
-        return (!$this->userServicesAssignmentTable) ?: $this->userServicesAssignmentTable->getValue();
+        return $this->userServicesAssignmentTable->getValue();
     }
 }

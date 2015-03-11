@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallTypeDigitMap;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallTypeAddMappingResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemCallTypeAddMappingRequest';
     protected $countryCode = null;
     protected $digitMap    = null;
     protected $callType    = null;
@@ -39,7 +38,7 @@ class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return SystemCallTypeAddMappingResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,56 +46,68 @@ class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * Country dialing code.
+     * 
      */
     public function setCountryCode($countryCode = null)
     {
+        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
+        $this->countryCode->setName('countryCode');
+        return $this;
     }
 
     /**
-     * Country dialing code.
+     * 
+     * @return CountryCode
      */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->getValue();
+        return $this->countryCode->getValue();
     }
 
     /**
-     * Call Type Digit Map.
+     * 
      */
     public function setDigitMap($digitMap = null)
     {
+        if (!$digitMap) return $this;
         $this->digitMap = ($digitMap InstanceOf CallTypeDigitMap)
              ? $digitMap
              : new CallTypeDigitMap($digitMap);
+        $this->digitMap->setName('digitMap');
+        return $this;
     }
 
     /**
-     * Call Type Digit Map.
+     * 
+     * @return CallTypeDigitMap
      */
     public function getDigitMap()
     {
-        return (!$this->digitMap) ?: $this->digitMap->getValue();
+        return $this->digitMap->getValue();
     }
 
     /**
-     * System Call Type
+     * 
      */
     public function setCallType($callType = null)
     {
+        if (!$callType) return $this;
         $this->callType = ($callType InstanceOf SystemCallType)
              ? $callType
              : new SystemCallType($callType);
+        $this->callType->setName('callType');
+        return $this;
     }
 
     /**
-     * System Call Type
+     * 
+     * @return SystemCallType
      */
     public function getCallType()
     {
-        return (!$this->callType) ?: $this->callType->getValue();
+        return $this->callType->getValue();
     }
 }

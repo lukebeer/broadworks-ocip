@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FeatureAccessCodeEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderFeatureAccessCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderFeatureAccessCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderFeatureAccessCodeGetListResponse';
     protected $featureAccessCode = null;
 
     /**
@@ -32,18 +31,22 @@ class ServiceProviderFeatureAccessCodeGetListResponse extends ComplexType implem
     }
 
     /**
-     * Feature Access Code Entry
+     * 
      */
     public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
-        $this->featureAccessCode =  $featureAccessCode;
+        if (!$featureAccessCode) return $this;
+        $this->featureAccessCode = $featureAccessCode;
+        $this->featureAccessCode->setName('featureAccessCode');
+        return $this;
     }
 
     /**
-     * Feature Access Code Entry
+     * 
+     * @return FeatureAccessCodeEntry
      */
     public function getFeatureAccessCode()
     {
-        return (!$this->featureAccessCode) ?: $this->featureAccessCode->getValue();
+        return $this->featureAccessCode;
     }
 }

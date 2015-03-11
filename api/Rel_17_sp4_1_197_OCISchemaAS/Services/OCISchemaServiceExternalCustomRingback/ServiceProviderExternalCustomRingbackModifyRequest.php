@@ -5,14 +5,13 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\ExternalCustomRingbackTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\ExternalCustomRingbackPrefixDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceExternalCustomRingback\ServiceProviderExternalCustomRingbackModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'ServiceProviderExternalCustomRingbackModifyRequest';
     protected $serviceProviderId = null;
     protected $prefixDigits      = null;
     protected $serverNetAddress  = null;
@@ -47,7 +46,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
     }
 
     /**
-     * @return ServiceProviderExternalCustomRingbackModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,94 +54,112 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Prefix digits prepended to the address to reach the external ringback server.
+     * 
      */
     public function setPrefixDigits($prefixDigits = null)
     {
+        if (!$prefixDigits) return $this;
         $this->prefixDigits = ($prefixDigits InstanceOf ExternalCustomRingbackPrefixDigits)
              ? $prefixDigits
              : new ExternalCustomRingbackPrefixDigits($prefixDigits);
+        $this->prefixDigits->setName('prefixDigits');
+        return $this;
     }
 
     /**
-     * Prefix digits prepended to the address to reach the external ringback server.
+     * 
+     * @return ExternalCustomRingbackPrefixDigits
      */
     public function getPrefixDigits()
     {
-        return (!$this->prefixDigits) ?: $this->prefixDigits->getValue();
+        return $this->prefixDigits->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setServerNetAddress($serverNetAddress = null)
     {
+        if (!$serverNetAddress) return $this;
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
              ? $serverNetAddress
              : new NetAddress($serverNetAddress);
+        $this->serverNetAddress->setName('serverNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getServerNetAddress()
     {
-        return (!$this->serverNetAddress) ?: $this->serverNetAddress->getValue();
+        return $this->serverNetAddress->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setServerPort($serverPort = null)
     {
+        if (!$serverPort) return $this;
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
+        $this->serverPort->setName('serverPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getServerPort()
     {
-        return (!$this->serverPort) ?: $this->serverPort->getValue();
+        return $this->serverPort->getValue();
     }
 
     /**
-     * Time to wait for any External Media Server to reply with custom ringback.
+     * 
      */
     public function setTimeoutSeconds($timeoutSeconds = null)
     {
+        if (!$timeoutSeconds) return $this;
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf ExternalCustomRingbackTimeoutSeconds)
              ? $timeoutSeconds
              : new ExternalCustomRingbackTimeoutSeconds($timeoutSeconds);
+        $this->timeoutSeconds->setName('timeoutSeconds');
+        return $this;
     }
 
     /**
-     * Time to wait for any External Media Server to reply with custom ringback.
+     * 
+     * @return ExternalCustomRingbackTimeoutSeconds
      */
     public function getTimeoutSeconds()
     {
-        return (!$this->timeoutSeconds) ?: $this->timeoutSeconds->getValue();
+        return $this->timeoutSeconds->getValue();
     }
 }

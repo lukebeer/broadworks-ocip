@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SessionAuditTimeoutPeriodSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SessionAuditIntervalSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSessionAuditGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'SystemSessionAuditGetResponse';
     protected $isActive             = null;
     protected $intervalSeconds      = null;
     protected $timeoutPeriodSeconds = null;
@@ -40,50 +40,62 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Session Audit interval seconds.
-     */
     public function setIntervalSeconds($intervalSeconds = null)
     {
+        if (!$intervalSeconds) return $this;
         $this->intervalSeconds = ($intervalSeconds InstanceOf SessionAuditIntervalSeconds)
              ? $intervalSeconds
              : new SessionAuditIntervalSeconds($intervalSeconds);
+        $this->intervalSeconds->setName('intervalSeconds');
+        return $this;
     }
 
     /**
-     * Session Audit interval seconds.
+     * 
+     * @return SessionAuditIntervalSeconds
      */
     public function getIntervalSeconds()
     {
-        return (!$this->intervalSeconds) ?: $this->intervalSeconds->getValue();
+        return $this->intervalSeconds->getValue();
     }
 
     /**
-     * Session Audit timeout period seconds.
+     * 
      */
     public function setTimeoutPeriodSeconds($timeoutPeriodSeconds = null)
     {
+        if (!$timeoutPeriodSeconds) return $this;
         $this->timeoutPeriodSeconds = ($timeoutPeriodSeconds InstanceOf SessionAuditTimeoutPeriodSeconds)
              ? $timeoutPeriodSeconds
              : new SessionAuditTimeoutPeriodSeconds($timeoutPeriodSeconds);
+        $this->timeoutPeriodSeconds->setName('timeoutPeriodSeconds');
+        return $this;
     }
 
     /**
-     * Session Audit timeout period seconds.
+     * 
+     * @return SessionAuditTimeoutPeriodSeconds
      */
     public function getTimeoutPeriodSeconds()
     {
-        return (!$this->timeoutPeriodSeconds) ?: $this->timeoutPeriodSeconds->getValue();
+        return $this->timeoutPeriodSeconds->getValue();
     }
 }

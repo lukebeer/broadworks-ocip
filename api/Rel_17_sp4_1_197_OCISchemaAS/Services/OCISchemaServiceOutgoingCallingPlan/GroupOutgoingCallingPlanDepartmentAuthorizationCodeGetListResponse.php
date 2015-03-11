@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanAuthorizationCodeEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
+    public    $name      = 'GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse';
     protected $codeEntry = null;
 
     /**
@@ -32,18 +31,22 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse extends
     }
 
     /**
-     * Outgoing Calling Plan Authorization Code.
+     * 
      */
     public function setCodeEntry(OutgoingCallingPlanAuthorizationCodeEntry $codeEntry = null)
     {
-        $this->codeEntry =  $codeEntry;
+        if (!$codeEntry) return $this;
+        $this->codeEntry = $codeEntry;
+        $this->codeEntry->setName('codeEntry');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan Authorization Code.
+     * 
+     * @return OutgoingCallingPlanAuthorizationCodeEntry
      */
     public function getCodeEntry()
     {
-        return (!$this->codeEntry) ?: $this->codeEntry->getValue();
+        return $this->codeEntry;
     }
 }

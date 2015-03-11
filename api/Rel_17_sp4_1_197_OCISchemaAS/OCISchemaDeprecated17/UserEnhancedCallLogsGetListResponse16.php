@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MixedCallLogsEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserEnhancedCallLogsGetListResponse16;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserEnhancedCallLogsGetListResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserEnhancedCallLogsGetListResponse16';
     protected $totalNumberOfRows = null;
     protected $callLog           = null;
 
@@ -41,30 +41,38 @@ class UserEnhancedCallLogsGetListResponse16 extends ComplexType implements Compl
      */
     public function setTotalNumberOfRows($totalNumberOfRows = null)
     {
-        $this->totalNumberOfRows = (int) $totalNumberOfRows;
+        if (!$totalNumberOfRows) return $this;
+        $this->totalNumberOfRows = new PrimitiveType($totalNumberOfRows);
+        $this->totalNumberOfRows->setName('totalNumberOfRows');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:int
+     */
+    public function getTotalNumberOfRows()
+    {
+        return $this->totalNumberOfRows->getValue();
     }
 
     /**
      * 
      */
-    public function getTotalNumberOfRows()
-    {
-        return (!$this->totalNumberOfRows) ?: $this->totalNumberOfRows;
-    }
-
-    /**
-     * Call Log entry describing a placed, received, or missed call.
-     */
     public function setCallLog(MixedCallLogsEntry $callLog = null)
     {
-        $this->callLog =  $callLog;
+        if (!$callLog) return $this;
+        $this->callLog = $callLog;
+        $this->callLog->setName('callLog');
+        return $this;
     }
 
     /**
-     * Call Log entry describing a placed, received, or missed call.
+     * 
+     * @return MixedCallLogsEntry
      */
     public function getCallLog()
     {
-        return (!$this->callLog) ?: $this->callLog->getValue();
+        return $this->callLog;
     }
 }

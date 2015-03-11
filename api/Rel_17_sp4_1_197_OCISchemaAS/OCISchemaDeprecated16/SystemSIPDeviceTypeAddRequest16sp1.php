@@ -11,11 +11,11 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEDeviceOptions16sp1;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignalingAddressType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\EarlyMediaSupportType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AuthenticationMode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\EarlyMediaSupportType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebBasedConfigURL;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemSIPDeviceTypeAddResponse16sp1;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -30,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name                              = __CLASS__;
+    public    $name                              = 'SystemSIPDeviceTypeAddRequest16sp1';
     protected $deviceType                        = null;
     protected $numberOfPorts                     = null;
     protected $profile                           = null;
@@ -63,7 +63,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
 
     public function __construct(
          $deviceType,
-          $numberOfPorts,
+         UnboundedPositiveInt $numberOfPorts,
          $profile,
          $registrationCapable,
          $isConferenceDevice,
@@ -80,7 +80,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
          $PBXIntegration,
          $useBusinessTrunkingContact,
          $staticRegistrationCapable,
-          $cpeDeviceOptions = null,
+         CPEDeviceOptions16sp1 $cpeDeviceOptions = null,
          $earlyMediaSupport,
          $authenticateRefer,
          $autoConfigSoftClient,
@@ -124,7 +124,7 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
     }
 
     /**
-     * @return SystemSIPDeviceTypeAddResponse16sp1
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -132,55 +132,67 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
     }
 
     /**
-     * Access device type.
+     * 
      */
     public function setDeviceType($deviceType = null)
     {
+        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
+        $this->deviceType->setName('deviceType');
+        return $this;
     }
 
     /**
-     * Access device type.
+     * 
+     * @return AccessDeviceType
      */
     public function getDeviceType()
     {
-        return (!$this->deviceType) ?: $this->deviceType->getValue();
+        return $this->deviceType->getValue();
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     * 
      */
     public function setNumberOfPorts(UnboundedPositiveInt $numberOfPorts = null)
     {
-        $this->numberOfPorts =  $numberOfPorts;
+        if (!$numberOfPorts) return $this;
+        $this->numberOfPorts = $numberOfPorts;
+        $this->numberOfPorts->setName('numberOfPorts');
+        return $this;
     }
 
     /**
-     * Unbounded Quantity. Can either be unlimited or a positive int quantity.
+     * 
+     * @return UnboundedPositiveInt
      */
     public function getNumberOfPorts()
     {
-        return (!$this->numberOfPorts) ?: $this->numberOfPorts->getValue();
+        return $this->numberOfPorts;
     }
 
     /**
-     * Device type signaling address types.
+     * 
      */
     public function setProfile($profile = null)
     {
+        if (!$profile) return $this;
         $this->profile = ($profile InstanceOf SignalingAddressType)
              ? $profile
              : new SignalingAddressType($profile);
+        $this->profile->setName('profile');
+        return $this;
     }
 
     /**
-     * Device type signaling address types.
+     * 
+     * @return SignalingAddressType
      */
     public function getProfile()
     {
-        return (!$this->profile) ?: $this->profile->getValue();
+        return $this->profile->getValue();
     }
 
     /**
@@ -188,15 +200,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setRegistrationCapable($registrationCapable = null)
     {
-        $this->registrationCapable = (boolean) $registrationCapable;
+        if (!$registrationCapable) return $this;
+        $this->registrationCapable = new PrimitiveType($registrationCapable);
+        $this->registrationCapable->setName('registrationCapable');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRegistrationCapable()
     {
-        return (!$this->registrationCapable) ?: $this->registrationCapable;
+        return $this->registrationCapable->getValue();
     }
 
     /**
@@ -204,15 +220,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setIsConferenceDevice($isConferenceDevice = null)
     {
-        $this->isConferenceDevice = (boolean) $isConferenceDevice;
+        if (!$isConferenceDevice) return $this;
+        $this->isConferenceDevice = new PrimitiveType($isConferenceDevice);
+        $this->isConferenceDevice->setName('isConferenceDevice');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsConferenceDevice()
     {
-        return (!$this->isConferenceDevice) ?: $this->isConferenceDevice;
+        return $this->isConferenceDevice->getValue();
     }
 
     /**
@@ -220,15 +240,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setIsMobilityManagerDevice($isMobilityManagerDevice = null)
     {
-        $this->isMobilityManagerDevice = (boolean) $isMobilityManagerDevice;
+        if (!$isMobilityManagerDevice) return $this;
+        $this->isMobilityManagerDevice = new PrimitiveType($isMobilityManagerDevice);
+        $this->isMobilityManagerDevice->setName('isMobilityManagerDevice');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsMobilityManagerDevice()
     {
-        return (!$this->isMobilityManagerDevice) ?: $this->isMobilityManagerDevice;
+        return $this->isMobilityManagerDevice->getValue();
     }
 
     /**
@@ -236,15 +260,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setIsMusicOnHoldDevice($isMusicOnHoldDevice = null)
     {
-        $this->isMusicOnHoldDevice = (boolean) $isMusicOnHoldDevice;
+        if (!$isMusicOnHoldDevice) return $this;
+        $this->isMusicOnHoldDevice = new PrimitiveType($isMusicOnHoldDevice);
+        $this->isMusicOnHoldDevice->setName('isMusicOnHoldDevice');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsMusicOnHoldDevice()
     {
-        return (!$this->isMusicOnHoldDevice) ?: $this->isMusicOnHoldDevice;
+        return $this->isMusicOnHoldDevice->getValue();
     }
 
     /**
@@ -252,15 +280,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setRFC3264Hold($RFC3264Hold = null)
     {
-        $this->RFC3264Hold = (boolean) $RFC3264Hold;
+        if (!$RFC3264Hold) return $this;
+        $this->RFC3264Hold = new PrimitiveType($RFC3264Hold);
+        $this->RFC3264Hold->setName('RFC3264Hold');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRFC3264Hold()
     {
-        return (!$this->RFC3264Hold) ?: $this->RFC3264Hold;
+        return $this->RFC3264Hold->getValue();
     }
 
     /**
@@ -268,15 +300,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setIsTrusted($isTrusted = null)
     {
-        $this->isTrusted = (boolean) $isTrusted;
+        if (!$isTrusted) return $this;
+        $this->isTrusted = new PrimitiveType($isTrusted);
+        $this->isTrusted->setName('isTrusted');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsTrusted()
     {
-        return (!$this->isTrusted) ?: $this->isTrusted;
+        return $this->isTrusted->getValue();
     }
 
     /**
@@ -284,15 +320,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setE164Capable($E164Capable = null)
     {
-        $this->E164Capable = (boolean) $E164Capable;
+        if (!$E164Capable) return $this;
+        $this->E164Capable = new PrimitiveType($E164Capable);
+        $this->E164Capable->setName('E164Capable');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getE164Capable()
     {
-        return (!$this->E164Capable) ?: $this->E164Capable;
+        return $this->E164Capable->getValue();
     }
 
     /**
@@ -300,15 +340,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setRouteAdvance($routeAdvance = null)
     {
-        $this->routeAdvance = (boolean) $routeAdvance;
+        if (!$routeAdvance) return $this;
+        $this->routeAdvance = new PrimitiveType($routeAdvance);
+        $this->routeAdvance->setName('routeAdvance');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRouteAdvance()
     {
-        return (!$this->routeAdvance) ?: $this->routeAdvance;
+        return $this->routeAdvance->getValue();
     }
 
     /**
@@ -316,15 +360,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setForwardingOverride($forwardingOverride = null)
     {
-        $this->forwardingOverride = (boolean) $forwardingOverride;
+        if (!$forwardingOverride) return $this;
+        $this->forwardingOverride = new PrimitiveType($forwardingOverride);
+        $this->forwardingOverride->setName('forwardingOverride');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getForwardingOverride()
     {
-        return (!$this->forwardingOverride) ?: $this->forwardingOverride;
+        return $this->forwardingOverride->getValue();
     }
 
     /**
@@ -332,33 +380,41 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setWirelessIntegration($wirelessIntegration = null)
     {
-        $this->wirelessIntegration = (boolean) $wirelessIntegration;
+        if (!$wirelessIntegration) return $this;
+        $this->wirelessIntegration = new PrimitiveType($wirelessIntegration);
+        $this->wirelessIntegration->setName('wirelessIntegration');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getWirelessIntegration()
+    {
+        return $this->wirelessIntegration->getValue();
     }
 
     /**
      * 
      */
-    public function getWirelessIntegration()
-    {
-        return (!$this->wirelessIntegration) ?: $this->wirelessIntegration;
-    }
-
-    /**
-     * Web based configuration URL.
-     */
     public function setWebBasedConfigURL($webBasedConfigURL = null)
     {
+        if (!$webBasedConfigURL) return $this;
         $this->webBasedConfigURL = ($webBasedConfigURL InstanceOf WebBasedConfigURL)
              ? $webBasedConfigURL
              : new WebBasedConfigURL($webBasedConfigURL);
+        $this->webBasedConfigURL->setName('webBasedConfigURL');
+        return $this;
     }
 
     /**
-     * Web based configuration URL.
+     * 
+     * @return WebBasedConfigURL
      */
     public function getWebBasedConfigURL()
     {
-        return (!$this->webBasedConfigURL) ?: $this->webBasedConfigURL->getValue();
+        return $this->webBasedConfigURL->getValue();
     }
 
     /**
@@ -366,15 +422,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setIsVideoCapable($isVideoCapable = null)
     {
-        $this->isVideoCapable = (boolean) $isVideoCapable;
+        if (!$isVideoCapable) return $this;
+        $this->isVideoCapable = new PrimitiveType($isVideoCapable);
+        $this->isVideoCapable->setName('isVideoCapable');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsVideoCapable()
     {
-        return (!$this->isVideoCapable) ?: $this->isVideoCapable;
+        return $this->isVideoCapable->getValue();
     }
 
     /**
@@ -382,15 +442,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setPBXIntegration($PBXIntegration = null)
     {
-        $this->PBXIntegration = (boolean) $PBXIntegration;
+        if (!$PBXIntegration) return $this;
+        $this->PBXIntegration = new PrimitiveType($PBXIntegration);
+        $this->PBXIntegration->setName('PBXIntegration');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPBXIntegration()
     {
-        return (!$this->PBXIntegration) ?: $this->PBXIntegration;
+        return $this->PBXIntegration->getValue();
     }
 
     /**
@@ -398,15 +462,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setUseBusinessTrunkingContact($useBusinessTrunkingContact = null)
     {
-        $this->useBusinessTrunkingContact = (boolean) $useBusinessTrunkingContact;
+        if (!$useBusinessTrunkingContact) return $this;
+        $this->useBusinessTrunkingContact = new PrimitiveType($useBusinessTrunkingContact);
+        $this->useBusinessTrunkingContact->setName('useBusinessTrunkingContact');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseBusinessTrunkingContact()
     {
-        return (!$this->useBusinessTrunkingContact) ?: $this->useBusinessTrunkingContact;
+        return $this->useBusinessTrunkingContact->getValue();
     }
 
     /**
@@ -414,53 +482,61 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setStaticRegistrationCapable($staticRegistrationCapable = null)
     {
-        $this->staticRegistrationCapable = (boolean) $staticRegistrationCapable;
+        if (!$staticRegistrationCapable) return $this;
+        $this->staticRegistrationCapable = new PrimitiveType($staticRegistrationCapable);
+        $this->staticRegistrationCapable->setName('staticRegistrationCapable');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getStaticRegistrationCapable()
+    {
+        return $this->staticRegistrationCapable->getValue();
     }
 
     /**
      * 
      */
-    public function getStaticRegistrationCapable()
-    {
-        return (!$this->staticRegistrationCapable) ?: $this->staticRegistrationCapable;
-    }
-
-    /**
-     * CPE device's options.
-     */
     public function setCpeDeviceOptions(CPEDeviceOptions16sp1 $cpeDeviceOptions = null)
     {
-        $this->cpeDeviceOptions =  $cpeDeviceOptions;
+        if (!$cpeDeviceOptions) return $this;
+        $this->cpeDeviceOptions = $cpeDeviceOptions;
+        $this->cpeDeviceOptions->setName('cpeDeviceOptions');
+        return $this;
     }
 
     /**
-     * CPE device's options.
+     * 
+     * @return CPEDeviceOptions16sp1
      */
     public function getCpeDeviceOptions()
     {
-        return (!$this->cpeDeviceOptions) ?: $this->cpeDeviceOptions->getValue();
+        return $this->cpeDeviceOptions;
     }
 
     /**
-     * Early Media Support types. This is typically used to configure the ringback tone delivery mode.
-     *         When there is no early media, the call originator typically supplies ringback tone locally.
-     *         RTP - Early Session refers to RFC 3959.
+     * 
      */
     public function setEarlyMediaSupport($earlyMediaSupport = null)
     {
+        if (!$earlyMediaSupport) return $this;
         $this->earlyMediaSupport = ($earlyMediaSupport InstanceOf EarlyMediaSupportType)
              ? $earlyMediaSupport
              : new EarlyMediaSupportType($earlyMediaSupport);
+        $this->earlyMediaSupport->setName('earlyMediaSupport');
+        return $this;
     }
 
     /**
-     * Early Media Support types. This is typically used to configure the ringback tone delivery mode.
-     *         When there is no early media, the call originator typically supplies ringback tone locally.
-     *         RTP - Early Session refers to RFC 3959.
+     * 
+     * @return EarlyMediaSupportType
      */
     public function getEarlyMediaSupport()
     {
-        return (!$this->earlyMediaSupport) ?: $this->earlyMediaSupport->getValue();
+        return $this->earlyMediaSupport->getValue();
     }
 
     /**
@@ -468,15 +544,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setAuthenticateRefer($authenticateRefer = null)
     {
-        $this->authenticateRefer = (boolean) $authenticateRefer;
+        if (!$authenticateRefer) return $this;
+        $this->authenticateRefer = new PrimitiveType($authenticateRefer);
+        $this->authenticateRefer->setName('authenticateRefer');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAuthenticateRefer()
     {
-        return (!$this->authenticateRefer) ?: $this->authenticateRefer;
+        return $this->authenticateRefer->getValue();
     }
 
     /**
@@ -484,33 +564,41 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setAutoConfigSoftClient($autoConfigSoftClient = null)
     {
-        $this->autoConfigSoftClient = (boolean) $autoConfigSoftClient;
+        if (!$autoConfigSoftClient) return $this;
+        $this->autoConfigSoftClient = new PrimitiveType($autoConfigSoftClient);
+        $this->autoConfigSoftClient->setName('autoConfigSoftClient');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAutoConfigSoftClient()
+    {
+        return $this->autoConfigSoftClient->getValue();
     }
 
     /**
      * 
      */
-    public function getAutoConfigSoftClient()
-    {
-        return (!$this->autoConfigSoftClient) ?: $this->autoConfigSoftClient;
-    }
-
-    /**
-     * Choices for SIP Device Authentication
-     */
     public function setAuthenticationMode($authenticationMode = null)
     {
+        if (!$authenticationMode) return $this;
         $this->authenticationMode = ($authenticationMode InstanceOf AuthenticationMode)
              ? $authenticationMode
              : new AuthenticationMode($authenticationMode);
+        $this->authenticationMode->setName('authenticationMode');
+        return $this;
     }
 
     /**
-     * Choices for SIP Device Authentication
+     * 
+     * @return AuthenticationMode
      */
     public function getAuthenticationMode()
     {
-        return (!$this->authenticationMode) ?: $this->authenticationMode->getValue();
+        return $this->authenticationMode->getValue();
     }
 
     /**
@@ -518,15 +606,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setRequiresBroadWorksDigitCollection($requiresBroadWorksDigitCollection = null)
     {
-        $this->requiresBroadWorksDigitCollection = (boolean) $requiresBroadWorksDigitCollection;
+        if (!$requiresBroadWorksDigitCollection) return $this;
+        $this->requiresBroadWorksDigitCollection = new PrimitiveType($requiresBroadWorksDigitCollection);
+        $this->requiresBroadWorksDigitCollection->setName('requiresBroadWorksDigitCollection');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRequiresBroadWorksDigitCollection()
     {
-        return (!$this->requiresBroadWorksDigitCollection) ?: $this->requiresBroadWorksDigitCollection;
+        return $this->requiresBroadWorksDigitCollection->getValue();
     }
 
     /**
@@ -534,15 +626,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setRequiresBroadWorksCallWaitingTone($requiresBroadWorksCallWaitingTone = null)
     {
-        $this->requiresBroadWorksCallWaitingTone = (boolean) $requiresBroadWorksCallWaitingTone;
+        if (!$requiresBroadWorksCallWaitingTone) return $this;
+        $this->requiresBroadWorksCallWaitingTone = new PrimitiveType($requiresBroadWorksCallWaitingTone);
+        $this->requiresBroadWorksCallWaitingTone->setName('requiresBroadWorksCallWaitingTone');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRequiresBroadWorksCallWaitingTone()
     {
-        return (!$this->requiresBroadWorksCallWaitingTone) ?: $this->requiresBroadWorksCallWaitingTone;
+        return $this->requiresBroadWorksCallWaitingTone->getValue();
     }
 
     /**
@@ -550,15 +646,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setRequiresMWISubscription($requiresMWISubscription = null)
     {
-        $this->requiresMWISubscription = (boolean) $requiresMWISubscription;
+        if (!$requiresMWISubscription) return $this;
+        $this->requiresMWISubscription = new PrimitiveType($requiresMWISubscription);
+        $this->requiresMWISubscription->setName('requiresMWISubscription');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRequiresMWISubscription()
     {
-        return (!$this->requiresMWISubscription) ?: $this->requiresMWISubscription;
+        return $this->requiresMWISubscription->getValue();
     }
 
     /**
@@ -566,15 +666,19 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setUseHistoryInfoHeaderOnAccessSide($useHistoryInfoHeaderOnAccessSide = null)
     {
-        $this->useHistoryInfoHeaderOnAccessSide = (boolean) $useHistoryInfoHeaderOnAccessSide;
+        if (!$useHistoryInfoHeaderOnAccessSide) return $this;
+        $this->useHistoryInfoHeaderOnAccessSide = new PrimitiveType($useHistoryInfoHeaderOnAccessSide);
+        $this->useHistoryInfoHeaderOnAccessSide->setName('useHistoryInfoHeaderOnAccessSide');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseHistoryInfoHeaderOnAccessSide()
     {
-        return (!$this->useHistoryInfoHeaderOnAccessSide) ?: $this->useHistoryInfoHeaderOnAccessSide;
+        return $this->useHistoryInfoHeaderOnAccessSide->getValue();
     }
 
     /**
@@ -582,32 +686,40 @@ class SystemSIPDeviceTypeAddRequest16sp1 extends ComplexType implements ComplexI
      */
     public function setAdviceOfChargeCapable($adviceOfChargeCapable = null)
     {
-        $this->adviceOfChargeCapable = (boolean) $adviceOfChargeCapable;
+        if (!$adviceOfChargeCapable) return $this;
+        $this->adviceOfChargeCapable = new PrimitiveType($adviceOfChargeCapable);
+        $this->adviceOfChargeCapable->setName('adviceOfChargeCapable');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAdviceOfChargeCapable()
+    {
+        return $this->adviceOfChargeCapable->getValue();
     }
 
     /**
      * 
      */
-    public function getAdviceOfChargeCapable()
-    {
-        return (!$this->adviceOfChargeCapable) ?: $this->adviceOfChargeCapable;
-    }
-
-    /**
-     * Choices for the reset event of an access device.
-     */
     public function setResetEvent($resetEvent = null)
     {
+        if (!$resetEvent) return $this;
         $this->resetEvent = ($resetEvent InstanceOf AccessDeviceResetEvent)
              ? $resetEvent
              : new AccessDeviceResetEvent($resetEvent);
+        $this->resetEvent->setName('resetEvent');
+        return $this;
     }
 
     /**
-     * Choices for the reset event of an access device.
+     * 
+     * @return AccessDeviceResetEvent
      */
     public function getResetEvent()
     {
-        return (!$this->resetEvent) ?: $this->resetEvent->getValue();
+        return $this->resetEvent->getValue();
     }
 }

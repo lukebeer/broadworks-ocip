@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterModifyAnnouncementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'GroupCallCenterModifyAnnouncementRequest';
     protected $serviceUserId                   = null;
     protected $entranceMessageSelection        = null;
     protected $entranceMessageAudioFile        = null;
@@ -38,14 +37,14 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
     public function __construct(
          $serviceUserId,
          $entranceMessageSelection = null,
-          $entranceMessageAudioFile = null,
-          $entranceMessageVideoFile = null,
+         LabeledFileResource $entranceMessageAudioFile = null,
+         LabeledFileResource $entranceMessageVideoFile = null,
          $periodicComfortMessageSelection = null,
-          $periodicComfortMessageAudioFile = null,
-          $periodicComfortMessageVideoFile = null,
+         LabeledFileResource $periodicComfortMessageAudioFile = null,
+         LabeledFileResource $periodicComfortMessageVideoFile = null,
          $onHoldMessageSelection = null,
-          $onHoldMessageAudioFile = null,
-          $onHoldMessageVideoFile = null
+         LabeledFileResource $onHoldMessageAudioFile = null,
+         LabeledFileResource $onHoldMessageVideoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setEntranceMessageSelection($entranceMessageSelection);
@@ -60,7 +59,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
     }
 
     /**
-     * @return GroupCallCenterModifyAnnouncementResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,190 +67,210 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * Call Center Announcement Selection.
+     * 
      */
     public function setEntranceMessageSelection($entranceMessageSelection = null)
     {
+        if (!$entranceMessageSelection) return $this;
         $this->entranceMessageSelection = ($entranceMessageSelection InstanceOf CallCenterAnnouncementSelection)
              ? $entranceMessageSelection
              : new CallCenterAnnouncementSelection($entranceMessageSelection);
+        $this->entranceMessageSelection->setName('entranceMessageSelection');
+        return $this;
     }
 
     /**
-     * Call Center Announcement Selection.
+     * 
+     * @return CallCenterAnnouncementSelection
      */
     public function getEntranceMessageSelection()
     {
-        return (!$this->entranceMessageSelection) ?: $this->entranceMessageSelection->getValue();
+        return $this->entranceMessageSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setEntranceMessageAudioFile(LabeledFileResource $entranceMessageAudioFile = null)
     {
-        $this->entranceMessageAudioFile =  $entranceMessageAudioFile;
+        if (!$entranceMessageAudioFile) return $this;
+        $this->entranceMessageAudioFile = $entranceMessageAudioFile;
+        $this->entranceMessageAudioFile->setName('entranceMessageAudioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getEntranceMessageAudioFile()
     {
-        return (!$this->entranceMessageAudioFile) ?: $this->entranceMessageAudioFile->getValue();
+        return $this->entranceMessageAudioFile;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setEntranceMessageVideoFile(LabeledFileResource $entranceMessageVideoFile = null)
     {
-        $this->entranceMessageVideoFile =  $entranceMessageVideoFile;
+        if (!$entranceMessageVideoFile) return $this;
+        $this->entranceMessageVideoFile = $entranceMessageVideoFile;
+        $this->entranceMessageVideoFile->setName('entranceMessageVideoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getEntranceMessageVideoFile()
     {
-        return (!$this->entranceMessageVideoFile) ?: $this->entranceMessageVideoFile->getValue();
+        return $this->entranceMessageVideoFile;
     }
 
     /**
-     * Call Center Announcement Selection.
+     * 
      */
     public function setPeriodicComfortMessageSelection($periodicComfortMessageSelection = null)
     {
+        if (!$periodicComfortMessageSelection) return $this;
         $this->periodicComfortMessageSelection = ($periodicComfortMessageSelection InstanceOf CallCenterAnnouncementSelection)
              ? $periodicComfortMessageSelection
              : new CallCenterAnnouncementSelection($periodicComfortMessageSelection);
+        $this->periodicComfortMessageSelection->setName('periodicComfortMessageSelection');
+        return $this;
     }
 
     /**
-     * Call Center Announcement Selection.
+     * 
+     * @return CallCenterAnnouncementSelection
      */
     public function getPeriodicComfortMessageSelection()
     {
-        return (!$this->periodicComfortMessageSelection) ?: $this->periodicComfortMessageSelection->getValue();
+        return $this->periodicComfortMessageSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setPeriodicComfortMessageAudioFile(LabeledFileResource $periodicComfortMessageAudioFile = null)
     {
-        $this->periodicComfortMessageAudioFile =  $periodicComfortMessageAudioFile;
+        if (!$periodicComfortMessageAudioFile) return $this;
+        $this->periodicComfortMessageAudioFile = $periodicComfortMessageAudioFile;
+        $this->periodicComfortMessageAudioFile->setName('periodicComfortMessageAudioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getPeriodicComfortMessageAudioFile()
     {
-        return (!$this->periodicComfortMessageAudioFile) ?: $this->periodicComfortMessageAudioFile->getValue();
+        return $this->periodicComfortMessageAudioFile;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setPeriodicComfortMessageVideoFile(LabeledFileResource $periodicComfortMessageVideoFile = null)
     {
-        $this->periodicComfortMessageVideoFile =  $periodicComfortMessageVideoFile;
+        if (!$periodicComfortMessageVideoFile) return $this;
+        $this->periodicComfortMessageVideoFile = $periodicComfortMessageVideoFile;
+        $this->periodicComfortMessageVideoFile->setName('periodicComfortMessageVideoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getPeriodicComfortMessageVideoFile()
     {
-        return (!$this->periodicComfortMessageVideoFile) ?: $this->periodicComfortMessageVideoFile->getValue();
+        return $this->periodicComfortMessageVideoFile;
     }
 
     /**
-     * Call Center Announcement Selection.
+     * 
      */
     public function setOnHoldMessageSelection($onHoldMessageSelection = null)
     {
+        if (!$onHoldMessageSelection) return $this;
         $this->onHoldMessageSelection = ($onHoldMessageSelection InstanceOf CallCenterAnnouncementSelection)
              ? $onHoldMessageSelection
              : new CallCenterAnnouncementSelection($onHoldMessageSelection);
+        $this->onHoldMessageSelection->setName('onHoldMessageSelection');
+        return $this;
     }
 
     /**
-     * Call Center Announcement Selection.
+     * 
+     * @return CallCenterAnnouncementSelection
      */
     public function getOnHoldMessageSelection()
     {
-        return (!$this->onHoldMessageSelection) ?: $this->onHoldMessageSelection->getValue();
+        return $this->onHoldMessageSelection->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setOnHoldMessageAudioFile(LabeledFileResource $onHoldMessageAudioFile = null)
     {
-        $this->onHoldMessageAudioFile =  $onHoldMessageAudioFile;
+        if (!$onHoldMessageAudioFile) return $this;
+        $this->onHoldMessageAudioFile = $onHoldMessageAudioFile;
+        $this->onHoldMessageAudioFile->setName('onHoldMessageAudioFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getOnHoldMessageAudioFile()
     {
-        return (!$this->onHoldMessageAudioFile) ?: $this->onHoldMessageAudioFile->getValue();
+        return $this->onHoldMessageAudioFile;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setOnHoldMessageVideoFile(LabeledFileResource $onHoldMessageVideoFile = null)
     {
-        $this->onHoldMessageVideoFile =  $onHoldMessageVideoFile;
+        if (!$onHoldMessageVideoFile) return $this;
+        $this->onHoldMessageVideoFile = $onHoldMessageVideoFile;
+        $this->onHoldMessageVideoFile->setName('onHoldMessageVideoFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getOnHoldMessageVideoFile()
     {
-        return (!$this->onHoldMessageVideoFile) ?: $this->onHoldMessageVideoFile->getValue();
+        return $this->onHoldMessageVideoFile;
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExportAddressingDataResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExportAddressingDataRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = __CLASS__;
+    public    $name     = 'SystemExportAddressingDataRequest';
     protected $fileName = null;
 
     public function __construct(
@@ -32,7 +31,7 @@ class SystemExportAddressingDataRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return SystemExportAddressingDataResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -40,20 +39,24 @@ class SystemExportAddressingDataRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * Name of a file on the filesystem.
+     * 
      */
     public function setFileName($fileName = null)
     {
+        if (!$fileName) return $this;
         $this->fileName = ($fileName InstanceOf FileName)
              ? $fileName
              : new FileName($fileName);
+        $this->fileName->setName('fileName');
+        return $this;
     }
 
     /**
-     * Name of a file on the filesystem.
+     * 
+     * @return FileName
      */
     public function getFileName()
     {
-        return (!$this->fileName) ?: $this->fileName->getValue();
+        return $this->fileName->getValue();
     }
 }

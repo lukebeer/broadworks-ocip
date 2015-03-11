@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCountryCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCountryCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'SystemCountryCodeGetListResponse';
     protected $defaultCountryCode = null;
     protected $countryCodeTable   = null;
 
@@ -37,21 +36,25 @@ class SystemCountryCodeGetListResponse extends ComplexType implements ComplexInt
     }
 
     /**
-     * Country dialing code.
+     * 
      */
     public function setDefaultCountryCode($defaultCountryCode = null)
     {
+        if (!$defaultCountryCode) return $this;
         $this->defaultCountryCode = ($defaultCountryCode InstanceOf CountryCode)
              ? $defaultCountryCode
              : new CountryCode($defaultCountryCode);
+        $this->defaultCountryCode->setName('defaultCountryCode');
+        return $this;
     }
 
     /**
-     * Country dialing code.
+     * 
+     * @return CountryCode
      */
     public function getDefaultCountryCode()
     {
-        return (!$this->defaultCountryCode) ?: $this->defaultCountryCode->getValue();
+        return $this->defaultCountryCode->getValue();
     }
 
     /**
@@ -59,14 +62,17 @@ class SystemCountryCodeGetListResponse extends ComplexType implements ComplexInt
      */
     public function setCountryCodeTable(core:OCITable $countryCodeTable = null)
     {
-        $this->countryCodeTable =  $countryCodeTable;
+        if (!$countryCodeTable) return $this;
+        $this->countryCodeTable->setName('countryCodeTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCountryCodeTable()
     {
-        return (!$this->countryCodeTable) ?: $this->countryCodeTable->getValue();
+        return $this->countryCodeTable->getValue();
     }
 }

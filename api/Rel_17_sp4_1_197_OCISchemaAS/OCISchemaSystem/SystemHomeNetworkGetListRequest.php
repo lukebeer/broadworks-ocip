@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemHomeNetworkGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemHomeNetworkGetListResponse';
-    public    $name                         = __CLASS__;
+    public    $name                         = 'SystemHomeNetworkGetListRequest';
     protected $responseSizeLimit            = null;
     protected $searchCriteriaHomeMscAddress = null;
 
     public function __construct(
          $responseSizeLimit = null,
-          $searchCriteriaHomeMscAddress = null
+         SearchCriteriaHomeMscAddress $searchCriteriaHomeMscAddress = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaHomeMscAddress($searchCriteriaHomeMscAddress);
@@ -44,40 +44,46 @@ class SystemHomeNetworkGetListRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a system Home Network Msc Address.
+     * 
      */
     public function setSearchCriteriaHomeMscAddress(SearchCriteriaHomeMscAddress $searchCriteriaHomeMscAddress = null)
     {
-        $this->searchCriteriaHomeMscAddress =  $searchCriteriaHomeMscAddress;
+        if (!$searchCriteriaHomeMscAddress) return $this;
+        $this->searchCriteriaHomeMscAddress = ($searchCriteriaHomeMscAddress InstanceOf SearchCriteriaHomeMscAddress)
+             ? $searchCriteriaHomeMscAddress
+             : new SearchCriteriaHomeMscAddress($searchCriteriaHomeMscAddress);
+        $this->searchCriteriaHomeMscAddress->setName('searchCriteriaHomeMscAddress');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a system Home Network Msc Address.
+     * 
+     * @return SearchCriteriaHomeMscAddress
      */
     public function getSearchCriteriaHomeMscAddress()
     {
-        return (!$this->searchCriteriaHomeMscAddress) ?: $this->searchCriteriaHomeMscAddress->getValue();
+        return $this->searchCriteriaHomeMscAddress;
     }
 }

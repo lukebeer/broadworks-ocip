@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\UserPrivacyGetAvailableMonitorsUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPrivacyGetAvailableMonitorsUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = __CLASS__;
+    public    $name                   = 'UserPrivacyGetAvailableMonitorsUserListResponse';
     protected $availableMonitorsTable = null;
 
     /**
@@ -39,14 +38,17 @@ class UserPrivacyGetAvailableMonitorsUserListResponse extends ComplexType implem
      */
     public function setAvailableMonitorsTable(core:OCITable $availableMonitorsTable = null)
     {
-        $this->availableMonitorsTable =  $availableMonitorsTable;
+        if (!$availableMonitorsTable) return $this;
+        $this->availableMonitorsTable->setName('availableMonitorsTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getAvailableMonitorsTable()
     {
-        return (!$this->availableMonitorsTable) ?: $this->availableMonitorsTable->getValue();
+        return $this->availableMonitorsTable->getValue();
     }
 }

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportTemplateKey extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateKey';
-    public    $name = __CLASS__;
+    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateKey';
+    public    $name          = 'CallCenterReportTemplateKey';
+    protected $templateLevel = null;
+    protected $templateName  = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $templateLevel,
+         $templateName
+    ) {
+        $this->setTemplateLevel($templateLevel);
+        $this->setTemplateName($templateName);
     }
 
     /**
@@ -32,5 +39,45 @@ class CallCenterReportTemplateKey extends ComplexType implements ComplexInterfac
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setTemplateLevel($templateLevel = null)
+    {
+        if (!$templateLevel) return $this;
+        $this->templateLevel = new SimpleContent($templateLevel);
+        $this->templateLevel->setName('templateLevel');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getTemplateLevel()
+    {
+        return $this->templateLevel->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setTemplateName($templateName = null)
+    {
+        if (!$templateName) return $this;
+        $this->templateName = new SimpleContent($templateName);
+        $this->templateName->setName('templateName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getTemplateName()
+    {
+        return $this->templateName->getValue();
     }
 }

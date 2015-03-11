@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemShInterfaceParametersGetRequest17 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemShInterfaceParametersGetResponse17';
-    public    $name = __CLASS__;
+    public    $name = 'SystemShInterfaceParametersGetRequest17';
 
     public function __construct(    ) {
     }

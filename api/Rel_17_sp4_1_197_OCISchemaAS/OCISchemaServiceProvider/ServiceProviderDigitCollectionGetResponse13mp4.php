@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitMap;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDigitCollectionGetResponse13mp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDigitCollectionGetResponse13mp4 extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'ServiceProviderDigitCollectionGetResponse13mp4';
     protected $accessCode      = null;
     protected $publicDigitMap  = null;
     protected $privateDigitMap = null;
@@ -35,56 +34,68 @@ class ServiceProviderDigitCollectionGetResponse13mp4 extends ComplexType impleme
     }
 
     /**
-     * Digit Collection Access Code.
+     * 
      */
     public function setAccessCode($accessCode = null)
     {
+        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf AccessCode)
              ? $accessCode
              : new AccessCode($accessCode);
+        $this->accessCode->setName('accessCode');
+        return $this;
     }
 
     /**
-     * Digit Collection Access Code.
+     * 
+     * @return AccessCode
      */
     public function getAccessCode()
     {
-        return (!$this->accessCode) ?: $this->accessCode->getValue();
+        return $this->accessCode->getValue();
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
      */
     public function setPublicDigitMap($publicDigitMap = null)
     {
+        if (!$publicDigitMap) return $this;
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
+        $this->publicDigitMap->setName('publicDigitMap');
+        return $this;
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
+     * @return DigitMap
      */
     public function getPublicDigitMap()
     {
-        return (!$this->publicDigitMap) ?: $this->publicDigitMap->getValue();
+        return $this->publicDigitMap->getValue();
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
      */
     public function setPrivateDigitMap($privateDigitMap = null)
     {
+        if (!$privateDigitMap) return $this;
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
+        $this->privateDigitMap->setName('privateDigitMap');
+        return $this;
     }
 
     /**
-     * Digit Collection Digit Map.
+     * 
+     * @return DigitMap
      */
     public function getPrivateDigitMap()
     {
-        return (!$this->privateDigitMap) ?: $this->privateDigitMap->getValue();
+        return $this->privateDigitMap->getValue();
     }
 }

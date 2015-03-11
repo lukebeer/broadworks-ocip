@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\An
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAnswerConfirmationGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = __CLASS__;
+    public    $name                                    = 'ServiceProviderAnswerConfirmationGetResponse16';
     protected $announcementMessageSelection            = null;
     protected $confirmationMessageAudioFileDescription = null;
     protected $confirmationMessageMediaType            = null;
@@ -38,82 +37,90 @@ class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType impleme
     }
 
     /**
-     * Anser Confirmation Announcement Selection.
+     * 
      */
     public function setAnnouncementMessageSelection($announcementMessageSelection = null)
     {
+        if (!$announcementMessageSelection) return $this;
         $this->announcementMessageSelection = ($announcementMessageSelection InstanceOf AnswerConfirmationAnnouncementSelection)
              ? $announcementMessageSelection
              : new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
+        $this->announcementMessageSelection->setName('announcementMessageSelection');
+        return $this;
     }
 
     /**
-     * Anser Confirmation Announcement Selection.
+     * 
+     * @return AnswerConfirmationAnnouncementSelection
      */
     public function getAnnouncementMessageSelection()
     {
-        return (!$this->announcementMessageSelection) ?: $this->announcementMessageSelection->getValue();
+        return $this->announcementMessageSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setConfirmationMessageAudioFileDescription($confirmationMessageAudioFileDescription = null)
     {
+        if (!$confirmationMessageAudioFileDescription) return $this;
         $this->confirmationMessageAudioFileDescription = ($confirmationMessageAudioFileDescription InstanceOf FileDescription)
              ? $confirmationMessageAudioFileDescription
              : new FileDescription($confirmationMessageAudioFileDescription);
+        $this->confirmationMessageAudioFileDescription->setName('confirmationMessageAudioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getConfirmationMessageAudioFileDescription()
     {
-        return (!$this->confirmationMessageAudioFileDescription) ?: $this->confirmationMessageAudioFileDescription->getValue();
+        return $this->confirmationMessageAudioFileDescription->getValue();
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
      */
     public function setConfirmationMessageMediaType($confirmationMessageMediaType = null)
     {
+        if (!$confirmationMessageMediaType) return $this;
         $this->confirmationMessageMediaType = ($confirmationMessageMediaType InstanceOf MediaFileType)
              ? $confirmationMessageMediaType
              : new MediaFileType($confirmationMessageMediaType);
+        $this->confirmationMessageMediaType->setName('confirmationMessageMediaType');
+        return $this;
     }
 
     /**
-     * The media type of media data.
-     *         WMA - Windows Media Audio file
-     *         WAV - A WAV file
-     *         3GP - A 3GP file
-     *         MOV - A MOV file using a H.263 or H.264 codec.
+     * 
+     * @return MediaFileType
      */
     public function getConfirmationMessageMediaType()
     {
-        return (!$this->confirmationMessageMediaType) ?: $this->confirmationMessageMediaType->getValue();
+        return $this->confirmationMessageMediaType->getValue();
     }
 
     /**
-     * The timer determines how long the system will wait for the confirmation.
+     * 
      */
     public function setConfirmationTimoutSeconds($confirmationTimoutSeconds = null)
     {
+        if (!$confirmationTimoutSeconds) return $this;
         $this->confirmationTimoutSeconds = ($confirmationTimoutSeconds InstanceOf AnswerConfirmationTimeoutSeconds)
              ? $confirmationTimoutSeconds
              : new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
+        $this->confirmationTimoutSeconds->setName('confirmationTimoutSeconds');
+        return $this;
     }
 
     /**
-     * The timer determines how long the system will wait for the confirmation.
+     * 
+     * @return AnswerConfirmationTimeoutSeconds
      */
     public function getConfirmationTimoutSeconds()
     {
-        return (!$this->confirmationTimoutSeconds) ?: $this->confirmationTimoutSeconds->getValue();
+        return $this->confirmationTimoutSeconds->getValue();
     }
 }

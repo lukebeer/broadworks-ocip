@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SIPFailureStatusCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingAccessSIPStatusAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingAccessSIPStatusAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemTreatmentMappingAccessSIPStatusAddRequest';
     protected $sipStatusCode = null;
     protected $treatmentId   = null;
 
@@ -35,7 +34,7 @@ class SystemTreatmentMappingAccessSIPStatusAddRequest extends ComplexType implem
     }
 
     /**
-     * @return SystemTreatmentMappingAccessSIPStatusAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemTreatmentMappingAccessSIPStatusAddRequest extends ComplexType implem
     }
 
     /**
-     * The possible range values for SIP failure status codes.
+     * 
      */
     public function setSipStatusCode($sipStatusCode = null)
     {
+        if (!$sipStatusCode) return $this;
         $this->sipStatusCode = ($sipStatusCode InstanceOf SIPFailureStatusCode)
              ? $sipStatusCode
              : new SIPFailureStatusCode($sipStatusCode);
+        $this->sipStatusCode->setName('sipStatusCode');
+        return $this;
     }
 
     /**
-     * The possible range values for SIP failure status codes.
+     * 
+     * @return SIPFailureStatusCode
      */
     public function getSipStatusCode()
     {
-        return (!$this->sipStatusCode) ?: $this->sipStatusCode->getValue();
+        return $this->sipStatusCode->getValue();
     }
 
     /**
-     * Configurable Treatment Name
+     * 
      */
     public function setTreatmentId($treatmentId = null)
     {
+        if (!$treatmentId) return $this;
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
+        $this->treatmentId->setName('treatmentId');
+        return $this;
     }
 
     /**
-     * Configurable Treatment Name
+     * 
+     * @return TreatmentId
      */
     public function getTreatmentId()
     {
-        return (!$this->treatmentId) ?: $this->treatmentId->getValue();
+        return $this->treatmentId->getValue();
     }
 }

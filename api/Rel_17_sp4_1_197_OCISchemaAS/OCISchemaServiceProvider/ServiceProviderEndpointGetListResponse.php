@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderEndpointGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderEndpointGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'ServiceProviderEndpointGetListResponse';
     protected $endpointTable = null;
 
     /**
@@ -39,14 +38,17 @@ class ServiceProviderEndpointGetListResponse extends ComplexType implements Comp
      */
     public function setEndpointTable(core:OCITable $endpointTable = null)
     {
-        $this->endpointTable =  $endpointTable;
+        if (!$endpointTable) return $this;
+        $this->endpointTable->setName('endpointTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getEndpointTable()
     {
-        return (!$this->endpointTable) ?: $this->endpointTable->getValue();
+        return $this->endpointTable->getValue();
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInCallServiceActivation; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInCallServiceActivation; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\InCallServiceActivationDigits;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInCallServiceActivation\ServiceProviderInCallServiceActivationGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'ServiceProviderInCallServiceActivationGetResponse17';
     protected $flashActivationDigits        = null;
     protected $callTransferActivationDigits = null;
 
@@ -33,38 +32,46 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
     }
 
     /**
-     * In Call Service Activation DigitMap.
+     * 
      */
     public function setFlashActivationDigits($flashActivationDigits = null)
     {
+        if (!$flashActivationDigits) return $this;
         $this->flashActivationDigits = ($flashActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $flashActivationDigits
              : new InCallServiceActivationDigits($flashActivationDigits);
+        $this->flashActivationDigits->setName('flashActivationDigits');
+        return $this;
     }
 
     /**
-     * In Call Service Activation DigitMap.
+     * 
+     * @return InCallServiceActivationDigits
      */
     public function getFlashActivationDigits()
     {
-        return (!$this->flashActivationDigits) ?: $this->flashActivationDigits->getValue();
+        return $this->flashActivationDigits->getValue();
     }
 
     /**
-     * In Call Service Activation DigitMap.
+     * 
      */
     public function setCallTransferActivationDigits($callTransferActivationDigits = null)
     {
+        if (!$callTransferActivationDigits) return $this;
         $this->callTransferActivationDigits = ($callTransferActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $callTransferActivationDigits
              : new InCallServiceActivationDigits($callTransferActivationDigits);
+        $this->callTransferActivationDigits->setName('callTransferActivationDigits');
+        return $this;
     }
 
     /**
-     * In Call Service Activation DigitMap.
+     * 
+     * @return InCallServiceActivationDigits
      */
     public function getCallTransferActivationDigits()
     {
-        return (!$this->callTransferActivationDigits) ?: $this->callTransferActivationDigits->getValue();
+        return $this->callTransferActivationDigits->getValue();
     }
 }

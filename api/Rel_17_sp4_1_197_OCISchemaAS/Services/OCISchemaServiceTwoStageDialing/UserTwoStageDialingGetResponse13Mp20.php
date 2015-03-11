@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTwoStageDialing\UserTwoStageDialingGetResponse13Mp20;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'UserTwoStageDialingGetResponse13Mp20';
     protected $isActive                         = null;
     protected $allowActivationWithUserAddresses = null;
 
@@ -37,15 +36,19 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -53,14 +56,18 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
      */
     public function setAllowActivationWithUserAddresses($allowActivationWithUserAddresses = null)
     {
-        $this->allowActivationWithUserAddresses = (boolean) $allowActivationWithUserAddresses;
+        if (!$allowActivationWithUserAddresses) return $this;
+        $this->allowActivationWithUserAddresses = new PrimitiveType($allowActivationWithUserAddresses);
+        $this->allowActivationWithUserAddresses->setName('allowActivationWithUserAddresses');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowActivationWithUserAddresses()
     {
-        return (!$this->allowActivationWithUserAddresses) ?: $this->allowActivationWithUserAddresses;
+        return $this->allowActivationWithUserAddresses->getValue();
     }
 }

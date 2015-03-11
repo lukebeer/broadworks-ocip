@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerTreatment;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingNetworkServerTreatmentDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = __CLASS__;
+    public    $name        = 'SystemTreatmentMappingNetworkServerTreatmentDeleteRequest';
     protected $nsTreatment = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexT
     }
 
     /**
-     * @return SystemTreatmentMappingNetworkServerTreatmentDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexT
     }
 
     /**
-     * Possible string value for Network Server Treatment.
+     * 
      */
     public function setNsTreatment($nsTreatment = null)
     {
+        if (!$nsTreatment) return $this;
         $this->nsTreatment = ($nsTreatment InstanceOf NetworkServerTreatment)
              ? $nsTreatment
              : new NetworkServerTreatment($nsTreatment);
+        $this->nsTreatment->setName('nsTreatment');
+        return $this;
     }
 
     /**
-     * Possible string value for Network Server Treatment.
+     * 
+     * @return NetworkServerTreatment
      */
     public function getNsTreatment()
     {
-        return (!$this->nsTreatment) ?: $this->nsTreatment->getValue();
+        return $this->nsTreatment->getValue();
     }
 }

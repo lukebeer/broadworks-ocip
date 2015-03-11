@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingReportTemplateGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingReportTemplateGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'SystemCallCenterEnhancedReportingReportTemplateGetListResponse';
     protected $reportTemplateTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemCallCenterEnhancedReportingReportTemplateGetListResponse extends Com
      */
     public function setReportTemplateTable(core:OCITable $reportTemplateTable = null)
     {
-        $this->reportTemplateTable =  $reportTemplateTable;
+        if (!$reportTemplateTable) return $this;
+        $this->reportTemplateTable->setName('reportTemplateTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getReportTemplateTable()
     {
-        return (!$this->reportTemplateTable) ?: $this->reportTemplateTable->getValue();
+        return $this->reportTemplateTable->getValue();
     }
 }

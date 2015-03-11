@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportDataTemplateInfo;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingDataTemplateGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingDataTemplateGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name = 'SystemCallCenterEnhancedReportingDataTemplateGetListResponse';
     protected $info = null;
 
     /**
@@ -32,18 +31,22 @@ class SystemCallCenterEnhancedReportingDataTemplateGetListResponse extends Compl
     }
 
     /**
-     * Call center reporting data template info.
+     * 
      */
     public function setInfo(CallCenterReportDataTemplateInfo $info = null)
     {
-        $this->info =  $info;
+        if (!$info) return $this;
+        $this->info = $info;
+        $this->info->setName('info');
+        return $this;
     }
 
     /**
-     * Call center reporting data template info.
+     * 
+     * @return CallCenterReportDataTemplateInfo
      */
     public function getInfo()
     {
-        return (!$this->info) ?: $this->info->getValue();
+        return $this->info;
     }
 }

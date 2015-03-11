@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanAuthorizationCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = __CLASS__;
+    public    $name = 'UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse';
     protected $code = null;
 
     /**
@@ -32,20 +31,24 @@ class UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse extends Compl
     }
 
     /**
-     * Outgoing Calling Plan Authorization Code.
+     * 
      */
     public function setCode($code = null)
     {
+        if (!$code) return $this;
         $this->code = ($code InstanceOf OutgoingCallingPlanAuthorizationCode)
              ? $code
              : new OutgoingCallingPlanAuthorizationCode($code);
+        $this->code->setName('code');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan Authorization Code.
+     * 
+     * @return OutgoingCallingPlanAuthorizationCode
      */
     public function getCode()
     {
-        return (!$this->code) ?: $this->code->getValue();
+        return $this->code->getValue();
     }
 }

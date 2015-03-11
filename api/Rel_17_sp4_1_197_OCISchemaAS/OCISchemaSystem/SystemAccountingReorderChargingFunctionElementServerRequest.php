@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetAddressExtended;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingReorderChargingFunctionElementServerResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingReorderChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'SystemAccountingReorderChargingFunctionElementServerRequest';
     protected $orderedAddressList = null;
 
     public function __construct(
@@ -33,7 +32,7 @@ class SystemAccountingReorderChargingFunctionElementServerRequest extends Comple
     }
 
     /**
-     * @return SystemAccountingReorderChargingFunctionElementServerResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -41,22 +40,24 @@ class SystemAccountingReorderChargingFunctionElementServerRequest extends Comple
     }
 
     /**
-     * This is a net address or can contain a string that includes additional items
-     *         such as protocols and transports.
+     * 
      */
     public function setOrderedAddressList($orderedAddressList = null)
     {
+        if (!$orderedAddressList) return $this;
         $this->orderedAddressList = ($orderedAddressList InstanceOf NetAddressExtended)
              ? $orderedAddressList
              : new NetAddressExtended($orderedAddressList);
+        $this->orderedAddressList->setName('orderedAddressList');
+        return $this;
     }
 
     /**
-     * This is a net address or can contain a string that includes additional items
-     *         such as protocols and transports.
+     * 
+     * @return NetAddressExtended
      */
     public function getOrderedAddressList()
     {
-        return (!$this->orderedAddressList) ?: $this->orderedAddressList->getValue();
+        return $this->orderedAddressList->getValue();
     }
 }

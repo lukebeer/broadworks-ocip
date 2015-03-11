@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceBroadWorksAnywhere\GroupBroadWorksAnywhereGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksAnywhereGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'GroupBroadWorksAnywhereGetInstanceListResponse';
     protected $broadWorksAnywhereTable = null;
 
     /**
@@ -39,14 +38,17 @@ class GroupBroadWorksAnywhereGetInstanceListResponse extends ComplexType impleme
      */
     public function setBroadWorksAnywhereTable(core:OCITable $broadWorksAnywhereTable = null)
     {
-        $this->broadWorksAnywhereTable =  $broadWorksAnywhereTable;
+        if (!$broadWorksAnywhereTable) return $this;
+        $this->broadWorksAnywhereTable->setName('broadWorksAnywhereTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getBroadWorksAnywhereTable()
     {
-        return (!$this->broadWorksAnywhereTable) ?: $this->broadWorksAnywhereTable->getValue();
+        return $this->broadWorksAnywhereTable->getValue();
     }
 }

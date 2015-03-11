@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
-
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor';
-    public    $name                = __CLASS__;
+    public    $name                = 'SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor';
     protected $createdBySupervisor = null;
 
     public function __construct(
@@ -44,14 +44,18 @@ class SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor extends Co
      */
     public function setCreatedBySupervisor($createdBySupervisor = null)
     {
-        $this->createdBySupervisor = (boolean) $createdBySupervisor;
+        if (!$createdBySupervisor) return $this;
+        $this->createdBySupervisor = new PrimitiveType($createdBySupervisor);
+        $this->createdBySupervisor->setName('createdBySupervisor');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getCreatedBySupervisor()
     {
-        return (!$this->createdBySupervisor) ?: $this->createdBySupervisor;
+        return $this->createdBySupervisor->getValue();
     }
 }

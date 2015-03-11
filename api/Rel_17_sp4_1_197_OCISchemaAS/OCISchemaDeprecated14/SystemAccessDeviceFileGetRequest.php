@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAccessDeviceFileGetResponse';
-    public    $name       = __CLASS__;
+    public    $name       = 'SystemAccessDeviceFileGetRequest';
     protected $deviceName = null;
     protected $fileType   = null;
 
@@ -45,38 +45,46 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * Access device name.
+     * 
      */
     public function setDeviceName($deviceName = null)
     {
+        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
+        $this->deviceName->setName('deviceName');
+        return $this;
     }
 
     /**
-     * Access device name.
+     * 
+     * @return AccessDeviceName
      */
     public function getDeviceName()
     {
-        return (!$this->deviceName) ?: $this->deviceName->getValue();
+        return $this->deviceName->getValue();
     }
 
     /**
-     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     * 
      */
     public function setFileType($fileType = null)
     {
+        if (!$fileType) return $this;
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
              ? $fileType
              : new DeviceManagementFileType($fileType);
+        $this->fileType->setName('fileType');
+        return $this;
     }
 
     /**
-     * A file type (file key) for an access device file managed by the Device Management System on BroadWorks.
+     * 
+     * @return DeviceManagementFileType
      */
     public function getFileType()
     {
-        return (!$this->fileType) ?: $this->fileType->getValue();
+        return $this->fileType->getValue();
     }
 }

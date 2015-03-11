@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ExternalEmergencyRoutingConnectionTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExternalEmergencyRoutingParametersModifyResponse13mp13;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'SystemExternalEmergencyRoutingParametersModifyRequest13mp13';
     protected $serviceURI               = null;
     protected $defaultEmergencyNumber   = null;
     protected $isActive                 = null;
@@ -45,7 +45,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
     }
 
     /**
-     * @return SystemExternalEmergencyRoutingParametersModifyResponse13mp13
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,43 +53,47 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setServiceURI($serviceURI = null)
     {
+        if (!$serviceURI) return $this;
         $this->serviceURI = ($serviceURI InstanceOf NetAddress)
              ? $serviceURI
              : new NetAddress($serviceURI);
+        $this->serviceURI->setName('serviceURI');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getServiceURI()
     {
-        return (!$this->serviceURI) ?: $this->serviceURI->getValue();
+        return $this->serviceURI->getValue();
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
      */
     public function setDefaultEmergencyNumber($defaultEmergencyNumber = null)
     {
+        if (!$defaultEmergencyNumber) return $this;
         $this->defaultEmergencyNumber = ($defaultEmergencyNumber InstanceOf OutgoingDN)
              ? $defaultEmergencyNumber
              : new OutgoingDN($defaultEmergencyNumber);
+        $this->defaultEmergencyNumber->setName('defaultEmergencyNumber');
+        return $this;
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
+     * @return OutgoingDN
      */
     public function getDefaultEmergencyNumber()
     {
-        return (!$this->defaultEmergencyNumber) ?: $this->defaultEmergencyNumber->getValue();
+        return $this->defaultEmergencyNumber->getValue();
     }
 
     /**
@@ -97,15 +101,19 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -113,32 +121,40 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
      */
     public function setSupportsDNSSRV($supportsDNSSRV = null)
     {
-        $this->supportsDNSSRV = (boolean) $supportsDNSSRV;
+        if (!$supportsDNSSRV) return $this;
+        $this->supportsDNSSRV = new PrimitiveType($supportsDNSSRV);
+        $this->supportsDNSSRV->setName('supportsDNSSRV');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getSupportsDNSSRV()
+    {
+        return $this->supportsDNSSRV->getValue();
     }
 
     /**
      * 
      */
-    public function getSupportsDNSSRV()
-    {
-        return (!$this->supportsDNSSRV) ?: $this->supportsDNSSRV;
-    }
-
-    /**
-     * Connection Timer seconds.
-     */
     public function setConnectionTimeoutSeconds($connectionTimeoutSeconds = null)
     {
+        if (!$connectionTimeoutSeconds) return $this;
         $this->connectionTimeoutSeconds = ($connectionTimeoutSeconds InstanceOf ExternalEmergencyRoutingConnectionTimeoutSeconds)
              ? $connectionTimeoutSeconds
              : new ExternalEmergencyRoutingConnectionTimeoutSeconds($connectionTimeoutSeconds);
+        $this->connectionTimeoutSeconds->setName('connectionTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * Connection Timer seconds.
+     * 
+     * @return ExternalEmergencyRoutingConnectionTimeoutSeconds
      */
     public function getConnectionTimeoutSeconds()
     {
-        return (!$this->connectionTimeoutSeconds) ?: $this->connectionTimeoutSeconds->getValue();
+        return $this->connectionTimeoutSeconds->getValue();
     }
 }

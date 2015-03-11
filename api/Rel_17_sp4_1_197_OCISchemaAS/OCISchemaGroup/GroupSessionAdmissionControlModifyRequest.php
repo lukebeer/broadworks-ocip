@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NonNegativeInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSessionAdmissionControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'GroupSessionAdmissionControlModifyRequest';
     protected $serviceProviderId          = null;
     protected $groupId                    = null;
     protected $restrictAggregateSessions  = null;
@@ -51,7 +51,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
     }
 
     /**
-     * @return GroupSessionAdmissionControlModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,43 +59,47 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
@@ -103,69 +107,85 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function setRestrictAggregateSessions($restrictAggregateSessions = null)
     {
-        $this->restrictAggregateSessions = (boolean) $restrictAggregateSessions;
+        if (!$restrictAggregateSessions) return $this;
+        $this->restrictAggregateSessions = new PrimitiveType($restrictAggregateSessions);
+        $this->restrictAggregateSessions->setName('restrictAggregateSessions');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getRestrictAggregateSessions()
+    {
+        return $this->restrictAggregateSessions->getValue();
     }
 
     /**
      * 
      */
-    public function getRestrictAggregateSessions()
-    {
-        return (!$this->restrictAggregateSessions) ?: $this->restrictAggregateSessions;
-    }
-
-    /**
-     * Non-negative integer.
-     */
     public function setMaxSessions($maxSessions = null)
     {
+        if (!$maxSessions) return $this;
         $this->maxSessions = ($maxSessions InstanceOf NonNegativeInt)
              ? $maxSessions
              : new NonNegativeInt($maxSessions);
+        $this->maxSessions->setName('maxSessions');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getMaxSessions()
     {
-        return (!$this->maxSessions) ?: $this->maxSessions->getValue();
+        return $this->maxSessions->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
+        if (!$maxUserOriginatingSessions) return $this;
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $maxUserOriginatingSessions
              : new NonNegativeInt($maxUserOriginatingSessions);
+        $this->maxUserOriginatingSessions->setName('maxUserOriginatingSessions');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getMaxUserOriginatingSessions()
     {
-        return (!$this->maxUserOriginatingSessions) ?: $this->maxUserOriginatingSessions->getValue();
+        return $this->maxUserOriginatingSessions->getValue();
     }
 
     /**
-     * Non-negative integer.
+     * 
      */
     public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
+        if (!$maxUserTerminatingSessions) return $this;
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $maxUserTerminatingSessions
              : new NonNegativeInt($maxUserTerminatingSessions);
+        $this->maxUserTerminatingSessions->setName('maxUserTerminatingSessions');
+        return $this;
     }
 
     /**
-     * Non-negative integer.
+     * 
+     * @return NonNegativeInt
      */
     public function getMaxUserTerminatingSessions()
     {
-        return (!$this->maxUserTerminatingSessions) ?: $this->maxUserTerminatingSessions->getValue();
+        return $this->maxUserTerminatingSessions->getValue();
     }
 
     /**
@@ -173,14 +193,18 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function setCountIntraGroupSessions($countIntraGroupSessions = null)
     {
-        $this->countIntraGroupSessions = (boolean) $countIntraGroupSessions;
+        if (!$countIntraGroupSessions) return $this;
+        $this->countIntraGroupSessions = new PrimitiveType($countIntraGroupSessions);
+        $this->countIntraGroupSessions->setName('countIntraGroupSessions');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getCountIntraGroupSessions()
     {
-        return (!$this->countIntraGroupSessions) ?: $this->countIntraGroupSessions;
+        return $this->countIntraGroupSessions->getValue();
     }
 }

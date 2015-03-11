@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHolidayScheduleGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHolidayScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'UserHolidayScheduleGetListResponse';
     protected $holidayScheduleTable = null;
 
     /**
@@ -37,14 +36,17 @@ class UserHolidayScheduleGetListResponse extends ComplexType implements ComplexI
      */
     public function setHolidayScheduleTable(core:OCITable $holidayScheduleTable = null)
     {
-        $this->holidayScheduleTable =  $holidayScheduleTable;
+        if (!$holidayScheduleTable) return $this;
+        $this->holidayScheduleTable->setName('holidayScheduleTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getHolidayScheduleTable()
     {
-        return (!$this->holidayScheduleTable) ?: $this->holidayScheduleTable->getValue();
+        return $this->holidayScheduleTable->getValue();
     }
 }

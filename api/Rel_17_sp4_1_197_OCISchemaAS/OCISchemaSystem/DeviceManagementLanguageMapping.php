@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementLanguageMapping;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementLanguageMapping extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementLanguageMapping';
-    public    $name = __CLASS__;
+    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementLanguageMapping';
+    public    $name               = 'DeviceManagementLanguageMapping';
+    protected $broadWorksLanguage = null;
+    protected $deviceLanguage     = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $broadWorksLanguage,
+         $deviceLanguage
+    ) {
+        $this->setBroadWorksLanguage($broadWorksLanguage);
+        $this->setDeviceLanguage($deviceLanguage);
     }
 
     /**
@@ -32,5 +39,45 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setBroadWorksLanguage($broadWorksLanguage = null)
+    {
+        if (!$broadWorksLanguage) return $this;
+        $this->broadWorksLanguage = new SimpleContent($broadWorksLanguage);
+        $this->broadWorksLanguage->setName('broadWorksLanguage');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getBroadWorksLanguage()
+    {
+        return $this->broadWorksLanguage->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setDeviceLanguage($deviceLanguage = null)
+    {
+        if (!$deviceLanguage) return $this;
+        $this->deviceLanguage = new SimpleContent($deviceLanguage);
+        $this->deviceLanguage->setName('deviceLanguage');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getDeviceLanguage()
+    {
+        return $this->deviceLanguage->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutingProfile;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingProfileGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingProfileGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'SystemRoutingProfileGetListResponse';
     protected $routingProfile = null;
 
     /**
@@ -33,20 +32,24 @@ class SystemRoutingProfileGetListResponse extends ComplexType implements Complex
     }
 
     /**
-     * Routing Profile.
+     * 
      */
     public function setRoutingProfile($routingProfile = null)
     {
+        if (!$routingProfile) return $this;
         $this->routingProfile = ($routingProfile InstanceOf RoutingProfile)
              ? $routingProfile
              : new RoutingProfile($routingProfile);
+        $this->routingProfile->setName('routingProfile');
+        return $this;
     }
 
     /**
-     * Routing Profile.
+     * 
+     * @return RoutingProfile
      */
     public function getRoutingProfile()
     {
-        return (!$this->routingProfile) ?: $this->routingProfile->getValue();
+        return $this->routingProfile->getValue();
     }
 }

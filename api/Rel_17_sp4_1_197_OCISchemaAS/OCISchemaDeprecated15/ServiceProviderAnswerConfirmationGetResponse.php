@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationAnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\AnswerConfirmationTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderAnswerConfirmationGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = __CLASS__;
+    public    $name                                    = 'ServiceProviderAnswerConfirmationGetResponse';
     protected $announcementMessageSelection            = null;
     protected $confirmationMessageAudioFileDescription = null;
     protected $confirmationTimoutSeconds               = null;
@@ -37,56 +36,68 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
     }
 
     /**
-     * Anser Confirmation Announcement Selection.
+     * 
      */
     public function setAnnouncementMessageSelection($announcementMessageSelection = null)
     {
+        if (!$announcementMessageSelection) return $this;
         $this->announcementMessageSelection = ($announcementMessageSelection InstanceOf AnswerConfirmationAnnouncementSelection)
              ? $announcementMessageSelection
              : new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
+        $this->announcementMessageSelection->setName('announcementMessageSelection');
+        return $this;
     }
 
     /**
-     * Anser Confirmation Announcement Selection.
+     * 
+     * @return AnswerConfirmationAnnouncementSelection
      */
     public function getAnnouncementMessageSelection()
     {
-        return (!$this->announcementMessageSelection) ?: $this->announcementMessageSelection->getValue();
+        return $this->announcementMessageSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setConfirmationMessageAudioFileDescription($confirmationMessageAudioFileDescription = null)
     {
+        if (!$confirmationMessageAudioFileDescription) return $this;
         $this->confirmationMessageAudioFileDescription = ($confirmationMessageAudioFileDescription InstanceOf FileDescription)
              ? $confirmationMessageAudioFileDescription
              : new FileDescription($confirmationMessageAudioFileDescription);
+        $this->confirmationMessageAudioFileDescription->setName('confirmationMessageAudioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getConfirmationMessageAudioFileDescription()
     {
-        return (!$this->confirmationMessageAudioFileDescription) ?: $this->confirmationMessageAudioFileDescription->getValue();
+        return $this->confirmationMessageAudioFileDescription->getValue();
     }
 
     /**
-     * The timer determines how long the system will wait for the confirmation.
+     * 
      */
     public function setConfirmationTimoutSeconds($confirmationTimoutSeconds = null)
     {
+        if (!$confirmationTimoutSeconds) return $this;
         $this->confirmationTimoutSeconds = ($confirmationTimoutSeconds InstanceOf AnswerConfirmationTimeoutSeconds)
              ? $confirmationTimoutSeconds
              : new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
+        $this->confirmationTimoutSeconds->setName('confirmationTimoutSeconds');
+        return $this;
     }
 
     /**
-     * The timer determines how long the system will wait for the confirmation.
+     * 
+     * @return AnswerConfirmationTimeoutSeconds
      */
     public function getConfirmationTimoutSeconds()
     {
-        return (!$this->confirmationTimoutSeconds) ?: $this->confirmationTimoutSeconds->getValue();
+        return $this->confirmationTimoutSeconds->getValue();
     }
 }

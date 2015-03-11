@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterCallDispositionCodeGetAvailableListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterCallDispositionCodeGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'UserCallCenterCallDispositionCodeGetAvailableListResponse';
     protected $dispositionCodesTable = null;
 
     /**
@@ -41,14 +40,17 @@ class UserCallCenterCallDispositionCodeGetAvailableListResponse extends ComplexT
      */
     public function setDispositionCodesTable(core:OCITable $dispositionCodesTable = null)
     {
-        $this->dispositionCodesTable =  $dispositionCodesTable;
+        if (!$dispositionCodesTable) return $this;
+        $this->dispositionCodesTable->setName('dispositionCodesTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getDispositionCodesTable()
     {
-        return (!$this->dispositionCodesTable) ?: $this->dispositionCodesTable->getValue();
+        return $this->dispositionCodesTable->getValue();
     }
 }

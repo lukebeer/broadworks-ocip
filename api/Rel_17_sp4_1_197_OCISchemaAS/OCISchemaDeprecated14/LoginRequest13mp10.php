@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class LoginRequest13mp10 extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\LoginResponse13mp10';
-    public    $name           = __CLASS__;
+    public    $name           = 'LoginRequest13mp10';
     protected $userId         = null;
     protected $signedPassword = null;
 
@@ -44,46 +44,46 @@ class LoginRequest13mp10 extends ComplexType implements ComplexInterface
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Signed Password.
+     * 
      */
     public function setSignedPassword($signedPassword = null)
     {
+        if (!$signedPassword) return $this;
         $this->signedPassword = ($signedPassword InstanceOf SignedPassword)
              ? $signedPassword
              : new SignedPassword($signedPassword);
+        $this->signedPassword->setName('signedPassword');
+        return $this;
     }
 
     /**
-     * Signed Password.
+     * 
+     * @return SignedPassword
      */
     public function getSignedPassword()
     {
-        return (!$this->signedPassword) ?: $this->signedPassword->getValue();
+        return $this->signedPassword->getValue();
     }
 }

@@ -12,9 +12,9 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CountryCode
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CountryCodeRingPeriodMilliseconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CountryCodeMaxCallWaitingTones;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NationalPrefix;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCountryCodeAddResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryName;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -31,7 +31,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = __CLASS__;
+    public    $name                                    = 'SystemCountryCodeAddRequest';
     protected $countryCode                             = null;
     protected $countryName                             = null;
     protected $ringPeriodMilliseconds                  = null;
@@ -62,7 +62,7 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return SystemCountryCodeAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,75 +70,91 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * Country dialing code.
+     * 
      */
     public function setCountryCode($countryCode = null)
     {
+        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
+        $this->countryCode->setName('countryCode');
+        return $this;
     }
 
     /**
-     * Country dialing code.
+     * 
+     * @return CountryCode
      */
     public function getCountryCode()
     {
-        return (!$this->countryCode) ?: $this->countryCode->getValue();
+        return $this->countryCode->getValue();
     }
 
     /**
-     * The name of a country.
+     * 
      */
     public function setCountryName($countryName = null)
     {
+        if (!$countryName) return $this;
         $this->countryName = ($countryName InstanceOf CountryName)
              ? $countryName
              : new CountryName($countryName);
+        $this->countryName->setName('countryName');
+        return $this;
     }
 
     /**
-     * The name of a country.
+     * 
+     * @return CountryName
      */
     public function getCountryName()
     {
-        return (!$this->countryName) ?: $this->countryName->getValue();
+        return $this->countryName->getValue();
     }
 
     /**
-     * Country code ring period milliseconds.
+     * 
      */
     public function setRingPeriodMilliseconds($ringPeriodMilliseconds = null)
     {
+        if (!$ringPeriodMilliseconds) return $this;
         $this->ringPeriodMilliseconds = ($ringPeriodMilliseconds InstanceOf CountryCodeRingPeriodMilliseconds)
              ? $ringPeriodMilliseconds
              : new CountryCodeRingPeriodMilliseconds($ringPeriodMilliseconds);
+        $this->ringPeriodMilliseconds->setName('ringPeriodMilliseconds');
+        return $this;
     }
 
     /**
-     * Country code ring period milliseconds.
+     * 
+     * @return CountryCodeRingPeriodMilliseconds
      */
     public function getRingPeriodMilliseconds()
     {
-        return (!$this->ringPeriodMilliseconds) ?: $this->ringPeriodMilliseconds->getValue();
+        return $this->ringPeriodMilliseconds->getValue();
     }
 
     /**
-     * Country code off hook warning timer seconds.
+     * 
      */
     public function setOffHookWarningTimerSeconds($offHookWarningTimerSeconds = null)
     {
+        if (!$offHookWarningTimerSeconds) return $this;
         $this->offHookWarningTimerSeconds = ($offHookWarningTimerSeconds InstanceOf CountryCodeOffHookWarningTimerSeconds)
              ? $offHookWarningTimerSeconds
              : new CountryCodeOffHookWarningTimerSeconds($offHookWarningTimerSeconds);
+        $this->offHookWarningTimerSeconds->setName('offHookWarningTimerSeconds');
+        return $this;
     }
 
     /**
-     * Country code off hook warning timer seconds.
+     * 
+     * @return CountryCodeOffHookWarningTimerSeconds
      */
     public function getOffHookWarningTimerSeconds()
     {
-        return (!$this->offHookWarningTimerSeconds) ?: $this->offHookWarningTimerSeconds->getValue();
+        return $this->offHookWarningTimerSeconds->getValue();
     }
 
     /**
@@ -146,68 +162,84 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function setEnableNationalPrefix($enableNationalPrefix = null)
     {
-        $this->enableNationalPrefix = (boolean) $enableNationalPrefix;
+        if (!$enableNationalPrefix) return $this;
+        $this->enableNationalPrefix = new PrimitiveType($enableNationalPrefix);
+        $this->enableNationalPrefix->setName('enableNationalPrefix');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableNationalPrefix()
+    {
+        return $this->enableNationalPrefix->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableNationalPrefix()
-    {
-        return (!$this->enableNationalPrefix) ?: $this->enableNationalPrefix;
-    }
-
-    /**
-     * The national prefix dialing digits.
-     */
     public function setNationalPrefix($nationalPrefix = null)
     {
+        if (!$nationalPrefix) return $this;
         $this->nationalPrefix = ($nationalPrefix InstanceOf NationalPrefix)
              ? $nationalPrefix
              : new NationalPrefix($nationalPrefix);
+        $this->nationalPrefix->setName('nationalPrefix');
+        return $this;
     }
 
     /**
-     * The national prefix dialing digits.
+     * 
+     * @return NationalPrefix
      */
     public function getNationalPrefix()
     {
-        return (!$this->nationalPrefix) ?: $this->nationalPrefix->getValue();
+        return $this->nationalPrefix->getValue();
     }
 
     /**
-     * The maximum number of call waiting tones per call.
+     * 
      */
     public function setMaxCallWaitingTones($maxCallWaitingTones = null)
     {
+        if (!$maxCallWaitingTones) return $this;
         $this->maxCallWaitingTones = ($maxCallWaitingTones InstanceOf CountryCodeMaxCallWaitingTones)
              ? $maxCallWaitingTones
              : new CountryCodeMaxCallWaitingTones($maxCallWaitingTones);
+        $this->maxCallWaitingTones->setName('maxCallWaitingTones');
+        return $this;
     }
 
     /**
-     * The maximum number of call waiting tones per call.
+     * 
+     * @return CountryCodeMaxCallWaitingTones
      */
     public function getMaxCallWaitingTones()
     {
-        return (!$this->maxCallWaitingTones) ?: $this->maxCallWaitingTones->getValue();
+        return $this->maxCallWaitingTones->getValue();
     }
 
     /**
-     * The amount of quiet time between call waiting tones.
+     * 
      */
     public function setTimeBetweenCallWaitingTonesMilliseconds($timeBetweenCallWaitingTonesMilliseconds = null)
     {
+        if (!$timeBetweenCallWaitingTonesMilliseconds) return $this;
         $this->timeBetweenCallWaitingTonesMilliseconds = ($timeBetweenCallWaitingTonesMilliseconds InstanceOf CountryCodeTimeBetweenCallWaitingTonesMilliseconds)
              ? $timeBetweenCallWaitingTonesMilliseconds
              : new CountryCodeTimeBetweenCallWaitingTonesMilliseconds($timeBetweenCallWaitingTonesMilliseconds);
+        $this->timeBetweenCallWaitingTonesMilliseconds->setName('timeBetweenCallWaitingTonesMilliseconds');
+        return $this;
     }
 
     /**
-     * The amount of quiet time between call waiting tones.
+     * 
+     * @return CountryCodeTimeBetweenCallWaitingTonesMilliseconds
      */
     public function getTimeBetweenCallWaitingTonesMilliseconds()
     {
-        return (!$this->timeBetweenCallWaitingTonesMilliseconds) ?: $this->timeBetweenCallWaitingTonesMilliseconds->getValue();
+        return $this->timeBetweenCallWaitingTonesMilliseconds->getValue();
     }
 }

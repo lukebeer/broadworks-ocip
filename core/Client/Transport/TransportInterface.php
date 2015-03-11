@@ -13,7 +13,7 @@ interface TransportInterface
 
     public function send($msg);
 
-    public function getResponse($responseType=false, $outputType = OCIResponseOutput::STD);
+    public function getResponse($responseType=false, $outputType = OCIResponseOutput::STD, $appends);
 
     public function getLastResponseBody();
 

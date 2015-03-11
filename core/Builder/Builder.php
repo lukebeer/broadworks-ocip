@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\core\Builder;
 
-
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 
@@ -90,9 +90,9 @@ class Builder
         $oci .= '<command xsi:type="' . $command->getName() . '" xmlns="">';
         foreach ($command->getElements() as $element) {
             if ($element InstanceOf ComplexType) {
-                $oci .= $this->buildComplex($element);
+                $oci .= self::buildComplex($element);
             } elseif ($element InstanceOf SimpleType) {
-                $oci .= $this->buildSimple($element);
+                $oci .= self::buildSimple($element);
             }
         }
         $oci .= '</command>';
@@ -111,29 +111,21 @@ class Builder
         }
     }
 
-    // Maps OCITable into an array of requests, cheat code.
-    //  $device_parmas = $this->mapTable($device['device'], OCISchemaGroup::GroupAccessDeviceModifyUserRequest())[0];
-    //  $user_command  = $this->mapTable($device['userList'], $device_parmas)[0];
-    //  $output       .= $this->createConfigCSV(['schema' => 'OCISchemaGroup', 'command' => $user_command])."\r\n";
-
-    private function buildComplex(ComplexType $complex)
+    public static function buildComplex(ComplexType $complex)
     {
         $oci = "<{$complex->getName()}>";
         foreach ($complex->getElements() as $element) {
             $oci .= ($element InstanceOf ComplexType)
-                ? $this->buildComplex($element)
-                : $this->buildSimple($element);
+                ? self::buildComplex($element)
+                : self::buildSimple($element);
         }
         $oci .= "</{$complex->getName()}>";
         return $oci;
     }
 
-    // Maps response into a new request
-
-    private function buildSimple(SimpleType $simple)
+    public static function buildSimple(SimpleType $simple)
     {
         if (empty($simple->getValue())) return '';
-        $name = lcfirst($simple->getName());
-        return "<$name>{$simple->getValue()}</$name>";
+        return "<{$simple->getName()}>{$simple->getValue()}</{$simple->getName()}>";
     }
 }

@@ -5,14 +5,13 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseTrunkMaximumRerouteAttempts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseTrunkRouteExhaustionAction;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'EnterpriseEnterpriseTrunkAddRequest';
     protected $serviceProviderId             = null;
     protected $enterpriseTrunkName           = null;
     protected $maximumRerouteAttempts        = null;
@@ -47,7 +46,7 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return EnterpriseEnterpriseTrunkAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,110 +54,112 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Enterprise Trunk name.
-     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     * 
      */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
+        if (!$enterpriseTrunkName) return $this;
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
+        $this->enterpriseTrunkName->setName('enterpriseTrunkName');
+        return $this;
     }
 
     /**
-     * Enterprise Trunk name.
-     *         Uniquely identifies an Enterprise Trunk in an enterprise or group.
+     * 
+     * @return EnterpriseTrunkName
      */
     public function getEnterpriseTrunkName()
     {
-        return (!$this->enterpriseTrunkName) ?: $this->enterpriseTrunkName->getValue();
+        return $this->enterpriseTrunkName->getValue();
     }
 
     /**
-     * Determines the maximum number of reroute attempts within an enterprise trunk.
+     * 
      */
     public function setMaximumRerouteAttempts($maximumRerouteAttempts = null)
     {
+        if (!$maximumRerouteAttempts) return $this;
         $this->maximumRerouteAttempts = ($maximumRerouteAttempts InstanceOf EnterpriseTrunkMaximumRerouteAttempts)
              ? $maximumRerouteAttempts
              : new EnterpriseTrunkMaximumRerouteAttempts($maximumRerouteAttempts);
+        $this->maximumRerouteAttempts->setName('maximumRerouteAttempts');
+        return $this;
     }
 
     /**
-     * Determines the maximum number of reroute attempts within an enterprise trunk.
+     * 
+     * @return EnterpriseTrunkMaximumRerouteAttempts
      */
     public function getMaximumRerouteAttempts()
     {
-        return (!$this->maximumRerouteAttempts) ?: $this->maximumRerouteAttempts->getValue();
+        return $this->maximumRerouteAttempts->getValue();
     }
 
     /**
-     * Enterprise Trunk Route Exhaustion Action
+     * 
      */
     public function setRouteExhaustionAction($routeExhaustionAction = null)
     {
+        if (!$routeExhaustionAction) return $this;
         $this->routeExhaustionAction = ($routeExhaustionAction InstanceOf EnterpriseTrunkRouteExhaustionAction)
              ? $routeExhaustionAction
              : new EnterpriseTrunkRouteExhaustionAction($routeExhaustionAction);
+        $this->routeExhaustionAction->setName('routeExhaustionAction');
+        return $this;
     }
 
     /**
-     * Enterprise Trunk Route Exhaustion Action
+     * 
+     * @return EnterpriseTrunkRouteExhaustionAction
      */
     public function getRouteExhaustionAction()
     {
-        return (!$this->routeExhaustionAction) ?: $this->routeExhaustionAction->getValue();
+        return $this->routeExhaustionAction->getValue();
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
      */
     public function setRouteExhaustionForwardAddress($routeExhaustionForwardAddress = null)
     {
+        if (!$routeExhaustionForwardAddress) return $this;
         $this->routeExhaustionForwardAddress = ($routeExhaustionForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $routeExhaustionForwardAddress
              : new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
+        $this->routeExhaustionForwardAddress->setName('routeExhaustionForwardAddress');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getRouteExhaustionForwardAddress()
     {
-        return (!$this->routeExhaustionForwardAddress) ?: $this->routeExhaustionForwardAddress->getValue();
+        return $this->routeExhaustionForwardAddress->getValue();
     }
 }

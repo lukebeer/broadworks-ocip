@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\Classmark;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark\SystemClassmarkDeleteResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemClassmarkDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
+    public    $name      = 'SystemClassmarkDeleteRequest';
     protected $classmark = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemClassmarkDeleteRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return SystemClassmarkDeleteResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -39,20 +38,24 @@ class SystemClassmarkDeleteRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * Name for the Class Mark.
+     * 
      */
     public function setClassmark($classmark = null)
     {
+        if (!$classmark) return $this;
         $this->classmark = ($classmark InstanceOf Classmark)
              ? $classmark
              : new Classmark($classmark);
+        $this->classmark->setName('classmark');
+        return $this;
     }
 
     /**
-     * Name for the Class Mark.
+     * 
+     * @return Classmark
      */
     public function getClassmark()
     {
-        return (!$this->classmark) ?: $this->classmark->getValue();
+        return $this->classmark->getValue();
     }
 }

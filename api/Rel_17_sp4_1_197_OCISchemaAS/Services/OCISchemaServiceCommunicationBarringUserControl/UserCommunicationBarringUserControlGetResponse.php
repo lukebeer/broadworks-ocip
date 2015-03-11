@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCommunicationBarringUserControl\UserCommunicationBarringUserControlGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommunicationBarringUserControlGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'UserCommunicationBarringUserControlGetResponse';
     protected $lockoutStatus = null;
     protected $profileTable  = null;
 
@@ -40,15 +39,19 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
      */
     public function setLockoutStatus($lockoutStatus = null)
     {
-        $this->lockoutStatus = (boolean) $lockoutStatus;
+        if (!$lockoutStatus) return $this;
+        $this->lockoutStatus = new PrimitiveType($lockoutStatus);
+        $this->lockoutStatus->setName('lockoutStatus');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getLockoutStatus()
     {
-        return (!$this->lockoutStatus) ?: $this->lockoutStatus;
+        return $this->lockoutStatus->getValue();
     }
 
     /**
@@ -56,14 +59,17 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
      */
     public function setProfileTable(core:OCITable $profileTable = null)
     {
-        $this->profileTable =  $profileTable;
+        if (!$profileTable) return $this;
+        $this->profileTable->setName('profileTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getProfileTable()
     {
-        return (!$this->profileTable) ?: $this->profileTable->getValue();
+        return $this->profileTable->getValue();
     }
 }

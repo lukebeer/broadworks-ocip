@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\GroupUserLi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseStrictness;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ServerHostId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLicensingGetResponse14sp3;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'SystemLicensingGetResponse14sp3';
     protected $licenseStrictness          = null;
     protected $groupUserlimit             = null;
     protected $expirationDate             = null;
@@ -49,45 +49,47 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
     }
 
     /**
-     * License type.
+     * 
      */
     public function setLicenseStrictness($licenseStrictness = null)
     {
+        if (!$licenseStrictness) return $this;
         $this->licenseStrictness = ($licenseStrictness InstanceOf LicenseStrictness)
              ? $licenseStrictness
              : new LicenseStrictness($licenseStrictness);
+        $this->licenseStrictness->setName('licenseStrictness');
+        return $this;
     }
 
     /**
-     * License type.
+     * 
+     * @return LicenseStrictness
      */
     public function getLicenseStrictness()
     {
-        return (!$this->licenseStrictness) ?: $this->licenseStrictness->getValue();
+        return $this->licenseStrictness->getValue();
     }
 
     /**
-     * The max number of users in a group that will consume a group license.
-     *         This number has to be greater than 0. For example, if the number is 300,
-     *         then the first 300 users in a group will consume one group license and
-     *         the #301 user will consume the second group license.
+     * 
      */
     public function setGroupUserlimit($groupUserlimit = null)
     {
+        if (!$groupUserlimit) return $this;
         $this->groupUserlimit = ($groupUserlimit InstanceOf GroupUserLicenseLimit)
              ? $groupUserlimit
              : new GroupUserLicenseLimit($groupUserlimit);
+        $this->groupUserlimit->setName('groupUserlimit');
+        return $this;
     }
 
     /**
-     * The max number of users in a group that will consume a group license.
-     *         This number has to be greater than 0. For example, if the number is 300,
-     *         then the first 300 users in a group will consume one group license and
-     *         the #301 user will consume the second group license.
+     * 
+     * @return GroupUserLicenseLimit
      */
     public function getGroupUserlimit()
     {
-        return (!$this->groupUserlimit) ?: $this->groupUserlimit->getValue();
+        return $this->groupUserlimit->getValue();
     }
 
     /**
@@ -95,51 +97,62 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setExpirationDate(xs:dateTime $expirationDate = null)
     {
-        $this->expirationDate =  $expirationDate;
+        if (!$expirationDate) return $this;
+        $this->expirationDate->setName('expirationDate');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:dateTime
+     */
+    public function getExpirationDate()
+    {
+        return $this->expirationDate->getValue();
     }
 
     /**
      * 
      */
-    public function getExpirationDate()
-    {
-        return (!$this->expirationDate) ?: $this->expirationDate->getValue();
-    }
-
-    /**
-     * Uniquely identifies the server computer hardware.
-     */
     public function setHostId($hostId = null)
     {
+        if (!$hostId) return $this;
         $this->hostId = ($hostId InstanceOf ServerHostId)
              ? $hostId
              : new ServerHostId($hostId);
+        $this->hostId->setName('hostId');
+        return $this;
     }
 
     /**
-     * Uniquely identifies the server computer hardware.
+     * 
+     * @return ServerHostId
      */
     public function getHostId()
     {
-        return (!$this->hostId) ?: $this->hostId->getValue();
+        return $this->hostId->getValue();
     }
 
     /**
-     * Something that has been licensed.
+     * 
      */
     public function setLicenseName($licenseName = null)
     {
+        if (!$licenseName) return $this;
         $this->licenseName = ($licenseName InstanceOf LicenseName)
              ? $licenseName
              : new LicenseName($licenseName);
+        $this->licenseName->setName('licenseName');
+        return $this;
     }
 
     /**
-     * Something that has been licensed.
+     * 
+     * @return LicenseName
      */
     public function getLicenseName()
     {
-        return (!$this->licenseName) ?: $this->licenseName->getValue();
+        return $this->licenseName->getValue();
     }
 
     /**
@@ -147,15 +160,19 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setNumberOfTrunkUsers($numberOfTrunkUsers = null)
     {
-        $this->numberOfTrunkUsers = (int) $numberOfTrunkUsers;
+        if (!$numberOfTrunkUsers) return $this;
+        $this->numberOfTrunkUsers = new PrimitiveType($numberOfTrunkUsers);
+        $this->numberOfTrunkUsers->setName('numberOfTrunkUsers');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:int
      */
     public function getNumberOfTrunkUsers()
     {
-        return (!$this->numberOfTrunkUsers) ?: $this->numberOfTrunkUsers;
+        return $this->numberOfTrunkUsers->getValue();
     }
 
     /**
@@ -163,15 +180,18 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setSubscriberLicenseTable(core:OCITable $subscriberLicenseTable = null)
     {
-        $this->subscriberLicenseTable =  $subscriberLicenseTable;
+        if (!$subscriberLicenseTable) return $this;
+        $this->subscriberLicenseTable->setName('subscriberLicenseTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getSubscriberLicenseTable()
     {
-        return (!$this->subscriberLicenseTable) ?: $this->subscriberLicenseTable->getValue();
+        return $this->subscriberLicenseTable->getValue();
     }
 
     /**
@@ -179,15 +199,18 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setGroupServiceLicenseTable(core:OCITable $groupServiceLicenseTable = null)
     {
-        $this->groupServiceLicenseTable =  $groupServiceLicenseTable;
+        if (!$groupServiceLicenseTable) return $this;
+        $this->groupServiceLicenseTable->setName('groupServiceLicenseTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getGroupServiceLicenseTable()
     {
-        return (!$this->groupServiceLicenseTable) ?: $this->groupServiceLicenseTable->getValue();
+        return $this->groupServiceLicenseTable->getValue();
     }
 
     /**
@@ -195,15 +218,18 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setVirtualServiceLicenseTable(core:OCITable $virtualServiceLicenseTable = null)
     {
-        $this->virtualServiceLicenseTable =  $virtualServiceLicenseTable;
+        if (!$virtualServiceLicenseTable) return $this;
+        $this->virtualServiceLicenseTable->setName('virtualServiceLicenseTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getVirtualServiceLicenseTable()
     {
-        return (!$this->virtualServiceLicenseTable) ?: $this->virtualServiceLicenseTable->getValue();
+        return $this->virtualServiceLicenseTable->getValue();
     }
 
     /**
@@ -211,15 +237,18 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setUserServiceLicenseTable(core:OCITable $userServiceLicenseTable = null)
     {
-        $this->userServiceLicenseTable =  $userServiceLicenseTable;
+        if (!$userServiceLicenseTable) return $this;
+        $this->userServiceLicenseTable->setName('userServiceLicenseTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getUserServiceLicenseTable()
     {
-        return (!$this->userServiceLicenseTable) ?: $this->userServiceLicenseTable->getValue();
+        return $this->userServiceLicenseTable->getValue();
     }
 
     /**
@@ -227,14 +256,17 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setSystemParamLicenseTable(core:OCITable $systemParamLicenseTable = null)
     {
-        $this->systemParamLicenseTable =  $systemParamLicenseTable;
+        if (!$systemParamLicenseTable) return $this;
+        $this->systemParamLicenseTable->setName('systemParamLicenseTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getSystemParamLicenseTable()
     {
-        return (!$this->systemParamLicenseTable) ?: $this->systemParamLicenseTable->getValue();
+        return $this->systemParamLicenseTable->getValue();
     }
 }

@@ -12,7 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManag
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementFTPConnectTimeoutSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementMaxBusyTimeMinutes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigParametersGetResponse14sp6;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name                                = __CLASS__;
+    public    $name                                = 'SystemCPEConfigParametersGetResponse14sp6';
     protected $enableIPDeviceManagement            = null;
     protected $ftpConnectTimeoutSeconds            = null;
     protected $ftpFileTransferTimeoutSeconds       = null;
@@ -46,104 +46,128 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function setEnableIPDeviceManagement($enableIPDeviceManagement = null)
     {
-        $this->enableIPDeviceManagement = (boolean) $enableIPDeviceManagement;
+        if (!$enableIPDeviceManagement) return $this;
+        $this->enableIPDeviceManagement = new PrimitiveType($enableIPDeviceManagement);
+        $this->enableIPDeviceManagement->setName('enableIPDeviceManagement');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableIPDeviceManagement()
+    {
+        return $this->enableIPDeviceManagement->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableIPDeviceManagement()
-    {
-        return (!$this->enableIPDeviceManagement) ?: $this->enableIPDeviceManagement;
-    }
-
-    /**
-     * FTP connect timeout in seconds
-     */
     public function setFtpConnectTimeoutSeconds($ftpConnectTimeoutSeconds = null)
     {
+        if (!$ftpConnectTimeoutSeconds) return $this;
         $this->ftpConnectTimeoutSeconds = ($ftpConnectTimeoutSeconds InstanceOf DeviceManagementFTPConnectTimeoutSeconds)
              ? $ftpConnectTimeoutSeconds
              : new DeviceManagementFTPConnectTimeoutSeconds($ftpConnectTimeoutSeconds);
+        $this->ftpConnectTimeoutSeconds->setName('ftpConnectTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * FTP connect timeout in seconds
+     * 
+     * @return DeviceManagementFTPConnectTimeoutSeconds
      */
     public function getFtpConnectTimeoutSeconds()
     {
-        return (!$this->ftpConnectTimeoutSeconds) ?: $this->ftpConnectTimeoutSeconds->getValue();
+        return $this->ftpConnectTimeoutSeconds->getValue();
     }
 
     /**
-     * FTP file transfer timeout in seconds
+     * 
      */
     public function setFtpFileTransferTimeoutSeconds($ftpFileTransferTimeoutSeconds = null)
     {
+        if (!$ftpFileTransferTimeoutSeconds) return $this;
         $this->ftpFileTransferTimeoutSeconds = ($ftpFileTransferTimeoutSeconds InstanceOf DeviceManagementFTPFileTransferTimeoutSeconds)
              ? $ftpFileTransferTimeoutSeconds
              : new DeviceManagementFTPFileTransferTimeoutSeconds($ftpFileTransferTimeoutSeconds);
+        $this->ftpFileTransferTimeoutSeconds->setName('ftpFileTransferTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * FTP file transfer timeout in seconds
+     * 
+     * @return DeviceManagementFTPFileTransferTimeoutSeconds
      */
     public function getFtpFileTransferTimeoutSeconds()
     {
-        return (!$this->ftpFileTransferTimeoutSeconds) ?: $this->ftpFileTransferTimeoutSeconds->getValue();
+        return $this->ftpFileTransferTimeoutSeconds->getValue();
     }
 
     /**
-     * Duration of the pause that IP Device Configuration Management should take between two consecutive file re-build and send.
+     * 
      */
     public function setPauseBetweenFileRebuildMilliseconds($pauseBetweenFileRebuildMilliseconds = null)
     {
+        if (!$pauseBetweenFileRebuildMilliseconds) return $this;
         $this->pauseBetweenFileRebuildMilliseconds = ($pauseBetweenFileRebuildMilliseconds InstanceOf DeviceManagementPauseBetweenFileRebuildMilliseconds)
              ? $pauseBetweenFileRebuildMilliseconds
              : new DeviceManagementPauseBetweenFileRebuildMilliseconds($pauseBetweenFileRebuildMilliseconds);
+        $this->pauseBetweenFileRebuildMilliseconds->setName('pauseBetweenFileRebuildMilliseconds');
+        return $this;
     }
 
     /**
-     * Duration of the pause that IP Device Configuration Management should take between two consecutive file re-build and send.
+     * 
+     * @return DeviceManagementPauseBetweenFileRebuildMilliseconds
      */
     public function getPauseBetweenFileRebuildMilliseconds()
     {
-        return (!$this->pauseBetweenFileRebuildMilliseconds) ?: $this->pauseBetweenFileRebuildMilliseconds->getValue();
+        return $this->pauseBetweenFileRebuildMilliseconds->getValue();
     }
 
     /**
-     * Maximum time that IP Device Configuration Management should take to process all the file rebuild events currently queued.
+     * 
      */
     public function setMaxBusyTimeMinutes($maxBusyTimeMinutes = null)
     {
+        if (!$maxBusyTimeMinutes) return $this;
         $this->maxBusyTimeMinutes = ($maxBusyTimeMinutes InstanceOf DeviceManagementMaxBusyTimeMinutes)
              ? $maxBusyTimeMinutes
              : new DeviceManagementMaxBusyTimeMinutes($maxBusyTimeMinutes);
+        $this->maxBusyTimeMinutes->setName('maxBusyTimeMinutes');
+        return $this;
     }
 
     /**
-     * Maximum time that IP Device Configuration Management should take to process all the file rebuild events currently queued.
+     * 
+     * @return DeviceManagementMaxBusyTimeMinutes
      */
     public function getMaxBusyTimeMinutes()
     {
-        return (!$this->maxBusyTimeMinutes) ?: $this->maxBusyTimeMinutes->getValue();
+        return $this->maxBusyTimeMinutes->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setDeviceAccessAppServerClusterName($deviceAccessAppServerClusterName = null)
     {
+        if (!$deviceAccessAppServerClusterName) return $this;
         $this->deviceAccessAppServerClusterName = ($deviceAccessAppServerClusterName InstanceOf NetAddress)
              ? $deviceAccessAppServerClusterName
              : new NetAddress($deviceAccessAppServerClusterName);
+        $this->deviceAccessAppServerClusterName->setName('deviceAccessAppServerClusterName');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getDeviceAccessAppServerClusterName()
     {
-        return (!$this->deviceAccessAppServerClusterName) ?: $this->deviceAccessAppServerClusterName->getValue();
+        return $this->deviceAccessAppServerClusterName->getValue();
     }
 }

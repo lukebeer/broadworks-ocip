@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\CallMeNowToDnCriteria;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowToDnCriteria;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,10 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallMeNowToDnCriteria extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallMeNow\CallMeNowToDnCriteria';
-    public    $name = __CLASS__;
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowToDnCriteria';
+    public    $name                  = 'CallMeNowToDnCriteria';
+    protected $toDnCriteriaSelection = null;
+    protected $phoneNumber           = null;
 
-    public function __construct(    ) {
+    public function __construct(
+         $toDnCriteriaSelection,
+         $phoneNumber = null
+    ) {
+        $this->setToDnCriteriaSelection($toDnCriteriaSelection);
+        $this->setPhoneNumber($phoneNumber);
     }
 
     /**
@@ -32,5 +39,45 @@ class CallMeNowToDnCriteria extends ComplexType implements ComplexInterface
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
         return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setToDnCriteriaSelection($toDnCriteriaSelection = null)
+    {
+        if (!$toDnCriteriaSelection) return $this;
+        $this->toDnCriteriaSelection = new SimpleContent($toDnCriteriaSelection);
+        $this->toDnCriteriaSelection->setName('toDnCriteriaSelection');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getToDnCriteriaSelection()
+    {
+        return $this->toDnCriteriaSelection->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setPhoneNumber($phoneNumber = null)
+    {
+        if (!$phoneNumber) return $this;
+        $this->phoneNumber = new SimpleContent($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SimpleContent
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber->getValue();
     }
 }

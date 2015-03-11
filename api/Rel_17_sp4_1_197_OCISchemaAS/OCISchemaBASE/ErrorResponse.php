@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\ErrorResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ErrorResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'ErrorResponse';
     protected $errorCode      = null;
     protected $summary        = null;
     protected $summaryEnglish = null;
@@ -39,15 +38,19 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function setErrorCode($errorCode = null)
     {
-        $this->errorCode = (int) $errorCode;
+        if (!$errorCode) return $this;
+        $this->errorCode = new PrimitiveType($errorCode);
+        $this->errorCode->setName('errorCode');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:int
      */
     public function getErrorCode()
     {
-        return (!$this->errorCode) ?: $this->errorCode;
+        return $this->errorCode->getValue();
     }
 
     /**
@@ -55,15 +58,19 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function setSummary($summary = null)
     {
-        $this->summary = (string) $summary;
+        if (!$summary) return $this;
+        $this->summary = new PrimitiveType($summary);
+        $this->summary->setName('summary');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:string
      */
     public function getSummary()
     {
-        return (!$this->summary) ?: $this->summary;
+        return $this->summary->getValue();
     }
 
     /**
@@ -71,15 +78,19 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function setSummaryEnglish($summaryEnglish = null)
     {
-        $this->summaryEnglish = (string) $summaryEnglish;
+        if (!$summaryEnglish) return $this;
+        $this->summaryEnglish = new PrimitiveType($summaryEnglish);
+        $this->summaryEnglish->setName('summaryEnglish');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:string
      */
     public function getSummaryEnglish()
     {
-        return (!$this->summaryEnglish) ?: $this->summaryEnglish;
+        return $this->summaryEnglish->getValue();
     }
 
     /**
@@ -87,14 +98,18 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function setDetail($detail = null)
     {
-        $this->detail = (string) $detail;
+        if (!$detail) return $this;
+        $this->detail = new PrimitiveType($detail);
+        $this->detail->setName('detail');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:string
      */
     public function getDetail()
     {
-        return (!$this->detail) ?: $this->detail;
+        return $this->detail->getValue();
     }
 }

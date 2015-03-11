@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsAccountAuthorizationCodeFilter;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsRedirectedNumberFilter;
@@ -15,7 +15,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsTimeRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponsePagingControl;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,8 +35,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4';
-    public    $name                           = __CLASS__;
+    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4';
+    public    $name                           = 'UserEnhancedCallLogsGetListRequest17sp4';
     protected $userId                         = null;
     protected $callLogType                    = null;
     protected $dateTimeRange                  = null;
@@ -49,12 +49,12 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
     public function __construct(
          $userId,
          $callLogType = null,
-          $dateTimeRange,
-          $numberFilter = null,
-          $redirectedNumberFilter = null,
-          $accountAuthorizationCodeFilter = null,
+         EnhancedCallLogsTimeRange $dateTimeRange,
+         EnhancedCallLogsNumberFilter $numberFilter = null,
+         EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null,
+         EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null,
          $subscriberType = null,
-          $responsePagingControl = null
+         ResponsePagingControl $responsePagingControl = null
     ) {
         $this->setUserId($userId);
         $this->setCallLogType($callLogType);
@@ -75,152 +75,168 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Call Log type used by enhanced call logs requests
+     * 
      */
     public function setCallLogType($callLogType = null)
     {
+        if (!$callLogType) return $this;
         $this->callLogType = ($callLogType InstanceOf EnhancedCallLogsCallLogsRequestType)
              ? $callLogType
              : new EnhancedCallLogsCallLogsRequestType($callLogType);
+        $this->callLogType->setName('callLogType');
+        return $this;
     }
 
     /**
-     * Call Log type used by enhanced call logs requests
+     * 
+     * @return EnhancedCallLogsCallLogsRequestType
      */
     public function getCallLogType()
     {
-        return (!$this->callLogType) ?: $this->callLogType->getValue();
+        return $this->callLogType->getValue();
     }
 
     /**
-     * Time range used to filter call logs.
+     * 
      */
     public function setDateTimeRange(EnhancedCallLogsTimeRange $dateTimeRange = null)
     {
-        $this->dateTimeRange =  $dateTimeRange;
+        if (!$dateTimeRange) return $this;
+        $this->dateTimeRange = $dateTimeRange;
+        $this->dateTimeRange->setName('dateTimeRange');
+        return $this;
     }
 
     /**
-     * Time range used to filter call logs.
+     * 
+     * @return EnhancedCallLogsTimeRange
      */
     public function getDateTimeRange()
     {
-        return (!$this->dateTimeRange) ?: $this->dateTimeRange->getValue();
+        return $this->dateTimeRange;
     }
 
     /**
-     * Filter criteria based on the called number or number called.
+     * 
      */
     public function setNumberFilter(EnhancedCallLogsNumberFilter $numberFilter = null)
     {
-        $this->numberFilter =  $numberFilter;
+        if (!$numberFilter) return $this;
+        $this->numberFilter = $numberFilter;
+        $this->numberFilter->setName('numberFilter');
+        return $this;
     }
 
     /**
-     * Filter criteria based on the called number or number called.
+     * 
+     * @return EnhancedCallLogsNumberFilter
      */
     public function getNumberFilter()
     {
-        return (!$this->numberFilter) ?: $this->numberFilter->getValue();
+        return $this->numberFilter;
     }
 
     /**
-     * Filter criteria based on the transferred/forwarded number.
+     * 
      */
     public function setRedirectedNumberFilter(EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null)
     {
-        $this->redirectedNumberFilter =  $redirectedNumberFilter;
+        if (!$redirectedNumberFilter) return $this;
+        $this->redirectedNumberFilter = $redirectedNumberFilter;
+        $this->redirectedNumberFilter->setName('redirectedNumberFilter');
+        return $this;
     }
 
     /**
-     * Filter criteria based on the transferred/forwarded number.
+     * 
+     * @return EnhancedCallLogsRedirectedNumberFilter
      */
     public function getRedirectedNumberFilter()
     {
-        return (!$this->redirectedNumberFilter) ?: $this->redirectedNumberFilter->getValue();
+        return $this->redirectedNumberFilter;
     }
 
     /**
-     * Filter criteria based on the account code.
-     *         When "callsWithCodes" is set to true, all call logs with account/authorization codes are returned. 
-     *         When it set to false, all call logs without account/authorization codes are returned.
+     * 
      */
     public function setAccountAuthorizationCodeFilter(EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null)
     {
-        $this->accountAuthorizationCodeFilter =  $accountAuthorizationCodeFilter;
+        if (!$accountAuthorizationCodeFilter) return $this;
+        $this->accountAuthorizationCodeFilter = $accountAuthorizationCodeFilter;
+        $this->accountAuthorizationCodeFilter->setName('accountAuthorizationCodeFilter');
+        return $this;
     }
 
     /**
-     * Filter criteria based on the account code.
-     *         When "callsWithCodes" is set to true, all call logs with account/authorization codes are returned. 
-     *         When it set to false, all call logs without account/authorization codes are returned.
+     * 
+     * @return EnhancedCallLogsAccountAuthorizationCodeFilter
      */
     public function getAccountAuthorizationCodeFilter()
     {
-        return (!$this->accountAuthorizationCodeFilter) ?: $this->accountAuthorizationCodeFilter->getValue();
+        return $this->accountAuthorizationCodeFilter;
     }
 
     /**
-     * Subscriber type
+     * 
      */
     public function setSubscriberType($subscriberType = null)
     {
+        if (!$subscriberType) return $this;
         $this->subscriberType = ($subscriberType InstanceOf EnhancedCallLogsSubscriberType)
              ? $subscriberType
              : new EnhancedCallLogsSubscriberType($subscriberType);
+        $this->subscriberType->setName('subscriberType');
+        return $this;
     }
 
     /**
-     * Subscriber type
+     * 
+     * @return EnhancedCallLogsSubscriberType
      */
     public function getSubscriberType()
     {
-        return (!$this->subscriberType) ?: $this->subscriberType->getValue();
+        return $this->subscriberType->getValue();
     }
 
     /**
-     * Used in queries to restrict the set of result rows when making a request that can result in
-     *         a large dataset. The client specifies the starting row and the number of rows requested. 
-     *         The server only provides those rows in results, if available.
+     * 
      */
     public function setResponsePagingControl(ResponsePagingControl $responsePagingControl = null)
     {
-        $this->responsePagingControl =  $responsePagingControl;
+        if (!$responsePagingControl) return $this;
+        $this->responsePagingControl = $responsePagingControl;
+        $this->responsePagingControl->setName('responsePagingControl');
+        return $this;
     }
 
     /**
-     * Used in queries to restrict the set of result rows when making a request that can result in
-     *         a large dataset. The client specifies the starting row and the number of rows requested. 
-     *         The server only provides those rows in results, if available.
+     * 
+     * @return ResponsePagingControl
      */
     public function getResponsePagingControl()
     {
-        return (!$this->responsePagingControl) ?: $this->responsePagingControl->getValue();
+        return $this->responsePagingControl;
     }
 }

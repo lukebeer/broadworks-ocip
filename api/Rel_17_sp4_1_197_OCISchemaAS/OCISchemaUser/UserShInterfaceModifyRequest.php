@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PublicUserIdentity;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IMSUserState;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'UserShInterfaceModifyRequest';
     protected $publicUserIdentity = null;
     protected $SCSCFName          = null;
     protected $IMSUserState       = null;
 
     public function __construct(
-          $publicUserIdentity,
+         PublicUserIdentity $publicUserIdentity,
          $SCSCFName = null,
          $IMSUserState = null
     ) {
@@ -39,7 +38,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return UserShInterfaceModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,68 +46,66 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * Public User Identity
+     * 
      */
     public function setPublicUserIdentity(PublicUserIdentity $publicUserIdentity = null)
     {
-        $this->publicUserIdentity =  $publicUserIdentity;
+        if (!$publicUserIdentity) return $this;
+        $this->publicUserIdentity = $publicUserIdentity;
+        $this->publicUserIdentity->setName('publicUserIdentity');
+        return $this;
     }
 
     /**
-     * Public User Identity
+     * 
+     * @return PublicUserIdentity
      */
     public function getPublicUserIdentity()
     {
-        return (!$this->publicUserIdentity) ?: $this->publicUserIdentity->getValue();
+        return $this->publicUserIdentity;
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
      */
     public function setSCSCFName($SCSCFName = null)
     {
+        if (!$SCSCFName) return $this;
         $this->SCSCFName = ($SCSCFName InstanceOf SIPURI)
              ? $SCSCFName
              : new SIPURI($SCSCFName);
+        $this->SCSCFName->setName('SCSCFName');
+        return $this;
     }
 
     /**
-     * SIP URI.
-     *         The SIP URI is used in many different places in the schema.
-     *         If the SIPURI is an alias, the Validation rules are:
-     *         - don't allow sip:
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - exactly one @ symbol
-     *         - user portion and host portion are both required
+     * 
+     * @return SIPURI
      */
     public function getSCSCFName()
     {
-        return (!$this->SCSCFName) ?: $this->SCSCFName->getValue();
+        return $this->SCSCFName->getValue();
     }
 
     /**
-     * IMS User State per the 3GPP TS 29.328 V6.3.0 spec.
+     * 
      */
     public function setIMSUserState($IMSUserState = null)
     {
+        if (!$IMSUserState) return $this;
         $this->IMSUserState = ($IMSUserState InstanceOf IMSUserState)
              ? $IMSUserState
              : new IMSUserState($IMSUserState);
+        $this->IMSUserState->setName('IMSUserState');
+        return $this;
     }
 
     /**
-     * IMS User State per the 3GPP TS 29.328 V6.3.0 spec.
+     * 
+     * @return IMSUserState
      */
     public function getIMSUserState()
     {
-        return (!$this->IMSUserState) ?: $this->IMSUserState->getValue();
+        return $this->IMSUserState->getValue();
     }
 }

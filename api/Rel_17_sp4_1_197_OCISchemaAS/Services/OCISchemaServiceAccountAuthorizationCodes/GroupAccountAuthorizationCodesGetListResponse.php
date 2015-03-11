@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes\AccountAuthorizationCodeEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccountAuthorizationCodesGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
+    public    $name      = 'GroupAccountAuthorizationCodesGetListResponse';
     protected $codeEntry = null;
 
     /**
@@ -32,18 +31,22 @@ class GroupAccountAuthorizationCodesGetListResponse extends ComplexType implemen
     }
 
     /**
-     * Account/Authorization Code.
+     * 
      */
     public function setCodeEntry(AccountAuthorizationCodeEntry $codeEntry = null)
     {
-        $this->codeEntry =  $codeEntry;
+        if (!$codeEntry) return $this;
+        $this->codeEntry = $codeEntry;
+        $this->codeEntry->setName('codeEntry');
+        return $this;
     }
 
     /**
-     * Account/Authorization Code.
+     * 
+     * @return AccountAuthorizationCodeEntry
      */
     public function getCodeEntry()
     {
-        return (!$this->codeEntry) ?: $this->codeEntry->getValue();
+        return $this->codeEntry;
     }
 }

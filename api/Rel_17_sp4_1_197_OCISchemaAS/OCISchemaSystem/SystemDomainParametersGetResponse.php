@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainParametersGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDomainParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'SystemDomainParametersGetResponse';
     protected $useAliasForDomain = null;
     protected $defaultDomain     = null;
 
@@ -38,32 +38,40 @@ class SystemDomainParametersGetResponse extends ComplexType implements ComplexIn
      */
     public function setUseAliasForDomain($useAliasForDomain = null)
     {
-        $this->useAliasForDomain = (boolean) $useAliasForDomain;
+        if (!$useAliasForDomain) return $this;
+        $this->useAliasForDomain = new PrimitiveType($useAliasForDomain);
+        $this->useAliasForDomain->setName('useAliasForDomain');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseAliasForDomain()
+    {
+        return $this->useAliasForDomain->getValue();
     }
 
     /**
      * 
      */
-    public function getUseAliasForDomain()
-    {
-        return (!$this->useAliasForDomain) ?: $this->useAliasForDomain;
-    }
-
-    /**
-     * IP Address, hostname, or domain.
-     */
     public function setDefaultDomain($defaultDomain = null)
     {
+        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
+        $this->defaultDomain->setName('defaultDomain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getDefaultDomain()
     {
-        return (!$this->defaultDomain) ?: $this->defaultDomain->getValue();
+        return $this->defaultDomain->getValue();
     }
 }

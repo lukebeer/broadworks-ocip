@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServiceGetAuthorizationListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'ServiceProviderServiceGetAuthorizationListResponse';
     protected $groupServicesAuthorizationTable = null;
     protected $userServicesAuthorizationTable  = null;
 
@@ -42,15 +41,18 @@ class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType imp
      */
     public function setGroupServicesAuthorizationTable(core:OCITable $groupServicesAuthorizationTable = null)
     {
-        $this->groupServicesAuthorizationTable =  $groupServicesAuthorizationTable;
+        if (!$groupServicesAuthorizationTable) return $this;
+        $this->groupServicesAuthorizationTable->setName('groupServicesAuthorizationTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getGroupServicesAuthorizationTable()
     {
-        return (!$this->groupServicesAuthorizationTable) ?: $this->groupServicesAuthorizationTable->getValue();
+        return $this->groupServicesAuthorizationTable->getValue();
     }
 
     /**
@@ -58,14 +60,17 @@ class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType imp
      */
     public function setUserServicesAuthorizationTable(core:OCITable $userServicesAuthorizationTable = null)
     {
-        $this->userServicesAuthorizationTable =  $userServicesAuthorizationTable;
+        if (!$userServicesAuthorizationTable) return $this;
+        $this->userServicesAuthorizationTable->setName('userServicesAuthorizationTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getUserServicesAuthorizationTable()
     {
-        return (!$this->userServicesAuthorizationTable) ?: $this->userServicesAuthorizationTable->getValue();
+        return $this->userServicesAuthorizationTable->getValue();
     }
 }

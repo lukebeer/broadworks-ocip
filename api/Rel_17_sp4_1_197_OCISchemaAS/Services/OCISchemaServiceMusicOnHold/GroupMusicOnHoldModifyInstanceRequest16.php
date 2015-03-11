@@ -5,13 +5,13 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\MusicOnHoldSourceModify16;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\GroupMusicOnHoldModifyInstanceResponse16;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name                               = __CLASS__;
+    public    $name                               = 'GroupMusicOnHoldModifyInstanceRequest16';
     protected $serviceProviderId                  = null;
     protected $groupId                            = null;
     protected $department                         = null;
@@ -38,13 +38,13 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
     public function __construct(
          $serviceProviderId,
          $groupId,
-          $department = null,
+         DepartmentKey $department = null,
          $isActiveDuringCallHold = null,
          $isActiveDuringCallPark = null,
          $isActiveDuringBusyCampOn = null,
-          $source = null,
+         MusicOnHoldSourceModify16 $source = null,
          $useAlternateSourceForInternalCalls = null,
-          $internalSource = null
+         MusicOnHoldSourceModify16 $internalSource = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -58,7 +58,7 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
     }
 
     /**
-     * @return GroupMusicOnHoldModifyInstanceResponse16
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,71 +66,67 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department =  $department;
+        if (!$department) return $this;
+        $this->department = $department;
+        $this->department->setName('department');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
+     * @return DepartmentKey
      */
     public function getDepartment()
     {
-        return (!$this->department) ?: $this->department->getValue();
+        return $this->department;
     }
 
     /**
@@ -138,15 +134,19 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
      */
     public function setIsActiveDuringCallHold($isActiveDuringCallHold = null)
     {
-        $this->isActiveDuringCallHold = (boolean) $isActiveDuringCallHold;
+        if (!$isActiveDuringCallHold) return $this;
+        $this->isActiveDuringCallHold = new PrimitiveType($isActiveDuringCallHold);
+        $this->isActiveDuringCallHold->setName('isActiveDuringCallHold');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActiveDuringCallHold()
     {
-        return (!$this->isActiveDuringCallHold) ?: $this->isActiveDuringCallHold;
+        return $this->isActiveDuringCallHold->getValue();
     }
 
     /**
@@ -154,15 +154,19 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
      */
     public function setIsActiveDuringCallPark($isActiveDuringCallPark = null)
     {
-        $this->isActiveDuringCallPark = (boolean) $isActiveDuringCallPark;
+        if (!$isActiveDuringCallPark) return $this;
+        $this->isActiveDuringCallPark = new PrimitiveType($isActiveDuringCallPark);
+        $this->isActiveDuringCallPark->setName('isActiveDuringCallPark');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActiveDuringCallPark()
     {
-        return (!$this->isActiveDuringCallPark) ?: $this->isActiveDuringCallPark;
+        return $this->isActiveDuringCallPark->getValue();
     }
 
     /**
@@ -170,31 +174,39 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
      */
     public function setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn = null)
     {
-        $this->isActiveDuringBusyCampOn = (boolean) $isActiveDuringBusyCampOn;
+        if (!$isActiveDuringBusyCampOn) return $this;
+        $this->isActiveDuringBusyCampOn = new PrimitiveType($isActiveDuringBusyCampOn);
+        $this->isActiveDuringBusyCampOn->setName('isActiveDuringBusyCampOn');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActiveDuringBusyCampOn()
+    {
+        return $this->isActiveDuringBusyCampOn->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActiveDuringBusyCampOn()
-    {
-        return (!$this->isActiveDuringBusyCampOn) ?: $this->isActiveDuringBusyCampOn;
-    }
-
-    /**
-     * Contains the music on hold source configuration.
-     */
     public function setSource(MusicOnHoldSourceModify16 $source = null)
     {
-        $this->source =  $source;
+        if (!$source) return $this;
+        $this->source = $source;
+        $this->source->setName('source');
+        return $this;
     }
 
     /**
-     * Contains the music on hold source configuration.
+     * 
+     * @return MusicOnHoldSourceModify16
      */
     public function getSource()
     {
-        return (!$this->source) ?: $this->source->getValue();
+        return $this->source;
     }
 
     /**
@@ -202,30 +214,38 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
      */
     public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls = null)
     {
-        $this->useAlternateSourceForInternalCalls = (boolean) $useAlternateSourceForInternalCalls;
+        if (!$useAlternateSourceForInternalCalls) return $this;
+        $this->useAlternateSourceForInternalCalls = new PrimitiveType($useAlternateSourceForInternalCalls);
+        $this->useAlternateSourceForInternalCalls->setName('useAlternateSourceForInternalCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseAlternateSourceForInternalCalls()
+    {
+        return $this->useAlternateSourceForInternalCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getUseAlternateSourceForInternalCalls()
-    {
-        return (!$this->useAlternateSourceForInternalCalls) ?: $this->useAlternateSourceForInternalCalls;
-    }
-
-    /**
-     * Contains the music on hold source configuration.
-     */
     public function setInternalSource(MusicOnHoldSourceModify16 $internalSource = null)
     {
-        $this->internalSource =  $internalSource;
+        if (!$internalSource) return $this;
+        $this->internalSource = $internalSource;
+        $this->internalSource->setName('internalSource');
+        return $this;
     }
 
     /**
-     * Contains the music on hold source configuration.
+     * 
+     * @return MusicOnHoldSourceModify16
      */
     public function getInternalSource()
     {
-        return (!$this->internalSource) ?: $this->internalSource->getValue();
+        return $this->internalSource;
     }
 }

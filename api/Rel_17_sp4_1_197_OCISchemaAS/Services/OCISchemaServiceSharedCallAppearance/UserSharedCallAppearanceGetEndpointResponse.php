@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSharedCallAppearance; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetEndpointResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'UserSharedCallAppearanceGetEndpointResponse';
     protected $isActive         = null;
     protected $allowOrigination = null;
     protected $allowTermination = null;
@@ -38,15 +37,19 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -54,15 +57,19 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function setAllowOrigination($allowOrigination = null)
     {
-        $this->allowOrigination = (boolean) $allowOrigination;
+        if (!$allowOrigination) return $this;
+        $this->allowOrigination = new PrimitiveType($allowOrigination);
+        $this->allowOrigination->setName('allowOrigination');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowOrigination()
     {
-        return (!$this->allowOrigination) ?: $this->allowOrigination;
+        return $this->allowOrigination->getValue();
     }
 
     /**
@@ -70,14 +77,18 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function setAllowTermination($allowTermination = null)
     {
-        $this->allowTermination = (boolean) $allowTermination;
+        if (!$allowTermination) return $this;
+        $this->allowTermination = new PrimitiveType($allowTermination);
+        $this->allowTermination->setName('allowTermination');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowTermination()
     {
-        return (!$this->allowTermination) ?: $this->allowTermination;
+        return $this->allowTermination->getValue();
     }
 }

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemGetAssignedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderRoutePointExternalSystemGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'ServiceProviderRoutePointExternalSystemGetAssignedListResponse';
     protected $externalSystemTable = null;
 
     /**
@@ -38,14 +37,17 @@ class ServiceProviderRoutePointExternalSystemGetAssignedListResponse extends Com
      */
     public function setExternalSystemTable(core:OCITable $externalSystemTable = null)
     {
-        $this->externalSystemTable =  $externalSystemTable;
+        if (!$externalSystemTable) return $this;
+        $this->externalSystemTable->setName('externalSystemTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getExternalSystemTable()
     {
-        return (!$this->externalSystemTable) ?: $this->externalSystemTable->getValue();
+        return $this->externalSystemTable->getValue();
     }
 }

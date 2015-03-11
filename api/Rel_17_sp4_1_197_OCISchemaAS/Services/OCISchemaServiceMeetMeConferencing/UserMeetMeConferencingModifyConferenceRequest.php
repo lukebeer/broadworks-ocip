@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceAttendeeNotification;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceAccountCode;
@@ -14,7 +14,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceTitle;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingModifyConferenceResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'UserMeetMeConferencingModifyConferenceRequest';
     protected $userId                       = null;
     protected $conferenceKey                = null;
     protected $title                        = null;
@@ -41,7 +41,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     public function __construct(
          $userId,
-          $conferenceKey,
+         MeetMeConferencingConferenceKey $conferenceKey,
          $title = null,
          $estimatedParticipants = null,
          $accountCode = null,
@@ -49,7 +49,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
          $endConferenceOnModeratorExit = null,
          $moderatorRequired = null,
          $attendeeNotification = null,
-          $conferenceSchedule = null
+         MeetMeConferencingConferenceSchedule $conferenceSchedule = null
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);
@@ -64,7 +64,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
     }
 
     /**
-     * @return UserMeetMeConferencingModifyConferenceResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,99 +72,111 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Identifier for conference.
+     * 
      */
     public function setConferenceKey(MeetMeConferencingConferenceKey $conferenceKey = null)
     {
-        $this->conferenceKey =  $conferenceKey;
+        if (!$conferenceKey) return $this;
+        $this->conferenceKey = $conferenceKey;
+        $this->conferenceKey->setName('conferenceKey');
+        return $this;
     }
 
     /**
-     * Identifier for conference.
+     * 
+     * @return MeetMeConferencingConferenceKey
      */
     public function getConferenceKey()
     {
-        return (!$this->conferenceKey) ?: $this->conferenceKey->getValue();
+        return $this->conferenceKey;
     }
 
     /**
-     * Conference title.
+     * 
      */
     public function setTitle($title = null)
     {
+        if (!$title) return $this;
         $this->title = ($title InstanceOf MeetMeConferencingConferenceTitle)
              ? $title
              : new MeetMeConferencingConferenceTitle($title);
+        $this->title->setName('title');
+        return $this;
     }
 
     /**
-     * Conference title.
+     * 
+     * @return MeetMeConferencingConferenceTitle
      */
     public function getTitle()
     {
-        return (!$this->title) ?: $this->title->getValue();
+        return $this->title->getValue();
     }
 
     /**
-     * Number of participants in a conference.
+     * 
      */
     public function setEstimatedParticipants($estimatedParticipants = null)
     {
+        if (!$estimatedParticipants) return $this;
         $this->estimatedParticipants = ($estimatedParticipants InstanceOf MeetMeConferencingNumberOfParticipants)
              ? $estimatedParticipants
              : new MeetMeConferencingNumberOfParticipants($estimatedParticipants);
+        $this->estimatedParticipants->setName('estimatedParticipants');
+        return $this;
     }
 
     /**
-     * Number of participants in a conference.
+     * 
+     * @return MeetMeConferencingNumberOfParticipants
      */
     public function getEstimatedParticipants()
     {
-        return (!$this->estimatedParticipants) ?: $this->estimatedParticipants->getValue();
+        return $this->estimatedParticipants->getValue();
     }
 
     /**
-     * Conference account code.
+     * 
      */
     public function setAccountCode($accountCode = null)
     {
+        if (!$accountCode) return $this;
         $this->accountCode = ($accountCode InstanceOf MeetMeConferencingConferenceAccountCode)
              ? $accountCode
              : new MeetMeConferencingConferenceAccountCode($accountCode);
+        $this->accountCode->setName('accountCode');
+        return $this;
     }
 
     /**
-     * Conference account code.
+     * 
+     * @return MeetMeConferencingConferenceAccountCode
      */
     public function getAccountCode()
     {
-        return (!$this->accountCode) ?: $this->accountCode->getValue();
+        return $this->accountCode->getValue();
     }
 
     /**
@@ -172,15 +184,19 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setMuteAllAttendeesOnEntry($muteAllAttendeesOnEntry = null)
     {
-        $this->muteAllAttendeesOnEntry = (boolean) $muteAllAttendeesOnEntry;
+        if (!$muteAllAttendeesOnEntry) return $this;
+        $this->muteAllAttendeesOnEntry = new PrimitiveType($muteAllAttendeesOnEntry);
+        $this->muteAllAttendeesOnEntry->setName('muteAllAttendeesOnEntry');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getMuteAllAttendeesOnEntry()
     {
-        return (!$this->muteAllAttendeesOnEntry) ?: $this->muteAllAttendeesOnEntry;
+        return $this->muteAllAttendeesOnEntry->getValue();
     }
 
     /**
@@ -188,15 +204,19 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setEndConferenceOnModeratorExit($endConferenceOnModeratorExit = null)
     {
-        $this->endConferenceOnModeratorExit = (boolean) $endConferenceOnModeratorExit;
+        if (!$endConferenceOnModeratorExit) return $this;
+        $this->endConferenceOnModeratorExit = new PrimitiveType($endConferenceOnModeratorExit);
+        $this->endConferenceOnModeratorExit->setName('endConferenceOnModeratorExit');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEndConferenceOnModeratorExit()
     {
-        return (!$this->endConferenceOnModeratorExit) ?: $this->endConferenceOnModeratorExit;
+        return $this->endConferenceOnModeratorExit->getValue();
     }
 
     /**
@@ -204,48 +224,60 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setModeratorRequired($moderatorRequired = null)
     {
-        $this->moderatorRequired = (boolean) $moderatorRequired;
+        if (!$moderatorRequired) return $this;
+        $this->moderatorRequired = new PrimitiveType($moderatorRequired);
+        $this->moderatorRequired->setName('moderatorRequired');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getModeratorRequired()
+    {
+        return $this->moderatorRequired->getValue();
     }
 
     /**
      * 
      */
-    public function getModeratorRequired()
-    {
-        return (!$this->moderatorRequired) ?: $this->moderatorRequired;
-    }
-
-    /**
-     * Choices for the notification when attendees join or leave the conferecne.
-     */
     public function setAttendeeNotification($attendeeNotification = null)
     {
+        if (!$attendeeNotification) return $this;
         $this->attendeeNotification = ($attendeeNotification InstanceOf MeetMeConferencingConferenceAttendeeNotification)
              ? $attendeeNotification
              : new MeetMeConferencingConferenceAttendeeNotification($attendeeNotification);
+        $this->attendeeNotification->setName('attendeeNotification');
+        return $this;
     }
 
     /**
-     * Choices for the notification when attendees join or leave the conferecne.
+     * 
+     * @return MeetMeConferencingConferenceAttendeeNotification
      */
     public function getAttendeeNotification()
     {
-        return (!$this->attendeeNotification) ?: $this->attendeeNotification->getValue();
+        return $this->attendeeNotification->getValue();
     }
 
     /**
-     * Conference schedule.
+     * 
      */
     public function setConferenceSchedule(MeetMeConferencingConferenceSchedule $conferenceSchedule = null)
     {
-        $this->conferenceSchedule =  $conferenceSchedule;
+        if (!$conferenceSchedule) return $this;
+        $this->conferenceSchedule = $conferenceSchedule;
+        $this->conferenceSchedule->setName('conferenceSchedule');
+        return $this;
     }
 
     /**
-     * Conference schedule.
+     * 
+     * @return MeetMeConferencingConferenceSchedule
      */
     public function getConferenceSchedule()
     {
-        return (!$this->conferenceSchedule) ?: $this->conferenceSchedule->getValue();
+        return $this->conferenceSchedule;
     }
 }

@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeActivation;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterCallDispositionCodeModifyActiveListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,20 +21,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest';
     protected $serviceProviderId             = null;
     protected $callDispositionCodeActivation = null;
 
     public function __construct(
          $serviceProviderId,
-          $callDispositionCodeActivation = null
+         CallDispositionCodeActivation $callDispositionCodeActivation = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCallDispositionCodeActivation($callDispositionCodeActivation);
     }
 
     /**
-     * @return EnterpriseCallCenterCallDispositionCodeModifyActiveListResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,44 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Contains a Call Center Call Disposition Code and its active state
+     * 
      */
     public function setCallDispositionCodeActivation(CallDispositionCodeActivation $callDispositionCodeActivation = null)
     {
-        $this->callDispositionCodeActivation =  $callDispositionCodeActivation;
+        if (!$callDispositionCodeActivation) return $this;
+        $this->callDispositionCodeActivation = $callDispositionCodeActivation;
+        $this->callDispositionCodeActivation->setName('callDispositionCodeActivation');
+        return $this;
     }
 
     /**
-     * Contains a Call Center Call Disposition Code and its active state
+     * 
+     * @return CallDispositionCodeActivation
      */
     public function getCallDispositionCodeActivation()
     {
-        return (!$this->callDispositionCodeActivation) ?: $this->callDispositionCodeActivation->getValue();
+        return $this->callDispositionCodeActivation;
     }
 }

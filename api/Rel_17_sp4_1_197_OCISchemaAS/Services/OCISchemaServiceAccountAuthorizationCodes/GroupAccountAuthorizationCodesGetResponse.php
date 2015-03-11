@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes\AccountAuthorizationCodeNumberOfDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes\AccountAuthorizationCodeType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'GroupAccountAuthorizationCodesGetResponse';
     protected $type                       = null;
     protected $numberOfDigits             = null;
     protected $allowLocalAndTollFreeCalls = null;
@@ -39,39 +39,47 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
     }
 
     /**
-     * Account/Authorization Code Type.
+     * 
      */
     public function setType($type = null)
     {
+        if (!$type) return $this;
         $this->type = ($type InstanceOf AccountAuthorizationCodeType)
              ? $type
              : new AccountAuthorizationCodeType($type);
+        $this->type->setName('type');
+        return $this;
     }
 
     /**
-     * Account/Authorization Code Type.
+     * 
+     * @return AccountAuthorizationCodeType
      */
     public function getType()
     {
-        return (!$this->type) ?: $this->type->getValue();
+        return $this->type->getValue();
     }
 
     /**
-     * Number of Account/Authorization Code Digits.
+     * 
      */
     public function setNumberOfDigits($numberOfDigits = null)
     {
+        if (!$numberOfDigits) return $this;
         $this->numberOfDigits = ($numberOfDigits InstanceOf AccountAuthorizationCodeNumberOfDigits)
              ? $numberOfDigits
              : new AccountAuthorizationCodeNumberOfDigits($numberOfDigits);
+        $this->numberOfDigits->setName('numberOfDigits');
+        return $this;
     }
 
     /**
-     * Number of Account/Authorization Code Digits.
+     * 
+     * @return AccountAuthorizationCodeNumberOfDigits
      */
     public function getNumberOfDigits()
     {
-        return (!$this->numberOfDigits) ?: $this->numberOfDigits->getValue();
+        return $this->numberOfDigits->getValue();
     }
 
     /**
@@ -79,15 +87,19 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function setAllowLocalAndTollFreeCalls($allowLocalAndTollFreeCalls = null)
     {
-        $this->allowLocalAndTollFreeCalls = (boolean) $allowLocalAndTollFreeCalls;
+        if (!$allowLocalAndTollFreeCalls) return $this;
+        $this->allowLocalAndTollFreeCalls = new PrimitiveType($allowLocalAndTollFreeCalls);
+        $this->allowLocalAndTollFreeCalls->setName('allowLocalAndTollFreeCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowLocalAndTollFreeCalls()
     {
-        return (!$this->allowLocalAndTollFreeCalls) ?: $this->allowLocalAndTollFreeCalls;
+        return $this->allowLocalAndTollFreeCalls->getValue();
     }
 
     /**
@@ -95,15 +107,18 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function setMandatoryUsageUserTable(core:OCITable $mandatoryUsageUserTable = null)
     {
-        $this->mandatoryUsageUserTable =  $mandatoryUsageUserTable;
+        if (!$mandatoryUsageUserTable) return $this;
+        $this->mandatoryUsageUserTable->setName('mandatoryUsageUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getMandatoryUsageUserTable()
     {
-        return (!$this->mandatoryUsageUserTable) ?: $this->mandatoryUsageUserTable->getValue();
+        return $this->mandatoryUsageUserTable->getValue();
     }
 
     /**
@@ -111,14 +126,17 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function setOptionalUsageUserTable(core:OCITable $optionalUsageUserTable = null)
     {
-        $this->optionalUsageUserTable =  $optionalUsageUserTable;
+        if (!$optionalUsageUserTable) return $this;
+        $this->optionalUsageUserTable->setName('optionalUsageUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getOptionalUsageUserTable()
     {
-        return (!$this->optionalUsageUserTable) ?: $this->optionalUsageUserTable->getValue();
+        return $this->optionalUsageUserTable->getValue();
     }
 }

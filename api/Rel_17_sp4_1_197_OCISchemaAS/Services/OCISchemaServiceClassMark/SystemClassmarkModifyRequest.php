@@ -5,12 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\ClassmarkValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\Classmark;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebDisplayKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceClassMark\SystemClassmarkModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemClassmarkModifyRequest';
     protected $classmark     = null;
     protected $value         = null;
     protected $webDisplayKey = null;
@@ -39,7 +38,7 @@ class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return SystemClassmarkModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,56 +46,68 @@ class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * Name for the Class Mark.
+     * 
      */
     public function setClassmark($classmark = null)
     {
+        if (!$classmark) return $this;
         $this->classmark = ($classmark InstanceOf Classmark)
              ? $classmark
              : new Classmark($classmark);
+        $this->classmark->setName('classmark');
+        return $this;
     }
 
     /**
-     * Name for the Class Mark.
+     * 
+     * @return Classmark
      */
     public function getClassmark()
     {
-        return (!$this->classmark) ?: $this->classmark->getValue();
+        return $this->classmark->getValue();
     }
 
     /**
-     * Value for the Class Mark used in signaling.
+     * 
      */
     public function setValue($value = null)
     {
+        if (!$value) return $this;
         $this->value = ($value InstanceOf ClassmarkValue)
              ? $value
              : new ClassmarkValue($value);
+        $this->value->setName('value');
+        return $this;
     }
 
     /**
-     * Value for the Class Mark used in signaling.
+     * 
+     * @return ClassmarkValue
      */
     public function getValue()
     {
-        return (!$this->value) ?: $this->value->getValue();
+        return $this->value->getValue();
     }
 
     /**
-     * The web display key used for localization.
+     * 
      */
     public function setWebDisplayKey($webDisplayKey = null)
     {
+        if (!$webDisplayKey) return $this;
         $this->webDisplayKey = ($webDisplayKey InstanceOf WebDisplayKey)
              ? $webDisplayKey
              : new WebDisplayKey($webDisplayKey);
+        $this->webDisplayKey->setName('webDisplayKey');
+        return $this;
     }
 
     /**
-     * The web display key used for localization.
+     * 
+     * @return WebDisplayKey
      */
     public function getWebDisplayKey()
     {
-        return (!$this->webDisplayKey) ?: $this->webDisplayKey->getValue();
+        return $this->webDisplayKey->getValue();
     }
 }

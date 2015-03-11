@@ -5,12 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRoutingPriorityOrder;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRoutingPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\EnterpriseCallCenterModifyRoutingPolicyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'EnterpriseCallCenterModifyRoutingPolicyRequest';
     protected $serviceProviderId    = null;
     protected $routingPolicy        = null;
     protected $routingPriorityOrder = null;
@@ -31,7 +30,7 @@ class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType impleme
     public function __construct(
          $serviceProviderId,
          $routingPolicy = null,
-          $routingPriorityOrder = null
+         CallCenterRoutingPriorityOrder $routingPriorityOrder = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setRoutingPolicy($routingPolicy);
@@ -39,7 +38,7 @@ class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType impleme
     }
 
     /**
-     * @return EnterpriseCallCenterModifyRoutingPolicyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,56 +46,66 @@ class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType impleme
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Call center routing policy.
+     * 
      */
     public function setRoutingPolicy($routingPolicy = null)
     {
+        if (!$routingPolicy) return $this;
         $this->routingPolicy = ($routingPolicy InstanceOf CallCenterRoutingPolicy)
              ? $routingPolicy
              : new CallCenterRoutingPolicy($routingPolicy);
+        $this->routingPolicy->setName('routingPolicy');
+        return $this;
     }
 
     /**
-     * Call center routing policy.
+     * 
+     * @return CallCenterRoutingPolicy
      */
     public function getRoutingPolicy()
     {
-        return (!$this->routingPolicy) ?: $this->routingPolicy->getValue();
+        return $this->routingPolicy->getValue();
     }
 
     /**
-     * Call center routing order
+     * 
      */
     public function setRoutingPriorityOrder(CallCenterRoutingPriorityOrder $routingPriorityOrder = null)
     {
-        $this->routingPriorityOrder =  $routingPriorityOrder;
+        if (!$routingPriorityOrder) return $this;
+        $this->routingPriorityOrder = $routingPriorityOrder;
+        $this->routingPriorityOrder->setName('routingPriorityOrder');
+        return $this;
     }
 
     /**
-     * Call center routing order
+     * 
+     * @return CallCenterRoutingPriorityOrder
      */
     public function getRoutingPriorityOrder()
     {
-        return (!$this->routingPriorityOrder) ?: $this->routingPriorityOrder->getValue();
+        return $this->routingPriorityOrder;
     }
 }

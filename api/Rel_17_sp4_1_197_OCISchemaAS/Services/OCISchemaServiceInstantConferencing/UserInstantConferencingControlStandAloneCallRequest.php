@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingStandAloneCallControlAction;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingParticipantName;
@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingCallId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingControlStandAloneCallResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingControlStandAloneCallRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'UserInstantConferencingControlStandAloneCallRequest';
     protected $conferenceOwnerUserId = null;
     protected $conferenceKey         = null;
     protected $conferenceCallId      = null;
@@ -36,7 +35,7 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
 
     public function __construct(
          $conferenceOwnerUserId,
-          $conferenceKey,
+         InstantConferencingConferenceKey $conferenceKey,
          $conferenceCallId,
          $action,
          $phoneNumber,
@@ -51,7 +50,7 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
     }
 
     /**
-     * @return UserInstantConferencingControlStandAloneCallResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,130 +58,132 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
+        if (!$conferenceOwnerUserId) return $this;
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
+        $this->conferenceOwnerUserId->setName('conferenceOwnerUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getConferenceOwnerUserId()
     {
-        return (!$this->conferenceOwnerUserId) ?: $this->conferenceOwnerUserId->getValue();
+        return $this->conferenceOwnerUserId->getValue();
     }
 
     /**
-     * Uniquely identifies a conference by the combination of bridge id and conference id within the bridge.
+     * 
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        $this->conferenceKey =  $conferenceKey;
+        if (!$conferenceKey) return $this;
+        $this->conferenceKey = $conferenceKey;
+        $this->conferenceKey->setName('conferenceKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a conference by the combination of bridge id and conference id within the bridge.
+     * 
+     * @return InstantConferencingConferenceKey
      */
     public function getConferenceKey()
     {
-        return (!$this->conferenceKey) ?: $this->conferenceKey->getValue();
+        return $this->conferenceKey;
     }
 
     /**
-     * Conference call Id.
+     * 
      */
     public function setConferenceCallId($conferenceCallId = null)
     {
+        if (!$conferenceCallId) return $this;
         $this->conferenceCallId = ($conferenceCallId InstanceOf InstantConferencingCallId)
              ? $conferenceCallId
              : new InstantConferencingCallId($conferenceCallId);
+        $this->conferenceCallId->setName('conferenceCallId');
+        return $this;
     }
 
     /**
-     * Conference call Id.
+     * 
+     * @return InstantConferencingCallId
      */
     public function getConferenceCallId()
     {
-        return (!$this->conferenceCallId) ?: $this->conferenceCallId->getValue();
+        return $this->conferenceCallId->getValue();
     }
 
     /**
-     * The conference call control action for stand alone user.
+     * 
      */
     public function setAction($action = null)
     {
+        if (!$action) return $this;
         $this->action = ($action InstanceOf InstantConferencingStandAloneCallControlAction)
              ? $action
              : new InstantConferencingStandAloneCallControlAction($action);
+        $this->action->setName('action');
+        return $this;
     }
 
     /**
-     * The conference call control action for stand alone user.
+     * 
+     * @return InstantConferencingStandAloneCallControlAction
      */
     public function getAction()
     {
-        return (!$this->action) ?: $this->action->getValue();
+        return $this->action->getValue();
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
      */
     public function setPhoneNumber($phoneNumber = null)
     {
+        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $phoneNumber
              : new OutgoingDNorSIPURI($phoneNumber);
+        $this->phoneNumber->setName('phoneNumber');
+        return $this;
     }
 
     /**
-     * Phone Number or SIP URI that can be used to dial.
-     *         URI Validation:
-     *         - must be of the format string@string where string is at least one valid character and there is one and only one @.
-     *         - don't allow sip:
-     *         - allow the following characters in the user portions:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )
-     *         - allow the following characters in the host portion:
-     *           alphanumeric   -   .
+     * 
+     * @return OutgoingDNorSIPURI
      */
     public function getPhoneNumber()
     {
-        return (!$this->phoneNumber) ?: $this->phoneNumber->getValue();
+        return $this->phoneNumber->getValue();
     }
 
     /**
-     * Conference leader or participant descriptive name.
+     * 
      */
     public function setUserName($userName = null)
     {
+        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf InstantConferencingParticipantName)
              ? $userName
              : new InstantConferencingParticipantName($userName);
+        $this->userName->setName('userName');
+        return $this;
     }
 
     /**
-     * Conference leader or participant descriptive name.
+     * 
+     * @return InstantConferencingParticipantName
      */
     public function getUserName()
     {
-        return (!$this->userName) ?: $this->userName->getValue();
+        return $this->userName->getValue();
     }
 }

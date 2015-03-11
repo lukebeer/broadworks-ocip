@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainGetAssignedServiceProviderListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDomainGetAssignedServiceProviderListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'SystemDomainGetAssignedServiceProviderListResponse';
     protected $serviceProviderTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemDomainGetAssignedServiceProviderListResponse extends ComplexType imp
      */
     public function setServiceProviderTable(core:OCITable $serviceProviderTable = null)
     {
-        $this->serviceProviderTable =  $serviceProviderTable;
+        if (!$serviceProviderTable) return $this;
+        $this->serviceProviderTable->setName('serviceProviderTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getServiceProviderTable()
     {
-        return (!$this->serviceProviderTable) ?: $this->serviceProviderTable->getValue();
+        return $this->serviceProviderTable->getValue();
     }
 }

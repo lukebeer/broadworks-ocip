@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserEnhancedCallLogsGetListResponse16';
-    public    $name                  = __CLASS__;
+    public    $name                  = 'UserEnhancedCallLogsGetListRequest16';
     protected $userId                = null;
     protected $callLogType           = null;
     protected $responsePagingControl = null;
@@ -34,7 +34,7 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
     public function __construct(
          $userId,
          $callLogType = null,
-          $responsePagingControl = null
+         ResponsePagingControl $responsePagingControl = null
     ) {
         $this->setUserId($userId);
         $this->setCallLogType($callLogType);
@@ -50,66 +50,66 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Call Log type.
+     * 
      */
     public function setCallLogType($callLogType = null)
     {
+        if (!$callLogType) return $this;
         $this->callLogType = ($callLogType InstanceOf CallLogsType)
              ? $callLogType
              : new CallLogsType($callLogType);
+        $this->callLogType->setName('callLogType');
+        return $this;
     }
 
     /**
-     * Call Log type.
+     * 
+     * @return CallLogsType
      */
     public function getCallLogType()
     {
-        return (!$this->callLogType) ?: $this->callLogType->getValue();
+        return $this->callLogType->getValue();
     }
 
     /**
-     * Used in queries to restrict the set of result rows when making a request that can result in
-     *         a large dataset. The client specifies the starting row and the number of rows requested. 
-     *         The server only provides those rows in results, if available.
+     * 
      */
     public function setResponsePagingControl(ResponsePagingControl $responsePagingControl = null)
     {
-        $this->responsePagingControl =  $responsePagingControl;
+        if (!$responsePagingControl) return $this;
+        $this->responsePagingControl = $responsePagingControl;
+        $this->responsePagingControl->setName('responsePagingControl');
+        return $this;
     }
 
     /**
-     * Used in queries to restrict the set of result rows when making a request that can result in
-     *         a large dataset. The client specifies the starting row and the number of rows requested. 
-     *         The server only provides those rows in results, if available.
+     * 
+     * @return ResponsePagingControl
      */
     public function getResponsePagingControl()
     {
-        return (!$this->responsePagingControl) ?: $this->responsePagingControl->getValue();
+        return $this->responsePagingControl;
     }
 }

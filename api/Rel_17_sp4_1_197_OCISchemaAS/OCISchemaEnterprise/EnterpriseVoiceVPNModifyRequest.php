@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNNonMatchingE164NumberSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDefaultSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'EnterpriseVoiceVPNModifyRequest';
     protected $serviceProviderId = null;
     protected $isActive          = null;
     protected $defaultSelection  = null;
@@ -45,7 +45,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return EnterpriseVoiceVPNModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,23 +53,25 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
@@ -77,51 +79,63 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Enterprise Voice VPN Default Selector.
-     */
     public function setDefaultSelection($defaultSelection = null)
     {
+        if (!$defaultSelection) return $this;
         $this->defaultSelection = ($defaultSelection InstanceOf EnterpriseVoiceVPNDefaultSelection)
              ? $defaultSelection
              : new EnterpriseVoiceVPNDefaultSelection($defaultSelection);
+        $this->defaultSelection->setName('defaultSelection');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Default Selector.
+     * 
+     * @return EnterpriseVoiceVPNDefaultSelection
      */
     public function getDefaultSelection()
     {
-        return (!$this->defaultSelection) ?: $this->defaultSelection->getValue();
+        return $this->defaultSelection->getValue();
     }
 
     /**
-     * Enterprise Voice VPN Selector for Non Matching E164 Number.
+     * 
      */
     public function setE164Selection($e164Selection = null)
     {
+        if (!$e164Selection) return $this;
         $this->e164Selection = ($e164Selection InstanceOf EnterpriseVoiceVPNNonMatchingE164NumberSelection)
              ? $e164Selection
              : new EnterpriseVoiceVPNNonMatchingE164NumberSelection($e164Selection);
+        $this->e164Selection->setName('e164Selection');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Selector for Non Matching E164 Number.
+     * 
+     * @return EnterpriseVoiceVPNNonMatchingE164NumberSelection
      */
     public function getE164Selection()
     {
-        return (!$this->e164Selection) ?: $this->e164Selection->getValue();
+        return $this->e164Selection->getValue();
     }
 
     /**
@@ -129,14 +143,18 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
      */
     public function setUsePhoneContext($usePhoneContext = null)
     {
-        $this->usePhoneContext = (boolean) $usePhoneContext;
+        if (!$usePhoneContext) return $this;
+        $this->usePhoneContext = new PrimitiveType($usePhoneContext);
+        $this->usePhoneContext->setName('usePhoneContext');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUsePhoneContext()
     {
-        return (!$this->usePhoneContext) ?: $this->usePhoneContext;
+        return $this->usePhoneContext->getValue();
     }
 }

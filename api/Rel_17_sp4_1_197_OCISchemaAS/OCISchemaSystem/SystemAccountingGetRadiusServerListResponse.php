@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingGetRadiusServerListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingGetRadiusServerListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'SystemAccountingGetRadiusServerListResponse';
     protected $radiusServerTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemAccountingGetRadiusServerListResponse extends ComplexType implements
      */
     public function setRadiusServerTable(core:OCITable $radiusServerTable = null)
     {
-        $this->radiusServerTable =  $radiusServerTable;
+        if (!$radiusServerTable) return $this;
+        $this->radiusServerTable->setName('radiusServerTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getRadiusServerTable()
     {
-        return (!$this->radiusServerTable) ?: $this->radiusServerTable->getValue();
+        return $this->radiusServerTable->getValue();
     }
 }

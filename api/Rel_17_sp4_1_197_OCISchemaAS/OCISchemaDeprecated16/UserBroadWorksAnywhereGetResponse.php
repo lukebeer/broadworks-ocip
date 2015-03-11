@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserBroadWorksAnywhereGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
+    public    $name                                 = 'UserBroadWorksAnywhereGetResponse';
     protected $alertAllLocationsForClickToDialCalls = null;
     protected $phoneNumberTable                     = null;
 
@@ -39,15 +38,19 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
      */
     public function setAlertAllLocationsForClickToDialCalls($alertAllLocationsForClickToDialCalls = null)
     {
-        $this->alertAllLocationsForClickToDialCalls = (boolean) $alertAllLocationsForClickToDialCalls;
+        if (!$alertAllLocationsForClickToDialCalls) return $this;
+        $this->alertAllLocationsForClickToDialCalls = new PrimitiveType($alertAllLocationsForClickToDialCalls);
+        $this->alertAllLocationsForClickToDialCalls->setName('alertAllLocationsForClickToDialCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAlertAllLocationsForClickToDialCalls()
     {
-        return (!$this->alertAllLocationsForClickToDialCalls) ?: $this->alertAllLocationsForClickToDialCalls;
+        return $this->alertAllLocationsForClickToDialCalls->getValue();
     }
 
     /**
@@ -55,14 +58,17 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
      */
     public function setPhoneNumberTable(core:OCITable $phoneNumberTable = null)
     {
-        $this->phoneNumberTable =  $phoneNumberTable;
+        if (!$phoneNumberTable) return $this;
+        $this->phoneNumberTable->setName('phoneNumberTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getPhoneNumberTable()
     {
-        return (!$this->phoneNumberTable) ?: $this->phoneNumberTable->getValue();
+        return $this->phoneNumberTable->getValue();
     }
 }

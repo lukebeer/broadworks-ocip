@@ -17,12 +17,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class PhoneListEntryName extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "PhoneListEntryName";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "string";
+        $this->dataType = "";
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("50"));
     }

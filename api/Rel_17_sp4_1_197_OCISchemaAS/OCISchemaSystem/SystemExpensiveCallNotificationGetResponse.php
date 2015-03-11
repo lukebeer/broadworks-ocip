@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ExpensiveCallNotificationPostAnnouncementDelaySeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallNotificationGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExpensiveCallNotificationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'SystemExpensiveCallNotificationGetResponse';
     protected $enablePostAnnouncementDelayTimer = null;
     protected $postAnnouncementDelaySeconds     = null;
 
@@ -37,32 +37,40 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
      */
     public function setEnablePostAnnouncementDelayTimer($enablePostAnnouncementDelayTimer = null)
     {
-        $this->enablePostAnnouncementDelayTimer = (boolean) $enablePostAnnouncementDelayTimer;
+        if (!$enablePostAnnouncementDelayTimer) return $this;
+        $this->enablePostAnnouncementDelayTimer = new PrimitiveType($enablePostAnnouncementDelayTimer);
+        $this->enablePostAnnouncementDelayTimer->setName('enablePostAnnouncementDelayTimer');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnablePostAnnouncementDelayTimer()
+    {
+        return $this->enablePostAnnouncementDelayTimer->getValue();
     }
 
     /**
      * 
      */
-    public function getEnablePostAnnouncementDelayTimer()
-    {
-        return (!$this->enablePostAnnouncementDelayTimer) ?: $this->enablePostAnnouncementDelayTimer;
-    }
-
-    /**
-     * Additional grace period after the expensive call notification announcement before call setup continues.
-     */
     public function setPostAnnouncementDelaySeconds($postAnnouncementDelaySeconds = null)
     {
+        if (!$postAnnouncementDelaySeconds) return $this;
         $this->postAnnouncementDelaySeconds = ($postAnnouncementDelaySeconds InstanceOf ExpensiveCallNotificationPostAnnouncementDelaySeconds)
              ? $postAnnouncementDelaySeconds
              : new ExpensiveCallNotificationPostAnnouncementDelaySeconds($postAnnouncementDelaySeconds);
+        $this->postAnnouncementDelaySeconds->setName('postAnnouncementDelaySeconds');
+        return $this;
     }
 
     /**
-     * Additional grace period after the expensive call notification announcement before call setup continues.
+     * 
+     * @return ExpensiveCallNotificationPostAnnouncementDelaySeconds
      */
     public function getPostAnnouncementDelaySeconds()
     {
-        return (!$this->postAnnouncementDelaySeconds) ?: $this->postAnnouncementDelaySeconds->getValue();
+        return $this->postAnnouncementDelaySeconds->getValue();
     }
 }

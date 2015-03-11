@@ -5,16 +5,16 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterConsecutiveBouncedCallsToForceAgentUnavailable;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentAvailability;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterGuardTimerSeconds;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\AgentACDState;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\AgentACDState;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\UserCallCenterModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -30,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                                 = __CLASS__;
+    public    $name                                                 = 'UserCallCenterModifyRequest';
     protected $userId                                               = null;
     protected $agentACDState                                        = null;
     protected $agentUnavailableCode                                 = null;
@@ -59,8 +59,8 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
          $forceAgentUnavailableOnBouncedCallLimit = null,
          $numberConsecutiveBouncedCallsToForceAgentUnavailable = null,
          $makeOutgoingCallsAsCallCenter = null,
-          $outgoingCallDNIS = null,
-          $callCenterAvailability = null
+         DNISKey $outgoingCallDNIS = null,
+         CallCenterAgentAvailability $callCenterAvailability = null
     ) {
         $this->setUserId($userId);
         $this->setAgentACDState($agentACDState);
@@ -79,7 +79,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return UserCallCenterModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,65 +87,69 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
-     * Agent Automatic Call Distribution (ACD) State.
+     * 
      */
     public function setAgentACDState($agentACDState = null)
     {
+        if (!$agentACDState) return $this;
         $this->agentACDState = ($agentACDState InstanceOf AgentACDState)
              ? $agentACDState
              : new AgentACDState($agentACDState);
+        $this->agentACDState->setName('agentACDState');
+        return $this;
     }
 
     /**
-     * Agent Automatic Call Distribution (ACD) State.
+     * 
+     * @return AgentACDState
      */
     public function getAgentACDState()
     {
-        return (!$this->agentACDState) ?: $this->agentACDState->getValue();
+        return $this->agentACDState->getValue();
     }
 
     /**
-     * Call Center Agent Unavailable Code Value.
+     * 
      */
     public function setAgentUnavailableCode($agentUnavailableCode = null)
     {
+        if (!$agentUnavailableCode) return $this;
         $this->agentUnavailableCode = ($agentUnavailableCode InstanceOf CallCenterAgentUnavailableCode)
              ? $agentUnavailableCode
              : new CallCenterAgentUnavailableCode($agentUnavailableCode);
+        $this->agentUnavailableCode->setName('agentUnavailableCode');
+        return $this;
     }
 
     /**
-     * Call Center Agent Unavailable Code Value.
+     * 
+     * @return CallCenterAgentUnavailableCode
      */
     public function getAgentUnavailableCode()
     {
-        return (!$this->agentUnavailableCode) ?: $this->agentUnavailableCode->getValue();
+        return $this->agentUnavailableCode->getValue();
     }
 
     /**
@@ -153,15 +157,19 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setUseDefaultGuardTimer($useDefaultGuardTimer = null)
     {
-        $this->useDefaultGuardTimer = (boolean) $useDefaultGuardTimer;
+        if (!$useDefaultGuardTimer) return $this;
+        $this->useDefaultGuardTimer = new PrimitiveType($useDefaultGuardTimer);
+        $this->useDefaultGuardTimer->setName('useDefaultGuardTimer');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseDefaultGuardTimer()
     {
-        return (!$this->useDefaultGuardTimer) ?: $this->useDefaultGuardTimer;
+        return $this->useDefaultGuardTimer->getValue();
     }
 
     /**
@@ -169,33 +177,41 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setEnableGuardTimer($enableGuardTimer = null)
     {
-        $this->enableGuardTimer = (boolean) $enableGuardTimer;
+        if (!$enableGuardTimer) return $this;
+        $this->enableGuardTimer = new PrimitiveType($enableGuardTimer);
+        $this->enableGuardTimer->setName('enableGuardTimer');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableGuardTimer()
+    {
+        return $this->enableGuardTimer->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableGuardTimer()
-    {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer;
-    }
-
-    /**
-     * The timer determines how long the system will wait before routing a call to a free agent.
-     */
     public function setGuardTimerSeconds($guardTimerSeconds = null)
     {
+        if (!$guardTimerSeconds) return $this;
         $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
              ? $guardTimerSeconds
              : new CallCenterGuardTimerSeconds($guardTimerSeconds);
+        $this->guardTimerSeconds->setName('guardTimerSeconds');
+        return $this;
     }
 
     /**
-     * The timer determines how long the system will wait before routing a call to a free agent.
+     * 
+     * @return CallCenterGuardTimerSeconds
      */
     public function getGuardTimerSeconds()
     {
-        return (!$this->guardTimerSeconds) ?: $this->guardTimerSeconds->getValue();
+        return $this->guardTimerSeconds->getValue();
     }
 
     /**
@@ -203,15 +219,19 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setUseSystemDefaultUnavailableSettings($useSystemDefaultUnavailableSettings = null)
     {
-        $this->useSystemDefaultUnavailableSettings = (boolean) $useSystemDefaultUnavailableSettings;
+        if (!$useSystemDefaultUnavailableSettings) return $this;
+        $this->useSystemDefaultUnavailableSettings = new PrimitiveType($useSystemDefaultUnavailableSettings);
+        $this->useSystemDefaultUnavailableSettings->setName('useSystemDefaultUnavailableSettings');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
-        return (!$this->useSystemDefaultUnavailableSettings) ?: $this->useSystemDefaultUnavailableSettings;
+        return $this->useSystemDefaultUnavailableSettings->getValue();
     }
 
     /**
@@ -219,15 +239,19 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation = null)
     {
-        $this->forceAgentUnavailableOnDNDActivation = (boolean) $forceAgentUnavailableOnDNDActivation;
+        if (!$forceAgentUnavailableOnDNDActivation) return $this;
+        $this->forceAgentUnavailableOnDNDActivation = new PrimitiveType($forceAgentUnavailableOnDNDActivation);
+        $this->forceAgentUnavailableOnDNDActivation->setName('forceAgentUnavailableOnDNDActivation');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return (!$this->forceAgentUnavailableOnDNDActivation) ?: $this->forceAgentUnavailableOnDNDActivation;
+        return $this->forceAgentUnavailableOnDNDActivation->getValue();
     }
 
     /**
@@ -235,15 +259,19 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setForceUnavailableOnPersonalCalls($forceUnavailableOnPersonalCalls = null)
     {
-        $this->forceUnavailableOnPersonalCalls = (boolean) $forceUnavailableOnPersonalCalls;
+        if (!$forceUnavailableOnPersonalCalls) return $this;
+        $this->forceUnavailableOnPersonalCalls = new PrimitiveType($forceUnavailableOnPersonalCalls);
+        $this->forceUnavailableOnPersonalCalls->setName('forceUnavailableOnPersonalCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getForceUnavailableOnPersonalCalls()
     {
-        return (!$this->forceUnavailableOnPersonalCalls) ?: $this->forceUnavailableOnPersonalCalls;
+        return $this->forceUnavailableOnPersonalCalls->getValue();
     }
 
     /**
@@ -251,33 +279,41 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit = null)
     {
-        $this->forceAgentUnavailableOnBouncedCallLimit = (boolean) $forceAgentUnavailableOnBouncedCallLimit;
+        if (!$forceAgentUnavailableOnBouncedCallLimit) return $this;
+        $this->forceAgentUnavailableOnBouncedCallLimit = new PrimitiveType($forceAgentUnavailableOnBouncedCallLimit);
+        $this->forceAgentUnavailableOnBouncedCallLimit->setName('forceAgentUnavailableOnBouncedCallLimit');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getForceAgentUnavailableOnBouncedCallLimit()
+    {
+        return $this->forceAgentUnavailableOnBouncedCallLimit->getValue();
     }
 
     /**
      * 
      */
-    public function getForceAgentUnavailableOnBouncedCallLimit()
-    {
-        return (!$this->forceAgentUnavailableOnBouncedCallLimit) ?: $this->forceAgentUnavailableOnBouncedCallLimit;
-    }
-
-    /**
-     * Call center maximum number of consecutive bounced calls allowed before forcing agent to become unavailable.
-     */
     public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable = null)
     {
+        if (!$numberConsecutiveBouncedCallsToForceAgentUnavailable) return $this;
         $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = ($numberConsecutiveBouncedCallsToForceAgentUnavailable InstanceOf CallCenterConsecutiveBouncedCallsToForceAgentUnavailable)
              ? $numberConsecutiveBouncedCallsToForceAgentUnavailable
              : new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
+        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->setName('numberConsecutiveBouncedCallsToForceAgentUnavailable');
+        return $this;
     }
 
     /**
-     * Call center maximum number of consecutive bounced calls allowed before forcing agent to become unavailable.
+     * 
+     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable
      */
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
     {
-        return (!$this->numberConsecutiveBouncedCallsToForceAgentUnavailable) ?: $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->getValue();
+        return $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->getValue();
     }
 
     /**
@@ -285,46 +321,58 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setMakeOutgoingCallsAsCallCenter($makeOutgoingCallsAsCallCenter = null)
     {
-        $this->makeOutgoingCallsAsCallCenter = (boolean) $makeOutgoingCallsAsCallCenter;
+        if (!$makeOutgoingCallsAsCallCenter) return $this;
+        $this->makeOutgoingCallsAsCallCenter = new PrimitiveType($makeOutgoingCallsAsCallCenter);
+        $this->makeOutgoingCallsAsCallCenter->setName('makeOutgoingCallsAsCallCenter');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getMakeOutgoingCallsAsCallCenter()
+    {
+        return $this->makeOutgoingCallsAsCallCenter->getValue();
     }
 
     /**
      * 
      */
-    public function getMakeOutgoingCallsAsCallCenter()
-    {
-        return (!$this->makeOutgoingCallsAsCallCenter) ?: $this->makeOutgoingCallsAsCallCenter;
-    }
-
-    /**
-     * Uniquely identifies a Call Center DNIS.
-     */
     public function setOutgoingCallDNIS(DNISKey $outgoingCallDNIS = null)
     {
-        $this->outgoingCallDNIS =  $outgoingCallDNIS;
+        if (!$outgoingCallDNIS) return $this;
+        $this->outgoingCallDNIS = $outgoingCallDNIS;
+        $this->outgoingCallDNIS->setName('outgoingCallDNIS');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a Call Center DNIS.
+     * 
+     * @return DNISKey
      */
     public function getOutgoingCallDNIS()
     {
-        return (!$this->outgoingCallDNIS) ?: $this->outgoingCallDNIS->getValue();
+        return $this->outgoingCallDNIS;
     }
 
     /**
-     * Specifies an agent's login state (availability) for a particular Call Center.
+     * 
      */
     public function setCallCenterAvailability(CallCenterAgentAvailability $callCenterAvailability = null)
     {
-        $this->callCenterAvailability =  $callCenterAvailability;
+        if (!$callCenterAvailability) return $this;
+        $this->callCenterAvailability = $callCenterAvailability;
+        $this->callCenterAvailability->setName('callCenterAvailability');
+        return $this;
     }
 
     /**
-     * Specifies an agent's login state (availability) for a particular Call Center.
+     * 
+     * @return CallCenterAgentAvailability
      */
     public function getCallCenterAvailability()
     {
-        return (!$this->callCenterAvailability) ?: $this->callCenterAvailability->getValue();
+        return $this->callCenterAvailability;
     }
 }

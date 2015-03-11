@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ApplicationServerSetName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderApplicationServerSetGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderApplicationServerSetGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'ServiceProviderApplicationServerSetGetResponse';
     protected $applicationServerSetName = null;
 
     /**
@@ -33,20 +32,24 @@ class ServiceProviderApplicationServerSetGetResponse extends ComplexType impleme
     }
 
     /**
-     * Application Server set name.
+     * 
      */
     public function setApplicationServerSetName($applicationServerSetName = null)
     {
+        if (!$applicationServerSetName) return $this;
         $this->applicationServerSetName = ($applicationServerSetName InstanceOf ApplicationServerSetName)
              ? $applicationServerSetName
              : new ApplicationServerSetName($applicationServerSetName);
+        $this->applicationServerSetName->setName('applicationServerSetName');
+        return $this;
     }
 
     /**
-     * Application Server set name.
+     * 
+     * @return ApplicationServerSetName
      */
     public function getApplicationServerSetName()
     {
-        return (!$this->applicationServerSetName) ?: $this->applicationServerSetName->getValue();
+        return $this->applicationServerSetName->getValue();
     }
 }

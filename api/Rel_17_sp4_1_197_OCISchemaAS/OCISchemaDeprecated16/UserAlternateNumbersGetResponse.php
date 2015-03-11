@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\AlternateNumberEntry;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserAlternateNumbersGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'UserAlternateNumbersGetResponse';
     protected $distinctiveRing  = null;
     protected $alternateEntry01 = null;
     protected $alternateEntry02 = null;
@@ -46,174 +46,218 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function setDistinctiveRing($distinctiveRing = null)
     {
-        $this->distinctiveRing = (boolean) $distinctiveRing;
+        if (!$distinctiveRing) return $this;
+        $this->distinctiveRing = new PrimitiveType($distinctiveRing);
+        $this->distinctiveRing->setName('distinctiveRing');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getDistinctiveRing()
+    {
+        return $this->distinctiveRing->getValue();
     }
 
     /**
      * 
      */
-    public function getDistinctiveRing()
-    {
-        return (!$this->distinctiveRing) ?: $this->distinctiveRing;
-    }
-
-    /**
-     * Alternate Number Entry.
-     */
     public function setAlternateEntry01(AlternateNumberEntry $alternateEntry01 = null)
     {
-        $this->alternateEntry01 =  $alternateEntry01;
+        if (!$alternateEntry01) return $this;
+        $this->alternateEntry01 = $alternateEntry01;
+        $this->alternateEntry01->setName('alternateEntry01');
+        return $this;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
+     * @return AlternateNumberEntry
      */
     public function getAlternateEntry01()
     {
-        return (!$this->alternateEntry01) ?: $this->alternateEntry01->getValue();
+        return $this->alternateEntry01;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
      */
     public function setAlternateEntry02(AlternateNumberEntry $alternateEntry02 = null)
     {
-        $this->alternateEntry02 =  $alternateEntry02;
+        if (!$alternateEntry02) return $this;
+        $this->alternateEntry02 = $alternateEntry02;
+        $this->alternateEntry02->setName('alternateEntry02');
+        return $this;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
+     * @return AlternateNumberEntry
      */
     public function getAlternateEntry02()
     {
-        return (!$this->alternateEntry02) ?: $this->alternateEntry02->getValue();
+        return $this->alternateEntry02;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
      */
     public function setAlternateEntry03(AlternateNumberEntry $alternateEntry03 = null)
     {
-        $this->alternateEntry03 =  $alternateEntry03;
+        if (!$alternateEntry03) return $this;
+        $this->alternateEntry03 = $alternateEntry03;
+        $this->alternateEntry03->setName('alternateEntry03');
+        return $this;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
+     * @return AlternateNumberEntry
      */
     public function getAlternateEntry03()
     {
-        return (!$this->alternateEntry03) ?: $this->alternateEntry03->getValue();
+        return $this->alternateEntry03;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
      */
     public function setAlternateEntry04(AlternateNumberEntry $alternateEntry04 = null)
     {
-        $this->alternateEntry04 =  $alternateEntry04;
+        if (!$alternateEntry04) return $this;
+        $this->alternateEntry04 = $alternateEntry04;
+        $this->alternateEntry04->setName('alternateEntry04');
+        return $this;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
+     * @return AlternateNumberEntry
      */
     public function getAlternateEntry04()
     {
-        return (!$this->alternateEntry04) ?: $this->alternateEntry04->getValue();
+        return $this->alternateEntry04;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
      */
     public function setAlternateEntry05(AlternateNumberEntry $alternateEntry05 = null)
     {
-        $this->alternateEntry05 =  $alternateEntry05;
+        if (!$alternateEntry05) return $this;
+        $this->alternateEntry05 = $alternateEntry05;
+        $this->alternateEntry05->setName('alternateEntry05');
+        return $this;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
+     * @return AlternateNumberEntry
      */
     public function getAlternateEntry05()
     {
-        return (!$this->alternateEntry05) ?: $this->alternateEntry05->getValue();
+        return $this->alternateEntry05;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
      */
     public function setAlternateEntry06(AlternateNumberEntry $alternateEntry06 = null)
     {
-        $this->alternateEntry06 =  $alternateEntry06;
+        if (!$alternateEntry06) return $this;
+        $this->alternateEntry06 = $alternateEntry06;
+        $this->alternateEntry06->setName('alternateEntry06');
+        return $this;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
+     * @return AlternateNumberEntry
      */
     public function getAlternateEntry06()
     {
-        return (!$this->alternateEntry06) ?: $this->alternateEntry06->getValue();
+        return $this->alternateEntry06;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
      */
     public function setAlternateEntry07(AlternateNumberEntry $alternateEntry07 = null)
     {
-        $this->alternateEntry07 =  $alternateEntry07;
+        if (!$alternateEntry07) return $this;
+        $this->alternateEntry07 = $alternateEntry07;
+        $this->alternateEntry07->setName('alternateEntry07');
+        return $this;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
+     * @return AlternateNumberEntry
      */
     public function getAlternateEntry07()
     {
-        return (!$this->alternateEntry07) ?: $this->alternateEntry07->getValue();
+        return $this->alternateEntry07;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
      */
     public function setAlternateEntry08(AlternateNumberEntry $alternateEntry08 = null)
     {
-        $this->alternateEntry08 =  $alternateEntry08;
+        if (!$alternateEntry08) return $this;
+        $this->alternateEntry08 = $alternateEntry08;
+        $this->alternateEntry08->setName('alternateEntry08');
+        return $this;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
+     * @return AlternateNumberEntry
      */
     public function getAlternateEntry08()
     {
-        return (!$this->alternateEntry08) ?: $this->alternateEntry08->getValue();
+        return $this->alternateEntry08;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
      */
     public function setAlternateEntry09(AlternateNumberEntry $alternateEntry09 = null)
     {
-        $this->alternateEntry09 =  $alternateEntry09;
+        if (!$alternateEntry09) return $this;
+        $this->alternateEntry09 = $alternateEntry09;
+        $this->alternateEntry09->setName('alternateEntry09');
+        return $this;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
+     * @return AlternateNumberEntry
      */
     public function getAlternateEntry09()
     {
-        return (!$this->alternateEntry09) ?: $this->alternateEntry09->getValue();
+        return $this->alternateEntry09;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
      */
     public function setAlternateEntry10(AlternateNumberEntry $alternateEntry10 = null)
     {
-        $this->alternateEntry10 =  $alternateEntry10;
+        if (!$alternateEntry10) return $this;
+        $this->alternateEntry10 = $alternateEntry10;
+        $this->alternateEntry10->setName('alternateEntry10');
+        return $this;
     }
 
     /**
-     * Alternate Number Entry.
+     * 
+     * @return AlternateNumberEntry
      */
     public function getAlternateEntry10()
     {
-        return (!$this->alternateEntry10) ?: $this->alternateEntry10->getValue();
+        return $this->alternateEntry10;
     }
 }

@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeServiceGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeServiceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'SystemSIPDeviceTypeServiceGetResponse';
     protected $supportsPolycomPhoneServices = null;
 
     /**
@@ -37,14 +36,18 @@ class SystemSIPDeviceTypeServiceGetResponse extends ComplexType implements Compl
      */
     public function setSupportsPolycomPhoneServices($supportsPolycomPhoneServices = null)
     {
-        $this->supportsPolycomPhoneServices = (boolean) $supportsPolycomPhoneServices;
+        if (!$supportsPolycomPhoneServices) return $this;
+        $this->supportsPolycomPhoneServices = new PrimitiveType($supportsPolycomPhoneServices);
+        $this->supportsPolycomPhoneServices->setName('supportsPolycomPhoneServices');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getSupportsPolycomPhoneServices()
     {
-        return (!$this->supportsPolycomPhoneServices) ?: $this->supportsPolycomPhoneServices;
+        return $this->supportsPolycomPhoneServices->getValue();
     }
 }

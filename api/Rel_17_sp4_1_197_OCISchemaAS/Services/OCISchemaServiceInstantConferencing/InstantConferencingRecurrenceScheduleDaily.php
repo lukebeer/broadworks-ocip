@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceDayInterval;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleDaily;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleDaily;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceScheduleDaily extends ComplexType implements ComplexInterface
 {
-    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleDaily';
-    public    $name                  = __CLASS__;
+    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleDaily';
+    public    $name                  = 'InstantConferencingRecurrenceScheduleDaily';
     protected $recurrenceDayInterval = null;
 
     public function __construct(
@@ -39,20 +39,24 @@ class InstantConferencingRecurrenceScheduleDaily extends ComplexType implements 
     }
 
     /**
-     * The recurrence interval for daily schedule.
+     * 
      */
     public function setRecurrenceDayInterval($recurrenceDayInterval = null)
     {
+        if (!$recurrenceDayInterval) return $this;
         $this->recurrenceDayInterval = ($recurrenceDayInterval InstanceOf InstantConferencingRecurrenceDayInterval)
              ? $recurrenceDayInterval
              : new InstantConferencingRecurrenceDayInterval($recurrenceDayInterval);
+        $this->recurrenceDayInterval->setName('recurrenceDayInterval');
+        return $this;
     }
 
     /**
-     * The recurrence interval for daily schedule.
+     * 
+     * @return InstantConferencingRecurrenceDayInterval
      */
     public function getRecurrenceDayInterval()
     {
-        return (!$this->recurrenceDayInterval) ?: $this->recurrenceDayInterval->getValue();
+        return $this->recurrenceDayInterval->getValue();
     }
 }

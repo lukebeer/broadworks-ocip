@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\GroupUserLi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseStrictness;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ServerHostId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemLicensingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'SystemLicensingGetResponse';
     protected $licenseStrictness = null;
     protected $groupUserlimit    = null;
     protected $expirationDate    = null;
@@ -42,45 +41,47 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
     }
 
     /**
-     * License type.
+     * 
      */
     public function setLicenseStrictness($licenseStrictness = null)
     {
+        if (!$licenseStrictness) return $this;
         $this->licenseStrictness = ($licenseStrictness InstanceOf LicenseStrictness)
              ? $licenseStrictness
              : new LicenseStrictness($licenseStrictness);
+        $this->licenseStrictness->setName('licenseStrictness');
+        return $this;
     }
 
     /**
-     * License type.
+     * 
+     * @return LicenseStrictness
      */
     public function getLicenseStrictness()
     {
-        return (!$this->licenseStrictness) ?: $this->licenseStrictness->getValue();
+        return $this->licenseStrictness->getValue();
     }
 
     /**
-     * The max number of users in a group that will consume a group license.
-     *         This number has to be greater than 0. For example, if the number is 300,
-     *         then the first 300 users in a group will consume one group license and
-     *         the #301 user will consume the second group license.
+     * 
      */
     public function setGroupUserlimit($groupUserlimit = null)
     {
+        if (!$groupUserlimit) return $this;
         $this->groupUserlimit = ($groupUserlimit InstanceOf GroupUserLicenseLimit)
              ? $groupUserlimit
              : new GroupUserLicenseLimit($groupUserlimit);
+        $this->groupUserlimit->setName('groupUserlimit');
+        return $this;
     }
 
     /**
-     * The max number of users in a group that will consume a group license.
-     *         This number has to be greater than 0. For example, if the number is 300,
-     *         then the first 300 users in a group will consume one group license and
-     *         the #301 user will consume the second group license.
+     * 
+     * @return GroupUserLicenseLimit
      */
     public function getGroupUserlimit()
     {
-        return (!$this->groupUserlimit) ?: $this->groupUserlimit->getValue();
+        return $this->groupUserlimit->getValue();
     }
 
     /**
@@ -88,51 +89,62 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function setExpirationDate(xs:dateTime $expirationDate = null)
     {
-        $this->expirationDate =  $expirationDate;
+        if (!$expirationDate) return $this;
+        $this->expirationDate->setName('expirationDate');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:dateTime
+     */
+    public function getExpirationDate()
+    {
+        return $this->expirationDate->getValue();
     }
 
     /**
      * 
      */
-    public function getExpirationDate()
-    {
-        return (!$this->expirationDate) ?: $this->expirationDate->getValue();
-    }
-
-    /**
-     * Uniquely identifies the server computer hardware.
-     */
     public function setHostId($hostId = null)
     {
+        if (!$hostId) return $this;
         $this->hostId = ($hostId InstanceOf ServerHostId)
              ? $hostId
              : new ServerHostId($hostId);
+        $this->hostId->setName('hostId');
+        return $this;
     }
 
     /**
-     * Uniquely identifies the server computer hardware.
+     * 
+     * @return ServerHostId
      */
     public function getHostId()
     {
-        return (!$this->hostId) ?: $this->hostId->getValue();
+        return $this->hostId->getValue();
     }
 
     /**
-     * Something that has been licensed.
+     * 
      */
     public function setLicenseName($licenseName = null)
     {
+        if (!$licenseName) return $this;
         $this->licenseName = ($licenseName InstanceOf LicenseName)
              ? $licenseName
              : new LicenseName($licenseName);
+        $this->licenseName->setName('licenseName');
+        return $this;
     }
 
     /**
-     * Something that has been licensed.
+     * 
+     * @return LicenseName
      */
     public function getLicenseName()
     {
-        return (!$this->licenseName) ?: $this->licenseName->getValue();
+        return $this->licenseName->getValue();
     }
 
     /**
@@ -140,14 +152,17 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function setLicenseTable(core:OCITable $licenseTable = null)
     {
-        $this->licenseTable =  $licenseTable;
+        if (!$licenseTable) return $this;
+        $this->licenseTable->setName('licenseTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getLicenseTable()
     {
-        return (!$this->licenseTable) ?: $this->licenseTable->getValue();
+        return $this->licenseTable->getValue();
     }
 }

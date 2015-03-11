@@ -18,7 +18,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPoli
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterAddInstanceResponse14sp3;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -33,7 +33,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = __CLASS__;
+    public    $name                                 = 'GroupCallCenterAddInstanceRequest14sp3';
     protected $serviceProviderId                    = null;
     protected $groupId                              = null;
     protected $serviceUserId                        = null;
@@ -61,7 +61,7 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-          $serviceInstanceProfile,
+         ServiceInstanceAddProfileCallCenter $serviceInstanceProfile,
          $policy,
          $huntAfterNoAnswer,
          $noAnswerNumberOfRings,
@@ -106,7 +106,7 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
     }
 
     /**
-     * @return GroupCallCenterAddInstanceResponse14sp3
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -114,105 +114,111 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * Service Profile Information for a call center.
-     *         Password is required.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfileCallCenter $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for a call center.
-     *         Password is required.
+     * 
+     * @return ServiceInstanceAddProfileCallCenter
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Policy for distributing calls within a hunt group or call center.
+     * 
      */
     public function setPolicy($policy = null)
     {
+        if (!$policy) return $this;
         $this->policy = ($policy InstanceOf HuntPolicy)
              ? $policy
              : new HuntPolicy($policy);
+        $this->policy->setName('policy');
+        return $this;
     }
 
     /**
-     * Policy for distributing calls within a hunt group or call center.
+     * 
+     * @return HuntPolicy
      */
     public function getPolicy()
     {
-        return (!$this->policy) ?: $this->policy->getValue();
+        return $this->policy->getValue();
     }
 
     /**
@@ -220,35 +226,41 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
      */
     public function setHuntAfterNoAnswer($huntAfterNoAnswer = null)
     {
-        $this->huntAfterNoAnswer = (boolean) $huntAfterNoAnswer;
+        if (!$huntAfterNoAnswer) return $this;
+        $this->huntAfterNoAnswer = new PrimitiveType($huntAfterNoAnswer);
+        $this->huntAfterNoAnswer->setName('huntAfterNoAnswer');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getHuntAfterNoAnswer()
+    {
+        return $this->huntAfterNoAnswer->getValue();
     }
 
     /**
      * 
      */
-    public function getHuntAfterNoAnswer()
-    {
-        return (!$this->huntAfterNoAnswer) ?: $this->huntAfterNoAnswer;
-    }
-
-    /**
-     * Number of rings to wait for the currently hunted agent to answer before
-     *         hunting to the next available agent.
-     */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
+        if (!$noAnswerNumberOfRings) return $this;
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
              ? $noAnswerNumberOfRings
              : new HuntNoAnswerRings($noAnswerNumberOfRings);
+        $this->noAnswerNumberOfRings->setName('noAnswerNumberOfRings');
+        return $this;
     }
 
     /**
-     * Number of rings to wait for the currently hunted agent to answer before
-     *         hunting to the next available agent.
+     * 
+     * @return HuntNoAnswerRings
      */
     public function getNoAnswerNumberOfRings()
     {
-        return (!$this->noAnswerNumberOfRings) ?: $this->noAnswerNumberOfRings->getValue();
+        return $this->noAnswerNumberOfRings->getValue();
     }
 
     /**
@@ -256,55 +268,63 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
      */
     public function setForwardAfterTimeout($forwardAfterTimeout = null)
     {
-        $this->forwardAfterTimeout = (boolean) $forwardAfterTimeout;
+        if (!$forwardAfterTimeout) return $this;
+        $this->forwardAfterTimeout = new PrimitiveType($forwardAfterTimeout);
+        $this->forwardAfterTimeout->setName('forwardAfterTimeout');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getForwardAfterTimeout()
+    {
+        return $this->forwardAfterTimeout->getValue();
     }
 
     /**
      * 
      */
-    public function getForwardAfterTimeout()
-    {
-        return (!$this->forwardAfterTimeout) ?: $this->forwardAfterTimeout;
-    }
-
-    /**
-     * Time to wait for any agent to answer before forwarding the caller elsewhere.
-     */
     public function setForwardTimeoutSeconds($forwardTimeoutSeconds = null)
     {
+        if (!$forwardTimeoutSeconds) return $this;
         $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
              ? $forwardTimeoutSeconds
              : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
+        $this->forwardTimeoutSeconds->setName('forwardTimeoutSeconds');
+        return $this;
     }
 
     /**
-     * Time to wait for any agent to answer before forwarding the caller elsewhere.
+     * 
+     * @return HuntForwardTimeoutSeconds
      */
     public function getForwardTimeoutSeconds()
     {
-        return (!$this->forwardTimeoutSeconds) ?: $this->forwardTimeoutSeconds->getValue();
+        return $this->forwardTimeoutSeconds->getValue();
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
+        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
              ? $forwardToPhoneNumber
              : new OutgoingDN($forwardToPhoneNumber);
+        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        return $this;
     }
 
     /**
-     * An outgoing phone number or a number meant to be dialed. It is longer
-     *         than a DN so that equal access digits or access code digits may be
-     *         be included.  It cannot be a SIP URL.
+     * 
+     * @return OutgoingDN
      */
     public function getForwardToPhoneNumber()
     {
-        return (!$this->forwardToPhoneNumber) ?: $this->forwardToPhoneNumber->getValue();
+        return $this->forwardToPhoneNumber->getValue();
     }
 
     /**
@@ -312,33 +332,41 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
      */
     public function setEnableVideo($enableVideo = null)
     {
-        $this->enableVideo = (boolean) $enableVideo;
+        if (!$enableVideo) return $this;
+        $this->enableVideo = new PrimitiveType($enableVideo);
+        $this->enableVideo->setName('enableVideo');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableVideo()
+    {
+        return $this->enableVideo->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableVideo()
-    {
-        return (!$this->enableVideo) ?: $this->enableVideo;
-    }
-
-    /**
-     * The limit for the number of calls the system will keep in queue, waiting for an available agent.
-     */
     public function setQueueLength($queueLength = null)
     {
+        if (!$queueLength) return $this;
         $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength)
              ? $queueLength
              : new CallCenterQueueLength($queueLength);
+        $this->queueLength->setName('queueLength');
+        return $this;
     }
 
     /**
-     * The limit for the number of calls the system will keep in queue, waiting for an available agent.
+     * 
+     * @return CallCenterQueueLength
      */
     public function getQueueLength()
     {
-        return (!$this->queueLength) ?: $this->queueLength->getValue();
+        return $this->queueLength->getValue();
     }
 
     /**
@@ -346,15 +374,19 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
      */
     public function setAllowAgentLogoff($allowAgentLogoff = null)
     {
-        $this->allowAgentLogoff = (boolean) $allowAgentLogoff;
+        if (!$allowAgentLogoff) return $this;
+        $this->allowAgentLogoff = new PrimitiveType($allowAgentLogoff);
+        $this->allowAgentLogoff->setName('allowAgentLogoff');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowAgentLogoff()
     {
-        return (!$this->allowAgentLogoff) ?: $this->allowAgentLogoff;
+        return $this->allowAgentLogoff->getValue();
     }
 
     /**
@@ -362,15 +394,19 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
      */
     public function setPlayMusicOnHold($playMusicOnHold = null)
     {
-        $this->playMusicOnHold = (boolean) $playMusicOnHold;
+        if (!$playMusicOnHold) return $this;
+        $this->playMusicOnHold = new PrimitiveType($playMusicOnHold);
+        $this->playMusicOnHold->setName('playMusicOnHold');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPlayMusicOnHold()
     {
-        return (!$this->playMusicOnHold) ?: $this->playMusicOnHold;
+        return $this->playMusicOnHold->getValue();
     }
 
     /**
@@ -378,33 +414,41 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
      */
     public function setPlayComfortMessage($playComfortMessage = null)
     {
-        $this->playComfortMessage = (boolean) $playComfortMessage;
+        if (!$playComfortMessage) return $this;
+        $this->playComfortMessage = new PrimitiveType($playComfortMessage);
+        $this->playComfortMessage->setName('playComfortMessage');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getPlayComfortMessage()
+    {
+        return $this->playComfortMessage->getValue();
     }
 
     /**
      * 
      */
-    public function getPlayComfortMessage()
-    {
-        return (!$this->playComfortMessage) ?: $this->playComfortMessage;
-    }
-
-    /**
-     * The interval in seconds between each repetition of the comfort message played to queued users.
-     */
     public function setTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds = null)
     {
+        if (!$timeBetweenComfortMessagesSeconds) return $this;
         $this->timeBetweenComfortMessagesSeconds = ($timeBetweenComfortMessagesSeconds InstanceOf CallCenterTimeBetweenComfortMessagesSeconds)
              ? $timeBetweenComfortMessagesSeconds
              : new CallCenterTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds);
+        $this->timeBetweenComfortMessagesSeconds->setName('timeBetweenComfortMessagesSeconds');
+        return $this;
     }
 
     /**
-     * The interval in seconds between each repetition of the comfort message played to queued users.
+     * 
+     * @return CallCenterTimeBetweenComfortMessagesSeconds
      */
     public function getTimeBetweenComfortMessagesSeconds()
     {
-        return (!$this->timeBetweenComfortMessagesSeconds) ?: $this->timeBetweenComfortMessagesSeconds->getValue();
+        return $this->timeBetweenComfortMessagesSeconds->getValue();
     }
 
     /**
@@ -412,59 +456,63 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
      */
     public function setEnableGuardTimer($enableGuardTimer = null)
     {
-        $this->enableGuardTimer = (boolean) $enableGuardTimer;
+        if (!$enableGuardTimer) return $this;
+        $this->enableGuardTimer = new PrimitiveType($enableGuardTimer);
+        $this->enableGuardTimer->setName('enableGuardTimer');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnableGuardTimer()
+    {
+        return $this->enableGuardTimer->getValue();
     }
 
     /**
      * 
      */
-    public function getEnableGuardTimer()
-    {
-        return (!$this->enableGuardTimer) ?: $this->enableGuardTimer;
-    }
-
-    /**
-     * The timer determines how long the system will wait before routing a call to a free agent.
-     */
     public function setGuardTimerSeconds($guardTimerSeconds = null)
     {
+        if (!$guardTimerSeconds) return $this;
         $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
              ? $guardTimerSeconds
              : new CallCenterGuardTimerSeconds($guardTimerSeconds);
+        $this->guardTimerSeconds->setName('guardTimerSeconds');
+        return $this;
     }
 
     /**
-     * The timer determines how long the system will wait before routing a call to a free agent.
+     * 
+     * @return CallCenterGuardTimerSeconds
      */
     public function getGuardTimerSeconds()
     {
-        return (!$this->guardTimerSeconds) ?: $this->guardTimerSeconds->getValue();
+        return $this->guardTimerSeconds->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setAgentUserId($agentUserId = null)
     {
+        if (!$agentUserId) return $this;
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
+        $this->agentUserId->setName('agentUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getAgentUserId()
     {
-        return (!$this->agentUserId) ?: $this->agentUserId->getValue();
+        return $this->agentUserId->getValue();
     }
 
     /**
@@ -472,15 +520,19 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
      */
     public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
-        $this->allowCallWaitingForAgents = (boolean) $allowCallWaitingForAgents;
+        if (!$allowCallWaitingForAgents) return $this;
+        $this->allowCallWaitingForAgents = new PrimitiveType($allowCallWaitingForAgents);
+        $this->allowCallWaitingForAgents->setName('allowCallWaitingForAgents');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowCallWaitingForAgents()
     {
-        return (!$this->allowCallWaitingForAgents) ?: $this->allowCallWaitingForAgents;
+        return $this->allowCallWaitingForAgents->getValue();
     }
 
     /**
@@ -488,15 +540,19 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
      */
     public function setAllowCallsToAgentsInWrapUp($allowCallsToAgentsInWrapUp = null)
     {
-        $this->allowCallsToAgentsInWrapUp = (boolean) $allowCallsToAgentsInWrapUp;
+        if (!$allowCallsToAgentsInWrapUp) return $this;
+        $this->allowCallsToAgentsInWrapUp = new PrimitiveType($allowCallsToAgentsInWrapUp);
+        $this->allowCallsToAgentsInWrapUp->setName('allowCallsToAgentsInWrapUp');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
-        return (!$this->allowCallsToAgentsInWrapUp) ?: $this->allowCallsToAgentsInWrapUp;
+        return $this->allowCallsToAgentsInWrapUp->getValue();
     }
 
     /**
@@ -504,14 +560,18 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
      */
     public function setEnableCallQueueWhenNoAgentsAvailable($enableCallQueueWhenNoAgentsAvailable = null)
     {
-        $this->enableCallQueueWhenNoAgentsAvailable = (boolean) $enableCallQueueWhenNoAgentsAvailable;
+        if (!$enableCallQueueWhenNoAgentsAvailable) return $this;
+        $this->enableCallQueueWhenNoAgentsAvailable = new PrimitiveType($enableCallQueueWhenNoAgentsAvailable);
+        $this->enableCallQueueWhenNoAgentsAvailable->setName('enableCallQueueWhenNoAgentsAvailable');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableCallQueueWhenNoAgentsAvailable()
     {
-        return (!$this->enableCallQueueWhenNoAgentsAvailable) ?: $this->enableCallQueueWhenNoAgentsAvailable;
+        return $this->enableCallQueueWhenNoAgentsAvailable->getValue();
     }
 }

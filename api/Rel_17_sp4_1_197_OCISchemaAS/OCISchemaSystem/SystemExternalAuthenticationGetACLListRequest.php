@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemExternalAuthenticationGetACLListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExternalAuthenticationGetACLListResponse';
-    public    $name = __CLASS__;
+    public    $name = 'SystemExternalAuthenticationGetACLListRequest';
 
     public function __construct(    ) {
     }

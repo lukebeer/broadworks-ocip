@@ -5,17 +5,17 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingAllocatedPorts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingOutcallProfile;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingAllocatedPorts;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceAddProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\GroupInstantConferencingAddInstanceResponse14;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -29,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                           = __CLASS__;
+    public    $name                           = 'GroupInstantConferencingAddInstanceRequest14';
     protected $serviceProviderId              = null;
     protected $groupId                        = null;
     protected $serviceUserId                  = null;
@@ -46,9 +46,9 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
          $serviceProviderId,
          $groupId,
          $serviceUserId,
-          $serviceInstanceProfile,
+         ServiceInstanceAddProfile $serviceInstanceProfile,
          $conferenceBridgeLinePort,
-          $allocatedPorts,
+         InstantConferencingAllocatedPorts $allocatedPorts,
          $serviceProfileAppliedOnOutcall,
          $allowOutdialInInvitation,
          $allowDocumentDownload,
@@ -69,7 +69,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
     }
 
     /**
-     * @return GroupInstantConferencingAddInstanceResponse14
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -77,157 +77,153 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setServiceUserId($serviceUserId = null)
     {
+        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
+        $this->serviceUserId->setName('serviceUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getServiceUserId()
     {
-        return (!$this->serviceUserId) ?: $this->serviceUserId->getValue();
+        return $this->serviceUserId->getValue();
     }
 
     /**
-     * Service Profile Information for group service.
+     * 
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        $this->serviceInstanceProfile =  $serviceInstanceProfile;
+        if (!$serviceInstanceProfile) return $this;
+        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        return $this;
     }
 
     /**
-     * Service Profile Information for group service.
+     * 
+     * @return ServiceInstanceAddProfile
      */
     public function getServiceInstanceProfile()
     {
-        return (!$this->serviceInstanceProfile) ?: $this->serviceInstanceProfile->getValue();
+        return $this->serviceInstanceProfile;
     }
 
     /**
-     * Also known as address of record, the Line/Port identifies a device endpoint
-     *         in standalone mode  or a SIPURI public identity in IMS mode.
-     *         Line/port user@host or just the port.
-     *         Validation:
-     *         - don't allow sip:
-     *         - allow a leading +
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - lineports for sip devices configured with Proxy Addressing must have a host portion
-     *         - lineports for sip devices configured with Device Addressing must not have a host portion
+     * 
      */
     public function setConferenceBridgeLinePort($conferenceBridgeLinePort = null)
     {
+        if (!$conferenceBridgeLinePort) return $this;
         $this->conferenceBridgeLinePort = ($conferenceBridgeLinePort InstanceOf AccessDeviceEndpointLinePort)
              ? $conferenceBridgeLinePort
              : new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
+        $this->conferenceBridgeLinePort->setName('conferenceBridgeLinePort');
+        return $this;
     }
 
     /**
-     * Also known as address of record, the Line/Port identifies a device endpoint
-     *         in standalone mode  or a SIPURI public identity in IMS mode.
-     *         Line/port user@host or just the port.
-     *         Validation:
-     *         - don't allow sip:
-     *         - allow a leading +
-     *         - allow the following characters:
-     *           alphanumeric   -   _   .   !   ~   *   '   (   )   @
-     *         - lineports for sip devices configured with Proxy Addressing must have a host portion
-     *         - lineports for sip devices configured with Device Addressing must not have a host portion
+     * 
+     * @return AccessDeviceEndpointLinePort
      */
     public function getConferenceBridgeLinePort()
     {
-        return (!$this->conferenceBridgeLinePort) ?: $this->conferenceBridgeLinePort->getValue();
+        return $this->conferenceBridgeLinePort->getValue();
     }
 
     /**
-     * Number of allocated ports.
-     *         Unbounded Quantity. Can either be unlimited or an int quantity.
+     * 
      */
     public function setAllocatedPorts(InstantConferencingAllocatedPorts $allocatedPorts = null)
     {
-        $this->allocatedPorts =  $allocatedPorts;
+        if (!$allocatedPorts) return $this;
+        $this->allocatedPorts = $allocatedPorts;
+        $this->allocatedPorts->setName('allocatedPorts');
+        return $this;
     }
 
     /**
-     * Number of allocated ports.
-     *         Unbounded Quantity. Can either be unlimited or an int quantity.
+     * 
+     * @return InstantConferencingAllocatedPorts
      */
     public function getAllocatedPorts()
     {
-        return (!$this->allocatedPorts) ?: $this->allocatedPorts->getValue();
+        return $this->allocatedPorts;
     }
 
     /**
-     * Profile used by an Instance Conferencing Instance.
+     * 
      */
     public function setServiceProfileAppliedOnOutcall($serviceProfileAppliedOnOutcall = null)
     {
+        if (!$serviceProfileAppliedOnOutcall) return $this;
         $this->serviceProfileAppliedOnOutcall = ($serviceProfileAppliedOnOutcall InstanceOf InstantConferencingOutcallProfile)
              ? $serviceProfileAppliedOnOutcall
              : new InstantConferencingOutcallProfile($serviceProfileAppliedOnOutcall);
+        $this->serviceProfileAppliedOnOutcall->setName('serviceProfileAppliedOnOutcall');
+        return $this;
     }
 
     /**
-     * Profile used by an Instance Conferencing Instance.
+     * 
+     * @return InstantConferencingOutcallProfile
      */
     public function getServiceProfileAppliedOnOutcall()
     {
-        return (!$this->serviceProfileAppliedOnOutcall) ?: $this->serviceProfileAppliedOnOutcall->getValue();
+        return $this->serviceProfileAppliedOnOutcall->getValue();
     }
 
     /**
@@ -235,15 +231,19 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
      */
     public function setAllowOutdialInInvitation($allowOutdialInInvitation = null)
     {
-        $this->allowOutdialInInvitation = (boolean) $allowOutdialInInvitation;
+        if (!$allowOutdialInInvitation) return $this;
+        $this->allowOutdialInInvitation = new PrimitiveType($allowOutdialInInvitation);
+        $this->allowOutdialInInvitation->setName('allowOutdialInInvitation');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getAllowOutdialInInvitation()
     {
-        return (!$this->allowOutdialInInvitation) ?: $this->allowOutdialInInvitation;
+        return $this->allowOutdialInInvitation->getValue();
     }
 
     /**
@@ -251,58 +251,62 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
      */
     public function setAllowDocumentDownload($allowDocumentDownload = null)
     {
-        $this->allowDocumentDownload = (boolean) $allowDocumentDownload;
+        if (!$allowDocumentDownload) return $this;
+        $this->allowDocumentDownload = new PrimitiveType($allowDocumentDownload);
+        $this->allowDocumentDownload->setName('allowDocumentDownload');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getAllowDocumentDownload()
+    {
+        return $this->allowDocumentDownload->getValue();
     }
 
     /**
      * 
      */
-    public function getAllowDocumentDownload()
-    {
-        return (!$this->allowDocumentDownload) ?: $this->allowDocumentDownload;
-    }
-
-    /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
-     */
     public function setBridgeAdministratorUserId($bridgeAdministratorUserId = null)
     {
+        if (!$bridgeAdministratorUserId) return $this;
         $this->bridgeAdministratorUserId = ($bridgeAdministratorUserId InstanceOf UserId)
              ? $bridgeAdministratorUserId
              : new UserId($bridgeAdministratorUserId);
+        $this->bridgeAdministratorUserId->setName('bridgeAdministratorUserId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getBridgeAdministratorUserId()
     {
-        return (!$this->bridgeAdministratorUserId) ?: $this->bridgeAdministratorUserId->getValue();
+        return $this->bridgeAdministratorUserId->getValue();
     }
 
     /**
-     * Network Class of Service name.
+     * 
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
+        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
+        $this->networkClassOfService->setName('networkClassOfService');
+        return $this;
     }
 
     /**
-     * Network Class of Service name.
+     * 
+     * @return NetworkClassOfServiceName
      */
     public function getNetworkClassOfService()
     {
-        return (!$this->networkClassOfService) ?: $this->networkClassOfService->getValue();
+        return $this->networkClassOfService->getValue();
     }
 }

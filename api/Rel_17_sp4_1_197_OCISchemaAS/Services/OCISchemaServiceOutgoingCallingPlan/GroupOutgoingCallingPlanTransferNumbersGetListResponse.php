@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDepartmentTransferNumbers;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanTransferNumbers;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanTransferNumbersGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupOutgoingCallingPlanTransferNumbersGetListResponse';
     protected $groupNumbers      = null;
     protected $departmentNumbers = null;
 
@@ -34,34 +33,42 @@ class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType
     }
 
     /**
-     * Outgoing Calling Plan transfer numbers.
+     * 
      */
     public function setGroupNumbers(OutgoingCallingPlanTransferNumbers $groupNumbers = null)
     {
-        $this->groupNumbers =  $groupNumbers;
+        if (!$groupNumbers) return $this;
+        $this->groupNumbers = $groupNumbers;
+        $this->groupNumbers->setName('groupNumbers');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan transfer numbers.
+     * 
+     * @return OutgoingCallingPlanTransferNumbers
      */
     public function getGroupNumbers()
     {
-        return (!$this->groupNumbers) ?: $this->groupNumbers->getValue();
+        return $this->groupNumbers;
     }
 
     /**
-     * Outgoing Calling Plan transfer numbers for a department.
+     * 
      */
     public function setDepartmentNumbers(OutgoingCallingPlanDepartmentTransferNumbers $departmentNumbers = null)
     {
-        $this->departmentNumbers =  $departmentNumbers;
+        if (!$departmentNumbers) return $this;
+        $this->departmentNumbers = $departmentNumbers;
+        $this->departmentNumbers->setName('departmentNumbers');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan transfer numbers for a department.
+     * 
+     * @return OutgoingCallingPlanDepartmentTransferNumbers
      */
     public function getDepartmentNumbers()
     {
-        return (!$this->departmentNumbers) ?: $this->departmentNumbers->getValue();
+        return $this->departmentNumbers;
     }
 }

@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupService;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserService;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceGetAuthorizedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceGetAuthorizedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'GroupServiceGetAuthorizedListResponse';
     protected $servicePackName  = null;
     protected $groupServiceName = null;
     protected $userServiceName  = null;
@@ -36,56 +35,68 @@ class GroupServiceGetAuthorizedListResponse extends ComplexType implements Compl
     }
 
     /**
-     * Service Pack name.
+     * 
      */
     public function setServicePackName($servicePackName = null)
     {
+        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
+        $this->servicePackName->setName('servicePackName');
+        return $this;
     }
 
     /**
-     * Service Pack name.
+     * 
+     * @return ServicePackName
      */
     public function getServicePackName()
     {
-        return (!$this->servicePackName) ?: $this->servicePackName->getValue();
+        return $this->servicePackName->getValue();
     }
 
     /**
-     * Group level services.
+     * 
      */
     public function setGroupServiceName($groupServiceName = null)
     {
+        if (!$groupServiceName) return $this;
         $this->groupServiceName = ($groupServiceName InstanceOf GroupService)
              ? $groupServiceName
              : new GroupService($groupServiceName);
+        $this->groupServiceName->setName('groupServiceName');
+        return $this;
     }
 
     /**
-     * Group level services.
+     * 
+     * @return GroupService
      */
     public function getGroupServiceName()
     {
-        return (!$this->groupServiceName) ?: $this->groupServiceName->getValue();
+        return $this->groupServiceName->getValue();
     }
 
     /**
-     * User level services.
+     * 
      */
     public function setUserServiceName($userServiceName = null)
     {
+        if (!$userServiceName) return $this;
         $this->userServiceName = ($userServiceName InstanceOf UserService)
              ? $userServiceName
              : new UserService($userServiceName);
+        $this->userServiceName->setName('userServiceName');
+        return $this;
     }
 
     /**
-     * User level services.
+     * 
+     * @return UserService
      */
     public function getUserServiceName()
     {
-        return (!$this->userServiceName) ?: $this->userServiceName->getValue();
+        return $this->userServiceName->getValue();
     }
 }

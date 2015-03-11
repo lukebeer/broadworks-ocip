@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentFullPathName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetDepartmentListResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'GroupMusicOnHoldGetDepartmentListResponse';
     protected $hasDepartment      = null;
     protected $department         = null;
     protected $departmentFullPath = null;
@@ -39,60 +39,60 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
      */
     public function setHasDepartment($hasDepartment = null)
     {
-        $this->hasDepartment = (boolean) $hasDepartment;
+        if (!$hasDepartment) return $this;
+        $this->hasDepartment = new PrimitiveType($hasDepartment);
+        $this->hasDepartment->setName('hasDepartment');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getHasDepartment()
+    {
+        return $this->hasDepartment->getValue();
     }
 
     /**
      * 
      */
-    public function getHasDepartment()
-    {
-        return (!$this->hasDepartment) ?: $this->hasDepartment;
-    }
-
-    /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
-     */
     public function setDepartment(DepartmentKey $department = null)
     {
-        $this->department =  $department;
+        if (!$department) return $this;
+        $this->department = $department;
+        $this->department->setName('department');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a department system-wide.
-     *         Departments are contained in either an enterprise or a group. Enterprise departments can be
-     *         used by any or all groups within the enterprise. Department names are unique within a group and
-     *         within an enterprise, but the same department name can exist in 2 different groups or in both
-     *         a group and its parent enterprise. Therefore, to uniquely identify a department, we must know
-     *         the department name and which enterprise or group contains the department.
-     *         This type is extended by group and enterprise department keys.
+     * 
+     * @return DepartmentKey
      */
     public function getDepartment()
     {
-        return (!$this->department) ?: $this->department->getValue();
+        return $this->department;
     }
 
     /**
-     * Department Full Path name. This the full path name of the department.
+     * 
      */
     public function setDepartmentFullPath($departmentFullPath = null)
     {
+        if (!$departmentFullPath) return $this;
         $this->departmentFullPath = ($departmentFullPath InstanceOf DepartmentFullPathName)
              ? $departmentFullPath
              : new DepartmentFullPathName($departmentFullPath);
+        $this->departmentFullPath->setName('departmentFullPath');
+        return $this;
     }
 
     /**
-     * Department Full Path name. This the full path name of the department.
+     * 
+     * @return DepartmentFullPathName
      */
     public function getDepartmentFullPath()
     {
-        return (!$this->departmentFullPath) ?: $this->departmentFullPath->getValue();
+        return $this->departmentFullPath->getValue();
     }
 }

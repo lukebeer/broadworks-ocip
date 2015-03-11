@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseAccessDevice;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = __CLASS__;
+    public    $name         = 'EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse';
     protected $accessDevice = null;
 
     /**
@@ -33,18 +32,22 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse extends Co
     }
 
     /**
-     * Uniquely identifies an access device accessible for an enterprise. It could be a system level device, an enterprise level device or a group level device.
+     * 
      */
     public function setAccessDevice(EnterpriseAccessDevice $accessDevice = null)
     {
-        $this->accessDevice =  $accessDevice;
+        if (!$accessDevice) return $this;
+        $this->accessDevice = $accessDevice;
+        $this->accessDevice->setName('accessDevice');
+        return $this;
     }
 
     /**
-     * Uniquely identifies an access device accessible for an enterprise. It could be a system level device, an enterprise level device or a group level device.
+     * 
+     * @return EnterpriseAccessDevice
      */
     public function getAccessDevice()
     {
-        return (!$this->accessDevice) ?: $this->accessDevice->getValue();
+        return $this->accessDevice;
     }
 }

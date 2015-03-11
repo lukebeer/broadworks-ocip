@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupPagingMaxTargetCapacity;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceGroupPaging\ServiceProviderGroupPagingTargetsCapacityGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderGroupPagingTargetsCapacityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'ServiceProviderGroupPagingTargetsCapacityGetResponse';
     protected $maximumTargetUsers = null;
 
     /**
@@ -32,20 +31,24 @@ class ServiceProviderGroupPagingTargetsCapacityGetResponse extends ComplexType i
     }
 
     /**
-     * Maximum number of targets per Paging Group
+     * 
      */
     public function setMaximumTargetUsers($maximumTargetUsers = null)
     {
+        if (!$maximumTargetUsers) return $this;
         $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
              ? $maximumTargetUsers
              : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
+        $this->maximumTargetUsers->setName('maximumTargetUsers');
+        return $this;
     }
 
     /**
-     * Maximum number of targets per Paging Group
+     * 
+     * @return GroupPagingMaxTargetCapacity
      */
     public function getMaximumTargetUsers()
     {
-        return (!$this->maximumTargetUsers) ?: $this->maximumTargetUsers->getValue();
+        return $this->maximumTargetUsers->getValue();
     }
 }

@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\TutorialFlagGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TutorialFlagGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'TutorialFlagGetResponse';
     protected $enableTutorial = null;
 
     /**
@@ -36,14 +35,18 @@ class TutorialFlagGetResponse extends ComplexType implements ComplexInterface
      */
     public function setEnableTutorial($enableTutorial = null)
     {
-        $this->enableTutorial = (boolean) $enableTutorial;
+        if (!$enableTutorial) return $this;
+        $this->enableTutorial = new PrimitiveType($enableTutorial);
+        $this->enableTutorial->setName('enableTutorial');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableTutorial()
     {
-        return (!$this->enableTutorial) ?: $this->enableTutorial;
+        return $this->enableTutorial->getValue();
     }
 }

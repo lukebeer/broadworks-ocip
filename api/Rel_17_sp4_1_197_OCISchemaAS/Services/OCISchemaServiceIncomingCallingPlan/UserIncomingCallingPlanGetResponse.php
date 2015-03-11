@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIncomingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanPermissions;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIncomingCallingPlan\UserIncomingCallingPlanGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserIncomingCallingPlanGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'UserIncomingCallingPlanGetResponse';
     protected $useCustomSettings = null;
     protected $userPermissions   = null;
 
@@ -37,30 +37,38 @@ class UserIncomingCallingPlanGetResponse extends ComplexType implements ComplexI
      */
     public function setUseCustomSettings($useCustomSettings = null)
     {
-        $this->useCustomSettings = (boolean) $useCustomSettings;
+        if (!$useCustomSettings) return $this;
+        $this->useCustomSettings = new PrimitiveType($useCustomSettings);
+        $this->useCustomSettings->setName('useCustomSettings');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseCustomSettings()
+    {
+        return $this->useCustomSettings->getValue();
     }
 
     /**
      * 
      */
-    public function getUseCustomSettings()
-    {
-        return (!$this->useCustomSettings) ?: $this->useCustomSettings;
-    }
-
-    /**
-     * Allows or disallows various types of incoming calls for a user or group -- not any particular department.
-     */
     public function setUserPermissions(IncomingCallingPlanPermissions $userPermissions = null)
     {
-        $this->userPermissions =  $userPermissions;
+        if (!$userPermissions) return $this;
+        $this->userPermissions = $userPermissions;
+        $this->userPermissions->setName('userPermissions');
+        return $this;
     }
 
     /**
-     * Allows or disallows various types of incoming calls for a user or group -- not any particular department.
+     * 
+     * @return IncomingCallingPlanPermissions
      */
     public function getUserPermissions()
     {
-        return (!$this->userPermissions) ?: $this->userPermissions->getValue();
+        return $this->userPermissions;
     }
 }

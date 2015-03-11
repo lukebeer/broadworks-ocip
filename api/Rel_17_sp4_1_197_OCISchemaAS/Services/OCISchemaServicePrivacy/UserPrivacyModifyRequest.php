@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementUserIdList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePrivacy\UserPrivacyModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = __CLASS__;
+    public    $name                                       = 'UserPrivacyModifyRequest';
     protected $userId                                     = null;
     protected $enableDirectoryPrivacy                     = null;
     protected $enableAutoAttendantExtensionDialingPrivacy = null;
@@ -37,7 +37,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
          $enableAutoAttendantExtensionDialingPrivacy = null,
          $enableAutoAttendantNameDialingPrivacy = null,
          $enablePhoneStatusPrivacy = null,
-          $permittedMonitorUserIdList = null
+         ReplacementUserIdList $permittedMonitorUserIdList = null
     ) {
         $this->setUserId($userId);
         $this->setEnableDirectoryPrivacy($enableDirectoryPrivacy);
@@ -48,7 +48,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return UserPrivacyModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,29 +56,25 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
      */
     public function setUserId($userId = null)
     {
+        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
+        $this->userId->setName('userId');
+        return $this;
     }
 
     /**
-     * A user id consists of a user-portion optionally followed by an @ sign and a domain name.
-     *         If the domain is not specified, it is assumed to be the system default domain.
-     *         The domain is required when adding normal users and virtual users, i.e. Auto Attendants,
-     *         Hunt Groups, Call Centers....
-     *         The domain must not be specified for system-level and service-provider-level administrators.
+     * 
+     * @return UserId
      */
     public function getUserId()
     {
-        return (!$this->userId) ?: $this->userId->getValue();
+        return $this->userId->getValue();
     }
 
     /**
@@ -86,15 +82,19 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setEnableDirectoryPrivacy($enableDirectoryPrivacy = null)
     {
-        $this->enableDirectoryPrivacy = (boolean) $enableDirectoryPrivacy;
+        if (!$enableDirectoryPrivacy) return $this;
+        $this->enableDirectoryPrivacy = new PrimitiveType($enableDirectoryPrivacy);
+        $this->enableDirectoryPrivacy->setName('enableDirectoryPrivacy');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableDirectoryPrivacy()
     {
-        return (!$this->enableDirectoryPrivacy) ?: $this->enableDirectoryPrivacy;
+        return $this->enableDirectoryPrivacy->getValue();
     }
 
     /**
@@ -102,15 +102,19 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy = null)
     {
-        $this->enableAutoAttendantExtensionDialingPrivacy = (boolean) $enableAutoAttendantExtensionDialingPrivacy;
+        if (!$enableAutoAttendantExtensionDialingPrivacy) return $this;
+        $this->enableAutoAttendantExtensionDialingPrivacy = new PrimitiveType($enableAutoAttendantExtensionDialingPrivacy);
+        $this->enableAutoAttendantExtensionDialingPrivacy->setName('enableAutoAttendantExtensionDialingPrivacy');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantExtensionDialingPrivacy) ?: $this->enableAutoAttendantExtensionDialingPrivacy;
+        return $this->enableAutoAttendantExtensionDialingPrivacy->getValue();
     }
 
     /**
@@ -118,15 +122,19 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setEnableAutoAttendantNameDialingPrivacy($enableAutoAttendantNameDialingPrivacy = null)
     {
-        $this->enableAutoAttendantNameDialingPrivacy = (boolean) $enableAutoAttendantNameDialingPrivacy;
+        if (!$enableAutoAttendantNameDialingPrivacy) return $this;
+        $this->enableAutoAttendantNameDialingPrivacy = new PrimitiveType($enableAutoAttendantNameDialingPrivacy);
+        $this->enableAutoAttendantNameDialingPrivacy->setName('enableAutoAttendantNameDialingPrivacy');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {
-        return (!$this->enableAutoAttendantNameDialingPrivacy) ?: $this->enableAutoAttendantNameDialingPrivacy;
+        return $this->enableAutoAttendantNameDialingPrivacy->getValue();
     }
 
     /**
@@ -134,32 +142,38 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setEnablePhoneStatusPrivacy($enablePhoneStatusPrivacy = null)
     {
-        $this->enablePhoneStatusPrivacy = (boolean) $enablePhoneStatusPrivacy;
+        if (!$enablePhoneStatusPrivacy) return $this;
+        $this->enablePhoneStatusPrivacy = new PrimitiveType($enablePhoneStatusPrivacy);
+        $this->enablePhoneStatusPrivacy->setName('enablePhoneStatusPrivacy');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnablePhoneStatusPrivacy()
+    {
+        return $this->enablePhoneStatusPrivacy->getValue();
     }
 
     /**
      * 
      */
-    public function getEnablePhoneStatusPrivacy()
-    {
-        return (!$this->enablePhoneStatusPrivacy) ?: $this->enablePhoneStatusPrivacy;
-    }
-
-    /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
-     */
     public function setPermittedMonitorUserIdList(ReplacementUserIdList $permittedMonitorUserIdList = null)
     {
-        $this->permittedMonitorUserIdList =  $permittedMonitorUserIdList;
+        if (!$permittedMonitorUserIdList) return $this;
+        $this->permittedMonitorUserIdList = $permittedMonitorUserIdList;
+        $this->permittedMonitorUserIdList->setName('permittedMonitorUserIdList');
+        return $this;
     }
 
     /**
-     * A list of userIds that replaces a previously configured list.
-     *         By convention, an element of this type may be set nill to clear the list.
+     * 
+     * @return ReplacementUserIdList
      */
     public function getPermittedMonitorUserIdList()
     {
-        return (!$this->permittedMonitorUserIdList) ?: $this->permittedMonitorUserIdList->getValue();
+        return $this->permittedMonitorUserIdList;
     }
 }

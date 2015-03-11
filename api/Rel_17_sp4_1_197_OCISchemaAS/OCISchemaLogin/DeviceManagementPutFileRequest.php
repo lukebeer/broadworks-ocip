@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementAccessURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\DeviceManagementPutFileResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementPutFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'DeviceManagementPutFileRequest';
     protected $deviceAccessURI = null;
     protected $ipAddress       = null;
 
@@ -34,7 +33,7 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return DeviceManagementPutFileResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -42,38 +41,46 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * The access URI that a device uses to access files on BroadWorks.
+     * 
      */
     public function setDeviceAccessURI($deviceAccessURI = null)
     {
+        if (!$deviceAccessURI) return $this;
         $this->deviceAccessURI = ($deviceAccessURI InstanceOf DeviceManagementAccessURI)
              ? $deviceAccessURI
              : new DeviceManagementAccessURI($deviceAccessURI);
+        $this->deviceAccessURI->setName('deviceAccessURI');
+        return $this;
     }
 
     /**
-     * The access URI that a device uses to access files on BroadWorks.
+     * 
+     * @return DeviceManagementAccessURI
      */
     public function getDeviceAccessURI()
     {
-        return (!$this->deviceAccessURI) ?: $this->deviceAccessURI->getValue();
+        return $this->deviceAccessURI->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setIpAddress($ipAddress = null)
     {
+        if (!$ipAddress) return $this;
         $this->ipAddress = ($ipAddress InstanceOf NetAddress)
              ? $ipAddress
              : new NetAddress($ipAddress);
+        $this->ipAddress->setName('ipAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getIpAddress()
     {
-        return (!$this->ipAddress) ?: $this->ipAddress->getValue();
+        return $this->ipAddress->getValue();
     }
 }

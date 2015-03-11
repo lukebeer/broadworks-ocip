@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingCallBlockingServiceGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingCallBlockingServiceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = __CLASS__;
+    public    $name                  = 'SystemTreatmentMappingCallBlockingServiceGetListResponse';
     protected $treatmentMappingTable = null;
 
     /**
@@ -37,14 +36,17 @@ class SystemTreatmentMappingCallBlockingServiceGetListResponse extends ComplexTy
      */
     public function setTreatmentMappingTable(core:OCITable $treatmentMappingTable = null)
     {
-        $this->treatmentMappingTable =  $treatmentMappingTable;
+        if (!$treatmentMappingTable) return $this;
+        $this->treatmentMappingTable->setName('treatmentMappingTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getTreatmentMappingTable()
     {
-        return (!$this->treatmentMappingTable) ?: $this->treatmentMappingTable->getValue();
+        return $this->treatmentMappingTable->getValue();
     }
 }

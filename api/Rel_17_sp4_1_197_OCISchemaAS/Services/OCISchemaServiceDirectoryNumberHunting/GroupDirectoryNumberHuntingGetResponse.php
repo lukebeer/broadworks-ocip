@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDirectoryNumberHunting; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDirectoryNumberHuntingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'GroupDirectoryNumberHuntingGetResponse';
     protected $agentUserTable = null;
 
     /**
@@ -38,14 +37,17 @@ class GroupDirectoryNumberHuntingGetResponse extends ComplexType implements Comp
      */
     public function setAgentUserTable(core:OCITable $agentUserTable = null)
     {
-        $this->agentUserTable =  $agentUserTable;
+        if (!$agentUserTable) return $this;
+        $this->agentUserTable->setName('agentUserTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getAgentUserTable()
     {
-        return (!$this->agentUserTable) ?: $this->agentUserTable->getValue();
+        return $this->agentUserTable->getValue();
     }
 }

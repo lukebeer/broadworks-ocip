@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackLineMatchAction;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackLineType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLegacyAutomaticCallback\SystemLegacyAutomaticCallbackModifyLineTypeResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'SystemLegacyAutomaticCallbackModifyLineTypeRequest';
     protected $lineType      = null;
     protected $matchAction   = null;
     protected $noMatchAction = null;
@@ -38,7 +37,7 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
     }
 
     /**
-     * @return SystemLegacyAutomaticCallbackModifyLineTypeResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,56 +45,68 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
     }
 
     /**
-     * Legacy Automatic Callback line type.
+     * 
      */
     public function setLineType($lineType = null)
     {
+        if (!$lineType) return $this;
         $this->lineType = ($lineType InstanceOf LegacyAutomaticCallbackLineType)
              ? $lineType
              : new LegacyAutomaticCallbackLineType($lineType);
+        $this->lineType->setName('lineType');
+        return $this;
     }
 
     /**
-     * Legacy Automatic Callback line type.
+     * 
+     * @return LegacyAutomaticCallbackLineType
      */
     public function getLineType()
     {
-        return (!$this->lineType) ?: $this->lineType->getValue();
+        return $this->lineType->getValue();
     }
 
     /**
-     * Legacy Automatic Callback line type match action.
+     * 
      */
     public function setMatchAction($matchAction = null)
     {
+        if (!$matchAction) return $this;
         $this->matchAction = ($matchAction InstanceOf LegacyAutomaticCallbackLineMatchAction)
              ? $matchAction
              : new LegacyAutomaticCallbackLineMatchAction($matchAction);
+        $this->matchAction->setName('matchAction');
+        return $this;
     }
 
     /**
-     * Legacy Automatic Callback line type match action.
+     * 
+     * @return LegacyAutomaticCallbackLineMatchAction
      */
     public function getMatchAction()
     {
-        return (!$this->matchAction) ?: $this->matchAction->getValue();
+        return $this->matchAction->getValue();
     }
 
     /**
-     * Legacy Automatic Callback line type match action.
+     * 
      */
     public function setNoMatchAction($noMatchAction = null)
     {
+        if (!$noMatchAction) return $this;
         $this->noMatchAction = ($noMatchAction InstanceOf LegacyAutomaticCallbackLineMatchAction)
              ? $noMatchAction
              : new LegacyAutomaticCallbackLineMatchAction($noMatchAction);
+        $this->noMatchAction->setName('noMatchAction');
+        return $this;
     }
 
     /**
-     * Legacy Automatic Callback line type match action.
+     * 
+     * @return LegacyAutomaticCallbackLineMatchAction
      */
     public function getNoMatchAction()
     {
-        return (!$this->noMatchAction) ?: $this->noMatchAction->getValue();
+        return $this->noMatchAction->getValue();
     }
 }

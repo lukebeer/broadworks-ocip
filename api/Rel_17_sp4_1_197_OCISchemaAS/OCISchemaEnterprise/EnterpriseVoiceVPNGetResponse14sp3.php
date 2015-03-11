@@ -9,7 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNNonMatchingE164NumberSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDefaultSelection;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetResponse14sp3;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name             = __CLASS__;
+    public    $name             = 'EnterpriseVoiceVPNGetResponse14sp3';
     protected $isActive         = null;
     protected $defaultSelection = null;
     protected $e164Selection    = null;
@@ -40,51 +40,63 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive->getValue();
     }
 
     /**
      * 
      */
-    public function getIsActive()
-    {
-        return (!$this->isActive) ?: $this->isActive;
-    }
-
-    /**
-     * Enterprise Voice VPN Default Selector.
-     */
     public function setDefaultSelection($defaultSelection = null)
     {
+        if (!$defaultSelection) return $this;
         $this->defaultSelection = ($defaultSelection InstanceOf EnterpriseVoiceVPNDefaultSelection)
              ? $defaultSelection
              : new EnterpriseVoiceVPNDefaultSelection($defaultSelection);
+        $this->defaultSelection->setName('defaultSelection');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Default Selector.
+     * 
+     * @return EnterpriseVoiceVPNDefaultSelection
      */
     public function getDefaultSelection()
     {
-        return (!$this->defaultSelection) ?: $this->defaultSelection->getValue();
+        return $this->defaultSelection->getValue();
     }
 
     /**
-     * Enterprise Voice VPN Selector for Non Matching E164 Number.
+     * 
      */
     public function setE164Selection($e164Selection = null)
     {
+        if (!$e164Selection) return $this;
         $this->e164Selection = ($e164Selection InstanceOf EnterpriseVoiceVPNNonMatchingE164NumberSelection)
              ? $e164Selection
              : new EnterpriseVoiceVPNNonMatchingE164NumberSelection($e164Selection);
+        $this->e164Selection->setName('e164Selection');
+        return $this;
     }
 
     /**
-     * Enterprise Voice VPN Selector for Non Matching E164 Number.
+     * 
+     * @return EnterpriseVoiceVPNNonMatchingE164NumberSelection
      */
     public function getE164Selection()
     {
-        return (!$this->e164Selection) ?: $this->e164Selection->getValue();
+        return $this->e164Selection->getValue();
     }
 
     /**
@@ -92,14 +104,18 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function setUsePhoneContext($usePhoneContext = null)
     {
-        $this->usePhoneContext = (boolean) $usePhoneContext;
+        if (!$usePhoneContext) return $this;
+        $this->usePhoneContext = new PrimitiveType($usePhoneContext);
+        $this->usePhoneContext->setName('usePhoneContext');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getUsePhoneContext()
     {
-        return (!$this->usePhoneContext) ?: $this->usePhoneContext;
+        return $this->usePhoneContext->getValue();
     }
 }

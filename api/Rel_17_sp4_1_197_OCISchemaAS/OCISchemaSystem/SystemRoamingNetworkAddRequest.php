@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkTranslationIndex;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoamingNetworkAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoamingNetworkAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'SystemRoamingNetworkAddRequest';
     protected $mscAddress              = null;
     protected $networkTranslationIndex = null;
 
@@ -35,7 +34,7 @@ class SystemRoamingNetworkAddRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return SystemRoamingNetworkAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemRoamingNetworkAddRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setMscAddress($mscAddress = null)
     {
+        if (!$mscAddress) return $this;
         $this->mscAddress = ($mscAddress InstanceOf DN)
              ? $mscAddress
              : new DN($mscAddress);
+        $this->mscAddress->setName('mscAddress');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getMscAddress()
     {
-        return (!$this->mscAddress) ?: $this->mscAddress->getValue();
+        return $this->mscAddress->getValue();
     }
 
     /**
-     * Network Translation Index for selecting Enterprise and Public dial plans.
+     * 
      */
     public function setNetworkTranslationIndex($networkTranslationIndex = null)
     {
+        if (!$networkTranslationIndex) return $this;
         $this->networkTranslationIndex = ($networkTranslationIndex InstanceOf NetworkTranslationIndex)
              ? $networkTranslationIndex
              : new NetworkTranslationIndex($networkTranslationIndex);
+        $this->networkTranslationIndex->setName('networkTranslationIndex');
+        return $this;
     }
 
     /**
-     * Network Translation Index for selecting Enterprise and Public dial plans.
+     * 
+     * @return NetworkTranslationIndex
      */
     public function getNetworkTranslationIndex()
     {
-        return (!$this->networkTranslationIndex) ?: $this->networkTranslationIndex->getValue();
+        return $this->networkTranslationIndex->getValue();
     }
 }

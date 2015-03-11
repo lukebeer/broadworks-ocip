@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDepartmentAuthorizationCodes;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanGroupAuthorizationCodes;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanAuthorizationCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'GroupOutgoingCallingPlanAuthorizationCodeGetListResponse';
     protected $groupCodeList      = null;
     protected $departmentCodeList = null;
 
@@ -34,34 +33,42 @@ class GroupOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexTy
     }
 
     /**
-     * Outgoing Calling Plan Authorization Code for the group default.
+     * 
      */
     public function setGroupCodeList(OutgoingCallingPlanGroupAuthorizationCodes $groupCodeList = null)
     {
-        $this->groupCodeList =  $groupCodeList;
+        if (!$groupCodeList) return $this;
+        $this->groupCodeList = $groupCodeList;
+        $this->groupCodeList->setName('groupCodeList');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan Authorization Code for the group default.
+     * 
+     * @return OutgoingCallingPlanGroupAuthorizationCodes
      */
     public function getGroupCodeList()
     {
-        return (!$this->groupCodeList) ?: $this->groupCodeList->getValue();
+        return $this->groupCodeList;
     }
 
     /**
-     * Outgoing Calling Plan Authorization Code for a department.
+     * 
      */
     public function setDepartmentCodeList(OutgoingCallingPlanDepartmentAuthorizationCodes $departmentCodeList = null)
     {
-        $this->departmentCodeList =  $departmentCodeList;
+        if (!$departmentCodeList) return $this;
+        $this->departmentCodeList = $departmentCodeList;
+        $this->departmentCodeList->setName('departmentCodeList');
+        return $this;
     }
 
     /**
-     * Outgoing Calling Plan Authorization Code for a department.
+     * 
+     * @return OutgoingCallingPlanDepartmentAuthorizationCodes
      */
     public function getDepartmentCodeList()
     {
-        return (!$this->departmentCodeList) ?: $this->departmentCodeList->getValue();
+        return $this->departmentCodeList;
     }
 }

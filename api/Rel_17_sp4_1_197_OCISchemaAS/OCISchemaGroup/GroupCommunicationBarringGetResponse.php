@@ -8,7 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommunicationBarringGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommunicationBarringGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = __CLASS__;
+    public    $name                             = 'GroupCommunicationBarringGetResponse';
     protected $useDefaultServiceProviderProfile = null;
     protected $profile                          = null;
 
@@ -37,32 +37,40 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
      */
     public function setUseDefaultServiceProviderProfile($useDefaultServiceProviderProfile = null)
     {
-        $this->useDefaultServiceProviderProfile = (boolean) $useDefaultServiceProviderProfile;
+        if (!$useDefaultServiceProviderProfile) return $this;
+        $this->useDefaultServiceProviderProfile = new PrimitiveType($useDefaultServiceProviderProfile);
+        $this->useDefaultServiceProviderProfile->setName('useDefaultServiceProviderProfile');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getUseDefaultServiceProviderProfile()
+    {
+        return $this->useDefaultServiceProviderProfile->getValue();
     }
 
     /**
      * 
      */
-    public function getUseDefaultServiceProviderProfile()
-    {
-        return (!$this->useDefaultServiceProviderProfile) ?: $this->useDefaultServiceProviderProfile;
-    }
-
-    /**
-     * Communication Barring Profile Name
-     */
     public function setProfile($profile = null)
     {
+        if (!$profile) return $this;
         $this->profile = ($profile InstanceOf CommunicationBarringProfileName)
              ? $profile
              : new CommunicationBarringProfileName($profile);
+        $this->profile->setName('profile');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile Name
+     * 
+     * @return CommunicationBarringProfileName
      */
     public function getProfile()
     {
-        return (!$this->profile) ?: $this->profile->getValue();
+        return $this->profile->getValue();
     }
 }

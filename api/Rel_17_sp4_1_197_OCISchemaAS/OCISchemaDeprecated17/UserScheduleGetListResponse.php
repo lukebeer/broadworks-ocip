@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserScheduleGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = __CLASS__;
+    public    $name          = 'UserScheduleGetListResponse';
     protected $scheduleName  = null;
     protected $scheduleType  = null;
     protected $scheduleLevel = null;
@@ -37,56 +36,68 @@ class UserScheduleGetListResponse extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * Schedule name.
+     * 
      */
     public function setScheduleName($scheduleName = null)
     {
+        if (!$scheduleName) return $this;
         $this->scheduleName = ($scheduleName InstanceOf ScheduleName)
              ? $scheduleName
              : new ScheduleName($scheduleName);
+        $this->scheduleName->setName('scheduleName');
+        return $this;
     }
 
     /**
-     * Schedule name.
+     * 
+     * @return ScheduleName
      */
     public function getScheduleName()
     {
-        return (!$this->scheduleName) ?: $this->scheduleName->getValue();
+        return $this->scheduleName->getValue();
     }
 
     /**
-     * Schedule type.
+     * 
      */
     public function setScheduleType($scheduleType = null)
     {
+        if (!$scheduleType) return $this;
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
+        $this->scheduleType->setName('scheduleType');
+        return $this;
     }
 
     /**
-     * Schedule type.
+     * 
+     * @return ScheduleType
      */
     public function getScheduleType()
     {
-        return (!$this->scheduleType) ?: $this->scheduleType->getValue();
+        return $this->scheduleType->getValue();
     }
 
     /**
-     * Schedule access level.
+     * 
      */
     public function setScheduleLevel($scheduleLevel = null)
     {
+        if (!$scheduleLevel) return $this;
         $this->scheduleLevel = ($scheduleLevel InstanceOf ScheduleLevel)
              ? $scheduleLevel
              : new ScheduleLevel($scheduleLevel);
+        $this->scheduleLevel->setName('scheduleLevel');
+        return $this;
     }
 
     /**
-     * Schedule access level.
+     * 
+     * @return ScheduleLevel
      */
     public function getScheduleLevel()
     {
-        return (!$this->scheduleLevel) ?: $this->scheduleLevel->getValue();
+        return $this->scheduleLevel->getValue();
     }
 }

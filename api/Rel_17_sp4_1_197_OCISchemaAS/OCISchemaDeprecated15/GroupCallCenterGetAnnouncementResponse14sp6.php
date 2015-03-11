@@ -10,7 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAnnouncementSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CallCenterMusicOnHoldSourceRead;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterGetAnnouncementResponse14sp6;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = __CLASS__;
+    public    $name                                       = 'GroupCallCenterGetAnnouncementResponse14sp6';
     protected $entranceMessageSelection                   = null;
     protected $entranceMessageAudioFileDescription        = null;
     protected $entranceMessageVideoFileDescription        = null;
@@ -42,127 +42,155 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
     }
 
     /**
-     * Call Center Announcement Selection.
+     * 
      */
     public function setEntranceMessageSelection($entranceMessageSelection = null)
     {
+        if (!$entranceMessageSelection) return $this;
         $this->entranceMessageSelection = ($entranceMessageSelection InstanceOf CallCenterAnnouncementSelection)
              ? $entranceMessageSelection
              : new CallCenterAnnouncementSelection($entranceMessageSelection);
+        $this->entranceMessageSelection->setName('entranceMessageSelection');
+        return $this;
     }
 
     /**
-     * Call Center Announcement Selection.
+     * 
+     * @return CallCenterAnnouncementSelection
      */
     public function getEntranceMessageSelection()
     {
-        return (!$this->entranceMessageSelection) ?: $this->entranceMessageSelection->getValue();
+        return $this->entranceMessageSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setEntranceMessageAudioFileDescription($entranceMessageAudioFileDescription = null)
     {
+        if (!$entranceMessageAudioFileDescription) return $this;
         $this->entranceMessageAudioFileDescription = ($entranceMessageAudioFileDescription InstanceOf FileDescription)
              ? $entranceMessageAudioFileDescription
              : new FileDescription($entranceMessageAudioFileDescription);
+        $this->entranceMessageAudioFileDescription->setName('entranceMessageAudioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getEntranceMessageAudioFileDescription()
     {
-        return (!$this->entranceMessageAudioFileDescription) ?: $this->entranceMessageAudioFileDescription->getValue();
+        return $this->entranceMessageAudioFileDescription->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setEntranceMessageVideoFileDescription($entranceMessageVideoFileDescription = null)
     {
+        if (!$entranceMessageVideoFileDescription) return $this;
         $this->entranceMessageVideoFileDescription = ($entranceMessageVideoFileDescription InstanceOf FileDescription)
              ? $entranceMessageVideoFileDescription
              : new FileDescription($entranceMessageVideoFileDescription);
+        $this->entranceMessageVideoFileDescription->setName('entranceMessageVideoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getEntranceMessageVideoFileDescription()
     {
-        return (!$this->entranceMessageVideoFileDescription) ?: $this->entranceMessageVideoFileDescription->getValue();
+        return $this->entranceMessageVideoFileDescription->getValue();
     }
 
     /**
-     * Call Center Announcement Selection.
+     * 
      */
     public function setPeriodicComfortMessageSelection($periodicComfortMessageSelection = null)
     {
+        if (!$periodicComfortMessageSelection) return $this;
         $this->periodicComfortMessageSelection = ($periodicComfortMessageSelection InstanceOf CallCenterAnnouncementSelection)
              ? $periodicComfortMessageSelection
              : new CallCenterAnnouncementSelection($periodicComfortMessageSelection);
+        $this->periodicComfortMessageSelection->setName('periodicComfortMessageSelection');
+        return $this;
     }
 
     /**
-     * Call Center Announcement Selection.
+     * 
+     * @return CallCenterAnnouncementSelection
      */
     public function getPeriodicComfortMessageSelection()
     {
-        return (!$this->periodicComfortMessageSelection) ?: $this->periodicComfortMessageSelection->getValue();
+        return $this->periodicComfortMessageSelection->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setPeriodicComfortMessageAudioFileDescription($periodicComfortMessageAudioFileDescription = null)
     {
+        if (!$periodicComfortMessageAudioFileDescription) return $this;
         $this->periodicComfortMessageAudioFileDescription = ($periodicComfortMessageAudioFileDescription InstanceOf FileDescription)
              ? $periodicComfortMessageAudioFileDescription
              : new FileDescription($periodicComfortMessageAudioFileDescription);
+        $this->periodicComfortMessageAudioFileDescription->setName('periodicComfortMessageAudioFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getPeriodicComfortMessageAudioFileDescription()
     {
-        return (!$this->periodicComfortMessageAudioFileDescription) ?: $this->periodicComfortMessageAudioFileDescription->getValue();
+        return $this->periodicComfortMessageAudioFileDescription->getValue();
     }
 
     /**
-     * Description of a file resource.
+     * 
      */
     public function setPeriodicComfortMessageVideoFileDescription($periodicComfortMessageVideoFileDescription = null)
     {
+        if (!$periodicComfortMessageVideoFileDescription) return $this;
         $this->periodicComfortMessageVideoFileDescription = ($periodicComfortMessageVideoFileDescription InstanceOf FileDescription)
              ? $periodicComfortMessageVideoFileDescription
              : new FileDescription($periodicComfortMessageVideoFileDescription);
+        $this->periodicComfortMessageVideoFileDescription->setName('periodicComfortMessageVideoFileDescription');
+        return $this;
     }
 
     /**
-     * Description of a file resource.
+     * 
+     * @return FileDescription
      */
     public function getPeriodicComfortMessageVideoFileDescription()
     {
-        return (!$this->periodicComfortMessageVideoFileDescription) ?: $this->periodicComfortMessageVideoFileDescription->getValue();
+        return $this->periodicComfortMessageVideoFileDescription->getValue();
     }
 
     /**
-     * Contains the music on hold source configuration.
+     * 
      */
     public function setOnHoldSource(CallCenterMusicOnHoldSourceRead $onHoldSource = null)
     {
-        $this->onHoldSource =  $onHoldSource;
+        if (!$onHoldSource) return $this;
+        $this->onHoldSource = $onHoldSource;
+        $this->onHoldSource->setName('onHoldSource');
+        return $this;
     }
 
     /**
-     * Contains the music on hold source configuration.
+     * 
+     * @return CallCenterMusicOnHoldSourceRead
      */
     public function getOnHoldSource()
     {
-        return (!$this->onHoldSource) ?: $this->onHoldSource->getValue();
+        return $this->onHoldSource;
     }
 
     /**
@@ -170,30 +198,38 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
      */
     public function setOnHoldUseAlternateSourceForInternalCalls($onHoldUseAlternateSourceForInternalCalls = null)
     {
-        $this->onHoldUseAlternateSourceForInternalCalls = (boolean) $onHoldUseAlternateSourceForInternalCalls;
+        if (!$onHoldUseAlternateSourceForInternalCalls) return $this;
+        $this->onHoldUseAlternateSourceForInternalCalls = new PrimitiveType($onHoldUseAlternateSourceForInternalCalls);
+        $this->onHoldUseAlternateSourceForInternalCalls->setName('onHoldUseAlternateSourceForInternalCalls');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getOnHoldUseAlternateSourceForInternalCalls()
+    {
+        return $this->onHoldUseAlternateSourceForInternalCalls->getValue();
     }
 
     /**
      * 
      */
-    public function getOnHoldUseAlternateSourceForInternalCalls()
-    {
-        return (!$this->onHoldUseAlternateSourceForInternalCalls) ?: $this->onHoldUseAlternateSourceForInternalCalls;
-    }
-
-    /**
-     * Contains the music on hold source configuration.
-     */
     public function setOnHoldInternalSource(CallCenterMusicOnHoldSourceRead $onHoldInternalSource = null)
     {
-        $this->onHoldInternalSource =  $onHoldInternalSource;
+        if (!$onHoldInternalSource) return $this;
+        $this->onHoldInternalSource = $onHoldInternalSource;
+        $this->onHoldInternalSource->setName('onHoldInternalSource');
+        return $this;
     }
 
     /**
-     * Contains the music on hold source configuration.
+     * 
+     * @return CallCenterMusicOnHoldSourceRead
      */
     public function getOnHoldInternalSource()
     {
-        return (!$this->onHoldInternalSource) ?: $this->onHoldInternalSource->getValue();
+        return $this->onHoldInternalSource;
     }
 }

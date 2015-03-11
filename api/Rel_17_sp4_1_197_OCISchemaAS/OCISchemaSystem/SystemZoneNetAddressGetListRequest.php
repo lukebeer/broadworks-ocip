@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemZoneNetAddressGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneNetAddressGetListResponse';
-    public    $name                        = __CLASS__;
+    public    $name                        = 'SystemZoneNetAddressGetListRequest';
     protected $zoneName                    = null;
     protected $responseSizeLimit           = null;
     protected $searchCriteriaZoneIPAddress = null;
@@ -32,7 +32,7 @@ class SystemZoneNetAddressGetListRequest extends ComplexType implements ComplexI
     public function __construct(
          $zoneName,
          $responseSizeLimit = null,
-          $searchCriteriaZoneIPAddress = null
+         SearchCriteriaZoneIPAddress $searchCriteriaZoneIPAddress = null
     ) {
         $this->setZoneName($zoneName);
         $this->setResponseSizeLimit($responseSizeLimit);
@@ -48,58 +48,68 @@ class SystemZoneNetAddressGetListRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * Zone Name.
+     * 
      */
     public function setZoneName($zoneName = null)
     {
+        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
+        $this->zoneName->setName('zoneName');
+        return $this;
     }
 
     /**
-     * Zone Name.
+     * 
+     * @return ZoneName
      */
     public function getZoneName()
     {
-        return (!$this->zoneName) ?: $this->zoneName->getValue();
+        return $this->zoneName->getValue();
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
+        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
+        $this->responseSizeLimit->setName('responseSizeLimit');
+        return $this;
     }
 
     /**
-     * Maximum number of rows to return in response to a search.
-     *         By convention, elements of this type can be omitted to allow an
-     *         unlimited number or rows in the search result.
+     * 
+     * @return ResponseSizeLimit
      */
     public function getResponseSizeLimit()
     {
-        return (!$this->responseSizeLimit) ?: $this->responseSizeLimit->getValue();
+        return $this->responseSizeLimit->getValue();
     }
 
     /**
-     * Criteria for searching for a system zone's IP Address.
+     * 
      */
     public function setSearchCriteriaZoneIPAddress(SearchCriteriaZoneIPAddress $searchCriteriaZoneIPAddress = null)
     {
-        $this->searchCriteriaZoneIPAddress =  $searchCriteriaZoneIPAddress;
+        if (!$searchCriteriaZoneIPAddress) return $this;
+        $this->searchCriteriaZoneIPAddress = ($searchCriteriaZoneIPAddress InstanceOf SearchCriteriaZoneIPAddress)
+             ? $searchCriteriaZoneIPAddress
+             : new SearchCriteriaZoneIPAddress($searchCriteriaZoneIPAddress);
+        $this->searchCriteriaZoneIPAddress->setName('searchCriteriaZoneIPAddress');
+        return $this;
     }
 
     /**
-     * Criteria for searching for a system zone's IP Address.
+     * 
+     * @return SearchCriteriaZoneIPAddress
      */
     public function getSearchCriteriaZoneIPAddress()
     {
-        return (!$this->searchCriteriaZoneIPAddress) ?: $this->searchCriteriaZoneIPAddress->getValue();
+        return $this->searchCriteriaZoneIPAddress;
     }
 }

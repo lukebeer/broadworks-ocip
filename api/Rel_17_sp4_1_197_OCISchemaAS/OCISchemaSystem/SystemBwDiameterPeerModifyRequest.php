@@ -11,7 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port1025;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterPeerModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
+    public    $name      = 'SystemBwDiameterPeerModifyRequest';
     protected $instance  = null;
     protected $identity  = null;
     protected $ipAddress = null;
@@ -46,7 +46,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return SystemBwDiameterPeerModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,75 +54,91 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * The diameter peer instance type for an entry in the Peer Table.
+     * 
      */
     public function setInstance($instance = null)
     {
+        if (!$instance) return $this;
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
              ? $instance
              : new BwDiameterPeerInstance($instance);
+        $this->instance->setName('instance');
+        return $this;
     }
 
     /**
-     * The diameter peer instance type for an entry in the Peer Table.
+     * 
+     * @return BwDiameterPeerInstance
      */
     public function getInstance()
     {
-        return (!$this->instance) ?: $this->instance->getValue();
+        return $this->instance->getValue();
     }
 
     /**
-     * Network domain name.
+     * 
      */
     public function setIdentity($identity = null)
     {
+        if (!$identity) return $this;
         $this->identity = ($identity InstanceOf DomainName)
              ? $identity
              : new DomainName($identity);
+        $this->identity->setName('identity');
+        return $this;
     }
 
     /**
-     * Network domain name.
+     * 
+     * @return DomainName
      */
     public function getIdentity()
     {
-        return (!$this->identity) ?: $this->identity->getValue();
+        return $this->identity->getValue();
     }
 
     /**
-     * Numeric IP Address.
+     * 
      */
     public function setIpAddress($ipAddress = null)
     {
+        if (!$ipAddress) return $this;
         $this->ipAddress = ($ipAddress InstanceOf IPAddress)
              ? $ipAddress
              : new IPAddress($ipAddress);
+        $this->ipAddress->setName('ipAddress');
+        return $this;
     }
 
     /**
-     * Numeric IP Address.
+     * 
+     * @return IPAddress
      */
     public function getIpAddress()
     {
-        return (!$this->ipAddress) ?: $this->ipAddress->getValue();
+        return $this->ipAddress->getValue();
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
      */
     public function setPort($port = null)
     {
+        if (!$port) return $this;
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
+        $this->port->setName('port');
+        return $this;
     }
 
     /**
-     * TCP/IP Port number above the well-known range.
+     * 
+     * @return Port1025
      */
     public function getPort()
     {
-        return (!$this->port) ?: $this->port->getValue();
+        return $this->port->getValue();
     }
 
     /**
@@ -130,14 +146,18 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
      */
     public function setEnabled($enabled = null)
     {
-        $this->enabled = (boolean) $enabled;
+        if (!$enabled) return $this;
+        $this->enabled = new PrimitiveType($enabled);
+        $this->enabled->setName('enabled');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnabled()
     {
-        return (!$this->enabled) ?: $this->enabled;
+        return $this->enabled->getValue();
     }
 }

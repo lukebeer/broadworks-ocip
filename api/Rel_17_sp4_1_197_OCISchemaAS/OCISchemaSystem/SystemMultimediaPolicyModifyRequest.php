@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMultimediaPolicyModifyResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMultimediaPolicyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = __CLASS__;
+    public    $name                            = 'SystemMultimediaPolicyModifyRequest';
     protected $restrictNonAudioVideoMediaTypes = null;
 
     public function __construct(
@@ -31,7 +30,7 @@ class SystemMultimediaPolicyModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return SystemMultimediaPolicyModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,14 +42,18 @@ class SystemMultimediaPolicyModifyRequest extends ComplexType implements Complex
      */
     public function setRestrictNonAudioVideoMediaTypes($restrictNonAudioVideoMediaTypes = null)
     {
-        $this->restrictNonAudioVideoMediaTypes = (boolean) $restrictNonAudioVideoMediaTypes;
+        if (!$restrictNonAudioVideoMediaTypes) return $this;
+        $this->restrictNonAudioVideoMediaTypes = new PrimitiveType($restrictNonAudioVideoMediaTypes);
+        $this->restrictNonAudioVideoMediaTypes->setName('restrictNonAudioVideoMediaTypes');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getRestrictNonAudioVideoMediaTypes()
     {
-        return (!$this->restrictNonAudioVideoMediaTypes) ?: $this->restrictNonAudioVideoMediaTypes;
+        return $this->restrictNonAudioVideoMediaTypes->getValue();
     }
 }

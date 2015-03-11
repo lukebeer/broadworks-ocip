@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkC
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkTranslationIndex;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkClassOfServiceAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'SystemNetworkClassOfServiceAddRequest';
     protected $name                         = null;
     protected $description                  = null;
     protected $communicationBarringProfile0 = null;
@@ -42,16 +41,16 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
     public function __construct(
          $name,
          $description = null,
-          $communicationBarringProfile0 = null,
-          $communicationBarringProfile1 = null,
-          $communicationBarringProfile2 = null,
-          $communicationBarringProfile3 = null,
-          $communicationBarringProfile4 = null,
-          $communicationBarringProfile5 = null,
-          $communicationBarringProfile6 = null,
-          $communicationBarringProfile7 = null,
-          $communicationBarringProfile8 = null,
-          $communicationBarringProfile9 = null,
+         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile0 = null,
+         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile1 = null,
+         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile2 = null,
+         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile3 = null,
+         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile4 = null,
+         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile5 = null,
+         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile6 = null,
+         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile7 = null,
+         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile8 = null,
+         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile9 = null,
          $networkTranslationIndex = null
     ) {
         $this->setName($name);
@@ -70,7 +69,7 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return SystemNetworkClassOfServiceAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,256 +77,268 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
     }
 
     /**
-     * Network Class of Service name.
+     * 
      */
     public function setName($name = null)
     {
+        if (!$name) return $this;
         $this->name = ($name InstanceOf NetworkClassOfServiceName)
              ? $name
              : new NetworkClassOfServiceName($name);
+        $this->name->setName('name');
+        return $this;
     }
 
     /**
-     * Network Class of Service name.
+     * 
+     * @return NetworkClassOfServiceName
      */
     public function getName()
     {
-        return (!$this->name) ?: $this->name->getValue();
+        return $this->name->getValue();
     }
 
     /**
-     * Network Class of Service description.
+     * 
      */
     public function setDescription($description = null)
     {
+        if (!$description) return $this;
         $this->description = ($description InstanceOf NetworkClassOfServiceDescription)
              ? $description
              : new NetworkClassOfServiceDescription($description);
+        $this->description->setName('description');
+        return $this;
     }
 
     /**
-     * Network Class of Service description.
+     * 
+     * @return NetworkClassOfServiceDescription
      */
     public function getDescription()
     {
-        return (!$this->description) ?: $this->description->getValue();
+        return $this->description->getValue();
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
      */
     public function setCommunicationBarringProfile0(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile0 = null)
     {
-        $this->communicationBarringProfile0 =  $communicationBarringProfile0;
+        if (!$communicationBarringProfile0) return $this;
+        $this->communicationBarringProfile0 = $communicationBarringProfile0;
+        $this->communicationBarringProfile0->setName('communicationBarringProfile0');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
+     * @return NetworkClassOfServiceCommunicationBarringProfile
      */
     public function getCommunicationBarringProfile0()
     {
-        return (!$this->communicationBarringProfile0) ?: $this->communicationBarringProfile0->getValue();
+        return $this->communicationBarringProfile0;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
      */
     public function setCommunicationBarringProfile1(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile1 = null)
     {
-        $this->communicationBarringProfile1 =  $communicationBarringProfile1;
+        if (!$communicationBarringProfile1) return $this;
+        $this->communicationBarringProfile1 = $communicationBarringProfile1;
+        $this->communicationBarringProfile1->setName('communicationBarringProfile1');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
+     * @return NetworkClassOfServiceCommunicationBarringProfile
      */
     public function getCommunicationBarringProfile1()
     {
-        return (!$this->communicationBarringProfile1) ?: $this->communicationBarringProfile1->getValue();
+        return $this->communicationBarringProfile1;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
      */
     public function setCommunicationBarringProfile2(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile2 = null)
     {
-        $this->communicationBarringProfile2 =  $communicationBarringProfile2;
+        if (!$communicationBarringProfile2) return $this;
+        $this->communicationBarringProfile2 = $communicationBarringProfile2;
+        $this->communicationBarringProfile2->setName('communicationBarringProfile2');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
+     * @return NetworkClassOfServiceCommunicationBarringProfile
      */
     public function getCommunicationBarringProfile2()
     {
-        return (!$this->communicationBarringProfile2) ?: $this->communicationBarringProfile2->getValue();
+        return $this->communicationBarringProfile2;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
      */
     public function setCommunicationBarringProfile3(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile3 = null)
     {
-        $this->communicationBarringProfile3 =  $communicationBarringProfile3;
+        if (!$communicationBarringProfile3) return $this;
+        $this->communicationBarringProfile3 = $communicationBarringProfile3;
+        $this->communicationBarringProfile3->setName('communicationBarringProfile3');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
+     * @return NetworkClassOfServiceCommunicationBarringProfile
      */
     public function getCommunicationBarringProfile3()
     {
-        return (!$this->communicationBarringProfile3) ?: $this->communicationBarringProfile3->getValue();
+        return $this->communicationBarringProfile3;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
      */
     public function setCommunicationBarringProfile4(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile4 = null)
     {
-        $this->communicationBarringProfile4 =  $communicationBarringProfile4;
+        if (!$communicationBarringProfile4) return $this;
+        $this->communicationBarringProfile4 = $communicationBarringProfile4;
+        $this->communicationBarringProfile4->setName('communicationBarringProfile4');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
+     * @return NetworkClassOfServiceCommunicationBarringProfile
      */
     public function getCommunicationBarringProfile4()
     {
-        return (!$this->communicationBarringProfile4) ?: $this->communicationBarringProfile4->getValue();
+        return $this->communicationBarringProfile4;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
      */
     public function setCommunicationBarringProfile5(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile5 = null)
     {
-        $this->communicationBarringProfile5 =  $communicationBarringProfile5;
+        if (!$communicationBarringProfile5) return $this;
+        $this->communicationBarringProfile5 = $communicationBarringProfile5;
+        $this->communicationBarringProfile5->setName('communicationBarringProfile5');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
+     * @return NetworkClassOfServiceCommunicationBarringProfile
      */
     public function getCommunicationBarringProfile5()
     {
-        return (!$this->communicationBarringProfile5) ?: $this->communicationBarringProfile5->getValue();
+        return $this->communicationBarringProfile5;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
      */
     public function setCommunicationBarringProfile6(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile6 = null)
     {
-        $this->communicationBarringProfile6 =  $communicationBarringProfile6;
+        if (!$communicationBarringProfile6) return $this;
+        $this->communicationBarringProfile6 = $communicationBarringProfile6;
+        $this->communicationBarringProfile6->setName('communicationBarringProfile6');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
+     * @return NetworkClassOfServiceCommunicationBarringProfile
      */
     public function getCommunicationBarringProfile6()
     {
-        return (!$this->communicationBarringProfile6) ?: $this->communicationBarringProfile6->getValue();
+        return $this->communicationBarringProfile6;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
      */
     public function setCommunicationBarringProfile7(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile7 = null)
     {
-        $this->communicationBarringProfile7 =  $communicationBarringProfile7;
+        if (!$communicationBarringProfile7) return $this;
+        $this->communicationBarringProfile7 = $communicationBarringProfile7;
+        $this->communicationBarringProfile7->setName('communicationBarringProfile7');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
+     * @return NetworkClassOfServiceCommunicationBarringProfile
      */
     public function getCommunicationBarringProfile7()
     {
-        return (!$this->communicationBarringProfile7) ?: $this->communicationBarringProfile7->getValue();
+        return $this->communicationBarringProfile7;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
      */
     public function setCommunicationBarringProfile8(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile8 = null)
     {
-        $this->communicationBarringProfile8 =  $communicationBarringProfile8;
+        if (!$communicationBarringProfile8) return $this;
+        $this->communicationBarringProfile8 = $communicationBarringProfile8;
+        $this->communicationBarringProfile8->setName('communicationBarringProfile8');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
+     * @return NetworkClassOfServiceCommunicationBarringProfile
      */
     public function getCommunicationBarringProfile8()
     {
-        return (!$this->communicationBarringProfile8) ?: $this->communicationBarringProfile8->getValue();
+        return $this->communicationBarringProfile8;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
      */
     public function setCommunicationBarringProfile9(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile9 = null)
     {
-        $this->communicationBarringProfile9 =  $communicationBarringProfile9;
+        if (!$communicationBarringProfile9) return $this;
+        $this->communicationBarringProfile9 = $communicationBarringProfile9;
+        $this->communicationBarringProfile9->setName('communicationBarringProfile9');
+        return $this;
     }
 
     /**
-     * Communication Barring Profile defined as part of the Network Class
-     *         Of Service. There can be only one primary profile within a Network
-     *         Class Of Service.
+     * 
+     * @return NetworkClassOfServiceCommunicationBarringProfile
      */
     public function getCommunicationBarringProfile9()
     {
-        return (!$this->communicationBarringProfile9) ?: $this->communicationBarringProfile9->getValue();
+        return $this->communicationBarringProfile9;
     }
 
     /**
-     * Network Translation Index for selecting Enterprise and Public dial plans.
+     * 
      */
     public function setNetworkTranslationIndex($networkTranslationIndex = null)
     {
+        if (!$networkTranslationIndex) return $this;
         $this->networkTranslationIndex = ($networkTranslationIndex InstanceOf NetworkTranslationIndex)
              ? $networkTranslationIndex
              : new NetworkTranslationIndex($networkTranslationIndex);
+        $this->networkTranslationIndex->setName('networkTranslationIndex');
+        return $this;
     }
 
     /**
-     * Network Translation Index for selecting Enterprise and Public dial plans.
+     * 
+     * @return NetworkTranslationIndex
      */
     public function getNetworkTranslationIndex()
     {
-        return (!$this->networkTranslationIndex) ?: $this->networkTranslationIndex->getValue();
+        return $this->networkTranslationIndex->getValue();
     }
 }

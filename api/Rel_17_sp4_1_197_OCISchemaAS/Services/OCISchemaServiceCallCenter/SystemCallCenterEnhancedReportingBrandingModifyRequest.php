@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterEnhancedReportingSystemBrandingChoice;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LabeledFileResource;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingBrandingModifyResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,20 +21,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = __CLASS__;
+    public    $name               = 'SystemCallCenterEnhancedReportingBrandingModifyRequest';
     protected $brandingChoice     = null;
     protected $customBrandingFile = null;
 
     public function __construct(
          $brandingChoice = null,
-          $customBrandingFile = null
+         LabeledFileResource $customBrandingFile = null
     ) {
         $this->setBrandingChoice($brandingChoice);
         $this->setCustomBrandingFile($customBrandingFile);
     }
 
     /**
-     * @return SystemCallCenterEnhancedReportingBrandingModifyResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,44 @@ class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType
     }
 
     /**
-     * The call center enhanced reporting system level branding choice.
+     * 
      */
     public function setBrandingChoice($brandingChoice = null)
     {
+        if (!$brandingChoice) return $this;
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingSystemBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingSystemBrandingChoice($brandingChoice);
+        $this->brandingChoice->setName('brandingChoice');
+        return $this;
     }
 
     /**
-     * The call center enhanced reporting system level branding choice.
+     * 
+     * @return CallCenterEnhancedReportingSystemBrandingChoice
      */
     public function getBrandingChoice()
     {
-        return (!$this->brandingChoice) ?: $this->brandingChoice->getValue();
+        return $this->brandingChoice->getValue();
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
      */
     public function setCustomBrandingFile(LabeledFileResource $customBrandingFile = null)
     {
-        $this->customBrandingFile =  $customBrandingFile;
+        if (!$customBrandingFile) return $this;
+        $this->customBrandingFile = $customBrandingFile;
+        $this->customBrandingFile->setName('customBrandingFile');
+        return $this;
     }
 
     /**
-     * Represents either an existing file for the application server to use, or
-     *         the contents of a file to transfer with a description.
+     * 
+     * @return LabeledFileResource
      */
     public function getCustomBrandingFile()
     {
-        return (!$this->customBrandingFile) ?: $this->customBrandingFile->getValue();
+        return $this->customBrandingFile;
     }
 }

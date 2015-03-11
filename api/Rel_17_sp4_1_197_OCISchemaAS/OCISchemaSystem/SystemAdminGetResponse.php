@@ -9,9 +9,9 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemAdminType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAdminGetResponse;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAdminGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = __CLASS__;
+    public    $name      = 'SystemAdminGetResponse';
     protected $firstName = null;
     protected $lastName  = null;
     protected $language  = null;
@@ -40,75 +40,91 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
      */
     public function setFirstName($firstName = null)
     {
+        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
+        $this->firstName->setName('firstName');
+        return $this;
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
+     * @return FirstName
      */
     public function getFirstName()
     {
-        return (!$this->firstName) ?: $this->firstName->getValue();
+        return $this->firstName->getValue();
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
      */
     public function setLastName($lastName = null)
     {
+        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
+        $this->lastName->setName('lastName');
+        return $this;
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
+     * @return LastName
      */
     public function getLastName()
     {
-        return (!$this->lastName) ?: $this->lastName->getValue();
+        return $this->lastName->getValue();
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
      */
     public function setLanguage($language = null)
     {
+        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
+        $this->language->setName('language');
+        return $this;
     }
 
     /**
-     * Language identifies the language of a user or an administrator.
+     * 
+     * @return Language
      */
     public function getLanguage()
     {
-        return (!$this->language) ?: $this->language->getValue();
+        return $this->language->getValue();
     }
 
     /**
-     * System Administrator types.
+     * 
      */
     public function setAdminType($adminType = null)
     {
+        if (!$adminType) return $this;
         $this->adminType = ($adminType InstanceOf SystemAdminType)
              ? $adminType
              : new SystemAdminType($adminType);
+        $this->adminType->setName('adminType');
+        return $this;
     }
 
     /**
-     * System Administrator types.
+     * 
+     * @return SystemAdminType
      */
     public function getAdminType()
     {
-        return (!$this->adminType) ?: $this->adminType->getValue();
+        return $this->adminType->getValue();
     }
 
     /**
@@ -116,14 +132,18 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function setReadOnly($readOnly = null)
     {
-        $this->readOnly = (boolean) $readOnly;
+        if (!$readOnly) return $this;
+        $this->readOnly = new PrimitiveType($readOnly);
+        $this->readOnly->setName('readOnly');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getReadOnly()
     {
-        return (!$this->readOnly) ?: $this->readOnly;
+        return $this->readOnly->getValue();
     }
 }

@@ -17,7 +17,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupNam
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Contact;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -30,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = __CLASS__;
+    public    $name                = 'GroupAddRequest';
     protected $serviceProviderId   = null;
     protected $groupId             = null;
     protected $defaultDomain       = null;
@@ -51,8 +50,8 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
          $callingLineIdName = null,
          $timeZone = null,
          $locationDialingCode = null,
-          $contact = null,
-          $address = null
+         Contact $contact = null,
+         StreetAddress $address = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -67,7 +66,7 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return GroupAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,182 +74,218 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
+        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
+        $this->serviceProviderId->setName('serviceProviderId');
+        return $this;
     }
 
     /**
-     * Service Provider Id uniquely identifies a service provider.
-     *         NOTE: The service provider id has a maximum length of 30 bytes, not 30 characters.
+     * 
+     * @return ServiceProviderId
      */
     public function getServiceProviderId()
     {
-        return (!$this->serviceProviderId) ?: $this->serviceProviderId->getValue();
+        return $this->serviceProviderId->getValue();
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
      */
     public function setGroupId($groupId = null)
     {
+        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
+        $this->groupId->setName('groupId');
+        return $this;
     }
 
     /**
-     * Group Id identifies a group within a service provider or enterprise. The group id is not
-     *         unique system wide. It must be combined with a service provider id to be unique across the system.
+     * 
+     * @return GroupId
      */
     public function getGroupId()
     {
-        return (!$this->groupId) ?: $this->groupId->getValue();
+        return $this->groupId->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setDefaultDomain($defaultDomain = null)
     {
+        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
+        $this->defaultDomain->setName('defaultDomain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getDefaultDomain()
     {
-        return (!$this->defaultDomain) ?: $this->defaultDomain->getValue();
+        return $this->defaultDomain->getValue();
     }
 
     /**
-     * Configured maximum number of users in a group.
+     * 
      */
     public function setUserLimit($userLimit = null)
     {
+        if (!$userLimit) return $this;
         $this->userLimit = ($userLimit InstanceOf GroupUserLimit)
              ? $userLimit
              : new GroupUserLimit($userLimit);
+        $this->userLimit->setName('userLimit');
+        return $this;
     }
 
     /**
-     * Configured maximum number of users in a group.
+     * 
+     * @return GroupUserLimit
      */
     public function getUserLimit()
     {
-        return (!$this->userLimit) ?: $this->userLimit->getValue();
+        return $this->userLimit->getValue();
     }
 
     /**
-     * Group display name.
+     * 
      */
     public function setGroupName($groupName = null)
     {
+        if (!$groupName) return $this;
         $this->groupName = ($groupName InstanceOf GroupName)
              ? $groupName
              : new GroupName($groupName);
+        $this->groupName->setName('groupName');
+        return $this;
     }
 
     /**
-     * Group display name.
+     * 
+     * @return GroupName
      */
     public function getGroupName()
     {
-        return (!$this->groupName) ?: $this->groupName->getValue();
+        return $this->groupName->getValue();
     }
 
     /**
-     * Group calling line ID name.
+     * 
      */
     public function setCallingLineIdName($callingLineIdName = null)
     {
+        if (!$callingLineIdName) return $this;
         $this->callingLineIdName = ($callingLineIdName InstanceOf GroupCallingLineIdName)
              ? $callingLineIdName
              : new GroupCallingLineIdName($callingLineIdName);
+        $this->callingLineIdName->setName('callingLineIdName');
+        return $this;
     }
 
     /**
-     * Group calling line ID name.
+     * 
+     * @return GroupCallingLineIdName
      */
     public function getCallingLineIdName()
     {
-        return (!$this->callingLineIdName) ?: $this->callingLineIdName->getValue();
+        return $this->callingLineIdName->getValue();
     }
 
     /**
-     * Time zone key.
+     * 
      */
     public function setTimeZone($timeZone = null)
     {
+        if (!$timeZone) return $this;
         $this->timeZone = ($timeZone InstanceOf TimeZone)
              ? $timeZone
              : new TimeZone($timeZone);
+        $this->timeZone->setName('timeZone');
+        return $this;
     }
 
     /**
-     * Time zone key.
+     * 
+     * @return TimeZone
      */
     public function getTimeZone()
     {
-        return (!$this->timeZone) ?: $this->timeZone->getValue();
+        return $this->timeZone->getValue();
     }
 
     /**
-     * Group location dialing code for groups that are part of a enterprise.
+     * 
      */
     public function setLocationDialingCode($locationDialingCode = null)
     {
+        if (!$locationDialingCode) return $this;
         $this->locationDialingCode = ($locationDialingCode InstanceOf LocationDialingCode)
              ? $locationDialingCode
              : new LocationDialingCode($locationDialingCode);
+        $this->locationDialingCode->setName('locationDialingCode');
+        return $this;
     }
 
     /**
-     * Group location dialing code for groups that are part of a enterprise.
+     * 
+     * @return LocationDialingCode
      */
     public function getLocationDialingCode()
     {
-        return (!$this->locationDialingCode) ?: $this->locationDialingCode->getValue();
+        return $this->locationDialingCode->getValue();
     }
 
     /**
-     * Contact information.
+     * 
      */
     public function setContact(Contact $contact = null)
     {
-        $this->contact =  $contact;
+        if (!$contact) return $this;
+        $this->contact = $contact;
+        $this->contact->setName('contact');
+        return $this;
     }
 
     /**
-     * Contact information.
+     * 
+     * @return Contact
      */
     public function getContact()
     {
-        return (!$this->contact) ?: $this->contact->getValue();
+        return $this->contact;
     }
 
     /**
-     * Street address information.
+     * 
      */
     public function setAddress(StreetAddress $address = null)
     {
-        $this->address =  $address;
+        if (!$address) return $this;
+        $this->address = $address;
+        $this->address->setName('address');
+        return $this;
     }
 
     /**
-     * Street address information.
+     * 
+     * @return StreetAddress
      */
     public function getAddress()
     {
-        return (!$this->address) ?: $this->address->getValue();
+        return $this->address;
     }
 }

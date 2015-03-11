@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingScheduleOneTime;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingScheduleOneTime;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingScheduleOneTime extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingScheduleOneTime';
-    public    $name      = __CLASS__;
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingScheduleOneTime';
+    public    $name      = 'InstantConferencingScheduleOneTime';
     protected $startTime = null;
     protected $duration  = null;
 
@@ -46,15 +46,18 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
      */
     public function setStartTime(xs:time $startTime = null)
     {
-        $this->startTime =  $startTime;
+        if (!$startTime) return $this;
+        $this->startTime->setName('startTime');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:time
      */
     public function getStartTime()
     {
-        return (!$this->startTime) ?: $this->startTime->getValue();
+        return $this->startTime->getValue();
     }
 
     /**
@@ -62,14 +65,17 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
      */
     public function setDuration(xs:duration $duration = null)
     {
-        $this->duration =  $duration;
+        if (!$duration) return $this;
+        $this->duration->setName('duration');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:duration
      */
     public function getDuration()
     {
-        return (!$this->duration) ?: $this->duration->getValue();
+        return $this->duration->getValue();
     }
 }

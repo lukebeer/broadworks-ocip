@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameDelivery; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingNameDelivery; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallingNameDelivery\UserCallingNameDeliveryGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallingNameDeliveryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'UserCallingNameDeliveryGetResponse';
     protected $isActiveForExternalCalls = null;
     protected $isActiveForInternalCalls = null;
 
@@ -37,15 +36,19 @@ class UserCallingNameDeliveryGetResponse extends ComplexType implements ComplexI
      */
     public function setIsActiveForExternalCalls($isActiveForExternalCalls = null)
     {
-        $this->isActiveForExternalCalls = (boolean) $isActiveForExternalCalls;
+        if (!$isActiveForExternalCalls) return $this;
+        $this->isActiveForExternalCalls = new PrimitiveType($isActiveForExternalCalls);
+        $this->isActiveForExternalCalls->setName('isActiveForExternalCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActiveForExternalCalls()
     {
-        return (!$this->isActiveForExternalCalls) ?: $this->isActiveForExternalCalls;
+        return $this->isActiveForExternalCalls->getValue();
     }
 
     /**
@@ -53,14 +56,18 @@ class UserCallingNameDeliveryGetResponse extends ComplexType implements ComplexI
      */
     public function setIsActiveForInternalCalls($isActiveForInternalCalls = null)
     {
-        $this->isActiveForInternalCalls = (boolean) $isActiveForInternalCalls;
+        if (!$isActiveForInternalCalls) return $this;
+        $this->isActiveForInternalCalls = new PrimitiveType($isActiveForInternalCalls);
+        $this->isActiveForInternalCalls->setName('isActiveForInternalCalls');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActiveForInternalCalls()
     {
-        return (!$this->isActiveForInternalCalls) ?: $this->isActiveForInternalCalls;
+        return $this->isActiveForInternalCalls->getValue();
     }
 }

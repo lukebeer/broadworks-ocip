@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\CallRecordingPlatformName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallRecordingGetPlatformListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = __CLASS__;
+    public    $name                       = 'SystemCallRecordingGetPlatformListResponse';
     protected $systemDefault              = null;
     protected $callRecordingPlatformTable = null;
 
@@ -34,21 +33,25 @@ class SystemCallRecordingGetPlatformListResponse extends ComplexType implements 
     }
 
     /**
-     * Call Recording Platform Name.
+     * 
      */
     public function setSystemDefault($systemDefault = null)
     {
+        if (!$systemDefault) return $this;
         $this->systemDefault = ($systemDefault InstanceOf CallRecordingPlatformName)
              ? $systemDefault
              : new CallRecordingPlatformName($systemDefault);
+        $this->systemDefault->setName('systemDefault');
+        return $this;
     }
 
     /**
-     * Call Recording Platform Name.
+     * 
+     * @return CallRecordingPlatformName
      */
     public function getSystemDefault()
     {
-        return (!$this->systemDefault) ?: $this->systemDefault->getValue();
+        return $this->systemDefault->getValue();
     }
 
     /**
@@ -56,14 +59,17 @@ class SystemCallRecordingGetPlatformListResponse extends ComplexType implements 
      */
     public function setCallRecordingPlatformTable(core:OCITable $callRecordingPlatformTable = null)
     {
-        $this->callRecordingPlatformTable =  $callRecordingPlatformTable;
+        if (!$callRecordingPlatformTable) return $this;
+        $this->callRecordingPlatformTable->setName('callRecordingPlatformTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getCallRecordingPlatformTable()
     {
-        return (!$this->callRecordingPlatformTable) ?: $this->callRecordingPlatformTable->getValue();
+        return $this->callRecordingPlatformTable->getValue();
     }
 }

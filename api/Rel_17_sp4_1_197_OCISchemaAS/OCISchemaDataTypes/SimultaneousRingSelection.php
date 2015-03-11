@@ -16,12 +16,12 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SimultaneousRingSelection extends SimpleType
 {
-    public $name = __CLASS__;
+    public $name = "SimultaneousRingSelection";
     protected $value;
 
     public function __construct($value) {
         $this->value    = $value;
-        $this->dataType = "string";
+        $this->dataType = "";
         $this->addRestriction(new Enumeration([
             'Do not Ring if on a Call',
             'Ring for all Incoming Calls'

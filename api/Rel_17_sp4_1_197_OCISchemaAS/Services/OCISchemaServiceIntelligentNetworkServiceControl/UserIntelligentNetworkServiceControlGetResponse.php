@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntelligentNetworkServiceControl; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntelligentNetworkServiceControl; 
 
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceIntelligentNetworkServiceControl\UserIntelligentNetworkServiceControlGetResponse;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserIntelligentNetworkServiceControlGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = __CLASS__;
+    public    $name                    = 'UserIntelligentNetworkServiceControlGetResponse';
     protected $preAnswerActionsEnabled = null;
 
     /**
@@ -36,14 +35,18 @@ class UserIntelligentNetworkServiceControlGetResponse extends ComplexType implem
      */
     public function setPreAnswerActionsEnabled($preAnswerActionsEnabled = null)
     {
-        $this->preAnswerActionsEnabled = (boolean) $preAnswerActionsEnabled;
+        if (!$preAnswerActionsEnabled) return $this;
+        $this->preAnswerActionsEnabled = new PrimitiveType($preAnswerActionsEnabled);
+        $this->preAnswerActionsEnabled->setName('preAnswerActionsEnabled');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getPreAnswerActionsEnabled()
     {
-        return (!$this->preAnswerActionsEnabled) ?: $this->preAnswerActionsEnabled;
+        return $this->preAnswerActionsEnabled->getValue();
     }
 }

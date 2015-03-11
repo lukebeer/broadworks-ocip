@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyGetAccessCodeListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialPlanPolicyGetAccessCodeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = __CLASS__;
+    public    $name            = 'ServiceProviderDialPlanPolicyGetAccessCodeListResponse';
     protected $accessCodeTable = null;
 
     /**
@@ -38,14 +37,17 @@ class ServiceProviderDialPlanPolicyGetAccessCodeListResponse extends ComplexType
      */
     public function setAccessCodeTable(core:OCITable $accessCodeTable = null)
     {
-        $this->accessCodeTable =  $accessCodeTable;
+        if (!$accessCodeTable) return $this;
+        $this->accessCodeTable->setName('accessCodeTable');
+        return $this;
     }
 
     /**
      * 
+     * @return core:OCITable
      */
     public function getAccessCodeTable()
     {
-        return (!$this->accessCodeTable) ?: $this->accessCodeTable->getValue();
+        return $this->accessCodeTable->getValue();
     }
 }

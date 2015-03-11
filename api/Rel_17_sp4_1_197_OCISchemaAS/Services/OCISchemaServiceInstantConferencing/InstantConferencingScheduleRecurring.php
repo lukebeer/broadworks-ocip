@@ -5,11 +5,11 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceTimeFrame;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceSchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingScheduleRecurring;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingScheduleRecurring;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingScheduleRecurring extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\InstantConferencingScheduleRecurring';
-    public    $name                = __CLASS__;
+    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingScheduleRecurring';
+    public    $name                = 'InstantConferencingScheduleRecurring';
     protected $startTime           = null;
     protected $duration            = null;
     protected $recurrenceTimeFrame = null;
@@ -32,7 +32,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
          $startTime,
          $duration,
          $recurrenceTimeFrame,
-          $recurrenceSchedule
+         InstantConferencingRecurrenceSchedule $recurrenceSchedule
     ) {
         $this->setStartTime($startTime);
         $this->setDuration($duration);
@@ -53,15 +53,18 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function setStartTime(xs:time $startTime = null)
     {
-        $this->startTime =  $startTime;
+        if (!$startTime) return $this;
+        $this->startTime->setName('startTime');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:time
      */
     public function getStartTime()
     {
-        return (!$this->startTime) ?: $this->startTime->getValue();
+        return $this->startTime->getValue();
     }
 
     /**
@@ -69,56 +72,59 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function setDuration(xs:duration $duration = null)
     {
-        $this->duration =  $duration;
+        if (!$duration) return $this;
+        $this->duration->setName('duration');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:duration
+     */
+    public function getDuration()
+    {
+        return $this->duration->getValue();
     }
 
     /**
      * 
      */
-    public function getDuration()
-    {
-        return (!$this->duration) ?: $this->duration->getValue();
-    }
-
-    /**
-     * The period of recurring conference.
-     */
     public function setRecurrenceTimeFrame($recurrenceTimeFrame = null)
     {
+        if (!$recurrenceTimeFrame) return $this;
         $this->recurrenceTimeFrame = ($recurrenceTimeFrame InstanceOf InstantConferencingRecurrenceTimeFrame)
              ? $recurrenceTimeFrame
              : new InstantConferencingRecurrenceTimeFrame($recurrenceTimeFrame);
+        $this->recurrenceTimeFrame->setName('recurrenceTimeFrame');
+        return $this;
     }
 
     /**
-     * The period of recurring conference.
+     * 
+     * @return InstantConferencingRecurrenceTimeFrame
      */
     public function getRecurrenceTimeFrame()
     {
-        return (!$this->recurrenceTimeFrame) ?: $this->recurrenceTimeFrame->getValue();
+        return $this->recurrenceTimeFrame->getValue();
     }
 
     /**
-     * Recurrence schedule used in the context of a conference add.
-     *         This type is extended by:
-     *           InstantConferencingRecurrenceScheduleDaily,
-     *           InstantConferencingRecurrenceScheduleWeekly,
-     *           InstantConferencingRecurrenceScheduleMonthly.
+     * 
      */
     public function setRecurrenceSchedule(InstantConferencingRecurrenceSchedule $recurrenceSchedule = null)
     {
-        $this->recurrenceSchedule =  $recurrenceSchedule;
+        if (!$recurrenceSchedule) return $this;
+        $this->recurrenceSchedule = $recurrenceSchedule;
+        $this->recurrenceSchedule->setName('recurrenceSchedule');
+        return $this;
     }
 
     /**
-     * Recurrence schedule used in the context of a conference add.
-     *         This type is extended by:
-     *           InstantConferencingRecurrenceScheduleDaily,
-     *           InstantConferencingRecurrenceScheduleWeekly,
-     *           InstantConferencingRecurrenceScheduleMonthly.
+     * 
+     * @return InstantConferencingRecurrenceSchedule
      */
     public function getRecurrenceSchedule()
     {
-        return (!$this->recurrenceSchedule) ?: $this->recurrenceSchedule->getValue();
+        return $this->recurrenceSchedule;
     }
 }

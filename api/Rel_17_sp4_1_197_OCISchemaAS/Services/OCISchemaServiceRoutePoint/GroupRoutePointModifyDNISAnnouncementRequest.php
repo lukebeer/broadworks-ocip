@@ -5,11 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterMediaOnHoldSourceModify17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceRoutePoint\GroupRoutePointModifyDNISAnnouncementResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,20 +21,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = __CLASS__;
+    public    $name              = 'GroupRoutePointModifyDNISAnnouncementRequest';
     protected $dnisKey           = null;
     protected $mediaOnHoldSource = null;
 
     public function __construct(
-          $dnisKey,
-          $mediaOnHoldSource = null
+         DNISKey $dnisKey,
+         CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null
     ) {
         $this->setDnisKey($dnisKey);
         $this->setMediaOnHoldSource($mediaOnHoldSource);
     }
 
     /**
-     * @return GroupRoutePointModifyDNISAnnouncementResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,34 +42,42 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
     }
 
     /**
-     * Uniquely identifies a Call Center DNIS.
+     * 
      */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
-        $this->dnisKey =  $dnisKey;
+        if (!$dnisKey) return $this;
+        $this->dnisKey = $dnisKey;
+        $this->dnisKey->setName('dnisKey');
+        return $this;
     }
 
     /**
-     * Uniquely identifies a Call Center DNIS.
+     * 
+     * @return DNISKey
      */
     public function getDnisKey()
     {
-        return (!$this->dnisKey) ?: $this->dnisKey->getValue();
+        return $this->dnisKey;
     }
 
     /**
-     * Contains the call center media on hold source configuration.
+     * 
      */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null)
     {
-        $this->mediaOnHoldSource =  $mediaOnHoldSource;
+        if (!$mediaOnHoldSource) return $this;
+        $this->mediaOnHoldSource = $mediaOnHoldSource;
+        $this->mediaOnHoldSource->setName('mediaOnHoldSource');
+        return $this;
     }
 
     /**
-     * Contains the call center media on hold source configuration.
+     * 
+     * @return CallCenterMediaOnHoldSourceModify17
      */
     public function getMediaOnHoldSource()
     {
-        return (!$this->mediaOnHoldSource) ?: $this->mediaOnHoldSource->getValue();
+        return $this->mediaOnHoldSource;
     }
 }

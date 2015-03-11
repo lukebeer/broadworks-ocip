@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBridgeOwnerList;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableConferenceOwnerListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetAvailableConferenceOwnerListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name   = __CLASS__;
+    public    $name   = 'UserInstantConferencingGetAvailableConferenceOwnerListResponse';
     protected $bridge = null;
 
     /**
@@ -32,20 +31,22 @@ class UserInstantConferencingGetAvailableConferenceOwnerListResponse extends Com
     }
 
     /**
-     * The bridge Id and the administrators/delegator of the bridge.
-     *         The ownerTable has column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+     * 
      */
     public function setBridge(InstantConferencingBridgeOwnerList $bridge = null)
     {
-        $this->bridge =  $bridge;
+        if (!$bridge) return $this;
+        $this->bridge = $bridge;
+        $this->bridge->setName('bridge');
+        return $this;
     }
 
     /**
-     * The bridge Id and the administrators/delegator of the bridge.
-     *         The ownerTable has column headings: "User Id", "Last Name", "First Name", "Hiragana Last Name", "Hiragana First Name".
+     * 
+     * @return InstantConferencingBridgeOwnerList
      */
     public function getBridge()
     {
-        return (!$this->bridge) ?: $this->bridge->getValue();
+        return $this->bridge;
     }
 }

@@ -5,10 +5,9 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\UserPreferredCarrierName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServicePreferredCarrier\UserPreferredCarrierUserGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPreferredCarrierUserGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = __CLASS__;
+    public    $name                 = 'UserPreferredCarrierUserGetResponse';
     protected $intraLataCarrier     = null;
     protected $interLataCarrier     = null;
     protected $internationalCarrier = null;
@@ -34,56 +33,62 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         The user carrier name is exposed if it was previously configured.
+     * 
      */
     public function setIntraLataCarrier(UserPreferredCarrierName $intraLataCarrier = null)
     {
-        $this->intraLataCarrier =  $intraLataCarrier;
+        if (!$intraLataCarrier) return $this;
+        $this->intraLataCarrier = $intraLataCarrier;
+        $this->intraLataCarrier->setName('intraLataCarrier');
+        return $this;
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         The user carrier name is exposed if it was previously configured.
+     * 
+     * @return UserPreferredCarrierName
      */
     public function getIntraLataCarrier()
     {
-        return (!$this->intraLataCarrier) ?: $this->intraLataCarrier->getValue();
+        return $this->intraLataCarrier;
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         The user carrier name is exposed if it was previously configured.
+     * 
      */
     public function setInterLataCarrier(UserPreferredCarrierName $interLataCarrier = null)
     {
-        $this->interLataCarrier =  $interLataCarrier;
+        if (!$interLataCarrier) return $this;
+        $this->interLataCarrier = $interLataCarrier;
+        $this->interLataCarrier->setName('interLataCarrier');
+        return $this;
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         The user carrier name is exposed if it was previously configured.
+     * 
+     * @return UserPreferredCarrierName
      */
     public function getInterLataCarrier()
     {
-        return (!$this->interLataCarrier) ?: $this->interLataCarrier->getValue();
+        return $this->interLataCarrier;
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         The user carrier name is exposed if it was previously configured.
+     * 
      */
     public function setInternationalCarrier(UserPreferredCarrierName $internationalCarrier = null)
     {
-        $this->internationalCarrier =  $internationalCarrier;
+        if (!$internationalCarrier) return $this;
+        $this->internationalCarrier = $internationalCarrier;
+        $this->internationalCarrier->setName('internationalCarrier');
+        return $this;
     }
 
     /**
-     * User can either use it's group's preferred carrier or use it's own.
-     *         The user carrier name is exposed if it was previously configured.
+     * 
+     * @return UserPreferredCarrierName
      */
     public function getInternationalCarrier()
     {
-        return (!$this->internationalCarrier) ?: $this->internationalCarrier->getValue();
+        return $this->internationalCarrier;
     }
 }

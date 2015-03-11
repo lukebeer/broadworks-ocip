@@ -5,7 +5,7 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingHost; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingHost; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingHost\HotelingHostAccessLevel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HotelingAssociationLimitHours;
@@ -14,7 +14,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extensio
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceHotelingHost\UserHotelingHostGetResponse17;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                     = __CLASS__;
+    public    $name                     = 'UserHotelingHostGetResponse17';
     protected $isActive                 = null;
     protected $enforceAssociationLimit  = null;
     protected $associationLimitHours    = null;
@@ -51,15 +51,19 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function setIsActive($isActive = null)
     {
-        $this->isActive = (boolean) $isActive;
+        if (!$isActive) return $this;
+        $this->isActive = new PrimitiveType($isActive);
+        $this->isActive->setName('isActive');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getIsActive()
     {
-        return (!$this->isActive) ?: $this->isActive;
+        return $this->isActive->getValue();
     }
 
     /**
@@ -67,141 +71,173 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function setEnforceAssociationLimit($enforceAssociationLimit = null)
     {
-        $this->enforceAssociationLimit = (boolean) $enforceAssociationLimit;
+        if (!$enforceAssociationLimit) return $this;
+        $this->enforceAssociationLimit = new PrimitiveType($enforceAssociationLimit);
+        $this->enforceAssociationLimit->setName('enforceAssociationLimit');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:boolean
+     */
+    public function getEnforceAssociationLimit()
+    {
+        return $this->enforceAssociationLimit->getValue();
     }
 
     /**
      * 
      */
-    public function getEnforceAssociationLimit()
-    {
-        return (!$this->enforceAssociationLimit) ?: $this->enforceAssociationLimit;
-    }
-
-    /**
-     * Maximum time limit for hoteling guests association to hoteling hosts
-     */
     public function setAssociationLimitHours($associationLimitHours = null)
     {
+        if (!$associationLimitHours) return $this;
         $this->associationLimitHours = ($associationLimitHours InstanceOf HotelingAssociationLimitHours)
              ? $associationLimitHours
              : new HotelingAssociationLimitHours($associationLimitHours);
+        $this->associationLimitHours->setName('associationLimitHours');
+        return $this;
     }
 
     /**
-     * Maximum time limit for hoteling guests association to hoteling hosts
+     * 
+     * @return HotelingAssociationLimitHours
      */
     public function getAssociationLimitHours()
     {
-        return (!$this->associationLimitHours) ?: $this->associationLimitHours->getValue();
+        return $this->associationLimitHours->getValue();
     }
 
     /**
-     * Access level of the Hoteling Host Service
+     * 
      */
     public function setAccessLevel($accessLevel = null)
     {
+        if (!$accessLevel) return $this;
         $this->accessLevel = ($accessLevel InstanceOf HotelingHostAccessLevel)
              ? $accessLevel
              : new HotelingHostAccessLevel($accessLevel);
+        $this->accessLevel->setName('accessLevel');
+        return $this;
     }
 
     /**
-     * Access level of the Hoteling Host Service
+     * 
+     * @return HotelingHostAccessLevel
      */
     public function getAccessLevel()
     {
-        return (!$this->accessLevel) ?: $this->accessLevel->getValue();
+        return $this->accessLevel->getValue();
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
      */
     public function setGuestLastName($guestLastName = null)
     {
+        if (!$guestLastName) return $this;
         $this->guestLastName = ($guestLastName InstanceOf LastName)
              ? $guestLastName
              : new LastName($guestLastName);
+        $this->guestLastName->setName('guestLastName');
+        return $this;
     }
 
     /**
-     * Last Name is the last name of a user or an administrator.
+     * 
+     * @return LastName
      */
     public function getGuestLastName()
     {
-        return (!$this->guestLastName) ?: $this->guestLastName->getValue();
+        return $this->guestLastName->getValue();
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
      */
     public function setGuestFirstName($guestFirstName = null)
     {
+        if (!$guestFirstName) return $this;
         $this->guestFirstName = ($guestFirstName InstanceOf FirstName)
              ? $guestFirstName
              : new FirstName($guestFirstName);
+        $this->guestFirstName->setName('guestFirstName');
+        return $this;
     }
 
     /**
-     * First Name is the first name of a user or an administrator.
+     * 
+     * @return FirstName
      */
     public function getGuestFirstName()
     {
-        return (!$this->guestFirstName) ?: $this->guestFirstName->getValue();
+        return $this->guestFirstName->getValue();
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
      */
     public function setGuestPhoneNumber($guestPhoneNumber = null)
     {
+        if (!$guestPhoneNumber) return $this;
         $this->guestPhoneNumber = ($guestPhoneNumber InstanceOf DN)
              ? $guestPhoneNumber
              : new DN($guestPhoneNumber);
+        $this->guestPhoneNumber->setName('guestPhoneNumber');
+        return $this;
     }
 
     /**
-     * Directory Number in E164 Format.
+     * 
+     * @return DN
      */
     public function getGuestPhoneNumber()
     {
-        return (!$this->guestPhoneNumber) ?: $this->guestPhoneNumber->getValue();
+        return $this->guestPhoneNumber->getValue();
     }
 
     /**
-     * Extension.
+     * 
      */
     public function setGuestExtension($guestExtension = null)
     {
+        if (!$guestExtension) return $this;
         $this->guestExtension = ($guestExtension InstanceOf Extension17)
              ? $guestExtension
              : new Extension17($guestExtension);
+        $this->guestExtension->setName('guestExtension');
+        return $this;
     }
 
     /**
-     * Extension.
+     * 
+     * @return Extension17
      */
     public function getGuestExtension()
     {
-        return (!$this->guestExtension) ?: $this->guestExtension->getValue();
+        return $this->guestExtension->getValue();
     }
 
     /**
-     * Group location dialing code for groups that are part of a enterprise.
+     * 
      */
     public function setGuestLocationDialingCode($guestLocationDialingCode = null)
     {
+        if (!$guestLocationDialingCode) return $this;
         $this->guestLocationDialingCode = ($guestLocationDialingCode InstanceOf LocationDialingCode)
              ? $guestLocationDialingCode
              : new LocationDialingCode($guestLocationDialingCode);
+        $this->guestLocationDialingCode->setName('guestLocationDialingCode');
+        return $this;
     }
 
     /**
-     * Group location dialing code for groups that are part of a enterprise.
+     * 
+     * @return LocationDialingCode
      */
     public function getGuestLocationDialingCode()
     {
-        return (!$this->guestLocationDialingCode) ?: $this->guestLocationDialingCode->getValue();
+        return $this->guestLocationDialingCode->getValue();
     }
 
     /**
@@ -209,14 +245,17 @@ class UserHotelingHostGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function setGuestAssociationDateTime(xs:dateTime $guestAssociationDateTime = null)
     {
-        $this->guestAssociationDateTime =  $guestAssociationDateTime;
+        if (!$guestAssociationDateTime) return $this;
+        $this->guestAssociationDateTime->setName('guestAssociationDateTime');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:dateTime
      */
     public function getGuestAssociationDateTime()
     {
-        return (!$this->guestAssociationDateTime) ?: $this->guestAssociationDateTime->getValue();
+        return $this->guestAssociationDateTime->getValue();
     }
 }

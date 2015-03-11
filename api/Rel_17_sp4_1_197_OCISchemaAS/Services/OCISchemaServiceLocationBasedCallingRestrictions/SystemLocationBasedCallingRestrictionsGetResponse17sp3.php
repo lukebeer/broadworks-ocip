@@ -5,10 +5,10 @@
  * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
-namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLocationBasedCallingRestrictions; 
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLocationBasedCallingRestrictions; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLocationBasedCallingRestrictions\PhysicalLocationIndicator;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceLocationBasedCallingRestrictions\SystemLocationBasedCallingRestrictionsGetResponse17sp3;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLocationBasedCallingRestrictionsGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'SystemLocationBasedCallingRestrictionsGetResponse17sp3';
     protected $physicalLocationIndicator    = null;
     protected $enforceMscValidation         = null;
     protected $enableOfficeZoneAnnouncement = null;
@@ -35,27 +35,25 @@ class SystemLocationBasedCallingRestrictionsGetResponse17sp3 extends ComplexType
     }
 
     /**
-     * Choices for how to extract the physical location from the P-Camel-CellDorLAI or P-Access-Network-Info header.
-     *         CI indicates that the physical location comes from the Cell Identification (CI) field (5 digits) of the P-Camel-CellDorLAI header (5 digits).
-     *         LAC-CI indicates that the physical location comes from the Location Area Code + Cell Identification (LAC+CI) fields of the P CAMEL CellIDorLAI header (10 digits).
-     *         PANI indicates that the physical location comes from the P Network Address Info (PANI) header.  See RFC 3455.
+     * 
      */
     public function setPhysicalLocationIndicator($physicalLocationIndicator = null)
     {
+        if (!$physicalLocationIndicator) return $this;
         $this->physicalLocationIndicator = ($physicalLocationIndicator InstanceOf PhysicalLocationIndicator)
              ? $physicalLocationIndicator
              : new PhysicalLocationIndicator($physicalLocationIndicator);
+        $this->physicalLocationIndicator->setName('physicalLocationIndicator');
+        return $this;
     }
 
     /**
-     * Choices for how to extract the physical location from the P-Camel-CellDorLAI or P-Access-Network-Info header.
-     *         CI indicates that the physical location comes from the Cell Identification (CI) field (5 digits) of the P-Camel-CellDorLAI header (5 digits).
-     *         LAC-CI indicates that the physical location comes from the Location Area Code + Cell Identification (LAC+CI) fields of the P CAMEL CellIDorLAI header (10 digits).
-     *         PANI indicates that the physical location comes from the P Network Address Info (PANI) header.  See RFC 3455.
+     * 
+     * @return PhysicalLocationIndicator
      */
     public function getPhysicalLocationIndicator()
     {
-        return (!$this->physicalLocationIndicator) ?: $this->physicalLocationIndicator->getValue();
+        return $this->physicalLocationIndicator->getValue();
     }
 
     /**
@@ -63,15 +61,19 @@ class SystemLocationBasedCallingRestrictionsGetResponse17sp3 extends ComplexType
      */
     public function setEnforceMscValidation($enforceMscValidation = null)
     {
-        $this->enforceMscValidation = (boolean) $enforceMscValidation;
+        if (!$enforceMscValidation) return $this;
+        $this->enforceMscValidation = new PrimitiveType($enforceMscValidation);
+        $this->enforceMscValidation->setName('enforceMscValidation');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnforceMscValidation()
     {
-        return (!$this->enforceMscValidation) ?: $this->enforceMscValidation;
+        return $this->enforceMscValidation->getValue();
     }
 
     /**
@@ -79,15 +81,19 @@ class SystemLocationBasedCallingRestrictionsGetResponse17sp3 extends ComplexType
      */
     public function setEnableOfficeZoneAnnouncement($enableOfficeZoneAnnouncement = null)
     {
-        $this->enableOfficeZoneAnnouncement = (boolean) $enableOfficeZoneAnnouncement;
+        if (!$enableOfficeZoneAnnouncement) return $this;
+        $this->enableOfficeZoneAnnouncement = new PrimitiveType($enableOfficeZoneAnnouncement);
+        $this->enableOfficeZoneAnnouncement->setName('enableOfficeZoneAnnouncement');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnableOfficeZoneAnnouncement()
     {
-        return (!$this->enableOfficeZoneAnnouncement) ?: $this->enableOfficeZoneAnnouncement;
+        return $this->enableOfficeZoneAnnouncement->getValue();
     }
 
     /**
@@ -95,14 +101,18 @@ class SystemLocationBasedCallingRestrictionsGetResponse17sp3 extends ComplexType
      */
     public function setEnhanceOfficeZone($enhanceOfficeZone = null)
     {
-        $this->enhanceOfficeZone = (boolean) $enhanceOfficeZone;
+        if (!$enhanceOfficeZone) return $this;
+        $this->enhanceOfficeZone = new PrimitiveType($enhanceOfficeZone);
+        $this->enhanceOfficeZone->setName('enhanceOfficeZone');
+        return $this;
     }
 
     /**
      * 
+     * @return xs:boolean
      */
     public function getEnhanceOfficeZone()
     {
-        return (!$this->enhanceOfficeZone) ?: $this->enhanceOfficeZone;
+        return $this->enhanceOfficeZone->getValue();
     }
 }

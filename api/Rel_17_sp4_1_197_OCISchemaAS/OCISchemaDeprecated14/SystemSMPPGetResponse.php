@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMPPPasswor
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMPPSystemId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SMPPVersion;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Port;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSMPPGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                          = __CLASS__;
+    public    $name                          = 'SystemSMPPGetResponse';
     protected $primarySMPPServerNetAddress   = null;
     protected $primarySMPPPort               = null;
     protected $secondarySMPPServerNetAddress = null;
@@ -42,128 +41,156 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setPrimarySMPPServerNetAddress($primarySMPPServerNetAddress = null)
     {
+        if (!$primarySMPPServerNetAddress) return $this;
         $this->primarySMPPServerNetAddress = ($primarySMPPServerNetAddress InstanceOf NetAddress)
              ? $primarySMPPServerNetAddress
              : new NetAddress($primarySMPPServerNetAddress);
+        $this->primarySMPPServerNetAddress->setName('primarySMPPServerNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getPrimarySMPPServerNetAddress()
     {
-        return (!$this->primarySMPPServerNetAddress) ?: $this->primarySMPPServerNetAddress->getValue();
+        return $this->primarySMPPServerNetAddress->getValue();
     }
 
     /**
-     * TCP/IP Port.
+     * 
      */
     public function setPrimarySMPPPort($primarySMPPPort = null)
     {
+        if (!$primarySMPPPort) return $this;
         $this->primarySMPPPort = ($primarySMPPPort InstanceOf Port)
              ? $primarySMPPPort
              : new Port($primarySMPPPort);
+        $this->primarySMPPPort->setName('primarySMPPPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port.
+     * 
+     * @return Port
      */
     public function getPrimarySMPPPort()
     {
-        return (!$this->primarySMPPPort) ?: $this->primarySMPPPort->getValue();
+        return $this->primarySMPPPort->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setSecondarySMPPServerNetAddress($secondarySMPPServerNetAddress = null)
     {
+        if (!$secondarySMPPServerNetAddress) return $this;
         $this->secondarySMPPServerNetAddress = ($secondarySMPPServerNetAddress InstanceOf NetAddress)
              ? $secondarySMPPServerNetAddress
              : new NetAddress($secondarySMPPServerNetAddress);
+        $this->secondarySMPPServerNetAddress->setName('secondarySMPPServerNetAddress');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getSecondarySMPPServerNetAddress()
     {
-        return (!$this->secondarySMPPServerNetAddress) ?: $this->secondarySMPPServerNetAddress->getValue();
+        return $this->secondarySMPPServerNetAddress->getValue();
     }
 
     /**
-     * TCP/IP Port.
+     * 
      */
     public function setSecondarySMPPPort($secondarySMPPPort = null)
     {
+        if (!$secondarySMPPPort) return $this;
         $this->secondarySMPPPort = ($secondarySMPPPort InstanceOf Port)
              ? $secondarySMPPPort
              : new Port($secondarySMPPPort);
+        $this->secondarySMPPPort->setName('secondarySMPPPort');
+        return $this;
     }
 
     /**
-     * TCP/IP Port.
+     * 
+     * @return Port
      */
     public function getSecondarySMPPPort()
     {
-        return (!$this->secondarySMPPPort) ?: $this->secondarySMPPPort->getValue();
+        return $this->secondarySMPPPort->getValue();
     }
 
     /**
-     * SMPP System Id.
+     * 
      */
     public function setSystemId($systemId = null)
     {
+        if (!$systemId) return $this;
         $this->systemId = ($systemId InstanceOf SMPPSystemId)
              ? $systemId
              : new SMPPSystemId($systemId);
+        $this->systemId->setName('systemId');
+        return $this;
     }
 
     /**
-     * SMPP System Id.
+     * 
+     * @return SMPPSystemId
      */
     public function getSystemId()
     {
-        return (!$this->systemId) ?: $this->systemId->getValue();
+        return $this->systemId->getValue();
     }
 
     /**
-     * SMPP Password.
+     * 
      */
     public function setPassword($password = null)
     {
+        if (!$password) return $this;
         $this->password = ($password InstanceOf SMPPPassword)
              ? $password
              : new SMPPPassword($password);
+        $this->password->setName('password');
+        return $this;
     }
 
     /**
-     * SMPP Password.
+     * 
+     * @return SMPPPassword
      */
     public function getPassword()
     {
-        return (!$this->password) ?: $this->password->getValue();
+        return $this->password->getValue();
     }
 
     /**
-     * The SMPP Protocol Version.
+     * 
      */
     public function setVersion($version = null)
     {
+        if (!$version) return $this;
         $this->version = ($version InstanceOf SMPPVersion)
              ? $version
              : new SMPPVersion($version);
+        $this->version->setName('version');
+        return $this;
     }
 
     /**
-     * The SMPP Protocol Version.
+     * 
+     * @return SMPPVersion
      */
     public function getVersion()
     {
-        return (!$this->version) ?: $this->version->getValue();
+        return $this->version->getValue();
     }
 }

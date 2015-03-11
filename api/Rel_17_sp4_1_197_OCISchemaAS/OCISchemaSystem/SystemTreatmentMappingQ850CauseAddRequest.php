@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\Q850CauseValue;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingQ850CauseAddResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingQ850CauseAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = __CLASS__;
+    public    $name           = 'SystemTreatmentMappingQ850CauseAddRequest';
     protected $q850CauseValue = null;
     protected $treatmentId    = null;
 
@@ -35,7 +34,7 @@ class SystemTreatmentMappingQ850CauseAddRequest extends ComplexType implements C
     }
 
     /**
-     * @return SystemTreatmentMappingQ850CauseAddResponse
+     * @return 
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,38 +42,46 @@ class SystemTreatmentMappingQ850CauseAddRequest extends ComplexType implements C
     }
 
     /**
-     * The possible range values for Q850 Cause Value.
+     * 
      */
     public function setQ850CauseValue($q850CauseValue = null)
     {
+        if (!$q850CauseValue) return $this;
         $this->q850CauseValue = ($q850CauseValue InstanceOf Q850CauseValue)
              ? $q850CauseValue
              : new Q850CauseValue($q850CauseValue);
+        $this->q850CauseValue->setName('q850CauseValue');
+        return $this;
     }
 
     /**
-     * The possible range values for Q850 Cause Value.
+     * 
+     * @return Q850CauseValue
      */
     public function getQ850CauseValue()
     {
-        return (!$this->q850CauseValue) ?: $this->q850CauseValue->getValue();
+        return $this->q850CauseValue->getValue();
     }
 
     /**
-     * Configurable Treatment Name
+     * 
      */
     public function setTreatmentId($treatmentId = null)
     {
+        if (!$treatmentId) return $this;
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
+        $this->treatmentId->setName('treatmentId');
+        return $this;
     }
 
     /**
-     * Configurable Treatment Name
+     * 
+     * @return TreatmentId
      */
     public function getTreatmentId()
     {
-        return (!$this->treatmentId) ?: $this->treatmentId->getValue();
+        return $this->treatmentId->getValue();
     }
 }

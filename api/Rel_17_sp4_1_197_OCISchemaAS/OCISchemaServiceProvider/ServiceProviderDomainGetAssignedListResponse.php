@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDomainGetAssignedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDomainGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = __CLASS__;
+    public    $name                         = 'ServiceProviderDomainGetAssignedListResponse';
     protected $serviceProviderDefaultDomain = null;
     protected $domain                       = null;
 
@@ -33,38 +32,46 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setServiceProviderDefaultDomain($serviceProviderDefaultDomain = null)
     {
+        if (!$serviceProviderDefaultDomain) return $this;
         $this->serviceProviderDefaultDomain = ($serviceProviderDefaultDomain InstanceOf NetAddress)
              ? $serviceProviderDefaultDomain
              : new NetAddress($serviceProviderDefaultDomain);
+        $this->serviceProviderDefaultDomain->setName('serviceProviderDefaultDomain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getServiceProviderDefaultDomain()
     {
-        return (!$this->serviceProviderDefaultDomain) ?: $this->serviceProviderDefaultDomain->getValue();
+        return $this->serviceProviderDefaultDomain->getValue();
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
      */
     public function setDomain($domain = null)
     {
+        if (!$domain) return $this;
         $this->domain = ($domain InstanceOf NetAddress)
              ? $domain
              : new NetAddress($domain);
+        $this->domain->setName('domain');
+        return $this;
     }
 
     /**
-     * IP Address, hostname, or domain.
+     * 
+     * @return NetAddress
      */
     public function getDomain()
     {
-        return (!$this->domain) ?: $this->domain->getValue();
+        return $this->domain->getValue();
     }
 }
