@@ -8,19 +8,37 @@
 namespace Broadworks_OCIP\core\Serializer;
 use Broadworks_OCIP\core\Builder\Types\TableType;
 
-
+/**
+ * Converts XML into the requested object type automatically, very clever shit.
+ * This took HOURS to get right.
+ *
+ * Class XMLSerializer
+ * @package Broadworks_OCIP\core\Serializer
+ */
 class XMLSerializer implements SerializerInterface {
     public $object;
     public $methods;
     public $setter;
 
-
+    /**
+     * Takes a responseObject type as string and a bunch of XML then returns the requested object type.
+     * @param $destinationObject
+     * @param $xmlString
+     * @return object
+     */
     public function serialize($destinationObject, $xmlString)
     {
         $simpleXMLElement = simplexml_load_string($xmlString);
         return $this->buildComplex($destinationObject, $simpleXMLElement);
     }
 
+    /**
+     * Builds the object recursively generating and setting ComplexTypes/SimpleTypes/TableTypes along the way.
+     *
+     * @param $destinationObject
+     * @param $simpleXMLElement
+     * @return object
+     */
     public function buildComplex($destinationObject, $simpleXMLElement)
     {
         $reflectionClass = new \ReflectionClass($destinationObject);
