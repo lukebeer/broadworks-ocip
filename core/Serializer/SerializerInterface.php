@@ -7,7 +7,10 @@
 
 namespace Broadworks_OCIP\core\Serializer;
 
-
+/**
+ * Interface SerializerInterface
+ * @package Broadworks_OCIP\core\Serializer
+ */
 interface SerializerInterface {
     public function serialize($destinationObject, $data);
 }
