@@ -7,7 +7,10 @@
 
 namespace Broadworks_OCIP\core\Output;
 
-
+/**
+ * Interface OutputInterface
+ * @package Broadworks_OCIP\core\Output
+ */
 interface OutputInterface
 {
     public static function render($data = '');
