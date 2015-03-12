@@ -1,18 +1,57 @@
-Broadworks_OCI-P
-================
+Broadworks OCIP PHP Framework
+===================
 
-PHP Framework for interacting with the Broadworks OCI Provisioning API
+After years of mentally debating and designing the architecture of this framework, it's finally been pushed.
 
--- Version 2!
-- Requests are ComplexTypes with elements being an instance of a ComplexType or SimpleType
-- SimpleType's such as userId can be either a string, boolean or int
-- SimpleType's contain restrictions such as min/max string length or a choice from set list of possible values
-- SimpleType's restrictions are validation rules dictated by the OCI-P schema
-- ComplexType's have get/set methods for all elements
-- Class autoloading is used
-- IDE friendly, autocompletion means no more looking at schema documentation
-- TCP Transport added, simple performance test results gave 150 requests/sec vs SOAP at 18 requests/sec
-- Latest improvements aid rapid development of any OCI-P application
+The driver for this version is a Broadworks provisioning backup system that will have the ability to 'snapshot', backup and restore user/group/enterprise provisioning config much the way Apples 'TimeMachine' backup system does.
+
+Versioning and history will support fault diagnosis - being able to switch back to a 'last known working config' at the click of a button will save huge amounts of time, pain and mitigate as much human error as possible.
+
+Building the backup system requires something intelligent enough to handle all data types dynamically in the such a way that it's possible to have an object of any type mapped into another object of any type (think automatically mapping a userGetRequest into a userAddRequest or userModifyRequest on the fly).
+
+The Broadworks API is vast and the aim of this framework version is to aid rapid development of Broadworks applications in as little lines of code as possible with minimal complexity. 
+
+- Every message is now an object
+- get/set methods to interact with object properties
+- Built with IDE autocompletion support in mind
+- Finally no need to keep referring to the schema documentation.
+
+----------
+
+
+Features
+-------------
+
+#### <i class="icon-file"></i> SOAP or TCP Stream transport
+It's now possible to choose between SOAP over HTTPS or a TCP stream (default) for interaction with the Broadworks API. Basic benchmarks suggest 15/requests/second with SOAP and 150/requests/second for TCP Stream. UserGetRequest17sp4 was used for the benchmark.
+
+
+#### <i class="icon-folder-open"></i> Session management
+Sessions can be exported out of and into the Client, this was added to allow Broadworks OCI-P scripts triggered by methods such as cronjobs to execute using external session data. Porting Sessions are a secure way to execute commands as the user that requested it as the password is not stored, cookies/sessionId are used for authentication.
+
+#### <i class="icon-pencil"></i> IDE Autocompletion
+
+All elements of the framework have been built with IDE autocompletion in mind so there isn't a need to remember the details of a data type.
+
+#### <i class="icon-refresh"></i>Interactive console
+An interacting CLI is built in that requires zero programming knowledge. The user navigates through the schema in the same way you would directories and files on a linux file system. Commands can be executed in the CLI with results printed to screen. Tab autocompletion works.
+
+
+
+
+#### <i class="icon-hdd"></i> Data export
+
+Objects support serialisation to allow saving of messages in plain-text format that can be unserialised back into data types the framework can understand then replayed back into Broadworks for example
+
+----------
+
+Overview
+-------------------
+The Broadworks OCI-P schema implemented in the framework is composed of various data types following the XSD structure. Requests are instance of ComplexType's and each ComplexType is made up of zero or more Complex, Basic, Primitive, Simple or Table Types.  SimpleTypes implement restrictions such as max value string length or max int size.	
+
+
+Basic Usage
+-------------------
 
 ``` php
 <?php
@@ -59,7 +98,7 @@ echo $response->getServicePacksAssignmentTable()->getValue();
 
 
 UserGetRequest17sp4
-====
+-------------------
 *responseType is automatically set for dynamic responses*
 *element userId is a SimpleType object comprised of min/max restrictions for validation*
 
