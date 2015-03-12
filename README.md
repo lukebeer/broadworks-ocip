@@ -56,16 +56,22 @@ use Broadworks_OCIP\core\Client\Transport\TCPTransport;
 use Broadworks_OCIP\core\Client\Client;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserServiceGetAssignmentListRequest;
 
-// Create a new Transport object and Client the login.
+// Create a new Transport object
 $transport = new TCPTransport('box.ipt.example.co.uk');
-$client    = new Client($transport);
+
+// Initialize a Client by injecting the Transport object into a new insance of it
+$client = new Client($transport);
+
+// Login to Broadworks
 $client->login('user', 'pass');
 
-// Generate a request, get the request and assign it to $response
+// Generate a request object
 $request  = new UserServiceGetAssignmentListRequest('example@example.com');
+
+// Send request and assign response to $response
 $response = $request->get($client);
 
-// Tables return a TableType object, getValue() renders a table.
+// This response returns a TableType object, getValue() renders a table.
 echo $response->getServicePacksAssignmentTable()->getValue();
 
 /* Spits out:
