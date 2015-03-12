@@ -9,11 +9,6 @@ Building the backup system requires something intelligent enough to handle all d
 
 The Broadworks API is vast and the aim of this framework version is to aid rapid development of Broadworks applications in as little lines of code as possible with minimal complexity. 
 
-- Every message is now an object
-- get/set methods to interact with object properties
-- Built with IDE autocompletion support in mind
-- Finally no need to keep referring to the schema documentation.
-
 ----------
 
 
