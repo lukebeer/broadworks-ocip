@@ -1,7 +1,7 @@
 Broadworks OCIP PHP Framework
 ===================
 
-After years of mentally debating and designing the architecture of this framework, it's finally been pushed.
+After years of mentally debating and designing the architecture of this framework, version 2 has finally been pushed!
 
 The driver for this version is a Broadworks provisioning backup system that will have the ability to 'snapshot', backup and restore user/group/enterprise provisioning config much the way Apples 'TimeMachine' backup system does.
 
