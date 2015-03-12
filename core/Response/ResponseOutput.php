@@ -7,6 +7,10 @@
 
 namespace Broadworks_OCIP\core\Response;
 
+/**
+ * Class ResponseOutput
+ * @package Broadworks_OCIP\core\Response
+ */
 abstract class ResponseOutput
 {
     const STD = 0;
