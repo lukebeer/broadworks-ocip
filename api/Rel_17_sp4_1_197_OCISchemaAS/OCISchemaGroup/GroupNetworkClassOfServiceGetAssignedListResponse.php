@@ -49,6 +49,6 @@ class GroupNetworkClassOfServiceGetAssignedListResponse extends ComplexType impl
      */
     public function getNetworkClassOfServiceTable()
     {
-        return $this->networkClassOfServiceTable->getValue();
+        return $this->networkClassOfServiceTable;
     }
 }

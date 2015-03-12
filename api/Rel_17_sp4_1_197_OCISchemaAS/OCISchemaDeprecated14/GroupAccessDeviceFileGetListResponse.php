@@ -50,6 +50,6 @@ class GroupAccessDeviceFileGetListResponse extends ComplexType implements Comple
      */
     public function getDeviceFilesTable()
     {
-        return $this->deviceFilesTable->getValue();
+        return $this->deviceFilesTable;
     }
 }

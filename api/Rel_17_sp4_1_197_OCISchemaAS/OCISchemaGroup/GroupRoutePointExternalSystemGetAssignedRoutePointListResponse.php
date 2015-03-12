@@ -50,6 +50,6 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListResponse extends Com
      */
     public function getRoutePointTable()
     {
-        return $this->routePointTable->getValue();
+        return $this->routePointTable;
     }
 }

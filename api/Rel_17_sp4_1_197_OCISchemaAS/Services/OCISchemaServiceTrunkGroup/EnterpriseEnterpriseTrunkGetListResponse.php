@@ -49,6 +49,6 @@ class EnterpriseEnterpriseTrunkGetListResponse extends ComplexType implements Co
      */
     public function getEnterpriseTrunkTable()
     {
-        return $this->enterpriseTrunkTable->getValue();
+        return $this->enterpriseTrunkTable;
     }
 }

@@ -75,6 +75,6 @@ class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterfa
      */
     public function getMonitoredUserTable()
     {
-        return $this->monitoredUserTable->getValue();
+        return $this->monitoredUserTable;
     }
 }

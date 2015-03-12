@@ -49,6 +49,6 @@ class SystemApplicationServerSetGetUsageResponse extends ComplexType implements 
      */
     public function getApplicationServerSetSubscriberTable()
     {
-        return $this->applicationServerSetSubscriberTable->getValue();
+        return $this->applicationServerSetSubscriberTable;
     }
 }

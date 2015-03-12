@@ -48,6 +48,6 @@ class SystemClassmarkGetListResponse extends ComplexType implements ComplexInter
      */
     public function getClassmarkTable()
     {
-        return $this->classmarkTable->getValue();
+        return $this->classmarkTable;
     }
 }

@@ -48,6 +48,6 @@ class SystemFileRepositoryDeviceGetListResponse extends ComplexType implements C
      */
     public function getFileRepositoryTable()
     {
-        return $this->fileRepositoryTable->getValue();
+        return $this->fileRepositoryTable;
     }
 }

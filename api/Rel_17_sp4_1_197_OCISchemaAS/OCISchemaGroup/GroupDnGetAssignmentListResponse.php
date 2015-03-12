@@ -52,6 +52,6 @@ class GroupDnGetAssignmentListResponse extends ComplexType implements ComplexInt
      */
     public function getDnTable()
     {
-        return $this->dnTable->getValue();
+        return $this->dnTable;
     }
 }

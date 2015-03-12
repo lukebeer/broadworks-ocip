@@ -48,6 +48,6 @@ class UserPolycomPhoneServicesGetPrimaryEndpointListResponse extends ComplexType
      */
     public function getDeviceUserTable()
     {
-        return $this->deviceUserTable->getValue();
+        return $this->deviceUserTable;
     }
 }

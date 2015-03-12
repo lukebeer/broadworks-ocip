@@ -53,6 +53,6 @@ class GroupCallCenterEnhancedReportingScheduledReportGetListResponse extends Com
      */
     public function getScheduledReportTable()
     {
-        return $this->scheduledReportTable->getValue();
+        return $this->scheduledReportTable;
     }
 }

@@ -50,6 +50,6 @@ class SystemCommunicationBarringProfileGetCriteriaUsageListResponse extends Comp
      */
     public function getProfileTable()
     {
-        return $this->profileTable->getValue();
+        return $this->profileTable;
     }
 }

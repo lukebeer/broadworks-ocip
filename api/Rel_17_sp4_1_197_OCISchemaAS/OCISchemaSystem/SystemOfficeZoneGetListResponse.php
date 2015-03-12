@@ -49,6 +49,6 @@ class SystemOfficeZoneGetListResponse extends ComplexType implements ComplexInte
      */
     public function getOfficeZoneTable()
     {
-        return $this->officeZoneTable->getValue();
+        return $this->officeZoneTable;
     }
 }

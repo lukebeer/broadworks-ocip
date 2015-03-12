@@ -50,6 +50,6 @@ class UserGetListInServiceProviderResponse extends ComplexType implements Comple
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

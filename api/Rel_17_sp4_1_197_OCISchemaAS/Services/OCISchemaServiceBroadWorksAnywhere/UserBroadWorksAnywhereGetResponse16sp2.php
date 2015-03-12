@@ -91,6 +91,6 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
      */
     public function getPhoneNumberTable()
     {
-        return $this->phoneNumberTable->getValue();
+        return $this->phoneNumberTable;
     }
 }

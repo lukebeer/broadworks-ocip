@@ -242,6 +242,6 @@ class UserInstantConferencingGetConferenceDocumentListResponse extends ComplexTy
      */
     public function getDocumentTable()
     {
-        return $this->documentTable->getValue();
+        return $this->documentTable;
     }
 }

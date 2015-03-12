@@ -51,6 +51,6 @@ class GroupCustomContactDirectoryGetAvailableUserListResponse extends ComplexTyp
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

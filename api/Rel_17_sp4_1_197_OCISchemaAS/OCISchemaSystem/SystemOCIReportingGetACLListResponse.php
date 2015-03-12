@@ -49,6 +49,6 @@ class SystemOCIReportingGetACLListResponse extends ComplexType implements Comple
      */
     public function getOciReportingACLTable()
     {
-        return $this->ociReportingACLTable->getValue();
+        return $this->ociReportingACLTable;
     }
 }

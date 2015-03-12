@@ -137,6 +137,6 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getMonitoredUserTable()
     {
-        return $this->monitoredUserTable->getValue();
+        return $this->monitoredUserTable;
     }
 }

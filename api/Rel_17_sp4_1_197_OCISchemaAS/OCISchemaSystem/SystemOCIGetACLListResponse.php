@@ -49,6 +49,6 @@ class SystemOCIGetACLListResponse extends ComplexType implements ComplexInterfac
      */
     public function getAclTable()
     {
-        return $this->aclTable->getValue();
+        return $this->aclTable;
     }
 }

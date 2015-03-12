@@ -50,6 +50,6 @@ class GroupDeviceTypeFileGetListResponse extends ComplexType implements ComplexI
      */
     public function getGroupDeviceTypeFilesTable()
     {
-        return $this->groupDeviceTypeFilesTable->getValue();
+        return $this->groupDeviceTypeFilesTable;
     }
 }

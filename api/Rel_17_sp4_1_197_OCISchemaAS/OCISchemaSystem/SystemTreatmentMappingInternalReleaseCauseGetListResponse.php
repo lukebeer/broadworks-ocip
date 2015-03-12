@@ -48,6 +48,6 @@ class SystemTreatmentMappingInternalReleaseCauseGetListResponse extends ComplexT
      */
     public function getTreatmentMappingTable()
     {
-        return $this->treatmentMappingTable->getValue();
+        return $this->treatmentMappingTable;
     }
 }

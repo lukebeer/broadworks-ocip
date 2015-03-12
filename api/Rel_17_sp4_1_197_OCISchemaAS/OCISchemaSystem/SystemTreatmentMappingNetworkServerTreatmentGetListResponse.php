@@ -48,6 +48,6 @@ class SystemTreatmentMappingNetworkServerTreatmentGetListResponse extends Comple
      */
     public function getTreatmentMappingTable()
     {
-        return $this->treatmentMappingTable->getValue();
+        return $this->treatmentMappingTable;
     }
 }

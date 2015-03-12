@@ -49,6 +49,6 @@ class UserAccessDeviceFileGetListResponse extends ComplexType implements Complex
      */
     public function getDeviceFilesTable()
     {
-        return $this->deviceFilesTable->getValue();
+        return $this->deviceFilesTable;
     }
 }

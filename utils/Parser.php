@@ -231,7 +231,7 @@ class BuildAPI {
                     $code .= "\n$pad */\n$pad";
                     $code .= "public function get".ucfirst($item['name'])."()\n";
                     $code .= "$pad{\n";
-                    $code .= ($this->checkComplexType($item['type'])) ? "$pad    return \$this->{$item['name']};" : "$pad    return \$this->{$item['name']}->getValue();";
+                    $code .= (($this->checkComplexType($item['type']) || (preg_match('/table/i', $item['name'])))) ? "$pad    return \$this->{$item['name']};" : "$pad    return \$this->{$item['name']}->getValue();";
                     $code .= "\n$pad}\n";
                 }
                 $code .= "}\n";

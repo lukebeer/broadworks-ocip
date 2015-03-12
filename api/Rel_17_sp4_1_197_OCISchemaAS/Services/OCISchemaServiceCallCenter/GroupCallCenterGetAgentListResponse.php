@@ -49,6 +49,6 @@ class GroupCallCenterGetAgentListResponse extends ComplexType implements Complex
      */
     public function getAgentTable()
     {
-        return $this->agentTable->getValue();
+        return $this->agentTable;
     }
 }

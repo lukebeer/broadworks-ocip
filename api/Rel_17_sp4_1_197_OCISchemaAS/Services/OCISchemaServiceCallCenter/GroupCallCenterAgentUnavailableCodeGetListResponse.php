@@ -48,6 +48,6 @@ class GroupCallCenterAgentUnavailableCodeGetListResponse extends ComplexType imp
      */
     public function getUnavailableCodesTable()
     {
-        return $this->unavailableCodesTable->getValue();
+        return $this->unavailableCodesTable;
     }
 }

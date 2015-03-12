@@ -224,6 +224,6 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function getDnisTable()
     {
-        return $this->dnisTable->getValue();
+        return $this->dnisTable;
     }
 }

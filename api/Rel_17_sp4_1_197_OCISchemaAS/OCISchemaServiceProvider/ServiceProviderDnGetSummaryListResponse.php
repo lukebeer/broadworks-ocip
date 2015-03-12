@@ -48,6 +48,6 @@ class ServiceProviderDnGetSummaryListResponse extends ComplexType implements Com
      */
     public function getDnSummaryTable()
     {
-        return $this->dnSummaryTable->getValue();
+        return $this->dnSummaryTable;
     }
 }

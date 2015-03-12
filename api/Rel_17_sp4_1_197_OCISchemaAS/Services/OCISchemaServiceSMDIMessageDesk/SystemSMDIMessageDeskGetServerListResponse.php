@@ -48,6 +48,6 @@ class SystemSMDIMessageDeskGetServerListResponse extends ComplexType implements 
      */
     public function getSmdiServerTable()
     {
-        return $this->smdiServerTable->getValue();
+        return $this->smdiServerTable;
     }
 }

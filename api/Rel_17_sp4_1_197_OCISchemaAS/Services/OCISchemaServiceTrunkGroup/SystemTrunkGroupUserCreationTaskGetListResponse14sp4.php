@@ -52,6 +52,6 @@ class SystemTrunkGroupUserCreationTaskGetListResponse14sp4 extends ComplexType i
      */
     public function getTaskTable()
     {
-        return $this->taskTable->getValue();
+        return $this->taskTable;
     }
 }

@@ -49,6 +49,6 @@ class UserPhoneDirectoryGetSearchedListResponse extends ComplexType implements C
      */
     public function getDirectoryTable()
     {
-        return $this->directoryTable->getValue();
+        return $this->directoryTable;
     }
 }

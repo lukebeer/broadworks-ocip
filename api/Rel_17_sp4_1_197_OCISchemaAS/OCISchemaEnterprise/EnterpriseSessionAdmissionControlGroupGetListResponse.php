@@ -49,6 +49,6 @@ class EnterpriseSessionAdmissionControlGroupGetListResponse extends ComplexType 
      */
     public function getSessionAdmissionControlGroupTable()
     {
-        return $this->sessionAdmissionControlGroupTable->getValue();
+        return $this->sessionAdmissionControlGroupTable;
     }
 }

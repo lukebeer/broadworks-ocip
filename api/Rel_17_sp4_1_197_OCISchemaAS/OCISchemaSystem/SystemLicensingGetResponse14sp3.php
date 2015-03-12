@@ -193,7 +193,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getSubscriberLicenseTable()
     {
-        return $this->subscriberLicenseTable->getValue();
+        return $this->subscriberLicenseTable;
     }
 
     /**
@@ -213,7 +213,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getGroupServiceLicenseTable()
     {
-        return $this->groupServiceLicenseTable->getValue();
+        return $this->groupServiceLicenseTable;
     }
 
     /**
@@ -233,7 +233,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getVirtualServiceLicenseTable()
     {
-        return $this->virtualServiceLicenseTable->getValue();
+        return $this->virtualServiceLicenseTable;
     }
 
     /**
@@ -253,7 +253,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getUserServiceLicenseTable()
     {
-        return $this->userServiceLicenseTable->getValue();
+        return $this->userServiceLicenseTable;
     }
 
     /**
@@ -273,6 +273,6 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getSystemParamLicenseTable()
     {
-        return $this->systemParamLicenseTable->getValue();
+        return $this->systemParamLicenseTable;
     }
 }

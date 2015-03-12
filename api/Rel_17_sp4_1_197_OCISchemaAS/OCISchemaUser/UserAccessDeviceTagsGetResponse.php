@@ -48,6 +48,6 @@ class UserAccessDeviceTagsGetResponse extends ComplexType implements ComplexInte
      */
     public function getDeviceTagsTable()
     {
-        return $this->deviceTagsTable->getValue();
+        return $this->deviceTagsTable;
     }
 }

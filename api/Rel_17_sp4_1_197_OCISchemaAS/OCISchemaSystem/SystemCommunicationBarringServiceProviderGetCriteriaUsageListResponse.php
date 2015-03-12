@@ -48,6 +48,6 @@ class SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse exte
      */
     public function getServiceProviderTable()
     {
-        return $this->serviceProviderTable->getValue();
+        return $this->serviceProviderTable;
     }
 }

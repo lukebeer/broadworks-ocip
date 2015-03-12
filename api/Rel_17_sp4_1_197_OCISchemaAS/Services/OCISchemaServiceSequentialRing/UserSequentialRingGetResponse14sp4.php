@@ -242,6 +242,6 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

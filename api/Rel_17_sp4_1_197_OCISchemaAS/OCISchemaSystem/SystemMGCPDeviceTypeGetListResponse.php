@@ -49,6 +49,6 @@ class SystemMGCPDeviceTypeGetListResponse extends ComplexType implements Complex
      */
     public function getDeviceTypeTable()
     {
-        return $this->deviceTypeTable->getValue();
+        return $this->deviceTypeTable;
     }
 }

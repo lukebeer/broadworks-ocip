@@ -49,6 +49,6 @@ class SystemClassmarkGetUtilizationListResponse extends ComplexType implements C
      */
     public function getClassmarkUserTable()
     {
-        return $this->classmarkUserTable->getValue();
+        return $this->classmarkUserTable;
     }
 }

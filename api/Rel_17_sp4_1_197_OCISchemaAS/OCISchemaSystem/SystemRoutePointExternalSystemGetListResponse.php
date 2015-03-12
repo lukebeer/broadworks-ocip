@@ -50,6 +50,6 @@ class SystemRoutePointExternalSystemGetListResponse extends ComplexType implemen
      */
     public function getExternalSystemTable()
     {
-        return $this->externalSystemTable->getValue();
+        return $this->externalSystemTable;
     }
 }

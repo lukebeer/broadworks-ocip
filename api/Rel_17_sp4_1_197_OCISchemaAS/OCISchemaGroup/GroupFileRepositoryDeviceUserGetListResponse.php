@@ -48,6 +48,6 @@ class GroupFileRepositoryDeviceUserGetListResponse extends ComplexType implement
      */
     public function getFileRepositoryUserTable()
     {
-        return $this->fileRepositoryUserTable->getValue();
+        return $this->fileRepositoryUserTable;
     }
 }

@@ -48,6 +48,6 @@ class GroupInstantConferencingGetAvailableUserListResponse extends ComplexType i
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

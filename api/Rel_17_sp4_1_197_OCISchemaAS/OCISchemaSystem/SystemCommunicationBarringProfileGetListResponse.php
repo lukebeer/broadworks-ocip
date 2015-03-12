@@ -49,6 +49,6 @@ class SystemCommunicationBarringProfileGetListResponse extends ComplexType imple
      */
     public function getProfileTable()
     {
-        return $this->profileTable->getValue();
+        return $this->profileTable;
     }
 }

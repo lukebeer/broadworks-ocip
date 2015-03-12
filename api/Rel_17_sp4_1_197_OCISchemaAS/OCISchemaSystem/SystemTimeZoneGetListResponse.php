@@ -48,6 +48,6 @@ class SystemTimeZoneGetListResponse extends ComplexType implements ComplexInterf
      */
     public function getTimeZoneTable()
     {
-        return $this->timeZoneTable->getValue();
+        return $this->timeZoneTable;
     }
 }

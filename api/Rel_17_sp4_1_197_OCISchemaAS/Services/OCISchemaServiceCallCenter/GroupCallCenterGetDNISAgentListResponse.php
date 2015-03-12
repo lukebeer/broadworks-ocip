@@ -49,6 +49,6 @@ class GroupCallCenterGetDNISAgentListResponse extends ComplexType implements Com
      */
     public function getAgentTable()
     {
-        return $this->agentTable->getValue();
+        return $this->agentTable;
     }
 }

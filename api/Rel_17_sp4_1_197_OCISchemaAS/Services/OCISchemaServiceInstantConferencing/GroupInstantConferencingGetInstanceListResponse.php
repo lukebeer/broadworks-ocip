@@ -50,6 +50,6 @@ class GroupInstantConferencingGetInstanceListResponse extends ComplexType implem
      */
     public function getInstantConferencingTable()
     {
-        return $this->instantConferencingTable->getValue();
+        return $this->instantConferencingTable;
     }
 }

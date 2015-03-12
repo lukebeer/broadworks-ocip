@@ -48,6 +48,6 @@ class GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse extends Complex
      */
     public function getDigitPatternTable()
     {
-        return $this->digitPatternTable->getValue();
+        return $this->digitPatternTable;
     }
 }

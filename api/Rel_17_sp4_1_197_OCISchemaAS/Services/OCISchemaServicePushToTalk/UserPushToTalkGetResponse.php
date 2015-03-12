@@ -119,6 +119,6 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
      */
     public function getSelectedUserTable()
     {
-        return $this->selectedUserTable->getValue();
+        return $this->selectedUserTable;
     }
 }

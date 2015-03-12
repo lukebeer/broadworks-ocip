@@ -48,6 +48,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetListResponse ext
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

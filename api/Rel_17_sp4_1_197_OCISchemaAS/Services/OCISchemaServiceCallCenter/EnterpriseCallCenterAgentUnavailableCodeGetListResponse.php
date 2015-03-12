@@ -48,6 +48,6 @@ class EnterpriseCallCenterAgentUnavailableCodeGetListResponse extends ComplexTyp
      */
     public function getUnavailableCodesTable()
     {
-        return $this->unavailableCodesTable->getValue();
+        return $this->unavailableCodesTable;
     }
 }

@@ -55,6 +55,6 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListResponse extends Co
      */
     public function getScheduledReportTable()
     {
-        return $this->scheduledReportTable->getValue();
+        return $this->scheduledReportTable;
     }
 }

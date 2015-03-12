@@ -48,6 +48,6 @@ class EnterpriseEnterpriseTrunkGetUserListResponse extends ComplexType implement
      */
     public function getEnterpriseTrunkUserTable()
     {
-        return $this->enterpriseTrunkUserTable->getValue();
+        return $this->enterpriseTrunkUserTable;
     }
 }

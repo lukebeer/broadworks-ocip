@@ -52,6 +52,6 @@ class GroupCallCenterEnhancedReportingScheduledReportGetActiveListResponse exten
      */
     public function getScheduledReportTable()
     {
-        return $this->scheduledReportTable->getValue();
+        return $this->scheduledReportTable;
     }
 }

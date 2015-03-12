@@ -49,6 +49,6 @@ class GroupAccessDeviceCustomTagGetListResponse extends ComplexType implements C
      */
     public function getDeviceCustomTagsTable()
     {
-        return $this->deviceCustomTagsTable->getValue();
+        return $this->deviceCustomTagsTable;
     }
 }

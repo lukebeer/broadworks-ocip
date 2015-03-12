@@ -50,6 +50,6 @@ class UserPrivacyGetAvailableMonitorsUserListResponse extends ComplexType implem
      */
     public function getAvailableMonitorsTable()
     {
-        return $this->availableMonitorsTable->getValue();
+        return $this->availableMonitorsTable;
     }
 }

@@ -52,7 +52,7 @@ class UserServiceGetAssignmentListResponse extends ComplexType implements Comple
      */
     public function getServicePacksAssignmentTable()
     {
-        return $this->servicePacksAssignmentTable->getValue();
+        return $this->servicePacksAssignmentTable;
     }
 
     /**
@@ -72,6 +72,6 @@ class UserServiceGetAssignmentListResponse extends ComplexType implements Comple
      */
     public function getUserServicesAssignmentTable()
     {
-        return $this->userServicesAssignmentTable->getValue();
+        return $this->userServicesAssignmentTable;
     }
 }

@@ -49,6 +49,6 @@ class GroupSessionAdmissionControlGroupGetListResponse extends ComplexType imple
      */
     public function getSessionAdmissionControlGroupTable()
     {
-        return $this->sessionAdmissionControlGroupTable->getValue();
+        return $this->sessionAdmissionControlGroupTable;
     }
 }

@@ -49,6 +49,6 @@ class GroupAdminGetListResponse extends ComplexType implements ComplexInterface
      */
     public function getGroupAdminTable()
     {
-        return $this->groupAdminTable->getValue();
+        return $this->groupAdminTable;
     }
 }

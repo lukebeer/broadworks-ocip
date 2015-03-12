@@ -49,6 +49,6 @@ class SystemExpensiveCallTypeGetListResponse16sp1 extends ComplexType implements
      */
     public function getAlternateCallIndicatorTable()
     {
-        return $this->alternateCallIndicatorTable->getValue();
+        return $this->alternateCallIndicatorTable;
     }
 }

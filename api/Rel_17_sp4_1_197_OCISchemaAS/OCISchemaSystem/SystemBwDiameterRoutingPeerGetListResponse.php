@@ -47,6 +47,6 @@ class SystemBwDiameterRoutingPeerGetListResponse extends ComplexType implements 
      */
     public function getRoutingPeerTable()
     {
-        return $this->routingPeerTable->getValue();
+        return $this->routingPeerTable;
     }
 }

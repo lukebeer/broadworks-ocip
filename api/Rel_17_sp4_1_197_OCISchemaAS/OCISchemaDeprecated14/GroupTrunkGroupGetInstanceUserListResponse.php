@@ -49,6 +49,6 @@ class GroupTrunkGroupGetInstanceUserListResponse extends ComplexType implements 
      */
     public function getTrunkGroupUserTable()
     {
-        return $this->trunkGroupUserTable->getValue();
+        return $this->trunkGroupUserTable;
     }
 }

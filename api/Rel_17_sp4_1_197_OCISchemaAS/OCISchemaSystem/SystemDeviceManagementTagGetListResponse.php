@@ -49,6 +49,6 @@ class SystemDeviceManagementTagGetListResponse extends ComplexType implements Co
      */
     public function getTagsTable()
     {
-        return $this->tagsTable->getValue();
+        return $this->tagsTable;
     }
 }

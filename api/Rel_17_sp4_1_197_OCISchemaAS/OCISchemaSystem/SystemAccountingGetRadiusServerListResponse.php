@@ -48,6 +48,6 @@ class SystemAccountingGetRadiusServerListResponse extends ComplexType implements
      */
     public function getRadiusServerTable()
     {
-        return $this->radiusServerTable->getValue();
+        return $this->radiusServerTable;
     }
 }

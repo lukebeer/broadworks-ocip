@@ -49,6 +49,6 @@ class UserSelectiveCallRejectionGetCriteriaListResponse extends ComplexType impl
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

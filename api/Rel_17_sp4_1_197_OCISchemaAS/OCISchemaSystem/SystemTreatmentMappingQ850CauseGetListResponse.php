@@ -48,6 +48,6 @@ class SystemTreatmentMappingQ850CauseGetListResponse extends ComplexType impleme
      */
     public function getTreatmentMappingTable()
     {
-        return $this->treatmentMappingTable->getValue();
+        return $this->treatmentMappingTable;
     }
 }

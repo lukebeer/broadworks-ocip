@@ -48,6 +48,6 @@ class SystemAccountingGetChargingFunctionElementServerListResponse extends Compl
      */
     public function getChargingFunctionElementServerTable()
     {
-        return $this->chargingFunctionElementServerTable->getValue();
+        return $this->chargingFunctionElementServerTable;
     }
 }

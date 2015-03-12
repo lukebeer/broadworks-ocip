@@ -50,6 +50,6 @@ class SystemAccessDeviceGetListResponse14 extends ComplexType implements Complex
      */
     public function getAccessDeviceTable()
     {
-        return $this->accessDeviceTable->getValue();
+        return $this->accessDeviceTable;
     }
 }

@@ -49,6 +49,6 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListResponse extends C
      */
     public function getGroupTable()
     {
-        return $this->groupTable->getValue();
+        return $this->groupTable;
     }
 }

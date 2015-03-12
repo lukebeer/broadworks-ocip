@@ -559,7 +559,7 @@ class GroupTrunkGroupGetInstanceResponse17 extends ComplexType implements Comple
      */
     public function getHostedUserTable()
     {
-        return $this->hostedUserTable->getValue();
+        return $this->hostedUserTable;
     }
 
     /**

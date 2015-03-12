@@ -49,6 +49,6 @@ class SystemPortalAPIGetACLListResponse extends ComplexType implements ComplexIn
      */
     public function getAclTable()
     {
-        return $this->aclTable->getValue();
+        return $this->aclTable;
     }
 }

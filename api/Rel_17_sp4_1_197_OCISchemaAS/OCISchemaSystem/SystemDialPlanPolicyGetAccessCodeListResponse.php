@@ -48,6 +48,6 @@ class SystemDialPlanPolicyGetAccessCodeListResponse extends ComplexType implemen
      */
     public function getAccessCodeTable()
     {
-        return $this->accessCodeTable->getValue();
+        return $this->accessCodeTable;
     }
 }

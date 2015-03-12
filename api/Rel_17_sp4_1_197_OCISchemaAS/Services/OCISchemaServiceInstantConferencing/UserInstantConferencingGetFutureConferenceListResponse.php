@@ -51,6 +51,6 @@ class UserInstantConferencingGetFutureConferenceListResponse extends ComplexType
      */
     public function getConferenceTable()
     {
-        return $this->conferenceTable->getValue();
+        return $this->conferenceTable;
     }
 }

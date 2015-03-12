@@ -51,6 +51,6 @@ class SystemMaliciousCallTraceGetUserListResponse extends ComplexType implements
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

@@ -49,6 +49,6 @@ class SystemDnGetUtilizationListResponse extends ComplexType implements ComplexI
      */
     public function getDnUtilizationTable()
     {
-        return $this->dnUtilizationTable->getValue();
+        return $this->dnUtilizationTable;
     }
 }

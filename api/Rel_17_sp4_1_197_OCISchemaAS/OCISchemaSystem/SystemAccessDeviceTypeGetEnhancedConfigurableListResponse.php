@@ -51,6 +51,6 @@ class SystemAccessDeviceTypeGetEnhancedConfigurableListResponse extends ComplexT
      */
     public function getDeviceTypeTable()
     {
-        return $this->deviceTypeTable->getValue();
+        return $this->deviceTypeTable;
     }
 }

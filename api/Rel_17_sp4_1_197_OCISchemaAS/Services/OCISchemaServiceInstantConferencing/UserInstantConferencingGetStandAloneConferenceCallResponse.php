@@ -181,6 +181,6 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
      */
     public function getConferenceLegTable()
     {
-        return $this->conferenceLegTable->getValue();
+        return $this->conferenceLegTable;
     }
 }

@@ -185,6 +185,6 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
      */
     public function getBridgeAdministratorUserTable()
     {
-        return $this->bridgeAdministratorUserTable->getValue();
+        return $this->bridgeAdministratorUserTable;
     }
 }

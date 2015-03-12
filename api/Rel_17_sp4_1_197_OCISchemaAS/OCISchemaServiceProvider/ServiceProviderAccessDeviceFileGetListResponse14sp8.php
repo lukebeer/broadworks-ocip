@@ -49,6 +49,6 @@ class ServiceProviderAccessDeviceFileGetListResponse14sp8 extends ComplexType im
      */
     public function getDeviceFilesTable()
     {
-        return $this->deviceFilesTable->getValue();
+        return $this->deviceFilesTable;
     }
 }

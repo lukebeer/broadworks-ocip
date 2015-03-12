@@ -48,6 +48,6 @@ class SystemCallCenterReportingServerGetListResponse extends ComplexType impleme
      */
     public function getReportingServerTable()
     {
-        return $this->reportingServerTable->getValue();
+        return $this->reportingServerTable;
     }
 }

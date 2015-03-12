@@ -47,6 +47,6 @@ class SystemBwDiameterPeerGetListResponse extends ComplexType implements Complex
      */
     public function getPeerTable()
     {
-        return $this->peerTable->getValue();
+        return $this->peerTable;
     }
 }

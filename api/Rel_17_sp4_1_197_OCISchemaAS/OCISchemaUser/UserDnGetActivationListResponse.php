@@ -50,6 +50,6 @@ class UserDnGetActivationListResponse extends ComplexType implements ComplexInte
      */
     public function getDnTable()
     {
-        return $this->dnTable->getValue();
+        return $this->dnTable;
     }
 }

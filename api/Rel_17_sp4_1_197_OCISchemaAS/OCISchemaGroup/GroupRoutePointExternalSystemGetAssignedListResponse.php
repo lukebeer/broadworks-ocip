@@ -49,6 +49,6 @@ class GroupRoutePointExternalSystemGetAssignedListResponse extends ComplexType i
      */
     public function getExternalSystemTable()
     {
-        return $this->externalSystemTable->getValue();
+        return $this->externalSystemTable;
     }
 }

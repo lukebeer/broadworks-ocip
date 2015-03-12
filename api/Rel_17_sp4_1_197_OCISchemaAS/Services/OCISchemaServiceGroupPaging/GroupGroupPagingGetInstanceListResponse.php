@@ -50,6 +50,6 @@ class GroupGroupPagingGetInstanceListResponse extends ComplexType implements Com
      */
     public function getPagingGroupTable()
     {
-        return $this->pagingGroupTable->getValue();
+        return $this->pagingGroupTable;
     }
 }

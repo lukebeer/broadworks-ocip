@@ -49,6 +49,6 @@ class GroupGroupPagingGetTargetListResponse extends ComplexType implements Compl
      */
     public function getTargetTable()
     {
-        return $this->targetTable->getValue();
+        return $this->targetTable;
     }
 }

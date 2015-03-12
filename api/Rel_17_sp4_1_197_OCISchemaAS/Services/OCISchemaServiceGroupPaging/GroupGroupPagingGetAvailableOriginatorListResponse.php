@@ -48,6 +48,6 @@ class GroupGroupPagingGetAvailableOriginatorListResponse extends ComplexType imp
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

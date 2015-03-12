@@ -47,6 +47,6 @@ class SystemCommunicationBarringCallTypeGetListResponse extends ComplexType impl
      */
     public function getCallTypeTable()
     {
-        return $this->callTypeTable->getValue();
+        return $this->callTypeTable;
     }
 }

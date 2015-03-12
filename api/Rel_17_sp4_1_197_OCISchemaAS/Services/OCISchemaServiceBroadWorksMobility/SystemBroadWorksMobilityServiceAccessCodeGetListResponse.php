@@ -48,6 +48,6 @@ class SystemBroadWorksMobilityServiceAccessCodeGetListResponse extends ComplexTy
      */
     public function getServiceAccessCodeTable()
     {
-        return $this->serviceAccessCodeTable->getValue();
+        return $this->serviceAccessCodeTable;
     }
 }

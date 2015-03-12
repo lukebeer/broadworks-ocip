@@ -47,6 +47,6 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse ext
      */
     public function getProfileTable()
     {
-        return $this->profileTable->getValue();
+        return $this->profileTable;
     }
 }

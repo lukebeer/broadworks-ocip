@@ -50,6 +50,6 @@ class GroupBroadWorksAnywhereGetInstanceListResponse extends ComplexType impleme
      */
     public function getBroadWorksAnywhereTable()
     {
-        return $this->broadWorksAnywhereTable->getValue();
+        return $this->broadWorksAnywhereTable;
     }
 }

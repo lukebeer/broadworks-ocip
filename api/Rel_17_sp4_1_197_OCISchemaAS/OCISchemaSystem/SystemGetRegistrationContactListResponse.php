@@ -47,6 +47,6 @@ class SystemGetRegistrationContactListResponse extends ComplexType implements Co
      */
     public function getRegistrationTable()
     {
-        return $this->registrationTable->getValue();
+        return $this->registrationTable;
     }
 }

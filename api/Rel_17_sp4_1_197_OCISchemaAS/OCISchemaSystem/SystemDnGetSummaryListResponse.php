@@ -48,6 +48,6 @@ class SystemDnGetSummaryListResponse extends ComplexType implements ComplexInter
      */
     public function getDnSummaryTable()
     {
-        return $this->dnSummaryTable->getValue();
+        return $this->dnSummaryTable;
     }
 }

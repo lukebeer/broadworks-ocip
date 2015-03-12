@@ -51,6 +51,6 @@ class ServiceProviderServicePackMigrationTaskGetListResponse extends ComplexType
      */
     public function getTaskTable()
     {
-        return $this->taskTable->getValue();
+        return $this->taskTable;
     }
 }

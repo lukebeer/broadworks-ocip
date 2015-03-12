@@ -50,6 +50,6 @@ class ServiceProviderEndpointGetListResponse extends ComplexType implements Comp
      */
     public function getEndpointTable()
     {
-        return $this->endpointTable->getValue();
+        return $this->endpointTable;
     }
 }

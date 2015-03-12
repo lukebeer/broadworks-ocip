@@ -49,6 +49,6 @@ class GroupGroupPagingGetOriginatorListResponse extends ComplexType implements C
      */
     public function getOriginatorTable()
     {
-        return $this->originatorTable->getValue();
+        return $this->originatorTable;
     }
 }

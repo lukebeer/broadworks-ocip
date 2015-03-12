@@ -49,6 +49,6 @@ class ServiceProviderCommunicationBarringCriteriaGetAssignedListResponse extends
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

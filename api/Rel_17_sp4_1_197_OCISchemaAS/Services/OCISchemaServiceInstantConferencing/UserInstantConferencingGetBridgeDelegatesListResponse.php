@@ -50,6 +50,6 @@ class UserInstantConferencingGetBridgeDelegatesListResponse extends ComplexType 
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

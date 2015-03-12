@@ -48,6 +48,6 @@ class SystemInstantConferencingGetDeviceListResponse14 extends ComplexType imple
      */
     public function getInstantConferencingDeviceTable()
     {
-        return $this->instantConferencingDeviceTable->getValue();
+        return $this->instantConferencingDeviceTable;
     }
 }

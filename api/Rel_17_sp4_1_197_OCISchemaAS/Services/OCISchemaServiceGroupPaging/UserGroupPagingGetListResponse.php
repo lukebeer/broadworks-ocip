@@ -49,6 +49,6 @@ class UserGroupPagingGetListResponse extends ComplexType implements ComplexInter
      */
     public function getPagingGroupTable()
     {
-        return $this->pagingGroupTable->getValue();
+        return $this->pagingGroupTable;
     }
 }

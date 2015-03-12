@@ -51,6 +51,6 @@ class GroupCustomContactDirectoryGetResponse extends ComplexType implements Comp
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

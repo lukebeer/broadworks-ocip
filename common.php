@@ -17,3 +17,5 @@ spl_autoload_register(function ($c) {
     @require_once preg_replace('#\\\|_(?!.*\\\)#', '/', $c) . '.php';
 });
 $errorControl = CoreFactory::getErrorControl();
+
+

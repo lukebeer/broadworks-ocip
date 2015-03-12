@@ -49,6 +49,6 @@ class UserGetServiceInstanceListInServiceProviderResponse extends ComplexType im
      */
     public function getServiceInstanceTable()
     {
-        return $this->serviceInstanceTable->getValue();
+        return $this->serviceInstanceTable;
     }
 }

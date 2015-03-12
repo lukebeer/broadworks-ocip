@@ -48,6 +48,6 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateGetListResponse extends
      */
     public function getReportTemplateTable()
     {
-        return $this->reportTemplateTable->getValue();
+        return $this->reportTemplateTable;
     }
 }

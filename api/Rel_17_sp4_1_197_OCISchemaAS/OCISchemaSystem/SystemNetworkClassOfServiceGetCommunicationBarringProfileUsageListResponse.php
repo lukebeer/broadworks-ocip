@@ -50,6 +50,6 @@ class SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse
      */
     public function getNetworkClassOfServiceTable()
     {
-        return $this->networkClassOfServiceTable->getValue();
+        return $this->networkClassOfServiceTable;
     }
 }

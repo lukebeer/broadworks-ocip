@@ -94,6 +94,6 @@ class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implement
      */
     public function getPhoneNumberTable()
     {
-        return $this->phoneNumberTable->getValue();
+        return $this->phoneNumberTable;
     }
 }

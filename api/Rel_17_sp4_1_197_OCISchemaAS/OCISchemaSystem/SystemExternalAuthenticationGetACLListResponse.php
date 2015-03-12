@@ -48,6 +48,6 @@ class SystemExternalAuthenticationGetACLListResponse extends ComplexType impleme
      */
     public function getAclTable()
     {
-        return $this->aclTable->getValue();
+        return $this->aclTable;
     }
 }

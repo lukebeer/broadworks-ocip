@@ -51,6 +51,6 @@ class GroupHuntGroupGetInstanceListResponse extends ComplexType implements Compl
      */
     public function getHuntGroupTable()
     {
-        return $this->huntGroupTable->getValue();
+        return $this->huntGroupTable;
     }
 }

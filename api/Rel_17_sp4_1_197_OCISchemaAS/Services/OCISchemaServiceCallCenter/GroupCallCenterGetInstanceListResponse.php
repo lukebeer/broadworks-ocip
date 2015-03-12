@@ -52,6 +52,6 @@ class GroupCallCenterGetInstanceListResponse extends ComplexType implements Comp
      */
     public function getCallCenterTable()
     {
-        return $this->callCenterTable->getValue();
+        return $this->callCenterTable;
     }
 }

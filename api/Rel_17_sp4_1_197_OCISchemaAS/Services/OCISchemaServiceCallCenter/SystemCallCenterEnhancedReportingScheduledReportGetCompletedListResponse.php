@@ -54,6 +54,6 @@ class SystemCallCenterEnhancedReportingScheduledReportGetCompletedListResponse e
      */
     public function getScheduledReportTable()
     {
-        return $this->scheduledReportTable->getValue();
+        return $this->scheduledReportTable;
     }
 }

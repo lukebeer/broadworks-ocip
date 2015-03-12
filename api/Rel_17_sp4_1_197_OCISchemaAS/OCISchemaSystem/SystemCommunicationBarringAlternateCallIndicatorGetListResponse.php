@@ -47,6 +47,6 @@ class SystemCommunicationBarringAlternateCallIndicatorGetListResponse extends Co
      */
     public function getAlternateCallIndicatorTable()
     {
-        return $this->alternateCallIndicatorTable->getValue();
+        return $this->alternateCallIndicatorTable;
     }
 }

@@ -49,6 +49,6 @@ class GroupAccessDeviceFileGetListResponse14sp8 extends ComplexType implements C
      */
     public function getDeviceFilesTable()
     {
-        return $this->deviceFilesTable->getValue();
+        return $this->deviceFilesTable;
     }
 }

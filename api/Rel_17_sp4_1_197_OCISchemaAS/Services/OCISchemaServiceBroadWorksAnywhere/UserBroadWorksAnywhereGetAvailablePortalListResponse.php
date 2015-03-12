@@ -48,6 +48,6 @@ class UserBroadWorksAnywhereGetAvailablePortalListResponse extends ComplexType i
      */
     public function getPortalTable()
     {
-        return $this->portalTable->getValue();
+        return $this->portalTable;
     }
 }

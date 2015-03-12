@@ -49,6 +49,6 @@ class SystemSIPGetContentTypeListResponse extends ComplexType implements Complex
      */
     public function getContentTypeTable()
     {
-        return $this->contentTypeTable->getValue();
+        return $this->contentTypeTable;
     }
 }

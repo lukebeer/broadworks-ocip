@@ -49,6 +49,6 @@ class UserRoutePointSupervisorGetListResponse extends ComplexType implements Com
      */
     public function getSupervisorTable()
     {
-        return $this->supervisorTable->getValue();
+        return $this->supervisorTable;
     }
 }

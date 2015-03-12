@@ -51,6 +51,6 @@ class UserMeetMeConferencingGetConferenceListResponse extends ComplexType implem
      */
     public function getConferenceTable()
     {
-        return $this->conferenceTable->getValue();
+        return $this->conferenceTable;
     }
 }

@@ -49,6 +49,6 @@ class GroupGetListInServiceProviderResponse extends ComplexType implements Compl
      */
     public function getGroupTable()
     {
-        return $this->groupTable->getValue();
+        return $this->groupTable;
     }
 }

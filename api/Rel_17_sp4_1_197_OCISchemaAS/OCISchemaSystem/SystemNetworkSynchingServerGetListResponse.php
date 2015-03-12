@@ -72,6 +72,6 @@ class SystemNetworkSynchingServerGetListResponse extends ComplexType implements 
      */
     public function getNetworkSynchingServerTable()
     {
-        return $this->networkSynchingServerTable->getValue();
+        return $this->networkSynchingServerTable;
     }
 }

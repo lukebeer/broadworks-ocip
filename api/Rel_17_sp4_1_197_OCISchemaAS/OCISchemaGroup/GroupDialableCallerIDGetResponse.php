@@ -94,6 +94,6 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

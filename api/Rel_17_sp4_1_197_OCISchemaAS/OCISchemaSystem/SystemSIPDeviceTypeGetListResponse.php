@@ -49,6 +49,6 @@ class SystemSIPDeviceTypeGetListResponse extends ComplexType implements ComplexI
      */
     public function getDeviceTypeTable()
     {
-        return $this->deviceTypeTable->getValue();
+        return $this->deviceTypeTable;
     }
 }

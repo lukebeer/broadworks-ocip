@@ -49,6 +49,6 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse extend
      */
     public function getGroupTable()
     {
-        return $this->groupTable->getValue();
+        return $this->groupTable;
     }
 }

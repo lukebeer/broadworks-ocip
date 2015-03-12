@@ -50,6 +50,6 @@ class GroupRoutePointGetInstanceListResponse extends ComplexType implements Comp
      */
     public function getRoutePointTable()
     {
-        return $this->routePointTable->getValue();
+        return $this->routePointTable;
     }
 }

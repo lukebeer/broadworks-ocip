@@ -95,6 +95,6 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
      */
     public function getMonitoredUserTable()
     {
-        return $this->monitoredUserTable->getValue();
+        return $this->monitoredUserTable;
     }
 }

@@ -50,6 +50,6 @@ class UserInstantConferencingGetInstanceListResponse extends ComplexType impleme
      */
     public function getInstantConferencingTable()
     {
-        return $this->instantConferencingTable->getValue();
+        return $this->instantConferencingTable;
     }
 }

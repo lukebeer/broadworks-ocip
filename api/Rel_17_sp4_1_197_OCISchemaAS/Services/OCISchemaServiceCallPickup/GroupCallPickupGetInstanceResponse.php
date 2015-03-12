@@ -48,6 +48,6 @@ class GroupCallPickupGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

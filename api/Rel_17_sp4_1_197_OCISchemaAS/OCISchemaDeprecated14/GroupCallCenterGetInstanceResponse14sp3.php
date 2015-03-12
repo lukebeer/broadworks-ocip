@@ -392,7 +392,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getAgentUserTable()
     {
-        return $this->agentUserTable->getValue();
+        return $this->agentUserTable;
     }
 
     /**

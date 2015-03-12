@@ -48,6 +48,6 @@ class SystemCAPGetACLListResponse14 extends ComplexType implements ComplexInterf
      */
     public function getAclTable()
     {
-        return $this->aclTable->getValue();
+        return $this->aclTable;
     }
 }

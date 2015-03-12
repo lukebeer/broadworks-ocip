@@ -79,6 +79,6 @@ class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements Comp
      */
     public function getDirectoryTable()
     {
-        return $this->directoryTable->getValue();
+        return $this->directoryTable;
     }
 }

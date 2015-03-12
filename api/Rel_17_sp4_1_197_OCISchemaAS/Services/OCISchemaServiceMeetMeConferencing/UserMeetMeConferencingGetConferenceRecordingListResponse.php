@@ -49,6 +49,6 @@ class UserMeetMeConferencingGetConferenceRecordingListResponse extends ComplexTy
      */
     public function getConferenceRecordingTable()
     {
-        return $this->conferenceRecordingTable->getValue();
+        return $this->conferenceRecordingTable;
     }
 }

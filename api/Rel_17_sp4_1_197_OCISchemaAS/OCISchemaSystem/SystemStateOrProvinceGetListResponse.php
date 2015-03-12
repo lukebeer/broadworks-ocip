@@ -48,6 +48,6 @@ class SystemStateOrProvinceGetListResponse extends ComplexType implements Comple
      */
     public function getStateOrProvinceTable()
     {
-        return $this->stateOrProvinceTable->getValue();
+        return $this->stateOrProvinceTable;
     }
 }

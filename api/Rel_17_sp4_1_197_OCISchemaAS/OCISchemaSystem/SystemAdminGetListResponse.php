@@ -49,6 +49,6 @@ class SystemAdminGetListResponse extends ComplexType implements ComplexInterface
      */
     public function getSystemAdminTable()
     {
-        return $this->systemAdminTable->getValue();
+        return $this->systemAdminTable;
     }
 }

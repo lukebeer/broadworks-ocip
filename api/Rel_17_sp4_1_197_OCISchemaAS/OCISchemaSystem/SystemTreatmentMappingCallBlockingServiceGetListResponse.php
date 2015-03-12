@@ -48,6 +48,6 @@ class SystemTreatmentMappingCallBlockingServiceGetListResponse extends ComplexTy
      */
     public function getTreatmentMappingTable()
     {
-        return $this->treatmentMappingTable->getValue();
+        return $this->treatmentMappingTable;
     }
 }

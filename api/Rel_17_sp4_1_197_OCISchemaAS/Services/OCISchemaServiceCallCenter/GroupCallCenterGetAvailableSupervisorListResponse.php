@@ -48,6 +48,6 @@ class GroupCallCenterGetAvailableSupervisorListResponse extends ComplexType impl
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

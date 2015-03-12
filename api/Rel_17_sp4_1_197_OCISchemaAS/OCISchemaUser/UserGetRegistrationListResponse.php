@@ -56,6 +56,6 @@ class UserGetRegistrationListResponse extends ComplexType implements ComplexInte
      */
     public function getRegistrationTable()
     {
-        return $this->registrationTable->getValue();
+        return $this->registrationTable;
     }
 }

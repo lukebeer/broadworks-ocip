@@ -72,6 +72,6 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
      */
     public function getProfileTable()
     {
-        return $this->profileTable->getValue();
+        return $this->profileTable;
     }
 }

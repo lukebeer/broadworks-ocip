@@ -49,6 +49,6 @@ class ServiceProviderNetworkClassOfServiceGetAssignedListResponse extends Comple
      */
     public function getNetworkClassOfServiceTable()
     {
-        return $this->networkClassOfServiceTable->getValue();
+        return $this->networkClassOfServiceTable;
     }
 }

@@ -113,6 +113,6 @@ class UserSimultaneousRingPersonalGetResponse17 extends ComplexType implements C
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

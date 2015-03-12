@@ -50,6 +50,6 @@ class GroupAutoAttendantGetInstanceListResponse extends ComplexType implements C
      */
     public function getAutoAttendantTable()
     {
-        return $this->autoAttendantTable->getValue();
+        return $this->autoAttendantTable;
     }
 }

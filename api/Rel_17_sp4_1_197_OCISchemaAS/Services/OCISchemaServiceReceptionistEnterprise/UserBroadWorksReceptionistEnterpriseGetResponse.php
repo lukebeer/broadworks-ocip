@@ -50,6 +50,6 @@ class UserBroadWorksReceptionistEnterpriseGetResponse extends ComplexType implem
      */
     public function getMonitoredUserTable()
     {
-        return $this->monitoredUserTable->getValue();
+        return $this->monitoredUserTable;
     }
 }

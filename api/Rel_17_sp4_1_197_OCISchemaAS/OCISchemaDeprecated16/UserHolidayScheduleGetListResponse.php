@@ -48,6 +48,6 @@ class UserHolidayScheduleGetListResponse extends ComplexType implements ComplexI
      */
     public function getHolidayScheduleTable()
     {
-        return $this->holidayScheduleTable->getValue();
+        return $this->holidayScheduleTable;
     }
 }

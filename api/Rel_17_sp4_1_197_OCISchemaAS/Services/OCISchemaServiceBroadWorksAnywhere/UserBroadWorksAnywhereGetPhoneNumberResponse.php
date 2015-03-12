@@ -182,6 +182,6 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

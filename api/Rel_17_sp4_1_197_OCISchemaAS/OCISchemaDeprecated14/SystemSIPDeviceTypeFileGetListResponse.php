@@ -50,6 +50,6 @@ class SystemSIPDeviceTypeFileGetListResponse extends ComplexType implements Comp
      */
     public function getDeviceTypeFilesTable()
     {
-        return $this->deviceTypeFilesTable->getValue();
+        return $this->deviceTypeFilesTable;
     }
 }

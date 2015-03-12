@@ -54,6 +54,6 @@ class SystemAccessDeviceGetUserListResponse extends ComplexType implements Compl
      */
     public function getDeviceUserTable()
     {
-        return $this->deviceUserTable->getValue();
+        return $this->deviceUserTable;
     }
 }

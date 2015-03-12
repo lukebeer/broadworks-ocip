@@ -49,6 +49,6 @@ class SystemNetworkClassOfServiceGetListResponse extends ComplexType implements 
      */
     public function getNetworkClassOfServiceTable()
     {
-        return $this->networkClassOfServiceTable->getValue();
+        return $this->networkClassOfServiceTable;
     }
 }

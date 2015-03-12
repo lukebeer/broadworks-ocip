@@ -57,7 +57,7 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
      */
     public function getServicePacksAuthorizationTable()
     {
-        return $this->servicePacksAuthorizationTable->getValue();
+        return $this->servicePacksAuthorizationTable;
     }
 
     /**
@@ -77,7 +77,7 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
      */
     public function getGroupServicesAuthorizationTable()
     {
-        return $this->groupServicesAuthorizationTable->getValue();
+        return $this->groupServicesAuthorizationTable;
     }
 
     /**
@@ -97,6 +97,6 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
      */
     public function getUserServicesAuthorizationTable()
     {
-        return $this->userServicesAuthorizationTable->getValue();
+        return $this->userServicesAuthorizationTable;
     }
 }

@@ -48,6 +48,6 @@ class SystemRoutingGetRouteDeviceListResponse extends ComplexType implements Com
      */
     public function getRouteDeviceTable()
     {
-        return $this->routeDeviceTable->getValue();
+        return $this->routeDeviceTable;
     }
 }

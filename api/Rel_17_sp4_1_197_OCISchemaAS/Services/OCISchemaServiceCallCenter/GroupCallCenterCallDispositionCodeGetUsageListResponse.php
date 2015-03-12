@@ -49,6 +49,6 @@ class GroupCallCenterCallDispositionCodeGetUsageListResponse extends ComplexType
      */
     public function getCallCenterTable()
     {
-        return $this->callCenterTable->getValue();
+        return $this->callCenterTable;
     }
 }

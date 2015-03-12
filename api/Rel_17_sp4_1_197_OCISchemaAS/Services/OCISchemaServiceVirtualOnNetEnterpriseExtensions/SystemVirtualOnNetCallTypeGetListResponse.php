@@ -50,6 +50,6 @@ class SystemVirtualOnNetCallTypeGetListResponse extends ComplexType implements C
      */
     public function getVirtualOnNetCallTypeTable()
     {
-        return $this->virtualOnNetCallTypeTable->getValue();
+        return $this->virtualOnNetCallTypeTable;
     }
 }

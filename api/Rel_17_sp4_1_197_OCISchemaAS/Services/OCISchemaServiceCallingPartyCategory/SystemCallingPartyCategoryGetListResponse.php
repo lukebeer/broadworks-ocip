@@ -49,6 +49,6 @@ class SystemCallingPartyCategoryGetListResponse extends ComplexType implements C
      */
     public function getCallingPartyCategoryTable()
     {
-        return $this->callingPartyCategoryTable->getValue();
+        return $this->callingPartyCategoryTable;
     }
 }

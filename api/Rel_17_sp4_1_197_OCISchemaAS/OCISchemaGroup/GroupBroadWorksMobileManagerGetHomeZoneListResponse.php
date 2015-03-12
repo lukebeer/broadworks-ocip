@@ -50,6 +50,6 @@ class GroupBroadWorksMobileManagerGetHomeZoneListResponse extends ComplexType im
      */
     public function getHomeZonesTable()
     {
-        return $this->homeZonesTable->getValue();
+        return $this->homeZonesTable;
     }
 }

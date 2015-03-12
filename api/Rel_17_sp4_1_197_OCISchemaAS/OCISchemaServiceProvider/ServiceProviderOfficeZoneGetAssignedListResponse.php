@@ -49,6 +49,6 @@ class ServiceProviderOfficeZoneGetAssignedListResponse extends ComplexType imple
      */
     public function getOfficeZoneTable()
     {
-        return $this->officeZoneTable->getValue();
+        return $this->officeZoneTable;
     }
 }

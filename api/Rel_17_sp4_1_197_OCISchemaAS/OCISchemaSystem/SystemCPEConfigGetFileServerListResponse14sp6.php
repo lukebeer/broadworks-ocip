@@ -48,6 +48,6 @@ class SystemCPEConfigGetFileServerListResponse14sp6 extends ComplexType implemen
      */
     public function getFileServerTable()
     {
-        return $this->fileServerTable->getValue();
+        return $this->fileServerTable;
     }
 }

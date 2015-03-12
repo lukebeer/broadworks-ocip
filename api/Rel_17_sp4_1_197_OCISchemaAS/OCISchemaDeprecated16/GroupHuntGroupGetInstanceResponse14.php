@@ -212,7 +212,7 @@ class GroupHuntGroupGetInstanceResponse14 extends ComplexType implements Complex
      */
     public function getAgentUserTable()
     {
-        return $this->agentUserTable->getValue();
+        return $this->agentUserTable;
     }
 
     /**

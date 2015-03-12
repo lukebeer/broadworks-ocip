@@ -54,6 +54,6 @@ class ServiceProviderAccessDeviceGetUserListResponse extends ComplexType impleme
      */
     public function getDeviceUserTable()
     {
-        return $this->deviceUserTable->getValue();
+        return $this->deviceUserTable;
     }
 }

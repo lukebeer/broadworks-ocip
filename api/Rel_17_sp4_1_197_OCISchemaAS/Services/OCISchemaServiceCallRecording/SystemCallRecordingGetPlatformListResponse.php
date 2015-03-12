@@ -72,6 +72,6 @@ class SystemCallRecordingGetPlatformListResponse extends ComplexType implements 
      */
     public function getCallRecordingPlatformTable()
     {
-        return $this->callRecordingPlatformTable->getValue();
+        return $this->callRecordingPlatformTable;
     }
 }

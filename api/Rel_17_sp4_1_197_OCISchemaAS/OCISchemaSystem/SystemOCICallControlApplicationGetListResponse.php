@@ -48,6 +48,6 @@ class SystemOCICallControlApplicationGetListResponse extends ComplexType impleme
      */
     public function getAppTable()
     {
-        return $this->appTable->getValue();
+        return $this->appTable;
     }
 }

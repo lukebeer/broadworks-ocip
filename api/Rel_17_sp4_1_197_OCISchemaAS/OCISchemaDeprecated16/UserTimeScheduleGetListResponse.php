@@ -49,6 +49,6 @@ class UserTimeScheduleGetListResponse extends ComplexType implements ComplexInte
      */
     public function getTimeScheduleTable()
     {
-        return $this->timeScheduleTable->getValue();
+        return $this->timeScheduleTable;
     }
 }

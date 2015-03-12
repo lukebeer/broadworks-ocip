@@ -53,6 +53,6 @@ class GroupAccessDeviceGetUserListResponse extends ComplexType implements Comple
      */
     public function getDeviceUserTable()
     {
-        return $this->deviceUserTable->getValue();
+        return $this->deviceUserTable;
     }
 }

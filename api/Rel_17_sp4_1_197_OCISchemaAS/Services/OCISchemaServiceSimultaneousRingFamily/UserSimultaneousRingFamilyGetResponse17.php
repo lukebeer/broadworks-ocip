@@ -113,6 +113,6 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

@@ -49,6 +49,6 @@ class SystemZoneCallingRestrictionsZoneGetListResponse extends ComplexType imple
      */
     public function getZoneTable()
     {
-        return $this->zoneTable->getValue();
+        return $this->zoneTable;
     }
 }

@@ -48,6 +48,6 @@ class ServiceProviderCommunicationBarringProfileGetDigitPatternCriteriaUsageList
      */
     public function getProfileTable()
     {
-        return $this->profileTable->getValue();
+        return $this->profileTable;
     }
 }

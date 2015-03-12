@@ -74,6 +74,6 @@ class UserCallCenterGetResponse extends ComplexType implements ComplexInterface
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

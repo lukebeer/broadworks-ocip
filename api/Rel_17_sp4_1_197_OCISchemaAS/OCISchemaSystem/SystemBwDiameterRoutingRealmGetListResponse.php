@@ -47,6 +47,6 @@ class SystemBwDiameterRoutingRealmGetListResponse extends ComplexType implements
      */
     public function getRoutingRealmTable()
     {
-        return $this->routingRealmTable->getValue();
+        return $this->routingRealmTable;
     }
 }

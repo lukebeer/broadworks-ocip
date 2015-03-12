@@ -120,7 +120,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function getMandatoryUsageUserTable()
     {
-        return $this->mandatoryUsageUserTable->getValue();
+        return $this->mandatoryUsageUserTable;
     }
 
     /**
@@ -140,6 +140,6 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function getOptionalUsageUserTable()
     {
-        return $this->optionalUsageUserTable->getValue();
+        return $this->optionalUsageUserTable;
     }
 }

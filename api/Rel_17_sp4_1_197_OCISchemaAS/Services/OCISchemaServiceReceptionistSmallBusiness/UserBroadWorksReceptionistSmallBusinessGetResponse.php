@@ -50,6 +50,6 @@ class UserBroadWorksReceptionistSmallBusinessGetResponse extends ComplexType imp
      */
     public function getMonitoredUserTable()
     {
-        return $this->monitoredUserTable->getValue();
+        return $this->monitoredUserTable;
     }
 }

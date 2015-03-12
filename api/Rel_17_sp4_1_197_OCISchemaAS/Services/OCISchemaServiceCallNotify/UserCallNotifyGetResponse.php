@@ -72,6 +72,6 @@ class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

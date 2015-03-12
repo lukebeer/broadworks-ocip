@@ -49,6 +49,6 @@ class ServiceProviderAdminGetListResponse14 extends ComplexType implements Compl
      */
     public function getServiceProviderAdminTable()
     {
-        return $this->serviceProviderAdminTable->getValue();
+        return $this->serviceProviderAdminTable;
     }
 }

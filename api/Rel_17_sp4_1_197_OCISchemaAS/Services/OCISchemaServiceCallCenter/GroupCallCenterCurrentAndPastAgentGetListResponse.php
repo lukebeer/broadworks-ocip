@@ -49,7 +49,7 @@ class GroupCallCenterCurrentAndPastAgentGetListResponse extends ComplexType impl
      */
     public function getAgentUserTable()
     {
-        return $this->agentUserTable->getValue();
+        return $this->agentUserTable;
     }
 
     /**
@@ -69,6 +69,6 @@ class GroupCallCenterCurrentAndPastAgentGetListResponse extends ComplexType impl
      */
     public function getDeletedAgentUserTable()
     {
-        return $this->deletedAgentUserTable->getValue();
+        return $this->deletedAgentUserTable;
     }
 }

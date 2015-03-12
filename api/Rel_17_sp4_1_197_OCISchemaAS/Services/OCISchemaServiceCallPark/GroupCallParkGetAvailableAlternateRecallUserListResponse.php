@@ -48,6 +48,6 @@ class GroupCallParkGetAvailableAlternateRecallUserListResponse extends ComplexTy
      */
     public function getAvailableHuntGroupTable()
     {
-        return $this->availableHuntGroupTable->getValue();
+        return $this->availableHuntGroupTable;
     }
 }

@@ -48,6 +48,6 @@ class SystemRoutingGetTranslationListResponse extends ComplexType implements Com
      */
     public function getRoutingTable()
     {
-        return $this->routingTable->getValue();
+        return $this->routingTable;
     }
 }

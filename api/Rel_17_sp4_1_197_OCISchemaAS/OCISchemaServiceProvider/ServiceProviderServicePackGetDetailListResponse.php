@@ -184,6 +184,6 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function getUserServiceTable()
     {
-        return $this->userServiceTable->getValue();
+        return $this->userServiceTable;
     }
 }

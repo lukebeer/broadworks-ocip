@@ -49,6 +49,6 @@ class SystemApplicationControllerGetListResponse extends ComplexType implements 
      */
     public function getApplicationControllerTable()
     {
-        return $this->applicationControllerTable->getValue();
+        return $this->applicationControllerTable;
     }
 }

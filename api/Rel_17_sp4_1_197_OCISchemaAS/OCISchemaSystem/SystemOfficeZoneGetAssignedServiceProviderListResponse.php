@@ -50,6 +50,6 @@ class SystemOfficeZoneGetAssignedServiceProviderListResponse extends ComplexType
      */
     public function getServiceProviderTable()
     {
-        return $this->serviceProviderTable->getValue();
+        return $this->serviceProviderTable;
     }
 }

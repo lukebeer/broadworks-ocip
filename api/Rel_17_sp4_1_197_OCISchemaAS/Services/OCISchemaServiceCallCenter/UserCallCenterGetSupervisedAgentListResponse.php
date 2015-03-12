@@ -49,6 +49,6 @@ class UserCallCenterGetSupervisedAgentListResponse extends ComplexType implement
      */
     public function getAgentUserTable()
     {
-        return $this->agentUserTable->getValue();
+        return $this->agentUserTable;
     }
 }

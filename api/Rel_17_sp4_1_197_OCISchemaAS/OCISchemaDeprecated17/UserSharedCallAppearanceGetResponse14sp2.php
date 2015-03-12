@@ -162,7 +162,7 @@ class UserSharedCallAppearanceGetResponse14sp2 extends ComplexType implements Co
      */
     public function getEndpointTable()
     {
-        return $this->endpointTable->getValue();
+        return $this->endpointTable;
     }
 
     /**

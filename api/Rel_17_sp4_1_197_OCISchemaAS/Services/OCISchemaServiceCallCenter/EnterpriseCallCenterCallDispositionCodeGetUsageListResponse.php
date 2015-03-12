@@ -49,6 +49,6 @@ class EnterpriseCallCenterCallDispositionCodeGetUsageListResponse extends Comple
      */
     public function getCallCenterTable()
     {
-        return $this->callCenterTable->getValue();
+        return $this->callCenterTable;
     }
 }

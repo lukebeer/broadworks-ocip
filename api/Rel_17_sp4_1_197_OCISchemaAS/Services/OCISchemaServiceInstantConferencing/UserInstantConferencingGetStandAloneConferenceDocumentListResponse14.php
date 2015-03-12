@@ -242,6 +242,6 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
      */
     public function getDocumentTable()
     {
-        return $this->documentTable->getValue();
+        return $this->documentTable;
     }
 }

@@ -49,6 +49,6 @@ class UserPhoneDirectoryGetListResponse extends ComplexType implements ComplexIn
      */
     public function getDirectoryTable()
     {
-        return $this->directoryTable->getValue();
+        return $this->directoryTable;
     }
 }

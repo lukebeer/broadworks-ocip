@@ -48,6 +48,6 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListResponse extends ComplexType 
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

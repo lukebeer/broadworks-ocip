@@ -49,6 +49,6 @@ class ServiceProviderAccessDeviceCustomTagGetListResponse extends ComplexType im
      */
     public function getDeviceCustomTagsTable()
     {
-        return $this->deviceCustomTagsTable->getValue();
+        return $this->deviceCustomTagsTable;
     }
 }

@@ -49,6 +49,6 @@ class GroupAccessDeviceGetListResponse extends ComplexType implements ComplexInt
      */
     public function getAccessDeviceTable()
     {
-        return $this->accessDeviceTable->getValue();
+        return $this->accessDeviceTable;
     }
 }

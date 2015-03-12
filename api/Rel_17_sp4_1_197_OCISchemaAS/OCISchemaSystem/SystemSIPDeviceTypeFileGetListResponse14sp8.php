@@ -49,6 +49,6 @@ class SystemSIPDeviceTypeFileGetListResponse14sp8 extends ComplexType implements
      */
     public function getDeviceTypeFilesTable()
     {
-        return $this->deviceTypeFilesTable->getValue();
+        return $this->deviceTypeFilesTable;
     }
 }

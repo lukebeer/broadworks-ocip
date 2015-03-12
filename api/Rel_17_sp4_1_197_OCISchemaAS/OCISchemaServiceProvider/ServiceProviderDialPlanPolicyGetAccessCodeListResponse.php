@@ -49,6 +49,6 @@ class ServiceProviderDialPlanPolicyGetAccessCodeListResponse extends ComplexType
      */
     public function getAccessCodeTable()
     {
-        return $this->accessCodeTable->getValue();
+        return $this->accessCodeTable;
     }
 }

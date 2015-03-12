@@ -435,7 +435,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse extends ComplexType imp
      */
     public function getGroupTable()
     {
-        return $this->groupTable->getValue();
+        return $this->groupTable;
     }
 
     /**

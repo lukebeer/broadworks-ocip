@@ -50,6 +50,6 @@ class SystemOfficeZoneGetZoneUsageListResponse extends ComplexType implements Co
      */
     public function getOfficeZoneTable()
     {
-        return $this->officeZoneTable->getValue();
+        return $this->officeZoneTable;
     }
 }

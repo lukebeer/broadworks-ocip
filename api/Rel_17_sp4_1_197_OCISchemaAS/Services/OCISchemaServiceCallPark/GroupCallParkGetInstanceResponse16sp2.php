@@ -101,6 +101,6 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

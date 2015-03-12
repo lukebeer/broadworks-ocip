@@ -48,6 +48,6 @@ class UserHotelingGuestGetAvailableUserListResponse extends ComplexType implemen
      */
     public function getHostUserTable()
     {
-        return $this->hostUserTable->getValue();
+        return $this->hostUserTable;
     }
 }

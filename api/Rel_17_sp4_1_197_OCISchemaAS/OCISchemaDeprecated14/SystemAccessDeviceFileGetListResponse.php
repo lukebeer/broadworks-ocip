@@ -50,6 +50,6 @@ class SystemAccessDeviceFileGetListResponse extends ComplexType implements Compl
      */
     public function getDeviceFilesTable()
     {
-        return $this->deviceFilesTable->getValue();
+        return $this->deviceFilesTable;
     }
 }

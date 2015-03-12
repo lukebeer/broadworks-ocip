@@ -50,6 +50,6 @@ class ServiceProviderAccessDeviceGetListResponse extends ComplexType implements 
      */
     public function getAccessDeviceTable()
     {
-        return $this->accessDeviceTable->getValue();
+        return $this->accessDeviceTable;
     }
 }

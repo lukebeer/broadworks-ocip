@@ -49,6 +49,6 @@ class SystemLegacyAutomaticCallbackGetLineTypeListResponse extends ComplexType i
      */
     public function getLineTypeTable()
     {
-        return $this->lineTypeTable->getValue();
+        return $this->lineTypeTable;
     }
 }

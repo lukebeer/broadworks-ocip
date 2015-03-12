@@ -94,6 +94,6 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

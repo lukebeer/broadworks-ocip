@@ -49,6 +49,6 @@ class GroupDepartmentAdminGetListResponse extends ComplexType implements Complex
      */
     public function getDepartmentAdminTable()
     {
-        return $this->departmentAdminTable->getValue();
+        return $this->departmentAdminTable;
     }
 }

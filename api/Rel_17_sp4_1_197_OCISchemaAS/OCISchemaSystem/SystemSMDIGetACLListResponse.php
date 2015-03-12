@@ -48,6 +48,6 @@ class SystemSMDIGetACLListResponse extends ComplexType implements ComplexInterfa
      */
     public function getAclTable()
     {
-        return $this->aclTable->getValue();
+        return $this->aclTable;
     }
 }

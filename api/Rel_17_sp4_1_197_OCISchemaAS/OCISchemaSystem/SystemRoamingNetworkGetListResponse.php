@@ -48,6 +48,6 @@ class SystemRoamingNetworkGetListResponse extends ComplexType implements Complex
      */
     public function getRoamingNetworkTable()
     {
-        return $this->roamingNetworkTable->getValue();
+        return $this->roamingNetworkTable;
     }
 }

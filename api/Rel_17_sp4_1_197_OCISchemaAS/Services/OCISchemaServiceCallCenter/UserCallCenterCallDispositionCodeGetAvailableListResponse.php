@@ -52,6 +52,6 @@ class UserCallCenterCallDispositionCodeGetAvailableListResponse extends ComplexT
      */
     public function getDispositionCodesTable()
     {
-        return $this->dispositionCodesTable->getValue();
+        return $this->dispositionCodesTable;
     }
 }

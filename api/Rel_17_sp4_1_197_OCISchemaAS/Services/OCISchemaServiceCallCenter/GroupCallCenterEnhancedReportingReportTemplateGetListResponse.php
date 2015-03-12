@@ -48,6 +48,6 @@ class GroupCallCenterEnhancedReportingReportTemplateGetListResponse extends Comp
      */
     public function getReportTemplateTable()
     {
-        return $this->reportTemplateTable->getValue();
+        return $this->reportTemplateTable;
     }
 }

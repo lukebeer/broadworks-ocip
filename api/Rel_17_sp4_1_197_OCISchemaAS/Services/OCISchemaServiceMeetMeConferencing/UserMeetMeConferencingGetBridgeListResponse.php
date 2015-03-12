@@ -49,6 +49,6 @@ class UserMeetMeConferencingGetBridgeListResponse extends ComplexType implements
      */
     public function getConferenceBridgeTable()
     {
-        return $this->conferenceBridgeTable->getValue();
+        return $this->conferenceBridgeTable;
     }
 }

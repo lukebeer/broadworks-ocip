@@ -53,7 +53,7 @@ class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType imp
      */
     public function getGroupServicesAuthorizationTable()
     {
-        return $this->groupServicesAuthorizationTable->getValue();
+        return $this->groupServicesAuthorizationTable;
     }
 
     /**
@@ -73,6 +73,6 @@ class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType imp
      */
     public function getUserServicesAuthorizationTable()
     {
-        return $this->userServicesAuthorizationTable->getValue();
+        return $this->userServicesAuthorizationTable;
     }
 }

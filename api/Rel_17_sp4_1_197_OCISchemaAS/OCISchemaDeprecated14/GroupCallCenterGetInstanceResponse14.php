@@ -390,7 +390,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getAgentUserTable()
     {
-        return $this->agentUserTable->getValue();
+        return $this->agentUserTable;
     }
 
     /**

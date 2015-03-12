@@ -48,6 +48,6 @@ class SystemMediaServerGetListResponse extends ComplexType implements ComplexInt
      */
     public function getMediaServerTable()
     {
-        return $this->mediaServerTable->getValue();
+        return $this->mediaServerTable;
     }
 }

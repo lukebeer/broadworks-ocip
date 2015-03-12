@@ -600,7 +600,7 @@ class GroupTrunkGroupGetInstanceResponse14sp9 extends ComplexType implements Com
      */
     public function getHostedUserTable()
     {
-        return $this->hostedUserTable->getValue();
+        return $this->hostedUserTable;
     }
 
     /**

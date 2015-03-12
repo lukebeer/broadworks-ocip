@@ -316,6 +316,6 @@ class UserCallCenterGetResponse17 extends ComplexType implements ComplexInterfac
      */
     public function getCallCenterTable()
     {
-        return $this->callCenterTable->getValue();
+        return $this->callCenterTable;
     }
 }

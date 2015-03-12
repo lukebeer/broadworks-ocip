@@ -55,6 +55,6 @@ class GroupPhoneDirectoryGetListResponse17 extends ComplexType implements Comple
      */
     public function getDirectoryTable()
     {
-        return $this->directoryTable->getValue();
+        return $this->directoryTable;
     }
 }

@@ -48,6 +48,6 @@ class SystemDomainGetAssignedServiceProviderListResponse extends ComplexType imp
      */
     public function getServiceProviderTable()
     {
-        return $this->serviceProviderTable->getValue();
+        return $this->serviceProviderTable;
     }
 }

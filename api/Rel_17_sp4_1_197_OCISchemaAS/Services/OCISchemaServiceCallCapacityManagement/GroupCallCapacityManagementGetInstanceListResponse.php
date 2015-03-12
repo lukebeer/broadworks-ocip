@@ -48,6 +48,6 @@ class GroupCallCapacityManagementGetInstanceListResponse extends ComplexType imp
      */
     public function getCallCapacityGroupTable()
     {
-        return $this->callCapacityGroupTable->getValue();
+        return $this->callCapacityGroupTable;
     }
 }

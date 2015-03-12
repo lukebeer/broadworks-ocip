@@ -73,6 +73,6 @@ class UserInstantConferencingGetStandAloneSlideShowContentResponse extends Compl
      */
     public function getSlideShowContentTable()
     {
-        return $this->slideShowContentTable->getValue();
+        return $this->slideShowContentTable;
     }
 }

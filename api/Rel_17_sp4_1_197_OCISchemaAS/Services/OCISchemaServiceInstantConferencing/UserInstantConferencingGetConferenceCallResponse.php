@@ -181,6 +181,6 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function getConferenceLegTable()
     {
-        return $this->conferenceLegTable->getValue();
+        return $this->conferenceLegTable;
     }
 }

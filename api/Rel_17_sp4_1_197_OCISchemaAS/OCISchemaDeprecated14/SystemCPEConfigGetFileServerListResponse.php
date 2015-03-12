@@ -49,6 +49,6 @@ class SystemCPEConfigGetFileServerListResponse extends ComplexType implements Co
      */
     public function getFileServerTable()
     {
-        return $this->fileServerTable->getValue();
+        return $this->fileServerTable;
     }
 }

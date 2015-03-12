@@ -50,6 +50,6 @@ class GroupTrunkGroupGetInstanceListResponse14sp4 extends ComplexType implements
      */
     public function getTrunkGroupTable()
     {
-        return $this->trunkGroupTable->getValue();
+        return $this->trunkGroupTable;
     }
 }

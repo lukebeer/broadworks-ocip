@@ -49,6 +49,6 @@ class SystemSIPDeviceTypeLanguageMappingGetListResponse extends ComplexType impl
      */
     public function getDeviceTypeLanguagesTable()
     {
-        return $this->deviceTypeLanguagesTable->getValue();
+        return $this->deviceTypeLanguagesTable;
     }
 }

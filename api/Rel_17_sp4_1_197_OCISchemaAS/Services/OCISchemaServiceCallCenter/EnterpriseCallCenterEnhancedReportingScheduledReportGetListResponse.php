@@ -53,6 +53,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetListResponse extend
      */
     public function getScheduledReportTable()
     {
-        return $this->scheduledReportTable->getValue();
+        return $this->scheduledReportTable;
     }
 }

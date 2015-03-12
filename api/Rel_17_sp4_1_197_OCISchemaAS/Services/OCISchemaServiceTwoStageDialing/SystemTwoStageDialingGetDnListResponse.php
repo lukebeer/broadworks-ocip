@@ -49,6 +49,6 @@ class SystemTwoStageDialingGetDnListResponse extends ComplexType implements Comp
      */
     public function getPhoneNumberTable()
     {
-        return $this->phoneNumberTable->getValue();
+        return $this->phoneNumberTable;
     }
 }

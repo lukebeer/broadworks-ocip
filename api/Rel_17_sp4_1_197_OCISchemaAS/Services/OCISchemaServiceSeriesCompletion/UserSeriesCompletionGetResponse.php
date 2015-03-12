@@ -73,6 +73,6 @@ class UserSeriesCompletionGetResponse extends ComplexType implements ComplexInte
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

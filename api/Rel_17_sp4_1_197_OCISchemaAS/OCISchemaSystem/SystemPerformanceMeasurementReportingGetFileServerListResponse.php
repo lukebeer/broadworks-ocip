@@ -48,6 +48,6 @@ class SystemPerformanceMeasurementReportingGetFileServerListResponse extends Com
      */
     public function getFileServerTable()
     {
-        return $this->fileServerTable->getValue();
+        return $this->fileServerTable;
     }
 }

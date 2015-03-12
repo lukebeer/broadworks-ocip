@@ -52,6 +52,6 @@ class SystemTrunkGroupUserCreationTaskGetListResponse extends ComplexType implem
      */
     public function getTaskTable()
     {
-        return $this->taskTable->getValue();
+        return $this->taskTable;
     }
 }

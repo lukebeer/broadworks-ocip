@@ -51,6 +51,6 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse extends ComplexTy
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

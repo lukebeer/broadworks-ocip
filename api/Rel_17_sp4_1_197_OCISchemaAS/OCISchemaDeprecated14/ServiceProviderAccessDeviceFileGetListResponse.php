@@ -50,6 +50,6 @@ class ServiceProviderAccessDeviceFileGetListResponse extends ComplexType impleme
      */
     public function getDeviceFilesTable()
     {
-        return $this->deviceFilesTable->getValue();
+        return $this->deviceFilesTable;
     }
 }

@@ -49,6 +49,6 @@ class GroupCallCenterGetUnlicensedAgentListResponse extends ComplexType implemen
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

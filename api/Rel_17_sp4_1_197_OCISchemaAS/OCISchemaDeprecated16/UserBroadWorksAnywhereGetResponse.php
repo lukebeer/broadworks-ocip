@@ -71,6 +71,6 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
      */
     public function getPhoneNumberTable()
     {
-        return $this->phoneNumberTable->getValue();
+        return $this->phoneNumberTable;
     }
 }

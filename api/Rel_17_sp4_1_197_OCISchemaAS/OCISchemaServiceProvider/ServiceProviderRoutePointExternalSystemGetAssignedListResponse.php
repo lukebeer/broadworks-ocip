@@ -49,6 +49,6 @@ class ServiceProviderRoutePointExternalSystemGetAssignedListResponse extends Com
      */
     public function getExternalSystemTable()
     {
-        return $this->externalSystemTable->getValue();
+        return $this->externalSystemTable;
     }
 }

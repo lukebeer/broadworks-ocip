@@ -51,6 +51,6 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse extends ComplexTy
      */
     public function getHomeZonesTable()
     {
-        return $this->homeZonesTable->getValue();
+        return $this->homeZonesTable;
     }
 }

@@ -48,6 +48,6 @@ class SystemConfigurableTreatmentGetListResponse extends ComplexType implements 
      */
     public function getTreatmentTable()
     {
-        return $this->treatmentTable->getValue();
+        return $this->treatmentTable;
     }
 }

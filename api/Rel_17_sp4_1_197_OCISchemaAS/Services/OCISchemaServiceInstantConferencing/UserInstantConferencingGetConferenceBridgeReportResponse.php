@@ -51,6 +51,6 @@ class UserInstantConferencingGetConferenceBridgeReportResponse extends ComplexTy
      */
     public function getConferenceReportTable()
     {
-        return $this->conferenceReportTable->getValue();
+        return $this->conferenceReportTable;
     }
 }

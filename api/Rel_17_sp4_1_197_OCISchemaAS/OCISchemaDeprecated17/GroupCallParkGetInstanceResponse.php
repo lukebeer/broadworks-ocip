@@ -49,6 +49,6 @@ class GroupCallParkGetInstanceResponse extends ComplexType implements ComplexInt
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

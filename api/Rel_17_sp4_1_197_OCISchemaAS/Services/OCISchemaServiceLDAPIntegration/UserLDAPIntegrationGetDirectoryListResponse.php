@@ -54,7 +54,7 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
      */
     public function getLdapEntryTable()
     {
-        return $this->ldapEntryTable->getValue();
+        return $this->ldapEntryTable;
     }
 
     /**

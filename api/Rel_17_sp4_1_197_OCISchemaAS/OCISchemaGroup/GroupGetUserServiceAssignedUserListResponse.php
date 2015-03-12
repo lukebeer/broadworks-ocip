@@ -51,6 +51,6 @@ class GroupGetUserServiceAssignedUserListResponse extends ComplexType implements
      */
     public function getUserListTable()
     {
-        return $this->userListTable->getValue();
+        return $this->userListTable;
     }
 }

@@ -48,6 +48,6 @@ class GroupCallCenterGetAvailableAgentListResponse extends ComplexType implement
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

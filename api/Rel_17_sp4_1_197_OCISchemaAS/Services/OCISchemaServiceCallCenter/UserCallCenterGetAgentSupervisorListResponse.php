@@ -50,6 +50,6 @@ class UserCallCenterGetAgentSupervisorListResponse extends ComplexType implement
      */
     public function getSupervisorTable()
     {
-        return $this->supervisorTable->getValue();
+        return $this->supervisorTable;
     }
 }

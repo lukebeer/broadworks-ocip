@@ -73,6 +73,6 @@ class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implemen
      */
     public function getSupervisorTable()
     {
-        return $this->supervisorTable->getValue();
+        return $this->supervisorTable;
     }
 }

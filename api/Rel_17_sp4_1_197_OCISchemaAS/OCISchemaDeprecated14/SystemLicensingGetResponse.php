@@ -165,6 +165,6 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function getLicenseTable()
     {
-        return $this->licenseTable->getValue();
+        return $this->licenseTable;
     }
 }

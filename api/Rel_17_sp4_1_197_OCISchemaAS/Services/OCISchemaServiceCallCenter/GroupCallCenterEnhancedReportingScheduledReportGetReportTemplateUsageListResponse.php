@@ -50,6 +50,6 @@ class GroupCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListR
      */
     public function getScheduleReportTable()
     {
-        return $this->scheduleReportTable->getValue();
+        return $this->scheduleReportTable;
     }
 }

@@ -48,6 +48,6 @@ class SystemCommunicationBarringDigitPatternCriteriaGetListResponse extends Comp
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

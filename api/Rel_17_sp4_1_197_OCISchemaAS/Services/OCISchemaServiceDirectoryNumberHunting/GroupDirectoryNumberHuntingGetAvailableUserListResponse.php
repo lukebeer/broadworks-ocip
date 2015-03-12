@@ -49,6 +49,6 @@ class GroupDirectoryNumberHuntingGetAvailableUserListResponse extends ComplexTyp
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

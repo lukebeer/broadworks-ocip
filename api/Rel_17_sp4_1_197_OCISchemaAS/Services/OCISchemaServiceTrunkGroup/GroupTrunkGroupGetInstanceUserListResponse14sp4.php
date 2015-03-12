@@ -49,6 +49,6 @@ class GroupTrunkGroupGetInstanceUserListResponse14sp4 extends ComplexType implem
      */
     public function getTrunkGroupUserTable()
     {
-        return $this->trunkGroupUserTable->getValue();
+        return $this->trunkGroupUserTable;
     }
 }

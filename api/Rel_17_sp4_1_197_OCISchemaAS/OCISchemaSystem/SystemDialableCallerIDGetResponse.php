@@ -48,6 +48,6 @@ class SystemDialableCallerIDGetResponse extends ComplexType implements ComplexIn
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

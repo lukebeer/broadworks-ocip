@@ -48,6 +48,6 @@ class UserCallCenterGetAvailableCallCenterListResponse extends ComplexType imple
      */
     public function getCallCenterTable()
     {
-        return $this->callCenterTable->getValue();
+        return $this->callCenterTable;
     }
 }

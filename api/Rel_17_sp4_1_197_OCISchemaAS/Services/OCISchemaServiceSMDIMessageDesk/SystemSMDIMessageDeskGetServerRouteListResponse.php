@@ -48,6 +48,6 @@ class SystemSMDIMessageDeskGetServerRouteListResponse extends ComplexType implem
      */
     public function getSmdiServerRouteTable()
     {
-        return $this->smdiServerRouteTable->getValue();
+        return $this->smdiServerRouteTable;
     }
 }

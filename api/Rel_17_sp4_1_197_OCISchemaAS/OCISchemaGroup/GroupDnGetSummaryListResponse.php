@@ -52,6 +52,6 @@ class GroupDnGetSummaryListResponse extends ComplexType implements ComplexInterf
      */
     public function getDnTable()
     {
-        return $this->dnTable->getValue();
+        return $this->dnTable;
     }
 }

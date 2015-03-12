@@ -49,6 +49,6 @@ class GroupCallCenterGetSupervisorListResponse16 extends ComplexType implements 
      */
     public function getSupervisorTable()
     {
-        return $this->supervisorTable->getValue();
+        return $this->supervisorTable;
     }
 }

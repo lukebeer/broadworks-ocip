@@ -48,6 +48,6 @@ class SystemTreatmentMappingNetworkSIPStatusGetListResponse extends ComplexType 
      */
     public function getTreatmentMappingTable()
     {
-        return $this->treatmentMappingTable->getValue();
+        return $this->treatmentMappingTable;
     }
 }

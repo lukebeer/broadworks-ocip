@@ -50,6 +50,6 @@ class SystemPreferredCarrierGetUserListResponse extends ComplexType implements C
      */
     public function getUsersUsingCarrierTable()
     {
-        return $this->usersUsingCarrierTable->getValue();
+        return $this->usersUsingCarrierTable;
     }
 }

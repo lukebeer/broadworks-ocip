@@ -48,6 +48,6 @@ class SystemOCICallControlApplicationGetACLListResponse extends ComplexType impl
      */
     public function getAclTable()
     {
-        return $this->aclTable->getValue();
+        return $this->aclTable;
     }
 }

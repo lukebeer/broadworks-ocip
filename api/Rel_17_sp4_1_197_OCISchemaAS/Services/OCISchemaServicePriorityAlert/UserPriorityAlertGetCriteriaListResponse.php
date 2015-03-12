@@ -48,6 +48,6 @@ class UserPriorityAlertGetCriteriaListResponse extends ComplexType implements Co
      */
     public function getCriteriaTable()
     {
-        return $this->criteriaTable->getValue();
+        return $this->criteriaTable;
     }
 }

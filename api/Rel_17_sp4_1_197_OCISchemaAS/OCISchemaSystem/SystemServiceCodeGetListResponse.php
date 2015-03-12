@@ -49,6 +49,6 @@ class SystemServiceCodeGetListResponse extends ComplexType implements ComplexInt
      */
     public function getServiceCodeTable()
     {
-        return $this->serviceCodeTable->getValue();
+        return $this->serviceCodeTable;
     }
 }

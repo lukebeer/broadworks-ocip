@@ -186,7 +186,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
      */
     public function getBridgeAdministratorUserTable()
     {
-        return $this->bridgeAdministratorUserTable->getValue();
+        return $this->bridgeAdministratorUserTable;
     }
 
     /**

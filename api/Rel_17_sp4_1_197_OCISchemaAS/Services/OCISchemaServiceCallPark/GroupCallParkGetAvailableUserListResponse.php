@@ -49,6 +49,6 @@ class GroupCallParkGetAvailableUserListResponse extends ComplexType implements C
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

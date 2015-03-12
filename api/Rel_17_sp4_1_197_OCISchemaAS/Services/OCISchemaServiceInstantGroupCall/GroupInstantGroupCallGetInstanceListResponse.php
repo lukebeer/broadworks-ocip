@@ -50,6 +50,6 @@ class GroupInstantGroupCallGetInstanceListResponse extends ComplexType implement
      */
     public function getInstantGroupCallTable()
     {
-        return $this->instantGroupCallTable->getValue();
+        return $this->instantGroupCallTable;
     }
 }

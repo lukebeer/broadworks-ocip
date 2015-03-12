@@ -72,6 +72,6 @@ class SystemLanguageGetListResponse extends ComplexType implements ComplexInterf
      */
     public function getLanguageTable()
     {
-        return $this->languageTable->getValue();
+        return $this->languageTable;
     }
 }

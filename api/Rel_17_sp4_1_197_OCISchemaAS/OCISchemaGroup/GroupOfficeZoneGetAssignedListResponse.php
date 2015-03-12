@@ -49,6 +49,6 @@ class GroupOfficeZoneGetAssignedListResponse extends ComplexType implements Comp
      */
     public function getOfficeZoneTable()
     {
-        return $this->officeZoneTable->getValue();
+        return $this->officeZoneTable;
     }
 }

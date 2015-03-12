@@ -48,6 +48,6 @@ class SystemNetworkRoutingServerGetListResponse extends ComplexType implements C
      */
     public function getNetworkRoutingServerTable()
     {
-        return $this->networkRoutingServerTable->getValue();
+        return $this->networkRoutingServerTable;
     }
 }

@@ -47,6 +47,6 @@ class GroupInventoryReportGetResponse extends ComplexType implements ComplexInte
      */
     public function getInventoryReportTable()
     {
-        return $this->inventoryReportTable->getValue();
+        return $this->inventoryReportTable;
     }
 }

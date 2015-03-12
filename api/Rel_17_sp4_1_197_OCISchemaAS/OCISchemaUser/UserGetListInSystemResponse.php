@@ -50,6 +50,6 @@ class UserGetListInSystemResponse extends ComplexType implements ComplexInterfac
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

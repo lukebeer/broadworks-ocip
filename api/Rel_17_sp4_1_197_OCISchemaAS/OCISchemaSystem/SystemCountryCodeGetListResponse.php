@@ -75,6 +75,6 @@ class SystemCountryCodeGetListResponse extends ComplexType implements ComplexInt
      */
     public function getCountryCodeTable()
     {
-        return $this->countryCodeTable->getValue();
+        return $this->countryCodeTable;
     }
 }

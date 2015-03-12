@@ -73,6 +73,6 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
      */
     public function getServiceUtilizationTable()
     {
-        return $this->serviceUtilizationTable->getValue();
+        return $this->serviceUtilizationTable;
     }
 }

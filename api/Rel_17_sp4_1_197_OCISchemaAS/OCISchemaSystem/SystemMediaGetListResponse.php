@@ -48,6 +48,6 @@ class SystemMediaGetListResponse extends ComplexType implements ComplexInterface
      */
     public function getMediaTable()
     {
-        return $this->mediaTable->getValue();
+        return $this->mediaTable;
     }
 }

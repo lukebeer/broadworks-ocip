@@ -72,6 +72,6 @@ class ServiceProviderLanguageGetAvailableListResponse extends ComplexType implem
      */
     public function getLanguageTable()
     {
-        return $this->languageTable->getValue();
+        return $this->languageTable;
     }
 }

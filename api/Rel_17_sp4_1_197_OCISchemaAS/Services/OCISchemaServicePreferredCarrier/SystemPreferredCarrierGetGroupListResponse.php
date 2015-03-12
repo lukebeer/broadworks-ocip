@@ -52,6 +52,6 @@ class SystemPreferredCarrierGetGroupListResponse extends ComplexType implements 
      */
     public function getGroupsUsingCarrierTable()
     {
-        return $this->groupsUsingCarrierTable->getValue();
+        return $this->groupsUsingCarrierTable;
     }
 }

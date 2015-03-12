@@ -54,6 +54,6 @@ class EnterprisePhoneDirectoryGetListResponse extends ComplexType implements Com
      */
     public function getDirectoryTable()
     {
-        return $this->directoryTable->getValue();
+        return $this->directoryTable;
     }
 }

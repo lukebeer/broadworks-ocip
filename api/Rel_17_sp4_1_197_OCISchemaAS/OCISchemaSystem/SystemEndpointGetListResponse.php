@@ -49,6 +49,6 @@ class SystemEndpointGetListResponse extends ComplexType implements ComplexInterf
      */
     public function getEndpointTable()
     {
-        return $this->endpointTable->getValue();
+        return $this->endpointTable;
     }
 }

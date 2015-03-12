@@ -49,6 +49,6 @@ class ServiceProviderDomainGetAssignedGroupListResponse extends ComplexType impl
      */
     public function getGroupTable()
     {
-        return $this->groupTable->getValue();
+        return $this->groupTable;
     }
 }

@@ -51,6 +51,6 @@ class UserLinePortGetListResponse extends ComplexType implements ComplexInterfac
      */
     public function getLinePortTable()
     {
-        return $this->linePortTable->getValue();
+        return $this->linePortTable;
     }
 }

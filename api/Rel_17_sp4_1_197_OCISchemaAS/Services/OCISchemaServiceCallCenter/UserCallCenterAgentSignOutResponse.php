@@ -49,6 +49,6 @@ class UserCallCenterAgentSignOutResponse extends ComplexType implements ComplexI
      */
     public function getCallCenterTable()
     {
-        return $this->callCenterTable->getValue();
+        return $this->callCenterTable;
     }
 }

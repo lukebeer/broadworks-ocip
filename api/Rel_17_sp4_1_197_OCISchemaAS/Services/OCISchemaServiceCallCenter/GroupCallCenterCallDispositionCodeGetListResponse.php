@@ -48,6 +48,6 @@ class GroupCallCenterCallDispositionCodeGetListResponse extends ComplexType impl
      */
     public function getDispositionCodesTable()
     {
-        return $this->dispositionCodesTable->getValue();
+        return $this->dispositionCodesTable;
     }
 }

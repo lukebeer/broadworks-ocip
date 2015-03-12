@@ -73,6 +73,6 @@ class EnterpriseCallCenterGetRoutingPolicyResponse extends ComplexType implement
      */
     public function getCallCenterTable()
     {
-        return $this->callCenterTable->getValue();
+        return $this->callCenterTable;
     }
 }

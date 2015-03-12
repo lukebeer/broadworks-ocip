@@ -49,6 +49,6 @@ class GroupMeetMeConferencingGetInstanceListResponse extends ComplexType impleme
      */
     public function getConferenceBridgeTable()
     {
-        return $this->conferenceBridgeTable->getValue();
+        return $this->conferenceBridgeTable;
     }
 }

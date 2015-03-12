@@ -50,6 +50,6 @@ class GroupEndpointGetListResponse extends ComplexType implements ComplexInterfa
      */
     public function getEndpointTable()
     {
-        return $this->endpointTable->getValue();
+        return $this->endpointTable;
     }
 }

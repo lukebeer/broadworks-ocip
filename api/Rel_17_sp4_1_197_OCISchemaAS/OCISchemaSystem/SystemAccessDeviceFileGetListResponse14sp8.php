@@ -49,6 +49,6 @@ class SystemAccessDeviceFileGetListResponse14sp8 extends ComplexType implements 
      */
     public function getDeviceFilesTable()
     {
-        return $this->deviceFilesTable->getValue();
+        return $this->deviceFilesTable;
     }
 }

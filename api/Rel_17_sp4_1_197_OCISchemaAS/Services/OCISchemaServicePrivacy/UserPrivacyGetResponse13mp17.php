@@ -140,6 +140,6 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function getPermittedMonitorUserIdTable()
     {
-        return $this->permittedMonitorUserIdTable->getValue();
+        return $this->permittedMonitorUserIdTable;
     }
 }

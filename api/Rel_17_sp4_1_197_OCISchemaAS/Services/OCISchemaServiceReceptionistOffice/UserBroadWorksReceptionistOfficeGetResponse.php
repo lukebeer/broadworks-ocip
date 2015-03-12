@@ -50,6 +50,6 @@ class UserBroadWorksReceptionistOfficeGetResponse extends ComplexType implements
      */
     public function getMonitoredUserTable()
     {
-        return $this->monitoredUserTable->getValue();
+        return $this->monitoredUserTable;
     }
 }

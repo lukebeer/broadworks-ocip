@@ -54,6 +54,6 @@ class GroupPhoneDirectoryGetListResponse extends ComplexType implements ComplexI
      */
     public function getDirectoryTable()
     {
-        return $this->directoryTable->getValue();
+        return $this->directoryTable;
     }
 }

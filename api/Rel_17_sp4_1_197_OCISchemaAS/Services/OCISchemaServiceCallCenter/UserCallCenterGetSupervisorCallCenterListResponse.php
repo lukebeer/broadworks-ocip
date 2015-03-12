@@ -49,6 +49,6 @@ class UserCallCenterGetSupervisorCallCenterListResponse extends ComplexType impl
      */
     public function getCallCenterTable()
     {
-        return $this->callCenterTable->getValue();
+        return $this->callCenterTable;
     }
 }

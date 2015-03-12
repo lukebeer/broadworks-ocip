@@ -48,6 +48,6 @@ class ServiceProviderPreferredCarrierGetListResponse extends ComplexType impleme
      */
     public function getServiceProviderCarrierTable()
     {
-        return $this->serviceProviderCarrierTable->getValue();
+        return $this->serviceProviderCarrierTable;
     }
 }

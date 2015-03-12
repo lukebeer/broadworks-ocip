@@ -48,6 +48,6 @@ class GroupCallingPlanGetDigitPatternListResponse extends ComplexType implements
      */
     public function getDigitPatternTable()
     {
-        return $this->digitPatternTable->getValue();
+        return $this->digitPatternTable;
     }
 }

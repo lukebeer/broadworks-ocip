@@ -48,6 +48,6 @@ class SystemCallRecordingGetPlatformUsageResponse extends ComplexType implements
      */
     public function getGroupTable()
     {
-        return $this->groupTable->getValue();
+        return $this->groupTable;
     }
 }

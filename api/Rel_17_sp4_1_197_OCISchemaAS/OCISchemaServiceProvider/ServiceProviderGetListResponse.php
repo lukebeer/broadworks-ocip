@@ -49,6 +49,6 @@ class ServiceProviderGetListResponse extends ComplexType implements ComplexInter
      */
     public function getServiceProviderTable()
     {
-        return $this->serviceProviderTable->getValue();
+        return $this->serviceProviderTable;
     }
 }

@@ -163,6 +163,6 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
      */
     public function getConferenceHostUserTable()
     {
-        return $this->conferenceHostUserTable->getValue();
+        return $this->conferenceHostUserTable;
     }
 }

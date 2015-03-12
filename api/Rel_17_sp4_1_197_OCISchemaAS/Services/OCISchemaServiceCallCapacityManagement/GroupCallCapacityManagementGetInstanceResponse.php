@@ -164,6 +164,6 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
      */
     public function getUserTable()
     {
-        return $this->userTable->getValue();
+        return $this->userTable;
     }
 }

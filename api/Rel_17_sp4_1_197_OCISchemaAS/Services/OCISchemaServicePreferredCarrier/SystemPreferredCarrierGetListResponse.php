@@ -49,6 +49,6 @@ class SystemPreferredCarrierGetListResponse extends ComplexType implements Compl
      */
     public function getSystemCarrierTable()
     {
-        return $this->systemCarrierTable->getValue();
+        return $this->systemCarrierTable;
     }
 }
