@@ -7,7 +7,10 @@
 
 namespace Broadworks_OCIP\core\Output;
 
-
+/**
+ * Class JSONOutput
+ * @package Broadworks_OCIP\core\Output
+ */
 class JSONOutput implements OutputInterface
 {
 

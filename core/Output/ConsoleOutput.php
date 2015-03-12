@@ -7,7 +7,10 @@
 
 namespace Broadworks_OCIP\core\Output;
 
-
+/**
+ * Class ConsoleOutput
+ * @package Broadworks_OCIP\core\Output
+ */
 class ConsoleOutput implements OutputInterface
 {
 
