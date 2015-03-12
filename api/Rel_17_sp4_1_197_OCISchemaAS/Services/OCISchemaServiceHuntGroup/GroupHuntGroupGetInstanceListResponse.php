@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHuntGroup; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -37,16 +37,17 @@ class GroupHuntGroupGetInstanceListResponse extends ComplexType implements Compl
     /**
      * 
      */
-    public function setHuntGroupTable(core:OCITable $huntGroupTable = null)
+    public function setHuntGroupTable(TableType $huntGroupTable = null)
     {
         if (!$huntGroupTable) return $this;
+        $this->huntGroupTable = $huntGroupTable;
         $this->huntGroupTable->setName('huntGroupTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getHuntGroupTable()
     {

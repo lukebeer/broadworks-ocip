@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemMediaServerGetListResponse extends ComplexType implements ComplexInt
     /**
      * 
      */
-    public function setMediaServerTable(core:OCITable $mediaServerTable = null)
+    public function setMediaServerTable(TableType $mediaServerTable = null)
     {
         if (!$mediaServerTable) return $this;
+        $this->mediaServerTable = $mediaServerTable;
         $this->mediaServerTable->setName('mediaServerTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getMediaServerTable()
     {

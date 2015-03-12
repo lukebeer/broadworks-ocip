@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemDialPlanPolicyGetAccessCodeListResponse extends ComplexType implemen
     /**
      * 
      */
-    public function setAccessCodeTable(core:OCITable $accessCodeTable = null)
+    public function setAccessCodeTable(TableType $accessCodeTable = null)
     {
         if (!$accessCodeTable) return $this;
+        $this->accessCodeTable = $accessCodeTable;
         $this->accessCodeTable->setName('accessCodeTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getAccessCodeTable()
     {

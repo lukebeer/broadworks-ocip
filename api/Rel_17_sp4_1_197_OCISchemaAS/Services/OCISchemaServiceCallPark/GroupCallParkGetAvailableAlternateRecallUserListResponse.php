@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class GroupCallParkGetAvailableAlternateRecallUserListResponse extends ComplexTy
     /**
      * 
      */
-    public function setAvailableHuntGroupTable(core:OCITable $availableHuntGroupTable = null)
+    public function setAvailableHuntGroupTable(TableType $availableHuntGroupTable = null)
     {
         if (!$availableHuntGroupTable) return $this;
+        $this->availableHuntGroupTable = $availableHuntGroupTable;
         $this->availableHuntGroupTable->setName('availableHuntGroupTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getAvailableHuntGroupTable()
     {

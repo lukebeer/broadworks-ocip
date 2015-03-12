@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class GroupTrunkGroupGetInstanceUserListResponse extends ComplexType implements 
     /**
      * 
      */
-    public function setTrunkGroupUserTable(core:OCITable $trunkGroupUserTable = null)
+    public function setTrunkGroupUserTable(TableType $trunkGroupUserTable = null)
     {
         if (!$trunkGroupUserTable) return $this;
+        $this->trunkGroupUserTable = $trunkGroupUserTable;
         $this->trunkGroupUserTable->setName('trunkGroupUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getTrunkGroupUserTable()
     {

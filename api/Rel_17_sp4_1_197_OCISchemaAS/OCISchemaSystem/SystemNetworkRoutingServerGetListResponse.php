@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemNetworkRoutingServerGetListResponse extends ComplexType implements C
     /**
      * 
      */
-    public function setNetworkRoutingServerTable(core:OCITable $networkRoutingServerTable = null)
+    public function setNetworkRoutingServerTable(TableType $networkRoutingServerTable = null)
     {
         if (!$networkRoutingServerTable) return $this;
+        $this->networkRoutingServerTable = $networkRoutingServerTable;
         $this->networkRoutingServerTable->setName('networkRoutingServerTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getNetworkRoutingServerTable()
     {

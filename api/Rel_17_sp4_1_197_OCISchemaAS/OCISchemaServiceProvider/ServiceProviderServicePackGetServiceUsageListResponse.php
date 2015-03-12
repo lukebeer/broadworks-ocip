@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class ServiceProviderServicePackGetServiceUsageListResponse extends ComplexType 
     /**
      * 
      */
-    public function setServiceUsageTable(core:OCITable $serviceUsageTable = null)
+    public function setServiceUsageTable(TableType $serviceUsageTable = null)
     {
         if (!$serviceUsageTable) return $this;
+        $this->serviceUsageTable = $serviceUsageTable;
         $this->serviceUsageTable->setName('serviceUsageTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getServiceUsageTable()
     {

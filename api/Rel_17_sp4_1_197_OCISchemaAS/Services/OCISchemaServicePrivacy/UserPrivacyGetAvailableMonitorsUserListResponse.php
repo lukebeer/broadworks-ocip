@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class UserPrivacyGetAvailableMonitorsUserListResponse extends ComplexType implem
     /**
      * 
      */
-    public function setAvailableMonitorsTable(core:OCITable $availableMonitorsTable = null)
+    public function setAvailableMonitorsTable(TableType $availableMonitorsTable = null)
     {
         if (!$availableMonitorsTable) return $this;
+        $this->availableMonitorsTable = $availableMonitorsTable;
         $this->availableMonitorsTable->setName('availableMonitorsTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getAvailableMonitorsTable()
     {

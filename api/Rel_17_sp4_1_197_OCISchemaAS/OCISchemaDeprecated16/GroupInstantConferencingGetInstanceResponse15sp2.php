@@ -7,12 +7,13 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingOutcallProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingAllocatedPorts;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingOutcallProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -171,16 +172,17 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
     /**
      * 
      */
-    public function setBridgeAdministratorUserTable(core:OCITable $bridgeAdministratorUserTable = null)
+    public function setBridgeAdministratorUserTable(TableType $bridgeAdministratorUserTable = null)
     {
         if (!$bridgeAdministratorUserTable) return $this;
+        $this->bridgeAdministratorUserTable = $bridgeAdministratorUserTable;
         $this->bridgeAdministratorUserTable->setName('bridgeAdministratorUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getBridgeAdministratorUserTable()
     {

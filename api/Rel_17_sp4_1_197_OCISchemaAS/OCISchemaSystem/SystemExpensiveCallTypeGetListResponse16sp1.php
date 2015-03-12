@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class SystemExpensiveCallTypeGetListResponse16sp1 extends ComplexType implements
     /**
      * 
      */
-    public function setAlternateCallIndicatorTable(core:OCITable $alternateCallIndicatorTable = null)
+    public function setAlternateCallIndicatorTable(TableType $alternateCallIndicatorTable = null)
     {
         if (!$alternateCallIndicatorTable) return $this;
+        $this->alternateCallIndicatorTable = $alternateCallIndicatorTable;
         $this->alternateCallIndicatorTable->setName('alternateCallIndicatorTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getAlternateCallIndicatorTable()
     {

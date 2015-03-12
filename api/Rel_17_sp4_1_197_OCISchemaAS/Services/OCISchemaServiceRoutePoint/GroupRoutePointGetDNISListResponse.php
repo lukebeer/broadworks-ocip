@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -76,16 +77,17 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
     /**
      * 
      */
-    public function setDnisTable(core:OCITable $dnisTable = null)
+    public function setDnisTable(TableType $dnisTable = null)
     {
         if (!$dnisTable) return $this;
+        $this->dnisTable = $dnisTable;
         $this->dnisTable->setName('dnisTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getDnisTable()
     {

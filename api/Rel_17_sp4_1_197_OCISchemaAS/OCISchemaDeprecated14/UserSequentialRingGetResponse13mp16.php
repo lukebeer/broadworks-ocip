@@ -10,6 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\SequentialRingNumberOfRings;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SequentialRingLocation;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -228,16 +229,17 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
     /**
      * 
      */
-    public function setCriteriaTable(core:OCITable $criteriaTable = null)
+    public function setCriteriaTable(TableType $criteriaTable = null)
     {
         if (!$criteriaTable) return $this;
+        $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getCriteriaTable()
     {

@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -58,16 +59,17 @@ class UserInstantConferencingGetStandAloneSlideShowContentResponse extends Compl
     /**
      * 
      */
-    public function setSlideShowContentTable(core:OCITable $slideShowContentTable = null)
+    public function setSlideShowContentTable(TableType $slideShowContentTable = null)
     {
         if (!$slideShowContentTable) return $this;
+        $this->slideShowContentTable = $slideShowContentTable;
         $this->slideShowContentTable->setName('slideShowContentTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getSlideShowContentTable()
     {

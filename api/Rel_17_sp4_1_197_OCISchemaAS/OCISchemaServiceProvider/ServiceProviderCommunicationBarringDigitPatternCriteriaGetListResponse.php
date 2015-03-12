@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetListResponse ext
     /**
      * 
      */
-    public function setCriteriaTable(core:OCITable $criteriaTable = null)
+    public function setCriteriaTable(TableType $criteriaTable = null)
     {
         if (!$criteriaTable) return $this;
+        $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getCriteriaTable()
     {

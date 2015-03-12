@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemAccountingGetChargingFunctionElementServerListResponse extends Compl
     /**
      * 
      */
-    public function setChargingFunctionElementServerTable(core:OCITable $chargingFunctionElementServerTable = null)
+    public function setChargingFunctionElementServerTable(TableType $chargingFunctionElementServerTable = null)
     {
         if (!$chargingFunctionElementServerTable) return $this;
+        $this->chargingFunctionElementServerTable = $chargingFunctionElementServerTable;
         $this->chargingFunctionElementServerTable->setName('chargingFunctionElementServerTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getChargingFunctionElementServerTable()
     {

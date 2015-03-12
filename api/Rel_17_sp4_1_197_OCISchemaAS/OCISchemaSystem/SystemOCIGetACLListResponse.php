@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class SystemOCIGetACLListResponse extends ComplexType implements ComplexInterfac
     /**
      * 
      */
-    public function setAclTable(core:OCITable $aclTable = null)
+    public function setAclTable(TableType $aclTable = null)
     {
         if (!$aclTable) return $this;
+        $this->aclTable = $aclTable;
         $this->aclTable->setName('aclTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getAclTable()
     {

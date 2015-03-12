@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class UserPhoneDirectoryGetListResponse extends ComplexType implements ComplexIn
     /**
      * 
      */
-    public function setDirectoryTable(core:OCITable $directoryTable = null)
+    public function setDirectoryTable(TableType $directoryTable = null)
     {
         if (!$directoryTable) return $this;
+        $this->directoryTable = $directoryTable;
         $this->directoryTable->setName('directoryTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getDirectoryTable()
     {

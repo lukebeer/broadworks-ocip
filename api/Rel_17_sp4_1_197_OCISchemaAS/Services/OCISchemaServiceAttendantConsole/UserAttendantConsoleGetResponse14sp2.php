@@ -9,6 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\AttendantConsoleDisplayColumn;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -122,16 +123,17 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
     /**
      * 
      */
-    public function setMonitoredUserTable(core:OCITable $monitoredUserTable = null)
+    public function setMonitoredUserTable(TableType $monitoredUserTable = null)
     {
         if (!$monitoredUserTable) return $this;
+        $this->monitoredUserTable = $monitoredUserTable;
         $this->monitoredUserTable->setName('monitoredUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getMonitoredUserTable()
     {

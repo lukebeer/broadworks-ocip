@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -38,16 +38,17 @@ class SystemPreferredCarrierGetGroupListResponse extends ComplexType implements 
     /**
      * 
      */
-    public function setGroupsUsingCarrierTable(core:OCITable $groupsUsingCarrierTable = null)
+    public function setGroupsUsingCarrierTable(TableType $groupsUsingCarrierTable = null)
     {
         if (!$groupsUsingCarrierTable) return $this;
+        $this->groupsUsingCarrierTable = $groupsUsingCarrierTable;
         $this->groupsUsingCarrierTable->setName('groupsUsingCarrierTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getGroupsUsingCarrierTable()
     {

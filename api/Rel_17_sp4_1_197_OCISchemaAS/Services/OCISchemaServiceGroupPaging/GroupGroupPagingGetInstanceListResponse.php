@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class GroupGroupPagingGetInstanceListResponse extends ComplexType implements Com
     /**
      * 
      */
-    public function setPagingGroupTable(core:OCITable $pagingGroupTable = null)
+    public function setPagingGroupTable(TableType $pagingGroupTable = null)
     {
         if (!$pagingGroupTable) return $this;
+        $this->pagingGroupTable = $pagingGroupTable;
         $this->pagingGroupTable->setName('pagingGroupTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getPagingGroupTable()
     {

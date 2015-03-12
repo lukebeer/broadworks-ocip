@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -54,16 +55,17 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
     /**
      * 
      */
-    public function setAgentsCurrentlyStaffed(core:OCITable $agentsCurrentlyStaffed = null)
+    public function setAgentsCurrentlyStaffed(TableType $agentsCurrentlyStaffed = null)
     {
         if (!$agentsCurrentlyStaffed) return $this;
+        $this->agentsCurrentlyStaffed = $agentsCurrentlyStaffed;
         $this->agentsCurrentlyStaffed->setName('agentsCurrentlyStaffed');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getAgentsCurrentlyStaffed()
     {

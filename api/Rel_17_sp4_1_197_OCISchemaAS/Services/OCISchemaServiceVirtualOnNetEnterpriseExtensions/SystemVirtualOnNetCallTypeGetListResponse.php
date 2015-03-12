@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class SystemVirtualOnNetCallTypeGetListResponse extends ComplexType implements C
     /**
      * 
      */
-    public function setVirtualOnNetCallTypeTable(core:OCITable $virtualOnNetCallTypeTable = null)
+    public function setVirtualOnNetCallTypeTable(TableType $virtualOnNetCallTypeTable = null)
     {
         if (!$virtualOnNetCallTypeTable) return $this;
+        $this->virtualOnNetCallTypeTable = $virtualOnNetCallTypeTable;
         $this->virtualOnNetCallTypeTable->setName('virtualOnNetCallTypeTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getVirtualOnNetCallTypeTable()
     {

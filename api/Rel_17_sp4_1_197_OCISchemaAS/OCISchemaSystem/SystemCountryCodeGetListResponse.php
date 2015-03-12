@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -60,16 +61,17 @@ class SystemCountryCodeGetListResponse extends ComplexType implements ComplexInt
     /**
      * 
      */
-    public function setCountryCodeTable(core:OCITable $countryCodeTable = null)
+    public function setCountryCodeTable(TableType $countryCodeTable = null)
     {
         if (!$countryCodeTable) return $this;
+        $this->countryCodeTable = $countryCodeTable;
         $this->countryCodeTable->setName('countryCodeTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getCountryCodeTable()
     {

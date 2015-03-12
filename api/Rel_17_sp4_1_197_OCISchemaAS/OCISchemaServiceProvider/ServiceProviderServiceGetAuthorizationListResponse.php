@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -39,16 +39,17 @@ class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType imp
     /**
      * 
      */
-    public function setGroupServicesAuthorizationTable(core:OCITable $groupServicesAuthorizationTable = null)
+    public function setGroupServicesAuthorizationTable(TableType $groupServicesAuthorizationTable = null)
     {
         if (!$groupServicesAuthorizationTable) return $this;
+        $this->groupServicesAuthorizationTable = $groupServicesAuthorizationTable;
         $this->groupServicesAuthorizationTable->setName('groupServicesAuthorizationTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getGroupServicesAuthorizationTable()
     {
@@ -58,16 +59,17 @@ class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType imp
     /**
      * 
      */
-    public function setUserServicesAuthorizationTable(core:OCITable $userServicesAuthorizationTable = null)
+    public function setUserServicesAuthorizationTable(TableType $userServicesAuthorizationTable = null)
     {
         if (!$userServicesAuthorizationTable) return $this;
+        $this->userServicesAuthorizationTable = $userServicesAuthorizationTable;
         $this->userServicesAuthorizationTable->setName('userServicesAuthorizationTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getUserServicesAuthorizationTable()
     {

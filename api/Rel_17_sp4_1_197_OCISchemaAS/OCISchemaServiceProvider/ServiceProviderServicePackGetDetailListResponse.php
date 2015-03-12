@@ -12,6 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UnboundedPositiveInt;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServicePackName;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -169,16 +170,17 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
     /**
      * 
      */
-    public function setUserServiceTable(core:OCITable $userServiceTable = null)
+    public function setUserServiceTable(TableType $userServiceTable = null)
     {
         if (!$userServiceTable) return $this;
+        $this->userServiceTable = $userServiceTable;
         $this->userServiceTable->setName('userServiceTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getUserServiceTable()
     {

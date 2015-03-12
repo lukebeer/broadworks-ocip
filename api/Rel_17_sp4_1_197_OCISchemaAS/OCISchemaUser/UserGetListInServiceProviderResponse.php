@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class UserGetListInServiceProviderResponse extends ComplexType implements Comple
     /**
      * 
      */
-    public function setUserTable(core:OCITable $userTable = null)
+    public function setUserTable(TableType $userTable = null)
     {
         if (!$userTable) return $this;
+        $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getUserTable()
     {

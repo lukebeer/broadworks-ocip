@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemTimeZoneGetListResponse extends ComplexType implements ComplexInterf
     /**
      * 
      */
-    public function setTimeZoneTable(core:OCITable $timeZoneTable = null)
+    public function setTimeZoneTable(TableType $timeZoneTable = null)
     {
         if (!$timeZoneTable) return $this;
+        $this->timeZoneTable = $timeZoneTable;
         $this->timeZoneTable->setName('timeZoneTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getTimeZoneTable()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class SystemOfficeZoneGetZoneUsageListResponse extends ComplexType implements Co
     /**
      * 
      */
-    public function setOfficeZoneTable(core:OCITable $officeZoneTable = null)
+    public function setOfficeZoneTable(TableType $officeZoneTable = null)
     {
         if (!$officeZoneTable) return $this;
+        $this->officeZoneTable = $officeZoneTable;
         $this->officeZoneTable->setName('officeZoneTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getOfficeZoneTable()
     {

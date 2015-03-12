@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class GroupDeviceTypeCustomTagGetListResponse extends ComplexType implements Com
     /**
      * 
      */
-    public function setGroupDeviceTypeCustomTagsTable(core:OCITable $groupDeviceTypeCustomTagsTable = null)
+    public function setGroupDeviceTypeCustomTagsTable(TableType $groupDeviceTypeCustomTagsTable = null)
     {
         if (!$groupDeviceTypeCustomTagsTable) return $this;
+        $this->groupDeviceTypeCustomTagsTable = $groupDeviceTypeCustomTagsTable;
         $this->groupDeviceTypeCustomTagsTable->setName('groupDeviceTypeCustomTagsTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getGroupDeviceTypeCustomTagsTable()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class SystemDeviceManagementTagGetListResponse extends ComplexType implements Co
     /**
      * 
      */
-    public function setTagsTable(core:OCITable $tagsTable = null)
+    public function setTagsTable(TableType $tagsTable = null)
     {
         if (!$tagsTable) return $this;
+        $this->tagsTable = $tagsTable;
         $this->tagsTable->setName('tagsTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getTagsTable()
     {

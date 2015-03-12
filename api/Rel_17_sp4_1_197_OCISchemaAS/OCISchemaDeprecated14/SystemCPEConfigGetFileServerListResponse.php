@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class SystemCPEConfigGetFileServerListResponse extends ComplexType implements Co
     /**
      * 
      */
-    public function setFileServerTable(core:OCITable $fileServerTable = null)
+    public function setFileServerTable(TableType $fileServerTable = null)
     {
         if (!$fileServerTable) return $this;
+        $this->fileServerTable = $fileServerTable;
         $this->fileServerTable->setName('fileServerTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getFileServerTable()
     {

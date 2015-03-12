@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class SystemAccessDeviceGetAllResponse extends ComplexType implements ComplexInt
     /**
      * 
      */
-    public function setAccessDeviceTable(core:OCITable $accessDeviceTable = null)
+    public function setAccessDeviceTable(TableType $accessDeviceTable = null)
     {
         if (!$accessDeviceTable) return $this;
+        $this->accessDeviceTable = $accessDeviceTable;
         $this->accessDeviceTable->setName('accessDeviceTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getAccessDeviceTable()
     {

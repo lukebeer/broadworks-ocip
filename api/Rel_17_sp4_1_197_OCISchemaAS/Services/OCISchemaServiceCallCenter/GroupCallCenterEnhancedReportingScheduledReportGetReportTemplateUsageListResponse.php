@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class GroupCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListR
     /**
      * 
      */
-    public function setScheduleReportTable(core:OCITable $scheduleReportTable = null)
+    public function setScheduleReportTable(TableType $scheduleReportTable = null)
     {
         if (!$scheduleReportTable) return $this;
+        $this->scheduleReportTable = $scheduleReportTable;
         $this->scheduleReportTable->setName('scheduleReportTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getScheduleReportTable()
     {

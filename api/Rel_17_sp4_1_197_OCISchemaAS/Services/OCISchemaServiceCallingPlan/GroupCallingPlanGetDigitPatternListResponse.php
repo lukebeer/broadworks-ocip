@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPlan; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class GroupCallingPlanGetDigitPatternListResponse extends ComplexType implements
     /**
      * 
      */
-    public function setDigitPatternTable(core:OCITable $digitPatternTable = null)
+    public function setDigitPatternTable(TableType $digitPatternTable = null)
     {
         if (!$digitPatternTable) return $this;
+        $this->digitPatternTable = $digitPatternTable;
         $this->digitPatternTable->setName('digitPatternTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getDigitPatternTable()
     {

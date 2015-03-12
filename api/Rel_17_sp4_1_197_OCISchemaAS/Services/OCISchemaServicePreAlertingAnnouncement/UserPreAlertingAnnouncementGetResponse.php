@@ -12,6 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileDesc
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MediaFileType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\URL;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -244,16 +245,17 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
     /**
      * 
      */
-    public function setCriteriaTable(core:OCITable $criteriaTable = null)
+    public function setCriteriaTable(TableType $criteriaTable = null)
     {
         if (!$criteriaTable) return $this;
+        $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getCriteriaTable()
     {

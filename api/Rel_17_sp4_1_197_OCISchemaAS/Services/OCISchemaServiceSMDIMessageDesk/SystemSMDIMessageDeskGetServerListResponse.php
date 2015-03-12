@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemSMDIMessageDeskGetServerListResponse extends ComplexType implements 
     /**
      * 
      */
-    public function setSmdiServerTable(core:OCITable $smdiServerTable = null)
+    public function setSmdiServerTable(TableType $smdiServerTable = null)
     {
         if (!$smdiServerTable) return $this;
+        $this->smdiServerTable = $smdiServerTable;
         $this->smdiServerTable->setName('smdiServerTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getSmdiServerTable()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class SystemLegacyAutomaticCallbackGetLineTypeListResponse extends ComplexType i
     /**
      * 
      */
-    public function setLineTypeTable(core:OCITable $lineTypeTable = null)
+    public function setLineTypeTable(TableType $lineTypeTable = null)
     {
         if (!$lineTypeTable) return $this;
+        $this->lineTypeTable = $lineTypeTable;
         $this->lineTypeTable->setName('lineTypeTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getLineTypeTable()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class SystemTwoStageDialingGetDnListResponse extends ComplexType implements Comp
     /**
      * 
      */
-    public function setPhoneNumberTable(core:OCITable $phoneNumberTable = null)
+    public function setPhoneNumberTable(TableType $phoneNumberTable = null)
     {
         if (!$phoneNumberTable) return $this;
+        $this->phoneNumberTable = $phoneNumberTable;
         $this->phoneNumberTable->setName('phoneNumberTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getPhoneNumberTable()
     {

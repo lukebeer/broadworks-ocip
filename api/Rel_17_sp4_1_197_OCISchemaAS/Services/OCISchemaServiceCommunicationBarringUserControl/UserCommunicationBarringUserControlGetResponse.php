@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl; 
 
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -57,16 +58,17 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
     /**
      * 
      */
-    public function setProfileTable(core:OCITable $profileTable = null)
+    public function setProfileTable(TableType $profileTable = null)
     {
         if (!$profileTable) return $this;
+        $this->profileTable = $profileTable;
         $this->profileTable->setName('profileTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getProfileTable()
     {

@@ -10,6 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes\AccountAuthorizationCodeNumberOfDigits;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes\AccountAuthorizationCodeType;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -105,16 +106,17 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
     /**
      * 
      */
-    public function setMandatoryUsageUserTable(core:OCITable $mandatoryUsageUserTable = null)
+    public function setMandatoryUsageUserTable(TableType $mandatoryUsageUserTable = null)
     {
         if (!$mandatoryUsageUserTable) return $this;
+        $this->mandatoryUsageUserTable = $mandatoryUsageUserTable;
         $this->mandatoryUsageUserTable->setName('mandatoryUsageUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getMandatoryUsageUserTable()
     {
@@ -124,16 +126,17 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
     /**
      * 
      */
-    public function setOptionalUsageUserTable(core:OCITable $optionalUsageUserTable = null)
+    public function setOptionalUsageUserTable(TableType $optionalUsageUserTable = null)
     {
         if (!$optionalUsageUserTable) return $this;
+        $this->optionalUsageUserTable = $optionalUsageUserTable;
         $this->optionalUsageUserTable->setName('optionalUsageUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getOptionalUsageUserTable()
     {

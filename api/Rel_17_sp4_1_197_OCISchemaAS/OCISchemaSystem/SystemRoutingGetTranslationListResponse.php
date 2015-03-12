@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemRoutingGetTranslationListResponse extends ComplexType implements Com
     /**
      * 
      */
-    public function setRoutingTable(core:OCITable $routingTable = null)
+    public function setRoutingTable(TableType $routingTable = null)
     {
         if (!$routingTable) return $this;
+        $this->routingTable = $routingTable;
         $this->routingTable->setName('routingTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getRoutingTable()
     {

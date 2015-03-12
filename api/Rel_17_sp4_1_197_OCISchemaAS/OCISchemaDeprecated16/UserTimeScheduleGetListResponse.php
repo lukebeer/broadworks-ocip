@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class UserTimeScheduleGetListResponse extends ComplexType implements ComplexInte
     /**
      * 
      */
-    public function setTimeScheduleTable(core:OCITable $timeScheduleTable = null)
+    public function setTimeScheduleTable(TableType $timeScheduleTable = null)
     {
         if (!$timeScheduleTable) return $this;
+        $this->timeScheduleTable = $timeScheduleTable;
         $this->timeScheduleTable->setName('timeScheduleTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getTimeScheduleTable()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCapacityManagement; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class GroupCallCapacityManagementGetInstanceListResponse extends ComplexType imp
     /**
      * 
      */
-    public function setCallCapacityGroupTable(core:OCITable $callCapacityGroupTable = null)
+    public function setCallCapacityGroupTable(TableType $callCapacityGroupTable = null)
     {
         if (!$callCapacityGroupTable) return $this;
+        $this->callCapacityGroupTable = $callCapacityGroupTable;
         $this->callCapacityGroupTable->setName('callCapacityGroupTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getCallCapacityGroupTable()
     {

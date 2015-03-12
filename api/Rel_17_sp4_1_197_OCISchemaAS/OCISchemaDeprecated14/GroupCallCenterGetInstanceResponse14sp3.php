@@ -16,6 +16,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntNoAn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HuntPolicy;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -377,16 +378,17 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
     /**
      * 
      */
-    public function setAgentUserTable(core:OCITable $agentUserTable = null)
+    public function setAgentUserTable(TableType $agentUserTable = null)
     {
         if (!$agentUserTable) return $this;
+        $this->agentUserTable = $agentUserTable;
         $this->agentUserTable->setName('agentUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getAgentUserTable()
     {

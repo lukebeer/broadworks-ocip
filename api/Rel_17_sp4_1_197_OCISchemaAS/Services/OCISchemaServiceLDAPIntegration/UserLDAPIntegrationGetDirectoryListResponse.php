@@ -10,6 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPColumnLabel;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPPageNumber;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -39,16 +40,17 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
     /**
      * 
      */
-    public function setLdapEntryTable(core:OCITable $ldapEntryTable = null)
+    public function setLdapEntryTable(TableType $ldapEntryTable = null)
     {
         if (!$ldapEntryTable) return $this;
+        $this->ldapEntryTable = $ldapEntryTable;
         $this->ldapEntryTable->setName('ldapEntryTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getLdapEntryTable()
     {

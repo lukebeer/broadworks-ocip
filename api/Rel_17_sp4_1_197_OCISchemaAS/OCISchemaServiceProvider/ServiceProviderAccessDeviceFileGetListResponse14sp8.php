@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class ServiceProviderAccessDeviceFileGetListResponse14sp8 extends ComplexType im
     /**
      * 
      */
-    public function setDeviceFilesTable(core:OCITable $deviceFilesTable = null)
+    public function setDeviceFilesTable(TableType $deviceFilesTable = null)
     {
         if (!$deviceFilesTable) return $this;
+        $this->deviceFilesTable = $deviceFilesTable;
         $this->deviceFilesTable->setName('deviceFilesTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getDeviceFilesTable()
     {

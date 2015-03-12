@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemConfigurableTreatmentGetListResponse extends ComplexType implements 
     /**
      * 
      */
-    public function setTreatmentTable(core:OCITable $treatmentTable = null)
+    public function setTreatmentTable(TableType $treatmentTable = null)
     {
         if (!$treatmentTable) return $this;
+        $this->treatmentTable = $treatmentTable;
         $this->treatmentTable->setName('treatmentTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getTreatmentTable()
     {

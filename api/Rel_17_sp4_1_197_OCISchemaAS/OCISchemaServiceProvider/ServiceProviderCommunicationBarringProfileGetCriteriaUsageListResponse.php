@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -33,16 +33,17 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse ext
     /**
      * 
      */
-    public function setProfileTable(core:OCITable $profileTable = null)
+    public function setProfileTable(TableType $profileTable = null)
     {
         if (!$profileTable) return $this;
+        $this->profileTable = $profileTable;
         $this->profileTable->setName('profileTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getProfileTable()
     {

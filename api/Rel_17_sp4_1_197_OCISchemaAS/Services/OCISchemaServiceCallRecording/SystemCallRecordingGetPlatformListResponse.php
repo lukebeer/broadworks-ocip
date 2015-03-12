@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\CallRecordingPlatformName;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -57,16 +58,17 @@ class SystemCallRecordingGetPlatformListResponse extends ComplexType implements 
     /**
      * 
      */
-    public function setCallRecordingPlatformTable(core:OCITable $callRecordingPlatformTable = null)
+    public function setCallRecordingPlatformTable(TableType $callRecordingPlatformTable = null)
     {
         if (!$callRecordingPlatformTable) return $this;
+        $this->callRecordingPlatformTable = $callRecordingPlatformTable;
         $this->callRecordingPlatformTable->setName('callRecordingPlatformTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getCallRecordingPlatformTable()
     {

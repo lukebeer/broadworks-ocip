@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -37,16 +37,17 @@ class GroupGetUserServiceAssignedUserListResponse extends ComplexType implements
     /**
      * 
      */
-    public function setUserListTable(core:OCITable $userListTable = null)
+    public function setUserListTable(TableType $userListTable = null)
     {
         if (!$userListTable) return $this;
+        $this->userListTable = $userListTable;
         $this->userListTable->setName('userListTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getUserListTable()
     {

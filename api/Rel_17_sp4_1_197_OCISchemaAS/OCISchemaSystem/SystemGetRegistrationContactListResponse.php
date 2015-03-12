@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -33,16 +33,17 @@ class SystemGetRegistrationContactListResponse extends ComplexType implements Co
     /**
      * 
      */
-    public function setRegistrationTable(core:OCITable $registrationTable = null)
+    public function setRegistrationTable(TableType $registrationTable = null)
     {
         if (!$registrationTable) return $this;
+        $this->registrationTable = $registrationTable;
         $this->registrationTable->setName('registrationTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getRegistrationTable()
     {

@@ -14,6 +14,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingCallId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -227,16 +228,17 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
     /**
      * 
      */
-    public function setDocumentTable(core:OCITable $documentTable = null)
+    public function setDocumentTable(TableType $documentTable = null)
     {
         if (!$documentTable) return $this;
+        $this->documentTable = $documentTable;
         $this->documentTable->setName('documentTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getDocumentTable()
     {

@@ -12,6 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceInstanceReadProfile;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointLinePort;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -170,16 +171,17 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
     /**
      * 
      */
-    public function setBridgeAdministratorUserTable(core:OCITable $bridgeAdministratorUserTable = null)
+    public function setBridgeAdministratorUserTable(TableType $bridgeAdministratorUserTable = null)
     {
         if (!$bridgeAdministratorUserTable) return $this;
+        $this->bridgeAdministratorUserTable = $bridgeAdministratorUserTable;
         $this->bridgeAdministratorUserTable->setName('bridgeAdministratorUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getBridgeAdministratorUserTable()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class UserCallCenterGetAgentSupervisorListResponse extends ComplexType implement
     /**
      * 
      */
-    public function setSupervisorTable(core:OCITable $supervisorTable = null)
+    public function setSupervisorTable(TableType $supervisorTable = null)
     {
         if (!$supervisorTable) return $this;
+        $this->supervisorTable = $supervisorTable;
         $this->supervisorTable->setName('supervisorTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getSupervisorTable()
     {

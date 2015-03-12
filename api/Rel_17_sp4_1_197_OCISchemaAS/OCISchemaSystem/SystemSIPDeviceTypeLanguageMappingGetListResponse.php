@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class SystemSIPDeviceTypeLanguageMappingGetListResponse extends ComplexType impl
     /**
      * 
      */
-    public function setDeviceTypeLanguagesTable(core:OCITable $deviceTypeLanguagesTable = null)
+    public function setDeviceTypeLanguagesTable(TableType $deviceTypeLanguagesTable = null)
     {
         if (!$deviceTypeLanguagesTable) return $this;
+        $this->deviceTypeLanguagesTable = $deviceTypeLanguagesTable;
         $this->deviceTypeLanguagesTable->setName('deviceTypeLanguagesTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getDeviceTypeLanguagesTable()
     {

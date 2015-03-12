@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class GroupBroadWorksAnywhereGetInstanceListResponse extends ComplexType impleme
     /**
      * 
      */
-    public function setBroadWorksAnywhereTable(core:OCITable $broadWorksAnywhereTable = null)
+    public function setBroadWorksAnywhereTable(TableType $broadWorksAnywhereTable = null)
     {
         if (!$broadWorksAnywhereTable) return $this;
+        $this->broadWorksAnywhereTable = $broadWorksAnywhereTable;
         $this->broadWorksAnywhereTable->setName('broadWorksAnywhereTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getBroadWorksAnywhereTable()
     {

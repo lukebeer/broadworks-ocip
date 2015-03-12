@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class GroupDepartmentAdminGetListResponse extends ComplexType implements Complex
     /**
      * 
      */
-    public function setDepartmentAdminTable(core:OCITable $departmentAdminTable = null)
+    public function setDepartmentAdminTable(TableType $departmentAdminTable = null)
     {
         if (!$departmentAdminTable) return $this;
+        $this->departmentAdminTable = $departmentAdminTable;
         $this->departmentAdminTable->setName('departmentAdminTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getDepartmentAdminTable()
     {

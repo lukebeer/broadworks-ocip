@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -38,16 +38,17 @@ class UserCallCenterCallDispositionCodeGetAvailableListResponse extends ComplexT
     /**
      * 
      */
-    public function setDispositionCodesTable(core:OCITable $dispositionCodesTable = null)
+    public function setDispositionCodesTable(TableType $dispositionCodesTable = null)
     {
         if (!$dispositionCodesTable) return $this;
+        $this->dispositionCodesTable = $dispositionCodesTable;
         $this->dispositionCodesTable->setName('dispositionCodesTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getDispositionCodesTable()
     {

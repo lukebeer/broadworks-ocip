@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -57,16 +58,17 @@ class SystemNetworkSynchingServerGetListResponse extends ComplexType implements 
     /**
      * 
      */
-    public function setNetworkSynchingServerTable(core:OCITable $networkSynchingServerTable = null)
+    public function setNetworkSynchingServerTable(TableType $networkSynchingServerTable = null)
     {
         if (!$networkSynchingServerTable) return $this;
+        $this->networkSynchingServerTable = $networkSynchingServerTable;
         $this->networkSynchingServerTable->setName('networkSynchingServerTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getNetworkSynchingServerTable()
     {

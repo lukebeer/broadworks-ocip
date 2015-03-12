@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantGroupCall; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class GroupInstantGroupCallGetInstanceListResponse extends ComplexType implement
     /**
      * 
      */
-    public function setInstantGroupCallTable(core:OCITable $instantGroupCallTable = null)
+    public function setInstantGroupCallTable(TableType $instantGroupCallTable = null)
     {
         if (!$instantGroupCallTable) return $this;
+        $this->instantGroupCallTable = $instantGroupCallTable;
         $this->instantGroupCallTable->setName('instantGroupCallTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getInstantGroupCallTable()
     {

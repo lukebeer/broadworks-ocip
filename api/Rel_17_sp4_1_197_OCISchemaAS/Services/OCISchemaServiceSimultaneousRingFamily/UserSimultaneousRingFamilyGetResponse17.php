@@ -9,6 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingNumber;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -98,16 +99,17 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
     /**
      * 
      */
-    public function setCriteriaTable(core:OCITable $criteriaTable = null)
+    public function setCriteriaTable(TableType $criteriaTable = null)
     {
         if (!$criteriaTable) return $this;
+        $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getCriteriaTable()
     {

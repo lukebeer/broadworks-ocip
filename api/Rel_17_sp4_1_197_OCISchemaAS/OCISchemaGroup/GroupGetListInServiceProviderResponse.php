@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class GroupGetListInServiceProviderResponse extends ComplexType implements Compl
     /**
      * 
      */
-    public function setGroupTable(core:OCITable $groupTable = null)
+    public function setGroupTable(TableType $groupTable = null)
     {
         if (!$groupTable) return $this;
+        $this->groupTable = $groupTable;
         $this->groupTable->setName('groupTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getGroupTable()
     {

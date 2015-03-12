@@ -10,6 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SharedCallAppearanceMaximumAppearances;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SharedCallAppearanceBridgeWarningTone;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -172,16 +173,17 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
     /**
      * 
      */
-    public function setEndpointTable(core:OCITable $endpointTable = null)
+    public function setEndpointTable(TableType $endpointTable = null)
     {
         if (!$endpointTable) return $this;
+        $this->endpointTable = $endpointTable;
         $this->endpointTable->setName('endpointTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getEndpointTable()
     {

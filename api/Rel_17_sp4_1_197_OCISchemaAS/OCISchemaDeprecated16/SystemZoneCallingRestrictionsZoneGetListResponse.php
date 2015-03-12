@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class SystemZoneCallingRestrictionsZoneGetListResponse extends ComplexType imple
     /**
      * 
      */
-    public function setZoneTable(core:OCITable $zoneTable = null)
+    public function setZoneTable(TableType $zoneTable = null)
     {
         if (!$zoneTable) return $this;
+        $this->zoneTable = $zoneTable;
         $this->zoneTable->setName('zoneTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getZoneTable()
     {

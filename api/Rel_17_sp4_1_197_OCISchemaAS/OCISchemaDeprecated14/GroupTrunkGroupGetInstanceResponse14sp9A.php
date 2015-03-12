@@ -30,6 +30,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -587,16 +588,17 @@ class GroupTrunkGroupGetInstanceResponse14sp9A extends ComplexType implements Co
     /**
      * 
      */
-    public function setHostedUserTable(core:OCITable $hostedUserTable = null)
+    public function setHostedUserTable(TableType $hostedUserTable = null)
     {
         if (!$hostedUserTable) return $this;
+        $this->hostedUserTable = $hostedUserTable;
         $this->hostedUserTable->setName('hostedUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getHostedUserTable()
     {

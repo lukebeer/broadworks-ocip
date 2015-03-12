@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -33,16 +33,17 @@ class SystemBwDiameterPeerGetListResponse extends ComplexType implements Complex
     /**
      * 
      */
-    public function setPeerTable(core:OCITable $peerTable = null)
+    public function setPeerTable(TableType $peerTable = null)
     {
         if (!$peerTable) return $this;
+        $this->peerTable = $peerTable;
         $this->peerTable->setName('peerTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getPeerTable()
     {

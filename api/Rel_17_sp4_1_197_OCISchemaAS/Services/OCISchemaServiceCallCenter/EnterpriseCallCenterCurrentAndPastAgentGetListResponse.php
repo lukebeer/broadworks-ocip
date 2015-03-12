@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class EnterpriseCallCenterCurrentAndPastAgentGetListResponse extends ComplexType
     /**
      * 
      */
-    public function setAgentUserTable(core:OCITable $agentUserTable = null)
+    public function setAgentUserTable(TableType $agentUserTable = null)
     {
         if (!$agentUserTable) return $this;
+        $this->agentUserTable = $agentUserTable;
         $this->agentUserTable->setName('agentUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getAgentUserTable()
     {
@@ -54,16 +55,17 @@ class EnterpriseCallCenterCurrentAndPastAgentGetListResponse extends ComplexType
     /**
      * 
      */
-    public function setDeletedAgentUserTable(core:OCITable $deletedAgentUserTable = null)
+    public function setDeletedAgentUserTable(TableType $deletedAgentUserTable = null)
     {
         if (!$deletedAgentUserTable) return $this;
+        $this->deletedAgentUserTable = $deletedAgentUserTable;
         $this->deletedAgentUserTable->setName('deletedAgentUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getDeletedAgentUserTable()
     {

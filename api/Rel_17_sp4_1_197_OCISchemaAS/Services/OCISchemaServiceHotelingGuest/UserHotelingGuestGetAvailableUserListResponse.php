@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingGuest; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class UserHotelingGuestGetAvailableUserListResponse extends ComplexType implemen
     /**
      * 
      */
-    public function setHostUserTable(core:OCITable $hostUserTable = null)
+    public function setHostUserTable(TableType $hostUserTable = null)
     {
         if (!$hostUserTable) return $this;
+        $this->hostUserTable = $hostUserTable;
         $this->hostUserTable->setName('hostUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getHostUserTable()
     {

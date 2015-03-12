@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -57,16 +58,17 @@ class SystemLanguageGetListResponse extends ComplexType implements ComplexInterf
     /**
      * 
      */
-    public function setLanguageTable(core:OCITable $languageTable = null)
+    public function setLanguageTable(TableType $languageTable = null)
     {
         if (!$languageTable) return $this;
+        $this->languageTable = $languageTable;
         $this->languageTable->setName('languageTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getLanguageTable()
     {

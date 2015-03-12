@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemRoutingGetRouteDeviceListResponse extends ComplexType implements Com
     /**
      * 
      */
-    public function setRouteDeviceTable(core:OCITable $routeDeviceTable = null)
+    public function setRouteDeviceTable(TableType $routeDeviceTable = null)
     {
         if (!$routeDeviceTable) return $this;
+        $this->routeDeviceTable = $routeDeviceTable;
         $this->routeDeviceTable->setName('routeDeviceTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getRouteDeviceTable()
     {

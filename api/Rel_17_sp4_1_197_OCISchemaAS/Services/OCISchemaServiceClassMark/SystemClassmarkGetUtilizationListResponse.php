@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class SystemClassmarkGetUtilizationListResponse extends ComplexType implements C
     /**
      * 
      */
-    public function setClassmarkUserTable(core:OCITable $classmarkUserTable = null)
+    public function setClassmarkUserTable(TableType $classmarkUserTable = null)
     {
         if (!$classmarkUserTable) return $this;
+        $this->classmarkUserTable = $classmarkUserTable;
         $this->classmarkUserTable->setName('classmarkUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getClassmarkUserTable()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class EnterpriseEnterpriseTrunkGetListResponse extends ComplexType implements Co
     /**
      * 
      */
-    public function setEnterpriseTrunkTable(core:OCITable $enterpriseTrunkTable = null)
+    public function setEnterpriseTrunkTable(TableType $enterpriseTrunkTable = null)
     {
         if (!$enterpriseTrunkTable) return $this;
+        $this->enterpriseTrunkTable = $enterpriseTrunkTable;
         $this->enterpriseTrunkTable->setName('enterpriseTrunkTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getEnterpriseTrunkTable()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class GroupRoutePointGetInstanceListResponse extends ComplexType implements Comp
     /**
      * 
      */
-    public function setRoutePointTable(core:OCITable $routePointTable = null)
+    public function setRoutePointTable(TableType $routePointTable = null)
     {
         if (!$routePointTable) return $this;
+        $this->routePointTable = $routePointTable;
         $this->routePointTable->setName('routePointTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getRoutePointTable()
     {

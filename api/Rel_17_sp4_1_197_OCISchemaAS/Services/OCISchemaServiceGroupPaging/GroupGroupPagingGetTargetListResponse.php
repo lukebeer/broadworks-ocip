@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class GroupGroupPagingGetTargetListResponse extends ComplexType implements Compl
     /**
      * 
      */
-    public function setTargetTable(core:OCITable $targetTable = null)
+    public function setTargetTable(TableType $targetTable = null)
     {
         if (!$targetTable) return $this;
+        $this->targetTable = $targetTable;
         $this->targetTable->setName('targetTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getTargetTable()
     {

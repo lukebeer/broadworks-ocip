@@ -12,6 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceI
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -148,16 +149,17 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
     /**
      * 
      */
-    public function setConferenceHostUserTable(core:OCITable $conferenceHostUserTable = null)
+    public function setConferenceHostUserTable(TableType $conferenceHostUserTable = null)
     {
         if (!$conferenceHostUserTable) return $this;
+        $this->conferenceHostUserTable = $conferenceHostUserTable;
         $this->conferenceHostUserTable->setName('conferenceHostUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getConferenceHostUserTable()
     {

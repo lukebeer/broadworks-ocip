@@ -9,13 +9,9 @@ namespace Broadworks_OCIP\core\Response;
 
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
+use Broadworks_OCIP\core\Serializer\XMLSerializer;
 use Broadworks_OCIP\core\Logging\ErrorControl;
 use Broadworks_OCIP\core\Builder\Builder;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress;
 
 
 class Response
@@ -72,10 +68,9 @@ class Response
         }
         switch ($outputType) {
             case ResponseOutput::STD:
-                $normalizer = new GetSetMethodNormalizer();
-                $encoder = new XmlEncoder('command');
-                $serializer = new Serializer([$normalizer], [$encoder]);
-                $this->response = $serializer->deserialize($cmdResponse, $responseType, 'xml');
+                $serializer = new XMLSerializer();
+                $object = $serializer->serialize($responseType, $cmdResponse);
+                $this->response = $object;
                 break;
             case ResponseOutput::XML:
                 $this->response = $cmdResponse;
@@ -86,28 +81,8 @@ class Response
             case ResponseOutput::SIMPLEXML:
                 $this->response = simplexml_load_string($cmdResponse, 'SimpleXMLElement', 0, "", true);
                 break;
-            case ResponseOutput::TABLE:
-                require_once 'Console/Table.php';
-                $tbl = new Console_Table();
-                $data = simplexml_load_string($cmdResponse, 'SimpleXMLElement', 0, "", true);
-                $table = $data->children()[0];
-                if (strpos($table->getName(), 'Table')) {
-                    $headers = (array)$table->children()->colHeading;
-                    $tbl->setHeaders($headers);
-                    foreach ($table->children()->row as $row) {
-                        $tbl->addRow((array)$row->col);
-                    }
-                } else {
-                    $data = (array)$data;
-                    unset($data{"@attributes"});
-                    $tbl->setHeaders(array_keys($data));
-                    $tbl->addRow(array_values($data));
-                }
-                $this->response = $tbl->getTable();
-                break;
             case ResponseOutput::PRETTY:
                 $response = (object)json_decode(json_encode((array)simplexml_load_string($cmdResponse, 'SimpleXMLElement', 0, "", true)), 1);
-                //$this->response = $this->pdump($response);
                 $this->response = $response;
                 break;
         }

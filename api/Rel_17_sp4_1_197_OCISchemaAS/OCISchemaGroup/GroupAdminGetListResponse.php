@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class GroupAdminGetListResponse extends ComplexType implements ComplexInterface
     /**
      * 
      */
-    public function setGroupAdminTable(core:OCITable $groupAdminTable = null)
+    public function setGroupAdminTable(TableType $groupAdminTable = null)
     {
         if (!$groupAdminTable) return $this;
+        $this->groupAdminTable = $groupAdminTable;
         $this->groupAdminTable->setName('groupAdminTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getGroupAdminTable()
     {

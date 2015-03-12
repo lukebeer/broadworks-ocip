@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemBroadWorksMobilityServiceAccessCodeGetListResponse extends ComplexTy
     /**
      * 
      */
-    public function setServiceAccessCodeTable(core:OCITable $serviceAccessCodeTable = null)
+    public function setServiceAccessCodeTable(TableType $serviceAccessCodeTable = null)
     {
         if (!$serviceAccessCodeTable) return $this;
+        $this->serviceAccessCodeTable = $serviceAccessCodeTable;
         $this->serviceAccessCodeTable->setName('serviceAccessCodeTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getServiceAccessCodeTable()
     {

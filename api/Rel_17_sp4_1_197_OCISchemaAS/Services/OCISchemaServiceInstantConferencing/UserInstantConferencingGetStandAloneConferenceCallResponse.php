@@ -9,6 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingTitle;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -166,16 +167,17 @@ class UserInstantConferencingGetStandAloneConferenceCallResponse extends Complex
     /**
      * 
      */
-    public function setConferenceLegTable(core:OCITable $conferenceLegTable = null)
+    public function setConferenceLegTable(TableType $conferenceLegTable = null)
     {
         if (!$conferenceLegTable) return $this;
+        $this->conferenceLegTable = $conferenceLegTable;
         $this->conferenceLegTable->setName('conferenceLegTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getConferenceLegTable()
     {

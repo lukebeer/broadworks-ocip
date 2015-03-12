@@ -10,6 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk\PushToTalkOutgoingConnectionSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk\PushToTalkAccessListSelection;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -104,16 +105,17 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
     /**
      * 
      */
-    public function setSelectedUserTable(core:OCITable $selectedUserTable = null)
+    public function setSelectedUserTable(TableType $selectedUserTable = null)
     {
         if (!$selectedUserTable) return $this;
+        $this->selectedUserTable = $selectedUserTable;
         $this->selectedUserTable->setName('selectedUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getSelectedUserTable()
     {

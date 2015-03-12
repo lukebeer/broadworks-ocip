@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class UserMeetMeConferencingGetConferenceRecordingListResponse extends ComplexTy
     /**
      * 
      */
-    public function setConferenceRecordingTable(core:OCITable $conferenceRecordingTable = null)
+    public function setConferenceRecordingTable(TableType $conferenceRecordingTable = null)
     {
         if (!$conferenceRecordingTable) return $this;
+        $this->conferenceRecordingTable = $conferenceRecordingTable;
         $this->conferenceRecordingTable->setName('conferenceRecordingTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getConferenceRecordingTable()
     {

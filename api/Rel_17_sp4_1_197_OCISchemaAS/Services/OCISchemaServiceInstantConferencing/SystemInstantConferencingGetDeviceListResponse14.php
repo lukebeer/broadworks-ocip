@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemInstantConferencingGetDeviceListResponse14 extends ComplexType imple
     /**
      * 
      */
-    public function setInstantConferencingDeviceTable(core:OCITable $instantConferencingDeviceTable = null)
+    public function setInstantConferencingDeviceTable(TableType $instantConferencingDeviceTable = null)
     {
         if (!$instantConferencingDeviceTable) return $this;
+        $this->instantConferencingDeviceTable = $instantConferencingDeviceTable;
         $this->instantConferencingDeviceTable->setName('instantConferencingDeviceTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getInstantConferencingDeviceTable()
     {

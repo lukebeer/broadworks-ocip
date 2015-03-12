@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class GroupGroupPagingGetOriginatorListResponse extends ComplexType implements C
     /**
      * 
      */
-    public function setOriginatorTable(core:OCITable $originatorTable = null)
+    public function setOriginatorTable(TableType $originatorTable = null)
     {
         if (!$originatorTable) return $this;
+        $this->originatorTable = $originatorTable;
         $this->originatorTable->setName('originatorTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getOriginatorTable()
     {

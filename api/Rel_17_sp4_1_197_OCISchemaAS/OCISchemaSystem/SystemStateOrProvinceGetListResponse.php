@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class SystemStateOrProvinceGetListResponse extends ComplexType implements Comple
     /**
      * 
      */
-    public function setStateOrProvinceTable(core:OCITable $stateOrProvinceTable = null)
+    public function setStateOrProvinceTable(TableType $stateOrProvinceTable = null)
     {
         if (!$stateOrProvinceTable) return $this;
+        $this->stateOrProvinceTable = $stateOrProvinceTable;
         $this->stateOrProvinceTable->setName('stateOrProvinceTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getStateOrProvinceTable()
     {

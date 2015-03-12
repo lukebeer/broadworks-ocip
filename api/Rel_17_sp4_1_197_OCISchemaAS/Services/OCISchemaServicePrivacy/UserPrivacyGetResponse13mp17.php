@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy; 
 
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -125,16 +126,17 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
     /**
      * 
      */
-    public function setPermittedMonitorUserIdTable(core:OCITable $permittedMonitorUserIdTable = null)
+    public function setPermittedMonitorUserIdTable(TableType $permittedMonitorUserIdTable = null)
     {
         if (!$permittedMonitorUserIdTable) return $this;
+        $this->permittedMonitorUserIdTable = $permittedMonitorUserIdTable;
         $this->permittedMonitorUserIdTable->setName('permittedMonitorUserIdTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getPermittedMonitorUserIdTable()
     {

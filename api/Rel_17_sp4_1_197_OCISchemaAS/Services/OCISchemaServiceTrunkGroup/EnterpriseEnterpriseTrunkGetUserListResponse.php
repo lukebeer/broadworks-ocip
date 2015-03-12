@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class EnterpriseEnterpriseTrunkGetUserListResponse extends ComplexType implement
     /**
      * 
      */
-    public function setEnterpriseTrunkUserTable(core:OCITable $enterpriseTrunkUserTable = null)
+    public function setEnterpriseTrunkUserTable(TableType $enterpriseTrunkUserTable = null)
     {
         if (!$enterpriseTrunkUserTable) return $this;
+        $this->enterpriseTrunkUserTable = $enterpriseTrunkUserTable;
         $this->enterpriseTrunkUserTable->setName('enterpriseTrunkUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getEnterpriseTrunkUserTable()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePolycomPhoneServices; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,16 +34,17 @@ class UserPolycomPhoneServicesGetPrimaryEndpointListResponse extends ComplexType
     /**
      * 
      */
-    public function setDeviceUserTable(core:OCITable $deviceUserTable = null)
+    public function setDeviceUserTable(TableType $deviceUserTable = null)
     {
         if (!$deviceUserTable) return $this;
+        $this->deviceUserTable = $deviceUserTable;
         $this->deviceUserTable->setName('deviceUserTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getDeviceUserTable()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class GroupCallCenterGetAgentListResponse extends ComplexType implements Complex
     /**
      * 
      */
-    public function setAgentTable(core:OCITable $agentTable = null)
+    public function setAgentTable(TableType $agentTable = null)
     {
         if (!$agentTable) return $this;
+        $this->agentTable = $agentTable;
         $this->agentTable->setName('agentTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getAgentTable()
     {

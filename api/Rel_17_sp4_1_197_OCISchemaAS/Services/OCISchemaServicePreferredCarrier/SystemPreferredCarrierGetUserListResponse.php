@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class SystemPreferredCarrierGetUserListResponse extends ComplexType implements C
     /**
      * 
      */
-    public function setUsersUsingCarrierTable(core:OCITable $usersUsingCarrierTable = null)
+    public function setUsersUsingCarrierTable(TableType $usersUsingCarrierTable = null)
     {
         if (!$usersUsingCarrierTable) return $this;
+        $this->usersUsingCarrierTable = $usersUsingCarrierTable;
         $this->usersUsingCarrierTable->setName('usersUsingCarrierTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getUsersUsingCarrierTable()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,16 +36,17 @@ class GroupTrunkGroupGetInstanceListResponse14sp4 extends ComplexType implements
     /**
      * 
      */
-    public function setTrunkGroupTable(core:OCITable $trunkGroupTable = null)
+    public function setTrunkGroupTable(TableType $trunkGroupTable = null)
     {
         if (!$trunkGroupTable) return $this;
+        $this->trunkGroupTable = $trunkGroupTable;
         $this->trunkGroupTable->setName('trunkGroupTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getTrunkGroupTable()
     {

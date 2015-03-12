@@ -19,6 +19,9 @@ abstract class TypeMap {
             case 'xs:token':
             case 'xs:int':
                 return "";
+            case 'core:OCITable':
+                return 'TableType';
+                break;
             default:
                 return $type;
         }
@@ -183,6 +186,9 @@ class BuildAPI {
                             $code .= "$pad         : new {$item['type']}(\${$item['name']});\n";
                         } elseif ($this->checkComplexType($item['type'])) {
                             $code .= "$pad    \$this->{$item['name']} = \${$item['name']};\n";
+                        } elseif (preg_match('/Table/i', ($item['type']))) {
+                            $types[] = "use Broadworks_OCIP\core\Builder\Types\TableType;";
+                            $code .= "$pad    \$this->{$item['name']} = \${$item['name']};\n";
                         } elseif (TypeMap::xsType($item['type'])) {
                             $types[] = "use Broadworks_OCIP\core\Builder\Types\PrimitiveType;";
                             $code .= "$pad    \$this->{$item['name']} = new PrimitiveType(\${$item['name']});\n";
@@ -221,7 +227,7 @@ class BuildAPI {
                     $code .= "\n$pad";
                     $code .= "/**\n";
                     $code .= "$pad * ". implode("\n$pad * ", explode("\n", trim($item['documentation'])));
-                    $code .= "\n$pad * @return {$item['type']}";
+                    $code .= (preg_match('/table/i', $item['type'])) ? "\n$pad * @return TableType" : "\n$pad * @return {$item['type']}";
                     $code .= "\n$pad */\n$pad";
                     $code .= "public function get".ucfirst($item['name'])."()\n";
                     $code .= "$pad{\n";

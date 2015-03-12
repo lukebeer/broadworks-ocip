@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class SystemOCIReportingGetACLListResponse extends ComplexType implements Comple
     /**
      * 
      */
-    public function setOciReportingACLTable(core:OCITable $ociReportingACLTable = null)
+    public function setOciReportingACLTable(TableType $ociReportingACLTable = null)
     {
         if (!$ociReportingACLTable) return $this;
+        $this->ociReportingACLTable = $ociReportingACLTable;
         $this->ociReportingACLTable->setName('ociReportingACLTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getOciReportingACLTable()
     {

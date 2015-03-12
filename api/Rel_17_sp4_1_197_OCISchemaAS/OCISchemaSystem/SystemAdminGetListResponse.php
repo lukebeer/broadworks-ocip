@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,16 +35,17 @@ class SystemAdminGetListResponse extends ComplexType implements ComplexInterface
     /**
      * 
      */
-    public function setSystemAdminTable(core:OCITable $systemAdminTable = null)
+    public function setSystemAdminTable(TableType $systemAdminTable = null)
     {
         if (!$systemAdminTable) return $this;
+        $this->systemAdminTable = $systemAdminTable;
         $this->systemAdminTable->setName('systemAdminTable');
         return $this;
     }
 
     /**
      * 
-     * @return core:OCITable
+     * @return TableType
      */
     public function getSystemAdminTable()
     {
