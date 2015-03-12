@@ -3,9 +3,7 @@ Broadworks OCIP PHP Framework
 
 After years of mentally debating and designing the architecture of this framework, version 2 has finally been pushed!
 
-The driver for this version is a Broadworks provisioning backup system that will have the ability to 'snapshot', backup and restore user/group/enterprise provisioning config much the way Apples 'TimeMachine' backup system does.
-
-Versioning and history will support fault diagnosis - being able to switch back to a 'last known working config' at the click of a button will save huge amounts of time, pain and mitigate as much human error as possible.
+The driver for this version is a Broadworks provisioning backup system that will have the ability to 'snapshot', backup and restore user/group/enterprise provisioning config much the way Apples 'TimeMachine' backup system does. Versioning and history will support fault diagnosis - being able to switch back to a 'last known working config' at the click of a button will save huge amounts of time, pain and mitigate as much human error as possible.
 
 Building the backup system requires something intelligent enough to handle all data types dynamically in the such a way that it's possible to have an object of any type mapped into another object of any type (think automatically mapping a userGetRequest into a userAddRequest or userModifyRequest on the fly).
 
