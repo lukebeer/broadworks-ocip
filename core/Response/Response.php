@@ -13,13 +13,26 @@ use Broadworks_OCIP\core\Serializer\XMLSerializer;
 use Broadworks_OCIP\core\Logging\ErrorControl;
 use Broadworks_OCIP\core\Builder\Builder;
 
-
+/**
+ * Class Response takes XML and spits out the requested response type.
+ * Much room for improvement here by splitting up responsibilities.
+ *
+ * @package Broadworks_OCIP\core\Response
+ */
 class Response
 {
     private $response = false;
     private $responseBody = null;
 
 
+    /**
+     * Constructor.
+     *
+     * @param string $response
+     * @param string $responseType
+     * @param int $outputType
+     * @param array $appends
+     */
     public function __construct($response, $responseType, $outputType, $appends)
     {
         $this->response = $response;
@@ -27,18 +40,29 @@ class Response
         if (preg_match('/SuccessResponse/', $this->response)) return $this->SuccessResponse();
         if (preg_match('/ErrorResponse/', $this->response)) return $this->ErrorResponse();
         if (preg_match('/<command .*>(.*)<\/command>/', $this->response, $cmdResponse)) {
-            $this->OCIResponse($cmdResponse[0], $responseType, $outputType, $appends);
+            $this->Response($cmdResponse[0], $responseType, $outputType, $appends);
             return true;
         }
         return false;
     }
 
+    /**
+     * Command executed fine, that's all folks.
+     *
+     * @return bool
+     */
     private function SuccessResponse()
     {
         $this->response = true;
         return true;
     }
 
+    /**
+     * Oh noes, fire zee missiles! ..But I am le' tired.
+     * Returns false, adds detail into ErrorControl
+     *
+     * @return bool
+     */
     private function ErrorResponse()
     {
         $errorControl = new ErrorControl();
@@ -52,7 +76,15 @@ class Response
         return false;
     }
 
-    private function OCIResponse($cmdResponse, $responseType, $outputType, $appends)
+    /**
+     * Called by the constructor, generates the requested response.
+     *
+     * @param string $cmdResponse
+     * @param string $responseType
+     * @param int $outputType
+     * @param array $appends
+     */
+    private function Response($cmdResponse, $responseType, $outputType, $appends)
     {
         $cmdResponse = str_replace('xsi:type', 'type', $cmdResponse);
         if (count($appends) >= 1) {
@@ -88,6 +120,13 @@ class Response
         }
     }
 
+    /**
+     * Used for debugging, will probably get rid of this mess soon.
+     *
+     * @param $data
+     * @param int $indent
+     * @return string
+     */
     public function pdump($data, $indent = 0)
     {
         $retval = '';
@@ -115,6 +154,11 @@ class Response
         return $retval;
     }
 
+    /**
+     * WTF?
+     *
+     * @return null
+     */
     public function UnknownResponse()
     {
         $errorControl = new ErrorControl();
@@ -123,11 +167,21 @@ class Response
         return null;
     }
 
+    /**
+     * Returns whatever the response is.
+     *
+     * @return ComplexType|bool|string
+     */
     public function getResponse()
     {
         return $this->response;
     }
 
+    /**
+     * The Virgin, un-fiddled-with response body from Broadworks.
+     *
+     * @return null|string
+     */
     public function getResponseBody()
     {
         return $this->responseBody;
