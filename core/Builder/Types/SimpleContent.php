@@ -7,12 +7,19 @@
 
 namespace Broadworks_OCIP\core\Builder\Types;
 
+
 use Broadworks_OCIP\core\Builder\Restrictions\RestrictionInterface;
 
-
+/**
+ * Class SimpleContent
+ * @package Broadworks_OCIP\core\Builder\Types
+ */
 class SimpleContent extends SimpleType implements SimpleInterface
 {
 
+    /**
+     * @param $name
+     */
     public function __construct($name)
     {
         $this->setName($name);

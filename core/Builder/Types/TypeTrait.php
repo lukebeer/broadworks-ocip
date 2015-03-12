@@ -7,17 +7,27 @@
 
 namespace Broadworks_OCIP\core\Builder\Types;
 
-
+/**
+ * Common trait all types have.
+ *
+ * Class TypeTrait
+ * @package Broadworks_OCIP\core\Builder\Types
+ */
 trait TypeTrait
 {
     protected $value;
 
-
+    /**
+     * @return string
+     */
     public function getType()
     {
         return join('', array_slice(explode('\\', get_class($this)), -1));
     }
 
+    /**
+     * @return mixed
+     */
     public function getValue()
     {
         return $this->value;

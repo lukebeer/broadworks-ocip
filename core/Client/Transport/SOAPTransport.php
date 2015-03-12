@@ -10,7 +10,10 @@ namespace Broadworks_OCIP\core\Client\Transport;
 use Broadworks_OCIP\core\Response\Response;
 use Broadworks_OCIP\core\Response\ResponseOutput;
 
-
+/**
+ * Class SOAPTransport communicates with Broadworks via http(s), this is the slowest but most robust transport type
+ * @package Broadworks_OCIP\core\Client\Transport
+ */
 class SOAPTransport implements TransportInterface
 {
     public $response;
@@ -20,6 +23,15 @@ class SOAPTransport implements TransportInterface
     private $proxy;
     private $request;
 
+    /**
+     * Constructor, sets up transport ready for use.
+     *
+     * @param string $url
+     * @param int $timeout
+     * @param bool $autoLogout
+     * @param bool $followRedirects
+     * @param null $proxy
+     */
     public function __construct($url, $timeout = 10, $autoLogout = true, $followRedirects = true, $proxy = null)
     {
         $this->errorControl = &CoreFactory::getErrorControl();
@@ -30,10 +42,18 @@ class SOAPTransport implements TransportInterface
         $this->timeout = $timeout;
     }
 
+    /**
+     *
+     */
     public function destruct()
     {
     }
 
+    /**
+     * Updates session object with required stateful elements such as cookie and nonce.
+     *
+     * @param \Broadworks_OCIP\core\Session\Session $session
+     */
     public function updateSession(&$session)
     {
         $session->setTransport('SOAP');
@@ -44,13 +64,21 @@ class SOAPTransport implements TransportInterface
                 $sessionMatch
             );
             $session->setSessionId($sessionMatch[1]);
-            $session->setNonce($this->getResponse()->nonce);
+            $session->setNonce($this->getResponse()->getNonce());
             $session->setUrl($this->response->getEffectiveUrl());
         }
         $this->session = &$session;
     }
 
-    public function getResponse($responseType=false, $outputType = ResponseOutput::STD, $appends)
+    /**
+     * Provides method to obtain the last response from Broadworks and return requested response type.
+     *
+     * @param bool $responseType
+     * @param int $outputType
+     * @param $appends
+     * @return bool|\Broadworks_OCIP\core\Builder\Types\ComplexType|null|string
+     */
+    public function getResponse($responseType=false, $outputType = ResponseOutput::STD, $appends = [])
     {
         if (is_object($this->response)) {
             $response = html_entity_decode($this->response->getBody());
@@ -60,6 +88,12 @@ class SOAPTransport implements TransportInterface
         return null;
     }
 
+    /**
+     * Builds HTTP request body and submits POST.
+     *
+     * @param string $msg
+     * @return bool
+     */
     public function send($msg)
     {
         $this->getRequest();
@@ -71,11 +105,16 @@ class SOAPTransport implements TransportInterface
         return ($this->response->getStatus() == 200);
     }
 
+    /**
+     * Generates HTTP request object.
+     *
+     * @return \HTTP_Request2
+     */
     private function getRequest()
     {
-        $this->request = new HTTP_Request2(
+        $this->request = new \HTTP_Request2(
             $this->url,
-            HTTP_Request2::METHOD_POST,
+            \HTTP_Request2::METHOD_POST,
             [
                 'timeout' => $this->timeout,
                 'ssl_verify_peer' => FALSE,
@@ -100,6 +139,11 @@ class SOAPTransport implements TransportInterface
         return $this->request;
     }
 
+    /**
+     * Returns last response body as string.
+     *
+     * @return null|string
+     */
     public function getLastResponseBody()
     {
         return ($this->response)

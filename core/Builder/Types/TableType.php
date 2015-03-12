@@ -11,6 +11,11 @@ use Broadworks_OCIP\core\Client\Client;
 use Broadworks_OCIP\core\Response\ResponseOutput;
 
 
+/**
+ * Class TableType handles OCITable response types.
+ *
+ * @package Broadworks_OCIP\core\Builder\Types
+ */
 class TableType
 {
     public $name = __CLASS__;
@@ -18,7 +23,12 @@ class TableType
     protected $responseType;
     protected $rows;
 
-
+    /**
+     * Generates table from simpleXMLElement object.
+     *
+     * @param $name
+     * @param null $simpleXmlElement
+     */
     public function __construct($name, $simpleXmlElement=null) {
         $this->setName($name);
         if ($simpleXmlElement) {
@@ -29,21 +39,43 @@ class TableType
         }
     }
 
+    /**
+     * Set column headings used in table.
+     *
+     * @param array $colHeadings
+     * @return TableType $this
+     */
     public function setColHeadings(Array $colHeadings) {
         $this->colHeadings = $colHeadings;
         return $this;
     }
 
+    /**
+     * Return column headings used in table.
+     *
+     * @return mixed
+     */
     public function getColHeadings() {
         return $this->colHeadings;
     }
 
+    /**
+     * Add row into rows array.
+     *
+     * @param $row
+     * @return TableType $this
+     */
     public function addRow($row) {
-
         $this->rows[] = $row;
         return $this;
     }
 
+    /**
+     * Remove row from rows array.
+     *
+     * @param $row
+     * @return TableType $this
+     */
     public function delRow($row) {
         if ($row) {
             unset($this->rows[$row]);
@@ -51,18 +83,43 @@ class TableType
         return $this;
     }
 
+    /**
+     * Return single row by index.
+     *
+     * @param $row
+     * @return array
+     */
     public function getRow($row) {
         return $this->rows[$row];
     }
 
+    /**
+     * Return all rows.
+     *
+     * @return array
+     */
     public function getAllRows() {
         return $this->rows;
     }
 
+    /**
+     * Get column from table.
+     * An optional parameter of key can be used to return column as key=>value pair.
+     *
+     * @param $column
+     * @param null $index_key
+     * @return array
+     */
     public function getColumn($column, $index_key=null) {
         return array_column($this->rows, $column, $index_key);
     }
 
+    /**
+     * Search rows for data, return the row.
+     *
+     * @param $search
+     * @return bool
+     */
     public function findRow($search) {
         foreach ($this->rows as $row) {
             if (in_array($search, $row)) return $row;
@@ -70,15 +127,28 @@ class TableType
         return false;
     }
 
+    /**
+     * Return table name.
+     */
     public function getName() {
         $this->name;
     }
 
+    /**
+     * Set name.
+     *
+     * @param $name
+     * @return TableType $this
+     */
     public function setName($name) {
         $this->name = $name;
         return $this;
     }
 
+    /**
+     * Return pretty printed table from data, useful for printing to console or wrapped in <pre>
+     * @return string
+     */
     public function getValue() {
         require_once 'Console/Table.php';
         $tbl = new \Console_Table();

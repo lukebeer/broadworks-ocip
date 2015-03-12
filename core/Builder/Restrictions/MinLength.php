@@ -8,8 +8,16 @@
 namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
+/**
+ * Class MinLength
+ * @package Broadworks_OCIP\core\Builder\Restrictions
+ */
 class MinLength extends Restriction implements RestrictionInterface
 {
+    /**
+     * @param $input
+     * @return bool
+     */
     public function validate($input)
     {
         $length = strlen($input);

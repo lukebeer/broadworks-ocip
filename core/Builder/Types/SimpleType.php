@@ -10,6 +10,10 @@ namespace Broadworks_OCIP\core\Builder\Types;
 use Broadworks_OCIP\core\Builder\Restrictions\RestrictionInterface;
 
 
+/**
+ * Class SimpleType
+ * @package Broadworks_OCIP\core\Builder\Types
+ */
 abstract class SimpleType
 {
     public $name = __CLASS__;
@@ -21,6 +25,11 @@ abstract class SimpleType
 
     use TypeTrait;
 
+    /**
+     * SimpleTypes can have restrictions to validate the data. Restrictions are tests such as max or min string length.
+     *
+     * @return bool
+     */
     public function validate()
     {
         $valid = true;
@@ -33,20 +42,40 @@ abstract class SimpleType
         return $valid;
     }
 
+    /**
+     * Add restriction into array for input validation.
+     *
+     * @param RestrictionInterface $restriction
+     */
     public function addRestriction(RestrictionInterface $restriction)
     {
         $this->restrictions[] = $restriction;
     }
 
+    /**
+     * Return any errors generated during input validation.
+     *
+     * @return array
+     */
     public function getErrors()
     {
         return ['SchemaType' => __CLASS__, 'DataType' => '', 'Errors' => $this->errors];
     }
 
+    /**
+     * Return name of SimpleType.
+     *
+     * @return string
+     */
     public function getName() {
         return $this->name;
     }
 
+    /**
+     * Set name of SimpleType.
+     *
+     * @param $name
+     */
     public function setName($name) {
         $this->name = $name;
     }

@@ -8,12 +8,26 @@
 namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
+/**
+ * Interface RestrictionInterface
+ * @package Broadworks_OCIP\core\Builder\Restrictions
+ */
 interface RestrictionInterface
 {
 
+    /**
+     * @param $value
+     */
     public function __construct($value);
 
+    /**
+     * @param $input
+     * @return mixed
+     */
     public function validate($input);
 
+    /**
+     * @return mixed
+     */
     public function detail();
 }

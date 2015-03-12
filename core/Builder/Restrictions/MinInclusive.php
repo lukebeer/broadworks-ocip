@@ -8,6 +8,10 @@
 namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
+/**
+ * Class MinInclusive
+ * @package Broadworks_OCIP\core\Builder\Restrictions
+ */
 class MinInclusive extends Restriction implements RestrictionInterface
 {
     public function validate($input)

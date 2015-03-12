@@ -7,6 +7,10 @@
 
 namespace Broadworks_OCIP\core\Builder\Types;
 
+/**
+ * Class TypeCheck
+ * @package Broadworks_OCIP\core\Builder\Types
+ */
 abstract class TypeCheck
 {
     static public function is_type($type)

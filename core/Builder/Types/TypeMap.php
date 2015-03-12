@@ -7,11 +7,19 @@
 
 namespace Broadworks_OCIP\core\Builder\Types;
 
+/**
+ * Class TypeMap
+ * @package Broadworks_OCIP\core\Builder\Types
+ */
 abstract class TypeMap
 {
     const BOOLEAN = 1;
     const STRING = 2;
 
+    /**
+     * @param $type
+     * @return string
+     */
     static public function type($type)
     {
         switch ($type) {

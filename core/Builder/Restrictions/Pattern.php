@@ -8,8 +8,16 @@
 namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
+/**
+ * Class Pattern
+ * @package Broadworks_OCIP\core\Builder\Restrictions
+ */
 class Pattern extends Restriction implements RestrictionInterface
 {
+    /**
+     * @param $input
+     * @return int
+     */
     public function validate($input)
     {
         $valid = preg_match("/$this->value/", $input);

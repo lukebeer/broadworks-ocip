@@ -7,10 +7,15 @@
 
 namespace Broadworks_OCIP\core\Builder\Types;
 
-
+/**
+ * Class PrimitiveType
+ * @package Broadworks_OCIP\core\Builder\Types
+ */
 class PrimitiveType extends SimpleType
 {
-
+    /**
+     * @param null $value
+     */
     public function __construct($value=null)
     {
         $this->value = $value;

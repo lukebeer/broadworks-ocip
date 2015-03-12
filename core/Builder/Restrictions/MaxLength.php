@@ -8,6 +8,10 @@
 namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
+/**
+ * Class MaxLength
+ * @package Broadworks_OCIP\core\Builder\Restrictions
+ */
 class MaxLength extends Restriction implements RestrictionInterface
 {
     public function validate($input)

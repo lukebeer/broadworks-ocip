@@ -12,6 +12,10 @@ use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 
 
+/**
+ * Class Builder
+ * @package Broadworks_OCIP\core\Builder
+ */
 class Builder
 {
     const XML_HEAD = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -28,11 +32,22 @@ class Builder
     const BROADSOFT_DOC_TAIL = '</BroadsoftDocument>';
     public $session = null;
 
+    /**
+     * Constructor.
+     *
+     * @param null $session
+     */
     public function __construct(&$session = null)
     {
         $this->session = &$session;
     }
 
+    /**
+     * Legacy v1 method, not evaluated yet.
+     *
+     * @param $search
+     * @return null|string
+     */
     public static function buildSearch($search)
     {
         $result = null;
@@ -44,6 +59,13 @@ class Builder
         return $result;
     }
 
+    /**
+     * Legacy v1 method, not evaluated yet, \Broadworks_OCIP\core\Serializer\Serializer will probably replace this.
+     *
+     * @param $response
+     * @param $request
+     * @return array
+     */
     public static function mapTable($response, $request)
     {
         $response = (array)$response;
@@ -72,6 +94,13 @@ class Builder
         return $requests;
     }
 
+    /**
+     * Legacy v1 method, not evaluated yet, \Broadworks_OCIP\core\Serializer\Serializer will probably replace this.
+     *
+     * @param $response
+     * @param $request
+     * @return mixed
+     */
     public static function map($response, $request)
     {
         $response = (array)$response;
@@ -83,6 +112,12 @@ class Builder
         return $request;
     }
 
+    /**
+     * Generates XML from a ComplexType
+     *
+     * @param ComplexType $command
+     * @return string
+     */
     public function build(ComplexType $command)
     {
         $oci = self::BROADSOFT_DOC_HEAD;
@@ -111,6 +146,12 @@ class Builder
         }
     }
 
+    /**
+     * Builds ComplexType recursively into XML.
+     *
+     * @param ComplexType $complex
+     * @return string
+     */
     public static function buildComplex(ComplexType $complex)
     {
         $oci = "<{$complex->getName()}>";
@@ -123,6 +164,12 @@ class Builder
         return $oci;
     }
 
+    /**
+     * Builds a SimpleType, single key=>value pair into XML.
+     *
+     * @param SimpleType $simple
+     * @return string
+     */
     public static function buildSimple(SimpleType $simple)
     {
         if (empty($simple->getValue())) return '';

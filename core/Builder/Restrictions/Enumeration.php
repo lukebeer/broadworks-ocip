@@ -8,6 +8,10 @@
 namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
+/**
+ * Class Enumeration
+ * @package Broadworks_OCIP\core\Builder\Restrictions
+ */
 class Enumeration extends Restriction implements RestrictionInterface
 {
     public function validate($input)
