@@ -26,7 +26,7 @@ class ServiceProviderAccessDeviceFileGetResponse14sp8 extends ComplexType implem
     protected $configurationFileName = null;
 
     /**
-     * @return ServiceProviderAccessDeviceFileGetResponse14sp8
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceProviderAccessDeviceFileGetResponse14sp8 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class ServiceProviderAccessDeviceFileGetResponse14sp8 extends ComplexType implem
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationMode
+     * @return AccessDeviceEnhancedConfigurationMode $fileSource
      */
     public function getFileSource()
     {
@@ -70,7 +70,7 @@ class ServiceProviderAccessDeviceFileGetResponse14sp8 extends ComplexType implem
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationFileName
+     * @return AccessDeviceEnhancedConfigurationFileName $configurationFileName
      */
     public function getConfigurationFileName()
     {

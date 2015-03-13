@@ -37,7 +37,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
     protected $networkTranslationIndex      = null;
 
     /**
-     * @return SystemNetworkClassOfServiceGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceDescription
+     * @return NetworkClassOfServiceDescription $description
      */
     public function getDescription()
     {
@@ -79,7 +79,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceCommunicationBarringProfile
+     * @return NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile0
      */
     public function getCommunicationBarringProfile0()
     {
@@ -99,7 +99,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceCommunicationBarringProfile
+     * @return NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile1
      */
     public function getCommunicationBarringProfile1()
     {
@@ -119,7 +119,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceCommunicationBarringProfile
+     * @return NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile2
      */
     public function getCommunicationBarringProfile2()
     {
@@ -139,7 +139,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceCommunicationBarringProfile
+     * @return NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile3
      */
     public function getCommunicationBarringProfile3()
     {
@@ -159,7 +159,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceCommunicationBarringProfile
+     * @return NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile4
      */
     public function getCommunicationBarringProfile4()
     {
@@ -179,7 +179,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceCommunicationBarringProfile
+     * @return NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile5
      */
     public function getCommunicationBarringProfile5()
     {
@@ -199,7 +199,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceCommunicationBarringProfile
+     * @return NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile6
      */
     public function getCommunicationBarringProfile6()
     {
@@ -219,7 +219,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceCommunicationBarringProfile
+     * @return NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile7
      */
     public function getCommunicationBarringProfile7()
     {
@@ -239,7 +239,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceCommunicationBarringProfile
+     * @return NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile8
      */
     public function getCommunicationBarringProfile8()
     {
@@ -259,7 +259,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceCommunicationBarringProfile
+     * @return NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile9
      */
     public function getCommunicationBarringProfile9()
     {
@@ -281,7 +281,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkTranslationIndex
+     * @return NetworkTranslationIndex $networkTranslationIndex
      */
     public function getNetworkTranslationIndex()
     {

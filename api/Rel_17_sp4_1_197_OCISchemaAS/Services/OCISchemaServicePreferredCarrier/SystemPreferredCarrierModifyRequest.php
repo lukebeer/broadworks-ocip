@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierIdCode;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\PreferredCarrierName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -51,7 +50,7 @@ class SystemPreferredCarrierModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -73,7 +72,7 @@ class SystemPreferredCarrierModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return PreferredCarrierName
+     * @return PreferredCarrierName $carrier
      */
     public function getCarrier()
     {
@@ -95,7 +94,7 @@ class SystemPreferredCarrierModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return PreferredCarrierIdCode
+     * @return PreferredCarrierIdCode $cic
      */
     public function getCic()
     {
@@ -117,7 +116,7 @@ class SystemPreferredCarrierModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $countryCode
      */
     public function getCountryCode()
     {
@@ -137,7 +136,7 @@ class SystemPreferredCarrierModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isIntraLata
      */
     public function getIsIntraLata()
     {
@@ -157,7 +156,7 @@ class SystemPreferredCarrierModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isInterLata
      */
     public function getIsInterLata()
     {
@@ -177,7 +176,7 @@ class SystemPreferredCarrierModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isInternational
      */
     public function getIsInternational()
     {

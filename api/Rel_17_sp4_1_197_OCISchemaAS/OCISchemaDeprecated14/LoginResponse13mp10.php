@@ -27,7 +27,7 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
     protected $encoding  = null;
 
     /**
-     * @return LoginResponse13mp10
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\LoginResponse13mp10 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LoginType
+     * @return LoginType $loginType
      */
     public function getLoginType()
     {
@@ -71,7 +71,7 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return OCILocale
+     * @return OCILocale $locale
      */
     public function getLocale()
     {
@@ -93,7 +93,7 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Encoding
+     * @return Encoding $encoding
      */
     public function getEncoding()
     {

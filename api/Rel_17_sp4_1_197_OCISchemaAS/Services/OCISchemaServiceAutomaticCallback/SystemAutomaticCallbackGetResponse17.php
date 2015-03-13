@@ -37,7 +37,7 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
     protected $activationDigit            = null;
 
     /**
-     * @return SystemAutomaticCallbackGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\SystemAutomaticCallbackGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMonitorMinutes
+     * @return AutomaticCallbackMonitorMinutes $monitorMinutes
      */
     public function getMonitorMinutes()
     {
@@ -81,7 +81,7 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMaxMonitorsPerOriginator
+     * @return AutomaticCallbackMaxMonitorsPerOriginator $maxMonitorsPerOriginator
      */
     public function getMaxMonitorsPerOriginator()
     {
@@ -103,7 +103,7 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMaxCallbackRings
+     * @return AutomaticCallbackMaxCallbackRings $maxCallbackRings
      */
     public function getMaxCallbackRings()
     {
@@ -125,7 +125,7 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMaxMonitorsPerTerminator
+     * @return AutomaticCallbackMaxMonitorsPerTerminator $maxMonitorsPerTerminator
      */
     public function getMaxMonitorsPerTerminator()
     {
@@ -147,7 +147,7 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackTerminatorIdleGuardSeconds
+     * @return AutomaticCallbackTerminatorIdleGuardSeconds $terminatorIdleGuardSeconds
      */
     public function getTerminatorIdleGuardSeconds()
     {
@@ -169,7 +169,7 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMethod
+     * @return AutomaticCallbackMethod $callbackMethod
      */
     public function getCallbackMethod()
     {
@@ -191,7 +191,7 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackPollingIntervalSeconds
+     * @return AutomaticCallbackPollingIntervalSeconds $pollingIntervalSeconds
      */
     public function getPollingIntervalSeconds()
     {
@@ -213,7 +213,7 @@ class SystemAutomaticCallbackGetResponse17 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackActivationDigit
+     * @return AutomaticCallbackActivationDigit $activationDigit
      */
     public function getActivationDigit()
     {

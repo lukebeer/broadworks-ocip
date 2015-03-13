@@ -30,7 +30,7 @@ class SystemSpeedDial100ModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemSpeedDial100ModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SpeedDialPrefix
+     * @return SpeedDialPrefix $prefix
      */
     public function getPrefix()
     {

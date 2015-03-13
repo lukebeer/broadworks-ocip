@@ -30,7 +30,7 @@ class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {

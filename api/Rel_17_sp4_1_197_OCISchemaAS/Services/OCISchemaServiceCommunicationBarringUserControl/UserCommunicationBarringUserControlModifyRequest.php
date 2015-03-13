@@ -48,7 +48,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -92,7 +92,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return CommunicationBarringUserControlProfileCode
+     * @return CommunicationBarringUserControlProfileCode $enableProfile
      */
     public function getEnableProfile()
     {
@@ -114,7 +114,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return Passcode
+     * @return Passcode $oldPasscode
      */
     public function getOldPasscode()
     {
@@ -136,7 +136,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return Passcode
+     * @return Passcode $newPasscode
      */
     public function getNewPasscode()
     {
@@ -156,7 +156,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $resetLockout
      */
     public function getResetLockout()
     {

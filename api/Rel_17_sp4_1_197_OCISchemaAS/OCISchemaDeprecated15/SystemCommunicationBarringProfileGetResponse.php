@@ -37,7 +37,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
     protected $redirectingRule                  = null;
 
     /**
-     * @return SystemCommunicationBarringProfileGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemCommunicationBarringProfileGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return CommunicationBarringProfileDescription
+     * @return CommunicationBarringProfileDescription $description
      */
     public function getDescription()
     {
@@ -81,7 +81,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return CommunicationBarringOriginatingAction15sp2
+     * @return CommunicationBarringOriginatingAction15sp2 $originatingDefaultAction
      */
     public function getOriginatingDefaultAction()
     {
@@ -103,7 +103,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $originatingDefaultTreatmentId
      */
     public function getOriginatingDefaultTreatmentId()
     {
@@ -125,7 +125,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $originatingDefaultTransferNumber
      */
     public function getOriginatingDefaultTransferNumber()
     {
@@ -145,7 +145,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return CommunicationBarringOriginatingRule15sp2
+     * @return CommunicationBarringOriginatingRule15sp2 $originatingRule
      */
     public function getOriginatingRule()
     {
@@ -167,7 +167,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return CommunicationBarringRedirectingAction15sp2
+     * @return CommunicationBarringRedirectingAction15sp2 $redirectingDefaultAction
      */
     public function getRedirectingDefaultAction()
     {
@@ -187,7 +187,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return CommunicationBarringRedirectingRule15sp2
+     * @return CommunicationBarringRedirectingRule15sp2 $redirectingRule
      */
     public function getRedirectingRule()
     {

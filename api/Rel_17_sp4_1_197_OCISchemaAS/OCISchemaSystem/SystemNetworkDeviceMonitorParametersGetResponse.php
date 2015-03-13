@@ -26,7 +26,7 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
     protected $failedPollingIntervalMinutes = null;
 
     /**
-     * @return SystemNetworkDeviceMonitorParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkDeviceMonitorParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
 
     /**
      * 
-     * @return NetworkDeviceMonitorPollingIntervalMinutes
+     * @return NetworkDeviceMonitorPollingIntervalMinutes $pollingIntervalMinutes
      */
     public function getPollingIntervalMinutes()
     {
@@ -70,7 +70,7 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
 
     /**
      * 
-     * @return NetworkDeviceMonitorFailedPollingIntervalMinutes
+     * @return NetworkDeviceMonitorFailedPollingIntervalMinutes $failedPollingIntervalMinutes
      */
     public function getFailedPollingIntervalMinutes()
     {

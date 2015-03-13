@@ -24,7 +24,7 @@ class SystemAliasGetListResponse extends ComplexType implements ComplexInterface
     protected $aliasNetAddress = null;
 
     /**
-     * @return SystemAliasGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAliasGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemAliasGetListResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $aliasNetAddress
      */
     public function getAliasNetAddress()
     {

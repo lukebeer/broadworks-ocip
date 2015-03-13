@@ -42,7 +42,7 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -86,7 +86,7 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
 
     /**
      * 
-     * @return VoiceMessagingDistributionListId
+     * @return VoiceMessagingDistributionListId $listId
      */
     public function getListId()
     {
@@ -108,7 +108,7 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
 
     /**
      * 
-     * @return VoiceMessagingDistributionListDescription
+     * @return VoiceMessagingDistributionListDescription $description
      */
     public function getDescription()
     {
@@ -128,7 +128,7 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
 
     /**
      * 
-     * @return ReplacementOutgoingDNorSIPURIList
+     * @return ReplacementOutgoingDNorSIPURIList $phoneNumberList
      */
     public function getPhoneNumberList()
     {

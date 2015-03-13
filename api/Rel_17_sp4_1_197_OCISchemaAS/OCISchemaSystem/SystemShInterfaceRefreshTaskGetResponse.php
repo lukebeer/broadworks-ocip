@@ -25,7 +25,7 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
     protected $numberPublicIdentities               = null;
 
     /**
-     * @return SystemShInterfaceRefreshTaskGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemShInterfaceRefreshTaskGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRunning
      */
     public function getIsRunning()
     {
@@ -65,7 +65,7 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:int
+     * @return int $numberPublicIdentityRefreshesStarted
      */
     public function getNumberPublicIdentityRefreshesStarted()
     {
@@ -85,7 +85,7 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:int
+     * @return int $numberPublicIdentities
      */
     public function getNumberPublicIdentities()
     {

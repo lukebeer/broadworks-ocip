@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSMPPGetResponse14sp5;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -28,7 +27,7 @@ class SystemSMPPGetRequest14sp5 extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return SystemSMPPGetResponse14sp5
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSMPPGetResponse14sp5 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

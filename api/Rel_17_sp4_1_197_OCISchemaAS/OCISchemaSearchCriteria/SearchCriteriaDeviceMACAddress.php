@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriter
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceMACAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceMACAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaDeviceMACAddress extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceMACAddress';
     public    $name              = 'SearchCriteriaDeviceMACAddress';
     protected $mode              = null;
     protected $value             = null;
@@ -39,7 +37,7 @@ class SearchCriteriaDeviceMACAddress extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return SearchCriteriaDeviceMACAddress
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +59,7 @@ class SearchCriteriaDeviceMACAddress extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SearchMode
+     * @return SearchMode $mode
      */
     public function getMode()
     {
@@ -83,7 +81,7 @@ class SearchCriteriaDeviceMACAddress extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AccessDeviceMACAddress
+     * @return AccessDeviceMACAddress $value
      */
     public function getValue()
     {
@@ -103,7 +101,7 @@ class SearchCriteriaDeviceMACAddress extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isCaseInsensitive
      */
     public function getIsCaseInsensitive()
     {

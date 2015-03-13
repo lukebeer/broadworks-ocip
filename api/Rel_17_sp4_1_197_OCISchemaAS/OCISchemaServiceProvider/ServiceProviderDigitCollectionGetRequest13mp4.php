@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDigitCollectionGetResponse13mp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -32,7 +31,7 @@ class ServiceProviderDigitCollectionGetRequest13mp4 extends ComplexType implemen
     }
 
     /**
-     * @return ServiceProviderDigitCollectionGetResponse13mp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDigitCollectionGetResponse13mp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +53,7 @@ class ServiceProviderDigitCollectionGetRequest13mp4 extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {

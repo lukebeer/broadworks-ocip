@@ -24,7 +24,7 @@ class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInt
     protected $maxExtensionLength = null;
 
     /**
-     * @return SystemExtensionLengthGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExtensionLengthGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return ExtensionLength
+     * @return ExtensionLength $minExtensionLength
      */
     public function getMinExtensionLength()
     {
@@ -68,7 +68,7 @@ class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return ExtensionLength
+     * @return ExtensionLength $maxExtensionLength
      */
     public function getMaxExtensionLength()
     {

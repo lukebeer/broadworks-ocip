@@ -38,7 +38,7 @@ class ServiceProviderFileRepositoryDeviceUserDeleteRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class ServiceProviderFileRepositoryDeviceUserDeleteRequest extends ComplexType i
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class ServiceProviderFileRepositoryDeviceUserDeleteRequest extends ComplexType i
 
     /**
      * 
-     * @return FileRepositoryName
+     * @return FileRepositoryName $fileRepositoryName
      */
     public function getFileRepositoryName()
     {
@@ -104,7 +104,7 @@ class ServiceProviderFileRepositoryDeviceUserDeleteRequest extends ComplexType i
 
     /**
      * 
-     * @return FileRepositoryUserName
+     * @return FileRepositoryUserName $userName
      */
     public function getUserName()
     {

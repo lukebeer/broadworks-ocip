@@ -14,7 +14,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetAllResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -57,7 +56,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return SystemAccessDeviceGetAllResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetAllResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -79,7 +78,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -101,7 +100,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaDeviceName
+     * @return SearchCriteriaDeviceName $searchCriteriaDeviceName
      */
     public function getSearchCriteriaDeviceName()
     {
@@ -123,7 +122,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaDeviceMACAddress
+     * @return SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress
      */
     public function getSearchCriteriaDeviceMACAddress()
     {
@@ -145,7 +144,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaDeviceNetAddress
+     * @return SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress
      */
     public function getSearchCriteriaDeviceNetAddress()
     {
@@ -167,7 +166,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -189,7 +188,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaExactDeviceType
+     * @return SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType
      */
     public function getSearchCriteriaExactDeviceType()
     {
@@ -211,7 +210,7 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaExactDeviceServiceProvider
+     * @return SearchCriteriaExactDeviceServiceProvider $searchCriteriaExactDeviceServiceProvider
      */
     public function getSearchCriteriaExactDeviceServiceProvider()
     {

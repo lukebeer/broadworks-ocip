@@ -25,7 +25,7 @@ class UserMeetMeConferencingGetConferenceRecordingListResponse extends ComplexTy
     protected $conferenceRecordingTable = null;
 
     /**
-     * @return UserMeetMeConferencingGetConferenceRecordingListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingGetConferenceRecordingListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

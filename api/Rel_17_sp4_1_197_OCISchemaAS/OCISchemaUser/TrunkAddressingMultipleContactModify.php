@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\TrunkAddressingMultipleContactModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkAddressingMultipleContactModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\TrunkAddressingMultipleContactModify';
     public    $name                     = 'TrunkAddressingMultipleContactModify';
     protected $trunkGroupDeviceEndpoint = null;
     protected $enterpriseTrunkName      = null;
@@ -37,7 +35,7 @@ class TrunkAddressingMultipleContactModify extends ComplexType implements Comple
     }
 
     /**
-     * @return TrunkAddressingMultipleContactModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class TrunkAddressingMultipleContactModify extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $trunkGroupDeviceEndpoint
      */
     public function getTrunkGroupDeviceEndpoint()
     {
@@ -77,7 +75,7 @@ class TrunkAddressingMultipleContactModify extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $enterpriseTrunkName
      */
     public function getEnterpriseTrunkName()
     {
@@ -97,7 +95,7 @@ class TrunkAddressingMultipleContactModify extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $alternateTrunkIdentity
      */
     public function getAlternateTrunkIdentity()
     {

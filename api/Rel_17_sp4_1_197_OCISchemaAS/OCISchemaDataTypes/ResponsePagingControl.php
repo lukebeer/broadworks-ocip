@@ -26,7 +26,7 @@ class ResponsePagingControl extends ComplexType implements ComplexInterface
     protected $responsePageSize   = null;
 
     /**
-     * @return ResponsePagingControl
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponsePagingControl $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class ResponsePagingControl extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $responseStartIndex
      */
     public function getResponseStartIndex()
     {
@@ -66,7 +66,7 @@ class ResponsePagingControl extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $responsePageSize
      */
     public function getResponsePageSize()
     {

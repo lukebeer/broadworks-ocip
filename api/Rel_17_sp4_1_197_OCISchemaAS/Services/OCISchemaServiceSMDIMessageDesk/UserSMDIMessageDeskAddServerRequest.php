@@ -42,7 +42,7 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -86,7 +86,7 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SMDIDeviceName
+     * @return SMDIDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -108,7 +108,7 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -130,7 +130,7 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port
+     * @return Port $port
      */
     public function getPort()
     {

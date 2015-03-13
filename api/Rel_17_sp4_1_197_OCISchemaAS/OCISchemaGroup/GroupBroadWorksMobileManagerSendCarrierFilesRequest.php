@@ -38,7 +38,7 @@ class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType im
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType im
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -104,7 +104,7 @@ class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType im
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $emailTo
      */
     public function getEmailTo()
     {

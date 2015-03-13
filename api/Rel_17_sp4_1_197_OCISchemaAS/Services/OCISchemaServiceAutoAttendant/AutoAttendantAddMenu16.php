@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant\AutoAttendantAddMenu16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AutoAttendantAddMenu16 extends ComplexType implements ComplexInterface
 {
-    public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant\AutoAttendantAddMenu16';
     public    $name                                 = 'AutoAttendantAddMenu16';
     protected $announcementSelection                = null;
     protected $audioFile                            = null;
@@ -44,7 +42,7 @@ class AutoAttendantAddMenu16 extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return AutoAttendantAddMenu16
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +62,7 @@ class AutoAttendantAddMenu16 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $announcementSelection
      */
     public function getAnnouncementSelection()
     {
@@ -84,7 +82,7 @@ class AutoAttendantAddMenu16 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioFile
      */
     public function getAudioFile()
     {
@@ -104,7 +102,7 @@ class AutoAttendantAddMenu16 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $videoFile
      */
     public function getVideoFile()
     {
@@ -124,7 +122,7 @@ class AutoAttendantAddMenu16 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $enableFirstMenuLevelExtensionDialing
      */
     public function getEnableFirstMenuLevelExtensionDialing()
     {
@@ -144,7 +142,7 @@ class AutoAttendantAddMenu16 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $keyConfiguration
      */
     public function getKeyConfiguration()
     {

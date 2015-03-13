@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ExtensionRange;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ExtensionRange extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ExtensionRange';
     public    $name         = 'ExtensionRange';
     protected $minExtension = null;
     protected $maxExtension = null;
@@ -34,7 +32,7 @@ class ExtensionRange extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return ExtensionRange
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class ExtensionRange extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $minExtension
      */
     public function getMinExtension()
     {
@@ -74,7 +72,7 @@ class ExtensionRange extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $maxExtension
      */
     public function getMaxExtension()
     {

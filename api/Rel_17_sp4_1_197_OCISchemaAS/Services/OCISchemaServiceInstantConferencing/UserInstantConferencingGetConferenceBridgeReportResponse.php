@@ -27,7 +27,7 @@ class UserInstantConferencingGetConferenceBridgeReportResponse extends ComplexTy
     protected $conferenceReportTable = null;
 
     /**
-     * @return UserInstantConferencingGetConferenceBridgeReportResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

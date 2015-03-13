@@ -26,7 +26,7 @@ class SystemOfficeZoneGetZoneUsageListResponse extends ComplexType implements Co
     protected $officeZoneTable = null;
 
     /**
-     * @return SystemOfficeZoneGetZoneUsageListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetZoneUsageListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

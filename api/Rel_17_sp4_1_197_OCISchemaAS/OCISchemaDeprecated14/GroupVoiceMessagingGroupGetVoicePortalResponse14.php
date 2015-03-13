@@ -35,7 +35,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
     protected $externalRoutingAddress                                    = null;
 
     /**
-     * @return GroupVoiceMessagingGroupGetVoicePortalResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupVoiceMessagingGroupGetVoicePortalResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -77,7 +77,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
 
     /**
      * 
-     * @return ServiceInstanceReadProfile
+     * @return ServiceInstanceReadProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -97,7 +97,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -117,7 +117,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin
      */
     public function getAllowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin()
     {
@@ -137,7 +137,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useVoicePortalWizard
      */
     public function getUseVoicePortalWizard()
     {
@@ -159,7 +159,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
 
     /**
      * 
-     * @return VoicePortalExternalRoutingScope
+     * @return VoicePortalExternalRoutingScope $voicePortalExternalRoutingScope
      */
     public function getVoicePortalExternalRoutingScope()
     {
@@ -179,7 +179,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useExternalRouting
      */
     public function getUseExternalRouting()
     {
@@ -201,7 +201,7 @@ class GroupVoiceMessagingGroupGetVoicePortalResponse14 extends ComplexType imple
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $externalRoutingAddress
      */
     public function getExternalRoutingAddress()
     {

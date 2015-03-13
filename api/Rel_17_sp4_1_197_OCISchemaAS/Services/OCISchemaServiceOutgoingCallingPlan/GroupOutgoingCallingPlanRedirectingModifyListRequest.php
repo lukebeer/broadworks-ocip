@@ -42,7 +42,7 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -106,7 +106,7 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
 
     /**
      * 
-     * @return OutgoingCallingPlanRedirectingPermissionsModify
+     * @return OutgoingCallingPlanRedirectingPermissionsModify $groupPermissions
      */
     public function getGroupPermissions()
     {
@@ -126,7 +126,7 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
 
     /**
      * 
-     * @return OutgoingCallingPlanRedirectingDepartmentPermissionsModify
+     * @return OutgoingCallingPlanRedirectingDepartmentPermissionsModify $departmentPermissions
      */
     public function getDepartmentPermissions()
     {

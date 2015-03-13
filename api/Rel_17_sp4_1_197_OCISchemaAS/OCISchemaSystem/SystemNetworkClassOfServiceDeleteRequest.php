@@ -30,7 +30,7 @@ class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $name
      */
     public function getName()
     {

@@ -46,7 +46,7 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -88,7 +88,7 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ServiceInstanceModifyProfile
+     * @return ServiceInstanceModifyProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -110,7 +110,7 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupPagingConfirmationToneTimeoutSeconds
+     * @return GroupPagingConfirmationToneTimeoutSeconds $confirmationToneTimeoutSeconds
      */
     public function getConfirmationToneTimeoutSeconds()
     {
@@ -130,7 +130,7 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deliverOriginatorCLIDInstead
      */
     public function getDeliverOriginatorCLIDInstead()
     {
@@ -152,7 +152,7 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupPagingOriginatorCLIDPrefix
+     * @return GroupPagingOriginatorCLIDPrefix $originatorCLIDPrefix
      */
     public function getOriginatorCLIDPrefix()
     {

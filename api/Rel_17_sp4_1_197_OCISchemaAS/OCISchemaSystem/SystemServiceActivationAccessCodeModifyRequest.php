@@ -40,7 +40,7 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -82,7 +82,7 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceActivationAccessCode
+     * @return ServiceActivationAccessCode $terminatingAccessCode
      */
     public function getTerminatingAccessCode()
     {
@@ -104,7 +104,7 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceActivationAccessCode
+     * @return ServiceActivationAccessCode $redirectingAccessCode
      */
     public function getRedirectingAccessCode()
     {
@@ -126,7 +126,7 @@ class SystemServiceActivationAccessCodeModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceActivationAccessCode
+     * @return ServiceActivationAccessCode $clickToDialAccessCode
      */
     public function getClickToDialAccessCode()
     {

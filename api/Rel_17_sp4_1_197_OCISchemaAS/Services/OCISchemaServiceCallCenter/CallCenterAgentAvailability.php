@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentAvailability;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAgentAvailability extends ComplexType implements ComplexInterface
 {
-    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentAvailability';
     public    $name          = 'CallCenterAgentAvailability';
     protected $serviceUserId = null;
     protected $available     = null;
@@ -35,7 +33,7 @@ class CallCenterAgentAvailability extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return CallCenterAgentAvailability
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class CallCenterAgentAvailability extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -77,7 +75,7 @@ class CallCenterAgentAvailability extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $available
      */
     public function getAvailable()
     {

@@ -24,7 +24,7 @@ class SystemStateOrProvinceGetListResponse extends ComplexType implements Comple
     protected $stateOrProvinceTable = null;
 
     /**
-     * @return SystemStateOrProvinceGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemStateOrProvinceGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

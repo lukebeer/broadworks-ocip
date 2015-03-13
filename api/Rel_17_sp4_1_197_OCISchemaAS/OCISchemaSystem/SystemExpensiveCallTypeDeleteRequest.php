@@ -30,7 +30,7 @@ class SystemExpensiveCallTypeDeleteRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemExpensiveCallTypeDeleteRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return NetworkServerAlternateCallIndicator
+     * @return NetworkServerAlternateCallIndicator $alternateCallIndicator
      */
     public function getAlternateCallIndicator()
     {

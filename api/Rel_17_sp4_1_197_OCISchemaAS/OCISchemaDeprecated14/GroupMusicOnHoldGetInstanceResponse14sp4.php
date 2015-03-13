@@ -35,7 +35,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
     protected $videoFileDescription     = null;
 
     /**
-     * @return GroupMusicOnHoldGetInstanceResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupMusicOnHoldGetInstanceResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -77,7 +77,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringCallHold
      */
     public function getIsActiveDuringCallHold()
     {
@@ -97,7 +97,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringCallPark
      */
     public function getIsActiveDuringCallPark()
     {
@@ -117,7 +117,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringBusyCampOn
      */
     public function getIsActiveDuringBusyCampOn()
     {
@@ -139,7 +139,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return MusicOnHoldMessageSelection
+     * @return MusicOnHoldMessageSelection $messageSelection
      */
     public function getMessageSelection()
     {
@@ -159,7 +159,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDeviceEndpointRead14
+     * @return AccessDeviceEndpointRead14 $accessDeviceEndpoint
      */
     public function getAccessDeviceEndpoint()
     {
@@ -179,7 +179,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -201,7 +201,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -223,7 +223,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {

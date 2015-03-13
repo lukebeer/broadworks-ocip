@@ -53,7 +53,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +75,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -97,7 +97,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -119,7 +119,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return AccountAuthorizationCodeType
+     * @return AccountAuthorizationCodeType $codeType
      */
     public function getCodeType()
     {
@@ -141,7 +141,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return AccountAuthorizationCodeNumberOfDigits
+     * @return AccountAuthorizationCodeNumberOfDigits $numberOfDigits
      */
     public function getNumberOfDigits()
     {
@@ -161,7 +161,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowLocalAndTollFreeCalls
      */
     public function getAllowLocalAndTollFreeCalls()
     {
@@ -181,7 +181,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $mandatoryUsageUserIdList
      */
     public function getMandatoryUsageUserIdList()
     {
@@ -201,7 +201,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $optionalUsageUserIdList
      */
     public function getOptionalUsageUserIdList()
     {

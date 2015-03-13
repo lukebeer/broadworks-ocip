@@ -24,7 +24,7 @@ class ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse exten
     protected $groupTable = null;
 
     /**
-     * @return ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

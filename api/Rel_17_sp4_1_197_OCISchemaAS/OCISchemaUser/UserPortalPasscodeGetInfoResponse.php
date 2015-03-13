@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Passcode;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -25,7 +24,7 @@ class UserPortalPasscodeGetInfoResponse extends ComplexType implements ComplexIn
     protected $passcode        = null;
 
     /**
-     * @return UserPortalPasscodeGetInfoResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPortalPasscodeGetInfoResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +44,7 @@ class UserPortalPasscodeGetInfoResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isLoginDisabled
      */
     public function getIsLoginDisabled()
     {
@@ -67,7 +66,7 @@ class UserPortalPasscodeGetInfoResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Passcode
+     * @return Passcode $passcode
      */
     public function getPasscode()
     {

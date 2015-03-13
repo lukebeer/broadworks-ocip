@@ -43,7 +43,7 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -87,7 +87,7 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -109,7 +109,7 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
 
     /**
      * 
-     * @return UserService
+     * @return UserService $serviceName
      */
     public function getServiceName()
     {
@@ -131,7 +131,7 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {

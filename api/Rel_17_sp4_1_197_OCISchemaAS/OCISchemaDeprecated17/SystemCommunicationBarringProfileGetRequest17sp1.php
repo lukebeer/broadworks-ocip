@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemCommunicationBarringProfileGetResponse17sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -33,7 +32,7 @@ class SystemCommunicationBarringProfileGetRequest17sp1 extends ComplexType imple
     }
 
     /**
-     * @return SystemCommunicationBarringProfileGetResponse17sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemCommunicationBarringProfileGetResponse17sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +54,7 @@ class SystemCommunicationBarringProfileGetRequest17sp1 extends ComplexType imple
 
     /**
      * 
-     * @return CommunicationBarringProfileName
+     * @return CommunicationBarringProfileName $name
      */
     public function getName()
     {

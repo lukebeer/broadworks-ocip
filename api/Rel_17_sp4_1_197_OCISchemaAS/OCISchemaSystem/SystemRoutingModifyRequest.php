@@ -49,7 +49,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +69,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRouteRoundRobin
      */
     public function getIsRouteRoundRobin()
     {
@@ -91,7 +91,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return RouteTimerSeconds
+     * @return RouteTimerSeconds $routeTimerSeconds
      */
     public function getRouteTimerSeconds()
     {
@@ -113,7 +113,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return RoutingDNSResolvedAddressSelectionPolicy
+     * @return RoutingDNSResolvedAddressSelectionPolicy $dnsResolvedAddressSelectionPolicy
      */
     public function getDnsResolvedAddressSelectionPolicy()
     {
@@ -135,7 +135,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return RoutingStatefulExpirationMinutes
+     * @return RoutingStatefulExpirationMinutes $statefulExpirationMinutes
      */
     public function getStatefulExpirationMinutes()
     {
@@ -157,7 +157,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return RoutingMaxAddresses
+     * @return RoutingMaxAddresses $maxAddressesPerHostname
      */
     public function getMaxAddressesPerHostname()
     {
@@ -179,7 +179,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return RoutingMaxAddresses
+     * @return RoutingMaxAddresses $maxAddressesDuringSetup
      */
     public function getMaxAddressesDuringSetup()
     {

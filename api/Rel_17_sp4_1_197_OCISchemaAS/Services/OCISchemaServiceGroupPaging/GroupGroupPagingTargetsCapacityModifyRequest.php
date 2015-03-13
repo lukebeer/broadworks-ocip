@@ -38,7 +38,7 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -104,7 +104,7 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return GroupPagingMaxTargetCapacity
+     * @return GroupPagingMaxTargetCapacity $maximumTargetUsers
      */
     public function getMaximumTargetUsers()
     {

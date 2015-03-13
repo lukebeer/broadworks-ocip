@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -38,7 +37,7 @@ class GroupCPEConfigResetDeviceTypeRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +59,7 @@ class GroupCPEConfigResetDeviceTypeRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +81,7 @@ class GroupCPEConfigResetDeviceTypeRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -104,7 +103,7 @@ class GroupCPEConfigResetDeviceTypeRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {

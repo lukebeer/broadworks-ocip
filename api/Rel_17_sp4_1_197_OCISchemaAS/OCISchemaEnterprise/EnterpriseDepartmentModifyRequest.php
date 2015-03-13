@@ -41,7 +41,7 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $enterpriseId
      */
     public function getEnterpriseId()
     {
@@ -85,7 +85,7 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DepartmentName
+     * @return DepartmentName $departmentName
      */
     public function getDepartmentName()
     {
@@ -107,7 +107,7 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DepartmentName
+     * @return DepartmentName $newDepartmentName
      */
     public function getNewDepartmentName()
     {
@@ -127,7 +127,7 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return EnterpriseDepartmentKey
+     * @return EnterpriseDepartmentKey $newParentDepartmentKey
      */
     public function getNewParentDepartmentKey()
     {

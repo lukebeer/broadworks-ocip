@@ -109,7 +109,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
     protected $useSystemCallingLineAssertedIdentityPolicy = null;
 
     /**
-     * @return GroupTrunkGroupGetInstanceResponse17sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceResponse17sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -131,7 +131,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return UserId
+     * @return UserId $pilotUserId
      */
     public function getPilotUserId()
     {
@@ -151,7 +151,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $department
      */
     public function getDepartment()
     {
@@ -171,7 +171,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDevice
+     * @return AccessDevice $accessDevice
      */
     public function getAccessDevice()
     {
@@ -193,7 +193,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return MaxActiveCalls
+     * @return MaxActiveCalls $maxActiveCalls
      */
     public function getMaxActiveCalls()
     {
@@ -215,7 +215,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return MaxIncomingCalls
+     * @return MaxIncomingCalls $maxIncomingCalls
      */
     public function getMaxIncomingCalls()
     {
@@ -237,7 +237,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return MaxOutgoingCalls
+     * @return MaxOutgoingCalls $maxOutgoingCalls
      */
     public function getMaxOutgoingCalls()
     {
@@ -257,7 +257,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableBursting
      */
     public function getEnableBursting()
     {
@@ -279,7 +279,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return BurstingMaxActiveCalls
+     * @return BurstingMaxActiveCalls $burstingMaxActiveCalls
      */
     public function getBurstingMaxActiveCalls()
     {
@@ -301,7 +301,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return BurstingMaxIncomingCalls
+     * @return BurstingMaxIncomingCalls $burstingMaxIncomingCalls
      */
     public function getBurstingMaxIncomingCalls()
     {
@@ -323,7 +323,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return BurstingMaxOutgoingCalls
+     * @return BurstingMaxOutgoingCalls $burstingMaxOutgoingCalls
      */
     public function getBurstingMaxOutgoingCalls()
     {
@@ -345,7 +345,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupCapacityExceededAction
+     * @return TrunkGroupCapacityExceededAction $capacityExceededAction
      */
     public function getCapacityExceededAction()
     {
@@ -367,7 +367,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $capacityExceededForwardAddress
      */
     public function getCapacityExceededForwardAddress()
     {
@@ -387,7 +387,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $capacityExceededRerouteTrunkGroupKey
      */
     public function getCapacityExceededRerouteTrunkGroupKey()
     {
@@ -409,7 +409,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrapInitialThreshold
+     * @return TrapInitialThreshold $capacityExceededTrapInitialCalls
      */
     public function getCapacityExceededTrapInitialCalls()
     {
@@ -431,7 +431,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrapOffsetThreshold
+     * @return TrapOffsetThreshold $capacityExceededTrapOffsetCalls
      */
     public function getCapacityExceededTrapOffsetCalls()
     {
@@ -453,7 +453,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupUnreachableDestinationAction
+     * @return TrunkGroupUnreachableDestinationAction $unreachableDestinationAction
      */
     public function getUnreachableDestinationAction()
     {
@@ -475,7 +475,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $unreachableDestinationForwardAddress
      */
     public function getUnreachableDestinationForwardAddress()
     {
@@ -495,7 +495,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey
      */
     public function getUnreachableDestinationRerouteTrunkGroupKey()
     {
@@ -517,7 +517,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupInvitationTimeoutSeconds
+     * @return TrunkGroupInvitationTimeoutSeconds $invitationTimeout
      */
     public function getInvitationTimeout()
     {
@@ -537,7 +537,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireAuthentication
      */
     public function getRequireAuthentication()
     {
@@ -559,7 +559,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return SIPAuthenticationUserName
+     * @return SIPAuthenticationUserName $sipAuthenticationUserName
      */
     public function getSipAuthenticationUserName()
     {
@@ -601,7 +601,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $trunkGroupIdentity
      */
     public function getTrunkGroupIdentity()
     {
@@ -623,7 +623,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return OtgDtgIdentity
+     * @return OtgDtgIdentity $otgDtgIdentity
      */
     public function getOtgDtgIdentity()
     {
@@ -643,7 +643,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowTerminationToTrunkGroupIdentity
      */
     public function getAllowTerminationToTrunkGroupIdentity()
     {
@@ -663,7 +663,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowTerminationToDtgIdentity
      */
     public function getAllowTerminationToDtgIdentity()
     {
@@ -683,7 +683,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeTrunkGroupIdentity
      */
     public function getIncludeTrunkGroupIdentity()
     {
@@ -703,7 +703,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeDtgIdentity
      */
     public function getIncludeDtgIdentity()
     {
@@ -723,7 +723,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeTrunkGroupIdentityForNetworkCalls
      */
     public function getIncludeTrunkGroupIdentityForNetworkCalls()
     {
@@ -743,7 +743,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeOtgIdentityForNetworkCalls
      */
     public function getIncludeOtgIdentityForNetworkCalls()
     {
@@ -763,7 +763,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableNetworkAddressIdentity
      */
     public function getEnableNetworkAddressIdentity()
     {
@@ -783,7 +783,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUnscreenedCalls
      */
     public function getAllowUnscreenedCalls()
     {
@@ -803,7 +803,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUnscreenedEmergencyCalls
      */
     public function getAllowUnscreenedEmergencyCalls()
     {
@@ -825,7 +825,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupPilotUserCallingLineIdentityUsagePolicy
+     * @return TrunkGroupPilotUserCallingLineIdentityUsagePolicy $pilotUserCallingLineIdentityPolicy
      */
     public function getPilotUserCallingLineIdentityPolicy()
     {
@@ -847,7 +847,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupPilotUserChargeNumberUsagePolicy
+     * @return TrunkGroupPilotUserChargeNumberUsagePolicy $pilotUserChargeNumberPolicy
      */
     public function getPilotUserChargeNumberPolicy()
     {
@@ -869,7 +869,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupCallForwardingAlwaysAction
+     * @return TrunkGroupCallForwardingAlwaysAction $callForwardingAlwaysAction
      */
     public function getCallForwardingAlwaysAction()
     {
@@ -891,7 +891,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $callForwardingAlwaysForwardAddress
      */
     public function getCallForwardingAlwaysForwardAddress()
     {
@@ -911,7 +911,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey
      */
     public function getCallForwardingAlwaysRerouteTrunkGroupKey()
     {
@@ -933,7 +933,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $peeringDomain
      */
     public function getPeeringDomain()
     {
@@ -953,7 +953,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $routeToPeeringDomain
      */
     public function getRouteToPeeringDomain()
     {
@@ -973,7 +973,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $prefixEnabled
      */
     public function getPrefixEnabled()
     {
@@ -995,7 +995,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupPrefix
+     * @return TrunkGroupPrefix $prefix
      */
     public function getPrefix()
     {
@@ -1015,7 +1015,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $statefulReroutingEnabled
      */
     public function getStatefulReroutingEnabled()
     {
@@ -1035,7 +1035,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendContinuousOptionsMessage
      */
     public function getSendContinuousOptionsMessage()
     {
@@ -1057,7 +1057,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupContinuousOptionsSendingIntervalSeconds
+     * @return TrunkGroupContinuousOptionsSendingIntervalSeconds $continuousOptionsSendingIntervalSeconds
      */
     public function getContinuousOptionsSendingIntervalSeconds()
     {
@@ -1079,7 +1079,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupFailureOptionsSendingIntervalSeconds
+     * @return TrunkGroupFailureOptionsSendingIntervalSeconds $failureOptionsSendingIntervalSeconds
      */
     public function getFailureOptionsSendingIntervalSeconds()
     {
@@ -1101,7 +1101,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupThresholdCounter
+     * @return TrunkGroupThresholdCounter $failureThresholdCounter
      */
     public function getFailureThresholdCounter()
     {
@@ -1123,7 +1123,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupThresholdCounter
+     * @return TrunkGroupThresholdCounter $successThresholdCounter
      */
     public function getSuccessThresholdCounter()
     {
@@ -1145,7 +1145,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupThresholdCounter
+     * @return TrunkGroupThresholdCounter $inviteFailureThresholdCounter
      */
     public function getInviteFailureThresholdCounter()
     {
@@ -1167,7 +1167,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupFailureThresholdWindowSeconds
+     * @return TrunkGroupFailureThresholdWindowSeconds $inviteFailureThresholdWindowSeconds
      */
     public function getInviteFailureThresholdWindowSeconds()
     {
@@ -1189,7 +1189,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupState
+     * @return TrunkGroupState $trunkGroupState
      */
     public function getTrunkGroupState()
     {
@@ -1211,7 +1211,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return TrunkGroupPilotUserCallingLineAssertedIdentityUsagePolicy
+     * @return TrunkGroupPilotUserCallingLineAssertedIdentityUsagePolicy $pilotUserCallingLineAssertedIdentityPolicy
      */
     public function getPilotUserCallingLineAssertedIdentityPolicy()
     {
@@ -1231,7 +1231,7 @@ class GroupTrunkGroupGetInstanceResponse17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemCallingLineAssertedIdentityPolicy
      */
     public function getUseSystemCallingLineAssertedIdentityPolicy()
     {

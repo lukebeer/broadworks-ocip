@@ -33,7 +33,7 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
     protected $videoFileUrl         = null;
 
     /**
-     * @return GroupCustomRingbackGroupGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCustomRingbackGroupGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -75,7 +75,7 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -97,7 +97,7 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -119,7 +119,7 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return URL
+     * @return URL $audioFileUrl
      */
     public function getAudioFileUrl()
     {
@@ -141,7 +141,7 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -163,7 +163,7 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -185,7 +185,7 @@ class GroupCustomRingbackGroupGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return URL
+     * @return URL $videoFileUrl
      */
     public function getVideoFileUrl()
     {

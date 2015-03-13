@@ -23,7 +23,7 @@ class UserBroadWorksCommunicatorGetResponse extends ComplexType implements Compl
     protected $configurationServerURL = null;
 
     /**
-     * @return UserBroadWorksCommunicatorGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicator\UserBroadWorksCommunicatorGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserBroadWorksCommunicatorGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return URL
+     * @return URL $configurationServerURL
      */
     public function getConfigurationServerURL()
     {

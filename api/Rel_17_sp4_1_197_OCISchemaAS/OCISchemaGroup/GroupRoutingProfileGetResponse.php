@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutingProfile;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ class GroupRoutingProfileGetResponse extends ComplexType implements ComplexInter
     protected $routingProfile = null;
 
     /**
-     * @return GroupRoutingProfileGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutingProfileGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupRoutingProfileGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return RoutingProfile
+     * @return RoutingProfile $routingProfile
      */
     public function getRoutingProfile()
     {

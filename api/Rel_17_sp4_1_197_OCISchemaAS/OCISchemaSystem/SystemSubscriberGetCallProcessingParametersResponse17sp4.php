@@ -33,7 +33,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
     protected $honorCLIDBlockingForEmergencyCalls     = null;
 
     /**
-     * @return SystemSubscriberGetCallProcessingParametersResponse17sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSubscriberGetCallProcessingParametersResponse17sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isExtendedCallingLineIdActive
      */
     public function getIsExtendedCallingLineIdActive()
     {
@@ -73,7 +73,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRingTimeOutActive
      */
     public function getIsRingTimeOutActive()
     {
@@ -95,7 +95,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
 
     /**
      * 
-     * @return SystemUserRingTimeoutSeconds
+     * @return SystemUserRingTimeoutSeconds $ringTimeoutSeconds
      */
     public function getRingTimeoutSeconds()
     {
@@ -115,7 +115,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEmergencyRemoteOfficeOriginations
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
@@ -137,7 +137,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
 
     /**
      * 
-     * @return MaxNoAnswerNumberOfRings
+     * @return MaxNoAnswerNumberOfRings $maxNoAnswerNumberOfRings
      */
     public function getMaxNoAnswerNumberOfRings()
     {
@@ -159,7 +159,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
 
     /**
      * 
-     * @return IncomingCallToUserAliasMode
+     * @return IncomingCallToUserAliasMode $incomingCallToUserAliasMode
      */
     public function getIncomingCallToUserAliasMode()
     {
@@ -179,7 +179,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $bypassTerminationLoopDetection
      */
     public function getBypassTerminationLoopDetection()
     {
@@ -199,7 +199,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp4 extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $honorCLIDBlockingForEmergencyCalls
      */
     public function getHonorCLIDBlockingForEmergencyCalls()
     {

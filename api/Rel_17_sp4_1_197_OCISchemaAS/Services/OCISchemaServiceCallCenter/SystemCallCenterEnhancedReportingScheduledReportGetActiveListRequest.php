@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaCallCenterReportTemplateName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetActiveListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -52,7 +51,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetActiveListRequest exten
     }
 
     /**
-     * @return SystemCallCenterEnhancedReportingScheduledReportGetActiveListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetActiveListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +73,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetActiveListRequest exten
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -96,7 +95,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetActiveListRequest exten
 
     /**
      * 
-     * @return SearchCriteriaCallCenterScheduledReportName
+     * @return SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName
      */
     public function getSearchCriteriaCallCenterScheduledReportName()
     {
@@ -118,7 +117,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetActiveListRequest exten
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -140,7 +139,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetActiveListRequest exten
 
     /**
      * 
-     * @return SearchCriteriaExactCallCenterScheduledReportServiceProvider
+     * @return SearchCriteriaExactCallCenterScheduledReportServiceProvider $searchCriteriaExactCallCenterScheduledReportServiceProvider
      */
     public function getSearchCriteriaExactCallCenterScheduledReportServiceProvider()
     {
@@ -162,7 +161,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetActiveListRequest exten
 
     /**
      * 
-     * @return SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor
+     * @return SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor
      */
     public function getSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor()
     {
@@ -184,7 +183,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetActiveListRequest exten
 
     /**
      * 
-     * @return SearchCriteriaCallCenterReportTemplateName
+     * @return SearchCriteriaCallCenterReportTemplateName $searchCriteriaCallCenterReportTemplateName
      */
     public function getSearchCriteriaCallCenterReportTemplateName()
     {

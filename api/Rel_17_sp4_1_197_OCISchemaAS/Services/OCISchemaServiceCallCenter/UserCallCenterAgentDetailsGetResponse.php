@@ -26,7 +26,7 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
     protected $isCallCenterPremiumAssigned  = null;
 
     /**
-     * @return UserCallCenterAgentDetailsGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterAgentDetailsGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isCallCenterBasicAssigned
      */
     public function getIsCallCenterBasicAssigned()
     {
@@ -66,7 +66,7 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isCallCenterStandardAssigned
      */
     public function getIsCallCenterStandardAssigned()
     {
@@ -86,7 +86,7 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isCallCenterPremiumAssigned
      */
     public function getIsCallCenterPremiumAssigned()
     {

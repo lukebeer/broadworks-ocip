@@ -33,7 +33,7 @@ class SystemAutomaticCallbackGetResponse15 extends ComplexType implements Comple
     protected $terminatorIdleGuardSeconds = null;
 
     /**
-     * @return SystemAutomaticCallbackGetResponse15
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemAutomaticCallbackGetResponse15 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class SystemAutomaticCallbackGetResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMonitorMinutes
+     * @return AutomaticCallbackMonitorMinutes $monitorMinutes
      */
     public function getMonitorMinutes()
     {
@@ -77,7 +77,7 @@ class SystemAutomaticCallbackGetResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMaxMonitorsPerOriginator
+     * @return AutomaticCallbackMaxMonitorsPerOriginator $maxMonitorsPerOriginator
      */
     public function getMaxMonitorsPerOriginator()
     {
@@ -99,7 +99,7 @@ class SystemAutomaticCallbackGetResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMaxCallbackRings
+     * @return AutomaticCallbackMaxCallbackRings $maxCallbackRings
      */
     public function getMaxCallbackRings()
     {
@@ -121,7 +121,7 @@ class SystemAutomaticCallbackGetResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMaxMonitorsPerTerminator
+     * @return AutomaticCallbackMaxMonitorsPerTerminator $maxMonitorsPerTerminator
      */
     public function getMaxMonitorsPerTerminator()
     {
@@ -143,7 +143,7 @@ class SystemAutomaticCallbackGetResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackTerminatorIdleGuardSeconds
+     * @return AutomaticCallbackTerminatorIdleGuardSeconds $terminatorIdleGuardSeconds
      */
     public function getTerminatorIdleGuardSeconds()
     {

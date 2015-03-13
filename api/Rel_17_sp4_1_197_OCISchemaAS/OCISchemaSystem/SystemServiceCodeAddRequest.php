@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceCodeDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceCode;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,7 +33,7 @@ class SystemServiceCodeAddRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +55,7 @@ class SystemServiceCodeAddRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return ServiceCode
+     * @return ServiceCode $serviceCode
      */
     public function getServiceCode()
     {
@@ -78,7 +77,7 @@ class SystemServiceCodeAddRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return ServiceCodeDescription
+     * @return ServiceCodeDescription $description
      */
     public function getDescription()
     {

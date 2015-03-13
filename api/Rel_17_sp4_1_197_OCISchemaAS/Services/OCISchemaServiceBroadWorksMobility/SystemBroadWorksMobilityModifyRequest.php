@@ -54,7 +54,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +74,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableLocationServices
      */
     public function getEnableLocationServices()
     {
@@ -94,7 +94,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMSRNLookup
      */
     public function getEnableMSRNLookup()
     {
@@ -114,7 +114,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMobileStateChecking
      */
     public function getEnableMobileStateChecking()
     {
@@ -134,7 +134,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallOriginations
      */
     public function getDenyCallOriginations()
     {
@@ -154,7 +154,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallTerminations
      */
     public function getDenyCallTerminations()
     {
@@ -176,7 +176,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return IMRNTimeoutMilliseconds
+     * @return IMRNTimeoutMilliseconds $imrnTimeoutMilliseconds
      */
     public function getImrnTimeoutMilliseconds()
     {
@@ -198,7 +198,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $scfSignalingIPAddress
      */
     public function getScfSignalingIPAddress()
     {
@@ -220,7 +220,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return Port
+     * @return Port $scfSignalingPort
      */
     public function getScfSignalingPort()
     {

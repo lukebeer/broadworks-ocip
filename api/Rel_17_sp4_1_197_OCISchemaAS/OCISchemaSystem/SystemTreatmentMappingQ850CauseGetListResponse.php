@@ -24,7 +24,7 @@ class SystemTreatmentMappingQ850CauseGetListResponse extends ComplexType impleme
     protected $treatmentMappingTable = null;
 
     /**
-     * @return SystemTreatmentMappingQ850CauseGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingQ850CauseGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

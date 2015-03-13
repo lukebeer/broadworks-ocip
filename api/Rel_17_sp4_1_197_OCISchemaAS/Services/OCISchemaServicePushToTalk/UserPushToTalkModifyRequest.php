@@ -46,7 +46,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -88,7 +88,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowAutoAnswer
      */
     public function getAllowAutoAnswer()
     {
@@ -110,7 +110,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return PushToTalkOutgoingConnectionSelection
+     * @return PushToTalkOutgoingConnectionSelection $outgoingConnectionSelection
      */
     public function getOutgoingConnectionSelection()
     {
@@ -132,7 +132,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return PushToTalkAccessListSelection
+     * @return PushToTalkAccessListSelection $accessListSelection
      */
     public function getAccessListSelection()
     {
@@ -152,7 +152,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $selectedUserIdList
      */
     public function getSelectedUserIdList()
     {

@@ -23,7 +23,7 @@ class SystemDeviceTypeExportResponse extends ComplexType implements ComplexInter
     protected $file = null;
 
     /**
-     * @return SystemDeviceTypeExportResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeExportResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemDeviceTypeExportResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return URL
+     * @return URL $file
      */
     public function getFile()
     {

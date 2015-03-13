@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -34,7 +33,7 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +55,7 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -78,7 +77,7 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationFileName
+     * @return AccessDeviceEnhancedConfigurationFileName $configFile
      */
     public function getConfigFile()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupDeviceEndpointAdd;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupDeviceEndpointAdd';
     public    $name     = 'TrunkGroupDeviceEndpointAdd';
     protected $name     = null;
     protected $linePort = null;
@@ -37,7 +35,7 @@ class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return TrunkGroupDeviceEndpointAdd
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $name
      */
     public function getName()
     {
@@ -77,7 +75,7 @@ class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $linePort
      */
     public function getLinePort()
     {
@@ -97,7 +95,7 @@ class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $contact
      */
     public function getContact()
     {

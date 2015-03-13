@@ -41,7 +41,7 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deleteExpiredConferences
      */
     public function getDeleteExpiredConferences()
     {
@@ -83,7 +83,7 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingExpiredConferenceHoldPeriodDays
+     * @return InstantConferencingExpiredConferenceHoldPeriodDays $expiredConferenceHoldPeriodDays
      */
     public function getExpiredConferenceHoldPeriodDays()
     {
@@ -103,7 +103,7 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deleteRecordedConferences
      */
     public function getDeleteRecordedConferences()
     {
@@ -125,7 +125,7 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingRecordedConferenceHoldPeriodDays
+     * @return InstantConferencingRecordedConferenceHoldPeriodDays $recordedConferenceHoldPeriodDays
      */
     public function getRecordedConferenceHoldPeriodDays()
     {

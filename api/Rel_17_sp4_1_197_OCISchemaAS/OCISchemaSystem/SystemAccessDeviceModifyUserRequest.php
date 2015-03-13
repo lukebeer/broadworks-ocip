@@ -38,7 +38,7 @@ class SystemAccessDeviceModifyUserRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemAccessDeviceModifyUserRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -82,7 +82,7 @@ class SystemAccessDeviceModifyUserRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDeviceEndpointLinePort
+     * @return AccessDeviceEndpointLinePort $linePort
      */
     public function getLinePort()
     {
@@ -102,7 +102,7 @@ class SystemAccessDeviceModifyUserRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isPrimaryLinePort
      */
     public function getIsPrimaryLinePort()
     {

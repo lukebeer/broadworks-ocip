@@ -28,7 +28,7 @@ class SystemCommunicationBarringUserControlGetResponse extends ComplexType imple
     protected $lockoutMinutes            = null;
 
     /**
-     * @return SystemCommunicationBarringUserControlGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\SystemCommunicationBarringUserControlGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemCommunicationBarringUserControlGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableLockout
      */
     public function getEnableLockout()
     {
@@ -70,7 +70,7 @@ class SystemCommunicationBarringUserControlGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return CommunicationBarringUserControlNumberOfAttempts
+     * @return CommunicationBarringUserControlNumberOfAttempts $maxNumberOfFailedAttempts
      */
     public function getMaxNumberOfFailedAttempts()
     {
@@ -92,7 +92,7 @@ class SystemCommunicationBarringUserControlGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return CommunicationBarringUserControlLockoutMinutes
+     * @return CommunicationBarringUserControlLockoutMinutes $lockoutMinutes
      */
     public function getLockoutMinutes()
     {

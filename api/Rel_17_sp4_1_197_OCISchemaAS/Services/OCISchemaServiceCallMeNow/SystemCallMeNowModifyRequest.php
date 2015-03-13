@@ -34,7 +34,7 @@ class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return CallMeNowPasscodeLength
+     * @return CallMeNowPasscodeLength $passcodeLength
      */
     public function getPasscodeLength()
     {
@@ -78,7 +78,7 @@ class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return CallMeNowPasscodeTimeoutSeconds
+     * @return CallMeNowPasscodeTimeoutSeconds $passcodeTimeoutSeconds
      */
     public function getPasscodeTimeoutSeconds()
     {

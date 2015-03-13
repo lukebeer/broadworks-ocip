@@ -34,7 +34,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
     protected $hostAssociationLimitHours = null;
 
     /**
-     * @return UserHotelingGuestGetResponse14sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserHotelingGuestGetResponse14sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -76,7 +76,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return HotelingAssociationLimitHours
+     * @return HotelingAssociationLimitHours $associationLimitHours
      */
     public function getAssociationLimitHours()
     {
@@ -98,7 +98,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return UserId
+     * @return UserId $hostUserId
      */
     public function getHostUserId()
     {
@@ -120,7 +120,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return LastName
+     * @return LastName $hostLastName
      */
     public function getHostLastName()
     {
@@ -142,7 +142,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $hostFirstName
      */
     public function getHostFirstName()
     {
@@ -161,7 +161,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:dateTime
+     * @return xs:dateTime $hostAssociationDateTime
      */
     public function getHostAssociationDateTime()
     {
@@ -183,7 +183,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return HotelingAssociationLimitHours
+     * @return HotelingAssociationLimitHours $hostAssociationLimitHours
      */
     public function getHostAssociationLimitHours()
     {

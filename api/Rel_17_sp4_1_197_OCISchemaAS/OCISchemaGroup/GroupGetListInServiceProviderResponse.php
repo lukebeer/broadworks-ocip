@@ -25,7 +25,7 @@ class GroupGetListInServiceProviderResponse extends ComplexType implements Compl
     protected $groupTable = null;
 
     /**
-     * @return GroupGetListInServiceProviderResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInServiceProviderResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

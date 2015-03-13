@@ -62,7 +62,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -84,7 +84,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -106,7 +106,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -128,7 +128,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -148,7 +148,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceInstanceAddProfile
+     * @return ServiceInstanceAddProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -168,7 +168,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return MeetMeConferencingConferencePorts
+     * @return MeetMeConferencingConferencePorts $allocatedPorts
      */
     public function getAllocatedPorts()
     {
@@ -190,7 +190,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {
@@ -210,7 +210,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowIndividualOutDial
      */
     public function getAllowIndividualOutDial()
     {
@@ -232,7 +232,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $operatorNumber
      */
     public function getOperatorNumber()
     {
@@ -254,7 +254,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $conferenceHostUserId
      */
     public function getConferenceHostUserId()
     {

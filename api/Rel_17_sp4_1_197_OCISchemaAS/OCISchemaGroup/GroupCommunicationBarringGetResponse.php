@@ -25,7 +25,7 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
     protected $profile                          = null;
 
     /**
-     * @return GroupCommunicationBarringGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommunicationBarringGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDefaultServiceProviderProfile
      */
     public function getUseDefaultServiceProviderProfile()
     {
@@ -67,7 +67,7 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return CommunicationBarringProfileName
+     * @return CommunicationBarringProfileName $profile
      */
     public function getProfile()
     {

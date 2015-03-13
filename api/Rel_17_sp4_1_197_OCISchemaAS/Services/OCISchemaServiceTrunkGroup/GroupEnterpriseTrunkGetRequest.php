@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -40,7 +39,7 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return GroupEnterpriseTrunkGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +61,7 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -84,7 +83,7 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -106,7 +105,7 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return EnterpriseTrunkName
+     * @return EnterpriseTrunkName $enterpriseTrunkName
      */
     public function getEnterpriseTrunkName()
     {

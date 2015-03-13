@@ -23,7 +23,7 @@ class SystemMultimediaPolicyGetResponse extends ComplexType implements ComplexIn
     protected $restrictNonAudioVideoMediaTypes = null;
 
     /**
-     * @return SystemMultimediaPolicyGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMultimediaPolicyGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class SystemMultimediaPolicyGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictNonAudioVideoMediaTypes
      */
     public function getRestrictNonAudioVideoMediaTypes()
     {

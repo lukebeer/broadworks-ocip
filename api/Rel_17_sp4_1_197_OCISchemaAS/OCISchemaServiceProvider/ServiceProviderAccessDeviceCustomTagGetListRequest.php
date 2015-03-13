@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceCustomTagGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,7 +35,7 @@ class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType imp
     }
 
     /**
-     * @return ServiceProviderAccessDeviceCustomTagGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceCustomTagGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +57,7 @@ class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType imp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -80,7 +79,7 @@ class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType imp
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {

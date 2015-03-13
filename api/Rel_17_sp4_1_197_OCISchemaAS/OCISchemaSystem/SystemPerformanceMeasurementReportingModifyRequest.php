@@ -46,7 +46,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -88,7 +88,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return PerformanceMeasurementReportingIntervalMinutes
+     * @return PerformanceMeasurementReportingIntervalMinutes $reportingInterval
      */
     public function getReportingInterval()
     {
@@ -108,7 +108,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $resetMeasurementsAfterEachReport
      */
     public function getResetMeasurementsAfterEachReport()
     {
@@ -128,7 +128,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $reportEnterprise
      */
     public function getReportEnterprise()
     {
@@ -148,7 +148,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $reportServiceProvider
      */
     public function getReportServiceProvider()
     {
@@ -168,7 +168,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $reportDevice
      */
     public function getReportDevice()
     {

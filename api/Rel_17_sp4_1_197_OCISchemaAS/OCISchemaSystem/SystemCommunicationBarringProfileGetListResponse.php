@@ -25,7 +25,7 @@ class SystemCommunicationBarringProfileGetListResponse extends ComplexType imple
     protected $profileTable = null;
 
     /**
-     * @return SystemCommunicationBarringProfileGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

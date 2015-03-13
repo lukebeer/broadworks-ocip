@@ -37,7 +37,7 @@ class SystemDigitCollectionModifyRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class SystemDigitCollectionModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AccessCode
+     * @return AccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -81,7 +81,7 @@ class SystemDigitCollectionModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $publicDigitMap
      */
     public function getPublicDigitMap()
     {
@@ -103,7 +103,7 @@ class SystemDigitCollectionModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $privateDigitMap
      */
     public function getPrivateDigitMap()
     {

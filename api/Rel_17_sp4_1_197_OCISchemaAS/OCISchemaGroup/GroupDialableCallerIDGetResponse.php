@@ -28,7 +28,7 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
     protected $criteriaTable            = null;
 
     /**
-     * @return GroupDialableCallerIDGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialableCallerIDGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupCriteria
      */
     public function getUseGroupCriteria()
     {
@@ -70,7 +70,7 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return NsScreeningFailurePolicy
+     * @return NsScreeningFailurePolicy $nsScreeningFailurePolicy
      */
     public function getNsScreeningFailurePolicy()
     {

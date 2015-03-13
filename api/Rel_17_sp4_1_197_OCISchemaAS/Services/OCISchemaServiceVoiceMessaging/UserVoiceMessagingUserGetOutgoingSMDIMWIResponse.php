@@ -25,7 +25,7 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
     protected $outgoingSMDIMWIPhoneNumber = null;
 
     /**
-     * @return UserVoiceMessagingUserGetOutgoingSMDIMWIResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetOutgoingSMDIMWIResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -67,7 +67,7 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $outgoingSMDIMWIPhoneNumber
      */
     public function getOutgoingSMDIMWIPhoneNumber()
     {

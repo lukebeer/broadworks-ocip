@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetCallTypeName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdFirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdLastName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -33,7 +32,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserResponse extends ComplexType i
     protected $virtualOnNetCallTypeName = null;
 
     /**
-     * @return GroupVirtualOnNetEnterpriseExtensionsGetUserResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsGetUserResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +54,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserResponse extends ComplexType i
 
     /**
      * 
-     * @return Extension17
+     * @return Extension17 $extension
      */
     public function getExtension()
     {
@@ -77,7 +76,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserResponse extends ComplexType i
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {
@@ -99,7 +98,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserResponse extends ComplexType i
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -121,7 +120,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserResponse extends ComplexType i
 
     /**
      * 
-     * @return CallingLineIdFirstName
+     * @return CallingLineIdFirstName $callingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
@@ -143,7 +142,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserResponse extends ComplexType i
 
     /**
      * 
-     * @return CallingLineIdLastName
+     * @return CallingLineIdLastName $callingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
@@ -165,7 +164,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserResponse extends ComplexType i
 
     /**
      * 
-     * @return VirtualOnNetCallTypeName
+     * @return VirtualOnNetCallTypeName $virtualOnNetCallTypeName
      */
     public function getVirtualOnNetCallTypeName()
     {

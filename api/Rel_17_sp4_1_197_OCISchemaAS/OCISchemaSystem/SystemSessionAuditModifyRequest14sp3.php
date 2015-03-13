@@ -86,7 +86,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -106,7 +106,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isAuditActive
      */
     public function getIsAuditActive()
     {
@@ -128,7 +128,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return SessionAuditIntervalSeconds
+     * @return SessionAuditIntervalSeconds $auditIntervalSeconds
      */
     public function getAuditIntervalSeconds()
     {
@@ -150,7 +150,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return SessionAuditTimeoutPeriodSeconds
+     * @return SessionAuditTimeoutPeriodSeconds $auditTimeoutSeconds
      */
     public function getAuditTimeoutSeconds()
     {
@@ -170,7 +170,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $releaseCallOnAuditFailure
      */
     public function getReleaseCallOnAuditFailure()
     {
@@ -190,7 +190,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSIPRefreshAllowedOnAudit
      */
     public function getIsSIPRefreshAllowedOnAudit()
     {
@@ -210,7 +210,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUpdateForSIPRefresh
      */
     public function getAllowUpdateForSIPRefresh()
     {
@@ -230,7 +230,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSIPSessionTimerActive
      */
     public function getIsSIPSessionTimerActive()
     {
@@ -252,7 +252,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return SIPSessionExpiresMinimumSeconds
+     * @return SIPSessionExpiresMinimumSeconds $sipSessionExpiresMinimumSeconds
      */
     public function getSipSessionExpiresMinimumSeconds()
     {
@@ -272,7 +272,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceSIPSessionExpiresMaximum
      */
     public function getEnforceSIPSessionExpiresMaximum()
     {
@@ -294,7 +294,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return SIPSessionExpiresMaximumSeconds
+     * @return SIPSessionExpiresMaximumSeconds $sipSessionExpiresMaximumSeconds
      */
     public function getSipSessionExpiresMaximumSeconds()
     {
@@ -316,7 +316,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return SIPSessionExpiresTimerSeconds
+     * @return SIPSessionExpiresTimerSeconds $sipSessionExpiresTimerSeconds
      */
     public function getSipSessionExpiresTimerSeconds()
     {
@@ -336,7 +336,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alwaysUseSessionTimerWhenSupported
      */
     public function getAlwaysUseSessionTimerWhenSupported()
     {
@@ -358,7 +358,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return SessionTimerRefresher
+     * @return SessionTimerRefresher $preferredSessionTimerRefresher
      */
     public function getPreferredSessionTimerRefresher()
     {
@@ -378,7 +378,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableEmergencyCallAlarmTimer
      */
     public function getEnableEmergencyCallAlarmTimer()
     {
@@ -400,7 +400,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return EmergencyCallAlarmMinutes
+     * @return EmergencyCallAlarmMinutes $emergencyCallAlarmMinutes
      */
     public function getEmergencyCallAlarmMinutes()
     {
@@ -420,7 +420,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableEmergencyCallCleanupTimer
      */
     public function getEnableEmergencyCallCleanupTimer()
     {
@@ -442,7 +442,7 @@ class SystemSessionAuditModifyRequest14sp3 extends ComplexType implements Comple
 
     /**
      * 
-     * @return EmergencyCallCleanupMinutes
+     * @return EmergencyCallCleanupMinutes $emergencyCallCleanupMinutes
      */
     public function getEmergencyCallCleanupMinutes()
     {

@@ -24,7 +24,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse extends Co
     protected $accessDevice = null;
 
     /**
-     * @return EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse extends Co
 
     /**
      * 
-     * @return EnterpriseAccessDevice
+     * @return EnterpriseAccessDevice $accessDevice
      */
     public function getAccessDevice()
     {

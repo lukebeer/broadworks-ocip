@@ -38,7 +38,7 @@ class GroupCallCapacityManagementDeleteInstanceListRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class GroupCallCapacityManagementDeleteInstanceListRequest extends ComplexType i
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class GroupCallCapacityManagementDeleteInstanceListRequest extends ComplexType i
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -104,7 +104,7 @@ class GroupCallCapacityManagementDeleteInstanceListRequest extends ComplexType i
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {

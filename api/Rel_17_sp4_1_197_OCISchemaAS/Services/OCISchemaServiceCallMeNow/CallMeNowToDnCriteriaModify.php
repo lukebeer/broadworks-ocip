@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowToDnCriteriaModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallMeNowToDnCriteriaModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\CallMeNowToDnCriteriaModify';
     public    $name                  = 'CallMeNowToDnCriteriaModify';
     protected $toDnCriteriaSelection = null;
     protected $phoneNumberList       = null;
@@ -34,7 +32,7 @@ class CallMeNowToDnCriteriaModify extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return CallMeNowToDnCriteriaModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class CallMeNowToDnCriteriaModify extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $toDnCriteriaSelection
      */
     public function getToDnCriteriaSelection()
     {
@@ -74,7 +72,7 @@ class CallMeNowToDnCriteriaModify extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $phoneNumberList
      */
     public function getPhoneNumberList()
     {

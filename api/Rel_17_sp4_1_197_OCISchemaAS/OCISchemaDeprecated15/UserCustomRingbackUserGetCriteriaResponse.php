@@ -34,7 +34,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
     protected $videoFileUrl         = null;
 
     /**
-     * @return UserCustomRingbackUserGetCriteriaResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCustomRingbackUserGetCriteriaResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -74,7 +74,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {
@@ -96,7 +96,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -118,7 +118,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -140,7 +140,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
 
     /**
      * 
-     * @return URL
+     * @return URL $audioFileUrl
      */
     public function getAudioFileUrl()
     {
@@ -162,7 +162,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -184,7 +184,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -206,7 +206,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
 
     /**
      * 
-     * @return URL
+     * @return URL $videoFileUrl
      */
     public function getVideoFileUrl()
     {

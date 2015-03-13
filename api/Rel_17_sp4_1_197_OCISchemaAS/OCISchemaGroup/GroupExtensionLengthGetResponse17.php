@@ -25,7 +25,7 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
     protected $defaultExtensionLength = null;
 
     /**
-     * @return GroupExtensionLengthGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupExtensionLengthGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ExtensionLength
+     * @return ExtensionLength $minExtensionLength
      */
     public function getMinExtensionLength()
     {
@@ -69,7 +69,7 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ExtensionLength
+     * @return ExtensionLength $maxExtensionLength
      */
     public function getMaxExtensionLength()
     {
@@ -91,7 +91,7 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ExtensionLength
+     * @return ExtensionLength $defaultExtensionLength
      */
     public function getDefaultExtensionLength()
     {

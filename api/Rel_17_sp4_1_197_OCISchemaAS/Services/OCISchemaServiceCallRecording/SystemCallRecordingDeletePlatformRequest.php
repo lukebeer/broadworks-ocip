@@ -30,7 +30,7 @@ class SystemCallRecordingDeletePlatformRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemCallRecordingDeletePlatformRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return CallRecordingPlatformName
+     * @return CallRecordingPlatformName $name
      */
     public function getName()
     {

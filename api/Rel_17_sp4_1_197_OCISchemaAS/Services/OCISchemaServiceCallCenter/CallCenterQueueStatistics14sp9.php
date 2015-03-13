@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterQueueStatistics14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterQueueStatistics14sp9';
     public    $name                         = 'CallCenterQueueStatistics14sp9';
     protected $numberOfBusyOverflows        = null;
     protected $numberOfCallsAnswered        = null;
@@ -55,7 +53,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return CallCenterQueueStatistics14sp9
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +73,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $numberOfBusyOverflows
      */
     public function getNumberOfBusyOverflows()
     {
@@ -95,7 +93,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $numberOfCallsAnswered
      */
     public function getNumberOfCallsAnswered()
     {
@@ -115,7 +113,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $numberOfCallsAbandoned
      */
     public function getNumberOfCallsAbandoned()
     {
@@ -135,7 +133,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $numberOfCallsTransferred
      */
     public function getNumberOfCallsTransferred()
     {
@@ -155,7 +153,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $numberOfCallsTimedout
      */
     public function getNumberOfCallsTimedout()
     {
@@ -175,7 +173,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $averageNumberOfAgentsTalking
      */
     public function getAverageNumberOfAgentsTalking()
     {
@@ -195,7 +193,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $averageNumberOfAgentsStaffed
      */
     public function getAverageNumberOfAgentsStaffed()
     {
@@ -215,7 +213,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $averageWaitSeconds
      */
     public function getAverageWaitSeconds()
     {
@@ -235,7 +233,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $averageAbandonmentSeconds
      */
     public function getAverageAbandonmentSeconds()
     {

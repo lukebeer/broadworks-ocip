@@ -34,7 +34,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
     protected $devices                         = null;
 
     /**
-     * @return EnterpriseSessionAdmissionControlGroupGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxSession
      */
     public function getMaxSession()
     {
@@ -78,7 +78,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserOriginatingSessions
      */
     public function getMaxUserOriginatingSessions()
     {
@@ -100,7 +100,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserTerminatingSessions
      */
     public function getMaxUserTerminatingSessions()
     {
@@ -122,7 +122,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedSession
      */
     public function getReservedSession()
     {
@@ -144,7 +144,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedUserOriginatingSessions
      */
     public function getReservedUserOriginatingSessions()
     {
@@ -166,7 +166,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedUserTerminatingSessions
      */
     public function getReservedUserTerminatingSessions()
     {
@@ -186,7 +186,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $defaultGroup
      */
     public function getDefaultGroup()
     {
@@ -206,7 +206,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $countIntraSACGroupSessions
      */
     public function getCountIntraSACGroupSessions()
     {
@@ -226,7 +226,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return EnterpriseAccessDevice
+     * @return EnterpriseAccessDevice $devices
      */
     public function getDevices()
     {

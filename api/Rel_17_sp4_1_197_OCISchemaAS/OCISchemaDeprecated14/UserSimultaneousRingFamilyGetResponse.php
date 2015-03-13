@@ -28,7 +28,7 @@ class UserSimultaneousRingFamilyGetResponse extends ComplexType implements Compl
     protected $simRingPhoneNumber = null;
 
     /**
-     * @return UserSimultaneousRingFamilyGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserSimultaneousRingFamilyGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class UserSimultaneousRingFamilyGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -70,7 +70,7 @@ class UserSimultaneousRingFamilyGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimultaneousRingSelection
+     * @return SimultaneousRingSelection $incomingCalls
      */
     public function getIncomingCalls()
     {
@@ -92,7 +92,7 @@ class UserSimultaneousRingFamilyGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $simRingPhoneNumber
      */
     public function getSimRingPhoneNumber()
     {

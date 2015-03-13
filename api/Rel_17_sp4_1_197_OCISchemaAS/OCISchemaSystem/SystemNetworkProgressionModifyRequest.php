@@ -34,7 +34,7 @@ class SystemNetworkProgressionModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemNetworkProgressionModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -76,7 +76,7 @@ class SystemNetworkProgressionModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return NetworkProgressionWaitPeriodSeconds
+     * @return NetworkProgressionWaitPeriodSeconds $waitPeriodSeconds
      */
     public function getWaitPeriodSeconds()
     {

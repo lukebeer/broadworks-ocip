@@ -39,7 +39,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
     protected $macFormatInNonRequestURI           = null;
 
     /**
-     * @return SystemSIPDeviceTypeFileGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSIPDeviceTypeFileGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DeviceManagementFileFormat
+     * @return DeviceManagementFileFormat $fileFormat
      */
     public function getFileFormat()
     {
@@ -83,7 +83,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DeviceManagementFileFormat
+     * @return DeviceManagementFileFormat $remoteFileFormat
      */
     public function getRemoteFileFormat()
     {
@@ -105,7 +105,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DeviceManagementFileCategory
+     * @return DeviceManagementFileCategory $fileCategory
      */
     public function getFileCategory()
     {
@@ -125,7 +125,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowFileCustomization
      */
     public function getAllowFileCustomization()
     {
@@ -147,7 +147,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DeviceTypeFileEnhancedConfigurationMode
+     * @return DeviceTypeFileEnhancedConfigurationMode $fileSource
      */
     public function getFileSource()
     {
@@ -169,7 +169,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationFileName
+     * @return AccessDeviceEnhancedConfigurationFileName $configurationFileName
      */
     public function getConfigurationFileName()
     {
@@ -189,7 +189,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useHttpDigestAuthentication
      */
     public function getUseHttpDigestAuthentication()
     {
@@ -209,7 +209,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $macBasedFileAuthentication
      */
     public function getMacBasedFileAuthentication()
     {
@@ -229,7 +229,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $userNamePasswordFileAuthentication
      */
     public function getUserNamePasswordFileAuthentication()
     {
@@ -249,7 +249,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $macInNonRequestURI
      */
     public function getMacInNonRequestURI()
     {
@@ -271,7 +271,7 @@ class SystemSIPDeviceTypeFileGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DeviceManagementAccessURI
+     * @return DeviceManagementAccessURI $macFormatInNonRequestURI
      */
     public function getMacFormatInNonRequestURI()
     {

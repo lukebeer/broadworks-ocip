@@ -42,7 +42,7 @@ class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements 
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +108,7 @@ class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements 
 
     /**
      * 
-     * @return FileRepositoryName
+     * @return FileRepositoryName $fileRepositoryName
      */
     public function getFileRepositoryName()
     {
@@ -130,7 +130,7 @@ class GroupFileRepositoryDeviceUserDeleteRequest extends ComplexType implements 
 
     /**
      * 
-     * @return FileRepositoryUserName
+     * @return FileRepositoryUserName $userName
      */
     public function getUserName()
     {

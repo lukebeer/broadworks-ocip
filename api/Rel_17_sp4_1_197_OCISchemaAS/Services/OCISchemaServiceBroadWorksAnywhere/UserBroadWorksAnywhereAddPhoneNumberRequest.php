@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\BroadWorksAnywherePhoneNumberDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDNorSIPURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -55,7 +54,7 @@ class UserBroadWorksAnywhereAddPhoneNumberRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -77,7 +76,7 @@ class UserBroadWorksAnywhereAddPhoneNumberRequest extends ComplexType implements
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -99,7 +98,7 @@ class UserBroadWorksAnywhereAddPhoneNumberRequest extends ComplexType implements
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -121,7 +120,7 @@ class UserBroadWorksAnywhereAddPhoneNumberRequest extends ComplexType implements
 
     /**
      * 
-     * @return BroadWorksAnywherePhoneNumberDescription
+     * @return BroadWorksAnywherePhoneNumberDescription $description
      */
     public function getDescription()
     {
@@ -141,7 +140,7 @@ class UserBroadWorksAnywhereAddPhoneNumberRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -163,7 +162,7 @@ class UserBroadWorksAnywhereAddPhoneNumberRequest extends ComplexType implements
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $outboundAlternateNumber
      */
     public function getOutboundAlternateNumber()
     {
@@ -183,7 +182,7 @@ class UserBroadWorksAnywhereAddPhoneNumberRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $broadworksCallControl
      */
     public function getBroadworksCallControl()
     {
@@ -203,7 +202,7 @@ class UserBroadWorksAnywhereAddPhoneNumberRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDiversionInhibitor
      */
     public function getUseDiversionInhibitor()
     {
@@ -223,7 +222,7 @@ class UserBroadWorksAnywhereAddPhoneNumberRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $answerConfirmationRequired
      */
     public function getAnswerConfirmationRequired()
     {

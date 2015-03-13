@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\ReplacementEnterpriseTrunkTrunkGroupKeyList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementEnterpriseTrunkTrunkGroupKeyList extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\ReplacementEnterpriseTrunkTrunkGroupKeyList';
     public    $name           = 'ReplacementEnterpriseTrunkTrunkGroupKeyList';
     protected $trunkGroupList = null;
 
@@ -32,7 +30,7 @@ class ReplacementEnterpriseTrunkTrunkGroupKeyList extends ComplexType implements
     }
 
     /**
-     * @return ReplacementEnterpriseTrunkTrunkGroupKeyList
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +50,7 @@ class ReplacementEnterpriseTrunkTrunkGroupKeyList extends ComplexType implements
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $trunkGroupList
      */
     public function getTrunkGroupList()
     {

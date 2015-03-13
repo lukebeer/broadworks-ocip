@@ -34,7 +34,7 @@ class UserVoiceMessagingUserDeleteAliasListRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserVoiceMessagingUserDeleteAliasListRequest extends ComplexType implement
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -78,7 +78,7 @@ class UserVoiceMessagingUserDeleteAliasListRequest extends ComplexType implement
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {

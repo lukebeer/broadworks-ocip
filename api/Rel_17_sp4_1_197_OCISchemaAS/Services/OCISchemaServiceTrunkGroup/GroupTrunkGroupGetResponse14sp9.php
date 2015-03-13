@@ -28,7 +28,7 @@ class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInte
     protected $burstingMaxAvailableActiveCalls = null;
 
     /**
-     * @return GroupTrunkGroupGetResponse14sp9
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetResponse14sp9 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:int
+     * @return int $maxActiveCalls
      */
     public function getMaxActiveCalls()
     {
@@ -68,7 +68,7 @@ class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $maxAvailableActiveCalls
      */
     public function getMaxAvailableActiveCalls()
     {
@@ -88,7 +88,7 @@ class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $burstingMaxActiveCalls
      */
     public function getBurstingMaxActiveCalls()
     {
@@ -108,7 +108,7 @@ class GroupTrunkGroupGetResponse14sp9 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $burstingMaxAvailableActiveCalls
      */
     public function getBurstingMaxAvailableActiveCalls()
     {

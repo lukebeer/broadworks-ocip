@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -38,7 +37,7 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +59,7 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $zoneName
      */
     public function getZoneName()
     {
@@ -82,7 +81,7 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -102,7 +101,7 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return IPAddressRange
+     * @return IPAddressRange $netAddressRange
      */
     public function getNetAddressRange()
     {

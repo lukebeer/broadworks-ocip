@@ -34,7 +34,7 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -76,7 +76,7 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $portsAllocatedToServiceProvider
      */
     public function getPortsAllocatedToServiceProvider()
     {

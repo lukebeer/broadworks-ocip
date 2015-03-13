@@ -76,7 +76,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -98,7 +98,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -118,7 +118,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -140,7 +140,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return VoiceMessagingMessageProcessing
+     * @return VoiceMessagingMessageProcessing $processing
      */
     public function getProcessing()
     {
@@ -162,7 +162,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $voiceMessageDeliveryEmailAddress
      */
     public function getVoiceMessageDeliveryEmailAddress()
     {
@@ -182,7 +182,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $usePhoneMessageWaitingIndicator
      */
     public function getUsePhoneMessageWaitingIndicator()
     {
@@ -202,7 +202,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendVoiceMessageNotifyEmail
      */
     public function getSendVoiceMessageNotifyEmail()
     {
@@ -224,7 +224,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $voiceMessageNotifyEmailAddress
      */
     public function getVoiceMessageNotifyEmailAddress()
     {
@@ -244,7 +244,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendCarbonCopyVoiceMessage
      */
     public function getSendCarbonCopyVoiceMessage()
     {
@@ -266,7 +266,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $voiceMessageCarbonCopyEmailAddress
      */
     public function getVoiceMessageCarbonCopyEmailAddress()
     {
@@ -286,7 +286,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $transferOnZeroToPhoneNumber
      */
     public function getTransferOnZeroToPhoneNumber()
     {
@@ -308,7 +308,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -328,7 +328,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alwaysRedirectToVoiceMail
      */
     public function getAlwaysRedirectToVoiceMail()
     {
@@ -348,7 +348,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $busyRedirectToVoiceMail
      */
     public function getBusyRedirectToVoiceMail()
     {
@@ -368,7 +368,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $noAnswerRedirectToVoiceMail
      */
     public function getNoAnswerRedirectToVoiceMail()
     {
@@ -388,7 +388,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $outOfPrimaryZoneRedirectToVoiceMail
      */
     public function getOutOfPrimaryZoneRedirectToVoiceMail()
     {

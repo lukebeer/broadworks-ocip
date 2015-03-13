@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\CallCenterMediaOnHoldSourceModify16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements ComplexInterface
 {
-    public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\CallCenterMediaOnHoldSourceModify16';
     public    $name                        = 'CallCenterMediaOnHoldSourceModify16';
     protected $audioMessageSourceSelection = null;
     protected $audioFile                   = null;
@@ -46,7 +44,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
     }
 
     /**
-     * @return CallCenterMediaOnHoldSourceModify16
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +64,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioMessageSourceSelection
      */
     public function getAudioMessageSourceSelection()
     {
@@ -86,7 +84,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioFile
      */
     public function getAudioFile()
     {
@@ -106,7 +104,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $externalAudioSource
      */
     public function getExternalAudioSource()
     {
@@ -126,7 +124,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $videoMessageSourceSelection
      */
     public function getVideoMessageSourceSelection()
     {
@@ -146,7 +144,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $videoFile
      */
     public function getVideoFile()
     {
@@ -166,7 +164,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $externalVideoSource
      */
     public function getExternalVideoSource()
     {

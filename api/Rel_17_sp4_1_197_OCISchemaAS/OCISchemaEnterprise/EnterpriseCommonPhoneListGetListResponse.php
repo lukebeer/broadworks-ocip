@@ -24,7 +24,7 @@ class EnterpriseCommonPhoneListGetListResponse extends ComplexType implements Co
     protected $entry = null;
 
     /**
-     * @return EnterpriseCommonPhoneListGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class EnterpriseCommonPhoneListGetListResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return PhoneListEntry
+     * @return PhoneListEntry $entry
      */
     public function getEntry()
     {

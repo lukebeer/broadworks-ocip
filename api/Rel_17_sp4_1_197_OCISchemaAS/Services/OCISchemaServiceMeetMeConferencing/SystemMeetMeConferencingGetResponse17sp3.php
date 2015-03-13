@@ -35,7 +35,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
     protected $recordingFileFormat                     = null;
 
     /**
-     * @return SystemMeetMeConferencingGetResponse17sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\SystemMeetMeConferencingGetResponse17sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return MeetMeConferencingConferencePassCodeLength
+     * @return MeetMeConferencingConferencePassCodeLength $conferenceIdLength
      */
     public function getConferenceIdLength()
     {
@@ -79,7 +79,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return MeetMeConferencingConferencePassCodeLength
+     * @return MeetMeConferencingConferencePassCodeLength $moderatorPinLength
      */
     public function getModeratorPinLength()
     {
@@ -99,7 +99,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableConferenceEndDateRestriction
      */
     public function getEnableConferenceEndDateRestriction()
     {
@@ -121,7 +121,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return MeetMeConferencingConferenceEndDateRestrictionMonths
+     * @return MeetMeConferencingConferenceEndDateRestrictionMonths $conferenceEndDateRestrictionMonths
      */
     public function getConferenceEndDateRestrictionMonths()
     {
@@ -141,7 +141,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deleteExpiredConferencesAfterHoldPeriod
      */
     public function getDeleteExpiredConferencesAfterHoldPeriod()
     {
@@ -163,7 +163,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return MeetMeConferencingExpiredConferenceHoldPeriodDays
+     * @return MeetMeConferencingExpiredConferenceHoldPeriodDays $expiredConferenceHoldPeriodDays
      */
     public function getExpiredConferenceHoldPeriodDays()
     {
@@ -185,7 +185,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return URL
+     * @return URL $recordingWebAppURL
      */
     public function getRecordingWebAppURL()
     {
@@ -207,7 +207,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return MeetMeConferencingRecordingFileFormat
+     * @return MeetMeConferencingRecordingFileFormat $recordingFileFormat
      */
     public function getRecordingFileFormat()
     {

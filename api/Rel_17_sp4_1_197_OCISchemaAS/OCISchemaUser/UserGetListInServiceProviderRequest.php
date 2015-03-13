@@ -14,7 +14,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInServiceProviderResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -58,7 +57,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return UserGetListInServiceProviderResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInServiceProviderResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -80,7 +79,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -102,7 +101,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -124,7 +123,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -146,7 +145,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -168,7 +167,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -190,7 +189,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaEmailAddress
+     * @return SearchCriteriaEmailAddress $searchCriteriaEmailAddress
      */
     public function getSearchCriteriaEmailAddress()
     {
@@ -212,7 +211,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaExactUserInTrunkGroup
+     * @return SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup
      */
     public function getSearchCriteriaExactUserInTrunkGroup()
     {

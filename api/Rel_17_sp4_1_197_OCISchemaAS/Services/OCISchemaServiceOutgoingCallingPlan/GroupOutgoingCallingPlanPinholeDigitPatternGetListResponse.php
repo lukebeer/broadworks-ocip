@@ -24,7 +24,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse extends Complex
     protected $digitPatternTable = null;
 
     /**
-     * @return GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

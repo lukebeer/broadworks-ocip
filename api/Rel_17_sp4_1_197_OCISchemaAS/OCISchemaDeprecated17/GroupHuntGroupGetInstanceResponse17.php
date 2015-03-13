@@ -40,7 +40,7 @@ class GroupHuntGroupGetInstanceResponse17 extends ComplexType implements Complex
     protected $allowCallWaitingForAgents = null;
 
     /**
-     * @return GroupHuntGroupGetInstanceResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupHuntGroupGetInstanceResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class GroupHuntGroupGetInstanceResponse17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceInstanceReadProfile17
+     * @return ServiceInstanceReadProfile17 $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -82,7 +82,7 @@ class GroupHuntGroupGetInstanceResponse17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return HuntPolicy
+     * @return HuntPolicy $policy
      */
     public function getPolicy()
     {
@@ -102,7 +102,7 @@ class GroupHuntGroupGetInstanceResponse17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $huntAfterNoAnswer
      */
     public function getHuntAfterNoAnswer()
     {
@@ -124,7 +124,7 @@ class GroupHuntGroupGetInstanceResponse17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return HuntNoAnswerRings
+     * @return HuntNoAnswerRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {
@@ -144,7 +144,7 @@ class GroupHuntGroupGetInstanceResponse17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forwardAfterTimeout
      */
     public function getForwardAfterTimeout()
     {
@@ -166,7 +166,7 @@ class GroupHuntGroupGetInstanceResponse17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return HuntForwardTimeoutSeconds
+     * @return HuntForwardTimeoutSeconds $forwardTimeoutSeconds
      */
     public function getForwardTimeoutSeconds()
     {
@@ -188,7 +188,7 @@ class GroupHuntGroupGetInstanceResponse17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -228,7 +228,7 @@ class GroupHuntGroupGetInstanceResponse17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallWaitingForAgents
      */
     public function getAllowCallWaitingForAgents()
     {

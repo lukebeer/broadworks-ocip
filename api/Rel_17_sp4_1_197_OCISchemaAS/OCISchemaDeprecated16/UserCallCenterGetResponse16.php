@@ -39,7 +39,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
     protected $callCenterTable                                      = null;
 
     /**
-     * @return UserCallCenterGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserCallCenterGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return AgentACDState
+     * @return AgentACDState $agentACDState
      */
     public function getAgentACDState()
     {
@@ -81,7 +81,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDefaultGuardTimer
      */
     public function getUseDefaultGuardTimer()
     {
@@ -101,7 +101,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableGuardTimer
      */
     public function getEnableGuardTimer()
     {
@@ -123,7 +123,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return CallCenterGuardTimerSeconds
+     * @return CallCenterGuardTimerSeconds $guardTimerSeconds
      */
     public function getGuardTimerSeconds()
     {
@@ -143,7 +143,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultUnavailableSettings
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
@@ -163,7 +163,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnDNDActivation
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
@@ -183,7 +183,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceUnavailableOnPersonalCalls
      */
     public function getForceUnavailableOnPersonalCalls()
     {
@@ -203,7 +203,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnBouncedCallLimit
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
@@ -225,7 +225,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable
+     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable $numberConsecutiveBouncedCallsToForceAgentUnavailable
      */
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
     {

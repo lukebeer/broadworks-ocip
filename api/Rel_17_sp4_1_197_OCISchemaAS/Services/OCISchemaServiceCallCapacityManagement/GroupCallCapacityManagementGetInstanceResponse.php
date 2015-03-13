@@ -32,7 +32,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
     protected $userTable                     = null;
 
     /**
-     * @return GroupCallCapacityManagementGetInstanceResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCapacityManagement\GroupCallCapacityManagementGetInstanceResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {
@@ -76,7 +76,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
 
     /**
      * 
-     * @return CallCapacityCallLimit
+     * @return CallCapacityCallLimit $maxActiveCallsAllowed
      */
     public function getMaxActiveCallsAllowed()
     {
@@ -98,7 +98,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
 
     /**
      * 
-     * @return CallCapacityCallLimit
+     * @return CallCapacityCallLimit $maxIncomingActiveCallsAllowed
      */
     public function getMaxIncomingActiveCallsAllowed()
     {
@@ -120,7 +120,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
 
     /**
      * 
-     * @return CallCapacityCallLimit
+     * @return CallCapacityCallLimit $maxOutgoingActiveCallsAllowed
      */
     public function getMaxOutgoingActiveCallsAllowed()
     {
@@ -140,7 +140,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $defaultGroupForNewUsers
      */
     public function getDefaultGroupForNewUsers()
     {

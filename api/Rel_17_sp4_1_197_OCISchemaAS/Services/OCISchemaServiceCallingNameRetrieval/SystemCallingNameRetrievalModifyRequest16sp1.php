@@ -63,7 +63,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -83,7 +83,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $triggerCNAMQueriesForAllNetworkCalls
      */
     public function getTriggerCNAMQueriesForAllNetworkCalls()
     {
@@ -103,7 +103,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $triggerCNAMQueriesForGroupAndEnterpriseCalls
      */
     public function getTriggerCNAMQueriesForGroupAndEnterpriseCalls()
     {
@@ -125,7 +125,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
 
     /**
      * 
-     * @return CallingNameRetrievalQueryProtocol
+     * @return CallingNameRetrievalQueryProtocol $queryProtocol
      */
     public function getQueryProtocol()
     {
@@ -147,7 +147,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
 
     /**
      * 
-     * @return CallingNameRetrievalQueryTimeoutMilliseconds
+     * @return CallingNameRetrievalQueryTimeoutMilliseconds $queryTimeoutMilliseconds
      */
     public function getQueryTimeoutMilliseconds()
     {
@@ -169,7 +169,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $sipExternalDatabaseNetAddress
      */
     public function getSipExternalDatabaseNetAddress()
     {
@@ -191,7 +191,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $sipExternalDatabasePort
      */
     public function getSipExternalDatabasePort()
     {
@@ -213,7 +213,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $sipExternalDatabaseTransport
      */
     public function getSipExternalDatabaseTransport()
     {
@@ -235,7 +235,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $soapExternalDatabaseNetAddress
      */
     public function getSoapExternalDatabaseNetAddress()
     {
@@ -255,7 +255,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $soapSupportsDNSSRV
      */
     public function getSoapSupportsDNSSRV()
     {
@@ -277,7 +277,7 @@ class SystemCallingNameRetrievalModifyRequest16sp1 extends ComplexType implement
 
     /**
      * 
-     * @return CallingNameRetrievalSourceIdentity
+     * @return CallingNameRetrievalSourceIdentity $callingNameSource
      */
     public function getCallingNameSource()
     {

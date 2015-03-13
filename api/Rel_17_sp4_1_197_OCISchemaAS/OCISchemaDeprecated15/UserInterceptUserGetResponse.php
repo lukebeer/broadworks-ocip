@@ -35,7 +35,7 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
     protected $transferPhoneNumber         = null;
 
     /**
-     * @return UserInterceptUserGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserInterceptUserGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -77,7 +77,7 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return AnnouncementSelection
+     * @return AnnouncementSelection $announcementSelection
      */
     public function getAnnouncementSelection()
     {
@@ -99,7 +99,7 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -121,7 +121,7 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -141,7 +141,7 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playNewPhoneNumber
      */
     public function getPlayNewPhoneNumber()
     {
@@ -163,7 +163,7 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return DN
+     * @return DN $newPhoneNumber
      */
     public function getNewPhoneNumber()
     {
@@ -183,7 +183,7 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $transferOnZeroToPhoneNumber
      */
     public function getTransferOnZeroToPhoneNumber()
     {
@@ -205,7 +205,7 @@ class UserInterceptUserGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {

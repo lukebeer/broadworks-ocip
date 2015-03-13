@@ -32,7 +32,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
     protected $internalSource                     = null;
 
     /**
-     * @return GroupMusicOnHoldGetInstanceResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetInstanceResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -74,7 +74,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringCallHold
      */
     public function getIsActiveDuringCallHold()
     {
@@ -94,7 +94,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringCallPark
      */
     public function getIsActiveDuringCallPark()
     {
@@ -114,7 +114,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringBusyCampOn
      */
     public function getIsActiveDuringBusyCampOn()
     {
@@ -134,7 +134,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -154,7 +154,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return MusicOnHoldSourceRead16
+     * @return MusicOnHoldSourceRead16 $source
      */
     public function getSource()
     {
@@ -174,7 +174,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useAlternateSourceForInternalCalls
      */
     public function getUseAlternateSourceForInternalCalls()
     {
@@ -194,7 +194,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return MusicOnHoldSourceRead16
+     * @return MusicOnHoldSourceRead16 $internalSource
      */
     public function getInternalSource()
     {

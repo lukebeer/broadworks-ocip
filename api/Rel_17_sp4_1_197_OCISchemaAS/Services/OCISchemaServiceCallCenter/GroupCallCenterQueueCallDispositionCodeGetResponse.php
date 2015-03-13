@@ -25,7 +25,7 @@ class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType imp
     protected $description = null;
 
     /**
-     * @return GroupCallCenterQueueCallDispositionCodeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterQueueCallDispositionCodeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -67,7 +67,7 @@ class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType imp
 
     /**
      * 
-     * @return CallDispositionCodeDescription
+     * @return CallDispositionCodeDescription $description
      */
     public function getDescription()
     {

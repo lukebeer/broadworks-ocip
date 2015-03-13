@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TimeSchedule extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeSchedule';
     public    $name = 'TimeSchedule';
     protected $type = null;
     protected $name = null;
@@ -34,7 +32,7 @@ class TimeSchedule extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return TimeSchedule
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class TimeSchedule extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $type
      */
     public function getType()
     {
@@ -74,7 +72,7 @@ class TimeSchedule extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $name
      */
     public function getName()
     {

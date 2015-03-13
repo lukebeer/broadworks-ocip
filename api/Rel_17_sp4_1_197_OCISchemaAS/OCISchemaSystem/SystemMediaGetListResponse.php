@@ -24,7 +24,7 @@ class SystemMediaGetListResponse extends ComplexType implements ComplexInterface
     protected $mediaTable = null;
 
     /**
-     * @return SystemMediaGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

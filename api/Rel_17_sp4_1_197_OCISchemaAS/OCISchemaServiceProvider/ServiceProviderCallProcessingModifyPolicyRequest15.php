@@ -150,7 +150,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -172,7 +172,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -192,7 +192,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useServiceProviderDCLIDSetting
      */
     public function getUseServiceProviderDCLIDSetting()
     {
@@ -212,7 +212,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousCalls
      */
     public function getUseMaxSimultaneousCalls()
     {
@@ -234,7 +234,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousCalls
      */
     public function getMaxSimultaneousCalls()
     {
@@ -254,7 +254,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousVideoCalls
      */
     public function getUseMaxSimultaneousVideoCalls()
     {
@@ -276,7 +276,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousVideoCalls
      */
     public function getMaxSimultaneousVideoCalls()
     {
@@ -296,7 +296,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForAnsweredCalls
      */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
@@ -318,7 +318,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes16
+     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes16 $maxCallTimeForAnsweredCallsMinutes
      */
     public function getMaxCallTimeForAnsweredCallsMinutes()
     {
@@ -338,7 +338,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForUnansweredCalls
      */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
@@ -360,7 +360,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes
+     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes $maxCallTimeForUnansweredCallsMinutes
      */
     public function getMaxCallTimeForUnansweredCallsMinutes()
     {
@@ -382,7 +382,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return MediaPolicySelection
+     * @return MediaPolicySelection $mediaPolicySelection
      */
     public function getMediaPolicySelection()
     {
@@ -404,7 +404,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return MediaSetName
+     * @return MediaSetName $supportedMediaSetName
      */
     public function getSupportedMediaSetName()
     {
@@ -426,7 +426,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return NetworkUsageSelection
+     * @return NetworkUsageSelection $networkUsageSelection
      */
     public function getNetworkUsageSelection()
     {
@@ -446,7 +446,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceGroupCallingLineIdentityRestriction
      */
     public function getEnforceGroupCallingLineIdentityRestriction()
     {
@@ -466,7 +466,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEnterpriseGroupCallTypingForPrivateDialingPlan
      */
     public function getAllowEnterpriseGroupCallTypingForPrivateDialingPlan()
     {
@@ -486,7 +486,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEnterpriseGroupCallTypingForPublicDialingPlan
      */
     public function getAllowEnterpriseGroupCallTypingForPublicDialingPlan()
     {
@@ -506,7 +506,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideCLIDRestrictionForPrivateCallCategory
      */
     public function getOverrideCLIDRestrictionForPrivateCallCategory()
     {
@@ -526,7 +526,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useEnterpriseCLIDForPrivateCallCategory
      */
     public function getUseEnterpriseCLIDForPrivateCallCategory()
     {
@@ -546,7 +546,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableEnterpriseExtensionDialing
      */
     public function getEnableEnterpriseExtensionDialing()
     {
@@ -566,7 +566,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceEnterpriseCallingLineIdentityRestriction
      */
     public function getEnforceEnterpriseCallingLineIdentityRestriction()
     {
@@ -588,7 +588,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return ServiceProviderConferenceURISettingLevel
+     * @return ServiceProviderConferenceURISettingLevel $useSettingLevel
      */
     public function getUseSettingLevel()
     {
@@ -610,7 +610,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $conferenceURI
      */
     public function getConferenceURI()
     {
@@ -630,7 +630,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxConcurrentRedirectedCalls
      */
     public function getUseMaxConcurrentRedirectedCalls()
     {
@@ -652,7 +652,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return CallProcessingMaxConcurrentRedirectedCalls
+     * @return CallProcessingMaxConcurrentRedirectedCalls $maxConcurrentRedirectedCalls
      */
     public function getMaxConcurrentRedirectedCalls()
     {
@@ -672,7 +672,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxFindMeFollowMeDepth
      */
     public function getUseMaxFindMeFollowMeDepth()
     {
@@ -694,7 +694,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return CallProcessingMaxFindMeFollowMeDepth
+     * @return CallProcessingMaxFindMeFollowMeDepth $maxFindMeFollowMeDepth
      */
     public function getMaxFindMeFollowMeDepth()
     {
@@ -716,7 +716,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return CallProcessingMaxRedirectionDepth
+     * @return CallProcessingMaxRedirectionDepth $maxRedirectionDepth
      */
     public function getMaxRedirectionDepth()
     {
@@ -736,7 +736,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxConcurrentFindMeFollowMeInvocations
      */
     public function getUseMaxConcurrentFindMeFollowMeInvocations()
     {
@@ -758,7 +758,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return CallProcessingMaxConcurrentFindMeFollowMeInvocations
+     * @return CallProcessingMaxConcurrentFindMeFollowMeInvocations $maxConcurrentFindMeFollowMeInvocations
      */
     public function getMaxConcurrentFindMeFollowMeInvocations()
     {
@@ -780,7 +780,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return CLIDPolicy
+     * @return CLIDPolicy $clidPolicy
      */
     public function getClidPolicy()
     {
@@ -802,7 +802,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return CLIDPolicy
+     * @return CLIDPolicy $emergencyClidPolicy
      */
     public function getEmergencyClidPolicy()
     {
@@ -822,7 +822,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowAlternateNumbersForRedirectingIdentity
      */
     public function getAllowAlternateNumbersForRedirectingIdentity()
     {
@@ -842,7 +842,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDialableCallerID
      */
     public function getEnableDialableCallerID()
     {
@@ -862,7 +862,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blockCallingNameForExternalCalls
      */
     public function getBlockCallingNameForExternalCalls()
     {
@@ -882,7 +882,7 @@ class ServiceProviderCallProcessingModifyPolicyRequest15 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowConfigurableCLIDForRedirectingIdentity
      */
     public function getAllowConfigurableCLIDForRedirectingIdentity()
     {

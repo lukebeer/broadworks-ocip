@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSlideShowPasswordHex;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingDocumentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -44,7 +43,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
     }
 
     /**
-     * @return UserInstantConferencingGetStandAloneSlideShowContentResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +65,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $bridgeServiceUserId
      */
     public function getBridgeServiceUserId()
     {
@@ -88,7 +87,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $conferenceOwnerUserId
      */
     public function getConferenceOwnerUserId()
     {
@@ -110,7 +109,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
 
     /**
      * 
-     * @return InstantConferencingDocumentId
+     * @return InstantConferencingDocumentId $documentId
      */
     public function getDocumentId()
     {
@@ -132,7 +131,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
 
     /**
      * 
-     * @return InstantConferencingSlideShowPasswordHex
+     * @return InstantConferencingSlideShowPasswordHex $slideshowPasswordHex
      */
     public function getSlideshowPasswordHex()
     {

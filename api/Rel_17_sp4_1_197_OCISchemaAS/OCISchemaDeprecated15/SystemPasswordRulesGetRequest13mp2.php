@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemPasswordRulesGetResponse13mp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -31,7 +30,7 @@ class SystemPasswordRulesGetRequest13mp2 extends ComplexType implements ComplexI
     }
 
     /**
-     * @return SystemPasswordRulesGetResponse13mp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemPasswordRulesGetResponse13mp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

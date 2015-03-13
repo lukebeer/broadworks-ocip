@@ -25,7 +25,7 @@ class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInter
     protected $messageDeskNumber = null;
 
     /**
-     * @return UserSMDIMessageDeskGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\UserSMDIMessageDeskGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -67,7 +67,7 @@ class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SMDIMessageDeskNumber
+     * @return SMDIMessageDeskNumber $messageDeskNumber
      */
     public function getMessageDeskNumber()
     {

@@ -50,7 +50,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -94,7 +94,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -114,7 +114,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -134,7 +134,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -154,7 +154,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $rejectCall
      */
     public function getRejectCall()
     {
@@ -174,7 +174,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CallMeNowToDnCriteria
+     * @return CallMeNowToDnCriteria $toDnCriteria
      */
     public function getToDnCriteria()
     {

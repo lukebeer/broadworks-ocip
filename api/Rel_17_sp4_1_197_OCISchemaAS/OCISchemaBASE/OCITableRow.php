@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCITableRow;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OCITableRow extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCITableRow';
     public    $name = 'OCITableRow';
     protected $col = null;
 
@@ -35,7 +33,7 @@ class OCITableRow extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return OCITableRow
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +53,7 @@ class OCITableRow extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $col
      */
     public function getCol()
     {

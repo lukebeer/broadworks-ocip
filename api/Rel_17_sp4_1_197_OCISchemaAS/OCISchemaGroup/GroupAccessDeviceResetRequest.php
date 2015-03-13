@@ -38,7 +38,7 @@ class GroupAccessDeviceResetRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class GroupAccessDeviceResetRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class GroupAccessDeviceResetRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -104,7 +104,7 @@ class GroupAccessDeviceResetRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {

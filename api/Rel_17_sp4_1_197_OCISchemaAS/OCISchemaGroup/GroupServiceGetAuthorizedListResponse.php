@@ -27,7 +27,7 @@ class GroupServiceGetAuthorizedListResponse extends ComplexType implements Compl
     protected $userServiceName  = null;
 
     /**
-     * @return GroupServiceGetAuthorizedListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceGetAuthorizedListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class GroupServiceGetAuthorizedListResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {
@@ -71,7 +71,7 @@ class GroupServiceGetAuthorizedListResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupService
+     * @return GroupService $groupServiceName
      */
     public function getGroupServiceName()
     {
@@ -93,7 +93,7 @@ class GroupServiceGetAuthorizedListResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserService
+     * @return UserService $userServiceName
      */
     public function getUserServiceName()
     {

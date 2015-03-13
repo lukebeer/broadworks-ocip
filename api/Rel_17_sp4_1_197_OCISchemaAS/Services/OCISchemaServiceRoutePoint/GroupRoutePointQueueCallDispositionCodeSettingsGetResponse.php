@@ -27,7 +27,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
     protected $defaultCallDispositionCode     = null;
 
     /**
-     * @return GroupRoutePointQueueCallDispositionCodeSettingsGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeSettingsGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableCallDispositionCodes
      */
     public function getEnableCallDispositionCodes()
     {
@@ -67,7 +67,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeOrganizationCodes
      */
     public function getIncludeOrganizationCodes()
     {
@@ -87,7 +87,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceUseOfCallDispositionCodes
      */
     public function getForceUseOfCallDispositionCodes()
     {
@@ -107,7 +107,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
 
     /**
      * 
-     * @return CallDispositionCodeWithLevel
+     * @return CallDispositionCodeWithLevel $defaultCallDispositionCode
      */
     public function getDefaultCallDispositionCode()
     {

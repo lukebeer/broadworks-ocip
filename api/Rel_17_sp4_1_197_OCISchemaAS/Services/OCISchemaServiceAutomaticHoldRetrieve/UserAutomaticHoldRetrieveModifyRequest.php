@@ -38,7 +38,7 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -80,7 +80,7 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -102,7 +102,7 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return AutomaticHoldRetrieveRecallTimerSeconds
+     * @return AutomaticHoldRetrieveRecallTimerSeconds $recallTimerSeconds
      */
     public function getRecallTimerSeconds()
     {

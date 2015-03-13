@@ -19,7 +19,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -76,7 +75,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
     }
 
     /**
-     * @return ServiceProviderAccessDeviceGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -98,7 +97,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -120,7 +119,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -142,7 +141,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -164,7 +163,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return SearchCriteriaLinePortUserPart
+     * @return SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart
      */
     public function getSearchCriteriaLinePortUserPart()
     {
@@ -186,7 +185,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return SearchCriteriaLinePortDomain
+     * @return SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain
      */
     public function getSearchCriteriaLinePortDomain()
     {
@@ -208,7 +207,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -230,7 +229,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -252,7 +251,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -274,7 +273,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return SearchCriteriaUserId
+     * @return SearchCriteriaUserId $searchCriteriaUserId
      */
     public function getSearchCriteriaUserId()
     {
@@ -296,7 +295,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -318,7 +317,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return SearchCriteriaExactEndpointType
+     * @return SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType
      */
     public function getSearchCriteriaExactEndpointType()
     {
@@ -340,7 +339,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return SearchCriteriaExactUserType
+     * @return SearchCriteriaExactUserType $searchCriteriaExactUserType
      */
     public function getSearchCriteriaExactUserType()
     {

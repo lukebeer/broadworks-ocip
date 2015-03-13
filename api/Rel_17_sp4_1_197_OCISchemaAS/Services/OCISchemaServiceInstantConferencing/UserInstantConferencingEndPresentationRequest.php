@@ -45,7 +45,7 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -89,7 +89,7 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $bridgeServiceUserId
      */
     public function getBridgeServiceUserId()
     {
@@ -111,7 +111,7 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
 
     /**
      * 
-     * @return InstantConferencingDocumentId
+     * @return InstantConferencingDocumentId $documentId
      */
     public function getDocumentId()
     {
@@ -133,7 +133,7 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -155,7 +155,7 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
 
     /**
      * 
-     * @return InstantConferencingSlideName
+     * @return InstantConferencingSlideName $slideName
      */
     public function getSlideName()
     {

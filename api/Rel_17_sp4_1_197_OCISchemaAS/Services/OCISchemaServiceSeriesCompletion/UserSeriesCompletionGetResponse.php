@@ -27,7 +27,7 @@ class UserSeriesCompletionGetResponse extends ComplexType implements ComplexInte
     protected $userTable = null;
 
     /**
-     * @return UserSeriesCompletionGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSeriesCompletion\UserSeriesCompletionGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserSeriesCompletionGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {

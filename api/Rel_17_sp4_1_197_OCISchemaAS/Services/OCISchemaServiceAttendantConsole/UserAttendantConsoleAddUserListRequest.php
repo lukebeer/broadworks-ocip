@@ -33,7 +33,7 @@ class UserAttendantConsoleAddUserListRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class UserAttendantConsoleAddUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -77,7 +77,7 @@ class UserAttendantConsoleAddUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $monitoredUserId
      */
     public function getMonitoredUserId()
     {

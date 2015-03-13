@@ -34,7 +34,7 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {
@@ -76,7 +76,7 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return EventName
+     * @return EventName $eventName
      */
     public function getEventName()
     {

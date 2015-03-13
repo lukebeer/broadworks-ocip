@@ -33,7 +33,7 @@ class UserBroadWorksReceptionistEnterpriseDeleteUserListRequest extends ComplexT
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class UserBroadWorksReceptionistEnterpriseDeleteUserListRequest extends ComplexT
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -77,7 +77,7 @@ class UserBroadWorksReceptionistEnterpriseDeleteUserListRequest extends ComplexT
 
     /**
      * 
-     * @return UserId
+     * @return UserId $monitoredUserId
      */
     public function getMonitoredUserId()
     {

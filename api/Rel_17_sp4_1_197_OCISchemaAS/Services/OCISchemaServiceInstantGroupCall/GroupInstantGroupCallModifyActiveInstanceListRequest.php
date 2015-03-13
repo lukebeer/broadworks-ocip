@@ -30,7 +30,7 @@ class GroupInstantGroupCallModifyActiveInstanceListRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupInstantGroupCallModifyActiveInstanceListRequest extends ComplexType i
 
     /**
      * 
-     * @return ServiceActivation
+     * @return ServiceActivation $serviceActivation
      */
     public function getServiceActivation()
     {

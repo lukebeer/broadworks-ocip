@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDnGetUtilizationResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -33,7 +32,7 @@ class SystemDnGetUtilizationRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return SystemDnGetUtilizationResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDnGetUtilizationResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +54,7 @@ class SystemDnGetUtilizationRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {

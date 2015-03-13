@@ -41,7 +41,7 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -83,7 +83,7 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $distinctiveRingingCallCenterCalls
      */
     public function getDistinctiveRingingCallCenterCalls()
     {
@@ -105,7 +105,7 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
 
     /**
      * 
-     * @return RingPattern
+     * @return RingPattern $distinctiveRingingRingPatternForCallCenter
      */
     public function getDistinctiveRingingRingPatternForCallCenter()
     {
@@ -127,7 +127,7 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
 
     /**
      * 
-     * @return RingPattern
+     * @return RingPattern $distinctiveRingingForceDeliveryRingPattern
      */
     public function getDistinctiveRingingForceDeliveryRingPattern()
     {

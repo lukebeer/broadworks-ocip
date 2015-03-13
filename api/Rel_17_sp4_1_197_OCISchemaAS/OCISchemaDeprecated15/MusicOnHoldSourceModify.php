@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MusicOnHoldSourceModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MusicOnHoldSourceModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MusicOnHoldSourceModify';
     public    $name                    = 'MusicOnHoldSourceModify';
     protected $audioFilePreferredCodec = null;
     protected $messageSourceSelection  = null;
@@ -40,7 +38,7 @@ class MusicOnHoldSourceModify extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return MusicOnHoldSourceModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class MusicOnHoldSourceModify extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioFilePreferredCodec
      */
     public function getAudioFilePreferredCodec()
     {
@@ -80,7 +78,7 @@ class MusicOnHoldSourceModify extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $messageSourceSelection
      */
     public function getMessageSourceSelection()
     {
@@ -100,7 +98,7 @@ class MusicOnHoldSourceModify extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $customSource
      */
     public function getCustomSource()
     {
@@ -120,7 +118,7 @@ class MusicOnHoldSourceModify extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $externalSource
      */
     public function getExternalSource()
     {

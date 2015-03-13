@@ -38,7 +38,7 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
 
     /**
      * 
-     * @return OCICallControlApplicationId
+     * @return OCICallControlApplicationId $applicationId
      */
     public function getApplicationId()
     {
@@ -82,7 +82,7 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -104,7 +104,7 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
 
     /**
      * 
-     * @return NetworkACLEntryDescription
+     * @return NetworkACLEntryDescription $description
      */
     public function getDescription()
     {

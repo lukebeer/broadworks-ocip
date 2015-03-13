@@ -49,7 +49,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
     protected $faxMessagingMenuKeys                              = null;
 
     /**
-     * @return SystemVoiceMessagingGroupGetVoicePortalMenusResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +69,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useVoicePortalCustomization
      */
     public function getUseVoicePortalCustomization()
     {
@@ -88,7 +88,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $voicePortalMainMenuKeys
      */
     public function getVoicePortalMainMenuKeys()
     {
@@ -107,7 +107,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $voiceMessagingMenuKeys
      */
     public function getVoiceMessagingMenuKeys()
     {
@@ -126,7 +126,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $changeBusyOrNoAnswerGreetingMenuKeys
      */
     public function getChangeBusyOrNoAnswerGreetingMenuKeys()
     {
@@ -145,7 +145,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $recordNewGreetingOrPersonalizedNameMenuKeys
      */
     public function getRecordNewGreetingOrPersonalizedNameMenuKeys()
     {
@@ -164,7 +164,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $deleteAllMessagesMenuKeys
      */
     public function getDeleteAllMessagesMenuKeys()
     {
@@ -183,7 +183,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $commPilotExpressProfileMenuKeys
      */
     public function getCommPilotExpressProfileMenuKeys()
     {
@@ -202,7 +202,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $personalizedNameMenuKeys
      */
     public function getPersonalizedNameMenuKeys()
     {
@@ -221,7 +221,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $callForwardingOptionsMenuKeys
      */
     public function getCallForwardingOptionsMenuKeys()
     {
@@ -240,7 +240,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $changeCallForwardingDestinationMenuKeys
      */
     public function getChangeCallForwardingDestinationMenuKeys()
     {
@@ -259,7 +259,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $voicePortalCallingMenuKeys
      */
     public function getVoicePortalCallingMenuKeys()
     {
@@ -278,7 +278,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $hotelingMenuKeys
      */
     public function getHotelingMenuKeys()
     {
@@ -297,7 +297,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $passcodeMenuKeys
      */
     public function getPasscodeMenuKeys()
     {
@@ -316,7 +316,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $playMessagesMenuKeys
      */
     public function getPlayMessagesMenuKeys()
     {
@@ -335,7 +335,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $playMessageMenuKeys
      */
     public function getPlayMessageMenuKeys()
     {
@@ -354,7 +354,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $additionalMessageOptionsMenuKeys
      */
     public function getAdditionalMessageOptionsMenuKeys()
     {
@@ -373,7 +373,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $forwardOrComposeMessageMenuKeys
      */
     public function getForwardOrComposeMessageMenuKeys()
     {
@@ -392,7 +392,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $replyMessageMenuKeys
      */
     public function getReplyMessageMenuKeys()
     {
@@ -411,7 +411,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $sendToDistributionListMenuKeys
      */
     public function getSendToDistributionListMenuKeys()
     {
@@ -430,7 +430,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $selectDistributionListMenuKeys
      */
     public function getSelectDistributionListMenuKeys()
     {
@@ -449,7 +449,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $reviewSelectedDistributionListMenuKeys
      */
     public function getReviewSelectedDistributionListMenuKeys()
     {
@@ -468,7 +468,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $sendMessageToSelectedDistributionListMenuKeys
      */
     public function getSendMessageToSelectedDistributionListMenuKeys()
     {
@@ -487,7 +487,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $sendToAllGroupMembersMenuKeys
      */
     public function getSendToAllGroupMembersMenuKeys()
     {
@@ -506,7 +506,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $sendToPersonMenuKeys
      */
     public function getSendToPersonMenuKeys()
     {
@@ -525,7 +525,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $changeCurrentIntroductionOrMessageOrReplyMenuKeys
      */
     public function getChangeCurrentIntroductionOrMessageOrReplyMenuKeys()
     {
@@ -544,7 +544,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $voicePortalLoginMenuKeys
      */
     public function getVoicePortalLoginMenuKeys()
     {
@@ -563,7 +563,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
 
     /**
      * 
-     * @return 
+     * @return  $faxMessagingMenuKeys
      */
     public function getFaxMessagingMenuKeys()
     {

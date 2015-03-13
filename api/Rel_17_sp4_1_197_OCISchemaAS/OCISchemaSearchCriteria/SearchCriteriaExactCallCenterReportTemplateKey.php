@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterReportTemplateKey;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactCallCenterReportTemplateKey extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterReportTemplateKey';
     public    $name           = 'SearchCriteriaExactCallCenterReportTemplateKey';
     protected $reportTemplate = null;
 
@@ -31,7 +29,7 @@ class SearchCriteriaExactCallCenterReportTemplateKey extends ComplexType impleme
     }
 
     /**
-     * @return SearchCriteriaExactCallCenterReportTemplateKey
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +49,7 @@ class SearchCriteriaExactCallCenterReportTemplateKey extends ComplexType impleme
 
     /**
      * 
-     * @return CallCenterReportTemplateKey
+     * @return CallCenterReportTemplateKey $reportTemplate
      */
     public function getReportTemplate()
     {

@@ -34,7 +34,7 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -76,7 +76,7 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return CallCenterMediaOnHoldSourceModify17
+     * @return CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource
      */
     public function getMediaOnHoldSource()
     {

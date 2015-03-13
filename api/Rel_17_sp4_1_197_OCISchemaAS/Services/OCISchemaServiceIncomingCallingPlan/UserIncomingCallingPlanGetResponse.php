@@ -25,7 +25,7 @@ class UserIncomingCallingPlanGetResponse extends ComplexType implements ComplexI
     protected $userPermissions   = null;
 
     /**
-     * @return UserIncomingCallingPlanGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\UserIncomingCallingPlanGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserIncomingCallingPlanGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomSettings
      */
     public function getUseCustomSettings()
     {
@@ -65,7 +65,7 @@ class UserIncomingCallingPlanGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return IncomingCallingPlanPermissions
+     * @return IncomingCallingPlanPermissions $userPermissions
      */
     public function getUserPermissions()
     {

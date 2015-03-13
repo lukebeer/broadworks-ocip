@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\BasicCallLogsType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserBasicCallLogsGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -38,7 +37,7 @@ class UserBasicCallLogsGetListRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return UserBasicCallLogsGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserBasicCallLogsGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +59,7 @@ class UserBasicCallLogsGetListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -82,7 +81,7 @@ class UserBasicCallLogsGetListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return BasicCallLogsType
+     * @return BasicCallLogsType $callLogType
      */
     public function getCallLogType()
     {

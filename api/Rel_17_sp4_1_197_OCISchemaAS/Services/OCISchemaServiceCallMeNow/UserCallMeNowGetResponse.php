@@ -28,7 +28,7 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
     protected $criteriaTable      = null;
 
     /**
-     * @return UserCallMeNowGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\UserCallMeNowGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -70,7 +70,7 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallMeNowAnswerConfirmation
+     * @return CallMeNowAnswerConfirmation $answerConfirmation
      */
     public function getAnswerConfirmation()
     {

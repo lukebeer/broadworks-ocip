@@ -31,7 +31,7 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListResponse extends Co
     protected $scheduledReportTable = null;
 
     /**
-     * @return SystemCallCenterEnhancedReportingScheduledReportGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

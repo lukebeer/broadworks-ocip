@@ -59,7 +59,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -81,7 +81,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -103,7 +103,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -125,7 +125,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {
@@ -147,7 +147,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $newName
      */
     public function getNewName()
     {
@@ -169,7 +169,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
 
     /**
      * 
-     * @return CallCapacityCallLimit
+     * @return CallCapacityCallLimit $maxActiveCallsAllowed
      */
     public function getMaxActiveCallsAllowed()
     {
@@ -191,7 +191,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
 
     /**
      * 
-     * @return CallCapacityCallLimit
+     * @return CallCapacityCallLimit $maxIncomingActiveCallsAllowed
      */
     public function getMaxIncomingActiveCallsAllowed()
     {
@@ -213,7 +213,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
 
     /**
      * 
-     * @return CallCapacityCallLimit
+     * @return CallCapacityCallLimit $maxOutgoingActiveCallsAllowed
      */
     public function getMaxOutgoingActiveCallsAllowed()
     {
@@ -233,7 +233,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $becomeDefaultGroupForNewUsers
      */
     public function getBecomeDefaultGroupForNewUsers()
     {
@@ -253,7 +253,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $userIdList
      */
     public function getUserIdList()
     {

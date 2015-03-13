@@ -23,7 +23,7 @@ class GroupSpeedDial100GetResponse17sp1 extends ComplexType implements ComplexIn
     protected $prefix = null;
 
     /**
-     * @return GroupSpeedDial100GetResponse17sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\GroupSpeedDial100GetResponse17sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupSpeedDial100GetResponse17sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SpeedDialPrefix
+     * @return SpeedDialPrefix $prefix
      */
     public function getPrefix()
     {

@@ -7,10 +7,8 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -40,7 +38,7 @@ class GroupCallCenterAgentUnavailableCodeGetRequest extends ComplexType implemen
     }
 
     /**
-     * @return GroupCallCenterAgentUnavailableCodeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +60,7 @@ class GroupCallCenterAgentUnavailableCodeGetRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -84,7 +82,7 @@ class GroupCallCenterAgentUnavailableCodeGetRequest extends ComplexType implemen
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -106,7 +104,7 @@ class GroupCallCenterAgentUnavailableCodeGetRequest extends ComplexType implemen
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $code
      */
     public function getCode()
     {

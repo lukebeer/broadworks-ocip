@@ -24,7 +24,7 @@ class SystemCallRecordingGetPlatformUsageResponse extends ComplexType implements
     protected $groupTable = null;
 
     /**
-     * @return SystemCallRecordingGetPlatformUsageResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformUsageResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

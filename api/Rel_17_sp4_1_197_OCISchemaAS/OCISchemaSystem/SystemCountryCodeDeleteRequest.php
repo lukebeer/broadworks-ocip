@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -32,7 +32,7 @@ class SystemCountryCodeDeleteRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemCountryCodeDeleteRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $countryCode
      */
     public function getCountryCode()
     {

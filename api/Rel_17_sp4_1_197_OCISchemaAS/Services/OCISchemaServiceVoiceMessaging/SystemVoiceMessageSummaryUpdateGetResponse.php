@@ -26,7 +26,7 @@ class SystemVoiceMessageSummaryUpdateGetResponse extends ComplexType implements 
     protected $minTimeBetweenMWIOnRegister         = null;
 
     /**
-     * @return SystemVoiceMessageSummaryUpdateGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\SystemVoiceMessageSummaryUpdateGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemVoiceMessageSummaryUpdateGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendSavedAndUrgentMWIOnNotification
      */
     public function getSendSavedAndUrgentMWIOnNotification()
     {
@@ -66,7 +66,7 @@ class SystemVoiceMessageSummaryUpdateGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendMessageSummaryUpdateOnRegister
      */
     public function getSendMessageSummaryUpdateOnRegister()
     {
@@ -88,7 +88,7 @@ class SystemVoiceMessageSummaryUpdateGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return VoiceMessageSummaryUpdateSeconds
+     * @return VoiceMessageSummaryUpdateSeconds $minTimeBetweenMWIOnRegister
      */
     public function getMinTimeBetweenMWIOnRegister()
     {

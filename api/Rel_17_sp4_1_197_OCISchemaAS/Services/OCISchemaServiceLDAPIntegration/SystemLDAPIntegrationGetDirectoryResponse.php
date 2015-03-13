@@ -51,7 +51,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
     protected $searchColumn                         = null;
 
     /**
-     * @return SystemLDAPIntegrationGetDirectoryResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\SystemLDAPIntegrationGetDirectoryResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -73,7 +73,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $serverNetAddress
      */
     public function getServerNetAddress()
     {
@@ -95,7 +95,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return Port
+     * @return Port $serverPort
      */
     public function getServerPort()
     {
@@ -117,7 +117,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPSearchBase
+     * @return LDAPSearchBase $searchBase
      */
     public function getSearchBase()
     {
@@ -137,7 +137,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSSL
      */
     public function getUseSSL()
     {
@@ -157,7 +157,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireAuthentication
      */
     public function getRequireAuthentication()
     {
@@ -179,7 +179,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPAuthenticatedDN
+     * @return LDAPAuthenticatedDN $authenticatedDN
      */
     public function getAuthenticatedDN()
     {
@@ -201,7 +201,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPAuthenticatedPassword
+     * @return LDAPAuthenticatedPassword $authenticatedPassword
      */
     public function getAuthenticatedPassword()
     {
@@ -221,7 +221,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSortEnabled
      */
     public function getIsSortEnabled()
     {
@@ -241,7 +241,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isPagedResultEnabled
      */
     public function getIsPagedResultEnabled()
     {
@@ -263,7 +263,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPSearchFilter
+     * @return LDAPSearchFilter $searchFilter
      */
     public function getSearchFilter()
     {
@@ -283,7 +283,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeSearchAttributeInSearchFilter
      */
     public function getIncludeSearchAttributeInSearchFilter()
     {
@@ -305,7 +305,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column1AttributeName
      */
     public function getColumn1AttributeName()
     {
@@ -327,7 +327,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column2AttributeName
      */
     public function getColumn2AttributeName()
     {
@@ -349,7 +349,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column3AttributeName
      */
     public function getColumn3AttributeName()
     {
@@ -371,7 +371,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column4AttributeName
      */
     public function getColumn4AttributeName()
     {
@@ -393,7 +393,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column1Label
      */
     public function getColumn1Label()
     {
@@ -415,7 +415,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column2Label
      */
     public function getColumn2Label()
     {
@@ -437,7 +437,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column3Label
      */
     public function getColumn3Label()
     {
@@ -459,7 +459,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column4Label
      */
     public function getColumn4Label()
     {
@@ -481,7 +481,7 @@ class SystemLDAPIntegrationGetDirectoryResponse extends ComplexType implements C
 
     /**
      * 
-     * @return LDAPSearchColumn
+     * @return LDAPSearchColumn $searchColumn
      */
     public function getSearchColumn()
     {

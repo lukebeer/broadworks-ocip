@@ -30,7 +30,7 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
     protected $policySelection    = null;
 
     /**
-     * @return EnterpriseVoiceVPNGetPolicyResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return EnterpriseVoiceVPNExtensionLength
+     * @return EnterpriseVoiceVPNExtensionLength $minExtensionLength
      */
     public function getMinExtensionLength()
     {
@@ -74,7 +74,7 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return EnterpriseVoiceVPNExtensionLength
+     * @return EnterpriseVoiceVPNExtensionLength $maxExtensionLength
      */
     public function getMaxExtensionLength()
     {
@@ -96,7 +96,7 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return EnterpriseVoiceVPNDescription
+     * @return EnterpriseVoiceVPNDescription $description
      */
     public function getDescription()
     {
@@ -118,7 +118,7 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $routeGroupId
      */
     public function getRouteGroupId()
     {
@@ -140,7 +140,7 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return EnterpriseVoiceVPNPolicySelection
+     * @return EnterpriseVoiceVPNPolicySelection $policySelection
      */
     public function getPolicySelection()
     {

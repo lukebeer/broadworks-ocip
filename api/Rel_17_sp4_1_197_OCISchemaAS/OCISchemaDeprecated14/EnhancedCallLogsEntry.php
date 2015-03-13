@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\EnhancedCallLogsEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnhancedCallLogsEntry extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\EnhancedCallLogsEntry';
     public    $name        = 'EnhancedCallLogsEntry';
     protected $countryCode = null;
     protected $phoneNumber = null;
@@ -41,7 +39,7 @@ class EnhancedCallLogsEntry extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return EnhancedCallLogsEntry
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +59,7 @@ class EnhancedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $countryCode
      */
     public function getCountryCode()
     {
@@ -81,7 +79,7 @@ class EnhancedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -101,7 +99,7 @@ class EnhancedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $name
      */
     public function getName()
     {
@@ -121,7 +119,7 @@ class EnhancedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $time
      */
     public function getTime()
     {

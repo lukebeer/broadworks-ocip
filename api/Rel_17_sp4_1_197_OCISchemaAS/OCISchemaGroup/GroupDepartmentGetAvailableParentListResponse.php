@@ -26,7 +26,7 @@ class GroupDepartmentGetAvailableParentListResponse extends ComplexType implemen
     protected $fullPathName  = null;
 
     /**
-     * @return GroupDepartmentGetAvailableParentListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentGetAvailableParentListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupDepartmentGetAvailableParentListResponse extends ComplexType implemen
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $departmentKey
      */
     public function getDepartmentKey()
     {
@@ -68,7 +68,7 @@ class GroupDepartmentGetAvailableParentListResponse extends ComplexType implemen
 
     /**
      * 
-     * @return DepartmentFullPathName
+     * @return DepartmentFullPathName $fullPathName
      */
     public function getFullPathName()
     {

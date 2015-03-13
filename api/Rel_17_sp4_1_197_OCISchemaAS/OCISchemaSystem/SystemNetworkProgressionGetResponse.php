@@ -25,7 +25,7 @@ class SystemNetworkProgressionGetResponse extends ComplexType implements Complex
     protected $waitPeriodSeconds = null;
 
     /**
-     * @return SystemNetworkProgressionGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkProgressionGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemNetworkProgressionGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -67,7 +67,7 @@ class SystemNetworkProgressionGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return NetworkProgressionWaitPeriodSeconds
+     * @return NetworkProgressionWaitPeriodSeconds $waitPeriodSeconds
      */
     public function getWaitPeriodSeconds()
     {

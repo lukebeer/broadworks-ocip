@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\Enhan
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\EnhancedCallLogsOffset;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\EnhancedCallLogsType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserEnhancedCallLogsGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -47,7 +46,7 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return UserEnhancedCallLogsGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserEnhancedCallLogsGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +68,7 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -91,7 +90,7 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return EnhancedCallLogsType
+     * @return EnhancedCallLogsType $callLogType
      */
     public function getCallLogType()
     {
@@ -113,7 +112,7 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return EnhancedCallLogsOffset
+     * @return EnhancedCallLogsOffset $startingOffset
      */
     public function getStartingOffset()
     {
@@ -135,7 +134,7 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return EnhancedCallLogsMaxLoggedCalls
+     * @return EnhancedCallLogsMaxLoggedCalls $numCalls
      */
     public function getNumCalls()
     {

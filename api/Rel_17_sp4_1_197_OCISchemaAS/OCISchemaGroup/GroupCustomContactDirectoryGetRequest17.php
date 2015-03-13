@@ -17,7 +17,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -76,7 +75,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
     }
 
     /**
-     * @return GroupCustomContactDirectoryGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -98,7 +97,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -120,7 +119,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -142,7 +141,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
 
     /**
      * 
-     * @return CustomContactDirectoryName
+     * @return CustomContactDirectoryName $name
      */
     public function getName()
     {
@@ -164,7 +163,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -184,7 +183,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $searchCriteriaModeOr
      */
     public function getSearchCriteriaModeOr()
     {
@@ -206,7 +205,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -228,7 +227,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -250,7 +249,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -272,7 +271,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
 
     /**
      * 
-     * @return SearchCriteriaExtension
+     * @return SearchCriteriaExtension $searchCriteriaExtension
      */
     public function getSearchCriteriaExtension()
     {
@@ -294,7 +293,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
 
     /**
      * 
-     * @return SearchCriteriaMobilePhoneNumber
+     * @return SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber
      */
     public function getSearchCriteriaMobilePhoneNumber()
     {

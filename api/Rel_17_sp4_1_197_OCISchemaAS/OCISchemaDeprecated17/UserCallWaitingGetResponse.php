@@ -23,7 +23,7 @@ class UserCallWaitingGetResponse extends ComplexType implements ComplexInterface
     protected $isActive = null;
 
     /**
-     * @return UserCallWaitingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserCallWaitingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserCallWaitingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {

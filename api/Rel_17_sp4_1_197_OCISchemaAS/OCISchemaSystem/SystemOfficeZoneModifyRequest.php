@@ -45,7 +45,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return OfficeZoneName
+     * @return OfficeZoneName $officeZoneName
      */
     public function getOfficeZoneName()
     {
@@ -89,7 +89,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return OfficeZoneName
+     * @return OfficeZoneName $newOfficeZoneName
      */
     public function getNewOfficeZoneName()
     {
@@ -111,7 +111,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return OfficeZoneDescription
+     * @return OfficeZoneDescription $description
      */
     public function getDescription()
     {
@@ -131,7 +131,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return ReplacementZoneList
+     * @return ReplacementZoneList $replacementZoneList
      */
     public function getReplacementZoneList()
     {
@@ -153,7 +153,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $primaryZoneName
      */
     public function getPrimaryZoneName()
     {

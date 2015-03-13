@@ -30,7 +30,7 @@ class SystemInventoryReportModifyRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemInventoryReportModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {

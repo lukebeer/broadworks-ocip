@@ -26,7 +26,7 @@ class EnterpriseDepartmentGetAvailableParentListResponse extends ComplexType imp
     protected $fullPathName  = null;
 
     /**
-     * @return EnterpriseDepartmentGetAvailableParentListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetAvailableParentListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class EnterpriseDepartmentGetAvailableParentListResponse extends ComplexType imp
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $departmentKey
      */
     public function getDepartmentKey()
     {
@@ -68,7 +68,7 @@ class EnterpriseDepartmentGetAvailableParentListResponse extends ComplexType imp
 
     /**
      * 
-     * @return DepartmentFullPathName
+     * @return DepartmentFullPathName $fullPathName
      */
     public function getFullPathName()
     {

@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceUserListResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -52,7 +51,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
     }
 
     /**
-     * @return GroupTrunkGroupGetInstanceUserListResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceUserListResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +71,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $trunkGroupKey
      */
     public function getTrunkGroupKey()
     {
@@ -94,7 +93,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -116,7 +115,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -138,7 +137,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -160,7 +159,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -182,7 +181,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return SearchCriteriaExactUserDepartment
+     * @return SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment
      */
     public function getSearchCriteriaExactUserDepartment()
     {

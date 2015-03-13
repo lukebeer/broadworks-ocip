@@ -28,7 +28,7 @@ class UserRoutePointCallDispositionCodeGetAvailableListResponse extends ComplexT
     protected $dispositionCodesTable = null;
 
     /**
-     * @return UserRoutePointCallDispositionCodeGetAvailableListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\UserRoutePointCallDispositionCodeGetAvailableListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

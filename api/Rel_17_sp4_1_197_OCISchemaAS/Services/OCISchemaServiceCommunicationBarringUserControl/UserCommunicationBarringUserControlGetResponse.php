@@ -28,7 +28,7 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
     protected $profileTable  = null;
 
     /**
-     * @return UserCommunicationBarringUserControlGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicationBarringUserControl\UserCommunicationBarringUserControlGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $lockoutStatus
      */
     public function getLockoutStatus()
     {

@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetRoutePointListResponse;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -33,7 +32,7 @@ class SystemRoutePointExternalSystemGetRoutePointListRequest extends ComplexType
     }
 
     /**
-     * @return SystemRoutePointExternalSystemGetRoutePointListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetRoutePointListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +54,7 @@ class SystemRoutePointExternalSystemGetRoutePointListRequest extends ComplexType
 
     /**
      * 
-     * @return RoutePointExternalSystem
+     * @return RoutePointExternalSystem $routePointExternalSystem
      */
     public function getRoutePointExternalSystem()
     {

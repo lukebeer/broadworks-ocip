@@ -53,7 +53,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +75,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -97,7 +97,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -119,7 +119,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {
@@ -141,7 +141,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -163,7 +163,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $recallAlternateUserId
      */
     public function getRecallAlternateUserId()
     {
@@ -185,7 +185,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallParkRecallTo
+     * @return CallParkRecallTo $recallTo
      */
     public function getRecallTo()
     {

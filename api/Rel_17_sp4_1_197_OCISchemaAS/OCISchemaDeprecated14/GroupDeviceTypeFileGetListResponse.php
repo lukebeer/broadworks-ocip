@@ -26,7 +26,7 @@ class GroupDeviceTypeFileGetListResponse extends ComplexType implements ComplexI
     protected $groupDeviceTypeFilesTable = null;
 
     /**
-     * @return GroupDeviceTypeFileGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupDeviceTypeFileGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

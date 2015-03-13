@@ -26,7 +26,7 @@ class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexIn
     protected $scriptContent = null;
 
     /**
-     * @return UserServiceScriptsUserGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts\UserServiceScriptsUserGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -68,7 +68,7 @@ class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceScriptsName
+     * @return ServiceScriptsName $scriptName
      */
     public function getScriptName()
     {
@@ -87,7 +87,7 @@ class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:base64Binary
+     * @return xs:base64Binary $scriptContent
      */
     public function getScriptContent()
     {

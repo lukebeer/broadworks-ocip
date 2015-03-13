@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseTrunkTrunkGroupKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseTrunkTrunkGroupKey';
     public    $name           = 'EnterpriseTrunkTrunkGroupKey';
     protected $groupId        = null;
     protected $trunkGroupName = null;
@@ -34,7 +32,7 @@ class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return EnterpriseTrunkTrunkGroupKey
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $groupId
      */
     public function getGroupId()
     {
@@ -74,7 +72,7 @@ class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $trunkGroupName
      */
     public function getTrunkGroupName()
     {

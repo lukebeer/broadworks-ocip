@@ -74,7 +74,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -94,7 +94,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSendEnabled
      */
     public function getIsSendEnabled()
     {
@@ -116,7 +116,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $server1NetAddress
      */
     public function getServer1NetAddress()
     {
@@ -138,7 +138,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $server1SendPort
      */
     public function getServer1SendPort()
     {
@@ -160,7 +160,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port
+     * @return Port $server1RetrievePort
      */
     public function getServer1RetrievePort()
     {
@@ -182,7 +182,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $server2NetAddress
      */
     public function getServer2NetAddress()
     {
@@ -204,7 +204,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $server2SendPort
      */
     public function getServer2SendPort()
     {
@@ -226,7 +226,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port
+     * @return Port $server2RetrievePort
      */
     public function getServer2RetrievePort()
     {
@@ -248,7 +248,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return EnhancedCallLogsSharedSecret
+     * @return EnhancedCallLogsSharedSecret $sharedSecret
      */
     public function getSharedSecret()
     {
@@ -270,7 +270,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return EnhancedCallLogsRetransmissionDelayMilliSeconds
+     * @return EnhancedCallLogsRetransmissionDelayMilliSeconds $retransmissionDelayMilliSeconds
      */
     public function getRetransmissionDelayMilliSeconds()
     {
@@ -292,7 +292,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return EnhancedCallLogsMaxTransmissions
+     * @return EnhancedCallLogsMaxTransmissions $maxTransmissions
      */
     public function getMaxTransmissions()
     {
@@ -314,7 +314,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return EnhancedCallLogsSoapTimeoutSeconds
+     * @return EnhancedCallLogsSoapTimeoutSeconds $soapTimeoutSeconds
      */
     public function getSoapTimeoutSeconds()
     {
@@ -334,7 +334,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDBS
      */
     public function getUseDBS()
     {
@@ -356,7 +356,7 @@ class SystemEnhancedCallLogsModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return EnhancedCallLogsNonPagedResponseSize
+     * @return EnhancedCallLogsNonPagedResponseSize $maxNonPagedResponseSize
      */
     public function getMaxNonPagedResponseSize()
     {

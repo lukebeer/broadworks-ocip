@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriter
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterScheduledReportName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaCallCenterScheduledReportName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaCallCenterScheduledReportName extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaCallCenterScheduledReportName';
     public    $name              = 'SearchCriteriaCallCenterScheduledReportName';
     protected $mode              = null;
     protected $value             = null;
@@ -39,7 +37,7 @@ class SearchCriteriaCallCenterScheduledReportName extends ComplexType implements
     }
 
     /**
-     * @return SearchCriteriaCallCenterScheduledReportName
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +59,7 @@ class SearchCriteriaCallCenterScheduledReportName extends ComplexType implements
 
     /**
      * 
-     * @return SearchMode
+     * @return SearchMode $mode
      */
     public function getMode()
     {
@@ -83,7 +81,7 @@ class SearchCriteriaCallCenterScheduledReportName extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterScheduledReportName
+     * @return CallCenterScheduledReportName $value
      */
     public function getValue()
     {
@@ -103,7 +101,7 @@ class SearchCriteriaCallCenterScheduledReportName extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isCaseInsensitive
      */
     public function getIsCaseInsensitive()
     {

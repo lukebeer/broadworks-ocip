@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CommunicationBarringCallMeNowRule;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CommunicationBarringCallMeNowRule';
     public    $name               = 'CommunicationBarringCallMeNowRule';
     protected $criteria           = null;
     protected $action             = null;
@@ -37,7 +35,7 @@ class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return CommunicationBarringCallMeNowRule
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $criteria
      */
     public function getCriteria()
     {
@@ -77,7 +75,7 @@ class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $action
      */
     public function getAction()
     {
@@ -97,7 +95,7 @@ class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callTimeoutSeconds
      */
     public function getCallTimeoutSeconds()
     {

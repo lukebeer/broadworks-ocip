@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressRedirectionModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressRedirectionModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressRedirectionModify';
     public    $name                  = 'CommPilotExpressRedirectionModify';
     protected $action                = null;
     protected $forwardingPhoneNumber = null;
@@ -35,7 +33,7 @@ class CommPilotExpressRedirectionModify extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return CommPilotExpressRedirectionModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +53,7 @@ class CommPilotExpressRedirectionModify extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $action
      */
     public function getAction()
     {
@@ -75,7 +73,7 @@ class CommPilotExpressRedirectionModify extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $forwardingPhoneNumber
      */
     public function getForwardingPhoneNumber()
     {

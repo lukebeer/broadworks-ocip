@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingNumber;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SimultaneousRingNumber extends ComplexType implements ComplexInterface
 {
-    public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SimultaneousRingNumber';
     public    $name                       = 'SimultaneousRingNumber';
     protected $phoneNumber                = null;
     protected $answerConfirmationRequired = null;
@@ -34,7 +32,7 @@ class SimultaneousRingNumber extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return SimultaneousRingNumber
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class SimultaneousRingNumber extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -74,7 +72,7 @@ class SimultaneousRingNumber extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $answerConfirmationRequired
      */
     public function getAnswerConfirmationRequired()
     {

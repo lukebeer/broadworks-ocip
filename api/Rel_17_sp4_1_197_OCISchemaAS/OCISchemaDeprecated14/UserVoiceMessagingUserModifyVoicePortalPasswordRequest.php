@@ -39,7 +39,7 @@ class UserVoiceMessagingUserModifyVoicePortalPasswordRequest extends ComplexType
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class UserVoiceMessagingUserModifyVoicePortalPasswordRequest extends ComplexType
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -83,7 +83,7 @@ class UserVoiceMessagingUserModifyVoicePortalPasswordRequest extends ComplexType
 
     /**
      * 
-     * @return Password
+     * @return Password $oldPassword
      */
     public function getOldPassword()
     {
@@ -105,7 +105,7 @@ class UserVoiceMessagingUserModifyVoicePortalPasswordRequest extends ComplexType
 
     /**
      * 
-     * @return Password
+     * @return Password $newPassword
      */
     public function getNewPassword()
     {

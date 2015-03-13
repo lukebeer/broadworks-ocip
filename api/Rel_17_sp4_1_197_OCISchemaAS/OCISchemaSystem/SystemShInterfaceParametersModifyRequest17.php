@@ -34,7 +34,7 @@ class SystemShInterfaceParametersModifyRequest17 extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemShInterfaceParametersModifyRequest17 extends ComplexType implements 
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $hssRealm
      */
     public function getHssRealm()
     {
@@ -78,7 +78,7 @@ class SystemShInterfaceParametersModifyRequest17 extends ComplexType implements 
 
     /**
      * 
-     * @return ShInterfacePublicIdentityRefreshDelaySeconds
+     * @return ShInterfacePublicIdentityRefreshDelaySeconds $publicIdentityRefreshDelaySeconds
      */
     public function getPublicIdentityRefreshDelaySeconds()
     {

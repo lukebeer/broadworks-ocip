@@ -23,7 +23,7 @@ class UserSimultaneousRingPersonalGetPhoneNumberResponse extends ComplexType imp
     protected $answerConfirmationRequired = null;
 
     /**
-     * @return UserSimultaneousRingPersonalGetPhoneNumberResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingPersonalGetPhoneNumberResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserSimultaneousRingPersonalGetPhoneNumberResponse extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $answerConfirmationRequired
      */
     public function getAnswerConfirmationRequired()
     {

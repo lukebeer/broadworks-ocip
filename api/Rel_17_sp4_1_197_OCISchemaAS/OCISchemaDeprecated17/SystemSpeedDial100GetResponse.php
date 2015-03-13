@@ -23,7 +23,7 @@ class SystemSpeedDial100GetResponse extends ComplexType implements ComplexInterf
     protected $prefix = null;
 
     /**
-     * @return SystemSpeedDial100GetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemSpeedDial100GetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemSpeedDial100GetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SpeedDialPrefix
+     * @return SpeedDialPrefix $prefix
      */
     public function getPrefix()
     {

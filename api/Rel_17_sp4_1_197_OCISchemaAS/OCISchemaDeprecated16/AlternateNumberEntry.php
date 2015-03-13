@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\AlternateNumberEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AlternateNumberEntry extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\AlternateNumberEntry';
     public    $name        = 'AlternateNumberEntry';
     protected $phoneNumber = null;
     protected $extension   = null;
@@ -37,7 +35,7 @@ class AlternateNumberEntry extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return AlternateNumberEntry
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class AlternateNumberEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -77,7 +75,7 @@ class AlternateNumberEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $extension
      */
     public function getExtension()
     {
@@ -97,7 +95,7 @@ class AlternateNumberEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $ringPattern
      */
     public function getRingPattern()
     {

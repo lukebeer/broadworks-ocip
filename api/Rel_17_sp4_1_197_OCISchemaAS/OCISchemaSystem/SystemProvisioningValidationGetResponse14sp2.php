@@ -26,7 +26,7 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
     protected $timeoutSeconds             = null;
 
     /**
-     * @return SystemProvisioningValidationGetResponse14sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemProvisioningValidationGetResponse14sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -66,7 +66,7 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isNetworkServerQueryActive
      */
     public function getIsNetworkServerQueryActive()
     {
@@ -88,7 +88,7 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
 
     /**
      * 
-     * @return ProvisioningValidationTimeoutSeconds
+     * @return ProvisioningValidationTimeoutSeconds $timeoutSeconds
      */
     public function getTimeoutSeconds()
     {

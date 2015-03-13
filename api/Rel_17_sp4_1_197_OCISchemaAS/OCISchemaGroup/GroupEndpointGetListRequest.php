@@ -21,7 +21,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupEndpointGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -84,7 +83,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return GroupEndpointGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupEndpointGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -106,7 +105,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -128,7 +127,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -150,7 +149,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -172,7 +171,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaLinePortUserPart
+     * @return SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart
      */
     public function getSearchCriteriaLinePortUserPart()
     {
@@ -194,7 +193,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaLinePortDomain
+     * @return SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain
      */
     public function getSearchCriteriaLinePortDomain()
     {
@@ -216,7 +215,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -238,7 +237,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -260,7 +259,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaUserId
+     * @return SearchCriteriaUserId $searchCriteriaUserId
      */
     public function getSearchCriteriaUserId()
     {
@@ -282,7 +281,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -304,7 +303,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaExtension
+     * @return SearchCriteriaExtension $searchCriteriaExtension
      */
     public function getSearchCriteriaExtension()
     {
@@ -326,7 +325,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaDeviceType
+     * @return SearchCriteriaDeviceType $searchCriteriaDeviceType
      */
     public function getSearchCriteriaDeviceType()
     {
@@ -348,7 +347,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaDeviceName
+     * @return SearchCriteriaDeviceName $searchCriteriaDeviceName
      */
     public function getSearchCriteriaDeviceName()
     {
@@ -370,7 +369,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaDeviceMACAddress
+     * @return SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress
      */
     public function getSearchCriteriaDeviceMACAddress()
     {
@@ -392,7 +391,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaDeviceNetAddress
+     * @return SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress
      */
     public function getSearchCriteriaDeviceNetAddress()
     {

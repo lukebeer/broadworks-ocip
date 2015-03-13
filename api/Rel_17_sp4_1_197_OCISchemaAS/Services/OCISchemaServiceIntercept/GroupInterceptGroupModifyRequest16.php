@@ -83,7 +83,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -105,7 +105,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -127,7 +127,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -147,7 +147,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -169,7 +169,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AnnouncementSelection
+     * @return AnnouncementSelection $announcementSelection
      */
     public function getAnnouncementSelection()
     {
@@ -189,7 +189,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return LabeledMediaFileResource
+     * @return LabeledMediaFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -209,7 +209,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return LabeledMediaFileResource
+     * @return LabeledMediaFileResource $videoFile
      */
     public function getVideoFile()
     {
@@ -229,7 +229,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playNewPhoneNumber
      */
     public function getPlayNewPhoneNumber()
     {
@@ -251,7 +251,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DN
+     * @return DN $newPhoneNumber
      */
     public function getNewPhoneNumber()
     {
@@ -271,7 +271,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $transferOnZeroToPhoneNumber
      */
     public function getTransferOnZeroToPhoneNumber()
     {
@@ -293,7 +293,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -313,7 +313,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $rerouteOutboundCalls
      */
     public function getRerouteOutboundCalls()
     {
@@ -335,7 +335,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $outboundReroutePhoneNumber
      */
     public function getOutboundReroutePhoneNumber()
     {
@@ -355,7 +355,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutboundLocalCalls
      */
     public function getAllowOutboundLocalCalls()
     {
@@ -377,7 +377,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return InterceptInboundCall
+     * @return InterceptInboundCall $inboundCallMode
      */
     public function getInboundCallMode()
     {
@@ -397,7 +397,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alternateBlockingAnnouncement
      */
     public function getAlternateBlockingAnnouncement()
     {
@@ -417,7 +417,7 @@ class GroupInterceptGroupModifyRequest16 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $routeToVoiceMail
      */
     public function getRouteToVoiceMail()
     {

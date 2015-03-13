@@ -48,7 +48,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -90,7 +90,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDirectoryPrivacy
      */
     public function getEnableDirectoryPrivacy()
     {
@@ -110,7 +110,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutoAttendantExtensionDialingPrivacy
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
@@ -130,7 +130,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutoAttendantNameDialingPrivacy
      */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {
@@ -150,7 +150,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enablePhoneStatusPrivacy
      */
     public function getEnablePhoneStatusPrivacy()
     {
@@ -170,7 +170,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $permittedMonitorUserIdList
      */
     public function getPermittedMonitorUserIdList()
     {

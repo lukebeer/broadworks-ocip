@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\SequentialRingLocationModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SequentialRingLocationModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\SequentialRingLocationModify';
     public    $name                       = 'SequentialRingLocationModify';
     protected $phoneNumber                = null;
     protected $numberOfRings              = null;
@@ -37,7 +35,7 @@ class SequentialRingLocationModify extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return SequentialRingLocationModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class SequentialRingLocationModify extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -77,7 +75,7 @@ class SequentialRingLocationModify extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $numberOfRings
      */
     public function getNumberOfRings()
     {
@@ -97,7 +95,7 @@ class SequentialRingLocationModify extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $answerConfirmationRequired
      */
     public function getAnswerConfirmationRequired()
     {

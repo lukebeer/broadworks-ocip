@@ -28,7 +28,7 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
     protected $timeoutPeriodSeconds = null;
 
     /**
-     * @return SystemSessionAuditGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSessionAuditGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -70,7 +70,7 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SessionAuditIntervalSeconds
+     * @return SessionAuditIntervalSeconds $intervalSeconds
      */
     public function getIntervalSeconds()
     {
@@ -92,7 +92,7 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SessionAuditTimeoutPeriodSeconds
+     * @return SessionAuditTimeoutPeriodSeconds $timeoutPeriodSeconds
      */
     public function getTimeoutPeriodSeconds()
     {

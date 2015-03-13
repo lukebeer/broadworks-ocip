@@ -24,7 +24,7 @@ class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterf
     protected $name = null;
 
     /**
-     * @return GroupCallRecordingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\GroupCallRecordingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallRecordingPlatformName
+     * @return CallRecordingPlatformName $name
      */
     public function getName()
     {

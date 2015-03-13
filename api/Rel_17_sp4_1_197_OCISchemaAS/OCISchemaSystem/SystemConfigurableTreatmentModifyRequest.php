@@ -91,7 +91,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -113,7 +113,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $treatmentId
      */
     public function getTreatmentId()
     {
@@ -135,7 +135,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ChargeIndicator
+     * @return ChargeIndicator $chargeIndicator
      */
     public function getChargeIndicator()
     {
@@ -157,7 +157,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ConfigurableTreatmentDescription
+     * @return ConfigurableTreatmentDescription $description
      */
     public function getDescription()
     {
@@ -179,7 +179,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return SIPFailureStatusCode
+     * @return SIPFailureStatusCode $accessSIPStatusCode
      */
     public function getAccessSIPStatusCode()
     {
@@ -201,7 +201,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return SIPStatusMessage
+     * @return SIPStatusMessage $accessSIPStatusMessage
      */
     public function getAccessSIPStatusMessage()
     {
@@ -223,7 +223,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return SIPFailureStatusCode
+     * @return SIPFailureStatusCode $networkSIPStatusCode
      */
     public function getNetworkSIPStatusCode()
     {
@@ -245,7 +245,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return SIPStatusMessage
+     * @return SIPStatusMessage $networkSIPStatusMessage
      */
     public function getNetworkSIPStatusMessage()
     {
@@ -267,7 +267,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return Q850CauseValue
+     * @return Q850CauseValue $q850CauseValue
      */
     public function getQ850CauseValue()
     {
@@ -289,7 +289,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return Q850Text
+     * @return Q850Text $q850Text
      */
     public function getQ850Text()
     {
@@ -311,7 +311,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return MediaTreatmentFileName
+     * @return MediaTreatmentFileName $accessTreatmentAudioFile
      */
     public function getAccessTreatmentAudioFile()
     {
@@ -333,7 +333,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return MediaTreatmentFileName
+     * @return MediaTreatmentFileName $accessTreatmentVideoFile
      */
     public function getAccessTreatmentVideoFile()
     {
@@ -355,7 +355,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return MediaTreatmentFileName
+     * @return MediaTreatmentFileName $networkTreatmentAudioFile
      */
     public function getNetworkTreatmentAudioFile()
     {
@@ -377,7 +377,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return MediaTreatmentFileName
+     * @return MediaTreatmentFileName $networkTreatmentVideoFile
      */
     public function getNetworkTreatmentVideoFile()
     {
@@ -399,7 +399,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return CDRTerminationCause
+     * @return CDRTerminationCause $cdrTerminationCause
      */
     public function getCdrTerminationCause()
     {
@@ -419,7 +419,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $routeAdvance
      */
     public function getRouteAdvance()
     {
@@ -441,7 +441,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return InternalReleaseCause16
+     * @return InternalReleaseCause16 $internalReleaseCause
      */
     public function getInternalReleaseCause()
     {
@@ -461,7 +461,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $accessSendReasonHeader
      */
     public function getAccessSendReasonHeader()
     {
@@ -481,7 +481,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $networkSendReasonHeader
      */
     public function getNetworkSendReasonHeader()
     {

@@ -103,7 +103,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -125,7 +125,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -147,7 +147,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -169,7 +169,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -191,7 +191,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceProtocol
+     * @return AccessDeviceProtocol $protocol
      */
     public function getProtocol()
     {
@@ -213,7 +213,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -235,7 +235,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $port
      */
     public function getPort()
     {
@@ -257,7 +257,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $outboundProxyServerNetAddress
      */
     public function getOutboundProxyServerNetAddress()
     {
@@ -279,7 +279,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $stunServerNetAddress
      */
     public function getStunServerNetAddress()
     {
@@ -301,7 +301,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceMACAddress
+     * @return AccessDeviceMACAddress $macAddress
      */
     public function getMacAddress()
     {
@@ -323,7 +323,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceSerialNumber
+     * @return AccessDeviceSerialNumber $serialNumber
      */
     public function getSerialNumber()
     {
@@ -345,7 +345,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceDescription
+     * @return AccessDeviceDescription $description
      */
     public function getDescription()
     {
@@ -367,7 +367,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDevicePhysicalLocation
+     * @return AccessDevicePhysicalLocation $physicalLocation
      */
     public function getPhysicalLocation()
     {
@@ -389,7 +389,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $transportProtocol
      */
     public function getTransportProtocol()
     {
@@ -411,7 +411,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return URL
+     * @return URL $mobilityManagerProvisioningURL
      */
     public function getMobilityManagerProvisioningURL()
     {
@@ -433,7 +433,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return MobilityManagerProvisioningUserName
+     * @return MobilityManagerProvisioningUserName $mobilityManagerProvisioningUserName
      */
     public function getMobilityManagerProvisioningUserName()
     {
@@ -455,7 +455,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return MobilityManagerProvisioningPassword
+     * @return MobilityManagerProvisioningPassword $mobilityManagerProvisioningPassword
      */
     public function getMobilityManagerProvisioningPassword()
     {
@@ -477,7 +477,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $mobilityManagerDefaultOriginatingServiceKey
      */
     public function getMobilityManagerDefaultOriginatingServiceKey()
     {
@@ -499,7 +499,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $mobilityManagerDefaultTerminatingServiceKey
      */
     public function getMobilityManagerDefaultTerminatingServiceKey()
     {
@@ -519,7 +519,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomUserNamePassword
      */
     public function getUseCustomUserNamePassword()
     {
@@ -539,7 +539,7 @@ class ServiceProviderAccessDeviceAddRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return DeviceManagementUserNamePassword16
+     * @return DeviceManagementUserNamePassword16 $accessDeviceCredentials
      */
     public function getAccessDeviceCredentials()
     {

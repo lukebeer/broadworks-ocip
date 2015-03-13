@@ -43,7 +43,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -85,7 +85,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -107,7 +107,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return SimultaneousRingSelection
+     * @return SimultaneousRingSelection $incomingCalls
      */
     public function getIncomingCalls()
     {
@@ -127,7 +127,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ReplacementOutgoingDNorSIPURIList
+     * @return ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList
      */
     public function getSimRingPhoneNumberList()
     {

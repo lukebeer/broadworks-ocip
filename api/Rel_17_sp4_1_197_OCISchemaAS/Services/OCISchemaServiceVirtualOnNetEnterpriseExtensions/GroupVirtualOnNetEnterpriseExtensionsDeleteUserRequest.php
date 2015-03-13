@@ -38,7 +38,7 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -104,7 +104,7 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {

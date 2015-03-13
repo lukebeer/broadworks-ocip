@@ -29,7 +29,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
     protected $deleteNumberAfterAnsweredCallReturn = null;
 
     /**
-     * @return SystemCallReturnGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallReturn\SystemCallReturnGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $twoLevelActivation
      */
     public function getTwoLevelActivation()
     {
@@ -69,7 +69,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $provideDate
      */
     public function getProvideDate()
     {
@@ -89,7 +89,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $lastUnansweredCallOnly
      */
     public function getLastUnansweredCallOnly()
     {
@@ -111,7 +111,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return DigitAny
+     * @return DigitAny $confirmationKey
      */
     public function getConfirmationKey()
     {
@@ -131,7 +131,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowRestrictedNumber
      */
     public function getAllowRestrictedNumber()
     {
@@ -151,7 +151,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deleteNumberAfterAnsweredCallReturn
      */
     public function getDeleteNumberAfterAnsweredCallReturn()
     {

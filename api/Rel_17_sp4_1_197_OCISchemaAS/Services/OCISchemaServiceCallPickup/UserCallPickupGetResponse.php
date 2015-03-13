@@ -27,7 +27,7 @@ class UserCallPickupGetResponse extends ComplexType implements ComplexInterface
     protected $userTable = null;
 
     /**
-     * @return UserCallPickupGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPickup\UserCallPickupGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserCallPickupGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {

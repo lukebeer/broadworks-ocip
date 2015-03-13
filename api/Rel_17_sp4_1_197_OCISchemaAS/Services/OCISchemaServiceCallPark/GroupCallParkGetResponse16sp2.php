@@ -41,7 +41,7 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
     protected $alternateUserRecallTimerSeconds = null;
 
     /**
-     * @return GroupCallParkGetResponse16sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\GroupCallParkGetResponse16sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallParkRecallTimerSeconds
+     * @return CallParkRecallTimerSeconds $recallTimerSeconds
      */
     public function getRecallTimerSeconds()
     {
@@ -85,7 +85,7 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallParkDisplayTimerSeconds
+     * @return CallParkDisplayTimerSeconds $displayTimerSeconds
      */
     public function getDisplayTimerSeconds()
     {
@@ -105,7 +105,7 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDestinationAnnouncement
      */
     public function getEnableDestinationAnnouncement()
     {
@@ -127,7 +127,7 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return UserId
+     * @return UserId $recallAlternateUserId
      */
     public function getRecallAlternateUserId()
     {
@@ -149,7 +149,7 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return RingPattern
+     * @return RingPattern $recallRingPattern
      */
     public function getRecallRingPattern()
     {
@@ -171,7 +171,7 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallParkRecallTo
+     * @return CallParkRecallTo $recallTo
      */
     public function getRecallTo()
     {
@@ -193,7 +193,7 @@ class GroupCallParkGetResponse16sp2 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallParkRecallTimerSeconds
+     * @return CallParkRecallTimerSeconds $alternateUserRecallTimerSeconds
      */
     public function getAlternateUserRecallTimerSeconds()
     {

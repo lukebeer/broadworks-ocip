@@ -30,7 +30,7 @@ class GroupGroupPagingDeleteInstanceRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class GroupGroupPagingDeleteInstanceRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {

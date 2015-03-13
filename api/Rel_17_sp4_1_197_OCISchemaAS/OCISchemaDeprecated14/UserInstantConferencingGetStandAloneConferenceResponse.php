@@ -50,7 +50,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
     protected $bridgePhoneNumber              = null;
 
     /**
-     * @return UserInstantConferencingGetStandAloneConferenceResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetStandAloneConferenceResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingCallId
+     * @return InstantConferencingCallId $conferenceCallId
      */
     public function getConferenceCallId()
     {
@@ -92,7 +92,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return UserDisplayNames
+     * @return UserDisplayNames $conferenceOwnerDisplayNames
      */
     public function getConferenceOwnerDisplayNames()
     {
@@ -114,7 +114,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingTitle
+     * @return InstantConferencingTitle $title
      */
     public function getTitle()
     {
@@ -134,7 +134,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $leaderRequired
      */
     public function getLeaderRequired()
     {
@@ -154,7 +154,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $leaderReleaseDropsParticipants
      */
     public function getLeaderReleaseDropsParticipants()
     {
@@ -174,7 +174,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $announceCallers
      */
     public function getAnnounceCallers()
     {
@@ -196,7 +196,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingConferenceType
+     * @return InstantConferencingConferenceType $conferenceType
      */
     public function getConferenceType()
     {
@@ -216,7 +216,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingSchedule
+     * @return InstantConferencingSchedule $conferenceSchedule
      */
     public function getConferenceSchedule()
     {
@@ -238,7 +238,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingBillingCode
+     * @return InstantConferencingBillingCode $billingCode
      */
     public function getBillingCode()
     {
@@ -260,7 +260,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $leaderAccessCode
      */
     public function getLeaderAccessCode()
     {
@@ -282,7 +282,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $participantAccessCode
      */
     public function getParticipantAccessCode()
     {
@@ -302,7 +302,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isCallActive
      */
     public function getIsCallActive()
     {
@@ -322,7 +322,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isExpired
      */
     public function getIsExpired()
     {
@@ -342,7 +342,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isFuture
      */
     public function getIsFuture()
     {
@@ -362,7 +362,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $hasPresentation
      */
     public function getHasPresentation()
     {
@@ -384,7 +384,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingPresentationPassword
+     * @return InstantConferencingPresentationPassword $presentationPassword
      */
     public function getPresentationPassword()
     {
@@ -404,7 +404,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutdialInInvitation
      */
     public function getAllowOutdialInInvitation()
     {
@@ -426,7 +426,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse extends ComplexType
 
     /**
      * 
-     * @return DN
+     * @return DN $bridgePhoneNumber
      */
     public function getBridgePhoneNumber()
     {

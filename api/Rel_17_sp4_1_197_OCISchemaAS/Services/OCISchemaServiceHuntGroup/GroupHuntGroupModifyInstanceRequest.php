@@ -86,7 +86,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -108,7 +108,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -128,7 +128,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceInstanceModifyProfile
+     * @return ServiceInstanceModifyProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -150,7 +150,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return HuntPolicy
+     * @return HuntPolicy $policy
      */
     public function getPolicy()
     {
@@ -170,7 +170,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $huntAfterNoAnswer
      */
     public function getHuntAfterNoAnswer()
     {
@@ -192,7 +192,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return HuntNoAnswerRings
+     * @return HuntNoAnswerRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {
@@ -212,7 +212,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forwardAfterTimeout
      */
     public function getForwardAfterTimeout()
     {
@@ -234,7 +234,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return HuntForwardTimeoutSeconds
+     * @return HuntForwardTimeoutSeconds $forwardTimeoutSeconds
      */
     public function getForwardTimeoutSeconds()
     {
@@ -256,7 +256,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -276,7 +276,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $agentUserIdList
      */
     public function getAgentUserIdList()
     {
@@ -296,7 +296,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallWaitingForAgents
      */
     public function getAllowCallWaitingForAgents()
     {
@@ -316,7 +316,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemHuntGroupCLIDSetting
      */
     public function getUseSystemHuntGroupCLIDSetting()
     {
@@ -336,7 +336,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeHuntGroupNameInCLID
      */
     public function getIncludeHuntGroupNameInCLID()
     {
@@ -356,7 +356,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableNotReachableForwarding
      */
     public function getEnableNotReachableForwarding()
     {
@@ -378,7 +378,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $notReachableForwardToPhoneNumber
      */
     public function getNotReachableForwardToPhoneNumber()
     {
@@ -398,7 +398,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $makeBusyWhenNotReachable
      */
     public function getMakeBusyWhenNotReachable()
     {

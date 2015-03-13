@@ -24,7 +24,7 @@ class SystemDialableCallerIDGetResponse extends ComplexType implements ComplexIn
     protected $criteriaTable = null;
 
     /**
-     * @return SystemDialableCallerIDGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialableCallerIDGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TrunkGroupKey;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetAvailableHostedUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -48,7 +47,7 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
     }
 
     /**
-     * @return GroupTrunkGroupGetAvailableHostedUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetAvailableHostedUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +67,7 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $trunkGroupKey
      */
     public function getTrunkGroupKey()
     {
@@ -90,7 +89,7 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -112,7 +111,7 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -134,7 +133,7 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -156,7 +155,7 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
 
     /**
      * 
-     * @return SearchCriteriaExactUserDepartment
+     * @return SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment
      */
     public function getSearchCriteriaExactUserDepartment()
     {

@@ -50,7 +50,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return CallRecordingPlatformName
+     * @return CallRecordingPlatformName $name
      */
     public function getName()
     {
@@ -94,7 +94,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -116,7 +116,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return Port
+     * @return Port $port
      */
     public function getPort()
     {
@@ -138,7 +138,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return MediaStream
+     * @return MediaStream $mediaStream
      */
     public function getMediaStream()
     {
@@ -160,7 +160,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $transportType
      */
     public function getTransportType()
     {
@@ -182,7 +182,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return CallRecordingPlatformDescription
+     * @return CallRecordingPlatformDescription $description
      */
     public function getDescription()
     {

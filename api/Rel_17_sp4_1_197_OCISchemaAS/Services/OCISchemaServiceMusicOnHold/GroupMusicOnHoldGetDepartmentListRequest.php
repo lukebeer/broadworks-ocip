@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetDepartmentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -41,7 +40,7 @@ class GroupMusicOnHoldGetDepartmentListRequest extends ComplexType implements Co
     }
 
     /**
-     * @return GroupMusicOnHoldGetDepartmentListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetDepartmentListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +62,7 @@ class GroupMusicOnHoldGetDepartmentListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -85,7 +84,7 @@ class GroupMusicOnHoldGetDepartmentListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -107,7 +106,7 @@ class GroupMusicOnHoldGetDepartmentListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return DepartmentName
+     * @return DepartmentName $groupDepartmentName
      */
     public function getGroupDepartmentName()
     {

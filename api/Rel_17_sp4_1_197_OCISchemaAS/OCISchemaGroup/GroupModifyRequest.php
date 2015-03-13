@@ -70,7 +70,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -92,7 +92,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -114,7 +114,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -136,7 +136,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $defaultDomain
      */
     public function getDefaultDomain()
     {
@@ -158,7 +158,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserLimit
+     * @return GroupUserLimit $userLimit
      */
     public function getUserLimit()
     {
@@ -180,7 +180,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupName
+     * @return GroupName $groupName
      */
     public function getGroupName()
     {
@@ -202,7 +202,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupCallingLineIdName
+     * @return GroupCallingLineIdName $callingLineIdName
      */
     public function getCallingLineIdName()
     {
@@ -224,7 +224,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DN
+     * @return DN $callingLineIdPhoneNumber
      */
     public function getCallingLineIdPhoneNumber()
     {
@@ -246,7 +246,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return TimeZone
+     * @return TimeZone $timeZone
      */
     public function getTimeZone()
     {
@@ -268,7 +268,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LocationDialingCode
+     * @return LocationDialingCode $locationDialingCode
      */
     public function getLocationDialingCode()
     {
@@ -288,7 +288,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Contact
+     * @return Contact $contact
      */
     public function getContact()
     {
@@ -308,7 +308,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return StreetAddress
+     * @return StreetAddress $address
      */
     public function getAddress()
     {

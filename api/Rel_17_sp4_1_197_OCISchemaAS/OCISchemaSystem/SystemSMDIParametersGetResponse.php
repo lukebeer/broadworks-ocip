@@ -28,7 +28,7 @@ class SystemSMDIParametersGetResponse extends ComplexType implements ComplexInte
     protected $maxConnections = null;
 
     /**
-     * @return SystemSMDIParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSMDIParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemSMDIParametersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSMDI
      */
     public function getEnableSMDI()
     {
@@ -70,7 +70,7 @@ class SystemSMDIParametersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $listeningPort
      */
     public function getListeningPort()
     {
@@ -92,7 +92,7 @@ class SystemSMDIParametersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SMDIMaxConnections
+     * @return SMDIMaxConnections $maxConnections
      */
     public function getMaxConnections()
     {

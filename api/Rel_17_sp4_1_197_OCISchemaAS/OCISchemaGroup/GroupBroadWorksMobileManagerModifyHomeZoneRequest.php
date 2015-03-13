@@ -58,7 +58,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -80,7 +80,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -102,7 +102,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -122,7 +122,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:string
+     * @return string $homeZoneId
      */
     public function getHomeZoneId()
     {
@@ -144,7 +144,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
 
     /**
      * 
-     * @return BroadWorksMobileManagerDomainName
+     * @return BroadWorksMobileManagerDomainName $homeZoneDomainName
      */
     public function getHomeZoneDomainName()
     {
@@ -166,7 +166,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneMobileCountryCode
+     * @return BroadWorksMobileManagerHomeZoneMobileCountryCode $mobileCountryCode
      */
     public function getMobileCountryCode()
     {
@@ -188,7 +188,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneNetworkCountryCode
+     * @return BroadWorksMobileManagerHomeZoneNetworkCountryCode $mobileNetworkCode
      */
     public function getMobileNetworkCode()
     {
@@ -210,7 +210,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneLocationAreaCode
+     * @return BroadWorksMobileManagerHomeZoneLocationAreaCode $locationAreaCode
      */
     public function getLocationAreaCode()
     {
@@ -232,7 +232,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneCellId
+     * @return BroadWorksMobileManagerHomeZoneCellId $cellIdentity
      */
     public function getCellIdentity()
     {

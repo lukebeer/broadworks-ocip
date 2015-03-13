@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -59,7 +58,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return GroupCommonPhoneListGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -81,7 +80,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -103,7 +102,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -125,7 +124,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -145,7 +144,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $searchCriteriaModeOr
      */
     public function getSearchCriteriaModeOr()
     {
@@ -167,7 +166,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SearchCriteriaGroupCommonPhoneListName
+     * @return SearchCriteriaGroupCommonPhoneListName $searchCriteriaGroupCommonPhoneListName
      */
     public function getSearchCriteriaGroupCommonPhoneListName()
     {
@@ -189,7 +188,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SearchCriteriaGroupCommonPhoneListNumber
+     * @return SearchCriteriaGroupCommonPhoneListNumber $searchCriteriaGroupCommonPhoneListNumber
      */
     public function getSearchCriteriaGroupCommonPhoneListNumber()
     {

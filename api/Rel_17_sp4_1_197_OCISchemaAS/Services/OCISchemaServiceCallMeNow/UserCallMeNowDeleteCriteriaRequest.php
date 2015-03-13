@@ -34,7 +34,7 @@ class UserCallMeNowDeleteCriteriaRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserCallMeNowDeleteCriteriaRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -78,7 +78,7 @@ class UserCallMeNowDeleteCriteriaRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {

@@ -82,7 +82,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -104,7 +104,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -126,7 +126,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -148,7 +148,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return DialableCallerIDCriteriaName
+     * @return DialableCallerIDCriteriaName $name
      */
     public function getName()
     {
@@ -170,7 +170,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return DialableCallerIDCriteriaName
+     * @return DialableCallerIDCriteriaName $newName
      */
     public function getNewName()
     {
@@ -192,7 +192,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return DialableCallerIDCriteriaDescription
+     * @return DialableCallerIDCriteriaDescription $description
      */
     public function getDescription()
     {
@@ -214,7 +214,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return DialableCallerIDPrefixDigits
+     * @return DialableCallerIDPrefixDigits $prefixDigits
      */
     public function getPrefixDigits()
     {
@@ -234,7 +234,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ReplacementCommunicationBarringCallTypeList
+     * @return ReplacementCommunicationBarringCallTypeList $matchCallType
      */
     public function getMatchCallType()
     {
@@ -254,7 +254,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ReplacementCommunicationBarringAlternateCallIndicatorList
+     * @return ReplacementCommunicationBarringAlternateCallIndicatorList $matchAlternateCallIndicator
      */
     public function getMatchAlternateCallIndicator()
     {
@@ -274,7 +274,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchLocalCategory
      */
     public function getMatchLocalCategory()
     {
@@ -294,7 +294,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchNationalCategory
      */
     public function getMatchNationalCategory()
     {
@@ -314,7 +314,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInterlataCategory
      */
     public function getMatchInterlataCategory()
     {
@@ -334,7 +334,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchIntralataCategory
      */
     public function getMatchIntralataCategory()
     {
@@ -354,7 +354,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInternationalCategory
      */
     public function getMatchInternationalCategory()
     {
@@ -374,7 +374,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchPrivateCategory
      */
     public function getMatchPrivateCategory()
     {
@@ -394,7 +394,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchEmergencyCategory
      */
     public function getMatchEmergencyCategory()
     {
@@ -414,7 +414,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchOtherCategory
      */
     public function getMatchOtherCategory()
     {

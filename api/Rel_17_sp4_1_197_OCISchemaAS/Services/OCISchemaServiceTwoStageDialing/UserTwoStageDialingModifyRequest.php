@@ -37,7 +37,7 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -79,7 +79,7 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -99,7 +99,7 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowActivationWithUserAddresses
      */
     public function getAllowActivationWithUserAddresses()
     {

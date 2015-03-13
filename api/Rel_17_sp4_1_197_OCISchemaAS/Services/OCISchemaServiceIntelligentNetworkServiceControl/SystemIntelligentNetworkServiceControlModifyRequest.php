@@ -58,7 +58,7 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -80,7 +80,7 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds
+     * @return IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds $preAnswerActionTimeoutSeconds
      */
     public function getPreAnswerActionTimeoutSeconds()
     {
@@ -102,7 +102,7 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgRejectNoVoiceMail
      */
     public function getMsgRejectNoVoiceMail()
     {
@@ -124,7 +124,7 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgRejectVoiceMail
      */
     public function getMsgRejectVoiceMail()
     {
@@ -146,7 +146,7 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgPreAnswerWait
      */
     public function getMsgPreAnswerWait()
     {
@@ -168,7 +168,7 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgBusy
      */
     public function getMsgBusy()
     {
@@ -190,7 +190,7 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgRelease
      */
     public function getMsgRelease()
     {
@@ -212,7 +212,7 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgNoAnswer
      */
     public function getMsgNoAnswer()
     {
@@ -234,7 +234,7 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgOCPReject
      */
     public function getMsgOCPReject()
     {
@@ -256,7 +256,7 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgForwardLoop
      */
     public function getMsgForwardLoop()
     {
@@ -278,7 +278,7 @@ class SystemIntelligentNetworkServiceControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgTemporarilyUnavailable
      */
     public function getMsgTemporarilyUnavailable()
     {

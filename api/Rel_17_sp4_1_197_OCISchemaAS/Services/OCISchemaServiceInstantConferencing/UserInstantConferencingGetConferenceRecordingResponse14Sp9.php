@@ -50,7 +50,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
     protected $allowOutdialInInvitation    = null;
 
     /**
-     * @return UserInstantConferencingGetConferenceRecordingResponse14Sp9
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingResponse14Sp9 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return InstantConferencingRecordingCallId
+     * @return InstantConferencingRecordingCallId $recordingCallId
      */
     public function getRecordingCallId()
     {
@@ -94,7 +94,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $conferenceOwnerUserId
      */
     public function getConferenceOwnerUserId()
     {
@@ -114,7 +114,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return UserDisplayNames
+     * @return UserDisplayNames $conferenceOwnerDisplayNames
      */
     public function getConferenceOwnerDisplayNames()
     {
@@ -136,7 +136,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return InstantConferencingTitle
+     * @return InstantConferencingTitle $title
      */
     public function getTitle()
     {
@@ -158,7 +158,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return InstantConferencingDocumentId
+     * @return InstantConferencingDocumentId $documentId
      */
     public function getDocumentId()
     {
@@ -177,7 +177,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return xs:dateTime
+     * @return xs:dateTime $startDateTime
      */
     public function getStartDateTime()
     {
@@ -196,7 +196,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return xs:duration
+     * @return xs:duration $duration
      */
     public function getDuration()
     {
@@ -216,7 +216,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isBridgeActive
      */
     public function getIsBridgeActive()
     {
@@ -238,7 +238,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return ServiceInstanceProfileName
+     * @return ServiceInstanceProfileName $bridgeName
      */
     public function getBridgeName()
     {
@@ -260,7 +260,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return DN
+     * @return DN $bridgePhoneNumber
      */
     public function getBridgePhoneNumber()
     {
@@ -282,7 +282,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -302,7 +302,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $hasSlideShow
      */
     public function getHasSlideShow()
     {
@@ -324,7 +324,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return InstantConferencingSlideShowPassword
+     * @return InstantConferencingSlideShowPassword $slideShowPassword
      */
     public function getSlideShowPassword()
     {
@@ -346,7 +346,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return InstantConferencingSlideShowPasswordHex
+     * @return InstantConferencingSlideShowPasswordHex $slideShowPasswordHex
      */
     public function getSlideShowPasswordHex()
     {
@@ -368,7 +368,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $conferenceServerFQDN
      */
     public function getConferenceServerFQDN()
     {
@@ -388,7 +388,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutdialInInvitation
      */
     public function getAllowOutdialInInvitation()
     {

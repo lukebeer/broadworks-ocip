@@ -24,7 +24,7 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListResponse extends ComplexType 
     protected $deletedName = null;
 
     /**
-     * @return EnterpriseCallCenterCurrentAndPastDNISGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastDNISGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListResponse extends ComplexType 
 
     /**
      * 
-     * @return DNISName
+     * @return DNISName $name
      */
     public function getName()
     {
@@ -68,7 +68,7 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListResponse extends ComplexType 
 
     /**
      * 
-     * @return DNISName
+     * @return DNISName $deletedName
      */
     public function getDeletedName()
     {

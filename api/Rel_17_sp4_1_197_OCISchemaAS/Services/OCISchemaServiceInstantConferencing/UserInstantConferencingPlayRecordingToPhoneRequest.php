@@ -38,7 +38,7 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -80,7 +80,7 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
 
     /**
      * 
-     * @return InstantConferencingRecordingKey
+     * @return InstantConferencingRecordingKey $recordingKey
      */
     public function getRecordingKey()
     {
@@ -102,7 +102,7 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $playBackPhoneNumber
      */
     public function getPlayBackPhoneNumber()
     {

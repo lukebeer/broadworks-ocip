@@ -49,7 +49,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,7 +71,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterPeerInstance
+     * @return BwDiameterPeerInstance $instance
      */
     public function getInstance()
     {
@@ -93,7 +93,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $realm
      */
     public function getRealm()
     {
@@ -115,7 +115,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterApplicationId
+     * @return BwDiameterApplicationId $applicationId
      */
     public function getApplicationId()
     {
@@ -137,7 +137,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $identity
      */
     public function getIdentity()
     {
@@ -159,7 +159,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterPriority
+     * @return BwDiameterPriority $priority
      */
     public function getPriority()
     {
@@ -181,7 +181,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterWeight
+     * @return BwDiameterWeight $weight
      */
     public function getWeight()
     {

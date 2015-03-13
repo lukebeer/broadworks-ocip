@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant\AutoAttendantKeyModifyConfiguration;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AutoAttendantKeyModifyConfiguration extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant\AutoAttendantKeyModifyConfiguration';
     public    $name  = 'AutoAttendantKeyModifyConfiguration';
     protected $key   = null;
     protected $entry = null;
@@ -34,7 +32,7 @@ class AutoAttendantKeyModifyConfiguration extends ComplexType implements Complex
     }
 
     /**
-     * @return AutoAttendantKeyModifyConfiguration
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class AutoAttendantKeyModifyConfiguration extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $key
      */
     public function getKey()
     {
@@ -74,7 +72,7 @@ class AutoAttendantKeyModifyConfiguration extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $entry
      */
     public function getEntry()
     {

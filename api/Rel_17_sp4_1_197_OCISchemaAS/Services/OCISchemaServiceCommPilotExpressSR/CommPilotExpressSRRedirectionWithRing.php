@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRRedirectionWithRing;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRRedirectionWithRing extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRRedirectionWithRing';
     public    $name                = 'CommPilotExpressSRRedirectionWithRing';
     protected $phoneNumber         = null;
     protected $numberOfTimesToRing = null;
@@ -34,7 +32,7 @@ class CommPilotExpressSRRedirectionWithRing extends ComplexType implements Compl
     }
 
     /**
-     * @return CommPilotExpressSRRedirectionWithRing
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class CommPilotExpressSRRedirectionWithRing extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -74,7 +72,7 @@ class CommPilotExpressSRRedirectionWithRing extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $numberOfTimesToRing
      */
     public function getNumberOfTimesToRing()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableTreatmentGetResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -32,7 +31,7 @@ class SystemConfigurableTreatmentGetRequest16 extends ComplexType implements Com
     }
 
     /**
-     * @return SystemConfigurableTreatmentGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableTreatmentGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +53,7 @@ class SystemConfigurableTreatmentGetRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $treatmentId
      */
     public function getTreatmentId()
     {

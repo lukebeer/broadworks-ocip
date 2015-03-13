@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointRead14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AccessDeviceEndpointRead14 extends ComplexType implements ComplexInterface
 {
-    public    $responseType              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEndpointRead14';
     public    $name                      = 'AccessDeviceEndpointRead14';
     protected $accessDevice              = null;
     protected $linePort                  = null;
@@ -43,7 +41,7 @@ class AccessDeviceEndpointRead14 extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return AccessDeviceEndpointRead14
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +61,7 @@ class AccessDeviceEndpointRead14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $accessDevice
      */
     public function getAccessDevice()
     {
@@ -83,7 +81,7 @@ class AccessDeviceEndpointRead14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $linePort
      */
     public function getLinePort()
     {
@@ -103,7 +101,7 @@ class AccessDeviceEndpointRead14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $contact
      */
     public function getContact()
     {
@@ -123,7 +121,7 @@ class AccessDeviceEndpointRead14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $staticRegistrationCapable
      */
     public function getStaticRegistrationCapable()
     {
@@ -143,7 +141,7 @@ class AccessDeviceEndpointRead14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $useDomain
      */
     public function getUseDomain()
     {

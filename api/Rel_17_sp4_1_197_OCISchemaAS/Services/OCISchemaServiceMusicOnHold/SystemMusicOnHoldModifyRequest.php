@@ -30,7 +30,7 @@ class SystemMusicOnHoldModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemMusicOnHoldModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return MusicOnHoldDelayMilliseconds
+     * @return MusicOnHoldDelayMilliseconds $delayMilliseconds
      */
     public function getDelayMilliseconds()
     {

@@ -38,7 +38,7 @@ class ServiceProviderScheduleModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class ServiceProviderScheduleModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -80,7 +80,7 @@ class ServiceProviderScheduleModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {
@@ -102,7 +102,7 @@ class ServiceProviderScheduleModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $newScheduleName
      */
     public function getNewScheduleName()
     {

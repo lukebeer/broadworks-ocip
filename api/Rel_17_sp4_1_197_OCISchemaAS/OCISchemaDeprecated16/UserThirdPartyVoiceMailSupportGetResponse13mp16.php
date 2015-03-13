@@ -37,7 +37,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
     protected $alwaysRedirectToVoiceMail   = null;
 
     /**
-     * @return UserThirdPartyVoiceMailSupportGetResponse13mp16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserThirdPartyVoiceMailSupportGetResponse13mp16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -77,7 +77,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $busyRedirectToVoiceMail
      */
     public function getBusyRedirectToVoiceMail()
     {
@@ -97,7 +97,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $noAnswerRedirectToVoiceMail
      */
     public function getNoAnswerRedirectToVoiceMail()
     {
@@ -119,7 +119,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return ThirdPartyVoiceMailSupportServerSelection
+     * @return ThirdPartyVoiceMailSupportServerSelection $serverSelection
      */
     public function getServerSelection()
     {
@@ -141,7 +141,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return ThirdPartyVoiceMailSupportMailServer
+     * @return ThirdPartyVoiceMailSupportMailServer $userServer
      */
     public function getUserServer()
     {
@@ -163,7 +163,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return ThirdPartyVoiceMailSupportMailboxIdType
+     * @return ThirdPartyVoiceMailSupportMailboxIdType $mailboxIdType
      */
     public function getMailboxIdType()
     {
@@ -185,7 +185,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $mailboxURL
      */
     public function getMailboxURL()
     {
@@ -207,7 +207,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return ThirdPartyVoiceMailSupportNumberOfRings
+     * @return ThirdPartyVoiceMailSupportNumberOfRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {
@@ -227,7 +227,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alwaysRedirectToVoiceMail
      */
     public function getAlwaysRedirectToVoiceMail()
     {

@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriter
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RegistrationAddressURI;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchMode;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaRegistrationURI;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaRegistrationURI extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaRegistrationURI';
     public    $name              = 'SearchCriteriaRegistrationURI';
     protected $mode              = null;
     protected $value             = null;
@@ -39,7 +37,7 @@ class SearchCriteriaRegistrationURI extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return SearchCriteriaRegistrationURI
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +59,7 @@ class SearchCriteriaRegistrationURI extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SearchMode
+     * @return SearchMode $mode
      */
     public function getMode()
     {
@@ -83,7 +81,7 @@ class SearchCriteriaRegistrationURI extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return RegistrationAddressURI
+     * @return RegistrationAddressURI $value
      */
     public function getValue()
     {
@@ -103,7 +101,7 @@ class SearchCriteriaRegistrationURI extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isCaseInsensitive
      */
     public function getIsCaseInsensitive()
     {

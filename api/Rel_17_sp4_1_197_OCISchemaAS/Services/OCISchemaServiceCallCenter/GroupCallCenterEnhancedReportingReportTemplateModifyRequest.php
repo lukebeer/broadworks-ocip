@@ -68,7 +68,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -90,7 +90,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -112,7 +112,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -134,7 +134,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
 
     /**
      * 
-     * @return CallCenterReportTemplateName
+     * @return CallCenterReportTemplateName $name
      */
     public function getName()
     {
@@ -156,7 +156,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
 
     /**
      * 
-     * @return CallCenterReportTemplateName
+     * @return CallCenterReportTemplateName $newName
      */
     public function getNewName()
     {
@@ -178,7 +178,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
 
     /**
      * 
-     * @return CallCenterReportTemplateDescription
+     * @return CallCenterReportTemplateDescription $description
      */
     public function getDescription()
     {
@@ -198,7 +198,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $xsltTemplate
      */
     public function getXsltTemplate()
     {
@@ -220,7 +220,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
 
     /**
      * 
-     * @return CallCenterReportTemplateAccessOption
+     * @return CallCenterReportTemplateAccessOption $scope
      */
     public function getScope()
     {
@@ -240,7 +240,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isEnabled
      */
     public function getIsEnabled()
     {
@@ -260,7 +260,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRealtimeReport
      */
     public function getIsRealtimeReport()
     {
@@ -282,7 +282,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
 
     /**
      * 
-     * @return CallCenterReportDataTemplateFilterNumber
+     * @return CallCenterReportDataTemplateFilterNumber $filterNumber
      */
     public function getFilterNumber()
     {
@@ -302,7 +302,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
 
     /**
      * 
-     * @return CallCenterReportDataTemplateQueryFilterValueReplacementList
+     * @return CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue
      */
     public function getFilterValue()
     {

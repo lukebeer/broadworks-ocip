@@ -47,7 +47,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
     protected $conferenceServerFQDN        = null;
 
     /**
-     * @return UserInstantConferencingGetStandAloneConferenceRecordingResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceRecordingResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +69,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return InstantConferencingRecordingCallId
+     * @return InstantConferencingRecordingCallId $recordingCallId
      */
     public function getRecordingCallId()
     {
@@ -89,7 +89,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return UserDisplayNames
+     * @return UserDisplayNames $conferenceOwnerDisplayNames
      */
     public function getConferenceOwnerDisplayNames()
     {
@@ -111,7 +111,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return InstantConferencingTitle
+     * @return InstantConferencingTitle $title
      */
     public function getTitle()
     {
@@ -133,7 +133,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return InstantConferencingDocumentId
+     * @return InstantConferencingDocumentId $documentId
      */
     public function getDocumentId()
     {
@@ -152,7 +152,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return xs:dateTime
+     * @return xs:dateTime $startDateTime
      */
     public function getStartDateTime()
     {
@@ -171,7 +171,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return xs:duration
+     * @return xs:duration $duration
      */
     public function getDuration()
     {
@@ -191,7 +191,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isBridgeActive
      */
     public function getIsBridgeActive()
     {
@@ -213,7 +213,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return ServiceInstanceProfileName
+     * @return ServiceInstanceProfileName $bridgeName
      */
     public function getBridgeName()
     {
@@ -235,7 +235,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return DN
+     * @return DN $bridgePhoneNumber
      */
     public function getBridgePhoneNumber()
     {
@@ -257,7 +257,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -277,7 +277,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $hasSlideShow
      */
     public function getHasSlideShow()
     {
@@ -299,7 +299,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return InstantConferencingSlideShowPassword
+     * @return InstantConferencingSlideShowPassword $slideShowPassword
      */
     public function getSlideShowPassword()
     {
@@ -321,7 +321,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return InstantConferencingSlideShowPasswordHex
+     * @return InstantConferencingSlideShowPasswordHex $slideShowPasswordHex
      */
     public function getSlideShowPasswordHex()
     {
@@ -343,7 +343,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $conferenceServerFQDN
      */
     public function getConferenceServerFQDN()
     {

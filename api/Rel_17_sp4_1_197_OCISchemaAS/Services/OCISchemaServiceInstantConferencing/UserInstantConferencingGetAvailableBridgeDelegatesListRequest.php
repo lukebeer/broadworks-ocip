@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableBridgeDelegatesListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,7 +34,7 @@ class UserInstantConferencingGetAvailableBridgeDelegatesListRequest extends Comp
     }
 
     /**
-     * @return UserInstantConferencingGetAvailableBridgeDelegatesListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableBridgeDelegatesListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +56,7 @@ class UserInstantConferencingGetAvailableBridgeDelegatesListRequest extends Comp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -79,7 +78,7 @@ class UserInstantConferencingGetAvailableBridgeDelegatesListRequest extends Comp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $bridgeServiceUserId
      */
     public function getBridgeServiceUserId()
     {

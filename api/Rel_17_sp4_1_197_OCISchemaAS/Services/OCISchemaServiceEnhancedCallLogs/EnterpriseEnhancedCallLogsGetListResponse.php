@@ -31,7 +31,7 @@ class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements C
     protected $extendedCallLog   = null;
 
     /**
-     * @return EnterpriseEnhancedCallLogsGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnterpriseEnhancedCallLogsGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:int
+     * @return int $totalNumberOfRows
      */
     public function getTotalNumberOfRows()
     {
@@ -71,7 +71,7 @@ class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements C
 
     /**
      * 
-     * @return ExtendedMixedCallLogsEntry
+     * @return ExtendedMixedCallLogsEntry $extendedCallLog
      */
     public function getExtendedCallLog()
     {

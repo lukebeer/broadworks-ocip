@@ -66,7 +66,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -88,7 +88,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -108,7 +108,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -128,7 +128,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $busyRedirectToVoiceMail
      */
     public function getBusyRedirectToVoiceMail()
     {
@@ -148,7 +148,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $noAnswerRedirectToVoiceMail
      */
     public function getNoAnswerRedirectToVoiceMail()
     {
@@ -170,7 +170,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ThirdPartyVoiceMailSupportServerSelection
+     * @return ThirdPartyVoiceMailSupportServerSelection $serverSelection
      */
     public function getServerSelection()
     {
@@ -192,7 +192,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ThirdPartyVoiceMailSupportMailServer
+     * @return ThirdPartyVoiceMailSupportMailServer $userServer
      */
     public function getUserServer()
     {
@@ -214,7 +214,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ThirdPartyVoiceMailSupportMailboxIdType
+     * @return ThirdPartyVoiceMailSupportMailboxIdType $mailboxIdType
      */
     public function getMailboxIdType()
     {
@@ -236,7 +236,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $mailboxURL
      */
     public function getMailboxURL()
     {
@@ -258,7 +258,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ThirdPartyVoiceMailSupportNumberOfRings
+     * @return ThirdPartyVoiceMailSupportNumberOfRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {
@@ -278,7 +278,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alwaysRedirectToVoiceMail
      */
     public function getAlwaysRedirectToVoiceMail()
     {
@@ -298,7 +298,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $outOfPrimaryZoneRedirectToVoiceMail
      */
     public function getOutOfPrimaryZoneRedirectToVoiceMail()
     {

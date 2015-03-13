@@ -28,7 +28,7 @@ class SystemTrunkGroupUserCreationTaskGetListResponse extends ComplexType implem
     protected $taskTable = null;
 
     /**
-     * @return SystemTrunkGroupUserCreationTaskGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemTrunkGroupUserCreationTaskGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

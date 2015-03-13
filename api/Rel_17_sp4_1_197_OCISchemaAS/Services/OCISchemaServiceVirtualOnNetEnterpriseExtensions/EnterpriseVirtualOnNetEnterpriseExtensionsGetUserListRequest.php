@@ -15,7 +15,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -63,7 +62,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
     }
 
     /**
-     * @return EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -85,7 +84,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -107,7 +106,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -129,7 +128,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -151,7 +150,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -173,7 +172,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -195,7 +194,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
 
     /**
      * 
-     * @return SearchCriteriaGroupLocationCode
+     * @return SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode
      */
     public function getSearchCriteriaGroupLocationCode()
     {
@@ -217,7 +216,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
 
     /**
      * 
-     * @return SearchCriteriaExtension
+     * @return SearchCriteriaExtension $searchCriteriaExtension
      */
     public function getSearchCriteriaExtension()
     {
@@ -239,7 +238,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
 
     /**
      * 
-     * @return SearchCriteriaExactVirtualOnNetCallTypeName
+     * @return SearchCriteriaExactVirtualOnNetCallTypeName $searchCriteriaExactVirtualOnNetCallTypeName
      */
     public function getSearchCriteriaExactVirtualOnNetCallTypeName()
     {

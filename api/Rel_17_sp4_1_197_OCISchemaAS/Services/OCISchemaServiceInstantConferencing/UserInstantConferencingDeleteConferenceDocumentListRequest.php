@@ -43,7 +43,7 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -85,7 +85,7 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
 
     /**
      * 
-     * @return InstantConferencingConferenceKey
+     * @return InstantConferencingConferenceKey $conferenceKey
      */
     public function getConferenceKey()
     {
@@ -107,7 +107,7 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
 
     /**
      * 
-     * @return InstantConferencingCallId
+     * @return InstantConferencingCallId $conferenceCallId
      */
     public function getConferenceCallId()
     {
@@ -129,7 +129,7 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
 
     /**
      * 
-     * @return InstantConferencingDocumentId
+     * @return InstantConferencingDocumentId $documentId
      */
     public function getDocumentId()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressAvailableInOffice;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexInterface
 {
-    public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressAvailableInOffice';
     public    $name                        = 'CommPilotExpressAvailableInOffice';
     protected $additionalPhoneNumberToRing = null;
     protected $busySetting                 = null;
@@ -37,7 +35,7 @@ class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return CommPilotExpressAvailableInOffice
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $additionalPhoneNumberToRing
      */
     public function getAdditionalPhoneNumberToRing()
     {
@@ -77,7 +75,7 @@ class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $busySetting
      */
     public function getBusySetting()
     {
@@ -97,7 +95,7 @@ class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $noAnswerSetting
      */
     public function getNoAnswerSetting()
     {

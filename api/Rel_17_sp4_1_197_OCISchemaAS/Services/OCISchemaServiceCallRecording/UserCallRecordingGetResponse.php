@@ -24,7 +24,7 @@ class UserCallRecordingGetResponse extends ComplexType implements ComplexInterfa
     protected $recordingOption = null;
 
     /**
-     * @return UserCallRecordingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\UserCallRecordingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class UserCallRecordingGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return RecordingOption
+     * @return RecordingOption $recordingOption
      */
     public function getRecordingOption()
     {

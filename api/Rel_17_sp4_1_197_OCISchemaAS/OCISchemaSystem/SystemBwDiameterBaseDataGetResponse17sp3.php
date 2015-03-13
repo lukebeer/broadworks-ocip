@@ -45,7 +45,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
     protected $advertisedOnlineBillingApplication   = null;
 
     /**
-     * @return SystemBwDiameterBaseDataGetResponse17sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterBaseDataGetResponse17sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $xsRealm
      */
     public function getXsRealm()
     {
@@ -89,7 +89,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $xsListeningPort
      */
     public function getXsListeningPort()
     {
@@ -111,7 +111,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $psRealm
      */
     public function getPsRealm()
     {
@@ -133,7 +133,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $psListeningPort
      */
     public function getPsListeningPort()
     {
@@ -153,7 +153,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $psRelayThroughXs
      */
     public function getPsRelayThroughXs()
     {
@@ -175,7 +175,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $xsRelayListeningPort
      */
     public function getXsRelayListeningPort()
     {
@@ -197,7 +197,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return BwDiameterTcTimerSeconds
+     * @return BwDiameterTcTimerSeconds $tcTimerSeconds
      */
     public function getTcTimerSeconds()
     {
@@ -219,7 +219,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return BwDiameterTwTimerSeconds
+     * @return BwDiameterTwTimerSeconds $twTimerSeconds
      */
     public function getTwTimerSeconds()
     {
@@ -241,7 +241,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return BwDiameterRequestTimerSeconds
+     * @return BwDiameterRequestTimerSeconds $requestTimerSeconds
      */
     public function getRequestTimerSeconds()
     {
@@ -263,7 +263,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return BwDiameterBusyPeerOutstandingTxnCount
+     * @return BwDiameterBusyPeerOutstandingTxnCount $busyPeerDetectionOutstandingTxnCount
      */
     public function getBusyPeerDetectionOutstandingTxnCount()
     {
@@ -285,7 +285,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return BwDiameterBusyPeerOutstandingTxnCount
+     * @return BwDiameterBusyPeerOutstandingTxnCount $busyPeerRestoreOutstandingTxnCount
      */
     public function getBusyPeerRestoreOutstandingTxnCount()
     {
@@ -307,7 +307,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return BwDiameterDynamicEntryInactivityTimerHours
+     * @return BwDiameterDynamicEntryInactivityTimerHours $dynamicEntryInactivityTimerHours
      */
     public function getDynamicEntryInactivityTimerHours()
     {
@@ -329,7 +329,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return BwDiameterAdvertisedApplication
+     * @return BwDiameterAdvertisedApplication $advertisedOfflineBillingApplication
      */
     public function getAdvertisedOfflineBillingApplication()
     {
@@ -351,7 +351,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return BwDiameterAdvertisedApplication
+     * @return BwDiameterAdvertisedApplication $advertisedOnlineBillingApplication
      */
     public function getAdvertisedOnlineBillingApplication()
     {

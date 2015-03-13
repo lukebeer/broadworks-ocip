@@ -25,7 +25,7 @@ class UserOutgoingCallingPlanDigitPlanRedirectingGetResponse extends ComplexType
     protected $userPermissions   = null;
 
     /**
-     * @return UserOutgoingCallingPlanDigitPlanRedirectingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanDigitPlanRedirectingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserOutgoingCallingPlanDigitPlanRedirectingGetResponse extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomSettings
      */
     public function getUseCustomSettings()
     {
@@ -65,7 +65,7 @@ class UserOutgoingCallingPlanDigitPlanRedirectingGetResponse extends ComplexType
 
     /**
      * 
-     * @return OutgoingCallingPlanDigitPatternRedirectingPermissions
+     * @return OutgoingCallingPlanDigitPatternRedirectingPermissions $userPermissions
      */
     public function getUserPermissions()
     {

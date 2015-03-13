@@ -24,7 +24,7 @@ class ServiceProviderApplicationServerSetGetResponse extends ComplexType impleme
     protected $applicationServerSetName = null;
 
     /**
-     * @return ServiceProviderApplicationServerSetGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderApplicationServerSetGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class ServiceProviderApplicationServerSetGetResponse extends ComplexType impleme
 
     /**
      * 
-     * @return ApplicationServerSetName
+     * @return ApplicationServerSetName $applicationServerSetName
      */
     public function getApplicationServerSetName()
     {

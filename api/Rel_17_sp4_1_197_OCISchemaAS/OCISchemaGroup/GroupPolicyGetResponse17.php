@@ -46,7 +46,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
     protected $userEnhancedCallLogAccess                 = null;
 
     /**
-     * @return GroupPolicyGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPolicyGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupCallingPlanAccess
+     * @return GroupCallingPlanAccess $callingPlanAccess
      */
     public function getCallingPlanAccess()
     {
@@ -90,7 +90,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupExtensionAccess
+     * @return GroupExtensionAccess $extensionAccess
      */
     public function getExtensionAccess()
     {
@@ -112,7 +112,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupLDAPIntegrationAccess
+     * @return GroupLDAPIntegrationAccess $ldapIntegrationAccess
      */
     public function getLdapIntegrationAccess()
     {
@@ -134,7 +134,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupVoiceMessagingAccess
+     * @return GroupVoiceMessagingAccess $voiceMessagingAccess
      */
     public function getVoiceMessagingAccess()
     {
@@ -156,7 +156,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupDepartmentAdminUserAccess
+     * @return GroupDepartmentAdminUserAccess $departmentAdminUserAccess
      */
     public function getDepartmentAdminUserAccess()
     {
@@ -178,7 +178,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupDepartmentAdminTrunkGroupAccess
+     * @return GroupDepartmentAdminTrunkGroupAccess $departmentAdminTrunkGroupAccess
      */
     public function getDepartmentAdminTrunkGroupAccess()
     {
@@ -200,7 +200,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupDepartmentAdminPhoneNumberExtensionAccess
+     * @return GroupDepartmentAdminPhoneNumberExtensionAccess $departmentAdminPhoneNumberExtensionAccess
      */
     public function getDepartmentAdminPhoneNumberExtensionAccess()
     {
@@ -222,7 +222,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupDepartmentAdminCallingLineIdNumberAccess
+     * @return GroupDepartmentAdminCallingLineIdNumberAccess $departmentAdminCallingLineIdNumberAccess
      */
     public function getDepartmentAdminCallingLineIdNumberAccess()
     {
@@ -244,7 +244,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserAuthenticationAccess
+     * @return GroupUserAuthenticationAccess $userAuthenticationAccess
      */
     public function getUserAuthenticationAccess()
     {
@@ -266,7 +266,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserGroupDirectoryAccess
+     * @return GroupUserGroupDirectoryAccess $userGroupDirectoryAccess
      */
     public function getUserGroupDirectoryAccess()
     {
@@ -288,7 +288,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserProfileAccess
+     * @return GroupUserProfileAccess $userProfileAccess
      */
     public function getUserProfileAccess()
     {
@@ -310,7 +310,7 @@ class GroupPolicyGetResponse17 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserCallLogAccess
+     * @return GroupUserCallLogAccess $userEnhancedCallLogAccess
      */
     public function getUserEnhancedCallLogAccess()
     {

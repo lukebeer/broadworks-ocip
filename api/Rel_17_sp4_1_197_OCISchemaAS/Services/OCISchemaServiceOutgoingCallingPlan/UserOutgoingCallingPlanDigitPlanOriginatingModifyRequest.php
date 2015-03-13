@@ -38,7 +38,7 @@ class UserOutgoingCallingPlanDigitPlanOriginatingModifyRequest extends ComplexTy
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserOutgoingCallingPlanDigitPlanOriginatingModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -80,7 +80,7 @@ class UserOutgoingCallingPlanDigitPlanOriginatingModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomSettings
      */
     public function getUseCustomSettings()
     {
@@ -100,7 +100,7 @@ class UserOutgoingCallingPlanDigitPlanOriginatingModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return OutgoingCallingPlanDigitPatternOriginatingPermissions
+     * @return OutgoingCallingPlanDigitPatternOriginatingPermissions $userPermissions
      */
     public function getUserPermissions()
     {

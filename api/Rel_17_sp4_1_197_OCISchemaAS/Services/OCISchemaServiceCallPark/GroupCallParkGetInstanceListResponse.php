@@ -23,7 +23,7 @@ class GroupCallParkGetInstanceListResponse extends ComplexType implements Comple
     protected $name = null;
 
     /**
-     * @return GroupCallParkGetInstanceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\GroupCallParkGetInstanceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupCallParkGetInstanceListResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {

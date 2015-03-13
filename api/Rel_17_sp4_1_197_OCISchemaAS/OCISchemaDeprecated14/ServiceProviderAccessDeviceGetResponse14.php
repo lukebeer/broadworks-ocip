@@ -48,7 +48,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
     protected $transportProtocol             = null;
 
     /**
-     * @return ServiceProviderAccessDeviceGetResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderAccessDeviceGetResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -92,7 +92,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDeviceProtocol
+     * @return AccessDeviceProtocol $protocol
      */
     public function getProtocol()
     {
@@ -114,7 +114,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -136,7 +136,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $port
      */
     public function getPort()
     {
@@ -158,7 +158,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $outboundProxyServerNetAddress
      */
     public function getOutboundProxyServerNetAddress()
     {
@@ -180,7 +180,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $stunServerNetAddress
      */
     public function getStunServerNetAddress()
     {
@@ -202,7 +202,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDeviceMACAddress
+     * @return AccessDeviceMACAddress $macAddress
      */
     public function getMacAddress()
     {
@@ -224,7 +224,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDeviceSerialNumber
+     * @return AccessDeviceSerialNumber $serialNumber
      */
     public function getSerialNumber()
     {
@@ -246,7 +246,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDeviceDescription
+     * @return AccessDeviceDescription $description
      */
     public function getDescription()
     {
@@ -266,7 +266,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return UnboundedPositiveInt
+     * @return UnboundedPositiveInt $numberOfPorts
      */
     public function getNumberOfPorts()
     {
@@ -286,7 +286,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:int
+     * @return int $numberOfAssignedPorts
      */
     public function getNumberOfAssignedPorts()
     {
@@ -308,7 +308,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDeviceStatus
+     * @return AccessDeviceStatus $status
      */
     public function getStatus()
     {
@@ -330,7 +330,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDevicePhysicalLocation
+     * @return AccessDevicePhysicalLocation $physicalLocation
      */
     public function getPhysicalLocation()
     {
@@ -352,7 +352,7 @@ class ServiceProviderAccessDeviceGetResponse14 extends ComplexType implements Co
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $transportProtocol
      */
     public function getTransportProtocol()
     {

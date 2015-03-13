@@ -26,7 +26,7 @@ class SystemLocationBasedCallingRestrictionsGetResponse extends ComplexType impl
     protected $enableOfficeZoneAnnouncement = null;
 
     /**
-     * @return SystemLocationBasedCallingRestrictionsGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemLocationBasedCallingRestrictionsGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemLocationBasedCallingRestrictionsGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return PhysicalLocationIndicator
+     * @return PhysicalLocationIndicator $physicalLocationIndicator
      */
     public function getPhysicalLocationIndicator()
     {
@@ -68,7 +68,7 @@ class SystemLocationBasedCallingRestrictionsGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceMscValidation
      */
     public function getEnforceMscValidation()
     {
@@ -88,7 +88,7 @@ class SystemLocationBasedCallingRestrictionsGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableOfficeZoneAnnouncement
      */
     public function getEnableOfficeZoneAnnouncement()
     {

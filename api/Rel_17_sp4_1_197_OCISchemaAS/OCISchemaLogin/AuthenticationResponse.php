@@ -27,7 +27,7 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
     protected $passwordAlgorithm = null;
 
     /**
-     * @return AuthenticationResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\AuthenticationResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -69,7 +69,7 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:string
+     * @return string $nonce
      */
     public function getNonce()
     {
@@ -91,7 +91,7 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DigitalSignatureAlgorithm
+     * @return DigitalSignatureAlgorithm $passwordAlgorithm
      */
     public function getPasswordAlgorithm()
     {

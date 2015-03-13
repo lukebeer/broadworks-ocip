@@ -24,7 +24,7 @@ class SystemSMDIGetACLListResponse extends ComplexType implements ComplexInterfa
     protected $aclTable = null;
 
     /**
-     * @return SystemSMDIGetACLListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSMDIGetACLListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

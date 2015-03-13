@@ -31,7 +31,7 @@ class SystemOCIReportingDeleteMessageNameListRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemOCIReportingDeleteMessageNameListRequest extends ComplexType impleme
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {

@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPlan\CallingPlanDigitPattern;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingPlanDigitPatternName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
@@ -42,7 +41,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +63,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +85,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +107,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
 
     /**
      * 
-     * @return CallingPlanDigitPatternName
+     * @return CallingPlanDigitPatternName $name
      */
     public function getName()
     {
@@ -130,7 +129,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
 
     /**
      * 
-     * @return CallingPlanDigitPattern
+     * @return CallingPlanDigitPattern $digitPattern
      */
     public function getDigitPattern()
     {

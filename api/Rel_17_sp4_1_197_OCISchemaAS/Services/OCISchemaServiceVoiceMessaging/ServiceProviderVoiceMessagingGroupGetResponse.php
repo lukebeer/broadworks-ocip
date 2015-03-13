@@ -30,7 +30,7 @@ class ServiceProviderVoiceMessagingGroupGetResponse extends ComplexType implemen
     protected $useSystemDefaultVoicePortalLockoutFromAddress = null;
 
     /**
-     * @return ServiceProviderVoiceMessagingGroupGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\ServiceProviderVoiceMessagingGroupGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class ServiceProviderVoiceMessagingGroupGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $deliveryFromAddress
      */
     public function getDeliveryFromAddress()
     {
@@ -74,7 +74,7 @@ class ServiceProviderVoiceMessagingGroupGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $notificationFromAddress
      */
     public function getNotificationFromAddress()
     {
@@ -96,7 +96,7 @@ class ServiceProviderVoiceMessagingGroupGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $voicePortalLockoutFromAddress
      */
     public function getVoicePortalLockoutFromAddress()
     {
@@ -116,7 +116,7 @@ class ServiceProviderVoiceMessagingGroupGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultDeliveryFromAddress
      */
     public function getUseSystemDefaultDeliveryFromAddress()
     {
@@ -136,7 +136,7 @@ class ServiceProviderVoiceMessagingGroupGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultNotificationFromAddress
      */
     public function getUseSystemDefaultNotificationFromAddress()
     {
@@ -156,7 +156,7 @@ class ServiceProviderVoiceMessagingGroupGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultVoicePortalLockoutFromAddress
      */
     public function getUseSystemDefaultVoicePortalLockoutFromAddress()
     {

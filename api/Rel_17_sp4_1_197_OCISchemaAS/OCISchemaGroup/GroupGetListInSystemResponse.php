@@ -28,7 +28,7 @@ class GroupGetListInSystemResponse extends ComplexType implements ComplexInterfa
     protected $groupTable = null;
 
     /**
-     * @return GroupGetListInSystemResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInSystemResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

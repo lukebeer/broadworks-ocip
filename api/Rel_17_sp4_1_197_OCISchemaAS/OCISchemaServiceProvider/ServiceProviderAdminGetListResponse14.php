@@ -25,7 +25,7 @@ class ServiceProviderAdminGetListResponse14 extends ComplexType implements Compl
     protected $serviceProviderAdminTable = null;
 
     /**
-     * @return ServiceProviderAdminGetListResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAdminGetListResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

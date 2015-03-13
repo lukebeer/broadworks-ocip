@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentStatistics14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAgentStatistics14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentStatistics14sp9';
     public    $name              = 'CallCenterAgentStatistics14sp9';
     protected $agentUserId       = null;
     protected $agentDisplayNames = null;
@@ -40,7 +38,7 @@ class CallCenterAgentStatistics14sp9 extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return CallCenterAgentStatistics14sp9
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class CallCenterAgentStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $agentUserId
      */
     public function getAgentUserId()
     {
@@ -80,7 +78,7 @@ class CallCenterAgentStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $agentDisplayNames
      */
     public function getAgentDisplayNames()
     {
@@ -100,7 +98,7 @@ class CallCenterAgentStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $available
      */
     public function getAvailable()
     {
@@ -120,7 +118,7 @@ class CallCenterAgentStatistics14sp9 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $statistics
      */
     public function getStatistics()
     {

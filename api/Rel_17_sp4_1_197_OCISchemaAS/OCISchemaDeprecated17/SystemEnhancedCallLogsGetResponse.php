@@ -40,7 +40,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
     protected $soapTimeoutSeconds              = null;
 
     /**
-     * @return SystemEnhancedCallLogsGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemEnhancedCallLogsGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSendEnabled
      */
     public function getIsSendEnabled()
     {
@@ -82,7 +82,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $server1NetAddress
      */
     public function getServer1NetAddress()
     {
@@ -104,7 +104,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $server1SendPort
      */
     public function getServer1SendPort()
     {
@@ -126,7 +126,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Port
+     * @return Port $server1RetrievePort
      */
     public function getServer1RetrievePort()
     {
@@ -148,7 +148,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $server2NetAddress
      */
     public function getServer2NetAddress()
     {
@@ -170,7 +170,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $server2SendPort
      */
     public function getServer2SendPort()
     {
@@ -192,7 +192,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Port
+     * @return Port $server2RetrievePort
      */
     public function getServer2RetrievePort()
     {
@@ -214,7 +214,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return EnhancedCallLogsSharedSecret
+     * @return EnhancedCallLogsSharedSecret $sharedSecret
      */
     public function getSharedSecret()
     {
@@ -236,7 +236,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return EnhancedCallLogsRetransmissionDelayMilliSeconds
+     * @return EnhancedCallLogsRetransmissionDelayMilliSeconds $retransmissionDelayMilliSeconds
      */
     public function getRetransmissionDelayMilliSeconds()
     {
@@ -258,7 +258,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return EnhancedCallLogsMaxTransmissions
+     * @return EnhancedCallLogsMaxTransmissions $maxTransmissions
      */
     public function getMaxTransmissions()
     {
@@ -280,7 +280,7 @@ class SystemEnhancedCallLogsGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return EnhancedCallLogsSoapTimeoutSeconds
+     * @return EnhancedCallLogsSoapTimeoutSeconds $soapTimeoutSeconds
      */
     public function getSoapTimeoutSeconds()
     {

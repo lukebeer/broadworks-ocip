@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkRoutingServerGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -28,7 +27,7 @@ class SystemNetworkRoutingServerGetListRequest extends ComplexType implements Co
     }
 
     /**
-     * @return SystemNetworkRoutingServerGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkRoutingServerGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

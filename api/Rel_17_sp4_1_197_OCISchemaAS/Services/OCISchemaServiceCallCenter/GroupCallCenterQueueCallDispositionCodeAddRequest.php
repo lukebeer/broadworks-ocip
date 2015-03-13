@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -42,7 +41,7 @@ class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +63,7 @@ class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -86,7 +85,7 @@ class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return CallDispositionCode
+     * @return CallDispositionCode $code
      */
     public function getCode()
     {
@@ -106,7 +105,7 @@ class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -128,7 +127,7 @@ class GroupCallCenterQueueCallDispositionCodeAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return CallDispositionCodeDescription
+     * @return CallDispositionCodeDescription $description
      */
     public function getDescription()
     {

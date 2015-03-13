@@ -34,7 +34,7 @@ class UserInstantConferencingDeleteConferenceRecordingListRequest extends Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserInstantConferencingDeleteConferenceRecordingListRequest extends Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -76,7 +76,7 @@ class UserInstantConferencingDeleteConferenceRecordingListRequest extends Comple
 
     /**
      * 
-     * @return InstantConferencingRecordingKey
+     * @return InstantConferencingRecordingKey $recordingKey
      */
     public function getRecordingKey()
     {

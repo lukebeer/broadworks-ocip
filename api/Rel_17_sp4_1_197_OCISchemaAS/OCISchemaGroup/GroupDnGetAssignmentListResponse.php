@@ -28,7 +28,7 @@ class GroupDnGetAssignmentListResponse extends ComplexType implements ComplexInt
     protected $dnTable = null;
 
     /**
-     * @return GroupDnGetAssignmentListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAssignmentListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

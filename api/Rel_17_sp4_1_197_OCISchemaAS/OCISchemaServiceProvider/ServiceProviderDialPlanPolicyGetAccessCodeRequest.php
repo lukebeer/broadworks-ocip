@@ -7,9 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyGetAccessCodeResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,7 +34,7 @@ class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType impl
     }
 
     /**
-     * @return ServiceProviderDialPlanPolicyGetAccessCodeResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyGetAccessCodeResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +56,7 @@ class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType impl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -80,7 +78,7 @@ class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType impl
 
     /**
      * 
-     * @return DialPlanAccessCode
+     * @return DialPlanAccessCode $accessCode
      */
     public function getAccessCode()
     {

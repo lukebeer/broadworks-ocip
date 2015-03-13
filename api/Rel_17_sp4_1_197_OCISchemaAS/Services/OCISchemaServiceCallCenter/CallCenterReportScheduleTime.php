@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportScheduleTime;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportScheduleTime extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportScheduleTime';
     public    $name         = 'CallCenterReportScheduleTime';
     protected $timeZone     = null;
     protected $scheduleDate = null;
@@ -37,7 +35,7 @@ class CallCenterReportScheduleTime extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return CallCenterReportScheduleTime
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class CallCenterReportScheduleTime extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeZone
      */
     public function getTimeZone()
     {
@@ -77,7 +75,7 @@ class CallCenterReportScheduleTime extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $scheduleDate
      */
     public function getScheduleDate()
     {
@@ -97,7 +95,7 @@ class CallCenterReportScheduleTime extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $scheduleTime
      */
     public function getScheduleTime()
     {

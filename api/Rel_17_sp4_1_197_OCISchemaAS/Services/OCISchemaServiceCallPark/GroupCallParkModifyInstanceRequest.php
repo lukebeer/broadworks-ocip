@@ -58,7 +58,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -80,7 +80,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -102,7 +102,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -124,7 +124,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {
@@ -146,7 +146,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $newName
      */
     public function getNewName()
     {
@@ -166,7 +166,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $userIdList
      */
     public function getUserIdList()
     {
@@ -188,7 +188,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return UserId
+     * @return UserId $recallAlternateUserId
      */
     public function getRecallAlternateUserId()
     {
@@ -210,7 +210,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallParkRecallTo
+     * @return CallParkRecallTo $recallTo
      */
     public function getRecallTo()
     {

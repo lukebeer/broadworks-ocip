@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentUnavailableCodeDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAgentUnavailableCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -42,7 +41,7 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +63,7 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +85,7 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $code
      */
     public function getCode()
     {
@@ -106,7 +105,7 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -128,7 +127,7 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCodeDescription
+     * @return CallCenterAgentUnavailableCodeDescription $description
      */
     public function getDescription()
     {

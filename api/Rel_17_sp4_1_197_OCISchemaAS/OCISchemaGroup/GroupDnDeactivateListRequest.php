@@ -45,7 +45,7 @@ class GroupDnDeactivateListRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class GroupDnDeactivateListRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -89,7 +89,7 @@ class GroupDnDeactivateListRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -111,7 +111,7 @@ class GroupDnDeactivateListRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -131,7 +131,7 @@ class GroupDnDeactivateListRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return DNRange
+     * @return DNRange $dnRange
      */
     public function getDnRange()
     {

@@ -45,7 +45,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -87,7 +87,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -109,7 +109,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $defaultForwardToPhoneNumber
      */
     public function getDefaultForwardToPhoneNumber()
     {
@@ -129,7 +129,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playRingReminder
      */
     public function getPlayRingReminder()
     {
@@ -149,7 +149,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return CriteriaActivation
+     * @return CriteriaActivation $criteriaActivation
      */
     public function getCriteriaActivation()
     {

@@ -26,7 +26,7 @@ class GroupGroupPagingGetInstanceListResponse extends ComplexType implements Com
     protected $pagingGroupTable = null;
 
     /**
-     * @return GroupGroupPagingGetInstanceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetInstanceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

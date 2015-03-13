@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeLevel;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FeatureAccessCodeEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,7 @@ class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexIn
     protected $featureAccessCode         = null;
 
     /**
-     * @return GroupFeatureAccessCodeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +46,7 @@ class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return GroupFeatureAccessCodeLevel
+     * @return GroupFeatureAccessCodeLevel $useFeatureAccessCodeLevel
      */
     public function getUseFeatureAccessCodeLevel()
     {
@@ -67,7 +66,7 @@ class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return FeatureAccessCodeEntry
+     * @return FeatureAccessCodeEntry $featureAccessCode
      */
     public function getFeatureAccessCode()
     {

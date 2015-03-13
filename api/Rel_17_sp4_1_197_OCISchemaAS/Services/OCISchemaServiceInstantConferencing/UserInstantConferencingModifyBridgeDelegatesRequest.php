@@ -37,7 +37,7 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -81,7 +81,7 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
 
     /**
      * 
-     * @return UserId
+     * @return UserId $bridgeServiceUserId
      */
     public function getBridgeServiceUserId()
     {
@@ -101,7 +101,7 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $bridgeDelegatesUserIdList
      */
     public function getBridgeDelegatesUserIdList()
     {

@@ -41,7 +41,7 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -85,7 +85,7 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -105,7 +105,7 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useChargeNumberForEnhancedTranslations
      */
     public function getUseChargeNumberForEnhancedTranslations()
     {
@@ -125,7 +125,7 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendChargeNumberToNetwork
      */
     public function getSendChargeNumberToNetwork()
     {

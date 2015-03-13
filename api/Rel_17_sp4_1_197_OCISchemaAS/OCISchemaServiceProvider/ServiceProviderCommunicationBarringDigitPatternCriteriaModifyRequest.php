@@ -48,7 +48,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -92,7 +92,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
 
     /**
      * 
-     * @return DigitPatternCriteriaName
+     * @return DigitPatternCriteriaName $name
      */
     public function getName()
     {
@@ -114,7 +114,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
 
     /**
      * 
-     * @return DigitPatternCriteriaName
+     * @return DigitPatternCriteriaName $newName
      */
     public function getNewName()
     {
@@ -136,7 +136,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
 
     /**
      * 
-     * @return DigitPatternCriteriaDescription
+     * @return DigitPatternCriteriaDescription $description
      */
     public function getDescription()
     {
@@ -158,7 +158,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
 
     /**
      * 
-     * @return DigitPattern
+     * @return DigitPattern $addMatchDigitPattern
      */
     public function getAddMatchDigitPattern()
     {
@@ -180,7 +180,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
 
     /**
      * 
-     * @return DigitPattern
+     * @return DigitPattern $deleteMatchDigitPattern
      */
     public function getDeleteMatchDigitPattern()
     {

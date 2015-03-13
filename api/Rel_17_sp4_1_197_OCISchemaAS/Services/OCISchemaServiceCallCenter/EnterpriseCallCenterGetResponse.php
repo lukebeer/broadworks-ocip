@@ -32,7 +32,7 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
     protected $numberConsecutiveBouncedCallsToForceAgentUnavailable = null;
 
     /**
-     * @return EnterpriseCallCenterGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultGuardTimer
      */
     public function getUseSystemDefaultGuardTimer()
     {
@@ -72,7 +72,7 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableGuardTimer
      */
     public function getEnableGuardTimer()
     {
@@ -94,7 +94,7 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CallCenterGuardTimerSeconds
+     * @return CallCenterGuardTimerSeconds $guardTimerSeconds
      */
     public function getGuardTimerSeconds()
     {
@@ -114,7 +114,7 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultUnavailableSettings
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
@@ -134,7 +134,7 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnDNDActivation
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
@@ -154,7 +154,7 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnPersonalCalls
      */
     public function getForceAgentUnavailableOnPersonalCalls()
     {
@@ -174,7 +174,7 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnBouncedCallLimit
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
@@ -196,7 +196,7 @@ class EnterpriseCallCenterGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable
+     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable $numberConsecutiveBouncedCallsToForceAgentUnavailable
      */
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
     {

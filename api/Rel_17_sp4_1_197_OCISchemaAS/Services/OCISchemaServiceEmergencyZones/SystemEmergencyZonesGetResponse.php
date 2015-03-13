@@ -23,7 +23,7 @@ class SystemEmergencyZonesGetResponse extends ComplexType implements ComplexInte
     protected $defaultFromAddress = null;
 
     /**
-     * @return SystemEmergencyZonesGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones\SystemEmergencyZonesGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemEmergencyZonesGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {

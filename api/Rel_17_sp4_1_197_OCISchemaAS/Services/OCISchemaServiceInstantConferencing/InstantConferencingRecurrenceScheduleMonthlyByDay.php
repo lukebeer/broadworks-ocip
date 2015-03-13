@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DayOfMonth;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthlyByDay;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthlyByDay';
     public    $name       = 'InstantConferencingRecurrenceScheduleMonthlyByDay';
     protected $dayOfMonth = null;
 
@@ -31,7 +29,7 @@ class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType impl
     }
 
     /**
-     * @return InstantConferencingRecurrenceScheduleMonthlyByDay
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +51,7 @@ class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType impl
 
     /**
      * 
-     * @return DayOfMonth
+     * @return DayOfMonth $dayOfMonth
      */
     public function getDayOfMonth()
     {

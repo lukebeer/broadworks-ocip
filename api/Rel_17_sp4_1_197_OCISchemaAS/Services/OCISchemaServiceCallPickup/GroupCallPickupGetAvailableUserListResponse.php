@@ -24,7 +24,7 @@ class GroupCallPickupGetAvailableUserListResponse extends ComplexType implements
     protected $userTable = null;
 
     /**
-     * @return GroupCallPickupGetAvailableUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPickup\GroupCallPickupGetAvailableUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

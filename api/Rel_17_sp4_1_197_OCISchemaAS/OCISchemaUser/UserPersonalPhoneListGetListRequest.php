@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -55,7 +54,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return UserPersonalPhoneListGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -77,7 +76,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -99,7 +98,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -119,7 +118,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $searchCriteriaModeOr
      */
     public function getSearchCriteriaModeOr()
     {
@@ -141,7 +140,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaUserPersonalPhoneListName
+     * @return SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName
      */
     public function getSearchCriteriaUserPersonalPhoneListName()
     {
@@ -163,7 +162,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaUserPersonalPhoneListNumber
+     * @return SearchCriteriaUserPersonalPhoneListNumber $searchCriteriaUserPersonalPhoneListNumber
      */
     public function getSearchCriteriaUserPersonalPhoneListNumber()
     {

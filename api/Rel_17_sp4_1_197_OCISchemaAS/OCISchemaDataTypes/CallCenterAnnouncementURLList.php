@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementURLList';
     public    $name = 'CallCenterAnnouncementURLList';
     protected $url1 = null;
     protected $url2 = null;
@@ -40,7 +38,7 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return CallCenterAnnouncementURLList
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $url1
      */
     public function getUrl1()
     {
@@ -80,7 +78,7 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $url2
      */
     public function getUrl2()
     {
@@ -100,7 +98,7 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $url3
      */
     public function getUrl3()
     {
@@ -120,7 +118,7 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $url4
      */
     public function getUrl4()
     {

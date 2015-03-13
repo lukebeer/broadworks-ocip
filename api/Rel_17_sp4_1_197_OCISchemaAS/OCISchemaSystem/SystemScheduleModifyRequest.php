@@ -34,7 +34,7 @@ class SystemScheduleModifyRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemScheduleModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {
@@ -76,7 +76,7 @@ class SystemScheduleModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $newScheduleName
      */
     public function getNewScheduleName()
     {

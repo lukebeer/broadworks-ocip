@@ -25,7 +25,7 @@ class SystemInCallServiceActivationGetResponse extends ComplexType implements Co
     protected $defaultActivationDigits = null;
 
     /**
-     * @return SystemInCallServiceActivationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemInCallServiceActivationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class SystemInCallServiceActivationGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return InCallServiceActivationDigits
+     * @return InCallServiceActivationDigits $defaultActivationDigits
      */
     public function getDefaultActivationDigits()
     {

@@ -35,7 +35,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
     protected $personalMailServerUserId            = null;
 
     /**
-     * @return UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
 
     /**
      * 
-     * @return VoiceMessagingUserMailServerSelection
+     * @return VoiceMessagingUserMailServerSelection $mailServerSelection
      */
     public function getMailServerSelection()
     {
@@ -79,7 +79,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $groupMailServerEmailAddress
      */
     public function getGroupMailServerEmailAddress()
     {
@@ -101,7 +101,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
 
     /**
      * 
-     * @return VoiceMessagingMailServerUserId
+     * @return VoiceMessagingMailServerUserId $groupMailServerUserId
      */
     public function getGroupMailServerUserId()
     {
@@ -123,7 +123,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $personalMailServerNetAddress
      */
     public function getPersonalMailServerNetAddress()
     {
@@ -145,7 +145,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
 
     /**
      * 
-     * @return VoiceMessagingMailServerProtocol
+     * @return VoiceMessagingMailServerProtocol $personalMailServerProtocol
      */
     public function getPersonalMailServerProtocol()
     {
@@ -165,7 +165,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $personalMailServerRealDeleteForImap
      */
     public function getPersonalMailServerRealDeleteForImap()
     {
@@ -187,7 +187,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $personalMailServerEmailAddress
      */
     public function getPersonalMailServerEmailAddress()
     {
@@ -209,7 +209,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
 
     /**
      * 
-     * @return VoiceMessagingMailServerUserId
+     * @return VoiceMessagingMailServerUserId $personalMailServerUserId
      */
     public function getPersonalMailServerUserId()
     {

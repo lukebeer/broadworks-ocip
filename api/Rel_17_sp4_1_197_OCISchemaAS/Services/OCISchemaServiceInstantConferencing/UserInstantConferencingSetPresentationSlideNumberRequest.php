@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSlideNumber;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingAccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingDocumentId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSlideName;
@@ -49,7 +48,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,7 +70,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -93,7 +92,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
 
     /**
      * 
-     * @return UserId
+     * @return UserId $bridgeServiceUserId
      */
     public function getBridgeServiceUserId()
     {
@@ -115,7 +114,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
 
     /**
      * 
-     * @return InstantConferencingDocumentId
+     * @return InstantConferencingDocumentId $documentId
      */
     public function getDocumentId()
     {
@@ -137,7 +136,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -159,7 +158,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
 
     /**
      * 
-     * @return InstantConferencingSlideName
+     * @return InstantConferencingSlideName $slideName
      */
     public function getSlideName()
     {
@@ -181,7 +180,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
 
     /**
      * 
-     * @return InstantConferencingSlideNumber
+     * @return InstantConferencingSlideNumber $slideNumber
      */
     public function getSlideNumber()
     {

@@ -23,7 +23,7 @@ class SystemGetRegistrationContactListResponse extends ComplexType implements Co
     protected $registrationTable = null;
 
     /**
-     * @return SystemGetRegistrationContactListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemGetRegistrationContactListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

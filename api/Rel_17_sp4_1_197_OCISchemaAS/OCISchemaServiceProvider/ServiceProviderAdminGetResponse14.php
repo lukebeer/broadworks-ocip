@@ -32,7 +32,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
     protected $administratorType = null;
 
     /**
-     * @return ServiceProviderAdminGetResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAdminGetResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -76,7 +76,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {
@@ -98,7 +98,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -120,7 +120,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Language
+     * @return Language $language
      */
     public function getLanguage()
     {
@@ -142,7 +142,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderAdminType
+     * @return ServiceProviderAdminType $administratorType
      */
     public function getAdministratorType()
     {

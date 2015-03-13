@@ -24,7 +24,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
     protected $deletedServiceUserId = null;
 
     /**
-     * @return GroupCallCenterCurrentAndPastCallCenterGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastCallCenterGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -68,7 +68,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
 
     /**
      * 
-     * @return UserId
+     * @return UserId $deletedServiceUserId
      */
     public function getDeletedServiceUserId()
     {

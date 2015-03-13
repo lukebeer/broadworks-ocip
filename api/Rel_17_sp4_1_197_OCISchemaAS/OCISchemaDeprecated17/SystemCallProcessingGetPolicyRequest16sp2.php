@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemCallProcessingGetPolicyResponse16sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -29,7 +28,7 @@ class SystemCallProcessingGetPolicyRequest16sp2 extends ComplexType implements C
     }
 
     /**
-     * @return SystemCallProcessingGetPolicyResponse16sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemCallProcessingGetPolicyResponse16sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

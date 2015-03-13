@@ -41,7 +41,7 @@ class SystemNetworkServerSyncParametersModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class SystemNetworkServerSyncParametersModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSync
      */
     public function getEnableSync()
     {
@@ -81,7 +81,7 @@ class SystemNetworkServerSyncParametersModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $syncLinePorts
      */
     public function getSyncLinePorts()
     {
@@ -101,7 +101,7 @@ class SystemNetworkServerSyncParametersModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $syncDeviceManagementInfo
      */
     public function getSyncDeviceManagementInfo()
     {
@@ -121,7 +121,7 @@ class SystemNetworkServerSyncParametersModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $syncTrunkGroups
      */
     public function getSyncTrunkGroups()
     {

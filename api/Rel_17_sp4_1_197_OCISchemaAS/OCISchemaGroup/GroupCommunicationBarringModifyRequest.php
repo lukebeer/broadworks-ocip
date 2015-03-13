@@ -42,7 +42,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -106,7 +106,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDefaultServiceProviderProfile
      */
     public function getUseDefaultServiceProviderProfile()
     {
@@ -128,7 +128,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return CommunicationBarringProfileName
+     * @return CommunicationBarringProfileName $profile
      */
     public function getProfile()
     {

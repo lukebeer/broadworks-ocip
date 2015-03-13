@@ -35,7 +35,7 @@ class LogoutRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class LogoutRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -79,7 +79,7 @@ class LogoutRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LogoutRequestReason
+     * @return LogoutRequestReason $reason
      */
     public function getReason()
     {

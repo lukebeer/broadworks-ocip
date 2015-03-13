@@ -96,7 +96,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -118,7 +118,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SystemPasswordRulesApplyTo
+     * @return SystemPasswordRulesApplyTo $rulesApplyTo
      */
     public function getRulesApplyTo()
     {
@@ -138,7 +138,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowWebAddExternalAuthenticationUsers
      */
     public function getAllowWebAddExternalAuthenticationUsers()
     {
@@ -158,7 +158,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserId
      */
     public function getDisallowUserId()
     {
@@ -178,7 +178,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPassword
      */
     public function getDisallowOldPassword()
     {
@@ -198,7 +198,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPassword
      */
     public function getDisallowReversedOldPassword()
     {
@@ -218,7 +218,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinDigits
      */
     public function getRestrictMinDigits()
     {
@@ -240,7 +240,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return PasswordMinDigits
+     * @return PasswordMinDigits $minDigits
      */
     public function getMinDigits()
     {
@@ -260,7 +260,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinUpperCaseLetters
      */
     public function getRestrictMinUpperCaseLetters()
     {
@@ -282,7 +282,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return PasswordMinUpperCaseLetters
+     * @return PasswordMinUpperCaseLetters $minUpperCaseLetters
      */
     public function getMinUpperCaseLetters()
     {
@@ -302,7 +302,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinLowerCaseLetters
      */
     public function getRestrictMinLowerCaseLetters()
     {
@@ -324,7 +324,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return PasswordMinLowerCaseLetters
+     * @return PasswordMinLowerCaseLetters $minLowerCaseLetters
      */
     public function getMinLowerCaseLetters()
     {
@@ -344,7 +344,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinNonAlphanumericCharacters
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
@@ -366,7 +366,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return PasswordMinNonAlphanumericCharacters
+     * @return PasswordMinNonAlphanumericCharacters $minNonAlphanumericCharacters
      */
     public function getMinNonAlphanumericCharacters()
     {
@@ -388,7 +388,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return PasswordMinLength
+     * @return PasswordMinLength $minLength
      */
     public function getMinLength()
     {
@@ -410,7 +410,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return MaxFailedLoginAttempts
+     * @return MaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -432,7 +432,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return PasswordExpiresDays
+     * @return PasswordExpiresDays $passwordExpiresDays
      */
     public function getPasswordExpiresDays()
     {
@@ -452,7 +452,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -474,7 +474,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
@@ -494,7 +494,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRulesModification
      */
     public function getDisallowRulesModification()
     {

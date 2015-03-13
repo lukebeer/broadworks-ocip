@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportServiceLevelThresholdReplacementList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportServiceLevelThresholdReplacementList extends ComplexType implements ComplexInterface
 {
-    public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportServiceLevelThresholdReplacementList';
     public    $name                         = 'CallCenterReportServiceLevelThresholdReplacementList';
     protected $serviceLevelThresholdSeconds = null;
 
@@ -31,7 +29,7 @@ class CallCenterReportServiceLevelThresholdReplacementList extends ComplexType i
     }
 
     /**
-     * @return CallCenterReportServiceLevelThresholdReplacementList
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +49,7 @@ class CallCenterReportServiceLevelThresholdReplacementList extends ComplexType i
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceLevelThresholdSeconds
      */
     public function getServiceLevelThresholdSeconds()
     {

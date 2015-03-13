@@ -46,7 +46,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -90,7 +90,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -112,7 +112,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -132,7 +132,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -152,7 +152,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

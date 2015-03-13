@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallWaiting; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallWaiting\SystemCallWaitingGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -29,7 +28,7 @@ class SystemCallWaitingGetRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return SystemCallWaitingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallWaiting\SystemCallWaitingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

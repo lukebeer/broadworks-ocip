@@ -48,7 +48,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -92,7 +92,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends Complex
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -114,7 +114,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends Complex
 
     /**
      * 
-     * @return VoiceMessagingBrandingSelection
+     * @return VoiceMessagingBrandingSelection $voicePortalGreetingSelection
      */
     public function getVoicePortalGreetingSelection()
     {
@@ -134,7 +134,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends Complex
 
     /**
      * 
-     * @return LabeledMediaFileResource
+     * @return LabeledMediaFileResource $voicePortalGreetingFile
      */
     public function getVoicePortalGreetingFile()
     {
@@ -156,7 +156,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends Complex
 
     /**
      * 
-     * @return VoiceMessagingBrandingSelection
+     * @return VoiceMessagingBrandingSelection $voiceMessagingGreetingSelection
      */
     public function getVoiceMessagingGreetingSelection()
     {
@@ -176,7 +176,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends Complex
 
     /**
      * 
-     * @return LabeledMediaFileResource
+     * @return LabeledMediaFileResource $voiceMessagingGreetingFile
      */
     public function getVoiceMessagingGreetingFile()
     {

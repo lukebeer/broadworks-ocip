@@ -34,7 +34,7 @@ class SystemRoutingAddTranslationRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemRoutingAddTranslationRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return RoutingDigits
+     * @return RoutingDigits $digits
      */
     public function getDigits()
     {
@@ -78,7 +78,7 @@ class SystemRoutingAddTranslationRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return RouteName
+     * @return RouteName $routeName
      */
     public function getRouteName()
     {

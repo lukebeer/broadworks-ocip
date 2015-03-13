@@ -26,7 +26,7 @@ class SystemAccessDeviceMonitorDeleteDeviceTypeRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

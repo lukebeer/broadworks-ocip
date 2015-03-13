@@ -25,7 +25,7 @@ class GroupDnGetAvailableListResponse extends ComplexType implements ComplexInte
     protected $phoneNumber = null;
 
     /**
-     * @return GroupDnGetAvailableListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAvailableListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class GroupDnGetAvailableListResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {

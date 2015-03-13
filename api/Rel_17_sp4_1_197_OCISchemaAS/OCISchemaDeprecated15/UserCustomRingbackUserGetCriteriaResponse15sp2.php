@@ -41,7 +41,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
     protected $callWaitingVideoFileUrl         = null;
 
     /**
-     * @return UserCustomRingbackUserGetCriteriaResponse15sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCustomRingbackUserGetCriteriaResponse15sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -81,7 +81,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {
@@ -103,7 +103,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -125,7 +125,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -147,7 +147,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return URL
+     * @return URL $audioFileUrl
      */
     public function getAudioFileUrl()
     {
@@ -169,7 +169,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -191,7 +191,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -213,7 +213,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return URL
+     * @return URL $videoFileUrl
      */
     public function getVideoFileUrl()
     {
@@ -235,7 +235,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $callWaitingAudioSelection
      */
     public function getCallWaitingAudioSelection()
     {
@@ -257,7 +257,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $callWaitingAudioFileDescription
      */
     public function getCallWaitingAudioFileDescription()
     {
@@ -279,7 +279,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return URL
+     * @return URL $callWaitingAudioFileUrl
      */
     public function getCallWaitingAudioFileUrl()
     {
@@ -301,7 +301,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $callWaitingVideoSelection
      */
     public function getCallWaitingVideoSelection()
     {
@@ -323,7 +323,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $callWaitingVideoFileDescription
      */
     public function getCallWaitingVideoFileDescription()
     {
@@ -345,7 +345,7 @@ class UserCustomRingbackUserGetCriteriaResponse15sp2 extends ComplexType impleme
 
     /**
      * 
-     * @return URL
+     * @return URL $callWaitingVideoFileUrl
      */
     public function getCallWaitingVideoFileUrl()
     {

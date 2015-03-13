@@ -23,7 +23,7 @@ class UserMusicOnHoldGetResponse extends ComplexType implements ComplexInterface
     protected $isActive = null;
 
     /**
-     * @return UserMusicOnHoldGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\UserMusicOnHoldGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserMusicOnHoldGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {

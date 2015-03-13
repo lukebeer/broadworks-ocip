@@ -26,7 +26,7 @@ class SystemAccessDeviceGetAllResponse extends ComplexType implements ComplexInt
     protected $accessDeviceTable = null;
 
     /**
-     * @return SystemAccessDeviceGetAllResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetAllResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -25,7 +25,7 @@ class UserPriorityAlertGetCriteriaResponse extends ComplexType implements Comple
     protected $fromDnCriteria = null;
 
     /**
-     * @return UserPriorityAlertGetCriteriaResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserPriorityAlertGetCriteriaResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserPriorityAlertGetCriteriaResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -65,7 +65,7 @@ class UserPriorityAlertGetCriteriaResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return PriorityAlertCriteriaFromDn
+     * @return PriorityAlertCriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

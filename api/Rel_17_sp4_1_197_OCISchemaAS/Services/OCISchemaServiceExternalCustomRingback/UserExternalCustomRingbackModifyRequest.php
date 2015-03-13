@@ -47,7 +47,7 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +69,7 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -89,7 +89,7 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -111,7 +111,7 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ExternalCustomRingbackSettingLevel
+     * @return ExternalCustomRingbackSettingLevel $useSettingLevel
      */
     public function getUseSettingLevel()
     {
@@ -133,7 +133,7 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return SIPContact
+     * @return SIPContact $sipRequestURI
      */
     public function getSipRequestURI()
     {

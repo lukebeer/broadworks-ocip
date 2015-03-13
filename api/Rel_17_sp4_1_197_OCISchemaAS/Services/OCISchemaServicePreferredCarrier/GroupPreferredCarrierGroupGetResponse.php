@@ -25,7 +25,7 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
     protected $internationalCarrier = null;
 
     /**
-     * @return GroupPreferredCarrierGroupGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\GroupPreferredCarrierGroupGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupPreferredCarrierName
+     * @return GroupPreferredCarrierName $intraLataCarrier
      */
     public function getIntraLataCarrier()
     {
@@ -65,7 +65,7 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupPreferredCarrierName
+     * @return GroupPreferredCarrierName $interLataCarrier
      */
     public function getInterLataCarrier()
     {
@@ -85,7 +85,7 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupPreferredCarrierName
+     * @return GroupPreferredCarrierName $internationalCarrier
      */
     public function getInternationalCarrier()
     {

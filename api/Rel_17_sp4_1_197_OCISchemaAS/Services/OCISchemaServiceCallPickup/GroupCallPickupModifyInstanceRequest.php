@@ -45,7 +45,7 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -89,7 +89,7 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -111,7 +111,7 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {
@@ -133,7 +133,7 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $newName
      */
     public function getNewName()
     {
@@ -153,7 +153,7 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $userIdList
      */
     public function getUserIdList()
     {

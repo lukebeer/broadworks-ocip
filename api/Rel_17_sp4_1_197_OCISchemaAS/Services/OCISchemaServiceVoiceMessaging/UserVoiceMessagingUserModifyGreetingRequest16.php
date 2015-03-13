@@ -66,7 +66,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -88,7 +88,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -110,7 +110,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return AnnouncementSelection
+     * @return AnnouncementSelection $busyAnnouncementSelection
      */
     public function getBusyAnnouncementSelection()
     {
@@ -130,7 +130,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return LabeledMediaFileResource
+     * @return LabeledMediaFileResource $busyPersonalAudioFile
      */
     public function getBusyPersonalAudioFile()
     {
@@ -150,7 +150,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return LabeledMediaFileResource
+     * @return LabeledMediaFileResource $busyPersonalVideoFile
      */
     public function getBusyPersonalVideoFile()
     {
@@ -172,7 +172,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return VoiceMessagingNoAnswerGreetingSelection
+     * @return VoiceMessagingNoAnswerGreetingSelection $noAnswerAnnouncementSelection
      */
     public function getNoAnswerAnnouncementSelection()
     {
@@ -192,7 +192,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return LabeledMediaFileResource
+     * @return LabeledMediaFileResource $noAnswerPersonalAudioFile
      */
     public function getNoAnswerPersonalAudioFile()
     {
@@ -212,7 +212,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return LabeledMediaFileResource
+     * @return LabeledMediaFileResource $noAnswerPersonalVideoFile
      */
     public function getNoAnswerPersonalVideoFile()
     {
@@ -232,7 +232,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingModify16
+     * @return VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting01
      */
     public function getNoAnswerAlternateGreeting01()
     {
@@ -252,7 +252,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingModify16
+     * @return VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting02
      */
     public function getNoAnswerAlternateGreeting02()
     {
@@ -272,7 +272,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingModify16
+     * @return VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting03
      */
     public function getNoAnswerAlternateGreeting03()
     {
@@ -294,7 +294,7 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return VoiceMessagingNumberOfRings
+     * @return VoiceMessagingNumberOfRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {

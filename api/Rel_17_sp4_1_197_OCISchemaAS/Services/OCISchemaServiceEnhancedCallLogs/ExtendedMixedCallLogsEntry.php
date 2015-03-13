@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\ExtendedMixedCallLogsEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -32,7 +31,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 {
-    public    $responseType                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\ExtendedMixedCallLogsEntry';
     public    $name                                      = 'ExtendedMixedCallLogsEntry';
     protected $callLogType                               = null;
     protected $countryCode                               = null;
@@ -202,7 +200,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return ExtendedMixedCallLogsEntry
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -222,7 +220,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callLogType
      */
     public function getCallLogType()
     {
@@ -242,7 +240,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $countryCode
      */
     public function getCountryCode()
     {
@@ -262,7 +260,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callLogId
      */
     public function getCallLogId()
     {
@@ -282,7 +280,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callId
      */
     public function getCallId()
     {
@@ -302,7 +300,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $subscriberType
      */
     public function getSubscriberType()
     {
@@ -322,7 +320,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $dialedNumber
      */
     public function getDialedNumber()
     {
@@ -342,7 +340,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $calledNumber
      */
     public function getCalledNumber()
     {
@@ -362,7 +360,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $networkTranslatedAddress
      */
     public function getNetworkTranslatedAddress()
     {
@@ -382,7 +380,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingAssertedNumber
      */
     public function getCallingAssertedNumber()
     {
@@ -402,7 +400,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingPresentationNumber
      */
     public function getCallingPresentationNumber()
     {
@@ -422,7 +420,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingPresentationNumberSource
      */
     public function getCallingPresentationNumberSource()
     {
@@ -442,7 +440,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingPresentationName
      */
     public function getCallingPresentationName()
     {
@@ -462,7 +460,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingPresentationIndicator
      */
     public function getCallingPresentationIndicator()
     {
@@ -482,7 +480,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingGroupId
      */
     public function getCallingGroupId()
     {
@@ -502,7 +500,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $calledDirectoryName
      */
     public function getCalledDirectoryName()
     {
@@ -522,7 +520,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $calledGroupId
      */
     public function getCalledGroupId()
     {
@@ -542,7 +540,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $connectedNumber
      */
     public function getConnectedNumber()
     {
@@ -562,7 +560,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $connectedNumberSource
      */
     public function getConnectedNumberSource()
     {
@@ -582,7 +580,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $connectedName
      */
     public function getConnectedName()
     {
@@ -602,7 +600,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $connectedPresentationIndicator
      */
     public function getConnectedPresentationIndicator()
     {
@@ -622,7 +620,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $typeOfNetwork
      */
     public function getTypeOfNetwork()
     {
@@ -642,7 +640,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callCategory
      */
     public function getCallCategory()
     {
@@ -662,7 +660,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $basicCallType
      */
     public function getBasicCallType()
     {
@@ -682,7 +680,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $configurableCallType
      */
     public function getConfigurableCallType()
     {
@@ -702,7 +700,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $alternateCallIndicator
      */
     public function getAlternateCallIndicator()
     {
@@ -722,7 +720,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $virtualOnNetCallType
      */
     public function getVirtualOnNetCallType()
     {
@@ -742,7 +740,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $time
      */
     public function getTime()
     {
@@ -762,7 +760,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $startTime
      */
     public function getStartTime()
     {
@@ -782,7 +780,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $answerTime
      */
     public function getAnswerTime()
     {
@@ -802,7 +800,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $releaseTime
      */
     public function getReleaseTime()
     {
@@ -822,7 +820,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $detachedTime
      */
     public function getDetachedTime()
     {
@@ -842,7 +840,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $detachedAnswerTime
      */
     public function getDetachedAnswerTime()
     {
@@ -862,7 +860,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $outgoingDnis
      */
     public function getOutgoingDnis()
     {
@@ -882,7 +880,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationDisposition
      */
     public function getServiceInvocationDisposition()
     {
@@ -902,7 +900,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationDialedNumber
      */
     public function getServiceInvocationDialedNumber()
     {
@@ -922,7 +920,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationCalledNumber
      */
     public function getServiceInvocationCalledNumber()
     {
@@ -942,7 +940,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationNetworkTranslatedAddress
      */
     public function getServiceInvocationNetworkTranslatedAddress()
     {
@@ -962,7 +960,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationTypeOfNetwork
      */
     public function getServiceInvocationTypeOfNetwork()
     {
@@ -982,7 +980,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationCallCategory
      */
     public function getServiceInvocationCallCategory()
     {
@@ -1002,7 +1000,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationBasicCallType
      */
     public function getServiceInvocationBasicCallType()
     {
@@ -1022,7 +1020,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationConfigurableCallType
      */
     public function getServiceInvocationConfigurableCallType()
     {
@@ -1042,7 +1040,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationAlternateCallIndicator
      */
     public function getServiceInvocationAlternateCallIndicator()
     {
@@ -1062,7 +1060,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationVirtualOnNetCallType
      */
     public function getServiceInvocationVirtualOnNetCallType()
     {
@@ -1082,7 +1080,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationCalledDirectoryName
      */
     public function getServiceInvocationCalledDirectoryName()
     {
@@ -1102,7 +1100,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceInvocationCalledGroupId
      */
     public function getServiceInvocationCalledGroupId()
     {
@@ -1122,7 +1120,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $redirectingNumber
      */
     public function getRedirectingNumber()
     {
@@ -1142,7 +1140,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $redirectingName
      */
     public function getRedirectingName()
     {
@@ -1162,7 +1160,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $redirectingPresentationIndicator
      */
     public function getRedirectingPresentationIndicator()
     {
@@ -1182,7 +1180,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $RedirectingReason
      */
     public function getRedirectingReason()
     {
@@ -1202,7 +1200,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $accountAuthorizationCode
      */
     public function getAccountAuthorizationCode()
     {
@@ -1222,7 +1220,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $userGroupId
      */
     public function getUserGroupId()
     {
@@ -1242,7 +1240,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $userId
      */
     public function getUserId()
     {
@@ -1262,7 +1260,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $userPrimaryDn
      */
     public function getUserPrimaryDn()
     {
@@ -1282,7 +1280,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $userPrimaryExtension
      */
     public function getUserPrimaryExtension()
     {

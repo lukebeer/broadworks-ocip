@@ -34,7 +34,7 @@ class SystemSMDIAddACLEntryRequest14sp2 extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemSMDIAddACLEntryRequest14sp2 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -78,7 +78,7 @@ class SystemSMDIAddACLEntryRequest14sp2 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetworkACLEntryDescription
+     * @return NetworkACLEntryDescription $description
      */
     public function getDescription()
     {

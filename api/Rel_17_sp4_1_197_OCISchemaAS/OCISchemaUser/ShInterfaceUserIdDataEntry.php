@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\ShInterfaceUserIdDataEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\ShInterfaceUserIdDataEntry';
     public    $name               = 'ShInterfaceUserIdDataEntry';
     protected $userType           = null;
     protected $publicUserIdentity = null;
@@ -43,7 +41,7 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return ShInterfaceUserIdDataEntry
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +61,7 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $userType
      */
     public function getUserType()
     {
@@ -83,7 +81,7 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $publicUserIdentity
      */
     public function getPublicUserIdentity()
     {
@@ -103,7 +101,7 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $endpointType
      */
     public function getEndpointType()
     {
@@ -123,7 +121,7 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $SCSCFName
      */
     public function getSCSCFName()
     {
@@ -143,7 +141,7 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $IMSUserState
      */
     public function getIMSUserState()
     {

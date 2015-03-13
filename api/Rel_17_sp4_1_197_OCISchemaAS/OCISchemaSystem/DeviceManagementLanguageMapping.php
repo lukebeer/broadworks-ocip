@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementLanguageMapping;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementLanguageMapping extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\DeviceManagementLanguageMapping';
     public    $name               = 'DeviceManagementLanguageMapping';
     protected $broadWorksLanguage = null;
     protected $deviceLanguage     = null;
@@ -34,7 +32,7 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return DeviceManagementLanguageMapping
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $broadWorksLanguage
      */
     public function getBroadWorksLanguage()
     {
@@ -74,7 +72,7 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceLanguage
      */
     public function getDeviceLanguage()
     {

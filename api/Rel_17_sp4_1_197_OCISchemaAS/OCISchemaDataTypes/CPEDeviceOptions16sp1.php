@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEDeviceOptions16sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CPEDeviceOptions16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CPEDeviceOptions16sp1';
     public    $name                              = 'CPEDeviceOptions16sp1';
     protected $enableMonitoring                  = null;
     protected $configType                        = null;
@@ -43,7 +41,7 @@ class CPEDeviceOptions16sp1 extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return CPEDeviceOptions16sp1
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +61,7 @@ class CPEDeviceOptions16sp1 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $enableMonitoring
      */
     public function getEnableMonitoring()
     {
@@ -83,7 +81,7 @@ class CPEDeviceOptions16sp1 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $configType
      */
     public function getConfigType()
     {
@@ -103,7 +101,7 @@ class CPEDeviceOptions16sp1 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $systemFileName
      */
     public function getSystemFileName()
     {
@@ -123,7 +121,7 @@ class CPEDeviceOptions16sp1 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceFileFormat
      */
     public function getDeviceFileFormat()
     {
@@ -143,7 +141,7 @@ class CPEDeviceOptions16sp1 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceManagementDeviceTypeOptions
      */
     public function getDeviceManagementDeviceTypeOptions()
     {

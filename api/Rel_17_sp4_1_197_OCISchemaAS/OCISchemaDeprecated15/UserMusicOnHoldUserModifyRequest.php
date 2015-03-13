@@ -43,7 +43,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -85,7 +85,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return MusicOnHoldUserSourceModify
+     * @return MusicOnHoldUserSourceModify $source
      */
     public function getSource()
     {
@@ -105,7 +105,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useAlternateSourceForInternalCalls
      */
     public function getUseAlternateSourceForInternalCalls()
     {
@@ -125,7 +125,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return MusicOnHoldUserSourceModify
+     * @return MusicOnHoldUserSourceModify $internalSource
      */
     public function getInternalSource()
     {

@@ -39,7 +39,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
     protected $noAnswerRedirectToVoiceMail        = null;
 
     /**
-     * @return UserVoiceMessagingUserGetVoiceManagementResponse13mp8
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserVoiceMessagingUserGetVoiceManagementResponse13mp8 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -81,7 +81,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return VoiceMessagingMessageProcessing
+     * @return VoiceMessagingMessageProcessing $processing
      */
     public function getProcessing()
     {
@@ -103,7 +103,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $voiceMessageDeliveryEmailAddress
      */
     public function getVoiceMessageDeliveryEmailAddress()
     {
@@ -123,7 +123,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $usePhoneMessageWaitingIndicator
      */
     public function getUsePhoneMessageWaitingIndicator()
     {
@@ -143,7 +143,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendVoiceMessageNotifyEmail
      */
     public function getSendVoiceMessageNotifyEmail()
     {
@@ -165,7 +165,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $voiceMessageNotifyEmailAddress
      */
     public function getVoiceMessageNotifyEmailAddress()
     {
@@ -185,7 +185,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendCarbonCopyVoiceMessage
      */
     public function getSendCarbonCopyVoiceMessage()
     {
@@ -207,7 +207,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $voiceMessageCarbonCopyEmailAddress
      */
     public function getVoiceMessageCarbonCopyEmailAddress()
     {
@@ -227,7 +227,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $transferOnZeroToPhoneNumber
      */
     public function getTransferOnZeroToPhoneNumber()
     {
@@ -249,7 +249,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -269,7 +269,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alwaysRedirectToVoiceMail
      */
     public function getAlwaysRedirectToVoiceMail()
     {
@@ -289,7 +289,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $busyRedirectToVoiceMail
      */
     public function getBusyRedirectToVoiceMail()
     {
@@ -309,7 +309,7 @@ class UserVoiceMessagingUserGetVoiceManagementResponse13mp8 extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $noAnswerRedirectToVoiceMail
      */
     public function getNoAnswerRedirectToVoiceMail()
     {

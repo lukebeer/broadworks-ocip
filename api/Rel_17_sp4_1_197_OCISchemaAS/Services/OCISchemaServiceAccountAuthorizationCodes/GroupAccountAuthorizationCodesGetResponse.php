@@ -32,7 +32,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
     protected $optionalUsageUserTable     = null;
 
     /**
-     * @return GroupAccountAuthorizationCodesGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
 
     /**
      * 
-     * @return AccountAuthorizationCodeType
+     * @return AccountAuthorizationCodeType $type
      */
     public function getType()
     {
@@ -76,7 +76,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
 
     /**
      * 
-     * @return AccountAuthorizationCodeNumberOfDigits
+     * @return AccountAuthorizationCodeNumberOfDigits $numberOfDigits
      */
     public function getNumberOfDigits()
     {
@@ -96,7 +96,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowLocalAndTollFreeCalls
      */
     public function getAllowLocalAndTollFreeCalls()
     {

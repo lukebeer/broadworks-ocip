@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupScheduleGetEventResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -44,7 +43,7 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return GroupScheduleGetEventResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupScheduleGetEventResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +65,7 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -88,7 +87,7 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +107,7 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {
@@ -130,7 +129,7 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return EventName
+     * @return EventName $eventName
      */
     public function getEventName()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\TimeInterval;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TimeInterval extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\TimeInterval';
     public    $name           = 'TimeInterval';
     protected $startDayOfWeek = null;
     protected $startHour      = null;
@@ -46,7 +44,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return TimeInterval
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +64,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $startDayOfWeek
      */
     public function getStartDayOfWeek()
     {
@@ -86,7 +84,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $startHour
      */
     public function getStartHour()
     {
@@ -106,7 +104,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $startMinute
      */
     public function getStartMinute()
     {
@@ -126,7 +124,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $endDayOfWeek
      */
     public function getEndDayOfWeek()
     {
@@ -146,7 +144,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $endHour
      */
     public function getEndHour()
     {
@@ -166,7 +164,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $endMinute
      */
     public function getEndMinute()
     {

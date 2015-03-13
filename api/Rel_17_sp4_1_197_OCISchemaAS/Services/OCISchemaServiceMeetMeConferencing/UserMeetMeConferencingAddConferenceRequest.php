@@ -14,7 +14,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceTitle;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingAddConferenceResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -65,7 +64,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
     }
 
     /**
-     * @return UserMeetMeConferencingAddConferenceResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingAddConferenceResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,7 +86,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -109,7 +108,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $bridgeId
      */
     public function getBridgeId()
     {
@@ -131,7 +130,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return MeetMeConferencingConferenceTitle
+     * @return MeetMeConferencingConferenceTitle $title
      */
     public function getTitle()
     {
@@ -153,7 +152,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return MeetMeConferencingNumberOfParticipants
+     * @return MeetMeConferencingNumberOfParticipants $estimatedParticipants
      */
     public function getEstimatedParticipants()
     {
@@ -175,7 +174,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return MeetMeConferencingConferenceAccountCode
+     * @return MeetMeConferencingConferenceAccountCode $accountCode
      */
     public function getAccountCode()
     {
@@ -195,7 +194,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $muteAllAttendeesOnEntry
      */
     public function getMuteAllAttendeesOnEntry()
     {
@@ -215,7 +214,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $endConferenceOnModeratorExit
      */
     public function getEndConferenceOnModeratorExit()
     {
@@ -235,7 +234,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $moderatorRequired
      */
     public function getModeratorRequired()
     {
@@ -257,7 +256,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return MeetMeConferencingConferenceAttendeeNotification
+     * @return MeetMeConferencingConferenceAttendeeNotification $attendeeNotification
      */
     public function getAttendeeNotification()
     {
@@ -277,7 +276,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return MeetMeConferencingConferenceSchedule
+     * @return MeetMeConferencingConferenceSchedule $conferenceSchedule
      */
     public function getConferenceSchedule()
     {

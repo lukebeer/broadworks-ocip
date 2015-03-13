@@ -30,7 +30,7 @@ class SystemMaliciousCallTraceModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemMaliciousCallTraceModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playMCTWarningAnnouncement
      */
     public function getPlayMCTWarningAnnouncement()
     {

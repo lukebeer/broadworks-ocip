@@ -34,7 +34,7 @@ class UserVoiceMessagingUserAddAliasListRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserVoiceMessagingUserAddAliasListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -78,7 +78,7 @@ class UserVoiceMessagingUserAddAliasListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {

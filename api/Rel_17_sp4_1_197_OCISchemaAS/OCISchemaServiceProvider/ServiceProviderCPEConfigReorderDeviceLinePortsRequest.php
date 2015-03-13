@@ -40,7 +40,7 @@ class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +62,7 @@ class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -84,7 +84,7 @@ class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType 
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -106,7 +106,7 @@ class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType 
 
     /**
      * 
-     * @return AccessDeviceEndpointLinePort
+     * @return AccessDeviceEndpointLinePort $orderedLinePortList
      */
     public function getOrderedLinePortList()
     {

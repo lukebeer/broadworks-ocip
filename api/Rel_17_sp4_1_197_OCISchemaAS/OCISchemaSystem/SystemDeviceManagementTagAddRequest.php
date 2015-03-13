@@ -34,7 +34,7 @@ class SystemDeviceManagementTagAddRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemDeviceManagementTagAddRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return DeviceManagementTagName
+     * @return DeviceManagementTagName $tagName
      */
     public function getTagName()
     {
@@ -78,7 +78,7 @@ class SystemDeviceManagementTagAddRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return DeviceManagementTagValue
+     * @return DeviceManagementTagValue $tagValue
      */
     public function getTagValue()
     {

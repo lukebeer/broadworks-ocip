@@ -31,7 +31,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
     protected $private         = null;
 
     /**
-     * @return UserSelectiveCallRejectionGetCriteriaResponse16sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection\UserSelectiveCallRejectionGetCriteriaResponse16sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -71,7 +71,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
 
     /**
      * 
-     * @return SelectiveCallRejectionCriteriaCallType
+     * @return SelectiveCallRejectionCriteriaCallType $fromDnCriteria
      */
     public function getFromDnCriteria()
     {
@@ -91,7 +91,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {
@@ -111,7 +111,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -131,7 +131,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $private
      */
     public function getPrivate()
     {

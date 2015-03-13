@@ -41,7 +41,7 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -83,7 +83,7 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideAgentWrapUpTime
      */
     public function getOverrideAgentWrapUpTime()
     {
@@ -105,7 +105,7 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallCenterWrapUpSeconds
+     * @return CallCenterWrapUpSeconds $wrapUpSeconds
      */
     public function getWrapUpSeconds()
     {

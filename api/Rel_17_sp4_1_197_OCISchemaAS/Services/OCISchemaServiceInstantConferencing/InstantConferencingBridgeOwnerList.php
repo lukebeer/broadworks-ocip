@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBridgeOwnerList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBridgeOwnerList';
     public    $name                = 'InstantConferencingBridgeOwnerList';
     protected $bridgeServiceUserId = null;
     protected $bridgeName          = null;
@@ -38,7 +36,7 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
     }
 
     /**
-     * @return InstantConferencingBridgeOwnerList
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +56,7 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $bridgeServiceUserId
      */
     public function getBridgeServiceUserId()
     {
@@ -78,7 +76,7 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $bridgeName
      */
     public function getBridgeName()
     {
@@ -98,7 +96,7 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $userTable
      */
     public function getUserTable()
     {

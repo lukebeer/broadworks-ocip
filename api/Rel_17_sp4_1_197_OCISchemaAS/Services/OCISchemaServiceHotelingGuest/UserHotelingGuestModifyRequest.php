@@ -44,7 +44,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -86,7 +86,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -106,7 +106,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAssociationLimit
      */
     public function getEnableAssociationLimit()
     {
@@ -128,7 +128,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return HotelingAssociationLimitHours
+     * @return HotelingAssociationLimitHours $associationLimitHours
      */
     public function getAssociationLimitHours()
     {
@@ -150,7 +150,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UserId
+     * @return UserId $hostUserId
      */
     public function getHostUserId()
     {

@@ -38,7 +38,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
     protected $abandonedCallThresholdParamNumber   = null;
 
     /**
-     * @return UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRealtimeReport
      */
     public function getIsRealtimeReport()
     {
@@ -78,7 +78,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireAgentParam
      */
     public function getRequireAgentParam()
     {
@@ -98,7 +98,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireCallCenterParam
      */
     public function getRequireCallCenterParam()
     {
@@ -118,7 +118,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireCallCenterDnisParam
      */
     public function getRequireCallCenterDnisParam()
     {
@@ -138,7 +138,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireSamplingPeriodParam
      */
     public function getRequireSamplingPeriodParam()
     {
@@ -160,7 +160,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $callCompletionThresholdParam
      */
     public function getCallCompletionThresholdParam()
     {
@@ -182,7 +182,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $shortDurationThresholdParam
      */
     public function getShortDurationThresholdParam()
     {
@@ -204,7 +204,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $serviceLevelThresholdParam
      */
     public function getServiceLevelThresholdParam()
     {
@@ -226,7 +226,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $serviceLevelInclusionsParam
      */
     public function getServiceLevelInclusionsParam()
     {
@@ -248,7 +248,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $serviceLevelObjectiveThresholdParam
      */
     public function getServiceLevelObjectiveThresholdParam()
     {
@@ -270,7 +270,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $abandonedCallThresholdParam
      */
     public function getAbandonedCallThresholdParam()
     {
@@ -292,7 +292,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return CallCenterReportServiceLevelInputParameterNumber
+     * @return CallCenterReportServiceLevelInputParameterNumber $serviceLevelThresholdParamNumber
      */
     public function getServiceLevelThresholdParamNumber()
     {
@@ -314,7 +314,7 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse extends 
 
     /**
      * 
-     * @return CallCenterReportAbandonedCallInputParameterNumber
+     * @return CallCenterReportAbandonedCallInputParameterNumber $abandonedCallThresholdParamNumber
      */
     public function getAbandonedCallThresholdParamNumber()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\DeviceManagementDeviceTypeOptionsRead;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements ComplexInterface
 {
-    public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\DeviceManagementDeviceTypeOptionsRead';
     public    $name                               = 'DeviceManagementDeviceTypeOptionsRead';
     protected $deviceAccessProtocol               = null;
     protected $tagMode                            = null;
@@ -82,7 +80,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
     }
 
     /**
-     * @return DeviceManagementDeviceTypeOptionsRead
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -102,7 +100,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceAccessProtocol
      */
     public function getDeviceAccessProtocol()
     {
@@ -122,7 +120,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $tagMode
      */
     public function getTagMode()
     {
@@ -142,7 +140,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $tagSet
      */
     public function getTagSet()
     {
@@ -162,7 +160,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowDeviceProfileCustomTagSet
      */
     public function getAllowDeviceProfileCustomTagSet()
     {
@@ -182,7 +180,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowGroupCustomTagSet
      */
     public function getAllowGroupCustomTagSet()
     {
@@ -202,7 +200,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $sendEmailUponResetFailure
      */
     public function getSendEmailUponResetFailure()
     {
@@ -222,7 +220,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceAccessNetAddress
      */
     public function getDeviceAccessNetAddress()
     {
@@ -242,7 +240,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceAccessPort
      */
     public function getDeviceAccessPort()
     {
@@ -262,7 +260,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceAccessContext
      */
     public function getDeviceAccessContext()
     {
@@ -282,7 +280,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceAccessURI
      */
     public function getDeviceAccessURI()
     {
@@ -302,7 +300,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $defaultDeviceLanguage
      */
     public function getDefaultDeviceLanguage()
     {
@@ -322,7 +320,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $defaultDeviceEncoding
      */
     public function getDefaultDeviceEncoding()
     {
@@ -342,7 +340,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $accessDeviceCredentials
      */
     public function getAccessDeviceCredentials()
     {
@@ -362,7 +360,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $useHttpDigestAuthentication
      */
     public function getUseHttpDigestAuthentication()
     {
@@ -382,7 +380,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $macBasedFileAuthentication
      */
     public function getMacBasedFileAuthentication()
     {
@@ -402,7 +400,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $userNamePasswordFileAuthentication
      */
     public function getUserNamePasswordFileAuthentication()
     {
@@ -422,7 +420,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $macInNonRequestURI
      */
     public function getMacInNonRequestURI()
     {
@@ -442,7 +440,7 @@ class DeviceManagementDeviceTypeOptionsRead extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $macFormatInNonRequestURI
      */
     public function getMacFormatInNonRequestURI()
     {

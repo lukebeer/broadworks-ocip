@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -45,7 +44,7 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
     }
 
     /**
-     * @return GroupAccessDeviceGetAvailableDetailListResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +66,7 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -89,7 +88,7 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -109,7 +108,7 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isMusicOnHold
      */
     public function getIsMusicOnHold()
     {
@@ -129,7 +128,7 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $onlyVideoCapable
      */
     public function getOnlyVideoCapable()
     {

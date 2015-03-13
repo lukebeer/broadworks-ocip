@@ -27,7 +27,7 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
     protected $displayColumn              = null;
 
     /**
-     * @return UserAttendantConsoleGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserAttendantConsoleGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $launchOnLogin
      */
     public function getLaunchOnLogin()
     {
@@ -67,7 +67,7 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUserConfigCallDetails
      */
     public function getAllowUserConfigCallDetails()
     {
@@ -87,7 +87,7 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUserViewCallDetails
      */
     public function getAllowUserViewCallDetails()
     {
@@ -109,7 +109,7 @@ class UserAttendantConsoleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AttendantConsoleDisplayColumn
+     * @return AttendantConsoleDisplayColumn $displayColumn
      */
     public function getDisplayColumn()
     {

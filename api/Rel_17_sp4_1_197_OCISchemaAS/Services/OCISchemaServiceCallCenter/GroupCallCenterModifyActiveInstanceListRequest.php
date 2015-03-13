@@ -30,7 +30,7 @@ class GroupCallCenterModifyActiveInstanceListRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupCallCenterModifyActiveInstanceListRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceActivation
+     * @return ServiceActivation $serviceActivation
      */
     public function getServiceActivation()
     {

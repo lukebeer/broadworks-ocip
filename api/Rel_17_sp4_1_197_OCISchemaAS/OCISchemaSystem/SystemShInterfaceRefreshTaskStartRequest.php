@@ -26,7 +26,7 @@ class SystemShInterfaceRefreshTaskStartRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -34,7 +34,7 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $trunkGroupKey
      */
     public function getTrunkGroupKey()
     {
@@ -76,7 +76,7 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
 
     /**
      * 
-     * @return TrunkGroupUserCreationTaskName
+     * @return TrunkGroupUserCreationTaskName $taskName
      */
     public function getTaskName()
     {

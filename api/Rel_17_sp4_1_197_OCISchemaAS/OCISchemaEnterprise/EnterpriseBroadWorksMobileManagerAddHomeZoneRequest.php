@@ -50,7 +50,7 @@ class EnterpriseBroadWorksMobileManagerAddHomeZoneRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class EnterpriseBroadWorksMobileManagerAddHomeZoneRequest extends ComplexType im
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -94,7 +94,7 @@ class EnterpriseBroadWorksMobileManagerAddHomeZoneRequest extends ComplexType im
 
     /**
      * 
-     * @return BroadWorksMobileManagerDomainName
+     * @return BroadWorksMobileManagerDomainName $homeZoneDomainName
      */
     public function getHomeZoneDomainName()
     {
@@ -116,7 +116,7 @@ class EnterpriseBroadWorksMobileManagerAddHomeZoneRequest extends ComplexType im
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneMobileCountryCode
+     * @return BroadWorksMobileManagerHomeZoneMobileCountryCode $mobileCountryCode
      */
     public function getMobileCountryCode()
     {
@@ -138,7 +138,7 @@ class EnterpriseBroadWorksMobileManagerAddHomeZoneRequest extends ComplexType im
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneNetworkCountryCode
+     * @return BroadWorksMobileManagerHomeZoneNetworkCountryCode $mobileNetworkCode
      */
     public function getMobileNetworkCode()
     {
@@ -160,7 +160,7 @@ class EnterpriseBroadWorksMobileManagerAddHomeZoneRequest extends ComplexType im
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneLocationAreaCode
+     * @return BroadWorksMobileManagerHomeZoneLocationAreaCode $locationAreaCode
      */
     public function getLocationAreaCode()
     {
@@ -182,7 +182,7 @@ class EnterpriseBroadWorksMobileManagerAddHomeZoneRequest extends ComplexType im
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneCellId
+     * @return BroadWorksMobileManagerHomeZoneCellId $cellIdentity
      */
     public function getCellIdentity()
     {

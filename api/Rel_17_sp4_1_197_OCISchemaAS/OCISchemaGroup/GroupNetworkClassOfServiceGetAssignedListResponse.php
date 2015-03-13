@@ -25,7 +25,7 @@ class GroupNetworkClassOfServiceGetAssignedListResponse extends ComplexType impl
     protected $networkClassOfServiceTable = null;
 
     /**
-     * @return GroupNetworkClassOfServiceGetAssignedListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupNetworkClassOfServiceGetAssignedListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

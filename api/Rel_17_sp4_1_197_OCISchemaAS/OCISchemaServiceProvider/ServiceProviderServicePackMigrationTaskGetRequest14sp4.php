@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServicePackMigrationTaskName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -37,7 +36,7 @@ class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType
     }
 
     /**
-     * @return ServiceProviderServicePackMigrationTaskGetResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +58,7 @@ class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -81,7 +80,7 @@ class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType
 
     /**
      * 
-     * @return ServicePackMigrationTaskName
+     * @return ServicePackMigrationTaskName $taskName
      */
     public function getTaskName()
     {

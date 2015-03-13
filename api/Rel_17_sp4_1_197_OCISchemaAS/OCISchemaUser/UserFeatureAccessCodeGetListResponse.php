@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FeatureAccessCodeEntry;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ class UserFeatureAccessCodeGetListResponse extends ComplexType implements Comple
     protected $featureAccessCode = null;
 
     /**
-     * @return UserFeatureAccessCodeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserFeatureAccessCodeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserFeatureAccessCodeGetListResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return FeatureAccessCodeEntry
+     * @return FeatureAccessCodeEntry $featureAccessCode
      */
     public function getFeatureAccessCode()
     {

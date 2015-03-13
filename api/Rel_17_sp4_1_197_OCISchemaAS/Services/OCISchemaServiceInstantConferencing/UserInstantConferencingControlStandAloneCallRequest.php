@@ -50,7 +50,7 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
 
     /**
      * 
-     * @return UserId
+     * @return UserId $conferenceOwnerUserId
      */
     public function getConferenceOwnerUserId()
     {
@@ -92,7 +92,7 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
 
     /**
      * 
-     * @return InstantConferencingConferenceKey
+     * @return InstantConferencingConferenceKey $conferenceKey
      */
     public function getConferenceKey()
     {
@@ -114,7 +114,7 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
 
     /**
      * 
-     * @return InstantConferencingCallId
+     * @return InstantConferencingCallId $conferenceCallId
      */
     public function getConferenceCallId()
     {
@@ -136,7 +136,7 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
 
     /**
      * 
-     * @return InstantConferencingStandAloneCallControlAction
+     * @return InstantConferencingStandAloneCallControlAction $action
      */
     public function getAction()
     {
@@ -158,7 +158,7 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -180,7 +180,7 @@ class UserInstantConferencingControlStandAloneCallRequest extends ComplexType im
 
     /**
      * 
-     * @return InstantConferencingParticipantName
+     * @return InstantConferencingParticipantName $userName
      */
     public function getUserName()
     {

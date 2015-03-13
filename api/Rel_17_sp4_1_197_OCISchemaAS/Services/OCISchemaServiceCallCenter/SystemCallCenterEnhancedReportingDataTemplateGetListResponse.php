@@ -23,7 +23,7 @@ class SystemCallCenterEnhancedReportingDataTemplateGetListResponse extends Compl
     protected $info = null;
 
     /**
-     * @return SystemCallCenterEnhancedReportingDataTemplateGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingDataTemplateGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class SystemCallCenterEnhancedReportingDataTemplateGetListResponse extends Compl
 
     /**
      * 
-     * @return CallCenterReportDataTemplateInfo
+     * @return CallCenterReportDataTemplateInfo $info
      */
     public function getInfo()
     {

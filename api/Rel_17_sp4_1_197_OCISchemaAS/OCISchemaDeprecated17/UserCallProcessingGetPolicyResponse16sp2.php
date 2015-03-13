@@ -68,7 +68,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
     protected $enableDialableCallerID                      = null;
 
     /**
-     * @return UserCallProcessingGetPolicyResponse16sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserCallProcessingGetPolicyResponse16sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -88,7 +88,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useUserCLIDSetting
      */
     public function getUseUserCLIDSetting()
     {
@@ -108,7 +108,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useUserMediaSetting
      */
     public function getUseUserMediaSetting()
     {
@@ -128,7 +128,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useUserCallLimitsSetting
      */
     public function getUseUserCallLimitsSetting()
     {
@@ -148,7 +148,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useUserDCLIDSetting
      */
     public function getUseUserDCLIDSetting()
     {
@@ -168,7 +168,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousCalls
      */
     public function getUseMaxSimultaneousCalls()
     {
@@ -190,7 +190,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousCalls
      */
     public function getMaxSimultaneousCalls()
     {
@@ -210,7 +210,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousVideoCalls
      */
     public function getUseMaxSimultaneousVideoCalls()
     {
@@ -232,7 +232,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousVideoCalls
      */
     public function getMaxSimultaneousVideoCalls()
     {
@@ -252,7 +252,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForAnsweredCalls
      */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
@@ -274,7 +274,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes16
+     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes16 $maxCallTimeForAnsweredCallsMinutes
      */
     public function getMaxCallTimeForAnsweredCallsMinutes()
     {
@@ -294,7 +294,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForUnansweredCalls
      */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
@@ -316,7 +316,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes
+     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes $maxCallTimeForUnansweredCallsMinutes
      */
     public function getMaxCallTimeForUnansweredCallsMinutes()
     {
@@ -338,7 +338,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return MediaPolicySelection
+     * @return MediaPolicySelection $mediaPolicySelection
      */
     public function getMediaPolicySelection()
     {
@@ -360,7 +360,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return MediaSetName
+     * @return MediaSetName $supportedMediaSetName
      */
     public function getSupportedMediaSetName()
     {
@@ -380,7 +380,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxConcurrentRedirectedCalls
      */
     public function getUseMaxConcurrentRedirectedCalls()
     {
@@ -402,7 +402,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxConcurrentRedirectedCalls
+     * @return CallProcessingMaxConcurrentRedirectedCalls $maxConcurrentRedirectedCalls
      */
     public function getMaxConcurrentRedirectedCalls()
     {
@@ -422,7 +422,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxFindMeFollowMeDepth
      */
     public function getUseMaxFindMeFollowMeDepth()
     {
@@ -444,7 +444,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxFindMeFollowMeDepth
+     * @return CallProcessingMaxFindMeFollowMeDepth $maxFindMeFollowMeDepth
      */
     public function getMaxFindMeFollowMeDepth()
     {
@@ -466,7 +466,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxRedirectionDepth
+     * @return CallProcessingMaxRedirectionDepth $maxRedirectionDepth
      */
     public function getMaxRedirectionDepth()
     {
@@ -486,7 +486,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxConcurrentFindMeFollowMeInvocations
      */
     public function getUseMaxConcurrentFindMeFollowMeInvocations()
     {
@@ -508,7 +508,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxConcurrentFindMeFollowMeInvocations
+     * @return CallProcessingMaxConcurrentFindMeFollowMeInvocations $maxConcurrentFindMeFollowMeInvocations
      */
     public function getMaxConcurrentFindMeFollowMeInvocations()
     {
@@ -530,7 +530,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return GroupCLIDPolicy
+     * @return GroupCLIDPolicy $clidPolicy
      */
     public function getClidPolicy()
     {
@@ -552,7 +552,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return GroupCLIDPolicy
+     * @return GroupCLIDPolicy $emergencyClidPolicy
      */
     public function getEmergencyClidPolicy()
     {
@@ -572,7 +572,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowAlternateNumbersForRedirectingIdentity
      */
     public function getAllowAlternateNumbersForRedirectingIdentity()
     {
@@ -592,7 +592,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupName
      */
     public function getUseGroupName()
     {
@@ -612,7 +612,7 @@ class UserCallProcessingGetPolicyResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDialableCallerID
      */
     public function getEnableDialableCallerID()
     {

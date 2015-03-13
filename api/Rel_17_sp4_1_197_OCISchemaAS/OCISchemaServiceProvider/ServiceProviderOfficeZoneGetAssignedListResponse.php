@@ -25,7 +25,7 @@ class ServiceProviderOfficeZoneGetAssignedListResponse extends ComplexType imple
     protected $officeZoneTable = null;
 
     /**
-     * @return ServiceProviderOfficeZoneGetAssignedListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderOfficeZoneGetAssignedListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

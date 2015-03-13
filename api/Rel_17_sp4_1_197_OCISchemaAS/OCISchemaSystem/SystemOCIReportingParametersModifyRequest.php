@@ -44,7 +44,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -86,7 +86,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableConnectionPing
      */
     public function getEnableConnectionPing()
     {
@@ -108,7 +108,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return OCIReportingConnectionPingIntervalSeconds
+     * @return OCIReportingConnectionPingIntervalSeconds $connectionPingIntervalSeconds
      */
     public function getConnectionPingIntervalSeconds()
     {
@@ -128,7 +128,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alterPasswords
      */
     public function getAlterPasswords()
     {
@@ -148,7 +148,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enablePublicIdentityReporting
      */
     public function getEnablePublicIdentityReporting()
     {

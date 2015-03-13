@@ -34,7 +34,7 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetworkServerAlternateCallIndicator
+     * @return NetworkServerAlternateCallIndicator $alternateCallIndicator
      */
     public function getAlternateCallIndicator()
     {
@@ -78,7 +78,7 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return MediaTreatmentFileName
+     * @return MediaTreatmentFileName $treatmentAudioFile
      */
     public function getTreatmentAudioFile()
     {

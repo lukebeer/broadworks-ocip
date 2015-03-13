@@ -70,7 +70,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -90,7 +90,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $trunkGroupKey
      */
     public function getTrunkGroupKey()
     {
@@ -112,7 +112,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return TrunkGroupUserCreationTaskName
+     * @return TrunkGroupUserCreationTaskName $taskName
      */
     public function getTaskName()
     {
@@ -134,7 +134,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return TrunkGroupUserCreationUserIdFormat
+     * @return TrunkGroupUserCreationUserIdFormat $userIdFormat
      */
     public function getUserIdFormat()
     {
@@ -156,7 +156,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $userIdDomain
      */
     public function getUserIdDomain()
     {
@@ -176,7 +176,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $populateExtension
      */
     public function getPopulateExtension()
     {
@@ -198,7 +198,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return TrunkGroupUserCreationSIPURIFormat
+     * @return TrunkGroupUserCreationSIPURIFormat $linePortFormat
      */
     public function getLinePortFormat()
     {
@@ -220,7 +220,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $linePortDomain
      */
     public function getLinePortDomain()
     {
@@ -240,7 +240,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $populateContact
      */
     public function getPopulateContact()
     {
@@ -262,7 +262,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return TrunkGroupUserCreationSIPURIFormat
+     * @return TrunkGroupUserCreationSIPURIFormat $contactFormat
      */
     public function getContactFormat()
     {
@@ -284,7 +284,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $contactDomain
      */
     public function getContactDomain()
     {
@@ -306,7 +306,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {
@@ -328,7 +328,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
 
     /**
      * 
-     * @return UserService
+     * @return UserService $userService
      */
     public function getUserService()
     {

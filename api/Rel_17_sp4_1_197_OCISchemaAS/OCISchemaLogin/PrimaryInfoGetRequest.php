@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -34,7 +33,7 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return PrimaryInfoGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +53,7 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
 
     /**
      * Dual homed side is private?
-     * @return xs:boolean
+     * @return boolean $isPrivate
      */
     public function getIsPrivate()
     {
@@ -80,7 +79,7 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
      *                 they are explicitly requested or if the current server is not the primary.
      *                 So you might get back the list of server addresses even if you did not
      *                 ask for the list if the request is not serviced by the primary server.
-     * @return xs:boolean
+     * @return boolean $isAddressInfoRequested
      */
     public function getIsAddressInfoRequested()
     {

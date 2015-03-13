@@ -44,7 +44,7 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -88,7 +88,7 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -110,7 +110,7 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return CustomContactDirectoryName
+     * @return CustomContactDirectoryName $name
      */
     public function getName()
     {
@@ -132,7 +132,7 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {

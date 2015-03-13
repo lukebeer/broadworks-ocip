@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressUnavailableModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressUnavailableModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressUnavailableModify';
     public    $name              = 'CommPilotExpressUnavailableModify';
     protected $incomingCalls     = null;
     protected $voiceMailGreeting = null;
@@ -34,7 +32,7 @@ class CommPilotExpressUnavailableModify extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return CommPilotExpressUnavailableModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class CommPilotExpressUnavailableModify extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $incomingCalls
      */
     public function getIncomingCalls()
     {
@@ -74,7 +72,7 @@ class CommPilotExpressUnavailableModify extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $voiceMailGreeting
      */
     public function getVoiceMailGreeting()
     {

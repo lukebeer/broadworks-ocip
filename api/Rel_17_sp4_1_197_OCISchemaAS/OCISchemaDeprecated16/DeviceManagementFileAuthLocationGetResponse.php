@@ -45,7 +45,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
     protected $fileCategory                       = null;
 
     /**
-     * @return DeviceManagementFileAuthLocationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\DeviceManagementFileAuthLocationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return FileRepositoryUserName
+     * @return FileRepositoryUserName $fileRepositoryUserName
      */
     public function getFileRepositoryUserName()
     {
@@ -89,7 +89,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return FileRepositoryUserPassword
+     * @return FileRepositoryUserPassword $fileRepositoryPassword
      */
     public function getFileRepositoryPassword()
     {
@@ -111,7 +111,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -133,7 +133,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return DeviceManagementFileFormat
+     * @return DeviceManagementFileFormat $remoteFileFormat
      */
     public function getRemoteFileFormat()
     {
@@ -155,7 +155,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return Port
+     * @return Port $portNumber
      */
     public function getPortNumber()
     {
@@ -177,7 +177,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return CPEFileDirectory
+     * @return CPEFileDirectory $rootDirectory
      */
     public function getRootDirectory()
     {
@@ -199,7 +199,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return CPEFileDirectory
+     * @return CPEFileDirectory $cpeFileDirectory
      */
     public function getCpeFileDirectory()
     {
@@ -219,7 +219,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $secure
      */
     public function getSecure()
     {
@@ -239,7 +239,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $macInNonRequestURI
      */
     public function getMacInNonRequestURI()
     {
@@ -261,7 +261,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return DeviceManagementAccessURI
+     * @return DeviceManagementAccessURI $macFormatInNonRequestURI
      */
     public function getMacFormatInNonRequestURI()
     {
@@ -281,7 +281,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useHttpDigestAuthentication
      */
     public function getUseHttpDigestAuthentication()
     {
@@ -301,7 +301,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $macBasedFileAuthentication
      */
     public function getMacBasedFileAuthentication()
     {
@@ -321,7 +321,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $userNamePasswordFileAuthentication
      */
     public function getUserNamePasswordFileAuthentication()
     {
@@ -341,7 +341,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $completionNotification
      */
     public function getCompletionNotification()
     {
@@ -363,7 +363,7 @@ class DeviceManagementFileAuthLocationGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return DeviceManagementFileCategory
+     * @return DeviceManagementFileCategory $fileCategory
      */
     public function getFileCategory()
     {

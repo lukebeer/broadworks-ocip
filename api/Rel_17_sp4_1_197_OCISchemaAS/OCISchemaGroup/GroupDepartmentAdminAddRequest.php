@@ -50,7 +50,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return GroupDepartmentKey
+     * @return GroupDepartmentKey $departmentKey
      */
     public function getDepartmentKey()
     {
@@ -92,7 +92,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -114,7 +114,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {
@@ -136,7 +136,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -158,7 +158,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return Password
+     * @return Password $password
      */
     public function getPassword()
     {
@@ -180,7 +180,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return Language
+     * @return Language $language
      */
     public function getLanguage()
     {

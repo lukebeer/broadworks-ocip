@@ -29,7 +29,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
     protected $treatment                  = null;
 
     /**
-     * @return EnterpriseVoiceVPNGetDefaultResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetDefaultResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return EnterpriseVoiceVPNPolicySelection
+     * @return EnterpriseVoiceVPNPolicySelection $policySelection
      */
     public function getPolicySelection()
     {
@@ -73,7 +73,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return EnterpriseVoiceVPNDigitManipulationOperation
+     * @return EnterpriseVoiceVPNDigitManipulationOperation $digitManipulationOperation
      */
     public function getDigitManipulationOperation()
     {
@@ -95,7 +95,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $routeGroupId
      */
     public function getRouteGroupId()
     {
@@ -115,7 +115,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return EnterpriseVoiceVPNTreatmentEntry
+     * @return EnterpriseVoiceVPNTreatmentEntry $treatment
      */
     public function getTreatment()
     {

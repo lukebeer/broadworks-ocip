@@ -34,7 +34,7 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -78,7 +78,7 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SIPAuthenticationUserName
+     * @return SIPAuthenticationUserName $userName
      */
     public function getUserName()
     {

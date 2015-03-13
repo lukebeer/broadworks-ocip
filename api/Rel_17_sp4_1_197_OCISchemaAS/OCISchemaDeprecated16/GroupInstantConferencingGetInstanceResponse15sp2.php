@@ -38,7 +38,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
     protected $networkClassOfService          = null;
 
     /**
-     * @return GroupInstantConferencingGetInstanceResponse15sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupInstantConferencingGetInstanceResponse15sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
 
     /**
      * 
-     * @return ServiceInstanceReadProfile
+     * @return ServiceInstanceReadProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -80,7 +80,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
 
     /**
      * 
-     * @return AccessDeviceEndpointLinePort
+     * @return AccessDeviceEndpointLinePort $conferenceBridgeLinePort
      */
     public function getConferenceBridgeLinePort()
     {
@@ -100,7 +100,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingAllocatedPorts
+     * @return InstantConferencingAllocatedPorts $allocatedPorts
      */
     public function getAllocatedPorts()
     {
@@ -122,7 +122,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingOutcallProfile
+     * @return InstantConferencingOutcallProfile $serviceProfileAppliedOnOutcall
      */
     public function getServiceProfileAppliedOnOutcall()
     {
@@ -142,7 +142,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutdialInInvitation
      */
     public function getAllowOutdialInInvitation()
     {
@@ -162,7 +162,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowDocumentDownload
      */
     public function getAllowDocumentDownload()
     {
@@ -204,7 +204,7 @@ class GroupInstantConferencingGetInstanceResponse15sp2 extends ComplexType imple
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {

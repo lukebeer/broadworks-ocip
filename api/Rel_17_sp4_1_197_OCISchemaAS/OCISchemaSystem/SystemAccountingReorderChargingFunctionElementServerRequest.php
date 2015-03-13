@@ -32,7 +32,7 @@ class SystemAccountingReorderChargingFunctionElementServerRequest extends Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemAccountingReorderChargingFunctionElementServerRequest extends Comple
 
     /**
      * 
-     * @return NetAddressExtended
+     * @return NetAddressExtended $orderedAddressList
      */
     public function getOrderedAddressList()
     {

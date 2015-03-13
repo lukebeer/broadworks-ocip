@@ -41,7 +41,7 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return BwDiameterPeerInstance
+     * @return BwDiameterPeerInstance $instance
      */
     public function getInstance()
     {
@@ -85,7 +85,7 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $realm
      */
     public function getRealm()
     {
@@ -107,7 +107,7 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return BwDiameterApplicationId
+     * @return BwDiameterApplicationId $applicationId
      */
     public function getApplicationId()
     {
@@ -129,7 +129,7 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $identity
      */
     public function getIdentity()
     {

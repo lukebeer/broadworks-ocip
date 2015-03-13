@@ -75,7 +75,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -95,7 +95,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRepeatedDigits
      */
     public function getDisallowRepeatedDigits()
     {
@@ -115,7 +115,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserNumber
      */
     public function getDisallowUserNumber()
     {
@@ -135,7 +135,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedUserNumber
      */
     public function getDisallowReversedUserNumber()
     {
@@ -155,7 +155,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPasscode
      */
     public function getDisallowOldPasscode()
     {
@@ -175,7 +175,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPasscode
      */
     public function getDisallowReversedOldPasscode()
     {
@@ -197,7 +197,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return PasscodeMinLength
+     * @return PasscodeMinLength $minCodeLength
      */
     public function getMinCodeLength()
     {
@@ -219,7 +219,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return PasscodeMaxLength
+     * @return PasscodeMaxLength $maxCodeLength
      */
     public function getMaxCodeLength()
     {
@@ -239,7 +239,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableLoginAfterMaxFailedLoginAttempts
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
@@ -261,7 +261,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return PortalMaxFailedLoginAttempts
+     * @return PortalMaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -281,7 +281,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expirePassword
      */
     public function getExpirePassword()
     {
@@ -303,7 +303,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return PasscodeExpiresDays
+     * @return PasscodeExpiresDays $passcodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
@@ -323,7 +323,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -345,7 +345,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
@@ -367,7 +367,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return Password
+     * @return Password $defaultPassword
      */
     public function getDefaultPassword()
     {

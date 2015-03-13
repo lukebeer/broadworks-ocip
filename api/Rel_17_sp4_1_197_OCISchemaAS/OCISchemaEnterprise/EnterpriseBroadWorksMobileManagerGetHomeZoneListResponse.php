@@ -27,7 +27,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse extends ComplexTy
     protected $homeZonesTable = null;
 
     /**
-     * @return EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

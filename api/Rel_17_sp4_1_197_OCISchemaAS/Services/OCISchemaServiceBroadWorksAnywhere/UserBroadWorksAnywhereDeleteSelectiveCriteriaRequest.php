@@ -38,7 +38,7 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -82,7 +82,7 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -104,7 +104,7 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {

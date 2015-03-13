@@ -30,7 +30,7 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
     protected $answerTimeoutMinutes   = null;
 
     /**
-     * @return GroupInstantGroupCallGetInstanceResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallGetInstanceResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceInstanceReadProfile17
+     * @return ServiceInstanceReadProfile17 $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -72,7 +72,7 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $destinationPhoneNumber
      */
     public function getDestinationPhoneNumber()
     {
@@ -92,7 +92,7 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isAnswerTimeoutEnabled
      */
     public function getIsAnswerTimeoutEnabled()
     {
@@ -114,7 +114,7 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return InstantGroupCallAnswerTimeoutMinutes
+     * @return InstantGroupCallAnswerTimeoutMinutes $answerTimeoutMinutes
      */
     public function getAnswerTimeoutMinutes()
     {

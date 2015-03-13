@@ -29,7 +29,7 @@ class SystemCPEConfigParametersGetResponse extends ComplexType implements Comple
     protected $ftpFileTransferTimeoutSeconds = null;
 
     /**
-     * @return SystemCPEConfigParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCPEConfigParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class SystemCPEConfigParametersGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableIPDeviceManagement
      */
     public function getEnableIPDeviceManagement()
     {
@@ -71,7 +71,7 @@ class SystemCPEConfigParametersGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return DeviceManagementFTPConnectTimeoutSeconds
+     * @return DeviceManagementFTPConnectTimeoutSeconds $ftpConnectTimeoutSeconds
      */
     public function getFtpConnectTimeoutSeconds()
     {
@@ -93,7 +93,7 @@ class SystemCPEConfigParametersGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return DeviceManagementFTPFileTransferTimeoutSeconds
+     * @return DeviceManagementFTPFileTransferTimeoutSeconds $ftpFileTransferTimeoutSeconds
      */
     public function getFtpFileTransferTimeoutSeconds()
     {

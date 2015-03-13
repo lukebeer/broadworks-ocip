@@ -25,7 +25,7 @@ class UserSelectiveCallRejectionGetCriteriaListResponse extends ComplexType impl
     protected $criteriaTable = null;
 
     /**
-     * @return UserSelectiveCallRejectionGetCriteriaListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection\UserSelectiveCallRejectionGetCriteriaListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

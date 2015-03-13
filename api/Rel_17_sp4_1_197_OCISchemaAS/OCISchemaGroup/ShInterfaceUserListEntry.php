@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\ShInterfaceUserListEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ShInterfaceUserListEntry extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\ShInterfaceUserListEntry';
     public    $name               = 'ShInterfaceUserListEntry';
     protected $userId             = null;
     protected $userType           = null;
@@ -46,7 +44,7 @@ class ShInterfaceUserListEntry extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return ShInterfaceUserListEntry
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +64,7 @@ class ShInterfaceUserListEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $userId
      */
     public function getUserId()
     {
@@ -86,7 +84,7 @@ class ShInterfaceUserListEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $userType
      */
     public function getUserType()
     {
@@ -106,7 +104,7 @@ class ShInterfaceUserListEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $publicUserIdentity
      */
     public function getPublicUserIdentity()
     {
@@ -126,7 +124,7 @@ class ShInterfaceUserListEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $endpointType
      */
     public function getEndpointType()
     {
@@ -146,7 +144,7 @@ class ShInterfaceUserListEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $SCSCFName
      */
     public function getSCSCFName()
     {
@@ -166,7 +164,7 @@ class ShInterfaceUserListEntry extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $IMSUserState
      */
     public function getIMSUserState()
     {

@@ -30,7 +30,7 @@ class GroupHuntGroupModifyActiveInstanceListRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupHuntGroupModifyActiveInstanceListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceActivation
+     * @return ServiceActivation $serviceActivation
      */
     public function getServiceActivation()
     {

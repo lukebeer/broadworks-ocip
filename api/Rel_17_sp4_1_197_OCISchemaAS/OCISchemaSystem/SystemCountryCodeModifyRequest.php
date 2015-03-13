@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CountryCode
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CountryCodeRingPeriodMilliseconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\CountryCodeMaxCallWaitingTones;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NationalPrefix;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -59,7 +58,7 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -81,7 +80,7 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $countryCode
      */
     public function getCountryCode()
     {
@@ -103,7 +102,7 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return CountryCodeRingPeriodMilliseconds
+     * @return CountryCodeRingPeriodMilliseconds $ringPeriodMilliseconds
      */
     public function getRingPeriodMilliseconds()
     {
@@ -125,7 +124,7 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return CountryCodeOffHookWarningTimerSeconds
+     * @return CountryCodeOffHookWarningTimerSeconds $offHookWarningTimerSeconds
      */
     public function getOffHookWarningTimerSeconds()
     {
@@ -145,7 +144,7 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableNationalPrefix
      */
     public function getEnableNationalPrefix()
     {
@@ -167,7 +166,7 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return NationalPrefix
+     * @return NationalPrefix $nationalPrefix
      */
     public function getNationalPrefix()
     {
@@ -187,7 +186,7 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $becomeDefaultCountryCode
      */
     public function getBecomeDefaultCountryCode()
     {
@@ -209,7 +208,7 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return CountryCodeMaxCallWaitingTones
+     * @return CountryCodeMaxCallWaitingTones $maxCallWaitingTones
      */
     public function getMaxCallWaitingTones()
     {
@@ -231,7 +230,7 @@ class SystemCountryCodeModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return CountryCodeTimeBetweenCallWaitingTonesMilliseconds
+     * @return CountryCodeTimeBetweenCallWaitingTonesMilliseconds $timeBetweenCallWaitingTonesMilliseconds
      */
     public function getTimeBetweenCallWaitingTonesMilliseconds()
     {

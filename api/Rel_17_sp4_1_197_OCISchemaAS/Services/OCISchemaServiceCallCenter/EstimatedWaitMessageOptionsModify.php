@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EstimatedWaitMessageOptionsModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EstimatedWaitMessageOptionsModify';
     public    $name                       = 'EstimatedWaitMessageOptionsModify';
     protected $enabled                    = null;
     protected $operatingMode              = null;
@@ -49,7 +47,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return EstimatedWaitMessageOptionsModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +67,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $enabled
      */
     public function getEnabled()
     {
@@ -89,7 +87,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $operatingMode
      */
     public function getOperatingMode()
     {
@@ -109,7 +107,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $playPositionHighVolume
      */
     public function getPlayPositionHighVolume()
     {
@@ -129,7 +127,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $playTimeHighVolume
      */
     public function getPlayTimeHighVolume()
     {
@@ -149,7 +147,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $maximumPositions
      */
     public function getMaximumPositions()
     {
@@ -169,7 +167,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $maximumWaitingMinutes
      */
     public function getMaximumWaitingMinutes()
     {
@@ -189,7 +187,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $defaultCallHandlingMinutes
      */
     public function getDefaultCallHandlingMinutes()
     {

@@ -30,7 +30,7 @@ class SystemSMDIMessageDeskDeleteServerRouteRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemSMDIMessageDeskDeleteServerRouteRequest extends ComplexType implemen
 
     /**
      * 
-     * @return SMDIServerRouteDestination
+     * @return SMDIServerRouteDestination $routeDestination
      */
     public function getRouteDestination()
     {

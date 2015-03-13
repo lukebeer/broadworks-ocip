@@ -37,7 +37,7 @@ class ServiceProviderNetworkClassOfServiceUnassignListRequest extends ComplexTyp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class ServiceProviderNetworkClassOfServiceUnassignListRequest extends ComplexTyp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -81,7 +81,7 @@ class ServiceProviderNetworkClassOfServiceUnassignListRequest extends ComplexTyp
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {
@@ -103,7 +103,7 @@ class ServiceProviderNetworkClassOfServiceUnassignListRequest extends ComplexTyp
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $defaultNetworkClassOfService
      */
     public function getDefaultNetworkClassOfService()
     {

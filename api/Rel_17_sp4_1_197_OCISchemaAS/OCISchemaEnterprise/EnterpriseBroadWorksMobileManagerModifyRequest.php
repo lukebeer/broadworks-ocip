@@ -61,7 +61,7 @@ class EnterpriseBroadWorksMobileManagerModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -83,7 +83,7 @@ class EnterpriseBroadWorksMobileManagerModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -105,7 +105,7 @@ class EnterpriseBroadWorksMobileManagerModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return BroadWorksMobileManagerInformationFile
+     * @return BroadWorksMobileManagerInformationFile $informationFile
      */
     public function getInformationFile()
     {
@@ -127,7 +127,7 @@ class EnterpriseBroadWorksMobileManagerModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return BroadWorksMobileManagerCertificateFile
+     * @return BroadWorksMobileManagerCertificateFile $certificateFile
      */
     public function getCertificateFile()
     {
@@ -147,7 +147,7 @@ class EnterpriseBroadWorksMobileManagerModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $localToCarrier
      */
     public function getLocalToCarrier()
     {
@@ -167,7 +167,7 @@ class EnterpriseBroadWorksMobileManagerModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $maxTxPerSecondEnabled
      */
     public function getMaxTxPerSecondEnabled()
     {
@@ -189,7 +189,7 @@ class EnterpriseBroadWorksMobileManagerModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return BroadWorksMobileManagerMaxTxPerSecond
+     * @return BroadWorksMobileManagerMaxTxPerSecond $maxTxPerSecond
      */
     public function getMaxTxPerSecond()
     {
@@ -209,7 +209,7 @@ class EnterpriseBroadWorksMobileManagerModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $tldnEnabled
      */
     public function getTldnEnabled()
     {
@@ -229,7 +229,7 @@ class EnterpriseBroadWorksMobileManagerModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $genericNumberEnabled
      */
     public function getGenericNumberEnabled()
     {
@@ -249,7 +249,7 @@ class EnterpriseBroadWorksMobileManagerModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $mobileStateCheckEnabled
      */
     public function getMobileStateCheckEnabled()
     {
@@ -269,7 +269,7 @@ class EnterpriseBroadWorksMobileManagerModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $locationBasedServicesEnabled
      */
     public function getLocationBasedServicesEnabled()
     {

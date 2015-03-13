@@ -25,7 +25,7 @@ class UserSequentialRingGetCriteriaResponse extends ComplexType implements Compl
     protected $fromDnCriteria = null;
 
     /**
-     * @return UserSequentialRingGetCriteriaResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserSequentialRingGetCriteriaResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserSequentialRingGetCriteriaResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -65,7 +65,7 @@ class UserSequentialRingGetCriteriaResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

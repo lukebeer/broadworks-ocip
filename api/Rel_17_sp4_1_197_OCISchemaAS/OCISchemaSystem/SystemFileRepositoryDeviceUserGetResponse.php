@@ -25,7 +25,7 @@ class SystemFileRepositoryDeviceUserGetResponse extends ComplexType implements C
     protected $allowGet    = null;
 
     /**
-     * @return SystemFileRepositoryDeviceUserGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemFileRepositoryDeviceUserGetResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowPut
      */
     public function getAllowPut()
     {
@@ -65,7 +65,7 @@ class SystemFileRepositoryDeviceUserGetResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowDelete
      */
     public function getAllowDelete()
     {
@@ -85,7 +85,7 @@ class SystemFileRepositoryDeviceUserGetResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowGet
      */
     public function getAllowGet()
     {

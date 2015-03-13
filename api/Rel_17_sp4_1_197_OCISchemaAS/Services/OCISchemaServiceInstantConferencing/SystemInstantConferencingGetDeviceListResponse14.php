@@ -24,7 +24,7 @@ class SystemInstantConferencingGetDeviceListResponse14 extends ComplexType imple
     protected $instantConferencingDeviceTable = null;
 
     /**
-     * @return SystemInstantConferencingGetDeviceListResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetDeviceListResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

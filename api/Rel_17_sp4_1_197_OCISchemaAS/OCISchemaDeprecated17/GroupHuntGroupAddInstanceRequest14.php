@@ -72,7 +72,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -94,7 +94,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -116,7 +116,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -138,7 +138,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -158,7 +158,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceInstanceAddProfile
+     * @return ServiceInstanceAddProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -180,7 +180,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return HuntPolicy
+     * @return HuntPolicy $policy
      */
     public function getPolicy()
     {
@@ -200,7 +200,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $huntAfterNoAnswer
      */
     public function getHuntAfterNoAnswer()
     {
@@ -222,7 +222,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return HuntNoAnswerRings
+     * @return HuntNoAnswerRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {
@@ -242,7 +242,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forwardAfterTimeout
      */
     public function getForwardAfterTimeout()
     {
@@ -264,7 +264,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return HuntForwardTimeoutSeconds
+     * @return HuntForwardTimeoutSeconds $forwardTimeoutSeconds
      */
     public function getForwardTimeoutSeconds()
     {
@@ -286,7 +286,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -308,7 +308,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return UserId
+     * @return UserId $agentUserId
      */
     public function getAgentUserId()
     {
@@ -328,7 +328,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallWaitingForAgents
      */
     public function getAllowCallWaitingForAgents()
     {

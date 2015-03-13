@@ -34,7 +34,7 @@ class SystemExpensiveCallNotificationModifyRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemExpensiveCallNotificationModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enablePostAnnouncementDelayTimer
      */
     public function getEnablePostAnnouncementDelayTimer()
     {
@@ -76,7 +76,7 @@ class SystemExpensiveCallNotificationModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return ExpensiveCallNotificationPostAnnouncementDelaySeconds
+     * @return ExpensiveCallNotificationPostAnnouncementDelaySeconds $postAnnouncementDelaySeconds
      */
     public function getPostAnnouncementDelaySeconds()
     {

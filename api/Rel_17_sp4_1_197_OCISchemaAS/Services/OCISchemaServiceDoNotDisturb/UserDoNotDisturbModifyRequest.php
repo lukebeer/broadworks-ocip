@@ -38,7 +38,7 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -80,7 +80,7 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -100,7 +100,7 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $ringSplash
      */
     public function getRingSplash()
     {

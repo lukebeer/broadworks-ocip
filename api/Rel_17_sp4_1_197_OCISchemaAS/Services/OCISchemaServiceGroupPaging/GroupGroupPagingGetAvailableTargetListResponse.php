@@ -24,7 +24,7 @@ class GroupGroupPagingGetAvailableTargetListResponse extends ComplexType impleme
     protected $userTable = null;
 
     /**
-     * @return GroupGroupPagingGetAvailableTargetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetAvailableTargetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

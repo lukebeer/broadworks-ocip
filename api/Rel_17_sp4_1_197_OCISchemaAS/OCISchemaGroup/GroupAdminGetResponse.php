@@ -32,7 +32,7 @@ class GroupAdminGetResponse extends ComplexType implements ComplexInterface
     protected $language          = null;
 
     /**
-     * @return GroupAdminGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAdminGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class GroupAdminGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -76,7 +76,7 @@ class GroupAdminGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -98,7 +98,7 @@ class GroupAdminGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {
@@ -120,7 +120,7 @@ class GroupAdminGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -142,7 +142,7 @@ class GroupAdminGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Language
+     * @return Language $language
      */
     public function getLanguage()
     {

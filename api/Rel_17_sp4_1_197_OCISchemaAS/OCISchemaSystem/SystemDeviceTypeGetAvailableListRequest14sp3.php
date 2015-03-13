@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetAvailableListResponse14sp3;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -47,7 +46,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
     }
 
     /**
-     * @return SystemDeviceTypeGetAvailableListResponse14sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetAvailableListResponse14sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +66,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowConference
      */
     public function getAllowConference()
     {
@@ -87,7 +86,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowMusicOnHold
      */
     public function getAllowMusicOnHold()
     {
@@ -107,7 +106,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $onlyConference
      */
     public function getOnlyConference()
     {
@@ -127,7 +126,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $onlyVideoCapable
      */
     public function getOnlyVideoCapable()
     {
@@ -147,7 +146,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $onlyOptionalIpAddress
      */
     public function getOnlyOptionalIpAddress()
     {

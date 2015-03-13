@@ -55,7 +55,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
     protected $disallowRulesModification              = null;
 
     /**
-     * @return ServiceProviderPasswordRulesGetResponse13mp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderPasswordRulesGetResponse13mp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -77,7 +77,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -99,7 +99,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return ServiceProviderPasswordRulesApplyTo
+     * @return ServiceProviderPasswordRulesApplyTo $rulesApplyTo
      */
     public function getRulesApplyTo()
     {
@@ -119,7 +119,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowWebAddExternalAuthenticationUsers
      */
     public function getAllowWebAddExternalAuthenticationUsers()
     {
@@ -139,7 +139,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserId
      */
     public function getDisallowUserId()
     {
@@ -159,7 +159,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPassword
      */
     public function getDisallowOldPassword()
     {
@@ -179,7 +179,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPassword
      */
     public function getDisallowReversedOldPassword()
     {
@@ -199,7 +199,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinDigits
      */
     public function getRestrictMinDigits()
     {
@@ -221,7 +221,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return PasswordMinDigits
+     * @return PasswordMinDigits $minDigits
      */
     public function getMinDigits()
     {
@@ -241,7 +241,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinUpperCaseLetters
      */
     public function getRestrictMinUpperCaseLetters()
     {
@@ -263,7 +263,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return PasswordMinUpperCaseLetters
+     * @return PasswordMinUpperCaseLetters $minUpperCaseLetters
      */
     public function getMinUpperCaseLetters()
     {
@@ -283,7 +283,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinLowerCaseLetters
      */
     public function getRestrictMinLowerCaseLetters()
     {
@@ -305,7 +305,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return PasswordMinLowerCaseLetters
+     * @return PasswordMinLowerCaseLetters $minLowerCaseLetters
      */
     public function getMinLowerCaseLetters()
     {
@@ -325,7 +325,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinNonAlphanumericCharacters
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
@@ -347,7 +347,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return PasswordMinNonAlphanumericCharacters
+     * @return PasswordMinNonAlphanumericCharacters $minNonAlphanumericCharacters
      */
     public function getMinNonAlphanumericCharacters()
     {
@@ -369,7 +369,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return PasswordMinLength
+     * @return PasswordMinLength $minLength
      */
     public function getMinLength()
     {
@@ -391,7 +391,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return MaxFailedLoginAttempts
+     * @return MaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -413,7 +413,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return PasswordExpiresDays
+     * @return PasswordExpiresDays $passwordExpiresDays
      */
     public function getPasswordExpiresDays()
     {
@@ -433,7 +433,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -455,7 +455,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
@@ -475,7 +475,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRulesModification
      */
     public function getDisallowRulesModification()
     {

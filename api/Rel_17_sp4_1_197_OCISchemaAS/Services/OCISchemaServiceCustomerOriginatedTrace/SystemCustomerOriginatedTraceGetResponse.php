@@ -23,7 +23,7 @@ class SystemCustomerOriginatedTraceGetResponse extends ComplexType implements Co
     protected $screenMaliciousCallers = null;
 
     /**
-     * @return SystemCustomerOriginatedTraceGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCustomerOriginatedTrace\SystemCustomerOriginatedTraceGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class SystemCustomerOriginatedTraceGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $screenMaliciousCallers
      */
     public function getScreenMaliciousCallers()
     {

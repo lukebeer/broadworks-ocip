@@ -38,7 +38,7 @@ class SystemASRParametersModifyRequest14sp7 extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemASRParametersModifyRequest14sp7 extends ComplexType implements Compl
 
     /**
      * 
-     * @return ASRMaxTransmissions
+     * @return ASRMaxTransmissions $maxTransmissions
      */
     public function getMaxTransmissions()
     {
@@ -82,7 +82,7 @@ class SystemASRParametersModifyRequest14sp7 extends ComplexType implements Compl
 
     /**
      * 
-     * @return ASRRetransmissionDelayMilliSeconds
+     * @return ASRRetransmissionDelayMilliSeconds $retransmissionDelayMilliSeconds
      */
     public function getRetransmissionDelayMilliSeconds()
     {
@@ -104,7 +104,7 @@ class SystemASRParametersModifyRequest14sp7 extends ComplexType implements Compl
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $listeningPort
      */
     public function getListeningPort()
     {

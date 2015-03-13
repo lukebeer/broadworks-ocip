@@ -25,7 +25,7 @@ class GroupRoutePointQueueCallDispositionCodeGetListResponse extends ComplexType
     protected $dispositionCodesTable = null;
 
     /**
-     * @return GroupRoutePointQueueCallDispositionCodeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

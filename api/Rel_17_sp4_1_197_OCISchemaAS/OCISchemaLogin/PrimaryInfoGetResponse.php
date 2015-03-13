@@ -29,7 +29,7 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
     protected $privateAddressForPrimary = null;
 
     /**
-     * @return PrimaryInfoGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * Is the server that processed this request the primary in the cluster?
-     * @return xs:boolean
+     * @return boolean $isPrimary
      */
     public function getIsPrimary()
     {
@@ -71,7 +71,7 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * Primary server's hostname.
-     * @return NetAddress
+     * @return NetAddress $hostnameForPrimary
      */
     public function getHostnameForPrimary()
     {
@@ -93,7 +93,7 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * List of addresses for primary server in cluster.
-     * @return NetAddress
+     * @return NetAddress $addressForPrimary
      */
     public function getAddressForPrimary()
     {
@@ -115,7 +115,7 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * List of private addresses for primary server in cluster.
-     * @return NetAddress
+     * @return NetAddress $privateAddressForPrimary
      */
     public function getPrivateAddressForPrimary()
     {

@@ -23,7 +23,7 @@ class UserBargeInExemptGetResponse extends ComplexType implements ComplexInterfa
     protected $isActive = null;
 
     /**
-     * @return UserBargeInExemptGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBargeInExempt\UserBargeInExemptGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserBargeInExemptGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {

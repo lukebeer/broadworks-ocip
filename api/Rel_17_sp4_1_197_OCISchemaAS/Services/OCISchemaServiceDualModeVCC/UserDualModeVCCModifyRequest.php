@@ -38,7 +38,7 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -82,7 +82,7 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return DualModeVCCSubscriberUserName
+     * @return DualModeVCCSubscriberUserName $subscriberUserName
      */
     public function getSubscriberUserName()
     {
@@ -104,7 +104,7 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return DualModeVCCSubscriberPassword
+     * @return DualModeVCCSubscriberPassword $subscriberPassword
      */
     public function getSubscriberPassword()
     {

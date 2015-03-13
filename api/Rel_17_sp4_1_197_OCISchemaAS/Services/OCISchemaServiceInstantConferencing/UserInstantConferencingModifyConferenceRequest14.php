@@ -56,7 +56,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +78,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -98,7 +98,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingConferenceKey
+     * @return InstantConferencingConferenceKey $conferenceKey
      */
     public function getConferenceKey()
     {
@@ -120,7 +120,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingTitle
+     * @return InstantConferencingTitle $title
      */
     public function getTitle()
     {
@@ -140,7 +140,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $leaderRequired
      */
     public function getLeaderRequired()
     {
@@ -160,7 +160,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $leaderReleaseDropsParticipants
      */
     public function getLeaderReleaseDropsParticipants()
     {
@@ -180,7 +180,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $announceCallers
      */
     public function getAnnounceCallers()
     {
@@ -200,7 +200,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingSchedule
+     * @return InstantConferencingSchedule $conferenceSchedule
      */
     public function getConferenceSchedule()
     {
@@ -222,7 +222,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingBillingCode
+     * @return InstantConferencingBillingCode $billingCode
      */
     public function getBillingCode()
     {

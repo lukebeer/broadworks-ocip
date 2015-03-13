@@ -37,7 +37,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
     protected $sipAuthenticationUserName = null;
 
     /**
-     * @return GroupTrunkGroupGetInstanceResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceInstanceReadProfile
+     * @return ServiceInstanceReadProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -77,7 +77,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AccessDeviceEndpointRead14
+     * @return AccessDeviceEndpointRead14 $accessDeviceEndpoint
      */
     public function getAccessDeviceEndpoint()
     {
@@ -99,7 +99,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
 
     /**
      * 
-     * @return MaxActiveCalls
+     * @return MaxActiveCalls $maxActiveCalls
      */
     public function getMaxActiveCalls()
     {
@@ -121,7 +121,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
 
     /**
      * 
-     * @return MaxIncomingCalls
+     * @return MaxIncomingCalls $maxIncomingCalls
      */
     public function getMaxIncomingCalls()
     {
@@ -143,7 +143,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
 
     /**
      * 
-     * @return MaxOutgoingCalls
+     * @return MaxOutgoingCalls $maxOutgoingCalls
      */
     public function getMaxOutgoingCalls()
     {
@@ -163,7 +163,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireAuthentication
      */
     public function getRequireAuthentication()
     {
@@ -185,7 +185,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
 
     /**
      * 
-     * @return SIPAuthenticationUserName
+     * @return SIPAuthenticationUserName $sipAuthenticationUserName
      */
     public function getSipAuthenticationUserName()
     {

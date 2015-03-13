@@ -52,7 +52,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +74,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -96,7 +96,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -116,7 +116,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {
@@ -138,7 +138,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return EventName
+     * @return EventName $eventName
      */
     public function getEventName()
     {
@@ -157,7 +157,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $startDate
      */
     public function getStartDate()
     {
@@ -176,7 +176,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $endDate
      */
     public function getEndDate()
     {
@@ -196,7 +196,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return Recurrence
+     * @return Recurrence $recurrence
      */
     public function getRecurrence()
     {

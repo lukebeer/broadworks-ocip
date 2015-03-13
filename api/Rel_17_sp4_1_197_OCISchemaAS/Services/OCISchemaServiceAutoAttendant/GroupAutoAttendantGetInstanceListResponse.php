@@ -26,7 +26,7 @@ class GroupAutoAttendantGetInstanceListResponse extends ComplexType implements C
     protected $autoAttendantTable = null;
 
     /**
-     * @return GroupAutoAttendantGetInstanceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant\GroupAutoAttendantGetInstanceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -30,7 +30,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends
     protected $voiceMessagingGreetingMediaFileType   = null;
 
     /**
-     * @return ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends
 
     /**
      * 
-     * @return VoiceMessagingBrandingSelection
+     * @return VoiceMessagingBrandingSelection $voicePortalGreetingSelection
      */
     public function getVoicePortalGreetingSelection()
     {
@@ -74,7 +74,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $voicePortalGreetingFileDescription
      */
     public function getVoicePortalGreetingFileDescription()
     {
@@ -96,7 +96,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $voicePortalGreetingMediaFileType
      */
     public function getVoicePortalGreetingMediaFileType()
     {
@@ -118,7 +118,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends
 
     /**
      * 
-     * @return VoiceMessagingBrandingSelection
+     * @return VoiceMessagingBrandingSelection $voiceMessagingGreetingSelection
      */
     public function getVoiceMessagingGreetingSelection()
     {
@@ -140,7 +140,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $voiceMessagingGreetingFileDescription
      */
     public function getVoiceMessagingGreetingFileDescription()
     {
@@ -162,7 +162,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $voiceMessagingGreetingMediaFileType
      */
     public function getVoiceMessagingGreetingMediaFileType()
     {

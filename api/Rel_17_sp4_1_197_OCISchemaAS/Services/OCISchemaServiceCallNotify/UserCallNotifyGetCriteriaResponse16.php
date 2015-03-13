@@ -29,7 +29,7 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
     protected $fromDnCriteria  = null;
 
     /**
-     * @return UserCallNotifyGetCriteriaResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallNotify\UserCallNotifyGetCriteriaResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -69,7 +69,7 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -89,7 +89,7 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {
@@ -109,7 +109,7 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

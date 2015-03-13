@@ -42,7 +42,7 @@ class UserCallNotifyAddCriteriaRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class UserCallNotifyAddCriteriaRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -86,7 +86,7 @@ class UserCallNotifyAddCriteriaRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -106,7 +106,7 @@ class UserCallNotifyAddCriteriaRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -126,7 +126,7 @@ class UserCallNotifyAddCriteriaRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

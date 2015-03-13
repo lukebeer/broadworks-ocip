@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingConferenceKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingCallId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceCallResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -41,7 +40,7 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
     }
 
     /**
-     * @return UserInstantConferencingGetStandAloneConferenceCallResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceCallResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +62,7 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
 
     /**
      * 
-     * @return UserId
+     * @return UserId $conferenceOwnerUserId
      */
     public function getConferenceOwnerUserId()
     {
@@ -83,7 +82,7 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
 
     /**
      * 
-     * @return InstantConferencingConferenceKey
+     * @return InstantConferencingConferenceKey $conferenceKey
      */
     public function getConferenceKey()
     {
@@ -105,7 +104,7 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
 
     /**
      * 
-     * @return InstantConferencingCallId
+     * @return InstantConferencingCallId $conferenceCallId
      */
     public function getConferenceCallId()
     {

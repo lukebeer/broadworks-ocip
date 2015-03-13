@@ -38,7 +38,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
 
     /**
      * 
-     * @return SessionAdmissionControlGroupName
+     * @return SessionAdmissionControlGroupName $name
      */
     public function getName()
     {
@@ -102,7 +102,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
 
     /**
      * 
-     * @return EnterpriseAccessDevice
+     * @return EnterpriseAccessDevice $devices
      */
     public function getDevices()
     {

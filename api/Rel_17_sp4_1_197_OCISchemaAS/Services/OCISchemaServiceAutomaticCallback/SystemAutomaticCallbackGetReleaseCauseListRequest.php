@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\SystemAutomaticCallbackGetReleaseCauseListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -28,7 +27,7 @@ class SystemAutomaticCallbackGetReleaseCauseListRequest extends ComplexType impl
     }
 
     /**
-     * @return SystemAutomaticCallbackGetReleaseCauseListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\SystemAutomaticCallbackGetReleaseCauseListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

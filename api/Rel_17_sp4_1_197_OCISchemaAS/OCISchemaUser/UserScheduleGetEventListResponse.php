@@ -24,7 +24,7 @@ class UserScheduleGetEventListResponse extends ComplexType implements ComplexInt
     protected $eventName = null;
 
     /**
-     * @return UserScheduleGetEventListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserScheduleGetEventListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class UserScheduleGetEventListResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return EventName
+     * @return EventName $eventName
      */
     public function getEventName()
     {

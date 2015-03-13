@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRNoAnswerModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRNoAnswerModify';
     public    $name                 = 'CommPilotExpressSRNoAnswerModify';
     protected $ringFowardNumbers    = null;
     protected $forwardingNumberList = null;
@@ -37,7 +35,7 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return CommPilotExpressSRNoAnswerModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $ringFowardNumbers
      */
     public function getRingFowardNumbers()
     {
@@ -77,7 +75,7 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $forwardingNumberList
      */
     public function getForwardingNumberList()
     {
@@ -97,7 +95,7 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $stillNoAnswer
      */
     public function getStillNoAnswer()
     {

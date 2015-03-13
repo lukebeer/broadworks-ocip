@@ -25,7 +25,7 @@ class GroupOutgoingCallingPlanOriginatingGetListResponse extends ComplexType imp
     protected $departmentPermissions = null;
 
     /**
-     * @return GroupOutgoingCallingPlanOriginatingGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanOriginatingGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupOutgoingCallingPlanOriginatingGetListResponse extends ComplexType imp
 
     /**
      * 
-     * @return OutgoingCallingPlanOriginatingPermissions
+     * @return OutgoingCallingPlanOriginatingPermissions $groupPermissions
      */
     public function getGroupPermissions()
     {
@@ -65,7 +65,7 @@ class GroupOutgoingCallingPlanOriginatingGetListResponse extends ComplexType imp
 
     /**
      * 
-     * @return OutgoingCallingPlanOriginatingDepartmentPermissions
+     * @return OutgoingCallingPlanOriginatingDepartmentPermissions $departmentPermissions
      */
     public function getDepartmentPermissions()
     {

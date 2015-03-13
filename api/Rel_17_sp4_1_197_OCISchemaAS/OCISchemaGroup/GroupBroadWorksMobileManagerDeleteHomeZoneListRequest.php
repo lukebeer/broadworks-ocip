@@ -38,7 +38,7 @@ class GroupBroadWorksMobileManagerDeleteHomeZoneListRequest extends ComplexType 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class GroupBroadWorksMobileManagerDeleteHomeZoneListRequest extends ComplexType 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class GroupBroadWorksMobileManagerDeleteHomeZoneListRequest extends ComplexType 
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -102,7 +102,7 @@ class GroupBroadWorksMobileManagerDeleteHomeZoneListRequest extends ComplexType 
 
     /**
      * 
-     * @return xs:string
+     * @return string $homeZoneId
      */
     public function getHomeZoneId()
     {

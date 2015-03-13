@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNTreatmentEntry;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNTreatmentEntry extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNTreatmentEntry';
     public    $name        = 'EnterpriseVoiceVPNTreatmentEntry';
     protected $id          = null;
     protected $description = null;
@@ -34,7 +32,7 @@ class EnterpriseVoiceVPNTreatmentEntry extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return EnterpriseVoiceVPNTreatmentEntry
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class EnterpriseVoiceVPNTreatmentEntry extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $id
      */
     public function getId()
     {
@@ -74,7 +72,7 @@ class EnterpriseVoiceVPNTreatmentEntry extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $description
      */
     public function getDescription()
     {

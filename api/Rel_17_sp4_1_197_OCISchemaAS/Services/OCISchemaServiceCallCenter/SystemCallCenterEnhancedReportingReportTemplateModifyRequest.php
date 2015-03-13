@@ -60,7 +60,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -82,7 +82,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
 
     /**
      * 
-     * @return CallCenterReportTemplateName
+     * @return CallCenterReportTemplateName $name
      */
     public function getName()
     {
@@ -104,7 +104,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
 
     /**
      * 
-     * @return CallCenterReportTemplateName
+     * @return CallCenterReportTemplateName $newName
      */
     public function getNewName()
     {
@@ -126,7 +126,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
 
     /**
      * 
-     * @return CallCenterReportTemplateDescription
+     * @return CallCenterReportTemplateDescription $description
      */
     public function getDescription()
     {
@@ -146,7 +146,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $xsltTemplate
      */
     public function getXsltTemplate()
     {
@@ -168,7 +168,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
 
     /**
      * 
-     * @return CallCenterReportTemplateAccessOption
+     * @return CallCenterReportTemplateAccessOption $scope
      */
     public function getScope()
     {
@@ -188,7 +188,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isEnabled
      */
     public function getIsEnabled()
     {
@@ -208,7 +208,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRealtimeReport
      */
     public function getIsRealtimeReport()
     {
@@ -230,7 +230,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
 
     /**
      * 
-     * @return CallCenterReportDataTemplateFilterNumber
+     * @return CallCenterReportDataTemplateFilterNumber $filterNumber
      */
     public function getFilterNumber()
     {
@@ -250,7 +250,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
 
     /**
      * 
-     * @return CallCenterReportDataTemplateQueryFilterValueReplacementList
+     * @return CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue
      */
     public function getFilterValue()
     {

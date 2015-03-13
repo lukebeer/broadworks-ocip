@@ -42,7 +42,7 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +108,7 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
 
     /**
      * 
-     * @return CallCenterEnhancedReportingBrandingChoice
+     * @return CallCenterEnhancedReportingBrandingChoice $brandingChoice
      */
     public function getBrandingChoice()
     {
@@ -128,7 +128,7 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $brandingFile
      */
     public function getBrandingFile()
     {

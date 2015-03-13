@@ -42,7 +42,7 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +108,7 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
 
     /**
      * 
-     * @return CallCenterReportServerChoice
+     * @return CallCenterReportServerChoice $reportingServer
      */
     public function getReportingServer()
     {
@@ -130,7 +130,7 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
 
     /**
      * 
-     * @return CallCenterReportWebStatisticsSource
+     * @return CallCenterReportWebStatisticsSource $webStatisticSource
      */
     public function getWebStatisticSource()
     {

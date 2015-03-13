@@ -19,7 +19,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -91,7 +90,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return UserPhoneDirectoryGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -113,7 +112,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -133,7 +132,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeCommonPhoneList
      */
     public function getIncludeCommonPhoneList()
     {
@@ -155,7 +154,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -175,7 +174,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $searchCriteriaModeOr
      */
     public function getSearchCriteriaModeOr()
     {
@@ -197,7 +196,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -219,7 +218,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -241,7 +240,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -263,7 +262,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SearchCriteriaExtension
+     * @return SearchCriteriaExtension $searchCriteriaExtension
      */
     public function getSearchCriteriaExtension()
     {
@@ -285,7 +284,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SearchCriteriaMobilePhoneNumber
+     * @return SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber
      */
     public function getSearchCriteriaMobilePhoneNumber()
     {
@@ -307,7 +306,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SearchCriteriaEmailAddress
+     * @return SearchCriteriaEmailAddress $searchCriteriaEmailAddress
      */
     public function getSearchCriteriaEmailAddress()
     {
@@ -329,7 +328,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SearchCriteriaExactUserDepartment
+     * @return SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment
      */
     public function getSearchCriteriaExactUserDepartment()
     {
@@ -351,7 +350,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SearchCriteriaExactUserGroup
+     * @return SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup
      */
     public function getSearchCriteriaExactUserGroup()
     {
@@ -373,7 +372,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SearchCriteriaExactCustomContactDirectory
+     * @return SearchCriteriaExactCustomContactDirectory $searchCriteriaExactCustomContactDirectory
      */
     public function getSearchCriteriaExactCustomContactDirectory()
     {

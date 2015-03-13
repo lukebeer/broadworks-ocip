@@ -34,7 +34,7 @@ class EnterpriseDepartmentDeleteRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class EnterpriseDepartmentDeleteRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $enterpriseId
      */
     public function getEnterpriseId()
     {
@@ -78,7 +78,7 @@ class EnterpriseDepartmentDeleteRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DepartmentName
+     * @return DepartmentName $departmentName
      */
     public function getDepartmentName()
     {

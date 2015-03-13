@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAgentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -53,7 +52,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return GroupCallCenterGetAgentListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAgentListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +74,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -97,7 +96,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -119,7 +118,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -141,7 +140,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -163,7 +162,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SearchCriteriaExactUserDepartment
+     * @return SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment
      */
     public function getSearchCriteriaExactUserDepartment()
     {
@@ -185,7 +184,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SearchCriteriaExactUserGroup
+     * @return SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup
      */
     public function getSearchCriteriaExactUserGroup()
     {

@@ -37,7 +37,7 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -79,7 +79,7 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableBargeInWarningTone
      */
     public function getEnableBargeInWarningTone()
     {
@@ -99,7 +99,7 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutomaticTargetSelection
      */
     public function getEnableAutomaticTargetSelection()
     {

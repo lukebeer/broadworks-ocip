@@ -58,7 +58,7 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -80,7 +80,7 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -102,7 +102,7 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -122,7 +122,7 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $department
      */
     public function getDepartment()
     {
@@ -142,7 +142,7 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringCallHold
      */
     public function getIsActiveDuringCallHold()
     {
@@ -162,7 +162,7 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringCallPark
      */
     public function getIsActiveDuringCallPark()
     {
@@ -182,7 +182,7 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringBusyCampOn
      */
     public function getIsActiveDuringBusyCampOn()
     {
@@ -202,7 +202,7 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return MusicOnHoldSourceModify16
+     * @return MusicOnHoldSourceModify16 $source
      */
     public function getSource()
     {
@@ -222,7 +222,7 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useAlternateSourceForInternalCalls
      */
     public function getUseAlternateSourceForInternalCalls()
     {
@@ -242,7 +242,7 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return MusicOnHoldSourceModify16
+     * @return MusicOnHoldSourceModify16 $internalSource
      */
     public function getInternalSource()
     {

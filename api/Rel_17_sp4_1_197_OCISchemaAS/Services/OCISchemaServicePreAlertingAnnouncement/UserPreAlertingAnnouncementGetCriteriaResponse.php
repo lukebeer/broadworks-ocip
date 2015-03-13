@@ -29,7 +29,7 @@ class UserPreAlertingAnnouncementGetCriteriaResponse extends ComplexType impleme
     protected $fromDnCriteria  = null;
 
     /**
-     * @return UserPreAlertingAnnouncementGetCriteriaResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreAlertingAnnouncement\UserPreAlertingAnnouncementGetCriteriaResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserPreAlertingAnnouncementGetCriteriaResponse extends ComplexType impleme
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -69,7 +69,7 @@ class UserPreAlertingAnnouncementGetCriteriaResponse extends ComplexType impleme
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -89,7 +89,7 @@ class UserPreAlertingAnnouncementGetCriteriaResponse extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {
@@ -109,7 +109,7 @@ class UserPreAlertingAnnouncementGetCriteriaResponse extends ComplexType impleme
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

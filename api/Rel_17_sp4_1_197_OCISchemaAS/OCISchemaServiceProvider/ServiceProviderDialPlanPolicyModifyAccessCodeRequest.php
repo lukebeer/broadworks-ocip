@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCodeDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -48,7 +47,7 @@ class ServiceProviderDialPlanPolicyModifyAccessCodeRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +69,7 @@ class ServiceProviderDialPlanPolicyModifyAccessCodeRequest extends ComplexType i
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -92,7 +91,7 @@ class ServiceProviderDialPlanPolicyModifyAccessCodeRequest extends ComplexType i
 
     /**
      * 
-     * @return DialPlanAccessCode
+     * @return DialPlanAccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -112,7 +111,7 @@ class ServiceProviderDialPlanPolicyModifyAccessCodeRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeCodeForNetworkTranslationsAndRouting
      */
     public function getIncludeCodeForNetworkTranslationsAndRouting()
     {
@@ -132,7 +131,7 @@ class ServiceProviderDialPlanPolicyModifyAccessCodeRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeCodeForScreeningServices
      */
     public function getIncludeCodeForScreeningServices()
     {
@@ -152,7 +151,7 @@ class ServiceProviderDialPlanPolicyModifyAccessCodeRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSecondaryDialTone
      */
     public function getEnableSecondaryDialTone()
     {
@@ -174,7 +173,7 @@ class ServiceProviderDialPlanPolicyModifyAccessCodeRequest extends ComplexType i
 
     /**
      * 
-     * @return DialPlanAccessCodeDescription
+     * @return DialPlanAccessCodeDescription $description
      */
     public function getDescription()
     {

@@ -28,7 +28,7 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
     protected $confirmationTimoutSeconds               = null;
 
     /**
-     * @return ServiceProviderAnswerConfirmationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderAnswerConfirmationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return AnswerConfirmationAnnouncementSelection
+     * @return AnswerConfirmationAnnouncementSelection $announcementMessageSelection
      */
     public function getAnnouncementMessageSelection()
     {
@@ -72,7 +72,7 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $confirmationMessageAudioFileDescription
      */
     public function getConfirmationMessageAudioFileDescription()
     {
@@ -94,7 +94,7 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return AnswerConfirmationTimeoutSeconds
+     * @return AnswerConfirmationTimeoutSeconds $confirmationTimoutSeconds
      */
     public function getConfirmationTimoutSeconds()
     {

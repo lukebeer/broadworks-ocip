@@ -23,7 +23,7 @@ class SystemConnectedLineIdentificationPresentationGetResponse extends ComplexTy
     protected $enforceUserServiceAssignment = null;
 
     /**
-     * @return SystemConnectedLineIdentificationPresentationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceConnectedLineIdentificationPresentation\SystemConnectedLineIdentificationPresentationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class SystemConnectedLineIdentificationPresentationGetResponse extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceUserServiceAssignment
      */
     public function getEnforceUserServiceAssignment()
     {

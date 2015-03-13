@@ -23,7 +23,7 @@ class SystemInterceptUserGetResponse extends ComplexType implements ComplexInter
     protected $emergencyAndRepairIntercept = null;
 
     /**
-     * @return SystemInterceptUserGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\SystemInterceptUserGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class SystemInterceptUserGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $emergencyAndRepairIntercept
      */
     public function getEmergencyAndRepairIntercept()
     {

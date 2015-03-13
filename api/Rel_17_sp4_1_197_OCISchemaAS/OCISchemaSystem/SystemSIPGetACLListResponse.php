@@ -24,7 +24,7 @@ class SystemSIPGetACLListResponse extends ComplexType implements ComplexInterfac
     protected $aclTable = null;
 
     /**
-     * @return SystemSIPGetACLListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPGetACLListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

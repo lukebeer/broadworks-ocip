@@ -24,7 +24,7 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
     protected $callTransferActivationDigits = null;
 
     /**
-     * @return ServiceProviderInCallServiceActivationGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInCallServiceActivation\ServiceProviderInCallServiceActivationGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
 
     /**
      * 
-     * @return InCallServiceActivationDigits
+     * @return InCallServiceActivationDigits $flashActivationDigits
      */
     public function getFlashActivationDigits()
     {
@@ -68,7 +68,7 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
 
     /**
      * 
-     * @return InCallServiceActivationDigits
+     * @return InCallServiceActivationDigits $callTransferActivationDigits
      */
     public function getCallTransferActivationDigits()
     {

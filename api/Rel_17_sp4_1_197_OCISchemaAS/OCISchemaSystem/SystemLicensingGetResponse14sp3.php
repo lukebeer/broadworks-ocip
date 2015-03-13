@@ -42,7 +42,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
     protected $systemParamLicenseTable    = null;
 
     /**
-     * @return SystemLicensingGetResponse14sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLicensingGetResponse14sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return LicenseStrictness
+     * @return LicenseStrictness $licenseStrictness
      */
     public function getLicenseStrictness()
     {
@@ -86,7 +86,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return GroupUserLicenseLimit
+     * @return GroupUserLicenseLimit $groupUserlimit
      */
     public function getGroupUserlimit()
     {
@@ -105,7 +105,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:dateTime
+     * @return xs:dateTime $expirationDate
      */
     public function getExpirationDate()
     {
@@ -127,7 +127,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ServerHostId
+     * @return ServerHostId $hostId
      */
     public function getHostId()
     {
@@ -149,7 +149,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return LicenseName
+     * @return LicenseName $licenseName
      */
     public function getLicenseName()
     {
@@ -169,7 +169,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:int
+     * @return int $numberOfTrunkUsers
      */
     public function getNumberOfTrunkUsers()
     {

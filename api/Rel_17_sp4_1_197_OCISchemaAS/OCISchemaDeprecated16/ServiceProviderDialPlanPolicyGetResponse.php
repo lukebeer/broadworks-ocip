@@ -29,7 +29,7 @@ class ServiceProviderDialPlanPolicyGetResponse extends ComplexType implements Co
     protected $privateDigitMap                  = null;
 
     /**
-     * @return ServiceProviderDialPlanPolicyGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceProviderDialPlanPolicyGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class ServiceProviderDialPlanPolicyGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requiresAccessCodeForPublicCalls
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
@@ -69,7 +69,7 @@ class ServiceProviderDialPlanPolicyGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowE164PublicCalls
      */
     public function getAllowE164PublicCalls()
     {
@@ -91,7 +91,7 @@ class ServiceProviderDialPlanPolicyGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $publicDigitMap
      */
     public function getPublicDigitMap()
     {
@@ -113,7 +113,7 @@ class ServiceProviderDialPlanPolicyGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $privateDigitMap
      */
     public function getPrivateDigitMap()
     {

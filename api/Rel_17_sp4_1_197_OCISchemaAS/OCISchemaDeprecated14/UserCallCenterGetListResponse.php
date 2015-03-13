@@ -29,7 +29,7 @@ class UserCallCenterGetListResponse extends ComplexType implements ComplexInterf
     protected $userTable = null;
 
     /**
-     * @return UserCallCenterGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserCallCenterGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

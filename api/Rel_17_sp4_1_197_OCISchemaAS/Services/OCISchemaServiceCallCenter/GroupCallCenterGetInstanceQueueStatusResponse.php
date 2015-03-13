@@ -25,7 +25,7 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
     protected $agentsCurrentlyStaffed = null;
 
     /**
-     * @return GroupCallCenterGetInstanceQueueStatusResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceQueueStatusResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:int
+     * @return int $numberOfCallsQueuedNow
      */
     public function getNumberOfCallsQueuedNow()
     {

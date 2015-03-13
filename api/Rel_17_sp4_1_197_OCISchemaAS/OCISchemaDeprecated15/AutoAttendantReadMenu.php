@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\AutoAttendantReadMenu;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AutoAttendantReadMenu extends ComplexType implements ComplexInterface
 {
-    public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\AutoAttendantReadMenu';
     public    $name                                 = 'AutoAttendantReadMenu';
     protected $announcementSelection                = null;
     protected $audioFileDescription                 = null;
@@ -44,7 +42,7 @@ class AutoAttendantReadMenu extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return AutoAttendantReadMenu
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +62,7 @@ class AutoAttendantReadMenu extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $announcementSelection
      */
     public function getAnnouncementSelection()
     {
@@ -84,7 +82,7 @@ class AutoAttendantReadMenu extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -104,7 +102,7 @@ class AutoAttendantReadMenu extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -124,7 +122,7 @@ class AutoAttendantReadMenu extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $enableFirstMenuLevelExtensionDialing
      */
     public function getEnableFirstMenuLevelExtensionDialing()
     {
@@ -144,7 +142,7 @@ class AutoAttendantReadMenu extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $keyConfiguration
      */
     public function getKeyConfiguration()
     {

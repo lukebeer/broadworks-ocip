@@ -54,7 +54,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +74,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isExtendedCallingLineIdActive
      */
     public function getIsExtendedCallingLineIdActive()
     {
@@ -94,7 +94,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRingTimeOutActive
      */
     public function getIsRingTimeOutActive()
     {
@@ -116,7 +116,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
 
     /**
      * 
-     * @return SystemUserRingTimeoutSeconds
+     * @return SystemUserRingTimeoutSeconds $ringTimeoutSeconds
      */
     public function getRingTimeoutSeconds()
     {
@@ -136,7 +136,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEmergencyRemoteOfficeOriginations
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
@@ -158,7 +158,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
 
     /**
      * 
-     * @return MaxNoAnswerNumberOfRings
+     * @return MaxNoAnswerNumberOfRings $maxNoAnswerNumberOfRings
      */
     public function getMaxNoAnswerNumberOfRings()
     {
@@ -180,7 +180,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
 
     /**
      * 
-     * @return IncomingCallToUserAliasMode
+     * @return IncomingCallToUserAliasMode $incomingCallToUserAliasMode
      */
     public function getIncomingCallToUserAliasMode()
     {
@@ -200,7 +200,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $bypassTerminationLoopDetection
      */
     public function getBypassTerminationLoopDetection()
     {
@@ -220,7 +220,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $honorCLIDBlockingForEmergencyCalls
      */
     public function getHonorCLIDBlockingForEmergencyCalls()
     {

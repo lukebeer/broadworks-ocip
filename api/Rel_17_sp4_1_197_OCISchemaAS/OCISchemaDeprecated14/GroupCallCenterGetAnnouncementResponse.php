@@ -32,7 +32,7 @@ class GroupCallCenterGetAnnouncementResponse extends ComplexType implements Comp
     protected $onHoldMessageVideoFileDescription          = null;
 
     /**
-     * @return GroupCallCenterGetAnnouncementResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetAnnouncementResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class GroupCallCenterGetAnnouncementResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return CallCenterAnnouncementSelection
+     * @return CallCenterAnnouncementSelection $entranceMessageSelection
      */
     public function getEntranceMessageSelection()
     {
@@ -76,7 +76,7 @@ class GroupCallCenterGetAnnouncementResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $entranceMessageAudioFileDescription
      */
     public function getEntranceMessageAudioFileDescription()
     {
@@ -98,7 +98,7 @@ class GroupCallCenterGetAnnouncementResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $entranceMessageVideoFileDescription
      */
     public function getEntranceMessageVideoFileDescription()
     {
@@ -120,7 +120,7 @@ class GroupCallCenterGetAnnouncementResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return CallCenterAnnouncementSelection
+     * @return CallCenterAnnouncementSelection $periodicComfortMessageSelection
      */
     public function getPeriodicComfortMessageSelection()
     {
@@ -142,7 +142,7 @@ class GroupCallCenterGetAnnouncementResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $periodicComfortMessageAudioFileDescription
      */
     public function getPeriodicComfortMessageAudioFileDescription()
     {
@@ -164,7 +164,7 @@ class GroupCallCenterGetAnnouncementResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $periodicComfortMessageVideoFileDescription
      */
     public function getPeriodicComfortMessageVideoFileDescription()
     {
@@ -186,7 +186,7 @@ class GroupCallCenterGetAnnouncementResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return CallCenterAnnouncementSelection
+     * @return CallCenterAnnouncementSelection $onHoldMessageSelection
      */
     public function getOnHoldMessageSelection()
     {
@@ -208,7 +208,7 @@ class GroupCallCenterGetAnnouncementResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $onHoldMessageAudioFileDescription
      */
     public function getOnHoldMessageAudioFileDescription()
     {
@@ -230,7 +230,7 @@ class GroupCallCenterGetAnnouncementResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $onHoldMessageVideoFileDescription
      */
     public function getOnHoldMessageVideoFileDescription()
     {

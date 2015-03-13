@@ -25,7 +25,7 @@ class GroupOutgoingCallingPlanDigitPlanCallMeNowGetListResponse extends ComplexT
     protected $departmentPermissions = null;
 
     /**
-     * @return GroupOutgoingCallingPlanDigitPlanCallMeNowGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanDigitPlanCallMeNowGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupOutgoingCallingPlanDigitPlanCallMeNowGetListResponse extends ComplexT
 
     /**
      * 
-     * @return OutgoingCallingPlanDigitPatternCallMeNowPermissions
+     * @return OutgoingCallingPlanDigitPatternCallMeNowPermissions $groupPermissions
      */
     public function getGroupPermissions()
     {
@@ -65,7 +65,7 @@ class GroupOutgoingCallingPlanDigitPlanCallMeNowGetListResponse extends ComplexT
 
     /**
      * 
-     * @return OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissions
+     * @return OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissions $departmentPermissions
      */
     public function getDepartmentPermissions()
     {

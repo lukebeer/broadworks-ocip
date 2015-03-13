@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\MixedCallLogsEntry;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -29,7 +28,7 @@ class UserEnhancedCallLogsGetListResponse16 extends ComplexType implements Compl
     protected $callLog           = null;
 
     /**
-     * @return UserEnhancedCallLogsGetListResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserEnhancedCallLogsGetListResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +48,7 @@ class UserEnhancedCallLogsGetListResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:int
+     * @return int $totalNumberOfRows
      */
     public function getTotalNumberOfRows()
     {
@@ -69,7 +68,7 @@ class UserEnhancedCallLogsGetListResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return MixedCallLogsEntry
+     * @return MixedCallLogsEntry $callLog
      */
     public function getCallLog()
     {

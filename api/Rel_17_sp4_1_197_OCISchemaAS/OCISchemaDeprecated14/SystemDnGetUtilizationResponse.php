@@ -32,7 +32,7 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
     protected $isGroupCallingLineId = null;
 
     /**
-     * @return SystemDnGetUtilizationResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDnGetUtilizationResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -76,7 +76,7 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -98,7 +98,7 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -120,7 +120,7 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UserType
+     * @return UserType $userType
      */
     public function getUserType()
     {
@@ -140,7 +140,7 @@ class SystemDnGetUtilizationResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isGroupCallingLineId
      */
     public function getIsGroupCallingLineId()
     {

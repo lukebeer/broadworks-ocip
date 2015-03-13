@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCriteriaName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCommunicationBarringCriteriaGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -35,7 +34,7 @@ class SystemCommunicationBarringCriteriaGetRequest extends ComplexType implement
     }
 
     /**
-     * @return SystemCommunicationBarringCriteriaGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCommunicationBarringCriteriaGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +56,7 @@ class SystemCommunicationBarringCriteriaGetRequest extends ComplexType implement
 
     /**
      * 
-     * @return CommunicationBarringCriteriaName
+     * @return CommunicationBarringCriteriaName $name
      */
     public function getName()
     {

@@ -25,7 +25,7 @@ class GroupCallParkGetInstanceResponse extends ComplexType implements ComplexInt
     protected $userTable = null;
 
     /**
-     * @return GroupCallParkGetInstanceResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallParkGetInstanceResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

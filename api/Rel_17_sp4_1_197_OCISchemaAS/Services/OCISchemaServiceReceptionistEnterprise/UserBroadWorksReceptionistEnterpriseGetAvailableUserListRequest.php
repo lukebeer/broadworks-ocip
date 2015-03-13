@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistEnterprise\UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -52,7 +51,7 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
     }
 
     /**
-     * @return UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistEnterprise\UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +73,7 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -96,7 +95,7 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -118,7 +117,7 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -140,7 +139,7 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -162,7 +161,7 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
 
     /**
      * 
-     * @return SearchCriteriaExactUserDepartment
+     * @return SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment
      */
     public function getSearchCriteriaExactUserDepartment()
     {
@@ -184,7 +183,7 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
 
     /**
      * 
-     * @return SearchCriteriaExactUserGroup
+     * @return SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup
      */
     public function getSearchCriteriaExactUserGroup()
     {

@@ -95,7 +95,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -117,7 +117,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -139,7 +139,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AccessDeviceProtocol
+     * @return AccessDeviceProtocol $protocol
      */
     public function getProtocol()
     {
@@ -161,7 +161,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -183,7 +183,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $port
      */
     public function getPort()
     {
@@ -205,7 +205,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $outboundProxyServerNetAddress
      */
     public function getOutboundProxyServerNetAddress()
     {
@@ -227,7 +227,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $stunServerNetAddress
      */
     public function getStunServerNetAddress()
     {
@@ -249,7 +249,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AccessDeviceMACAddress
+     * @return AccessDeviceMACAddress $macAddress
      */
     public function getMacAddress()
     {
@@ -271,7 +271,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AccessDeviceSerialNumber
+     * @return AccessDeviceSerialNumber $serialNumber
      */
     public function getSerialNumber()
     {
@@ -293,7 +293,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AccessDeviceDescription
+     * @return AccessDeviceDescription $description
      */
     public function getDescription()
     {
@@ -315,7 +315,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AccessDevicePhysicalLocation
+     * @return AccessDevicePhysicalLocation $physicalLocation
      */
     public function getPhysicalLocation()
     {
@@ -337,7 +337,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $transportProtocol
      */
     public function getTransportProtocol()
     {
@@ -359,7 +359,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return URL
+     * @return URL $mobilityManagerProvisioningURL
      */
     public function getMobilityManagerProvisioningURL()
     {
@@ -381,7 +381,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return MobilityManagerProvisioningUserName
+     * @return MobilityManagerProvisioningUserName $mobilityManagerProvisioningUserName
      */
     public function getMobilityManagerProvisioningUserName()
     {
@@ -403,7 +403,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return MobilityManagerProvisioningPassword
+     * @return MobilityManagerProvisioningPassword $mobilityManagerProvisioningPassword
      */
     public function getMobilityManagerProvisioningPassword()
     {
@@ -425,7 +425,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $mobilityManagerDefaultOriginatingServiceKey
      */
     public function getMobilityManagerDefaultOriginatingServiceKey()
     {
@@ -447,7 +447,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $mobilityManagerDefaultTerminatingServiceKey
      */
     public function getMobilityManagerDefaultTerminatingServiceKey()
     {
@@ -467,7 +467,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomUserNamePassword
      */
     public function getUseCustomUserNamePassword()
     {
@@ -487,7 +487,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return DeviceManagementUserNamePassword16
+     * @return DeviceManagementUserNamePassword16 $accessDeviceCredentials
      */
     public function getAccessDeviceCredentials()
     {

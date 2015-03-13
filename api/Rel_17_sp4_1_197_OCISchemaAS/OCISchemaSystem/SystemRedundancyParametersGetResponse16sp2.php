@@ -26,7 +26,7 @@ class SystemRedundancyParametersGetResponse16sp2 extends ComplexType implements 
     protected $sendSipOptionMessageUponMigration = null;
 
     /**
-     * @return SystemRedundancyParametersGetResponse16sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRedundancyParametersGetResponse16sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemRedundancyParametersGetResponse16sp2 extends ComplexType implements 
 
     /**
      * 
-     * @return RedundancyRollBackTimerMinutes
+     * @return RedundancyRollBackTimerMinutes $rollBackTimerMinutes
      */
     public function getRollBackTimerMinutes()
     {
@@ -68,7 +68,7 @@ class SystemRedundancyParametersGetResponse16sp2 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendSipOptionMessageUponMigration
      */
     public function getSendSipOptionMessageUponMigration()
     {

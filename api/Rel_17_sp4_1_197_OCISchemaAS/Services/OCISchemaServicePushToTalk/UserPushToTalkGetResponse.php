@@ -31,7 +31,7 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
     protected $selectedUserTable           = null;
 
     /**
-     * @return UserPushToTalkGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk\UserPushToTalkGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowAutoAnswer
      */
     public function getAllowAutoAnswer()
     {
@@ -73,7 +73,7 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return PushToTalkOutgoingConnectionSelection
+     * @return PushToTalkOutgoingConnectionSelection $outgoingConnectionSelection
      */
     public function getOutgoingConnectionSelection()
     {
@@ -95,7 +95,7 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return PushToTalkAccessListSelection
+     * @return PushToTalkAccessListSelection $accessListSelection
      */
     public function getAccessListSelection()
     {

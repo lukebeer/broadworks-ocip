@@ -71,7 +71,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -93,7 +93,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -115,7 +115,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -137,7 +137,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return SessionAdmissionControlGroupName
+     * @return SessionAdmissionControlGroupName $name
      */
     public function getName()
     {
@@ -159,7 +159,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return SessionAdmissionControlGroupName
+     * @return SessionAdmissionControlGroupName $newName
      */
     public function getNewName()
     {
@@ -181,7 +181,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxSession
      */
     public function getMaxSession()
     {
@@ -203,7 +203,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserOriginatingSessions
      */
     public function getMaxUserOriginatingSessions()
     {
@@ -225,7 +225,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserTerminatingSessions
      */
     public function getMaxUserTerminatingSessions()
     {
@@ -247,7 +247,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedSession
      */
     public function getReservedSession()
     {
@@ -269,7 +269,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedUserOriginatingSessions
      */
     public function getReservedUserOriginatingSessions()
     {
@@ -291,7 +291,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedUserTerminatingSessions
      */
     public function getReservedUserTerminatingSessions()
     {
@@ -311,7 +311,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $becomeDefaultGroup
      */
     public function getBecomeDefaultGroup()
     {
@@ -331,7 +331,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $countIntraSACGroupSessions
      */
     public function getCountIntraSACGroupSessions()
     {
@@ -351,7 +351,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ReplacementDeviceList
+     * @return ReplacementDeviceList $deviceList
      */
     public function getDeviceList()
     {

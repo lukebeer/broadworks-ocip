@@ -24,7 +24,7 @@ class UserHolidayScheduleGetListResponse extends ComplexType implements ComplexI
     protected $holidayScheduleTable = null;
 
     /**
-     * @return UserHolidayScheduleGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHolidayScheduleGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

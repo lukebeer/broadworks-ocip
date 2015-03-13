@@ -71,7 +71,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
     protected $enableDialableCallerID                              = null;
 
     /**
-     * @return GroupCallProcessingGetPolicyResponse17sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallProcessingGetPolicyResponse17sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -91,7 +91,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupCLIDSetting
      */
     public function getUseGroupCLIDSetting()
     {
@@ -111,7 +111,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupMediaSetting
      */
     public function getUseGroupMediaSetting()
     {
@@ -131,7 +131,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupCallLimitsSetting
      */
     public function getUseGroupCallLimitsSetting()
     {
@@ -151,7 +151,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupTranslationRoutingSetting
      */
     public function getUseGroupTranslationRoutingSetting()
     {
@@ -171,7 +171,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupDCLIDSetting
      */
     public function getUseGroupDCLIDSetting()
     {
@@ -191,7 +191,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousCalls
      */
     public function getUseMaxSimultaneousCalls()
     {
@@ -213,7 +213,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousCalls
      */
     public function getMaxSimultaneousCalls()
     {
@@ -233,7 +233,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousVideoCalls
      */
     public function getUseMaxSimultaneousVideoCalls()
     {
@@ -255,7 +255,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousVideoCalls
      */
     public function getMaxSimultaneousVideoCalls()
     {
@@ -275,7 +275,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForAnsweredCalls
      */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
@@ -297,7 +297,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes16
+     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes16 $maxCallTimeForAnsweredCallsMinutes
      */
     public function getMaxCallTimeForAnsweredCallsMinutes()
     {
@@ -317,7 +317,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForUnansweredCalls
      */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
@@ -339,7 +339,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes
+     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes $maxCallTimeForUnansweredCallsMinutes
      */
     public function getMaxCallTimeForUnansweredCallsMinutes()
     {
@@ -361,7 +361,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return MediaPolicySelection
+     * @return MediaPolicySelection $mediaPolicySelection
      */
     public function getMediaPolicySelection()
     {
@@ -383,7 +383,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return MediaSetName
+     * @return MediaSetName $supportedMediaSetName
      */
     public function getSupportedMediaSetName()
     {
@@ -405,7 +405,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return NetworkUsageSelection
+     * @return NetworkUsageSelection $networkUsageSelection
      */
     public function getNetworkUsageSelection()
     {
@@ -425,7 +425,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceGroupCallingLineIdentityRestriction
      */
     public function getEnforceGroupCallingLineIdentityRestriction()
     {
@@ -445,7 +445,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEnterpriseGroupCallTypingForPrivateDialingPlan
      */
     public function getAllowEnterpriseGroupCallTypingForPrivateDialingPlan()
     {
@@ -465,7 +465,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEnterpriseGroupCallTypingForPublicDialingPlan
      */
     public function getAllowEnterpriseGroupCallTypingForPublicDialingPlan()
     {
@@ -485,7 +485,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideCLIDRestrictionForPrivateCallCategory
      */
     public function getOverrideCLIDRestrictionForPrivateCallCategory()
     {
@@ -505,7 +505,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useEnterpriseCLIDForPrivateCallCategory
      */
     public function getUseEnterpriseCLIDForPrivateCallCategory()
     {
@@ -525,7 +525,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableEnterpriseExtensionDialing
      */
     public function getEnableEnterpriseExtensionDialing()
     {
@@ -545,7 +545,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxConcurrentRedirectedCalls
      */
     public function getUseMaxConcurrentRedirectedCalls()
     {
@@ -567,7 +567,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return CallProcessingMaxConcurrentRedirectedCalls
+     * @return CallProcessingMaxConcurrentRedirectedCalls $maxConcurrentRedirectedCalls
      */
     public function getMaxConcurrentRedirectedCalls()
     {
@@ -587,7 +587,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxFindMeFollowMeDepth
      */
     public function getUseMaxFindMeFollowMeDepth()
     {
@@ -609,7 +609,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return CallProcessingMaxFindMeFollowMeDepth
+     * @return CallProcessingMaxFindMeFollowMeDepth $maxFindMeFollowMeDepth
      */
     public function getMaxFindMeFollowMeDepth()
     {
@@ -631,7 +631,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return CallProcessingMaxRedirectionDepth
+     * @return CallProcessingMaxRedirectionDepth $maxRedirectionDepth
      */
     public function getMaxRedirectionDepth()
     {
@@ -651,7 +651,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxConcurrentFindMeFollowMeInvocations
      */
     public function getUseMaxConcurrentFindMeFollowMeInvocations()
     {
@@ -673,7 +673,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return CallProcessingMaxConcurrentFindMeFollowMeInvocations
+     * @return CallProcessingMaxConcurrentFindMeFollowMeInvocations $maxConcurrentFindMeFollowMeInvocations
      */
     public function getMaxConcurrentFindMeFollowMeInvocations()
     {
@@ -695,7 +695,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return GroupCLIDPolicy
+     * @return GroupCLIDPolicy $clidPolicy
      */
     public function getClidPolicy()
     {
@@ -717,7 +717,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return GroupCLIDPolicy
+     * @return GroupCLIDPolicy $emergencyClidPolicy
      */
     public function getEmergencyClidPolicy()
     {
@@ -737,7 +737,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowAlternateNumbersForRedirectingIdentity
      */
     public function getAllowAlternateNumbersForRedirectingIdentity()
     {
@@ -757,7 +757,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupName
      */
     public function getUseGroupName()
     {
@@ -777,7 +777,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blockCallingNameForExternalCalls
      */
     public function getBlockCallingNameForExternalCalls()
     {
@@ -797,7 +797,7 @@ class GroupCallProcessingGetPolicyResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDialableCallerID
      */
     public function getEnableDialableCallerID()
     {

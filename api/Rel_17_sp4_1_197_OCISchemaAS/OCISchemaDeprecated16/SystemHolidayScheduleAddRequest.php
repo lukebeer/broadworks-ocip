@@ -91,7 +91,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -113,7 +113,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $holidayScheduleName
      */
     public function getHolidayScheduleName()
     {
@@ -133,7 +133,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday01
      */
     public function getHoliday01()
     {
@@ -153,7 +153,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday02
      */
     public function getHoliday02()
     {
@@ -173,7 +173,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday03
      */
     public function getHoliday03()
     {
@@ -193,7 +193,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday04
      */
     public function getHoliday04()
     {
@@ -213,7 +213,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday05
      */
     public function getHoliday05()
     {
@@ -233,7 +233,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday06
      */
     public function getHoliday06()
     {
@@ -253,7 +253,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday07
      */
     public function getHoliday07()
     {
@@ -273,7 +273,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday08
      */
     public function getHoliday08()
     {
@@ -293,7 +293,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday09
      */
     public function getHoliday09()
     {
@@ -313,7 +313,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday10
      */
     public function getHoliday10()
     {
@@ -333,7 +333,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday11
      */
     public function getHoliday11()
     {
@@ -353,7 +353,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday12
      */
     public function getHoliday12()
     {
@@ -373,7 +373,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday13
      */
     public function getHoliday13()
     {
@@ -393,7 +393,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday14
      */
     public function getHoliday14()
     {
@@ -413,7 +413,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday15
      */
     public function getHoliday15()
     {
@@ -433,7 +433,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday16
      */
     public function getHoliday16()
     {
@@ -453,7 +453,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday17
      */
     public function getHoliday17()
     {
@@ -473,7 +473,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday18
      */
     public function getHoliday18()
     {
@@ -493,7 +493,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday19
      */
     public function getHoliday19()
     {
@@ -513,7 +513,7 @@ class SystemHolidayScheduleAddRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday20
      */
     public function getHoliday20()
     {

@@ -29,7 +29,7 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
     protected $callingLineIdName        = null;
 
     /**
-     * @return GroupCallingLineIdGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallingLineIdGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupNumber
      */
     public function getUseGroupNumber()
     {
@@ -69,7 +69,7 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupName
      */
     public function getUseGroupName()
     {
@@ -91,7 +91,7 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return DN
+     * @return DN $callingLineIdPhoneNumber
      */
     public function getCallingLineIdPhoneNumber()
     {
@@ -113,7 +113,7 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupCallingLineIdName
+     * @return GroupCallingLineIdName $callingLineIdName
      */
     public function getCallingLineIdName()
     {

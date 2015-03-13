@@ -23,7 +23,7 @@ class SystemRoutePointExternalSystemGetRoutePointListResponse extends ComplexTyp
     protected $serviceUserId = null;
 
     /**
-     * @return SystemRoutePointExternalSystemGetRoutePointListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetRoutePointListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemRoutePointExternalSystemGetRoutePointListResponse extends ComplexTyp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {

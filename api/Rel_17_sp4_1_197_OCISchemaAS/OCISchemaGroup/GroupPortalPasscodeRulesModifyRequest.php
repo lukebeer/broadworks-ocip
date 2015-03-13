@@ -83,7 +83,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -105,7 +105,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -127,7 +127,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -149,7 +149,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupPasscodeRulesLevel
+     * @return GroupPasscodeRulesLevel $useRuleLevel
      */
     public function getUseRuleLevel()
     {
@@ -169,7 +169,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRepeatedDigits
      */
     public function getDisallowRepeatedDigits()
     {
@@ -189,7 +189,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserNumber
      */
     public function getDisallowUserNumber()
     {
@@ -209,7 +209,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedUserNumber
      */
     public function getDisallowReversedUserNumber()
     {
@@ -229,7 +229,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPasscode
      */
     public function getDisallowOldPasscode()
     {
@@ -249,7 +249,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPasscode
      */
     public function getDisallowReversedOldPasscode()
     {
@@ -271,7 +271,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return PasscodeMinLength
+     * @return PasscodeMinLength $minCodeLength
      */
     public function getMinCodeLength()
     {
@@ -293,7 +293,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return PasscodeMaxLength
+     * @return PasscodeMaxLength $maxCodeLength
      */
     public function getMaxCodeLength()
     {
@@ -313,7 +313,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableLoginAfterMaxFailedLoginAttempts
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
@@ -335,7 +335,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return PortalMaxFailedLoginAttempts
+     * @return PortalMaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -355,7 +355,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expirePassword
      */
     public function getExpirePassword()
     {
@@ -377,7 +377,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return PasscodeExpiresDays
+     * @return PasscodeExpiresDays $passcodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
@@ -397,7 +397,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -419,7 +419,7 @@ class GroupPortalPasscodeRulesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {

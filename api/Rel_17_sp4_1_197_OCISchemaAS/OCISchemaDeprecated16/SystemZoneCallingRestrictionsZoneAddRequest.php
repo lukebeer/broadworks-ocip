@@ -35,7 +35,7 @@ class SystemZoneCallingRestrictionsZoneAddRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemZoneCallingRestrictionsZoneAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $zoneName
      */
     public function getZoneName()
     {
@@ -79,7 +79,7 @@ class SystemZoneCallingRestrictionsZoneAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return PhysicalLocation
+     * @return PhysicalLocation $physicalLocation
      */
     public function getPhysicalLocation()
     {

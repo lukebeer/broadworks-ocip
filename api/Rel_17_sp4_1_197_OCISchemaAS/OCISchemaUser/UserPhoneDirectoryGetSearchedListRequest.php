@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\PhoneDirectoryNameSearchString;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetSearchedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -42,7 +41,7 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
     }
 
     /**
-     * @return UserPhoneDirectoryGetSearchedListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetSearchedListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +63,7 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -86,7 +85,7 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return PhoneDirectoryNameSearchString
+     * @return PhoneDirectoryNameSearchString $nameSearchString
      */
     public function getNameSearchString()
     {

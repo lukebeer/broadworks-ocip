@@ -50,7 +50,7 @@ class UserSequentialRingAddCriteriaRequest16 extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class UserSequentialRingAddCriteriaRequest16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -94,7 +94,7 @@ class UserSequentialRingAddCriteriaRequest16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -114,7 +114,7 @@ class UserSequentialRingAddCriteriaRequest16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -134,7 +134,7 @@ class UserSequentialRingAddCriteriaRequest16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -154,7 +154,7 @@ class UserSequentialRingAddCriteriaRequest16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {
@@ -174,7 +174,7 @@ class UserSequentialRingAddCriteriaRequest16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

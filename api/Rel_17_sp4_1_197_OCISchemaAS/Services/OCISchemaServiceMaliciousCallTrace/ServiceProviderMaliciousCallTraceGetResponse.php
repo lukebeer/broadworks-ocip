@@ -26,7 +26,7 @@ class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implement
     protected $playMCTWarningAnnouncement          = null;
 
     /**
-     * @return ServiceProviderMaliciousCallTraceGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\ServiceProviderMaliciousCallTraceGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemPlayMCTWarningAnnouncement
      */
     public function getUseSystemPlayMCTWarningAnnouncement()
     {
@@ -66,7 +66,7 @@ class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playMCTWarningAnnouncement
      */
     public function getPlayMCTWarningAnnouncement()
     {

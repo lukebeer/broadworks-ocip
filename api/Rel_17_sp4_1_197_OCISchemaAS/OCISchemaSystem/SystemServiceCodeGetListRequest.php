@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaServiceCodeDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaServiceCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -42,7 +41,7 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return SystemServiceCodeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +63,7 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -86,7 +85,7 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaServiceCode
+     * @return SearchCriteriaServiceCode $searchCriteriaServiceCode
      */
     public function getSearchCriteriaServiceCode()
     {
@@ -108,7 +107,7 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaServiceCodeDescription
+     * @return SearchCriteriaServiceCodeDescription $searchCriteriaServiceCodeDescription
      */
     public function getSearchCriteriaServiceCodeDescription()
     {

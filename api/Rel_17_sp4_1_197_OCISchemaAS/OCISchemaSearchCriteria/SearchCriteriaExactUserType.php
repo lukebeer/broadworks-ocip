@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserType;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactUserType extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactUserType';
     public    $name     = 'SearchCriteriaExactUserType';
     protected $userType = null;
 
@@ -31,7 +29,7 @@ class SearchCriteriaExactUserType extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return SearchCriteriaExactUserType
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +51,7 @@ class SearchCriteriaExactUserType extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return UserType
+     * @return UserType $userType
      */
     public function getUserType()
     {

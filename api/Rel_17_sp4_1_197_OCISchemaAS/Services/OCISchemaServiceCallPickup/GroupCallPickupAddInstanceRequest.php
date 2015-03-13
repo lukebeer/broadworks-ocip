@@ -42,7 +42,7 @@ class GroupCallPickupAddInstanceRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupCallPickupAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupCallPickupAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +108,7 @@ class GroupCallPickupAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {
@@ -130,7 +130,7 @@ class GroupCallPickupAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {

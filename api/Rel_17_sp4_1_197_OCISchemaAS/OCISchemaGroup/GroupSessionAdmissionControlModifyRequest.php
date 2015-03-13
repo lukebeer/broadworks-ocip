@@ -51,7 +51,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -73,7 +73,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -95,7 +95,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -115,7 +115,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictAggregateSessions
      */
     public function getRestrictAggregateSessions()
     {
@@ -137,7 +137,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxSessions
      */
     public function getMaxSessions()
     {
@@ -159,7 +159,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserOriginatingSessions
      */
     public function getMaxUserOriginatingSessions()
     {
@@ -181,7 +181,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserTerminatingSessions
      */
     public function getMaxUserTerminatingSessions()
     {
@@ -201,7 +201,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $countIntraGroupSessions
      */
     public function getCountIntraGroupSessions()
     {

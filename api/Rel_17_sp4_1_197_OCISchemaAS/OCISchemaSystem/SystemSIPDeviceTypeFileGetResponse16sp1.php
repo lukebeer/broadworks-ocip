@@ -42,7 +42,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
     protected $templateUrl                        = null;
 
     /**
-     * @return SystemSIPDeviceTypeFileGetResponse16sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeFileGetResponse16sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return DeviceManagementFileFormat
+     * @return DeviceManagementFileFormat $remoteFileFormat
      */
     public function getRemoteFileFormat()
     {
@@ -86,7 +86,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return DeviceManagementFileCategory
+     * @return DeviceManagementFileCategory $fileCategory
      */
     public function getFileCategory()
     {
@@ -108,7 +108,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return DeviceManagementFileCustomization
+     * @return DeviceManagementFileCustomization $fileCustomization
      */
     public function getFileCustomization()
     {
@@ -130,7 +130,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return DeviceTypeFileEnhancedConfigurationMode
+     * @return DeviceTypeFileEnhancedConfigurationMode $fileSource
      */
     public function getFileSource()
     {
@@ -152,7 +152,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationFileName
+     * @return AccessDeviceEnhancedConfigurationFileName $configurationFileName
      */
     public function getConfigurationFileName()
     {
@@ -172,7 +172,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useHttpDigestAuthentication
      */
     public function getUseHttpDigestAuthentication()
     {
@@ -192,7 +192,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $macBasedFileAuthentication
      */
     public function getMacBasedFileAuthentication()
     {
@@ -212,7 +212,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $userNamePasswordFileAuthentication
      */
     public function getUserNamePasswordFileAuthentication()
     {
@@ -232,7 +232,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $macInNonRequestURI
      */
     public function getMacInNonRequestURI()
     {
@@ -254,7 +254,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return DeviceManagementAccessURI
+     * @return DeviceManagementAccessURI $macFormatInNonRequestURI
      */
     public function getMacFormatInNonRequestURI()
     {
@@ -276,7 +276,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return URL
+     * @return URL $accessUrl
      */
     public function getAccessUrl()
     {
@@ -298,7 +298,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return URL
+     * @return URL $repositoryUrl
      */
     public function getRepositoryUrl()
     {
@@ -320,7 +320,7 @@ class SystemSIPDeviceTypeFileGetResponse16sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return URL
+     * @return URL $templateUrl
      */
     public function getTemplateUrl()
     {

@@ -28,7 +28,7 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
     protected $emergencyCallNotifyEmailAddress = null;
 
     /**
-     * @return GroupEmergencyZonesGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones\GroupEmergencyZonesGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -70,7 +70,7 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return EmergencyZonesProhibition
+     * @return EmergencyZonesProhibition $emergencyZonesProhibition
      */
     public function getEmergencyZonesProhibition()
     {
@@ -90,7 +90,7 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendEmergencyCallNotifyEmail
      */
     public function getSendEmergencyCallNotifyEmail()
     {
@@ -112,7 +112,7 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $emergencyCallNotifyEmailAddress
      */
     public function getEmergencyCallNotifyEmailAddress()
     {

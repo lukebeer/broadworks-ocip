@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementDeviceTypeModifyOptions16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements ComplexInterface
 {
-    public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementDeviceTypeModifyOptions16';
     public    $name                               = 'DeviceManagementDeviceTypeModifyOptions16';
     protected $deviceAccessProtocol               = null;
     protected $tagMode                            = null;
@@ -79,7 +77,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
     }
 
     /**
-     * @return DeviceManagementDeviceTypeModifyOptions16
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -99,7 +97,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceAccessProtocol
      */
     public function getDeviceAccessProtocol()
     {
@@ -119,7 +117,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $tagMode
      */
     public function getTagMode()
     {
@@ -139,7 +137,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $tagSet
      */
     public function getTagSet()
     {
@@ -159,7 +157,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowDeviceProfileCustomTagSet
      */
     public function getAllowDeviceProfileCustomTagSet()
     {
@@ -179,7 +177,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowGroupCustomTagSet
      */
     public function getAllowGroupCustomTagSet()
     {
@@ -199,7 +197,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $sendEmailUponResetFailure
      */
     public function getSendEmailUponResetFailure()
     {
@@ -219,7 +217,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceAccessNetAddress
      */
     public function getDeviceAccessNetAddress()
     {
@@ -239,7 +237,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceAccessPort
      */
     public function getDeviceAccessPort()
     {
@@ -259,7 +257,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceAccessContext
      */
     public function getDeviceAccessContext()
     {
@@ -279,7 +277,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $defaultDeviceLanguage
      */
     public function getDefaultDeviceLanguage()
     {
@@ -299,7 +297,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $defaultDeviceEncoding
      */
     public function getDefaultDeviceEncoding()
     {
@@ -319,7 +317,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $accessDeviceCredentials
      */
     public function getAccessDeviceCredentials()
     {
@@ -339,7 +337,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $useHttpDigestAuthentication
      */
     public function getUseHttpDigestAuthentication()
     {
@@ -359,7 +357,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $macBasedFileAuthentication
      */
     public function getMacBasedFileAuthentication()
     {
@@ -379,7 +377,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $userNamePasswordFileAuthentication
      */
     public function getUserNamePasswordFileAuthentication()
     {
@@ -399,7 +397,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $macInNonRequestURI
      */
     public function getMacInNonRequestURI()
     {
@@ -419,7 +417,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $macFormatInNonRequestURI
      */
     public function getMacFormatInNonRequestURI()
     {

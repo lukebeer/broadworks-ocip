@@ -30,7 +30,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
     protected $isInternational = null;
 
     /**
-     * @return SystemPreferredCarrierGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return PreferredCarrierIdCode
+     * @return PreferredCarrierIdCode $cic
      */
     public function getCic()
     {
@@ -74,7 +74,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $countryCode
      */
     public function getCountryCode()
     {
@@ -94,7 +94,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isIntraLata
      */
     public function getIsIntraLata()
     {
@@ -114,7 +114,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isInterLata
      */
     public function getIsInterLata()
     {
@@ -134,7 +134,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isInternational
      */
     public function getIsInternational()
     {

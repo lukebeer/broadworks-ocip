@@ -27,7 +27,7 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
     protected $routeExhaustionForwardAddress = null;
 
     /**
-     * @return GroupEnterpriseTrunkGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return EnterpriseTrunkMaximumRerouteAttempts
+     * @return EnterpriseTrunkMaximumRerouteAttempts $maximumRerouteAttempts
      */
     public function getMaximumRerouteAttempts()
     {
@@ -71,7 +71,7 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return EnterpriseTrunkRouteExhaustionAction
+     * @return EnterpriseTrunkRouteExhaustionAction $routeExhaustionAction
      */
     public function getRouteExhaustionAction()
     {
@@ -93,7 +93,7 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $routeExhaustionForwardAddress
      */
     public function getRouteExhaustionForwardAddress()
     {

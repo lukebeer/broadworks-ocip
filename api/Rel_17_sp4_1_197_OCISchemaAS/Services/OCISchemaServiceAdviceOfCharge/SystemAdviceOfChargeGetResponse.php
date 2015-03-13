@@ -28,7 +28,7 @@ class SystemAdviceOfChargeGetResponse extends ComplexType implements ComplexInte
     protected $costInformationSource           = null;
 
     /**
-     * @return SystemAdviceOfChargeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\SystemAdviceOfChargeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemAdviceOfChargeGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AdviceOfChargeDelayBetweenNotificationSeconds
+     * @return AdviceOfChargeDelayBetweenNotificationSeconds $delayBetweenNotificationSeconds
      */
     public function getDelayBetweenNotificationSeconds()
     {
@@ -72,7 +72,7 @@ class SystemAdviceOfChargeGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AdviceOfChargeIncomingAocHandling
+     * @return AdviceOfChargeIncomingAocHandling $incomingAocHandling
      */
     public function getIncomingAocHandling()
     {
@@ -94,7 +94,7 @@ class SystemAdviceOfChargeGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $costInformationSource
      */
     public function getCostInformationSource()
     {

@@ -27,7 +27,7 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
     protected $phoneNumberTable                     = null;
 
     /**
-     * @return UserBroadWorksAnywhereGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserBroadWorksAnywhereGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alertAllLocationsForClickToDialCalls
      */
     public function getAlertAllLocationsForClickToDialCalls()
     {

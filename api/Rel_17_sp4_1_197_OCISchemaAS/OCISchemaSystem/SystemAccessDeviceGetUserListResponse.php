@@ -30,7 +30,7 @@ class SystemAccessDeviceGetUserListResponse extends ComplexType implements Compl
     protected $deviceUserTable = null;
 
     /**
-     * @return SystemAccessDeviceGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

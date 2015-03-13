@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryUserName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileRepositoryName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,7 +35,7 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
     }
 
     /**
-     * @return SystemFileRepositoryDeviceUserGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +57,7 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return FileRepositoryName
+     * @return FileRepositoryName $fileRepositoryName
      */
     public function getFileRepositoryName()
     {
@@ -80,7 +79,7 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return FileRepositoryUserName
+     * @return FileRepositoryUserName $userName
      */
     public function getUserName()
     {

@@ -81,7 +81,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -103,7 +103,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -125,7 +125,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -147,7 +147,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -167,7 +167,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return ServiceInstanceAddProfile
+     * @return ServiceInstanceAddProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -189,7 +189,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return HuntPolicy
+     * @return HuntPolicy $policy
      */
     public function getPolicy()
     {
@@ -209,7 +209,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $huntAfterNoAnswer
      */
     public function getHuntAfterNoAnswer()
     {
@@ -231,7 +231,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return HuntNoAnswerRings
+     * @return HuntNoAnswerRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {
@@ -251,7 +251,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forwardAfterTimeout
      */
     public function getForwardAfterTimeout()
     {
@@ -273,7 +273,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return HuntForwardTimeoutSeconds
+     * @return HuntForwardTimeoutSeconds $forwardTimeoutSeconds
      */
     public function getForwardTimeoutSeconds()
     {
@@ -295,7 +295,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -317,7 +317,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $agentUserId
      */
     public function getAgentUserId()
     {
@@ -337,7 +337,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallWaitingForAgents
      */
     public function getAllowCallWaitingForAgents()
     {
@@ -357,7 +357,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemHuntGroupCLIDSetting
      */
     public function getUseSystemHuntGroupCLIDSetting()
     {
@@ -377,7 +377,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeHuntGroupNameInCLID
      */
     public function getIncludeHuntGroupNameInCLID()
     {

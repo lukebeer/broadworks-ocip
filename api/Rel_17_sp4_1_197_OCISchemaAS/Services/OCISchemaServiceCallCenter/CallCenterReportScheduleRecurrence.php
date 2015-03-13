@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportScheduleRecurrence;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportScheduleRecurrence';
     public    $name         = 'CallCenterReportScheduleRecurrence';
     protected $timeZone     = null;
     protected $startDate    = null;
@@ -40,7 +38,7 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
     }
 
     /**
-     * @return CallCenterReportScheduleRecurrence
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeZone
      */
     public function getTimeZone()
     {
@@ -80,7 +78,7 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $startDate
      */
     public function getStartDate()
     {
@@ -100,7 +98,7 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $scheduleTime
      */
     public function getScheduleTime()
     {
@@ -120,7 +118,7 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $recurrence
      */
     public function getRecurrence()
     {

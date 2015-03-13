@@ -24,7 +24,7 @@ class SystemCallCenterEnhancedReportingReportTemplateGetListResponse extends Com
     protected $reportTemplateTable = null;
 
     /**
-     * @return SystemCallCenterEnhancedReportingReportTemplateGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingReportTemplateGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

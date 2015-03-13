@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaZoneIPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsNetAddressGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -41,7 +40,7 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
     }
 
     /**
-     * @return SystemZoneCallingRestrictionsNetAddressGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsNetAddressGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +62,7 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $zoneName
      */
     public function getZoneName()
     {
@@ -85,7 +84,7 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -107,7 +106,7 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
 
     /**
      * 
-     * @return SearchCriteriaZoneIPAddress
+     * @return SearchCriteriaZoneIPAddress $searchCriteriaZoneIPAddress
      */
     public function getSearchCriteriaZoneIPAddress()
     {

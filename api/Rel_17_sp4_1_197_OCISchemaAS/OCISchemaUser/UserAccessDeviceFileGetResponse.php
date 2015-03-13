@@ -23,7 +23,7 @@ class UserAccessDeviceFileGetResponse extends ComplexType implements ComplexInte
     protected $templateUrl = null;
 
     /**
-     * @return UserAccessDeviceFileGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceFileGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserAccessDeviceFileGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return URL
+     * @return URL $templateUrl
      */
     public function getTemplateUrl()
     {

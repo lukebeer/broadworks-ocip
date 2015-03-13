@@ -16,7 +16,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OfficeZoneName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupOfficeZoneGetAssignedUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -65,7 +64,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
     }
 
     /**
-     * @return GroupOfficeZoneGetAssignedUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupOfficeZoneGetAssignedUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,7 +86,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -109,7 +108,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -131,7 +130,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return OfficeZoneName
+     * @return OfficeZoneName $officeZoneName
      */
     public function getOfficeZoneName()
     {
@@ -153,7 +152,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -175,7 +174,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -197,7 +196,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -219,7 +218,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -241,7 +240,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return SearchCriteriaEmailAddress
+     * @return SearchCriteriaEmailAddress $searchCriteriaEmailAddress
      */
     public function getSearchCriteriaEmailAddress()
     {
@@ -263,7 +262,7 @@ class GroupOfficeZoneGetAssignedUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return SearchCriteriaExactUserDepartment
+     * @return SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment
      */
     public function getSearchCriteriaExactUserDepartment()
     {

@@ -24,7 +24,7 @@ class GroupCallCapacityManagementGetAvailableUserListResponse extends ComplexTyp
     protected $userTable = null;
 
     /**
-     * @return GroupCallCapacityManagementGetAvailableUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCapacityManagement\GroupCallCapacityManagementGetAvailableUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

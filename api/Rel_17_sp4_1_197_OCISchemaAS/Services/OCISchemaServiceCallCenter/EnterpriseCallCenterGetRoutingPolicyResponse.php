@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRoutingPolicy;
 use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -27,7 +26,7 @@ class EnterpriseCallCenterGetRoutingPolicyResponse extends ComplexType implement
     protected $callCenterTable = null;
 
     /**
-     * @return EnterpriseCallCenterGetRoutingPolicyResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterGetRoutingPolicyResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +48,7 @@ class EnterpriseCallCenterGetRoutingPolicyResponse extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterRoutingPolicy
+     * @return CallCenterRoutingPolicy $routingPolicy
      */
     public function getRoutingPolicy()
     {

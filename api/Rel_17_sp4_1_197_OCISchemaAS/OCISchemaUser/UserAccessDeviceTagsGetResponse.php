@@ -24,7 +24,7 @@ class UserAccessDeviceTagsGetResponse extends ComplexType implements ComplexInte
     protected $deviceTagsTable = null;
 
     /**
-     * @return UserAccessDeviceTagsGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceTagsGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

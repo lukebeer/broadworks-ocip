@@ -45,7 +45,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -87,7 +87,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -109,7 +109,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return EnterpriseVoiceVPNDefaultSelection
+     * @return EnterpriseVoiceVPNDefaultSelection $defaultSelection
      */
     public function getDefaultSelection()
     {
@@ -131,7 +131,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return EnterpriseVoiceVPNNonMatchingE164NumberSelection
+     * @return EnterpriseVoiceVPNNonMatchingE164NumberSelection $e164Selection
      */
     public function getE164Selection()
     {
@@ -151,7 +151,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $usePhoneContext
      */
     public function getUsePhoneContext()
     {

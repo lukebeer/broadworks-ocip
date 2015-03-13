@@ -25,7 +25,7 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
     protected $allowTermination = null;
 
     /**
-     * @return UserSharedCallAppearanceGetEndpointResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetEndpointResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -65,7 +65,7 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOrigination
      */
     public function getAllowOrigination()
     {
@@ -85,7 +85,7 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowTermination
      */
     public function getAllowTermination()
     {

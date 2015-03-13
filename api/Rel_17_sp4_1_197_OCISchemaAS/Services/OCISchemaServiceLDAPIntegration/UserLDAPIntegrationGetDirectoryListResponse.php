@@ -30,7 +30,7 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
     protected $lastPageNumber = null;
 
     /**
-     * @return UserLDAPIntegrationGetDirectoryListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $searchLabel
      */
     public function getSearchLabel()
     {
@@ -92,7 +92,7 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $hasMoreEntries
      */
     public function getHasMoreEntries()
     {
@@ -114,7 +114,7 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
 
     /**
      * 
-     * @return LDAPPageNumber
+     * @return LDAPPageNumber $lastPageNumber
      */
     public function getLastPageNumber()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterface
 {
-    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceModifyProfile';
     public    $name                   = 'ServiceInstanceModifyProfile';
     protected $name                   = null;
     protected $callingLineIdLastName  = null;
@@ -67,7 +65,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return ServiceInstanceModifyProfile
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,7 +85,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $name
      */
     public function getName()
     {
@@ -107,7 +105,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
@@ -127,7 +125,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
@@ -147,7 +145,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $hiraganaLastName
      */
     public function getHiraganaLastName()
     {
@@ -167,7 +165,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $hiraganaFirstName
      */
     public function getHiraganaFirstName()
     {
@@ -187,7 +185,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -207,7 +205,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $extension
      */
     public function getExtension()
     {
@@ -227,7 +225,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $password
      */
     public function getPassword()
     {
@@ -247,7 +245,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $department
      */
     public function getDepartment()
     {
@@ -267,7 +265,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $language
      */
     public function getLanguage()
     {
@@ -287,7 +285,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeZone
      */
     public function getTimeZone()
     {
@@ -307,7 +305,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $sipAliasList
      */
     public function getSipAliasList()
     {
@@ -327,7 +325,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $publicUserIdentity
      */
     public function getPublicUserIdentity()
     {

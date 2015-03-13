@@ -29,7 +29,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
     protected $bounceCallWhenAgentUnavailable  = null;
 
     /**
-     * @return GroupCallCenterBouncedCallGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterBouncedCallGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -71,7 +71,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return HuntNoAnswerRings
+     * @return HuntNoAnswerRings $numberOfRingsBeforeBouncingCall
      */
     public function getNumberOfRingsBeforeBouncingCall()
     {
@@ -91,7 +91,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableTransfer
      */
     public function getEnableTransfer()
     {
@@ -113,7 +113,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -133,7 +133,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $bounceCallWhenAgentUnavailable
      */
     public function getBounceCallWhenAgentUnavailable()
     {

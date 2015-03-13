@@ -25,7 +25,7 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
     protected $wrapUpSeconds           = null;
 
     /**
-     * @return GroupCallCenterEnhancedGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterEnhancedGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideAgentWrapUpTime
      */
     public function getOverrideAgentWrapUpTime()
     {
@@ -67,7 +67,7 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterWrapUpSeconds
+     * @return CallCenterWrapUpSeconds $wrapUpSeconds
      */
     public function getWrapUpSeconds()
     {

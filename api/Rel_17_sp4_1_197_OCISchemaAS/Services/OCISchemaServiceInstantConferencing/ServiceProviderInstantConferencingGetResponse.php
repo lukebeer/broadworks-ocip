@@ -23,7 +23,7 @@ class ServiceProviderInstantConferencingGetResponse extends ComplexType implemen
     protected $portsAllocatedToServiceProvider = null;
 
     /**
-     * @return ServiceProviderInstantConferencingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\ServiceProviderInstantConferencingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class ServiceProviderInstantConferencingGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $portsAllocatedToServiceProvider
      */
     public function getPortsAllocatedToServiceProvider()
     {

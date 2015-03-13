@@ -64,7 +64,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -86,7 +86,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -106,7 +106,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return MeetMeConferencingConferenceKey
+     * @return MeetMeConferencingConferenceKey $conferenceKey
      */
     public function getConferenceKey()
     {
@@ -128,7 +128,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return MeetMeConferencingConferenceTitle
+     * @return MeetMeConferencingConferenceTitle $title
      */
     public function getTitle()
     {
@@ -150,7 +150,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return MeetMeConferencingNumberOfParticipants
+     * @return MeetMeConferencingNumberOfParticipants $estimatedParticipants
      */
     public function getEstimatedParticipants()
     {
@@ -172,7 +172,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return MeetMeConferencingConferenceAccountCode
+     * @return MeetMeConferencingConferenceAccountCode $accountCode
      */
     public function getAccountCode()
     {
@@ -192,7 +192,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $muteAllAttendeesOnEntry
      */
     public function getMuteAllAttendeesOnEntry()
     {
@@ -212,7 +212,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $endConferenceOnModeratorExit
      */
     public function getEndConferenceOnModeratorExit()
     {
@@ -232,7 +232,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $moderatorRequired
      */
     public function getModeratorRequired()
     {
@@ -254,7 +254,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return MeetMeConferencingConferenceAttendeeNotification
+     * @return MeetMeConferencingConferenceAttendeeNotification $attendeeNotification
      */
     public function getAttendeeNotification()
     {
@@ -274,7 +274,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return MeetMeConferencingConferenceSchedule
+     * @return MeetMeConferencingConferenceSchedule $conferenceSchedule
      */
     public function getConferenceSchedule()
     {

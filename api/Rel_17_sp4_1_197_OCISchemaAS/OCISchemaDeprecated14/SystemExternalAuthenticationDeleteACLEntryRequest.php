@@ -30,7 +30,7 @@ class SystemExternalAuthenticationDeleteACLEntryRequest extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemExternalAuthenticationDeleteACLEntryRequest extends ComplexType impl
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {

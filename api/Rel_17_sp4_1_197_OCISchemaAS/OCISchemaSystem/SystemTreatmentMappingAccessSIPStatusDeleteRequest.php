@@ -30,7 +30,7 @@ class SystemTreatmentMappingAccessSIPStatusDeleteRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemTreatmentMappingAccessSIPStatusDeleteRequest extends ComplexType imp
 
     /**
      * 
-     * @return SIPFailureStatusCode
+     * @return SIPFailureStatusCode $sipStatusCode
      */
     public function getSipStatusCode()
     {

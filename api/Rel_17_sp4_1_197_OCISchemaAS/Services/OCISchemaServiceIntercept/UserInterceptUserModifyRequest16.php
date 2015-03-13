@@ -79,7 +79,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -101,7 +101,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -121,7 +121,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -143,7 +143,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return AnnouncementSelection
+     * @return AnnouncementSelection $announcementSelection
      */
     public function getAnnouncementSelection()
     {
@@ -163,7 +163,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return LabeledMediaFileResource
+     * @return LabeledMediaFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -183,7 +183,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return LabeledMediaFileResource
+     * @return LabeledMediaFileResource $videoFile
      */
     public function getVideoFile()
     {
@@ -203,7 +203,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playNewPhoneNumber
      */
     public function getPlayNewPhoneNumber()
     {
@@ -225,7 +225,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return DN
+     * @return DN $newPhoneNumber
      */
     public function getNewPhoneNumber()
     {
@@ -245,7 +245,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $transferOnZeroToPhoneNumber
      */
     public function getTransferOnZeroToPhoneNumber()
     {
@@ -267,7 +267,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -287,7 +287,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $rerouteOutboundCalls
      */
     public function getRerouteOutboundCalls()
     {
@@ -309,7 +309,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $outboundReroutePhoneNumber
      */
     public function getOutboundReroutePhoneNumber()
     {
@@ -329,7 +329,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutboundLocalCalls
      */
     public function getAllowOutboundLocalCalls()
     {
@@ -351,7 +351,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return InterceptInboundCall
+     * @return InterceptInboundCall $inboundCallMode
      */
     public function getInboundCallMode()
     {
@@ -371,7 +371,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alternateBlockingAnnouncement
      */
     public function getAlternateBlockingAnnouncement()
     {
@@ -391,7 +391,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $routeToVoiceMail
      */
     public function getRouteToVoiceMail()
     {

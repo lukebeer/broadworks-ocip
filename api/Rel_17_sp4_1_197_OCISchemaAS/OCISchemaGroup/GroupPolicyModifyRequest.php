@@ -82,7 +82,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -104,7 +104,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -126,7 +126,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -148,7 +148,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupCallingPlanAccess
+     * @return GroupCallingPlanAccess $callingPlanAccess
      */
     public function getCallingPlanAccess()
     {
@@ -170,7 +170,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupExtensionAccess
+     * @return GroupExtensionAccess $extensionAccess
      */
     public function getExtensionAccess()
     {
@@ -192,7 +192,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupLDAPIntegrationAccess
+     * @return GroupLDAPIntegrationAccess $ldapIntegrationAccess
      */
     public function getLdapIntegrationAccess()
     {
@@ -214,7 +214,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupVoiceMessagingAccess
+     * @return GroupVoiceMessagingAccess $voiceMessagingAccess
      */
     public function getVoiceMessagingAccess()
     {
@@ -236,7 +236,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupDepartmentAdminUserAccess
+     * @return GroupDepartmentAdminUserAccess $departmentAdminUserAccess
      */
     public function getDepartmentAdminUserAccess()
     {
@@ -258,7 +258,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupDepartmentAdminTrunkGroupAccess
+     * @return GroupDepartmentAdminTrunkGroupAccess $departmentAdminTrunkGroupAccess
      */
     public function getDepartmentAdminTrunkGroupAccess()
     {
@@ -280,7 +280,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupDepartmentAdminPhoneNumberExtensionAccess
+     * @return GroupDepartmentAdminPhoneNumberExtensionAccess $departmentAdminPhoneNumberExtensionAccess
      */
     public function getDepartmentAdminPhoneNumberExtensionAccess()
     {
@@ -302,7 +302,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupDepartmentAdminCallingLineIdNumberAccess
+     * @return GroupDepartmentAdminCallingLineIdNumberAccess $departmentAdminCallingLineIdNumberAccess
      */
     public function getDepartmentAdminCallingLineIdNumberAccess()
     {
@@ -324,7 +324,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserAuthenticationAccess
+     * @return GroupUserAuthenticationAccess $userAuthenticationAccess
      */
     public function getUserAuthenticationAccess()
     {
@@ -346,7 +346,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserGroupDirectoryAccess
+     * @return GroupUserGroupDirectoryAccess $userGroupDirectoryAccess
      */
     public function getUserGroupDirectoryAccess()
     {
@@ -368,7 +368,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserProfileAccess
+     * @return GroupUserProfileAccess $userProfileAccess
      */
     public function getUserProfileAccess()
     {
@@ -390,7 +390,7 @@ class GroupPolicyModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserCallLogAccess
+     * @return GroupUserCallLogAccess $userEnhancedCallLogAccess
      */
     public function getUserEnhancedCallLogAccess()
     {

@@ -33,7 +33,7 @@ class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $paiRequired
      */
     public function getPaiRequired()
     {
@@ -73,7 +73,7 @@ class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $screenOnlyLocalCalls
      */
     public function getScreenOnlyLocalCalls()
     {

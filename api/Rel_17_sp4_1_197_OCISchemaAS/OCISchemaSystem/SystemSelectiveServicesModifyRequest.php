@@ -30,7 +30,7 @@ class SystemSelectiveServicesModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemSelectiveServicesModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ScheduleCombinationType
+     * @return ScheduleCombinationType $scheduleCombination
      */
     public function getScheduleCombination()
     {

@@ -23,7 +23,7 @@ class UserLDAPIntegrationGetDirectoryEntryResponse extends ComplexType implement
     protected $data = null;
 
     /**
-     * @return UserLDAPIntegrationGetDirectoryEntryResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryEntryResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserLDAPIntegrationGetDirectoryEntryResponse extends ComplexType implement
 
     /**
      * 
-     * @return LDAPEntryField
+     * @return LDAPEntryField $data
      */
     public function getData()
     {

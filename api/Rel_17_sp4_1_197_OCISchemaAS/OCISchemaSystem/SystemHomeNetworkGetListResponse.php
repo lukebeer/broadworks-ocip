@@ -23,7 +23,7 @@ class SystemHomeNetworkGetListResponse extends ComplexType implements ComplexInt
     protected $mscAddress = null;
 
     /**
-     * @return SystemHomeNetworkGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemHomeNetworkGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemHomeNetworkGetListResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return DN
+     * @return DN $mscAddress
      */
     public function getMscAddress()
     {

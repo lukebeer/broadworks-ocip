@@ -51,7 +51,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -73,7 +73,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -95,7 +95,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return CommPilotExpressProfile
+     * @return CommPilotExpressProfile $profile
      */
     public function getProfile()
     {
@@ -115,7 +115,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return CommPilotExpressAvailableInOfficeModify
+     * @return CommPilotExpressAvailableInOfficeModify $availableInOffice
      */
     public function getAvailableInOffice()
     {
@@ -135,7 +135,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return CommPilotExpressAvailableOutOfOfficeModify
+     * @return CommPilotExpressAvailableOutOfOfficeModify $availableOutOfOffice
      */
     public function getAvailableOutOfOffice()
     {
@@ -155,7 +155,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return CommPilotExpressBusyModify
+     * @return CommPilotExpressBusyModify $busy
      */
     public function getBusy()
     {
@@ -175,7 +175,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return CommPilotExpressUnavailableModify
+     * @return CommPilotExpressUnavailableModify $unavailable
      */
     public function getUnavailable()
     {

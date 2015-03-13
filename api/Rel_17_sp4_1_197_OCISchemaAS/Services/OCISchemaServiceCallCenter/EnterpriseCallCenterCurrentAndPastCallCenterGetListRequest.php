@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -48,7 +47,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
     }
 
     /**
-     * @return EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +69,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -90,7 +89,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isPremiumOnly
      */
     public function getIsPremiumOnly()
     {
@@ -112,7 +111,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -134,7 +133,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
 
     /**
      * 
-     * @return SearchCriteriaExactUserGroup
+     * @return SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup
      */
     public function getSearchCriteriaExactUserGroup()
     {
@@ -156,7 +155,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
 
     /**
      * 
-     * @return SearchCriteriaCallCenterName
+     * @return SearchCriteriaCallCenterName $searchCriteriaCallCenterName
      */
     public function getSearchCriteriaCallCenterName()
     {

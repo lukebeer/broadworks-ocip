@@ -26,7 +26,7 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
     protected $groupCustomContactDirectory                   = null;
 
     /**
-     * @return GroupPolycomPhoneServicesGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePolycomPhoneServices\GroupPolycomPhoneServicesGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeGroupCommonPhoneListInDirectory
      */
     public function getIncludeGroupCommonPhoneListInDirectory()
     {
@@ -66,7 +66,7 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeGroupCustomContactDirectoryInDirectory
      */
     public function getIncludeGroupCustomContactDirectoryInDirectory()
     {
@@ -88,7 +88,7 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return CustomContactDirectoryName
+     * @return CustomContactDirectoryName $groupCustomContactDirectory
      */
     public function getGroupCustomContactDirectory()
     {

@@ -28,7 +28,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListRespon
     protected $scheduledReportTable = null;
 
     /**
-     * @return EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

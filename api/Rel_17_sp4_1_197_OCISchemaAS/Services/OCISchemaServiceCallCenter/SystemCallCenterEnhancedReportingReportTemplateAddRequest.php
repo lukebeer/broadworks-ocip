@@ -88,7 +88,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -110,7 +110,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportTemplateName
+     * @return CallCenterReportTemplateName $name
      */
     public function getName()
     {
@@ -132,7 +132,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportTemplateDescription
+     * @return CallCenterReportTemplateDescription $description
      */
     public function getDescription()
     {
@@ -154,7 +154,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportDataTemplateName
+     * @return CallCenterReportDataTemplateName $dataTemplate
      */
     public function getDataTemplate()
     {
@@ -176,7 +176,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportDataTemplateFilterNumber
+     * @return CallCenterReportDataTemplateFilterNumber $filterNumber
      */
     public function getFilterNumber()
     {
@@ -196,7 +196,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $xsltTemplate
      */
     public function getXsltTemplate()
     {
@@ -218,7 +218,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportTemplateAccessOption
+     * @return CallCenterReportTemplateAccessOption $scope
      */
     public function getScope()
     {
@@ -238,7 +238,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isEnabled
      */
     public function getIsEnabled()
     {
@@ -258,7 +258,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRealtimeReport
      */
     public function getIsRealtimeReport()
     {
@@ -280,7 +280,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $callCompletionThresholdParam
      */
     public function getCallCompletionThresholdParam()
     {
@@ -302,7 +302,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $shortDurationThresholdParam
      */
     public function getShortDurationThresholdParam()
     {
@@ -324,7 +324,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $serviceLevelThresholdParam
      */
     public function getServiceLevelThresholdParam()
     {
@@ -346,7 +346,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $serviceLevelInclusionsParam
      */
     public function getServiceLevelInclusionsParam()
     {
@@ -368,7 +368,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $serviceLevelObjectiveThresholdParam
      */
     public function getServiceLevelObjectiveThresholdParam()
     {
@@ -390,7 +390,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $abandonedCallThresholdParam
      */
     public function getAbandonedCallThresholdParam()
     {
@@ -412,7 +412,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportServiceLevelInputParameterNumber
+     * @return CallCenterReportServiceLevelInputParameterNumber $serviceLevelThresholdParamNumber
      */
     public function getServiceLevelThresholdParamNumber()
     {
@@ -434,7 +434,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportAbandonedCallInputParameterNumber
+     * @return CallCenterReportAbandonedCallInputParameterNumber $abandonedCallThresholdParamNumber
      */
     public function getAbandonedCallThresholdParamNumber()
     {
@@ -456,7 +456,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
 
     /**
      * 
-     * @return CallCenterReportDataTemplateQueryFilterValue
+     * @return CallCenterReportDataTemplateQueryFilterValue $filterValue
      */
     public function getFilterValue()
     {

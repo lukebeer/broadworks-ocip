@@ -42,7 +42,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
     protected $noAnswerNumberOfRings          = null;
 
     /**
-     * @return UserVoiceMessagingUserGetGreetingResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetGreetingResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return AnnouncementSelection
+     * @return AnnouncementSelection $busyAnnouncementSelection
      */
     public function getBusyAnnouncementSelection()
     {
@@ -86,7 +86,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $busyPersonalAudioFile
      */
     public function getBusyPersonalAudioFile()
     {
@@ -108,7 +108,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $busyPersonalAudioMediaType
      */
     public function getBusyPersonalAudioMediaType()
     {
@@ -130,7 +130,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $busyPersonalVideoFile
      */
     public function getBusyPersonalVideoFile()
     {
@@ -152,7 +152,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $busyPersonalVideoMediaType
      */
     public function getBusyPersonalVideoMediaType()
     {
@@ -174,7 +174,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return VoiceMessagingNoAnswerGreetingSelection
+     * @return VoiceMessagingNoAnswerGreetingSelection $noAnswerAnnouncementSelection
      */
     public function getNoAnswerAnnouncementSelection()
     {
@@ -196,7 +196,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $noAnswerPersonalAudioFile
      */
     public function getNoAnswerPersonalAudioFile()
     {
@@ -218,7 +218,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $noAnswerPersonalAudioMediaType
      */
     public function getNoAnswerPersonalAudioMediaType()
     {
@@ -240,7 +240,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $noAnswerPersonalVideoFile
      */
     public function getNoAnswerPersonalVideoFile()
     {
@@ -262,7 +262,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $noAnswerPersonalVideoMediaType
      */
     public function getNoAnswerPersonalVideoMediaType()
     {
@@ -282,7 +282,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingRead16
+     * @return VoiceMessagingAlternateNoAnswerGreetingRead16 $noAnswerAlternateGreeting01
      */
     public function getNoAnswerAlternateGreeting01()
     {
@@ -302,7 +302,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingRead16
+     * @return VoiceMessagingAlternateNoAnswerGreetingRead16 $noAnswerAlternateGreeting02
      */
     public function getNoAnswerAlternateGreeting02()
     {
@@ -322,7 +322,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingRead16
+     * @return VoiceMessagingAlternateNoAnswerGreetingRead16 $noAnswerAlternateGreeting03
      */
     public function getNoAnswerAlternateGreeting03()
     {
@@ -344,7 +344,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
 
     /**
      * 
-     * @return VoiceMessagingNumberOfRings
+     * @return VoiceMessagingNumberOfRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {

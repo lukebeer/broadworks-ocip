@@ -39,7 +39,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
     protected $redirectingRule                  = null;
 
     /**
-     * @return SystemCommunicationBarringProfileGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemCommunicationBarringProfileGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return CommunicationBarringProfileDescription
+     * @return CommunicationBarringProfileDescription $description
      */
     public function getDescription()
     {
@@ -83,7 +83,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return CommunicationBarringOriginatingAction
+     * @return CommunicationBarringOriginatingAction $originatingDefaultAction
      */
     public function getOriginatingDefaultAction()
     {
@@ -105,7 +105,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $originatingDefaultTreatmentId
      */
     public function getOriginatingDefaultTreatmentId()
     {
@@ -127,7 +127,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $originatingDefaultTransferNumber
      */
     public function getOriginatingDefaultTransferNumber()
     {
@@ -149,7 +149,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $originatingDefaultCallTimeout
      */
     public function getOriginatingDefaultCallTimeout()
     {
@@ -169,7 +169,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return CommunicationBarringOriginatingRule
+     * @return CommunicationBarringOriginatingRule $originatingRule
      */
     public function getOriginatingRule()
     {
@@ -191,7 +191,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return CommunicationBarringRedirectingAction
+     * @return CommunicationBarringRedirectingAction $redirectingDefaultAction
      */
     public function getRedirectingDefaultAction()
     {
@@ -213,7 +213,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $redirectingDefaultCallTimeout
      */
     public function getRedirectingDefaultCallTimeout()
     {
@@ -233,7 +233,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return CommunicationBarringRedirectingRule
+     * @return CommunicationBarringRedirectingRule $redirectingRule
      */
     public function getRedirectingRule()
     {

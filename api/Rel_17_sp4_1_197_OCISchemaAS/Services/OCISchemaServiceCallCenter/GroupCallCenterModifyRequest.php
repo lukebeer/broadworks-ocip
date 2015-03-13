@@ -62,7 +62,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -84,7 +84,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -106,7 +106,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -126,7 +126,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultGuardTimer
      */
     public function getUseSystemDefaultGuardTimer()
     {
@@ -146,7 +146,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableGuardTimer
      */
     public function getEnableGuardTimer()
     {
@@ -168,7 +168,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return CallCenterGuardTimerSeconds
+     * @return CallCenterGuardTimerSeconds $guardTimerSeconds
      */
     public function getGuardTimerSeconds()
     {
@@ -188,7 +188,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultUnavailableSettings
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
@@ -208,7 +208,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnDNDActivation
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
@@ -228,7 +228,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnPersonalCalls
      */
     public function getForceAgentUnavailableOnPersonalCalls()
     {
@@ -248,7 +248,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnBouncedCallLimit
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
@@ -270,7 +270,7 @@ class GroupCallCenterModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable
+     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable $numberConsecutiveBouncedCallsToForceAgentUnavailable
      */
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
     {

@@ -32,7 +32,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
     protected $address             = null;
 
     /**
-     * @return ServiceProviderGetResponse13mp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderGetResponse13mp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $defaultDomain
      */
     public function getDefaultDomain()
     {
@@ -76,7 +76,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ServiceProviderName
+     * @return ServiceProviderName $serviceProviderName
      */
     public function getServiceProviderName()
     {
@@ -98,7 +98,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $supportEmail
      */
     public function getSupportEmail()
     {
@@ -118,7 +118,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Contact
+     * @return Contact $contact
      */
     public function getContact()
     {
@@ -138,7 +138,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return StreetAddress
+     * @return StreetAddress $address
      */
     public function getAddress()
     {

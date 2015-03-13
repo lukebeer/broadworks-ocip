@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportDataTemplateInfo;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInterface
 {
-    public    $responseType                                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportDataTemplateInfo';
     public    $name                                          = 'CallCenterReportDataTemplateInfo';
     protected $dataTemplate                                  = null;
     protected $reportType                                    = null;
@@ -67,7 +65,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return CallCenterReportDataTemplateInfo
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,7 +85,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $dataTemplate
      */
     public function getDataTemplate()
     {
@@ -107,7 +105,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $reportType
      */
     public function getReportType()
     {
@@ -127,7 +125,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isRealtimeReport
      */
     public function getIsRealtimeReport()
     {
@@ -147,7 +145,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isAgentParamRequired
      */
     public function getIsAgentParamRequired()
     {
@@ -167,7 +165,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isCallCenterParamRequired
      */
     public function getIsCallCenterParamRequired()
     {
@@ -187,7 +185,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isCallCenterDnisParamRequired
      */
     public function getIsCallCenterDnisParamRequired()
     {
@@ -207,7 +205,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isSamplingPeriodParamRequired
      */
     public function getIsSamplingPeriodParamRequired()
     {
@@ -227,7 +225,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isCallCompletionThresholdParamRequired
      */
     public function getIsCallCompletionThresholdParamRequired()
     {
@@ -247,7 +245,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isShortDurationThresholdParamRequired
      */
     public function getIsShortDurationThresholdParamRequired()
     {
@@ -267,7 +265,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isServiceLevelThresholdParamRequired
      */
     public function getIsServiceLevelThresholdParamRequired()
     {
@@ -287,7 +285,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isServiceLevelInclusionsParamRequired
      */
     public function getIsServiceLevelInclusionsParamRequired()
     {
@@ -307,7 +305,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isServiceLevelObjectiveThresholdParamRequired
      */
     public function getIsServiceLevelObjectiveThresholdParamRequired()
     {
@@ -327,7 +325,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isAbandonedCallThresholdParamRequired
      */
     public function getIsAbandonedCallThresholdParamRequired()
     {

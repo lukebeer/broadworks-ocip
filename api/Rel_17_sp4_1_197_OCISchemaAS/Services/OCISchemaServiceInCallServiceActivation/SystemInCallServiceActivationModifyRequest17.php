@@ -32,7 +32,7 @@ class SystemInCallServiceActivationModifyRequest17 extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemInCallServiceActivationModifyRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return InCallServiceActivationDigits
+     * @return InCallServiceActivationDigits $defaultFlashActivationDigits
      */
     public function getDefaultFlashActivationDigits()
     {
@@ -76,7 +76,7 @@ class SystemInCallServiceActivationModifyRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return InCallServiceActivationDigits
+     * @return InCallServiceActivationDigits $defaultCallTransferActivationDigits
      */
     public function getDefaultCallTransferActivationDigits()
     {

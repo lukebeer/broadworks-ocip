@@ -29,7 +29,7 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
     protected $fromDnCriteria  = null;
 
     /**
-     * @return UserSelectiveCallAcceptanceGetCriteriaResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallAcceptance\UserSelectiveCallAcceptanceGetCriteriaResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -69,7 +69,7 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -89,7 +89,7 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {
@@ -109,7 +109,7 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

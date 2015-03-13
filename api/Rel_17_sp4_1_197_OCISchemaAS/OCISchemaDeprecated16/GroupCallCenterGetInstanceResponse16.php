@@ -50,7 +50,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
     protected $playRingingWhenOfferingCall         = null;
 
     /**
-     * @return GroupCallCenterGetInstanceResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterGetInstanceResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceInstanceReadProfile
+     * @return ServiceInstanceReadProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -92,7 +92,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallCenterType
+     * @return CallCenterType $type
      */
     public function getType()
     {
@@ -114,7 +114,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return HuntPolicy
+     * @return HuntPolicy $policy
      */
     public function getPolicy()
     {
@@ -134,7 +134,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -156,7 +156,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallCenterQueueLength16
+     * @return CallCenterQueueLength16 $queueLength
      */
     public function getQueueLength()
     {
@@ -178,7 +178,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallCenterReportingServerName
+     * @return CallCenterReportingServerName $reportingServerName
      */
     public function getReportingServerName()
     {
@@ -198,7 +198,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallerToDialEscapeDigit
      */
     public function getAllowCallerToDialEscapeDigit()
     {
@@ -220,7 +220,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return DtmfDigit
+     * @return DtmfDigit $escapeDigit
      */
     public function getEscapeDigit()
     {
@@ -240,7 +240,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $resetCallStatisticsUponEntryInQueue
      */
     public function getResetCallStatisticsUponEntryInQueue()
     {
@@ -260,7 +260,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowAgentLogoff
      */
     public function getAllowAgentLogoff()
     {
@@ -280,7 +280,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallWaitingForAgents
      */
     public function getAllowCallWaitingForAgents()
     {
@@ -300,7 +300,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallsToAgentsInWrapUp
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
@@ -320,7 +320,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideAgentWrapUpTime
      */
     public function getOverrideAgentWrapUpTime()
     {
@@ -342,7 +342,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallCenterWrapUpSeconds
+     * @return CallCenterWrapUpSeconds $wrapUpSeconds
      */
     public function getWrapUpSeconds()
     {
@@ -362,7 +362,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceDeliveryOfCalls
      */
     public function getForceDeliveryOfCalls()
     {
@@ -384,7 +384,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallCenterForceDeliveryWaitTimeSeconds
+     * @return CallCenterForceDeliveryWaitTimeSeconds $forceDeliveryWaitTimeSeconds
      */
     public function getForceDeliveryWaitTimeSeconds()
     {
@@ -406,7 +406,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AudioFileCodec
+     * @return AudioFileCodec $externalPreferredAudioCodec
      */
     public function getExternalPreferredAudioCodec()
     {
@@ -428,7 +428,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AudioFileCodec
+     * @return AudioFileCodec $internalPreferredAudioCodec
      */
     public function getInternalPreferredAudioCodec()
     {
@@ -448,7 +448,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playRingingWhenOfferingCall
      */
     public function getPlayRingingWhenOfferingCall()
     {

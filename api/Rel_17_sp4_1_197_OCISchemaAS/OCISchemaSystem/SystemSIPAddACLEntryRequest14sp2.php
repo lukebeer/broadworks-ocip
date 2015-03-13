@@ -38,7 +38,7 @@ class SystemSIPAddACLEntryRequest14sp2 extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemSIPAddACLEntryRequest14sp2 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -82,7 +82,7 @@ class SystemSIPAddACLEntryRequest14sp2 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SIPACLTransportProtocol
+     * @return SIPACLTransportProtocol $transportProtocol
      */
     public function getTransportProtocol()
     {
@@ -104,7 +104,7 @@ class SystemSIPAddACLEntryRequest14sp2 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return NetworkACLEntryDescription
+     * @return NetworkACLEntryDescription $description
      */
     public function getDescription()
     {

@@ -40,7 +40,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
     protected $userProfileAccess               = null;
 
     /**
-     * @return GroupPolicyGetResponse14sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupPolicyGetResponse14sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +62,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupCallingPlanAccess
+     * @return GroupCallingPlanAccess $callingPlanAccess
      */
     public function getCallingPlanAccess()
     {
@@ -84,7 +84,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupExtensionAccess
+     * @return GroupExtensionAccess $extensionAccess
      */
     public function getExtensionAccess()
     {
@@ -106,7 +106,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupLDAPIntegrationAccess
+     * @return GroupLDAPIntegrationAccess $ldapIntegrationAccess
      */
     public function getLdapIntegrationAccess()
     {
@@ -128,7 +128,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupVoiceMessagingAccess
+     * @return GroupVoiceMessagingAccess $voiceMessagingAccess
      */
     public function getVoiceMessagingAccess()
     {
@@ -150,7 +150,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupDepartmentAdminUserAccess
+     * @return GroupDepartmentAdminUserAccess $departmentAdminUserAccess
      */
     public function getDepartmentAdminUserAccess()
     {
@@ -172,7 +172,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupDepartmentAdminTrunkGroupAccess
+     * @return GroupDepartmentAdminTrunkGroupAccess $departmentAdminTrunkGroupAccess
      */
     public function getDepartmentAdminTrunkGroupAccess()
     {
@@ -194,7 +194,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupUserAuthenticationAccess
+     * @return GroupUserAuthenticationAccess $userAuthenticationAccess
      */
     public function getUserAuthenticationAccess()
     {
@@ -216,7 +216,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupUserGroupDirectoryAccess
+     * @return GroupUserGroupDirectoryAccess $userGroupDirectoryAccess
      */
     public function getUserGroupDirectoryAccess()
     {
@@ -238,7 +238,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupUserProfileAccess
+     * @return GroupUserProfileAccess $userProfileAccess
      */
     public function getUserProfileAccess()
     {

@@ -38,7 +38,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
     protected $supportedMediaSetName                = null;
 
     /**
-     * @return UserCallProcessingGetPolicyResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserCallProcessingGetPolicyResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useUserSetting
      */
     public function getUseUserSetting()
     {
@@ -78,7 +78,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousCalls
      */
     public function getUseMaxSimultaneousCalls()
     {
@@ -100,7 +100,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousCalls
      */
     public function getMaxSimultaneousCalls()
     {
@@ -120,7 +120,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousVideoCalls
      */
     public function getUseMaxSimultaneousVideoCalls()
     {
@@ -142,7 +142,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousVideoCalls
      */
     public function getMaxSimultaneousVideoCalls()
     {
@@ -162,7 +162,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForAnsweredCalls
      */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
@@ -184,7 +184,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes
+     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes $maxCallTimeForAnsweredCallsMinutes
      */
     public function getMaxCallTimeForAnsweredCallsMinutes()
     {
@@ -204,7 +204,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForUnansweredCalls
      */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
@@ -226,7 +226,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes
+     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes $maxCallTimeForUnansweredCallsMinutes
      */
     public function getMaxCallTimeForUnansweredCallsMinutes()
     {
@@ -248,7 +248,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return MediaPolicySelection
+     * @return MediaPolicySelection $mediaPolicySelection
      */
     public function getMediaPolicySelection()
     {
@@ -270,7 +270,7 @@ class UserCallProcessingGetPolicyResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return MediaSetName
+     * @return MediaSetName $supportedMediaSetName
      */
     public function getSupportedMediaSetName()
     {

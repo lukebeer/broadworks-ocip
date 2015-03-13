@@ -34,7 +34,7 @@ class SystemOutgoingCallingPlanCallTypeDeleteMappingRequest extends ComplexType 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemOutgoingCallingPlanCallTypeDeleteMappingRequest extends ComplexType 
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $countryCode
      */
     public function getCountryCode()
     {
@@ -78,7 +78,7 @@ class SystemOutgoingCallingPlanCallTypeDeleteMappingRequest extends ComplexType 
 
     /**
      * 
-     * @return CallTypeDigitMap
+     * @return CallTypeDigitMap $digitMap
      */
     public function getDigitMap()
     {

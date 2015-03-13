@@ -67,7 +67,7 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -89,7 +89,7 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -111,7 +111,7 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -133,7 +133,7 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallParkRecallTimerSeconds
+     * @return CallParkRecallTimerSeconds $recallTimerSeconds
      */
     public function getRecallTimerSeconds()
     {
@@ -155,7 +155,7 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallParkDisplayTimerSeconds
+     * @return CallParkDisplayTimerSeconds $displayTimerSeconds
      */
     public function getDisplayTimerSeconds()
     {
@@ -175,7 +175,7 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDestinationAnnouncement
      */
     public function getEnableDestinationAnnouncement()
     {
@@ -197,7 +197,7 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return UserId
+     * @return UserId $recallAlternateUserId
      */
     public function getRecallAlternateUserId()
     {
@@ -219,7 +219,7 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return RingPattern
+     * @return RingPattern $recallRingPattern
      */
     public function getRecallRingPattern()
     {
@@ -241,7 +241,7 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallParkRecallTo
+     * @return CallParkRecallTo $recallTo
      */
     public function getRecallTo()
     {
@@ -263,7 +263,7 @@ class GroupCallParkModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallParkRecallTimerSeconds
+     * @return CallParkRecallTimerSeconds $alternateUserRecallTimerSeconds
      */
     public function getAlternateUserRecallTimerSeconds()
     {

@@ -27,7 +27,7 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
     protected $syncDeviceManagementInfo = null;
 
     /**
-     * @return SystemNetworkServerSyncParametersGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemNetworkServerSyncParametersGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSync
      */
     public function getEnableSync()
     {
@@ -67,7 +67,7 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $syncLinePorts
      */
     public function getSyncLinePorts()
     {
@@ -87,7 +87,7 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $syncDeviceManagementInfo
      */
     public function getSyncDeviceManagementInfo()
     {

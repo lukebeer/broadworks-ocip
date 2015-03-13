@@ -38,7 +38,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return PublicUserIdentity
+     * @return PublicUserIdentity $publicUserIdentity
      */
     public function getPublicUserIdentity()
     {
@@ -80,7 +80,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $SCSCFName
      */
     public function getSCSCFName()
     {
@@ -102,7 +102,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return IMSUserState
+     * @return IMSUserState $IMSUserState
      */
     public function getIMSUserState()
     {

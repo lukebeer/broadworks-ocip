@@ -45,7 +45,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -87,7 +87,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -109,7 +109,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return MaliciousCallTraceCallTypeSelection
+     * @return MaliciousCallTraceCallTypeSelection $traceTypeSelection
      */
     public function getTraceTypeSelection()
     {
@@ -129,7 +129,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $traceForTimePeriod
      */
     public function getTraceForTimePeriod()
     {
@@ -149,7 +149,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return MaliciousCallTraceTimePeriod
+     * @return MaliciousCallTraceTimePeriod $traceTimePeriod
      */
     public function getTraceTimePeriod()
     {

@@ -34,7 +34,7 @@ class SystemCAPParametersGetResponse extends ComplexType implements ComplexInter
     protected $CCC2MaxClientConnections      = null;
 
     /**
-     * @return SystemCAPParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCAPParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemCAPParametersGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -78,7 +78,7 @@ class SystemCAPParametersGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return CAPMaxClientConnections
+     * @return CAPMaxClientConnections $maxClientConnections
      */
     public function getMaxClientConnections()
     {
@@ -98,7 +98,7 @@ class SystemCAPParametersGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableConnectionPing
      */
     public function getEnableConnectionPing()
     {
@@ -120,7 +120,7 @@ class SystemCAPParametersGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return CAPConnectionPingIntervalMinutes
+     * @return CAPConnectionPingIntervalMinutes $connectionPingIntervalMinutes
      */
     public function getConnectionPingIntervalMinutes()
     {
@@ -142,7 +142,7 @@ class SystemCAPParametersGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $CCC2ServerPort
      */
     public function getCCC2ServerPort()
     {
@@ -164,7 +164,7 @@ class SystemCAPParametersGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return CCC2MaxClientConnections
+     * @return CCC2MaxClientConnections $CCC2MaxClientConnections
      */
     public function getCCC2MaxClientConnections()
     {

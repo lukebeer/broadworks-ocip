@@ -29,7 +29,7 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
     protected $timeoutSeconds   = null;
 
     /**
-     * @return ServiceProviderExternalCustomRingbackGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\ServiceProviderExternalCustomRingbackGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return ExternalCustomRingbackPrefixDigits
+     * @return ExternalCustomRingbackPrefixDigits $prefixDigits
      */
     public function getPrefixDigits()
     {
@@ -73,7 +73,7 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $serverNetAddress
      */
     public function getServerNetAddress()
     {
@@ -95,7 +95,7 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -117,7 +117,7 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return ExternalCustomRingbackTimeoutSeconds
+     * @return ExternalCustomRingbackTimeoutSeconds $timeoutSeconds
      */
     public function getTimeoutSeconds()
     {

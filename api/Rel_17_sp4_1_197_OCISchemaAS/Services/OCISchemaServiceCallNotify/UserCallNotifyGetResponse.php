@@ -26,7 +26,7 @@ class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
     protected $criteriaTable          = null;
 
     /**
-     * @return UserCallNotifyGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallNotify\UserCallNotifyGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $callNotifyEmailAddress
      */
     public function getCallNotifyEmailAddress()
     {

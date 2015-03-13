@@ -30,7 +30,7 @@ class SystemNumberActivationModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemNumberActivationModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useNumberActivation
      */
     public function getUseNumberActivation()
     {

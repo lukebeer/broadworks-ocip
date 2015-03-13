@@ -41,7 +41,7 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -85,7 +85,7 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return AccessCode
+     * @return AccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -107,7 +107,7 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $publicDigitMap
      */
     public function getPublicDigitMap()
     {
@@ -129,7 +129,7 @@ class ServiceProviderDigitCollectionModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $privateDigitMap
      */
     public function getPrivateDigitMap()
     {

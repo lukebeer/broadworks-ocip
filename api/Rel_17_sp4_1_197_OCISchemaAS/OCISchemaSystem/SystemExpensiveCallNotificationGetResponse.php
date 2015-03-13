@@ -25,7 +25,7 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
     protected $postAnnouncementDelaySeconds     = null;
 
     /**
-     * @return SystemExpensiveCallNotificationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallNotificationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enablePostAnnouncementDelayTimer
      */
     public function getEnablePostAnnouncementDelayTimer()
     {
@@ -67,7 +67,7 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return ExpensiveCallNotificationPostAnnouncementDelaySeconds
+     * @return ExpensiveCallNotificationPostAnnouncementDelaySeconds $postAnnouncementDelaySeconds
      */
     public function getPostAnnouncementDelaySeconds()
     {

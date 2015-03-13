@@ -56,7 +56,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +78,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -100,7 +100,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CAPMaxClientConnections
+     * @return CAPMaxClientConnections $maxClientConnections
      */
     public function getMaxClientConnections()
     {
@@ -120,7 +120,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableConnectionPing
      */
     public function getEnableConnectionPing()
     {
@@ -142,7 +142,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CAPConnectionPingIntervalMinutes
+     * @return CAPConnectionPingIntervalMinutes $connectionPingIntervalMinutes
      */
     public function getConnectionPingIntervalMinutes()
     {
@@ -164,7 +164,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $CCC2ServerPort
      */
     public function getCCC2ServerPort()
     {
@@ -186,7 +186,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CCC2MaxClientConnections
+     * @return CCC2MaxClientConnections $CCC2MaxClientConnections
      */
     public function getCCC2MaxClientConnections()
     {
@@ -208,7 +208,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $capServerCallCenterPort
      */
     public function getCapServerCallCenterPort()
     {
@@ -230,7 +230,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CAPServerCallCenterMaxClientConnections
+     * @return CAPServerCallCenterMaxClientConnections $capServerCallCenterMaxClientConnections
      */
     public function getCapServerCallCenterMaxClientConnections()
     {

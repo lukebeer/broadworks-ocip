@@ -25,7 +25,7 @@ class GroupTrunkGroupUserCreationTaskGetListResponse14sp4 extends ComplexType im
     protected $taskTable = null;
 
     /**
-     * @return GroupTrunkGroupUserCreationTaskGetListResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetListResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

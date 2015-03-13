@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetHomeZoneResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -40,7 +39,7 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
     }
 
     /**
-     * @return GroupBroadWorksMobileManagerGetHomeZoneResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetHomeZoneResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +61,7 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -84,7 +83,7 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -104,7 +103,7 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:string
+     * @return string $homeZoneId
      */
     public function getHomeZoneId()
     {

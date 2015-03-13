@@ -29,7 +29,7 @@ class GroupDeviceTypeFileGetResponse16sp1 extends ComplexType implements Complex
     protected $templateUrl           = null;
 
     /**
-     * @return GroupDeviceTypeFileGetResponse16sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDeviceTypeFileGetResponse16sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class GroupDeviceTypeFileGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationMode
+     * @return AccessDeviceEnhancedConfigurationMode $fileSource
      */
     public function getFileSource()
     {
@@ -73,7 +73,7 @@ class GroupDeviceTypeFileGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationFileName
+     * @return AccessDeviceEnhancedConfigurationFileName $configurationFileName
      */
     public function getConfigurationFileName()
     {
@@ -95,7 +95,7 @@ class GroupDeviceTypeFileGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return URL
+     * @return URL $accessUrl
      */
     public function getAccessUrl()
     {
@@ -117,7 +117,7 @@ class GroupDeviceTypeFileGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return URL
+     * @return URL $repositoryUrl
      */
     public function getRepositoryUrl()
     {
@@ -139,7 +139,7 @@ class GroupDeviceTypeFileGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return URL
+     * @return URL $templateUrl
      */
     public function getTemplateUrl()
     {

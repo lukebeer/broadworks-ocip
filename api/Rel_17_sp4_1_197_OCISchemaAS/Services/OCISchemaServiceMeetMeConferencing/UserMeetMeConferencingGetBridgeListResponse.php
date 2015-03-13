@@ -25,7 +25,7 @@ class UserMeetMeConferencingGetBridgeListResponse extends ComplexType implements
     protected $conferenceBridgeTable = null;
 
     /**
-     * @return UserMeetMeConferencingGetBridgeListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingGetBridgeListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

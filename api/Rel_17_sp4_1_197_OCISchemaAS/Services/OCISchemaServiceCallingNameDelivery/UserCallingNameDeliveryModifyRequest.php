@@ -37,7 +37,7 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -79,7 +79,7 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveForExternalCalls
      */
     public function getIsActiveForExternalCalls()
     {
@@ -99,7 +99,7 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveForInternalCalls
      */
     public function getIsActiveForInternalCalls()
     {

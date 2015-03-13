@@ -23,7 +23,7 @@ class UserConnectedLineIdentificationRestrictionGetResponse extends ComplexType 
     protected $isActive = null;
 
     /**
-     * @return UserConnectedLineIdentificationRestrictionGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceConnectedLineIdentificationRestriction\UserConnectedLineIdentificationRestrictionGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserConnectedLineIdentificationRestrictionGetResponse extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {

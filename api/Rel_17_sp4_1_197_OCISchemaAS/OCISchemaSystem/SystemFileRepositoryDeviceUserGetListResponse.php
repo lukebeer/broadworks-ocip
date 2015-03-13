@@ -24,7 +24,7 @@ class SystemFileRepositoryDeviceUserGetListResponse extends ComplexType implemen
     protected $fileRepositoryUserTable = null;
 
     /**
-     * @return SystemFileRepositoryDeviceUserGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

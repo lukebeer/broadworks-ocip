@@ -33,7 +33,7 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -77,7 +77,7 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return URL
+     * @return URL $configurationServerURL
      */
     public function getConfigurationServerURL()
     {

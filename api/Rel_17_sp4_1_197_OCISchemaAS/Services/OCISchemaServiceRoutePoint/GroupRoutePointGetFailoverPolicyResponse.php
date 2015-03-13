@@ -34,7 +34,7 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
     protected $perCallFailoverPhoneNumber               = null;
 
     /**
-     * @return GroupRoutePointGetFailoverPolicyResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetFailoverPolicyResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableFailoverSupport
      */
     public function getEnableFailoverSupport()
     {
@@ -76,7 +76,7 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return RoutePointExternalSystem
+     * @return RoutePointExternalSystem $externalSystem
      */
     public function getExternalSystem()
     {
@@ -98,7 +98,7 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $failoverPhoneNumber
      */
     public function getFailoverPhoneNumber()
     {
@@ -120,7 +120,7 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return RoutePointFailoverStatus
+     * @return RoutePointFailoverStatus $failoverStatus
      */
     public function getFailoverStatus()
     {
@@ -140,7 +140,7 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $perCallEnableFailoverSupport
      */
     public function getPerCallEnableFailoverSupport()
     {
@@ -162,7 +162,7 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return RoutePointCallFailureTimeout
+     * @return RoutePointCallFailureTimeout $perCallCallFailureTimeoutSeconds
      */
     public function getPerCallCallFailureTimeoutSeconds()
     {
@@ -184,7 +184,7 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return RoutePointCallFailureTimeout
+     * @return RoutePointCallFailureTimeout $perCallOutboundCallFailureTimeoutSeconds
      */
     public function getPerCallOutboundCallFailureTimeoutSeconds()
     {
@@ -206,7 +206,7 @@ class GroupRoutePointGetFailoverPolicyResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $perCallFailoverPhoneNumber
      */
     public function getPerCallFailoverPhoneNumber()
     {

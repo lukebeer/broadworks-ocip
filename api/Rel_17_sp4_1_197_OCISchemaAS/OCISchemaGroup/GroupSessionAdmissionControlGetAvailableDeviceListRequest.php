@@ -15,7 +15,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGetAvailableDeviceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -60,7 +59,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
     }
 
     /**
-     * @return GroupSessionAdmissionControlGetAvailableDeviceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGetAvailableDeviceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -82,7 +81,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -104,7 +103,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -126,7 +125,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -148,7 +147,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
 
     /**
      * 
-     * @return SearchCriteriaDeviceName
+     * @return SearchCriteriaDeviceName $searchCriteriaDeviceName
      */
     public function getSearchCriteriaDeviceName()
     {
@@ -170,7 +169,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
 
     /**
      * 
-     * @return SearchCriteriaDeviceMACAddress
+     * @return SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress
      */
     public function getSearchCriteriaDeviceMACAddress()
     {
@@ -192,7 +191,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
 
     /**
      * 
-     * @return SearchCriteriaDeviceNetAddress
+     * @return SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress
      */
     public function getSearchCriteriaDeviceNetAddress()
     {
@@ -214,7 +213,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
 
     /**
      * 
-     * @return SearchCriteriaExactDeviceType
+     * @return SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType
      */
     public function getSearchCriteriaExactDeviceType()
     {
@@ -236,7 +235,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
 
     /**
      * 
-     * @return SearchCriteriaExactDeviceLevel
+     * @return SearchCriteriaExactDeviceLevel $searchCriteriaExactDeviceLevel
      */
     public function getSearchCriteriaExactDeviceLevel()
     {

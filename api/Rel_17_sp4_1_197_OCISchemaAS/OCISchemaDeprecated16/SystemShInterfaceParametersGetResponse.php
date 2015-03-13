@@ -27,7 +27,7 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
     protected $publicIdentityRefreshDelaySeconds = null;
 
     /**
-     * @return SystemShInterfaceParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemShInterfaceParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $hssRealm
      */
     public function getHssRealm()
     {
@@ -71,7 +71,7 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ShInterfaceRequestTimeoutSeconds
+     * @return ShInterfaceRequestTimeoutSeconds $requestTimeoutSeconds
      */
     public function getRequestTimeoutSeconds()
     {
@@ -93,7 +93,7 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ShInterfacePublicIdentityRefreshDelaySeconds
+     * @return ShInterfacePublicIdentityRefreshDelaySeconds $publicIdentityRefreshDelaySeconds
      */
     public function getPublicIdentityRefreshDelaySeconds()
     {

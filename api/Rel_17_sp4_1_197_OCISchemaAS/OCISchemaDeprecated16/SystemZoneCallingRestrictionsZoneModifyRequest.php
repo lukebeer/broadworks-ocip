@@ -36,7 +36,7 @@ class SystemZoneCallingRestrictionsZoneModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class SystemZoneCallingRestrictionsZoneModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $zoneName
      */
     public function getZoneName()
     {
@@ -80,7 +80,7 @@ class SystemZoneCallingRestrictionsZoneModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return PhysicalLocation
+     * @return PhysicalLocation $physicalLocation
      */
     public function getPhysicalLocation()
     {

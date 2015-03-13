@@ -38,7 +38,7 @@ class ServiceProviderAccessDeviceCustomTagDeleteListRequest extends ComplexType 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class ServiceProviderAccessDeviceCustomTagDeleteListRequest extends ComplexType 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class ServiceProviderAccessDeviceCustomTagDeleteListRequest extends ComplexType 
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -104,7 +104,7 @@ class ServiceProviderAccessDeviceCustomTagDeleteListRequest extends ComplexType 
 
     /**
      * 
-     * @return DeviceManagementTagName
+     * @return DeviceManagementTagName $tagName
      */
     public function getTagName()
     {

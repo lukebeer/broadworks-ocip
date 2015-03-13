@@ -23,7 +23,7 @@ class UserAnonymousCallRejectionGetResponse extends ComplexType implements Compl
     protected $isActive = null;
 
     /**
-     * @return UserAnonymousCallRejectionGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAnonymousCallRejection\UserAnonymousCallRejectionGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserAnonymousCallRejectionGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {

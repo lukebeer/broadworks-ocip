@@ -46,7 +46,7 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -90,7 +90,7 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $clusterNetAddress
      */
     public function getClusterNetAddress()
     {
@@ -112,7 +112,7 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $signalingPort
      */
     public function getSignalingPort()
     {
@@ -134,7 +134,7 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
 
     /**
      * 
-     * @return InstantConferencingDeviceDescription
+     * @return InstantConferencingDeviceDescription $description
      */
     public function getDescription()
     {
@@ -156,7 +156,7 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $transportProtocol
      */
     public function getTransportProtocol()
     {

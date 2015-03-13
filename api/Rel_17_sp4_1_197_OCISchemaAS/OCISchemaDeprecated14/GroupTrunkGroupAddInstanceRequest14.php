@@ -72,7 +72,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -94,7 +94,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -116,7 +116,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -138,7 +138,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -158,7 +158,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceInstanceAddProfileTrunkGroup
+     * @return ServiceInstanceAddProfileTrunkGroup $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -178,7 +178,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDeviceEndpointAdd
+     * @return AccessDeviceEndpointAdd $accessDeviceEndpoint
      */
     public function getAccessDeviceEndpoint()
     {
@@ -200,7 +200,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
 
     /**
      * 
-     * @return MaxActiveCalls
+     * @return MaxActiveCalls $maxActiveCalls
      */
     public function getMaxActiveCalls()
     {
@@ -222,7 +222,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
 
     /**
      * 
-     * @return MaxIncomingCalls
+     * @return MaxIncomingCalls $maxIncomingCalls
      */
     public function getMaxIncomingCalls()
     {
@@ -244,7 +244,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
 
     /**
      * 
-     * @return MaxOutgoingCalls
+     * @return MaxOutgoingCalls $maxOutgoingCalls
      */
     public function getMaxOutgoingCalls()
     {
@@ -264,7 +264,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireAuthentication
      */
     public function getRequireAuthentication()
     {
@@ -286,7 +286,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SIPAuthenticationUserName
+     * @return SIPAuthenticationUserName $sipAuthenticationUserName
      */
     public function getSipAuthenticationUserName()
     {
@@ -308,7 +308,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SIPAuthenticationPassword
+     * @return SIPAuthenticationPassword $sipAuthenticationPassword
      */
     public function getSipAuthenticationPassword()
     {

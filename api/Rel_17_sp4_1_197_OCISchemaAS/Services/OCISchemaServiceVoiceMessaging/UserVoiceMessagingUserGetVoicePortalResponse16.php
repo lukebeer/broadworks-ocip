@@ -28,7 +28,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
     protected $personalizedNameMediaType            = null;
 
     /**
-     * @return UserVoiceMessagingUserGetVoicePortalResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetVoicePortalResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $usePersonalizedName
      */
     public function getUsePersonalizedName()
     {
@@ -68,7 +68,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $voicePortalAutoLogin
      */
     public function getVoicePortalAutoLogin()
     {
@@ -90,7 +90,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $personalizedNameAudioFileDescription
      */
     public function getPersonalizedNameAudioFileDescription()
     {
@@ -112,7 +112,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $personalizedNameMediaType
      */
     public function getPersonalizedNameMediaType()
     {

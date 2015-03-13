@@ -46,7 +46,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -88,7 +88,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -110,7 +110,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -132,7 +132,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return Extension17
+     * @return Extension17 $extension
      */
     public function getExtension()
     {
@@ -152,7 +152,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return ReplacementSIPAliasList
+     * @return ReplacementSIPAliasList $sipAliasList
      */
     public function getSipAliasList()
     {

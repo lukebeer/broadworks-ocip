@@ -55,7 +55,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -77,7 +77,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -99,7 +99,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -121,7 +121,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -141,7 +141,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceInstanceAddProfile
+     * @return ServiceInstanceAddProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -163,7 +163,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupPagingConfirmationToneTimeoutSeconds
+     * @return GroupPagingConfirmationToneTimeoutSeconds $confirmationToneTimeoutSeconds
      */
     public function getConfirmationToneTimeoutSeconds()
     {
@@ -183,7 +183,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deliverOriginatorCLIDInstead
      */
     public function getDeliverOriginatorCLIDInstead()
     {
@@ -205,7 +205,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupPagingOriginatorCLIDPrefix
+     * @return GroupPagingOriginatorCLIDPrefix $originatorCLIDPrefix
      */
     public function getOriginatorCLIDPrefix()
     {

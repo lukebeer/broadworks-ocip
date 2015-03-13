@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -45,7 +44,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
     }
 
     /**
-     * @return EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +66,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -89,7 +88,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -111,7 +110,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
 
     /**
      * 
-     * @return SearchCriteriaTrunkGroupName
+     * @return SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName
      */
     public function getSearchCriteriaTrunkGroupName()
     {
@@ -133,7 +132,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {

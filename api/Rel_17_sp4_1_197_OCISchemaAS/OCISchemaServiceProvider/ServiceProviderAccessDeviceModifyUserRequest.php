@@ -42,7 +42,7 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -108,7 +108,7 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
 
     /**
      * 
-     * @return AccessDeviceEndpointLinePort
+     * @return AccessDeviceEndpointLinePort $linePort
      */
     public function getLinePort()
     {
@@ -128,7 +128,7 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isPrimaryLinePort
      */
     public function getIsPrimaryLinePort()
     {

@@ -24,7 +24,7 @@ class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements 
     protected $maximumTargetUsers                    = null;
 
     /**
-     * @return GroupGroupPagingTargetsCapacityGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingTargetsCapacityGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return GroupPagingMaxTargetCapacity
+     * @return GroupPagingMaxTargetCapacity $maximumTargetUsersFromServiceProvider
      */
     public function getMaximumTargetUsersFromServiceProvider()
     {
@@ -68,7 +68,7 @@ class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return GroupPagingMaxTargetCapacity
+     * @return GroupPagingMaxTargetCapacity $maximumTargetUsers
      */
     public function getMaximumTargetUsers()
     {

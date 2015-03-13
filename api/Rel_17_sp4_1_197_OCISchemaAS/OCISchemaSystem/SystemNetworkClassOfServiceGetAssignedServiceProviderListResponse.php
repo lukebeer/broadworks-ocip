@@ -27,7 +27,7 @@ class SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse extends 
     protected $serviceProviderTable = null;
 
     /**
-     * @return SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -38,7 +38,7 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return CallCenterReportServerChoice
+     * @return CallCenterReportServerChoice $reportingServer
      */
     public function getReportingServer()
     {
@@ -104,7 +104,7 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return CallCenterReportWebStatisticsSource
+     * @return CallCenterReportWebStatisticsSource $webStatisticSource
      */
     public function getWebStatisticSource()
     {

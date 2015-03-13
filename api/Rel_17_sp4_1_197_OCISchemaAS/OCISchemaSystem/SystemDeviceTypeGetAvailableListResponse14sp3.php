@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ class SystemDeviceTypeGetAvailableListResponse14sp3 extends ComplexType implemen
     protected $typeInfo   = null;
 
     /**
-     * @return SystemDeviceTypeGetAvailableListResponse14sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetAvailableListResponse14sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemDeviceTypeGetAvailableListResponse14sp3 extends ComplexType implemen
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -65,7 +65,7 @@ class SystemDeviceTypeGetAvailableListResponse14sp3 extends ComplexType implemen
 
     /**
      * 
-     * @return 
+     * @return  $typeInfo
      */
     public function getTypeInfo()
     {

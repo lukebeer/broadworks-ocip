@@ -15,7 +15,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetAvailableUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -62,7 +61,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
     }
 
     /**
-     * @return GroupEnterpriseTrunkGetAvailableUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetAvailableUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -84,7 +83,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -106,7 +105,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -128,7 +127,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -150,7 +149,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -172,7 +171,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -194,7 +193,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -216,7 +215,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
 
     /**
      * 
-     * @return SearchCriteriaUserId
+     * @return SearchCriteriaUserId $searchCriteriaUserId
      */
     public function getSearchCriteriaUserId()
     {
@@ -238,7 +237,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
 
     /**
      * 
-     * @return SearchCriteriaAlternateTrunkIdentity
+     * @return SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity
      */
     public function getSearchCriteriaAlternateTrunkIdentity()
     {

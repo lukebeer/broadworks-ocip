@@ -43,7 +43,7 @@ class ServiceProviderServicePackMigrationTaskModifyAssignmentListRequest extends
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class ServiceProviderServicePackMigrationTaskModifyAssignmentListRequest extends
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -87,7 +87,7 @@ class ServiceProviderServicePackMigrationTaskModifyAssignmentListRequest extends
 
     /**
      * 
-     * @return ServicePackMigrationTaskName
+     * @return ServicePackMigrationTaskName $taskName
      */
     public function getTaskName()
     {
@@ -107,7 +107,7 @@ class ServiceProviderServicePackMigrationTaskModifyAssignmentListRequest extends
 
     /**
      * 
-     * @return ReplacementUserServiceList
+     * @return ReplacementUserServiceList $userServiceNameList
      */
     public function getUserServiceNameList()
     {
@@ -127,7 +127,7 @@ class ServiceProviderServicePackMigrationTaskModifyAssignmentListRequest extends
 
     /**
      * 
-     * @return ReplacementServicePackNameList
+     * @return ReplacementServicePackNameList $servicePackNameList
      */
     public function getServicePackNameList()
     {

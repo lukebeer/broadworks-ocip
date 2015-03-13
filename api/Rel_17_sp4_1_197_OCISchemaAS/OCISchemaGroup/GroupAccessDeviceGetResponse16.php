@@ -61,7 +61,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
     protected $userName                                    = null;
 
     /**
-     * @return GroupAccessDeviceGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -83,7 +83,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -105,7 +105,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AccessDeviceProtocol
+     * @return AccessDeviceProtocol $protocol
      */
     public function getProtocol()
     {
@@ -127,7 +127,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -149,7 +149,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $port
      */
     public function getPort()
     {
@@ -171,7 +171,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $outboundProxyServerNetAddress
      */
     public function getOutboundProxyServerNetAddress()
     {
@@ -193,7 +193,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $stunServerNetAddress
      */
     public function getStunServerNetAddress()
     {
@@ -215,7 +215,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AccessDeviceMACAddress
+     * @return AccessDeviceMACAddress $macAddress
      */
     public function getMacAddress()
     {
@@ -237,7 +237,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AccessDeviceSerialNumber
+     * @return AccessDeviceSerialNumber $serialNumber
      */
     public function getSerialNumber()
     {
@@ -259,7 +259,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AccessDeviceDescription
+     * @return AccessDeviceDescription $description
      */
     public function getDescription()
     {
@@ -279,7 +279,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UnboundedPositiveInt
+     * @return UnboundedPositiveInt $numberOfPorts
      */
     public function getNumberOfPorts()
     {
@@ -299,7 +299,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:int
+     * @return int $numberOfAssignedPorts
      */
     public function getNumberOfAssignedPorts()
     {
@@ -321,7 +321,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AccessDeviceStatus
+     * @return AccessDeviceStatus $status
      */
     public function getStatus()
     {
@@ -343,7 +343,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationMode
+     * @return AccessDeviceEnhancedConfigurationMode $configurationMode
      */
     public function getConfigurationMode()
     {
@@ -365,7 +365,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationFileName
+     * @return AccessDeviceEnhancedConfigurationFileName $configurationFileName
      */
     public function getConfigurationFileName()
     {
@@ -387,7 +387,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AccessDevicePhysicalLocation
+     * @return AccessDevicePhysicalLocation $physicalLocation
      */
     public function getPhysicalLocation()
     {
@@ -409,7 +409,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $transportProtocol
      */
     public function getTransportProtocol()
     {
@@ -431,7 +431,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return URL
+     * @return URL $mobilityManagerProvisioningURL
      */
     public function getMobilityManagerProvisioningURL()
     {
@@ -453,7 +453,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return MobilityManagerProvisioningUserName
+     * @return MobilityManagerProvisioningUserName $mobilityManagerProvisioningUserName
      */
     public function getMobilityManagerProvisioningUserName()
     {
@@ -475,7 +475,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $mobilityManagerDefaultOriginatingServiceKey
      */
     public function getMobilityManagerDefaultOriginatingServiceKey()
     {
@@ -497,7 +497,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $mobilityManagerDefaultTerminatingServiceKey
      */
     public function getMobilityManagerDefaultTerminatingServiceKey()
     {
@@ -517,7 +517,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomUserNamePassword
      */
     public function getUseCustomUserNamePassword()
     {
@@ -539,7 +539,7 @@ class GroupAccessDeviceGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userName
      */
     public function getUserName()
     {

@@ -37,7 +37,7 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -79,7 +79,7 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $displayDNISNumber
      */
     public function getDisplayDNISNumber()
     {
@@ -99,7 +99,7 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $displayDNISName
      */
     public function getDisplayDNISName()
     {

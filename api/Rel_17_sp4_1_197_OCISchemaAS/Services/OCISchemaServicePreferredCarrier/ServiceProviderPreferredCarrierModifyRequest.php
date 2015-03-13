@@ -50,7 +50,7 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -94,7 +94,7 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $countryCode
      */
     public function getCountryCode()
     {
@@ -116,7 +116,7 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return PreferredCarrierName
+     * @return PreferredCarrierName $intraLataCarrier
      */
     public function getIntraLataCarrier()
     {
@@ -138,7 +138,7 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return PreferredCarrierName
+     * @return PreferredCarrierName $interLataCarrier
      */
     public function getInterLataCarrier()
     {
@@ -160,7 +160,7 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return PreferredCarrierName
+     * @return PreferredCarrierName $internationalCarrier
      */
     public function getInternationalCarrier()
     {

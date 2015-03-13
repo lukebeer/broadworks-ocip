@@ -30,7 +30,7 @@ class SystemDeviceTypeImportRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemDeviceTypeImportRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return URL
+     * @return URL $file
      */
     public function getFile()
     {

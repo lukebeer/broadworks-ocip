@@ -33,7 +33,7 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DeviceManagementAccessURI
+     * @return DeviceManagementAccessURI $deviceAccessURI
      */
     public function getDeviceAccessURI()
     {
@@ -77,7 +77,7 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $ipAddress
      */
     public function getIpAddress()
     {

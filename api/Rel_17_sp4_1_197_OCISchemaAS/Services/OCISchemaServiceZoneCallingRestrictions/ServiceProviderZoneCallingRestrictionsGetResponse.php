@@ -26,7 +26,7 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
     protected $enableTerminationRoamingRestrictions          = null;
 
     /**
-     * @return ServiceProviderZoneCallingRestrictionsGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceZoneCallingRestrictions\ServiceProviderZoneCallingRestrictionsGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableZoneCallingRestrictions
      */
     public function getEnableZoneCallingRestrictions()
     {
@@ -66,7 +66,7 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableOriginationRoamingRestrictions
      */
     public function getEnableOriginationRoamingRestrictions()
     {
@@ -86,7 +86,7 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableEmergencyOriginationRoamingRestrictions
      */
     public function getEnableEmergencyOriginationRoamingRestrictions()
     {
@@ -106,7 +106,7 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableTerminationRoamingRestrictions
      */
     public function getEnableTerminationRoamingRestrictions()
     {

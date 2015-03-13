@@ -42,7 +42,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaAddRequest extends 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaAddRequest extends 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaAddRequest extends 
 
     /**
      * 
-     * @return DigitPatternCriteriaName
+     * @return DigitPatternCriteriaName $name
      */
     public function getName()
     {
@@ -108,7 +108,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaAddRequest extends 
 
     /**
      * 
-     * @return DigitPatternCriteriaDescription
+     * @return DigitPatternCriteriaDescription $description
      */
     public function getDescription()
     {
@@ -130,7 +130,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaAddRequest extends 
 
     /**
      * 
-     * @return DigitPattern
+     * @return DigitPattern $matchDigitPattern
      */
     public function getMatchDigitPattern()
     {

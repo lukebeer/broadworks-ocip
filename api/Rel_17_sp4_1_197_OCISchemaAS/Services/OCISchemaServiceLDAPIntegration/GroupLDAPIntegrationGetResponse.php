@@ -23,7 +23,7 @@ class GroupLDAPIntegrationGetResponse extends ComplexType implements ComplexInte
     protected $isActive = null;
 
     /**
-     * @return GroupLDAPIntegrationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\GroupLDAPIntegrationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class GroupLDAPIntegrationGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {

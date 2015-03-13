@@ -24,7 +24,7 @@ class ServiceProviderPreferredCarrierGetListResponse extends ComplexType impleme
     protected $serviceProviderCarrierTable = null;
 
     /**
-     * @return ServiceProviderPreferredCarrierGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

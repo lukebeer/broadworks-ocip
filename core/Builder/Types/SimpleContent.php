@@ -20,8 +20,8 @@ class SimpleContent extends SimpleType implements SimpleInterface
     /**
      * @param $name
      */
-    public function __construct($name)
+    public function __construct($value=null)
     {
-        $this->setName($name);
+        $this->value = $value;
     }
 }

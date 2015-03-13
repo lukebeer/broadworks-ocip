@@ -39,7 +39,7 @@ class SystemSessionAuditModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class SystemSessionAuditModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -81,7 +81,7 @@ class SystemSessionAuditModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SessionAuditIntervalSeconds
+     * @return SessionAuditIntervalSeconds $intervalSeconds
      */
     public function getIntervalSeconds()
     {
@@ -103,7 +103,7 @@ class SystemSessionAuditModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SessionAuditTimeoutPeriodSeconds
+     * @return SessionAuditTimeoutPeriodSeconds $timeoutPeriodSeconds
      */
     public function getTimeoutPeriodSeconds()
     {

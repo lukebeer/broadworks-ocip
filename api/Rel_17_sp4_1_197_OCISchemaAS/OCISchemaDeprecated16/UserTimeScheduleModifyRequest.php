@@ -98,7 +98,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -120,7 +120,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -142,7 +142,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $timeScheduleName
      */
     public function getTimeScheduleName()
     {
@@ -164,7 +164,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $newTimeScheduleName
      */
     public function getNewTimeScheduleName()
     {
@@ -184,7 +184,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval01
      */
     public function getTimeInterval01()
     {
@@ -204,7 +204,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval02
      */
     public function getTimeInterval02()
     {
@@ -224,7 +224,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval03
      */
     public function getTimeInterval03()
     {
@@ -244,7 +244,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval04
      */
     public function getTimeInterval04()
     {
@@ -264,7 +264,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval05
      */
     public function getTimeInterval05()
     {
@@ -284,7 +284,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval06
      */
     public function getTimeInterval06()
     {
@@ -304,7 +304,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval07
      */
     public function getTimeInterval07()
     {
@@ -324,7 +324,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval08
      */
     public function getTimeInterval08()
     {
@@ -344,7 +344,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval09
      */
     public function getTimeInterval09()
     {
@@ -364,7 +364,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval10
      */
     public function getTimeInterval10()
     {
@@ -384,7 +384,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval11
      */
     public function getTimeInterval11()
     {
@@ -404,7 +404,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval12
      */
     public function getTimeInterval12()
     {
@@ -424,7 +424,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval13
      */
     public function getTimeInterval13()
     {
@@ -444,7 +444,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval14
      */
     public function getTimeInterval14()
     {
@@ -464,7 +464,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval15
      */
     public function getTimeInterval15()
     {
@@ -484,7 +484,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval16
      */
     public function getTimeInterval16()
     {
@@ -504,7 +504,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval17
      */
     public function getTimeInterval17()
     {
@@ -524,7 +524,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval18
      */
     public function getTimeInterval18()
     {
@@ -544,7 +544,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval19
      */
     public function getTimeInterval19()
     {
@@ -564,7 +564,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval20
      */
     public function getTimeInterval20()
     {

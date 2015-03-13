@@ -46,7 +46,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $twoLevelActivation
      */
     public function getTwoLevelActivation()
     {
@@ -86,7 +86,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $provideDate
      */
     public function getProvideDate()
     {
@@ -106,7 +106,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $lastUnansweredCallOnly
      */
     public function getLastUnansweredCallOnly()
     {
@@ -128,7 +128,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return DigitAny
+     * @return DigitAny $confirmationKey
      */
     public function getConfirmationKey()
     {
@@ -148,7 +148,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowRestrictedNumber
      */
     public function getAllowRestrictedNumber()
     {
@@ -168,7 +168,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deleteNumberAfterAnsweredCallReturn
      */
     public function getDeleteNumberAfterAnsweredCallReturn()
     {

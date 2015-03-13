@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignalingAddressType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactSignalingAddressType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactSignalingAddressType extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactSignalingAddressType';
     public    $name    = 'SearchCriteriaExactSignalingAddressType';
     protected $profile = null;
 
@@ -31,7 +29,7 @@ class SearchCriteriaExactSignalingAddressType extends ComplexType implements Com
     }
 
     /**
-     * @return SearchCriteriaExactSignalingAddressType
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +51,7 @@ class SearchCriteriaExactSignalingAddressType extends ComplexType implements Com
 
     /**
      * 
-     * @return SignalingAddressType
+     * @return SignalingAddressType $profile
      */
     public function getProfile()
     {

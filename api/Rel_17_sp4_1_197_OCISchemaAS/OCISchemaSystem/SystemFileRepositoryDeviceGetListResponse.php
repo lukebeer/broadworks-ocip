@@ -24,7 +24,7 @@ class SystemFileRepositoryDeviceGetListResponse extends ComplexType implements C
     protected $fileRepositoryTable = null;
 
     /**
-     * @return SystemFileRepositoryDeviceGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

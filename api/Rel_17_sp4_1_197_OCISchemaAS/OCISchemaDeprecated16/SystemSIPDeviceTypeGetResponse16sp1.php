@@ -60,7 +60,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
     protected $resetEvent                        = null;
 
     /**
-     * @return SystemSIPDeviceTypeGetResponse16sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemSIPDeviceTypeGetResponse16sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -80,7 +80,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isObsolete
      */
     public function getIsObsolete()
     {
@@ -100,7 +100,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return UnboundedPositiveInt
+     * @return UnboundedPositiveInt $numberOfPorts
      */
     public function getNumberOfPorts()
     {
@@ -122,7 +122,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SignalingAddressType
+     * @return SignalingAddressType $profile
      */
     public function getProfile()
     {
@@ -142,7 +142,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $registrationCapable
      */
     public function getRegistrationCapable()
     {
@@ -162,7 +162,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isConferenceDevice
      */
     public function getIsConferenceDevice()
     {
@@ -182,7 +182,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isMobilityManagerDevice
      */
     public function getIsMobilityManagerDevice()
     {
@@ -202,7 +202,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isMusicOnHoldDevice
      */
     public function getIsMusicOnHoldDevice()
     {
@@ -222,7 +222,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $RFC3264Hold
      */
     public function getRFC3264Hold()
     {
@@ -242,7 +242,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isTrusted
      */
     public function getIsTrusted()
     {
@@ -262,7 +262,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $E164Capable
      */
     public function getE164Capable()
     {
@@ -282,7 +282,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $routeAdvance
      */
     public function getRouteAdvance()
     {
@@ -302,7 +302,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forwardingOverride
      */
     public function getForwardingOverride()
     {
@@ -322,7 +322,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $wirelessIntegration
      */
     public function getWirelessIntegration()
     {
@@ -344,7 +344,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return WebBasedConfigURL
+     * @return WebBasedConfigURL $webBasedConfigURL
      */
     public function getWebBasedConfigURL()
     {
@@ -364,7 +364,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isVideoCapable
      */
     public function getIsVideoCapable()
     {
@@ -384,7 +384,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $PBXIntegration
      */
     public function getPBXIntegration()
     {
@@ -404,7 +404,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useBusinessTrunkingContact
      */
     public function getUseBusinessTrunkingContact()
     {
@@ -424,7 +424,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $staticRegistrationCapable
      */
     public function getStaticRegistrationCapable()
     {
@@ -444,7 +444,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CPEDeviceOptionsRead16sp1
+     * @return CPEDeviceOptionsRead16sp1 $cpeDeviceOptions
      */
     public function getCpeDeviceOptions()
     {
@@ -466,7 +466,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDeviceProtocol
+     * @return AccessDeviceProtocol $protocolChoice
      */
     public function getProtocolChoice()
     {
@@ -488,7 +488,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return EarlyMediaSupportType
+     * @return EarlyMediaSupportType $earlyMediaSupport
      */
     public function getEarlyMediaSupport()
     {
@@ -508,7 +508,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $authenticateRefer
      */
     public function getAuthenticateRefer()
     {
@@ -528,7 +528,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $autoConfigSoftClient
      */
     public function getAutoConfigSoftClient()
     {
@@ -550,7 +550,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return AuthenticationMode
+     * @return AuthenticationMode $authenticationMode
      */
     public function getAuthenticationMode()
     {
@@ -570,7 +570,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requiresBroadWorksDigitCollection
      */
     public function getRequiresBroadWorksDigitCollection()
     {
@@ -590,7 +590,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requiresBroadWorksCallWaitingTone
      */
     public function getRequiresBroadWorksCallWaitingTone()
     {
@@ -610,7 +610,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requiresMWISubscription
      */
     public function getRequiresMWISubscription()
     {
@@ -630,7 +630,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useHistoryInfoHeaderOnAccessSide
      */
     public function getUseHistoryInfoHeaderOnAccessSide()
     {
@@ -650,7 +650,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $adviceOfChargeCapable
      */
     public function getAdviceOfChargeCapable()
     {
@@ -672,7 +672,7 @@ class SystemSIPDeviceTypeGetResponse16sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDeviceResetEvent
+     * @return AccessDeviceResetEvent $resetEvent
      */
     public function getResetEvent()
     {

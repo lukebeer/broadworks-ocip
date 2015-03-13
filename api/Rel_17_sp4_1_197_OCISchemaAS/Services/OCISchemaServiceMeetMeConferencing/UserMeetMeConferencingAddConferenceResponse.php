@@ -24,7 +24,7 @@ class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements
     protected $moderatorPin = null;
 
     /**
-     * @return UserMeetMeConferencingAddConferenceResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingAddConferenceResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements
 
     /**
      * 
-     * @return MeetMeConferencingConferencePassCode
+     * @return MeetMeConferencingConferencePassCode $conferenceId
      */
     public function getConferenceId()
     {
@@ -68,7 +68,7 @@ class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements
 
     /**
      * 
-     * @return MeetMeConferencingConferencePassCode
+     * @return MeetMeConferencingConferencePassCode $moderatorPin
      */
     public function getModeratorPin()
     {

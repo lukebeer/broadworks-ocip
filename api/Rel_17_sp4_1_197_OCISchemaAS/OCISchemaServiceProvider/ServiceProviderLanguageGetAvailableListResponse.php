@@ -26,7 +26,7 @@ class ServiceProviderLanguageGetAvailableListResponse extends ComplexType implem
     protected $languageTable   = null;
 
     /**
-     * @return ServiceProviderLanguageGetAvailableListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderLanguageGetAvailableListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class ServiceProviderLanguageGetAvailableListResponse extends ComplexType implem
 
     /**
      * 
-     * @return Language
+     * @return Language $defaultLanguage
      */
     public function getDefaultLanguage()
     {

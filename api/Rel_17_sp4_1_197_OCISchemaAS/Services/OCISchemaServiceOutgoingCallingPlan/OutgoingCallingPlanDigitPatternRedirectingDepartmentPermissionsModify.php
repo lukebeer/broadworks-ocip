@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify';
     public    $name                    = 'OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify';
     protected $departmentKey           = null;
     protected $digitPatternPermissions = null;
@@ -34,7 +32,7 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify exte
     }
 
     /**
-     * @return OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify exte
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $departmentKey
      */
     public function getDepartmentKey()
     {
@@ -74,7 +72,7 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify exte
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $digitPatternPermissions
      */
     public function getDigitPatternPermissions()
     {

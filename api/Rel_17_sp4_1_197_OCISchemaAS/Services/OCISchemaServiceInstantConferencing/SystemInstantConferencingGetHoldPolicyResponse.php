@@ -28,7 +28,7 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
     protected $recordedConferenceHoldPeriodDays = null;
 
     /**
-     * @return SystemInstantConferencingGetHoldPolicyResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetHoldPolicyResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deleteExpiredConferences
      */
     public function getDeleteExpiredConferences()
     {
@@ -70,7 +70,7 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
 
     /**
      * 
-     * @return InstantConferencingExpiredConferenceHoldPeriodDays
+     * @return InstantConferencingExpiredConferenceHoldPeriodDays $expiredConferenceHoldPeriodDays
      */
     public function getExpiredConferenceHoldPeriodDays()
     {
@@ -90,7 +90,7 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deleteRecordedConferences
      */
     public function getDeleteRecordedConferences()
     {
@@ -112,7 +112,7 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
 
     /**
      * 
-     * @return InstantConferencingRecordedConferenceHoldPeriodDays
+     * @return InstantConferencingRecordedConferenceHoldPeriodDays $recordedConferenceHoldPeriodDays
      */
     public function getRecordedConferenceHoldPeriodDays()
     {

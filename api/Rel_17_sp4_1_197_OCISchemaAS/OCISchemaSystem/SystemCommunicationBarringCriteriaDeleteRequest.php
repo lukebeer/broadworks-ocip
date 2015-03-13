@@ -30,7 +30,7 @@ class SystemCommunicationBarringCriteriaDeleteRequest extends ComplexType implem
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemCommunicationBarringCriteriaDeleteRequest extends ComplexType implem
 
     /**
      * 
-     * @return CommunicationBarringCriteriaName
+     * @return CommunicationBarringCriteriaName $name
      */
     public function getName()
     {

@@ -25,7 +25,7 @@ class SystemAccessDeviceCustomTagGetListResponse extends ComplexType implements 
     protected $deviceCustomTagsTable = null;
 
     /**
-     * @return SystemAccessDeviceCustomTagGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceCustomTagGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

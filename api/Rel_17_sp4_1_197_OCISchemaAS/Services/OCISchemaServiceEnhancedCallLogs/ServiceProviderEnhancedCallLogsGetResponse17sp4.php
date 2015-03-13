@@ -25,7 +25,7 @@ class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implem
     protected $callExpirationDays = null;
 
     /**
-     * @return ServiceProviderEnhancedCallLogsGetResponse17sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\ServiceProviderEnhancedCallLogsGetResponse17sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implem
 
     /**
      * 
-     * @return EnhancedCallLogsMaxLoggedCalls17sp4
+     * @return EnhancedCallLogsMaxLoggedCalls17sp4 $maxLoggedCalls
      */
     public function getMaxLoggedCalls()
     {
@@ -69,7 +69,7 @@ class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implem
 
     /**
      * 
-     * @return EnhancedCallLogsCallExpirationDays
+     * @return EnhancedCallLogsCallExpirationDays $callExpirationDays
      */
     public function getCallExpirationDays()
     {

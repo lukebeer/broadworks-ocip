@@ -34,7 +34,7 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneListRequest extends Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneListRequest extends Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -76,7 +76,7 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneListRequest extends Complex
 
     /**
      * 
-     * @return xs:string
+     * @return string $homeZoneId
      */
     public function getHomeZoneId()
     {

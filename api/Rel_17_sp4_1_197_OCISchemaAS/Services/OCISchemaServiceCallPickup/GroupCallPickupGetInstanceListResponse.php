@@ -23,7 +23,7 @@ class GroupCallPickupGetInstanceListResponse extends ComplexType implements Comp
     protected $name = null;
 
     /**
-     * @return GroupCallPickupGetInstanceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPickup\GroupCallPickupGetInstanceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupCallPickupGetInstanceListResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {

@@ -35,7 +35,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
     protected $conferenceHostUserTable = null;
 
     /**
-     * @return GroupMeetMeConferencingGetInstanceResponse17sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetInstanceResponse17sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
 
     /**
      * 
-     * @return ServiceInstanceReadProfile17
+     * @return ServiceInstanceReadProfile17 $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -75,7 +75,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
 
     /**
      * 
-     * @return MeetMeConferencingConferencePorts
+     * @return MeetMeConferencingConferencePorts $allocatedPorts
      */
     public function getAllocatedPorts()
     {
@@ -97,7 +97,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {
@@ -117,7 +117,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowIndividualOutDial
      */
     public function getAllowIndividualOutDial()
     {
@@ -139,7 +139,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $operatorNumber
      */
     public function getOperatorNumber()
     {

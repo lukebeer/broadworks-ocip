@@ -26,7 +26,7 @@ class ServiceProviderDigitCollectionGetResponse13mp4 extends ComplexType impleme
     protected $privateDigitMap = null;
 
     /**
-     * @return ServiceProviderDigitCollectionGetResponse13mp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDigitCollectionGetResponse13mp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class ServiceProviderDigitCollectionGetResponse13mp4 extends ComplexType impleme
 
     /**
      * 
-     * @return AccessCode
+     * @return AccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -70,7 +70,7 @@ class ServiceProviderDigitCollectionGetResponse13mp4 extends ComplexType impleme
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $publicDigitMap
      */
     public function getPublicDigitMap()
     {
@@ -92,7 +92,7 @@ class ServiceProviderDigitCollectionGetResponse13mp4 extends ComplexType impleme
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $privateDigitMap
      */
     public function getPrivateDigitMap()
     {

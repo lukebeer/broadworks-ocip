@@ -38,7 +38,7 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
 
     /**
      * 
-     * @return NetAddressExtended
+     * @return NetAddressExtended $address
      */
     public function getAddress()
     {
@@ -82,7 +82,7 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
 
     /**
      * 
-     * @return ChargingFunctionElementServerType
+     * @return ChargingFunctionElementServerType $type
      */
     public function getType()
     {
@@ -104,7 +104,7 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
 
     /**
      * 
-     * @return ChargingFunctionElementServerDescription
+     * @return ChargingFunctionElementServerDescription $description
      */
     public function getDescription()
     {

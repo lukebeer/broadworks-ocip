@@ -64,7 +64,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -86,7 +86,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -108,7 +108,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
 
     /**
      * 
-     * @return CallCenterReportTemplateName
+     * @return CallCenterReportTemplateName $name
      */
     public function getName()
     {
@@ -130,7 +130,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
 
     /**
      * 
-     * @return CallCenterReportTemplateName
+     * @return CallCenterReportTemplateName $newName
      */
     public function getNewName()
     {
@@ -152,7 +152,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
 
     /**
      * 
-     * @return CallCenterReportTemplateDescription
+     * @return CallCenterReportTemplateDescription $description
      */
     public function getDescription()
     {
@@ -172,7 +172,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $xsltTemplate
      */
     public function getXsltTemplate()
     {
@@ -194,7 +194,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
 
     /**
      * 
-     * @return CallCenterReportTemplateAccessOption
+     * @return CallCenterReportTemplateAccessOption $scope
      */
     public function getScope()
     {
@@ -214,7 +214,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isEnabled
      */
     public function getIsEnabled()
     {
@@ -234,7 +234,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRealtimeReport
      */
     public function getIsRealtimeReport()
     {
@@ -256,7 +256,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
 
     /**
      * 
-     * @return CallCenterReportDataTemplateFilterNumber
+     * @return CallCenterReportDataTemplateFilterNumber $filterNumber
      */
     public function getFilterNumber()
     {
@@ -276,7 +276,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
 
     /**
      * 
-     * @return CallCenterReportDataTemplateQueryFilterValueReplacementList
+     * @return CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue
      */
     public function getFilterValue()
     {

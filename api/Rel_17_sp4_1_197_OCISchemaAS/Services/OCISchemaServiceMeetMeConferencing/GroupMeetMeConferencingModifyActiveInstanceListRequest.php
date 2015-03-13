@@ -30,7 +30,7 @@ class GroupMeetMeConferencingModifyActiveInstanceListRequest extends ComplexType
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupMeetMeConferencingModifyActiveInstanceListRequest extends ComplexType
 
     /**
      * 
-     * @return ServiceActivation
+     * @return ServiceActivation $serviceActivation
      */
     public function getServiceActivation()
     {

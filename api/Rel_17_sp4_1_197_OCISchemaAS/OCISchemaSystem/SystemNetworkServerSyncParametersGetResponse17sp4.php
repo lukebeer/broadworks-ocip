@@ -29,7 +29,7 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
     protected $syncTrunkGroups          = null;
 
     /**
-     * @return SystemNetworkServerSyncParametersGetResponse17sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkServerSyncParametersGetResponse17sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSync
      */
     public function getEnableSync()
     {
@@ -69,7 +69,7 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $syncLinePorts
      */
     public function getSyncLinePorts()
     {
@@ -89,7 +89,7 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $syncDeviceManagementInfo
      */
     public function getSyncDeviceManagementInfo()
     {
@@ -109,7 +109,7 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $syncTrunkGroups
      */
     public function getSyncTrunkGroups()
     {

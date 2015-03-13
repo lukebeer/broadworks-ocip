@@ -43,7 +43,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
     protected $t10TMinutes              = null;
 
     /**
-     * @return SystemLegacyAutomaticCallbackGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\SystemLegacyAutomaticCallbackGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return LegacyAutomaticCallbackMaxMonitorsPerOriginator
+     * @return LegacyAutomaticCallbackMaxMonitorsPerOriginator $maxMonitorsPerOriginator
      */
     public function getMaxMonitorsPerOriginator()
     {
@@ -87,7 +87,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return LegacyAutomaticCallbackMaxMonitorsPerTerminator
+     * @return LegacyAutomaticCallbackMaxMonitorsPerTerminator $maxMonitorsPerTerminator
      */
     public function getMaxMonitorsPerTerminator()
     {
@@ -109,7 +109,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return LegacyAutomaticCallbackT2Minutes
+     * @return LegacyAutomaticCallbackT2Minutes $t2Minutes
      */
     public function getT2Minutes()
     {
@@ -131,7 +131,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return LegacyAutomaticCallbackT4Seconds
+     * @return LegacyAutomaticCallbackT4Seconds $t4Seconds
      */
     public function getT4Seconds()
     {
@@ -153,7 +153,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return LegacyAutomaticCallbackT5Seconds
+     * @return LegacyAutomaticCallbackT5Seconds $t5Seconds
      */
     public function getT5Seconds()
     {
@@ -175,7 +175,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return LegacyAutomaticCallbackT6Minutes
+     * @return LegacyAutomaticCallbackT6Minutes $t6Minutes
      */
     public function getT6Minutes()
     {
@@ -197,7 +197,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return LegacyAutomaticCallbackT7Minutes
+     * @return LegacyAutomaticCallbackT7Minutes $t7Minutes
      */
     public function getT7Minutes()
     {
@@ -219,7 +219,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return LegacyAutomaticCallbackT8Seconds
+     * @return LegacyAutomaticCallbackT8Seconds $t8Seconds
      */
     public function getT8Seconds()
     {
@@ -241,7 +241,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return LegacyAutomaticCallbackTRingSeconds
+     * @return LegacyAutomaticCallbackTRingSeconds $tRingSeconds
      */
     public function getTRingSeconds()
     {
@@ -263,7 +263,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return LegacyAutomaticCallbackT10OMinutes
+     * @return LegacyAutomaticCallbackT10OMinutes $t10OMinutes
      */
     public function getT10OMinutes()
     {
@@ -285,7 +285,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return LegacyAutomaticCallbackT10TMinutes
+     * @return LegacyAutomaticCallbackT10TMinutes $t10TMinutes
      */
     public function getT10TMinutes()
     {

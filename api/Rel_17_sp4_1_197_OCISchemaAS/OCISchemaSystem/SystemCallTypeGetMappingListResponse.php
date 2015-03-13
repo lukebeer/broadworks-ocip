@@ -24,7 +24,7 @@ class SystemCallTypeGetMappingListResponse extends ComplexType implements Comple
     protected $callTypeMapping = null;
 
     /**
-     * @return SystemCallTypeGetMappingListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallTypeGetMappingListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

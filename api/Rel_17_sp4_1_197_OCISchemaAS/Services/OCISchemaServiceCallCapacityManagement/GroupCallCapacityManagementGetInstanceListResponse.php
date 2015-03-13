@@ -24,7 +24,7 @@ class GroupCallCapacityManagementGetInstanceListResponse extends ComplexType imp
     protected $callCapacityGroupTable = null;
 
     /**
-     * @return GroupCallCapacityManagementGetInstanceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCapacityManagement\GroupCallCapacityManagementGetInstanceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

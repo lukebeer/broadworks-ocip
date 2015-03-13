@@ -24,7 +24,7 @@ class SystemTreatmentMappingNetworkServerTreatmentGetListResponse extends Comple
     protected $treatmentMappingTable = null;
 
     /**
-     * @return SystemTreatmentMappingNetworkServerTreatmentGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingNetworkServerTreatmentGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

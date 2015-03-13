@@ -37,7 +37,7 @@ class ServiceProviderServicePackMigrationTaskCopyRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class ServiceProviderServicePackMigrationTaskCopyRequest extends ComplexType imp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -81,7 +81,7 @@ class ServiceProviderServicePackMigrationTaskCopyRequest extends ComplexType imp
 
     /**
      * 
-     * @return ServicePackMigrationTaskName
+     * @return ServicePackMigrationTaskName $taskName
      */
     public function getTaskName()
     {

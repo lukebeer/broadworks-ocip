@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterStatisticsRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,7 +35,7 @@ class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType imple
     }
 
     /**
-     * @return GroupCallCenterGetInstanceStatisticsResponse14sp9
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +57,7 @@ class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType imple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -78,7 +77,7 @@ class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterStatisticsRange
+     * @return CallCenterStatisticsRange $statisticsRange
      */
     public function getStatisticsRange()
     {

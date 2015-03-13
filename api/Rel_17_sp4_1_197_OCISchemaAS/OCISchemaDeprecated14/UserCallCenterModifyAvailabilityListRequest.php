@@ -36,7 +36,7 @@ class UserCallCenterModifyAvailabilityListRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class UserCallCenterModifyAvailabilityListRequest extends ComplexType implements
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -78,7 +78,7 @@ class UserCallCenterModifyAvailabilityListRequest extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAgentAvailability
+     * @return CallCenterAgentAvailability $callCenterAvailability
      */
     public function getCallCenterAvailability()
     {

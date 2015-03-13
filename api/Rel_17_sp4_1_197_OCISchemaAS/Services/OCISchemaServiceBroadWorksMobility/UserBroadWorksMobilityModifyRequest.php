@@ -67,7 +67,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -89,7 +89,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -109,7 +109,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -131,7 +131,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return BroadWorksMobilityPhoneToRing
+     * @return BroadWorksMobilityPhoneToRing $phonesToRing
      */
     public function getPhonesToRing()
     {
@@ -153,7 +153,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return DN
+     * @return DN $mobilePhoneNumber
      */
     public function getMobilePhoneNumber()
     {
@@ -173,7 +173,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alertClickToDialCalls
      */
     public function getAlertClickToDialCalls()
     {
@@ -193,7 +193,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alertGroupPagingCalls
      */
     public function getAlertGroupPagingCalls()
     {
@@ -213,7 +213,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDiversionInhibitor
      */
     public function getEnableDiversionInhibitor()
     {
@@ -233,7 +233,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireAnswerConfirmation
      */
     public function getRequireAnswerConfirmation()
     {
@@ -253,7 +253,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $broadworksCallControl
      */
     public function getBroadworksCallControl()
     {
@@ -275,7 +275,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return BroadWorksMobilityUserSettingLevel
+     * @return BroadWorksMobilityUserSettingLevel $useSettingLevel
      */
     public function getUseSettingLevel()
     {
@@ -295,7 +295,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallOriginations
      */
     public function getDenyCallOriginations()
     {
@@ -315,7 +315,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallTerminations
      */
     public function getDenyCallTerminations()
     {

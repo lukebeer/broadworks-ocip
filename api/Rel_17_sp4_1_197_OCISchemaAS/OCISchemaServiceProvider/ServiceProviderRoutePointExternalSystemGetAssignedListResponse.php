@@ -25,7 +25,7 @@ class ServiceProviderRoutePointExternalSystemGetAssignedListResponse extends Com
     protected $externalSystemTable = null;
 
     /**
-     * @return ServiceProviderRoutePointExternalSystemGetAssignedListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemGetAssignedListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

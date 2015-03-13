@@ -39,7 +39,7 @@ class ServiceProviderDnDeleteListRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class ServiceProviderDnDeleteListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -83,7 +83,7 @@ class ServiceProviderDnDeleteListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -103,7 +103,7 @@ class ServiceProviderDnDeleteListRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DNRange
+     * @return DNRange $dnRange
      */
     public function getDnRange()
     {

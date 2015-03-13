@@ -24,7 +24,7 @@ class SystemNetworkServerSyncParametersGetResponse extends ComplexType implement
     protected $enableSync = null;
 
     /**
-     * @return SystemNetworkServerSyncParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemNetworkServerSyncParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class SystemNetworkServerSyncParametersGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSync
      */
     public function getEnableSync()
     {

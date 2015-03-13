@@ -25,7 +25,7 @@ class GroupDepartmentAdminGetListResponse extends ComplexType implements Complex
     protected $departmentAdminTable = null;
 
     /**
-     * @return GroupDepartmentAdminGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

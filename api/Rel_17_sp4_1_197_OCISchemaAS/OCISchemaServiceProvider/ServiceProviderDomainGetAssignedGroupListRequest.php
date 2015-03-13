@@ -11,8 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDomainGetAssignedGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -50,7 +48,7 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
     }
 
     /**
-     * @return ServiceProviderDomainGetAssignedGroupListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDomainGetAssignedGroupListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +70,7 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -94,7 +92,7 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $domain
      */
     public function getDomain()
     {
@@ -116,7 +114,7 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -138,7 +136,7 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -160,7 +158,7 @@ class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType imple
 
     /**
      * 
-     * @return SearchCriteriaGroupName
+     * @return SearchCriteriaGroupName $searchCriteriaGroupName
      */
     public function getSearchCriteriaGroupName()
     {

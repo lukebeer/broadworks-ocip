@@ -26,7 +26,7 @@ class SystemClientSessionParametersGetResponse extends ComplexType implements Co
     protected $inactivityTimeoutMinutes = null;
 
     /**
-     * @return SystemClientSessionParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemClientSessionParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemClientSessionParametersGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableInactivityTimeout
      */
     public function getEnableInactivityTimeout()
     {
@@ -68,7 +68,7 @@ class SystemClientSessionParametersGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return ClientSessionTimeoutMinutes
+     * @return ClientSessionTimeoutMinutes $inactivityTimeoutMinutes
      */
     public function getInactivityTimeoutMinutes()
     {

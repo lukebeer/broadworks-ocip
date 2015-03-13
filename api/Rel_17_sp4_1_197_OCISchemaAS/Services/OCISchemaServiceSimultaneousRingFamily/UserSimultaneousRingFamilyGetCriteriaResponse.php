@@ -29,7 +29,7 @@ class UserSimultaneousRingFamilyGetCriteriaResponse extends ComplexType implemen
     protected $fromDnCriteria  = null;
 
     /**
-     * @return UserSimultaneousRingFamilyGetCriteriaResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSimultaneousRingFamily\UserSimultaneousRingFamilyGetCriteriaResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserSimultaneousRingFamilyGetCriteriaResponse extends ComplexType implemen
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -69,7 +69,7 @@ class UserSimultaneousRingFamilyGetCriteriaResponse extends ComplexType implemen
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -89,7 +89,7 @@ class UserSimultaneousRingFamilyGetCriteriaResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {
@@ -109,7 +109,7 @@ class UserSimultaneousRingFamilyGetCriteriaResponse extends ComplexType implemen
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

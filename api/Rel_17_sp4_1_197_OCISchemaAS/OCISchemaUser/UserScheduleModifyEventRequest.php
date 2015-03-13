@@ -51,7 +51,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -73,7 +73,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -93,7 +93,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {
@@ -115,7 +115,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return EventName
+     * @return EventName $eventName
      */
     public function getEventName()
     {
@@ -137,7 +137,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return EventName
+     * @return EventName $newEventName
      */
     public function getNewEventName()
     {
@@ -156,7 +156,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $startDate
      */
     public function getStartDate()
     {
@@ -175,7 +175,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $endDate
      */
     public function getEndDate()
     {
@@ -195,7 +195,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return Recurrence
+     * @return Recurrence $recurrence
      */
     public function getRecurrence()
     {

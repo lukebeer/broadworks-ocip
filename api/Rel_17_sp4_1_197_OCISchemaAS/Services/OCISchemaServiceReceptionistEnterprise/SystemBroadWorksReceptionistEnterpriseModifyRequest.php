@@ -30,7 +30,7 @@ class SystemBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return MaximumMonitoredUsers
+     * @return MaximumMonitoredUsers $maxMonitoredUsers
      */
     public function getMaxMonitoredUsers()
     {

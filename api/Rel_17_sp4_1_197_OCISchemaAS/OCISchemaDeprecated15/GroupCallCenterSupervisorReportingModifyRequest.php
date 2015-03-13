@@ -41,7 +41,7 @@ class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implem
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -85,7 +85,7 @@ class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return CallCenterReportingServerName
+     * @return CallCenterReportingServerName $reportingServerName
      */
     public function getReportingServerName()
     {
@@ -105,7 +105,7 @@ class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $supervisorUserIdList
      */
     public function getSupervisorUserIdList()
     {

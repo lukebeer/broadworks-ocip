@@ -38,7 +38,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
     protected $videoMediaTypeList               = null;
 
     /**
-     * @return GroupRoutePointForcedForwardingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointForcedForwardingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -80,7 +80,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -100,7 +100,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementBeforeForwarding
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
@@ -122,7 +122,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -142,7 +142,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $audioUrlList
      */
     public function getAudioUrlList()
     {
@@ -162,7 +162,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $audioFileList
      */
     public function getAudioFileList()
     {
@@ -182,7 +182,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList
      */
     public function getAudioMediaTypeList()
     {
@@ -204,7 +204,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -224,7 +224,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $videoUrlList
      */
     public function getVideoUrlList()
     {
@@ -244,7 +244,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $videoFileList
      */
     public function getVideoFileList()
     {
@@ -264,7 +264,7 @@ class GroupRoutePointForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList
      */
     public function getVideoMediaTypeList()
     {

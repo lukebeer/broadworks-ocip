@@ -42,7 +42,7 @@ class GroupEnterpriseTrunkDeleteUserListRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupEnterpriseTrunkDeleteUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupEnterpriseTrunkDeleteUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +108,7 @@ class GroupEnterpriseTrunkDeleteUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return EnterpriseTrunkName
+     * @return EnterpriseTrunkName $enterpriseTrunkName
      */
     public function getEnterpriseTrunkName()
     {
@@ -130,7 +130,7 @@ class GroupEnterpriseTrunkDeleteUserListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {

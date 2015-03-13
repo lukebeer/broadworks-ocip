@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecordingKey extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingKey';
     public    $name                = 'InstantConferencingRecordingKey';
     protected $bridgeServiceUserId = null;
     protected $recordingId         = null;
@@ -34,7 +32,7 @@ class InstantConferencingRecordingKey extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return InstantConferencingRecordingKey
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class InstantConferencingRecordingKey extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $bridgeServiceUserId
      */
     public function getBridgeServiceUserId()
     {
@@ -74,7 +72,7 @@ class InstantConferencingRecordingKey extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $recordingId
      */
     public function getRecordingId()
     {

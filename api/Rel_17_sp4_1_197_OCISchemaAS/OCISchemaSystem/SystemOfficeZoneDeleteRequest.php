@@ -30,7 +30,7 @@ class SystemOfficeZoneDeleteRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemOfficeZoneDeleteRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return OfficeZoneName
+     * @return OfficeZoneName $officeZoneName
      */
     public function getOfficeZoneName()
     {

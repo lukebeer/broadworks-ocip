@@ -40,7 +40,7 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +62,7 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return PhysicalLocationIndicator
+     * @return PhysicalLocationIndicator $physicalLocationIndicator
      */
     public function getPhysicalLocationIndicator()
     {
@@ -82,7 +82,7 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceMscValidation
      */
     public function getEnforceMscValidation()
     {
@@ -102,7 +102,7 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableOfficeZoneAnnouncement
      */
     public function getEnableOfficeZoneAnnouncement()
     {
@@ -122,7 +122,7 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enhanceOfficeZone
      */
     public function getEnhanceOfficeZone()
     {

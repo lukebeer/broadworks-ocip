@@ -32,7 +32,7 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
     protected $readOnly  = null;
 
     /**
-     * @return SystemAdminGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAdminGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {
@@ -76,7 +76,7 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -98,7 +98,7 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Language
+     * @return Language $language
      */
     public function getLanguage()
     {
@@ -120,7 +120,7 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SystemAdminType
+     * @return SystemAdminType $adminType
      */
     public function getAdminType()
     {
@@ -140,7 +140,7 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $readOnly
      */
     public function getReadOnly()
     {

@@ -24,7 +24,7 @@ class EnterpriseBroadWorksMobileManagerGetDomainListResponse extends ComplexType
     protected $domainName = null;
 
     /**
-     * @return EnterpriseBroadWorksMobileManagerGetDomainListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetDomainListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class EnterpriseBroadWorksMobileManagerGetDomainListResponse extends ComplexType
 
     /**
      * 
-     * @return BroadWorksMobileManagerDomainName
+     * @return BroadWorksMobileManagerDomainName $domainName
      */
     public function getDomainName()
     {

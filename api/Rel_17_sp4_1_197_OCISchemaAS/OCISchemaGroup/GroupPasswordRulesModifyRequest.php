@@ -98,7 +98,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -120,7 +120,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -142,7 +142,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -162,7 +162,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserId
      */
     public function getDisallowUserId()
     {
@@ -182,7 +182,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPassword
      */
     public function getDisallowOldPassword()
     {
@@ -202,7 +202,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPassword
      */
     public function getDisallowReversedOldPassword()
     {
@@ -222,7 +222,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinDigits
      */
     public function getRestrictMinDigits()
     {
@@ -244,7 +244,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return PasswordMinDigits
+     * @return PasswordMinDigits $minDigits
      */
     public function getMinDigits()
     {
@@ -264,7 +264,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinUpperCaseLetters
      */
     public function getRestrictMinUpperCaseLetters()
     {
@@ -286,7 +286,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return PasswordMinUpperCaseLetters
+     * @return PasswordMinUpperCaseLetters $minUpperCaseLetters
      */
     public function getMinUpperCaseLetters()
     {
@@ -306,7 +306,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinLowerCaseLetters
      */
     public function getRestrictMinLowerCaseLetters()
     {
@@ -328,7 +328,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return PasswordMinLowerCaseLetters
+     * @return PasswordMinLowerCaseLetters $minLowerCaseLetters
      */
     public function getMinLowerCaseLetters()
     {
@@ -348,7 +348,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinNonAlphanumericCharacters
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
@@ -370,7 +370,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return PasswordMinNonAlphanumericCharacters
+     * @return PasswordMinNonAlphanumericCharacters $minNonAlphanumericCharacters
      */
     public function getMinNonAlphanumericCharacters()
     {
@@ -392,7 +392,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return PasswordMinLength
+     * @return PasswordMinLength $minLength
      */
     public function getMinLength()
     {
@@ -414,7 +414,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return MaxFailedLoginAttempts
+     * @return MaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -436,7 +436,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return PasswordExpiresDays
+     * @return PasswordExpiresDays $passwordExpiresDays
      */
     public function getPasswordExpiresDays()
     {
@@ -456,7 +456,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -478,7 +478,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
@@ -498,7 +498,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowPreviousPasswords
      */
     public function getDisallowPreviousPasswords()
     {
@@ -520,7 +520,7 @@ class GroupPasswordRulesModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return PasswordHistoryCount
+     * @return PasswordHistoryCount $numberOfPreviousPasswords
      */
     public function getNumberOfPreviousPasswords()
     {

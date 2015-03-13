@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterface
 {
-    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceInstanceReadProfile17';
     public    $name                   = 'ServiceInstanceReadProfile17';
     protected $name                   = null;
     protected $callingLineIdLastName  = null;
@@ -68,7 +66,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return ServiceInstanceReadProfile17
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -88,7 +86,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $name
      */
     public function getName()
     {
@@ -108,7 +106,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
@@ -128,7 +126,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
@@ -148,7 +146,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $hiraganaLastName
      */
     public function getHiraganaLastName()
     {
@@ -168,7 +166,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $hiraganaFirstName
      */
     public function getHiraganaFirstName()
     {
@@ -188,7 +186,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -208,7 +206,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $extension
      */
     public function getExtension()
     {
@@ -228,7 +226,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $department
      */
     public function getDepartment()
     {
@@ -248,7 +246,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $language
      */
     public function getLanguage()
     {
@@ -268,7 +266,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeZone
      */
     public function getTimeZone()
     {
@@ -288,7 +286,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeZoneDisplayName
      */
     public function getTimeZoneDisplayName()
     {
@@ -308,7 +306,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $alias
      */
     public function getAlias()
     {
@@ -328,7 +326,7 @@ class ServiceInstanceReadProfile17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $publicUserIdentity
      */
     public function getPublicUserIdentity()
     {

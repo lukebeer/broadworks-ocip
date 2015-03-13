@@ -51,7 +51,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -73,7 +73,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -93,7 +93,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRecallActive
      */
     public function getIsRecallActive()
     {
@@ -115,7 +115,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallTransferRecallNumberOfRings
+     * @return CallTransferRecallNumberOfRings $recallNumberOfRings
      */
     public function getRecallNumberOfRings()
     {
@@ -135,7 +135,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDiversionInhibitorForBlindTransfer
      */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
@@ -155,7 +155,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDiversionInhibitorForConsultativeCalls
      */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {
@@ -175,7 +175,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableBusyCampOn
      */
     public function getEnableBusyCampOn()
     {
@@ -197,7 +197,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallTransferBusyCampOnSeconds
+     * @return CallTransferBusyCampOnSeconds $busyCampOnSeconds
      */
     public function getBusyCampOnSeconds()
     {

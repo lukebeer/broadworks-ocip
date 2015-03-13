@@ -100,7 +100,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -122,7 +122,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -144,7 +144,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringProfileName
+     * @return CommunicationBarringProfileName $name
      */
     public function getName()
     {
@@ -166,7 +166,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringProfileDescription
+     * @return CommunicationBarringProfileDescription $description
      */
     public function getDescription()
     {
@@ -188,7 +188,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringOriginatingAction
+     * @return CommunicationBarringOriginatingAction $originatingDefaultAction
      */
     public function getOriginatingDefaultAction()
     {
@@ -210,7 +210,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $originatingDefaultTreatmentId
      */
     public function getOriginatingDefaultTreatmentId()
     {
@@ -232,7 +232,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $originatingDefaultTransferNumber
      */
     public function getOriginatingDefaultTransferNumber()
     {
@@ -254,7 +254,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $originatingDefaultCallTimeout
      */
     public function getOriginatingDefaultCallTimeout()
     {
@@ -274,7 +274,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return ServiceProviderCommunicationBarringHierarchicalOriginatingRule
+     * @return ServiceProviderCommunicationBarringHierarchicalOriginatingRule $originatingRule
      */
     public function getOriginatingRule()
     {
@@ -296,7 +296,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringRedirectingAction
+     * @return CommunicationBarringRedirectingAction $redirectingDefaultAction
      */
     public function getRedirectingDefaultAction()
     {
@@ -318,7 +318,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $redirectingDefaultCallTimeout
      */
     public function getRedirectingDefaultCallTimeout()
     {
@@ -338,7 +338,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return ServiceProviderCommunicationBarringHierarchicalRedirectingRule
+     * @return ServiceProviderCommunicationBarringHierarchicalRedirectingRule $redirectingRule
      */
     public function getRedirectingRule()
     {
@@ -360,7 +360,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringCallMeNowAction
+     * @return CommunicationBarringCallMeNowAction $callMeNowDefaultAction
      */
     public function getCallMeNowDefaultAction()
     {
@@ -382,7 +382,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $callMeNowDefaultCallTimeout
      */
     public function getCallMeNowDefaultCallTimeout()
     {
@@ -402,7 +402,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return ServiceProviderCommunicationBarringHierarchicalCallMeNowRule
+     * @return ServiceProviderCommunicationBarringHierarchicalCallMeNowRule $callMeNowRule
      */
     public function getCallMeNowRule()
     {
@@ -424,7 +424,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringIncomingAction
+     * @return CommunicationBarringIncomingAction $incomingDefaultAction
      */
     public function getIncomingDefaultAction()
     {
@@ -446,7 +446,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $incomingDefaultCallTimeout
      */
     public function getIncomingDefaultCallTimeout()
     {
@@ -466,7 +466,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringIncomingRule
+     * @return CommunicationBarringIncomingRule $incomingRule
      */
     public function getIncomingRule()
     {
@@ -486,7 +486,7 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $becomeDefault
      */
     public function getBecomeDefault()
     {

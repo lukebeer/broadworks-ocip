@@ -26,7 +26,7 @@ class GroupDepartmentGetListResponse extends ComplexType implements ComplexInter
     protected $fullPathName  = null;
 
     /**
-     * @return GroupDepartmentGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupDepartmentGetListResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $departmentKey
      */
     public function getDepartmentKey()
     {
@@ -68,7 +68,7 @@ class GroupDepartmentGetListResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DepartmentFullPathName
+     * @return DepartmentFullPathName $fullPathName
      */
     public function getFullPathName()
     {

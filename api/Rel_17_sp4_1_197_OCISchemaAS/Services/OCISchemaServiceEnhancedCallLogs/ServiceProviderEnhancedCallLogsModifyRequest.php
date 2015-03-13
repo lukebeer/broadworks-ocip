@@ -40,7 +40,7 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +62,7 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -84,7 +84,7 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return EnhancedCallLogsMaxLoggedCalls17sp4
+     * @return EnhancedCallLogsMaxLoggedCalls17sp4 $maxLoggedCalls
      */
     public function getMaxLoggedCalls()
     {
@@ -106,7 +106,7 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return EnhancedCallLogsCallExpirationDays
+     * @return EnhancedCallLogsCallExpirationDays $callExpirationDays
      */
     public function getCallExpirationDays()
     {

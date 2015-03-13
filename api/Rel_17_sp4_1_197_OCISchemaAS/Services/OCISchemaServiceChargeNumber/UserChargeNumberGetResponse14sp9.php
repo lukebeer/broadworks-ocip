@@ -26,7 +26,7 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
     protected $sendChargeNumberToNetwork              = null;
 
     /**
-     * @return UserChargeNumberGetResponse14sp9
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceChargeNumber\UserChargeNumberGetResponse14sp9 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -68,7 +68,7 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useChargeNumberForEnhancedTranslations
      */
     public function getUseChargeNumberForEnhancedTranslations()
     {
@@ -88,7 +88,7 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendChargeNumberToNetwork
      */
     public function getSendChargeNumberToNetwork()
     {

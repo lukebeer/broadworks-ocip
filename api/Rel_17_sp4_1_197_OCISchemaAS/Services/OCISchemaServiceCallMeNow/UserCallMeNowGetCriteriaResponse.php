@@ -29,7 +29,7 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
     protected $toDnCriteria    = null;
 
     /**
-     * @return UserCallMeNowGetCriteriaResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\UserCallMeNowGetCriteriaResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -69,7 +69,7 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -89,7 +89,7 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $rejectCall
      */
     public function getRejectCall()
     {
@@ -109,7 +109,7 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CallMeNowToDnCriteria
+     * @return CallMeNowToDnCriteria $toDnCriteria
      */
     public function getToDnCriteria()
     {

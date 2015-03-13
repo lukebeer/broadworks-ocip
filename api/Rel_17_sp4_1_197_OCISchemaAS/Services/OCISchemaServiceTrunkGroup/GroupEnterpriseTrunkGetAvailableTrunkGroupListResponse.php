@@ -23,7 +23,7 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse extends ComplexType
     protected $trunkGroupName = null;
 
     /**
-     * @return GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListResponse extends ComplexType
 
     /**
      * 
-     * @return TrunkGroupName
+     * @return TrunkGroupName $trunkGroupName
      */
     public function getTrunkGroupName()
     {

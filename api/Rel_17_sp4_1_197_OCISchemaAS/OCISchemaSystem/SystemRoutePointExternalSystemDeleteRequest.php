@@ -30,7 +30,7 @@ class SystemRoutePointExternalSystemDeleteRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemRoutePointExternalSystemDeleteRequest extends ComplexType implements
 
     /**
      * 
-     * @return RoutePointExternalSystem
+     * @return RoutePointExternalSystem $name
      */
     public function getName()
     {

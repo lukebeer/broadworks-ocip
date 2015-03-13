@@ -24,7 +24,7 @@ class SystemCallCenterGetResponse extends ComplexType implements ComplexInterfac
     protected $defaultFromAddress = null;
 
     /**
-     * @return SystemCallCenterGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCallCenterGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemCallCenterGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList';
     public    $name = 'ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList';
     protected $rule = null;
 
@@ -32,7 +30,7 @@ class ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleL
     }
 
     /**
-     * @return ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +50,7 @@ class ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleL
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $rule
      */
     public function getRule()
     {

@@ -35,7 +35,7 @@ class GroupFeatureAccessCodeModifyListRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class GroupFeatureAccessCodeModifyListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -79,7 +79,7 @@ class GroupFeatureAccessCodeModifyListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {

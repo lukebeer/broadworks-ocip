@@ -42,7 +42,7 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return SMDIDeviceName
+     * @return SMDIDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -86,7 +86,7 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -108,7 +108,7 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return Port
+     * @return Port $port
      */
     public function getPort()
     {
@@ -130,7 +130,7 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return SMDIServerDescription
+     * @return SMDIServerDescription $description
      */
     public function getDescription()
     {

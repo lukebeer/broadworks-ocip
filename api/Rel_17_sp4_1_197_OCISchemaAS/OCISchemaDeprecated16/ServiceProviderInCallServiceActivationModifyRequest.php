@@ -35,7 +35,7 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -79,7 +79,7 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return InCallServiceActivationDigits
+     * @return InCallServiceActivationDigits $activationDigits
      */
     public function getActivationDigits()
     {

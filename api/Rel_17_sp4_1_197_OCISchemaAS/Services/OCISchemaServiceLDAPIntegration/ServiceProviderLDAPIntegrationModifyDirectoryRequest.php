@@ -100,7 +100,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -122,7 +122,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -144,7 +144,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $serverNetAddress
      */
     public function getServerNetAddress()
     {
@@ -166,7 +166,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return Port
+     * @return Port $serverPort
      */
     public function getServerPort()
     {
@@ -188,7 +188,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPSearchBase
+     * @return LDAPSearchBase $searchBase
      */
     public function getSearchBase()
     {
@@ -208,7 +208,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSSL
      */
     public function getUseSSL()
     {
@@ -228,7 +228,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireAuthentication
      */
     public function getRequireAuthentication()
     {
@@ -250,7 +250,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPAuthenticatedDN
+     * @return LDAPAuthenticatedDN $authenticatedDN
      */
     public function getAuthenticatedDN()
     {
@@ -272,7 +272,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPAuthenticatedPassword
+     * @return LDAPAuthenticatedPassword $authenticatedPassword
      */
     public function getAuthenticatedPassword()
     {
@@ -292,7 +292,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSortEnabled
      */
     public function getIsSortEnabled()
     {
@@ -312,7 +312,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isPagedResultEnabled
      */
     public function getIsPagedResultEnabled()
     {
@@ -334,7 +334,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPSearchFilter
+     * @return LDAPSearchFilter $searchFilter
      */
     public function getSearchFilter()
     {
@@ -354,7 +354,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeSearchAttributeInSearchFilter
      */
     public function getIncludeSearchAttributeInSearchFilter()
     {
@@ -376,7 +376,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column1AttributeName
      */
     public function getColumn1AttributeName()
     {
@@ -398,7 +398,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column2AttributeName
      */
     public function getColumn2AttributeName()
     {
@@ -420,7 +420,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column3AttributeName
      */
     public function getColumn3AttributeName()
     {
@@ -442,7 +442,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column4AttributeName
      */
     public function getColumn4AttributeName()
     {
@@ -464,7 +464,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column1Label
      */
     public function getColumn1Label()
     {
@@ -486,7 +486,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column2Label
      */
     public function getColumn2Label()
     {
@@ -508,7 +508,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column3Label
      */
     public function getColumn3Label()
     {
@@ -530,7 +530,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column4Label
      */
     public function getColumn4Label()
     {
@@ -552,7 +552,7 @@ class ServiceProviderLDAPIntegrationModifyDirectoryRequest extends ComplexType i
 
     /**
      * 
-     * @return LDAPSearchColumn
+     * @return LDAPSearchColumn $searchColumn
      */
     public function getSearchColumn()
     {

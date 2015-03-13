@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddressRange;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\IPAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ZoneName;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -39,7 +38,7 @@ class SystemZoneCallingRestrictionsNetAddressDeleteListRequest extends ComplexTy
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +60,7 @@ class SystemZoneCallingRestrictionsNetAddressDeleteListRequest extends ComplexTy
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $zoneName
      */
     public function getZoneName()
     {
@@ -83,7 +82,7 @@ class SystemZoneCallingRestrictionsNetAddressDeleteListRequest extends ComplexTy
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -103,7 +102,7 @@ class SystemZoneCallingRestrictionsNetAddressDeleteListRequest extends ComplexTy
 
     /**
      * 
-     * @return IPAddressRange
+     * @return IPAddressRange $netAddressRange
      */
     public function getNetAddressRange()
     {

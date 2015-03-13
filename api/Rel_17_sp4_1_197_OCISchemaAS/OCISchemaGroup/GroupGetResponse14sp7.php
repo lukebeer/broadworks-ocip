@@ -45,7 +45,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
     protected $address                         = null;
 
     /**
-     * @return GroupGetResponse14sp7
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetResponse14sp7 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $defaultDomain
      */
     public function getDefaultDomain()
     {
@@ -89,7 +89,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserLimit
+     * @return GroupUserLimit $userLimit
      */
     public function getUserLimit()
     {
@@ -109,7 +109,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:int
+     * @return int $userCount
      */
     public function getUserCount()
     {
@@ -131,7 +131,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupName
+     * @return GroupName $groupName
      */
     public function getGroupName()
     {
@@ -153,7 +153,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupCallingLineIdName
+     * @return GroupCallingLineIdName $callingLineIdName
      */
     public function getCallingLineIdName()
     {
@@ -175,7 +175,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DN
+     * @return DN $callingLineIdPhoneNumber
      */
     public function getCallingLineIdPhoneNumber()
     {
@@ -197,7 +197,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DN
+     * @return DN $callingLineIdDisplayPhoneNumber
      */
     public function getCallingLineIdDisplayPhoneNumber()
     {
@@ -219,7 +219,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return TimeZone
+     * @return TimeZone $timeZone
      */
     public function getTimeZone()
     {
@@ -241,7 +241,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return TimeZoneDisplayName
+     * @return TimeZoneDisplayName $timeZoneDisplayName
      */
     public function getTimeZoneDisplayName()
     {
@@ -263,7 +263,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LocationDialingCode
+     * @return LocationDialingCode $locationDialingCode
      */
     public function getLocationDialingCode()
     {
@@ -283,7 +283,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Contact
+     * @return Contact $contact
      */
     public function getContact()
     {
@@ -303,7 +303,7 @@ class GroupGetResponse14sp7 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return StreetAddress
+     * @return StreetAddress $address
      */
     public function getAddress()
     {

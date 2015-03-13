@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemAccessDeviceFileGetResponse14sp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -37,7 +36,7 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
     }
 
     /**
-     * @return SystemAccessDeviceFileGetResponse14sp8
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemAccessDeviceFileGetResponse14sp8 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +58,7 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -81,7 +80,7 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
 
     /**
      * 
-     * @return DeviceManagementFileFormat
+     * @return DeviceManagementFileFormat $fileFormat
      */
     public function getFileFormat()
     {

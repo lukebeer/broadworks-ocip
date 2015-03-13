@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceTy
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileCategory;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementAccessURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileResource;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -69,7 +68,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -91,7 +90,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -113,7 +112,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return DeviceManagementFileFormat
+     * @return DeviceManagementFileFormat $fileFormat
      */
     public function getFileFormat()
     {
@@ -135,7 +134,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return DeviceManagementFileFormat
+     * @return DeviceManagementFileFormat $remoteFileFormat
      */
     public function getRemoteFileFormat()
     {
@@ -157,7 +156,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return DeviceManagementFileCategory
+     * @return DeviceManagementFileCategory $fileCategory
      */
     public function getFileCategory()
     {
@@ -177,7 +176,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowFileCustomization
      */
     public function getAllowFileCustomization()
     {
@@ -199,7 +198,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return DeviceTypeFileEnhancedConfigurationMode
+     * @return DeviceTypeFileEnhancedConfigurationMode $fileSource
      */
     public function getFileSource()
     {
@@ -219,7 +218,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileResource
+     * @return FileResource $uploadFile
      */
     public function getUploadFile()
     {
@@ -239,7 +238,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useHttpDigestAuthentication
      */
     public function getUseHttpDigestAuthentication()
     {
@@ -259,7 +258,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $macBasedFileAuthentication
      */
     public function getMacBasedFileAuthentication()
     {
@@ -279,7 +278,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $userNamePasswordFileAuthentication
      */
     public function getUserNamePasswordFileAuthentication()
     {
@@ -299,7 +298,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $macInNonRequestURI
      */
     public function getMacInNonRequestURI()
     {
@@ -321,7 +320,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
 
     /**
      * 
-     * @return DeviceManagementAccessURI
+     * @return DeviceManagementAccessURI $macFormatInNonRequestURI
      */
     public function getMacFormatInNonRequestURI()
     {

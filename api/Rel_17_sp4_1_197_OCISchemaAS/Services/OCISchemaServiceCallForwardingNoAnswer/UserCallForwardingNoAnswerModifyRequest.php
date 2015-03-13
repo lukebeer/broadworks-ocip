@@ -43,7 +43,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -85,7 +85,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -107,7 +107,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -129,7 +129,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return CallForwardingNoAnswerNumberOfRings
+     * @return CallForwardingNoAnswerNumberOfRings $numberOfRings
      */
     public function getNumberOfRings()
     {

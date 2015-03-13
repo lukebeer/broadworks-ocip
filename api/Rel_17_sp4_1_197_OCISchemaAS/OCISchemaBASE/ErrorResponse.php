@@ -26,7 +26,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
     protected $detail         = null;
 
     /**
-     * @return ErrorResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\ErrorResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:int
+     * @return int $errorCode
      */
     public function getErrorCode()
     {
@@ -66,7 +66,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:string
+     * @return string $summary
      */
     public function getSummary()
     {
@@ -86,7 +86,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:string
+     * @return string $summaryEnglish
      */
     public function getSummaryEnglish()
     {
@@ -106,7 +106,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:string
+     * @return string $detail
      */
     public function getDetail()
     {

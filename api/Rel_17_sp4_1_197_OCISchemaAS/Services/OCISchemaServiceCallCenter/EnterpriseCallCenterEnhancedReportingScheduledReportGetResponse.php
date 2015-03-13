@@ -16,7 +16,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportFileFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportTimeFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportDateFormat;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportInterval;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterReportTemplateKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
@@ -54,7 +53,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
     protected $emailAddress                    = null;
 
     /**
-     * @return EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -76,7 +75,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterScheduledReportDescription
+     * @return CallCenterScheduledReportDescription $description
      */
     public function getDescription()
     {
@@ -96,7 +95,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportTemplateKey
+     * @return CallCenterReportTemplateKey $reportTemplate
      */
     public function getReportTemplate()
     {
@@ -116,7 +115,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportSchedule
+     * @return CallCenterReportSchedule $schedule
      */
     public function getSchedule()
     {
@@ -138,7 +137,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportSamplingPeriod
+     * @return CallCenterReportSamplingPeriod $samplingPeriod
      */
     public function getSamplingPeriod()
     {
@@ -160,7 +159,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return DayOfWeek
+     * @return DayOfWeek $startDayOfWeek
      */
     public function getStartDayOfWeek()
     {
@@ -182,7 +181,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return TimeZone
+     * @return TimeZone $reportTimeZone
      */
     public function getReportTimeZone()
     {
@@ -204,7 +203,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportDateFormat
+     * @return CallCenterReportDateFormat $reportDateFormat
      */
     public function getReportDateFormat()
     {
@@ -226,7 +225,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportTimeFormat
+     * @return CallCenterReportTimeFormat $reportTimeFormat
      */
     public function getReportTimeFormat()
     {
@@ -246,7 +245,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportInterval
+     * @return CallCenterReportInterval $reportInterval
      */
     public function getReportInterval()
     {
@@ -268,7 +267,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportFileFormat
+     * @return CallCenterReportFileFormat $reportFormat
      */
     public function getReportFormat()
     {
@@ -288,7 +287,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterScheduledReportAgentSelectionAdminRead
+     * @return CallCenterScheduledReportAgentSelectionAdminRead $agent
      */
     public function getAgent()
     {
@@ -310,7 +309,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportThresholdSeconds
+     * @return CallCenterReportThresholdSeconds $callCompletionThresholdSeconds
      */
     public function getCallCompletionThresholdSeconds()
     {
@@ -332,7 +331,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportThresholdSeconds
+     * @return CallCenterReportThresholdSeconds $shortDurationThresholdSeconds
      */
     public function getShortDurationThresholdSeconds()
     {
@@ -354,7 +353,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportThresholdSeconds
+     * @return CallCenterReportThresholdSeconds $serviceLevelThresholdSeconds
      */
     public function getServiceLevelThresholdSeconds()
     {
@@ -374,7 +373,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterScheduledReportServiceLevelInclusions
+     * @return CallCenterScheduledReportServiceLevelInclusions $serviceLevelInclusions
      */
     public function getServiceLevelInclusions()
     {
@@ -396,7 +395,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportServiceLevelObjective
+     * @return CallCenterReportServiceLevelObjective $serviceLevelObjectivePercentage
      */
     public function getServiceLevelObjectivePercentage()
     {
@@ -418,7 +417,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return CallCenterReportThresholdSeconds
+     * @return CallCenterReportThresholdSeconds $abandonedCallThresholdSeconds
      */
     public function getAbandonedCallThresholdSeconds()
     {
@@ -440,7 +439,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $emailAddress
      */
     public function getEmailAddress()
     {

@@ -54,7 +54,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -76,7 +76,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -96,7 +96,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAgentUnavailableCodes
      */
     public function getEnableAgentUnavailableCodes()
     {
@@ -118,7 +118,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCodeOnDND
      */
     public function getDefaultAgentUnavailableCodeOnDND()
     {
@@ -140,7 +140,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCodeOnPersonalCalls
      */
     public function getDefaultAgentUnavailableCodeOnPersonalCalls()
     {
@@ -162,7 +162,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCodeOnConsecutiveBounces
      */
     public function getDefaultAgentUnavailableCodeOnConsecutiveBounces()
     {
@@ -182,7 +182,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceUseOfAgentUnavailableCodes
      */
     public function getForceUseOfAgentUnavailableCodes()
     {
@@ -204,7 +204,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCode
      */
     public function getDefaultAgentUnavailableCode()
     {
@@ -224,7 +224,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCodeStateModify
+     * @return CallCenterAgentUnavailableCodeStateModify $codeStateList
      */
     public function getCodeStateList()
     {

@@ -24,7 +24,7 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
     protected $terminatingServiceKey = null;
 
     /**
-     * @return UserINIntegrationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceINIntegration\UserINIntegrationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $originatingServiceKey
      */
     public function getOriginatingServiceKey()
     {
@@ -68,7 +68,7 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $terminatingServiceKey
      */
     public function getTerminatingServiceKey()
     {

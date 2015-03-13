@@ -23,7 +23,7 @@ class UserCommPilotCallManagerGetResponse extends ComplexType implements Complex
     protected $launchOnLogin = null;
 
     /**
-     * @return UserCommPilotCallManagerGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotCallManager\UserCommPilotCallManagerGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserCommPilotCallManagerGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $launchOnLogin
      */
     public function getLaunchOnLogin()
     {

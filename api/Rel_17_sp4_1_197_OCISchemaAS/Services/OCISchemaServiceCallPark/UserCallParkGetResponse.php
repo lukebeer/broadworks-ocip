@@ -28,7 +28,7 @@ class UserCallParkGetResponse extends ComplexType implements ComplexInterface
     protected $userTable = null;
 
     /**
-     * @return UserCallParkGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\UserCallParkGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class UserCallParkGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {

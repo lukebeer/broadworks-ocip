@@ -25,7 +25,7 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
     protected $enableAutoAttendantNameDialingPrivacy      = null;
 
     /**
-     * @return GroupServiceInstancePrivacyGetResponse17sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy\GroupServiceInstancePrivacyGetResponse17sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDirectoryPrivacy
      */
     public function getEnableDirectoryPrivacy()
     {
@@ -65,7 +65,7 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutoAttendantExtensionDialingPrivacy
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
@@ -85,7 +85,7 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutoAttendantNameDialingPrivacy
      */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {

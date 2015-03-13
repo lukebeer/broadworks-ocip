@@ -38,7 +38,7 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -82,7 +82,7 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return ConnectedLineIdentificationPrivacyOnRedirectedCalls
+     * @return ConnectedLineIdentificationPrivacyOnRedirectedCalls $redirectedCallsCOLPPrivacy
      */
     public function getRedirectedCallsCOLPPrivacy()
     {
@@ -104,7 +104,7 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallBeingForwardedResponseCallType
+     * @return CallBeingForwardedResponseCallType $callBeingForwardedResponseCallType
      */
     public function getCallBeingForwardedResponseCallType()
     {

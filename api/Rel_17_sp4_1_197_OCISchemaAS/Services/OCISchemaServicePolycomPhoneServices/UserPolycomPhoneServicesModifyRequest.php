@@ -48,7 +48,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -90,7 +90,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return AccessDevice
+     * @return AccessDevice $accessDevice
      */
     public function getAccessDevice()
     {
@@ -110,7 +110,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $integratePhoneDirectoryWithBroadWorks
      */
     public function getIntegratePhoneDirectoryWithBroadWorks()
     {
@@ -130,7 +130,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeUserPersonalPhoneListInDirectory
      */
     public function getIncludeUserPersonalPhoneListInDirectory()
     {
@@ -150,7 +150,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeGroupCustomContactDirectoryInDirectory
      */
     public function getIncludeGroupCustomContactDirectoryInDirectory()
     {
@@ -172,7 +172,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return CustomContactDirectoryName
+     * @return CustomContactDirectoryName $groupCustomContactDirectory
      */
     public function getGroupCustomContactDirectory()
     {

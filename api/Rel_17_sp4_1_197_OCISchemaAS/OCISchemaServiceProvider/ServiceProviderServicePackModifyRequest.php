@@ -49,7 +49,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,7 +71,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -93,7 +93,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {
@@ -115,7 +115,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $newServicePackName
      */
     public function getNewServicePackName()
     {
@@ -137,7 +137,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServicePackDescription
+     * @return ServicePackDescription $servicePackDescription
      */
     public function getServicePackDescription()
     {
@@ -157,7 +157,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isAvailableForUse
      */
     public function getIsAvailableForUse()
     {
@@ -177,7 +177,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return UnboundedPositiveInt
+     * @return UnboundedPositiveInt $servicePackQuantity
      */
     public function getServicePackQuantity()
     {

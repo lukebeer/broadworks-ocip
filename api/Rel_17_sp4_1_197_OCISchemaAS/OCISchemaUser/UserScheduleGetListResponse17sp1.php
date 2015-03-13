@@ -26,7 +26,7 @@ class UserScheduleGetListResponse17sp1 extends ComplexType implements ComplexInt
     protected $scheduleGlobalKey = null;
 
     /**
-     * @return UserScheduleGetListResponse17sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserScheduleGetListResponse17sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class UserScheduleGetListResponse17sp1 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return ScheduleGlobalKey
+     * @return ScheduleGlobalKey $scheduleGlobalKey
      */
     public function getScheduleGlobalKey()
     {

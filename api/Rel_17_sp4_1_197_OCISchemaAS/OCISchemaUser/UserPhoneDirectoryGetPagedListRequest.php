@@ -21,7 +21,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Response
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -99,7 +98,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return UserPhoneDirectoryGetPagedListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -121,7 +120,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -141,7 +140,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isEnterpriseInfoRequested
      */
     public function getIsEnterpriseInfoRequested()
     {
@@ -161,7 +160,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ResponsePagingControl
+     * @return ResponsePagingControl $responsePagingControl
      */
     public function getResponsePagingControl()
     {
@@ -181,7 +180,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $searchCriteriaModeOr
      */
     public function getSearchCriteriaModeOr()
     {
@@ -203,7 +202,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -225,7 +224,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -247,7 +246,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -269,7 +268,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaGroupLocationCode
+     * @return SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode
      */
     public function getSearchCriteriaGroupLocationCode()
     {
@@ -291,7 +290,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaExtension
+     * @return SearchCriteriaExtension $searchCriteriaExtension
      */
     public function getSearchCriteriaExtension()
     {
@@ -313,7 +312,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaMobilePhoneNumber
+     * @return SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber
      */
     public function getSearchCriteriaMobilePhoneNumber()
     {
@@ -335,7 +334,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaEmailAddress
+     * @return SearchCriteriaEmailAddress $searchCriteriaEmailAddress
      */
     public function getSearchCriteriaEmailAddress()
     {
@@ -357,7 +356,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaYahooId
+     * @return SearchCriteriaYahooId $searchCriteriaYahooId
      */
     public function getSearchCriteriaYahooId()
     {
@@ -379,7 +378,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaExactUserGroup
+     * @return SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup
      */
     public function getSearchCriteriaExactUserGroup()
     {
@@ -401,7 +400,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaExactUserDepartment
+     * @return SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment
      */
     public function getSearchCriteriaExactUserDepartment()
     {
@@ -423,7 +422,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaUserId
+     * @return SearchCriteriaUserId $searchCriteriaUserId
      */
     public function getSearchCriteriaUserId()
     {

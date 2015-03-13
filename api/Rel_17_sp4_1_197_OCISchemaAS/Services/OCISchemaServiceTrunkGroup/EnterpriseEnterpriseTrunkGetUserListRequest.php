@@ -16,7 +16,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -66,7 +65,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
     }
 
     /**
-     * @return EnterpriseEnterpriseTrunkGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -88,7 +87,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -110,7 +109,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
 
     /**
      * 
-     * @return EnterpriseTrunkName
+     * @return EnterpriseTrunkName $enterpriseTrunkName
      */
     public function getEnterpriseTrunkName()
     {
@@ -132,7 +131,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -154,7 +153,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -176,7 +175,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -198,7 +197,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -220,7 +219,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
 
     /**
      * 
-     * @return SearchCriteriaUserId
+     * @return SearchCriteriaUserId $searchCriteriaUserId
      */
     public function getSearchCriteriaUserId()
     {
@@ -242,7 +241,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -264,7 +263,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
 
     /**
      * 
-     * @return SearchCriteriaAlternateTrunkIdentity
+     * @return SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity
      */
     public function getSearchCriteriaAlternateTrunkIdentity()
     {

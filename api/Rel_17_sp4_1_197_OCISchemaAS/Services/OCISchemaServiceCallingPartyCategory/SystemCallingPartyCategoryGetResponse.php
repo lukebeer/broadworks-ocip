@@ -36,7 +36,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
     protected $webDisplayKey = null;
 
     /**
-     * @return SystemCallingPartyCategoryGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\SystemCallingPartyCategoryGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return CallingPartyCategoryValue
+     * @return CallingPartyCategoryValue $cpcValue
      */
     public function getCpcValue()
     {
@@ -80,7 +80,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return ISDNUserPartOriginatingLineInformationValue
+     * @return ISDNUserPartOriginatingLineInformationValue $isupOliValue
      */
     public function getIsupOliValue()
     {
@@ -102,7 +102,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return ISDNGenericTransparencyDescriptorOliValue
+     * @return ISDNGenericTransparencyDescriptorOliValue $gtdOliValue
      */
     public function getGtdOliValue()
     {
@@ -122,7 +122,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $userCategory
      */
     public function getUserCategory()
     {
@@ -142,7 +142,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $payPhone
      */
     public function getPayPhone()
     {
@@ -162,7 +162,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $operator
      */
     public function getOperator()
     {
@@ -182,7 +182,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $default
      */
     public function getDefault()
     {
@@ -202,7 +202,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $collectCall
      */
     public function getCollectCall()
     {
@@ -224,7 +224,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return WebDisplayKey
+     * @return WebDisplayKey $webDisplayKey
      */
     public function getWebDisplayKey()
     {

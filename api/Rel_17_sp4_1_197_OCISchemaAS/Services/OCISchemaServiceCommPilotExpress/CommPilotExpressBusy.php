@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressBusy;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressBusy extends ComplexType implements ComplexInterface
 {
-    public    $responseType    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressBusy';
     public    $name            = 'CommPilotExpressBusy';
     protected $incomingCalls   = null;
     protected $voiceMailNotify = null;
@@ -34,7 +32,7 @@ class CommPilotExpressBusy extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return CommPilotExpressBusy
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class CommPilotExpressBusy extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $incomingCalls
      */
     public function getIncomingCalls()
     {
@@ -74,7 +72,7 @@ class CommPilotExpressBusy extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $voiceMailNotify
      */
     public function getVoiceMailNotify()
     {

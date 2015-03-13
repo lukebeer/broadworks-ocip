@@ -28,7 +28,7 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
     protected $enableDestinationAnnouncement = null;
 
     /**
-     * @return GroupCallParkGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallParkGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallParkRecallTimerSeconds
+     * @return CallParkRecallTimerSeconds $recallTimerSeconds
      */
     public function getRecallTimerSeconds()
     {
@@ -72,7 +72,7 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallParkDisplayTimerSeconds
+     * @return CallParkDisplayTimerSeconds $displayTimerSeconds
      */
     public function getDisplayTimerSeconds()
     {
@@ -92,7 +92,7 @@ class GroupCallParkGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDestinationAnnouncement
      */
     public function getEnableDestinationAnnouncement()
     {

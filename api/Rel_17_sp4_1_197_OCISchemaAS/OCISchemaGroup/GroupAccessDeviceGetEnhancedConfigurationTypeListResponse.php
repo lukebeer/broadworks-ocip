@@ -23,7 +23,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeListResponse extends ComplexT
     protected $deviceType = null;
 
     /**
-     * @return GroupAccessDeviceGetEnhancedConfigurationTypeListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetEnhancedConfigurationTypeListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeListResponse extends ComplexT
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {

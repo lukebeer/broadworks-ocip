@@ -52,7 +52,7 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +74,7 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -96,7 +96,7 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return FileRepositoryName
+     * @return FileRepositoryName $fileRepositoryName
      */
     public function getFileRepositoryName()
     {
@@ -118,7 +118,7 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return FileRepositoryUserName
+     * @return FileRepositoryUserName $userName
      */
     public function getUserName()
     {
@@ -140,7 +140,7 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return FileRepositoryUserPassword
+     * @return FileRepositoryUserPassword $password
      */
     public function getPassword()
     {
@@ -160,7 +160,7 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowPut
      */
     public function getAllowPut()
     {
@@ -180,7 +180,7 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowDelete
      */
     public function getAllowDelete()
     {
@@ -200,7 +200,7 @@ class ServiceProviderFileRepositoryDeviceUserModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowGet
      */
     public function getAllowGet()
     {

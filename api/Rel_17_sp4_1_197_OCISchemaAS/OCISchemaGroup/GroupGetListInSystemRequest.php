@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInSystemResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -46,7 +45,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return GroupGetListInSystemResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInSystemResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +67,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -90,7 +89,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -112,7 +111,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaGroupName
+     * @return SearchCriteriaGroupName $searchCriteriaGroupName
      */
     public function getSearchCriteriaGroupName()
     {
@@ -134,7 +133,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SearchCriteriaExactServiceProvider
+     * @return SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider
      */
     public function getSearchCriteriaExactServiceProvider()
     {

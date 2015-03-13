@@ -23,7 +23,7 @@ class GroupRoutePointGetAnnouncementResponse extends ComplexType implements Comp
     protected $mediaOnHoldSource = null;
 
     /**
-     * @return GroupRoutePointGetAnnouncementResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetAnnouncementResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class GroupRoutePointGetAnnouncementResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return CallCenterMediaOnHoldSourceRead17
+     * @return CallCenterMediaOnHoldSourceRead17 $mediaOnHoldSource
      */
     public function getMediaOnHoldSource()
     {

@@ -43,7 +43,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
     protected $timeInterval20 = null;
 
     /**
-     * @return SystemTimeScheduleGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemTimeScheduleGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval01
      */
     public function getTimeInterval01()
     {
@@ -83,7 +83,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval02
      */
     public function getTimeInterval02()
     {
@@ -103,7 +103,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval03
      */
     public function getTimeInterval03()
     {
@@ -123,7 +123,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval04
      */
     public function getTimeInterval04()
     {
@@ -143,7 +143,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval05
      */
     public function getTimeInterval05()
     {
@@ -163,7 +163,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval06
      */
     public function getTimeInterval06()
     {
@@ -183,7 +183,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval07
      */
     public function getTimeInterval07()
     {
@@ -203,7 +203,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval08
      */
     public function getTimeInterval08()
     {
@@ -223,7 +223,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval09
      */
     public function getTimeInterval09()
     {
@@ -243,7 +243,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval10
      */
     public function getTimeInterval10()
     {
@@ -263,7 +263,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval11
      */
     public function getTimeInterval11()
     {
@@ -283,7 +283,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval12
      */
     public function getTimeInterval12()
     {
@@ -303,7 +303,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval13
      */
     public function getTimeInterval13()
     {
@@ -323,7 +323,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval14
      */
     public function getTimeInterval14()
     {
@@ -343,7 +343,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval15
      */
     public function getTimeInterval15()
     {
@@ -363,7 +363,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval16
      */
     public function getTimeInterval16()
     {
@@ -383,7 +383,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval17
      */
     public function getTimeInterval17()
     {
@@ -403,7 +403,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval18
      */
     public function getTimeInterval18()
     {
@@ -423,7 +423,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval19
      */
     public function getTimeInterval19()
     {
@@ -443,7 +443,7 @@ class SystemTimeScheduleGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TimeInterval
+     * @return TimeInterval $timeInterval20
      */
     public function getTimeInterval20()
     {

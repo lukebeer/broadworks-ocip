@@ -12,14 +12,13 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCa
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportServiceLevelThresholdReplacementList;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterScheduledReportAgentSelection;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportServiceLevelObjective;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterScheduledReportDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportReplacementEmailList;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterScheduledReportDescription;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportThresholdSeconds;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportSamplingPeriod;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportDateFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportFileFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportTimeFormat;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportDateFormat;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportSchedule;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterReportInterval;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterScheduledReportName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
@@ -104,7 +103,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -126,7 +125,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -148,7 +147,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterScheduledReportName
+     * @return CallCenterScheduledReportName $name
      */
     public function getName()
     {
@@ -170,7 +169,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterScheduledReportName
+     * @return CallCenterScheduledReportName $newName
      */
     public function getNewName()
     {
@@ -192,7 +191,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterScheduledReportDescription
+     * @return CallCenterScheduledReportDescription $description
      */
     public function getDescription()
     {
@@ -212,7 +211,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportSchedule
+     * @return CallCenterReportSchedule $schedule
      */
     public function getSchedule()
     {
@@ -234,7 +233,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportSamplingPeriod
+     * @return CallCenterReportSamplingPeriod $samplingPeriod
      */
     public function getSamplingPeriod()
     {
@@ -256,7 +255,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return DayOfWeek
+     * @return DayOfWeek $startDayOfWeek
      */
     public function getStartDayOfWeek()
     {
@@ -278,7 +277,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return TimeZone
+     * @return TimeZone $reportTimeZone
      */
     public function getReportTimeZone()
     {
@@ -300,7 +299,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportDateFormat
+     * @return CallCenterReportDateFormat $reportDateFormat
      */
     public function getReportDateFormat()
     {
@@ -322,7 +321,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportTimeFormat
+     * @return CallCenterReportTimeFormat $reportTimeFormat
      */
     public function getReportTimeFormat()
     {
@@ -342,7 +341,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportInterval
+     * @return CallCenterReportInterval $reportInterval
      */
     public function getReportInterval()
     {
@@ -364,7 +363,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportFileFormat
+     * @return CallCenterReportFileFormat $reportFormat
      */
     public function getReportFormat()
     {
@@ -384,7 +383,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterScheduledReportAgentSelection
+     * @return CallCenterScheduledReportAgentSelection $agent
      */
     public function getAgent()
     {
@@ -406,7 +405,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportThresholdSeconds
+     * @return CallCenterReportThresholdSeconds $callCompletionThresholdSeconds
      */
     public function getCallCompletionThresholdSeconds()
     {
@@ -428,7 +427,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportThresholdSeconds
+     * @return CallCenterReportThresholdSeconds $shortDurationThresholdSeconds
      */
     public function getShortDurationThresholdSeconds()
     {
@@ -448,7 +447,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportServiceLevelThresholdReplacementList
+     * @return CallCenterReportServiceLevelThresholdReplacementList $serviceLevelThresholdSeconds
      */
     public function getServiceLevelThresholdSeconds()
     {
@@ -468,7 +467,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterScheduledReportServiceLevelInclusionsModify
+     * @return CallCenterScheduledReportServiceLevelInclusionsModify $serviceLevelInclusions
      */
     public function getServiceLevelInclusions()
     {
@@ -490,7 +489,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportServiceLevelObjective
+     * @return CallCenterReportServiceLevelObjective $serviceLevelObjectivePercentage
      */
     public function getServiceLevelObjectivePercentage()
     {
@@ -510,7 +509,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportAbandonedCallThresholdReplacementList
+     * @return CallCenterReportAbandonedCallThresholdReplacementList $abandonedCallThresholdSeconds
      */
     public function getAbandonedCallThresholdSeconds()
     {
@@ -530,7 +529,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportModifyRequest extends 
 
     /**
      * 
-     * @return CallCenterReportReplacementEmailList
+     * @return CallCenterReportReplacementEmailList $emailAddress
      */
     public function getEmailAddress()
     {

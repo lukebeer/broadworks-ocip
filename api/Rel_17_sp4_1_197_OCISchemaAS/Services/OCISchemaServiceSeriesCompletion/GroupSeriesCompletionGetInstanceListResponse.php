@@ -23,7 +23,7 @@ class GroupSeriesCompletionGetInstanceListResponse extends ComplexType implement
     protected $name = null;
 
     /**
-     * @return GroupSeriesCompletionGetInstanceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSeriesCompletion\GroupSeriesCompletionGetInstanceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupSeriesCompletionGetInstanceListResponse extends ComplexType implement
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {

@@ -58,7 +58,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -80,7 +80,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -102,7 +102,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -122,7 +122,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAgentUnavailableCodes
      */
     public function getEnableAgentUnavailableCodes()
     {
@@ -144,7 +144,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCodeOnDND
      */
     public function getDefaultAgentUnavailableCodeOnDND()
     {
@@ -166,7 +166,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCodeOnPersonalCalls
      */
     public function getDefaultAgentUnavailableCodeOnPersonalCalls()
     {
@@ -188,7 +188,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCodeOnConsecutiveBounces
      */
     public function getDefaultAgentUnavailableCodeOnConsecutiveBounces()
     {
@@ -208,7 +208,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceUseOfAgentUnavailableCodes
      */
     public function getForceUseOfAgentUnavailableCodes()
     {
@@ -230,7 +230,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCode
      */
     public function getDefaultAgentUnavailableCode()
     {
@@ -250,7 +250,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCodeStateModify
+     * @return CallCenterAgentUnavailableCodeStateModify $codeStateList
      */
     public function getCodeStateList()
     {

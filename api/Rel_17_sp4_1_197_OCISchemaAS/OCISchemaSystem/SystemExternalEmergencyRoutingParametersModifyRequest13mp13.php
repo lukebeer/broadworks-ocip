@@ -45,7 +45,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $serviceURI
      */
     public function getServiceURI()
     {
@@ -89,7 +89,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $defaultEmergencyNumber
      */
     public function getDefaultEmergencyNumber()
     {
@@ -109,7 +109,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -129,7 +129,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $supportsDNSSRV
      */
     public function getSupportsDNSSRV()
     {
@@ -151,7 +151,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
 
     /**
      * 
-     * @return ExternalEmergencyRoutingConnectionTimeoutSeconds
+     * @return ExternalEmergencyRoutingConnectionTimeoutSeconds $connectionTimeoutSeconds
      */
     public function getConnectionTimeoutSeconds()
     {

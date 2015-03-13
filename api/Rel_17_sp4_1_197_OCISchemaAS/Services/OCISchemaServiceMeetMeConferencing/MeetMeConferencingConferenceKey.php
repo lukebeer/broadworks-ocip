@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MeetMeConferencingConferenceKey extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceKey';
     public    $name         = 'MeetMeConferencingConferenceKey';
     protected $bridgeId     = null;
     protected $conferenceId = null;
@@ -34,7 +32,7 @@ class MeetMeConferencingConferenceKey extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return MeetMeConferencingConferenceKey
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class MeetMeConferencingConferenceKey extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $bridgeId
      */
     public function getBridgeId()
     {
@@ -74,7 +72,7 @@ class MeetMeConferencingConferenceKey extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $conferenceId
      */
     public function getConferenceId()
     {

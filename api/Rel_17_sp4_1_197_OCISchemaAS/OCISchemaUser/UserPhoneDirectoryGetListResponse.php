@@ -25,7 +25,7 @@ class UserPhoneDirectoryGetListResponse extends ComplexType implements ComplexIn
     protected $directoryTable = null;
 
     /**
-     * @return UserPhoneDirectoryGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

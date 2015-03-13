@@ -24,7 +24,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListResponse extends Complex
     protected $accessDevice = null;
 
     /**
-     * @return GroupSessionAdmissionControlGetAvailableDeviceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGetAvailableDeviceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListResponse extends Complex
 
     /**
      * 
-     * @return AccessDevice
+     * @return AccessDevice $accessDevice
      */
     public function getAccessDevice()
     {

@@ -24,7 +24,7 @@ class GroupCustomContactDirectoryGetListResponse extends ComplexType implements 
     protected $name = null;
 
     /**
-     * @return GroupCustomContactDirectoryGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupCustomContactDirectoryGetListResponse extends ComplexType implements 
 
     /**
      * 
-     * @return CustomContactDirectoryName
+     * @return CustomContactDirectoryName $name
      */
     public function getName()
     {

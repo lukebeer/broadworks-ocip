@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterScheduledReportName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingScheduledReportGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -36,7 +35,7 @@ class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexTy
     }
 
     /**
-     * @return UserCallCenterEnhancedReportingScheduledReportGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingScheduledReportGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +57,7 @@ class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexTy
 
     /**
      * 
-     * @return UserId
+     * @return UserId $supervisorUserId
      */
     public function getSupervisorUserId()
     {
@@ -80,7 +79,7 @@ class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterScheduledReportName
+     * @return CallCenterScheduledReportName $name
      */
     public function getName()
     {

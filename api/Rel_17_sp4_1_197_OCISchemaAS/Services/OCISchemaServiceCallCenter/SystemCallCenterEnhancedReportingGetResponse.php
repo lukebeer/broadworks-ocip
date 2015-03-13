@@ -26,7 +26,7 @@ class SystemCallCenterEnhancedReportingGetResponse extends ComplexType implement
     protected $repositoryApplicationURL = null;
 
     /**
-     * @return SystemCallCenterEnhancedReportingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemCallCenterEnhancedReportingGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $archiveReports
      */
     public function getArchiveReports()
     {
@@ -68,7 +68,7 @@ class SystemCallCenterEnhancedReportingGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return URL
+     * @return URL $reportApplicationURL
      */
     public function getReportApplicationURL()
     {
@@ -90,7 +90,7 @@ class SystemCallCenterEnhancedReportingGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return URL
+     * @return URL $repositoryApplicationURL
      */
     public function getRepositoryApplicationURL()
     {

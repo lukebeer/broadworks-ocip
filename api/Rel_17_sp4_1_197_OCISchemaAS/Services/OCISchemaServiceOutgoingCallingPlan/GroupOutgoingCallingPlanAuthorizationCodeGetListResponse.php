@@ -25,7 +25,7 @@ class GroupOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexTy
     protected $departmentCodeList = null;
 
     /**
-     * @return GroupOutgoingCallingPlanAuthorizationCodeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanAuthorizationCodeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexTy
 
     /**
      * 
-     * @return OutgoingCallingPlanGroupAuthorizationCodes
+     * @return OutgoingCallingPlanGroupAuthorizationCodes $groupCodeList
      */
     public function getGroupCodeList()
     {
@@ -65,7 +65,7 @@ class GroupOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexTy
 
     /**
      * 
-     * @return OutgoingCallingPlanDepartmentAuthorizationCodes
+     * @return OutgoingCallingPlanDepartmentAuthorizationCodes $departmentCodeList
      */
     public function getDepartmentCodeList()
     {

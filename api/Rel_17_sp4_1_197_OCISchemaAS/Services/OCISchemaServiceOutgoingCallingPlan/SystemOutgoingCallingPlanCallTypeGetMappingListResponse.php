@@ -24,7 +24,7 @@ class SystemOutgoingCallingPlanCallTypeGetMappingListResponse extends ComplexTyp
     protected $callTypeMapping = null;
 
     /**
-     * @return SystemOutgoingCallingPlanCallTypeGetMappingListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanCallTypeGetMappingListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends ComplexType implements ComplexInterface
 {
-    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions';
     public    $name                    = 'OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions';
     protected $departmentKey           = null;
     protected $departmentName          = null;
@@ -37,7 +35,7 @@ class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends Co
     }
 
     /**
-     * @return OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $departmentKey
      */
     public function getDepartmentKey()
     {
@@ -77,7 +75,7 @@ class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $departmentName
      */
     public function getDepartmentName()
     {
@@ -97,7 +95,7 @@ class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $digitPatternPermissions
      */
     public function getDigitPatternPermissions()
     {

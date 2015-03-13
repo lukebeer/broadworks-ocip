@@ -27,7 +27,7 @@ class UserInstantConferencingGetExpiredConferenceListResponse extends ComplexTyp
     protected $conferenceTable = null;
 
     /**
-     * @return UserInstantConferencingGetExpiredConferenceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetExpiredConferenceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

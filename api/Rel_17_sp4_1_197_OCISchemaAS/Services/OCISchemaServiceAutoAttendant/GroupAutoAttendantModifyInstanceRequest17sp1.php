@@ -65,7 +65,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,7 +87,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -107,7 +107,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
 
     /**
      * 
-     * @return ServiceInstanceModifyProfile
+     * @return ServiceInstanceModifyProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -127,7 +127,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -147,7 +147,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $businessHours
      */
     public function getBusinessHours()
     {
@@ -167,7 +167,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -189,7 +189,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
 
     /**
      * 
-     * @return AutoAttendantDialingScope
+     * @return AutoAttendantDialingScope $extensionDialingScope
      */
     public function getExtensionDialingScope()
     {
@@ -211,7 +211,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
 
     /**
      * 
-     * @return AutoAttendantDialingScope
+     * @return AutoAttendantDialingScope $nameDialingScope
      */
     public function getNameDialingScope()
     {
@@ -233,7 +233,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
 
     /**
      * 
-     * @return AutoAttendantNameDialingEntry
+     * @return AutoAttendantNameDialingEntry $nameDialingEntries
      */
     public function getNameDialingEntries()
     {
@@ -253,7 +253,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
 
     /**
      * 
-     * @return AutoAttendantModifyMenu16
+     * @return AutoAttendantModifyMenu16 $businessHoursMenu
      */
     public function getBusinessHoursMenu()
     {
@@ -273,7 +273,7 @@ class GroupAutoAttendantModifyInstanceRequest17sp1 extends ComplexType implement
 
     /**
      * 
-     * @return AutoAttendantModifyMenu16
+     * @return AutoAttendantModifyMenu16 $afterHoursMenu
      */
     public function getAfterHoursMenu()
     {

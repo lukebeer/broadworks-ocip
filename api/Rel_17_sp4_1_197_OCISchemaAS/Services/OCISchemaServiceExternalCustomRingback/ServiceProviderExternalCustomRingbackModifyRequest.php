@@ -46,7 +46,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -90,7 +90,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return ExternalCustomRingbackPrefixDigits
+     * @return ExternalCustomRingbackPrefixDigits $prefixDigits
      */
     public function getPrefixDigits()
     {
@@ -112,7 +112,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $serverNetAddress
      */
     public function getServerNetAddress()
     {
@@ -134,7 +134,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -156,7 +156,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return ExternalCustomRingbackTimeoutSeconds
+     * @return ExternalCustomRingbackTimeoutSeconds $timeoutSeconds
      */
     public function getTimeoutSeconds()
     {

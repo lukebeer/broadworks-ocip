@@ -26,7 +26,7 @@ class ServiceProviderAccessDeviceGetListResponse extends ComplexType implements 
     protected $accessDeviceTable = null;
 
     /**
-     * @return ServiceProviderAccessDeviceGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

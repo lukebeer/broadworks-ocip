@@ -59,7 +59,7 @@ class GroupCallCenterStrandedCallModifyRequest17 extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -81,7 +81,7 @@ class GroupCallCenterStrandedCallModifyRequest17 extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -103,7 +103,7 @@ class GroupCallCenterStrandedCallModifyRequest17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterStrandedCallProcessingAction
+     * @return CallCenterStrandedCallProcessingAction $action
      */
     public function getAction()
     {
@@ -125,7 +125,7 @@ class GroupCallCenterStrandedCallModifyRequest17 extends ComplexType implements 
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -147,7 +147,7 @@ class GroupCallCenterStrandedCallModifyRequest17 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -167,7 +167,7 @@ class GroupCallCenterStrandedCallModifyRequest17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $audioUrlList
      */
     public function getAudioUrlList()
     {
@@ -187,7 +187,7 @@ class GroupCallCenterStrandedCallModifyRequest17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $audioFileList
      */
     public function getAudioFileList()
     {
@@ -209,7 +209,7 @@ class GroupCallCenterStrandedCallModifyRequest17 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -229,7 +229,7 @@ class GroupCallCenterStrandedCallModifyRequest17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $videoUrlList
      */
     public function getVideoUrlList()
     {
@@ -249,7 +249,7 @@ class GroupCallCenterStrandedCallModifyRequest17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $videoFileList
      */
     public function getVideoFileList()
     {

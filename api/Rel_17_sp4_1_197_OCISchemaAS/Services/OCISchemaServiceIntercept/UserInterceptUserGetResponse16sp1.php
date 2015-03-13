@@ -45,7 +45,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
     protected $routeToVoiceMail              = null;
 
     /**
-     * @return UserInterceptUserGetResponse16sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\UserInterceptUserGetResponse16sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -87,7 +87,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AnnouncementSelection
+     * @return AnnouncementSelection $announcementSelection
      */
     public function getAnnouncementSelection()
     {
@@ -109,7 +109,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -131,7 +131,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $audioMediaType
      */
     public function getAudioMediaType()
     {
@@ -153,7 +153,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -175,7 +175,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $videoMediaType
      */
     public function getVideoMediaType()
     {
@@ -195,7 +195,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playNewPhoneNumber
      */
     public function getPlayNewPhoneNumber()
     {
@@ -217,7 +217,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DN
+     * @return DN $newPhoneNumber
      */
     public function getNewPhoneNumber()
     {
@@ -237,7 +237,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $transferOnZeroToPhoneNumber
      */
     public function getTransferOnZeroToPhoneNumber()
     {
@@ -259,7 +259,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -279,7 +279,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $rerouteOutboundCalls
      */
     public function getRerouteOutboundCalls()
     {
@@ -301,7 +301,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $outboundReroutePhoneNumber
      */
     public function getOutboundReroutePhoneNumber()
     {
@@ -321,7 +321,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutboundLocalCalls
      */
     public function getAllowOutboundLocalCalls()
     {
@@ -343,7 +343,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return InterceptInboundCall
+     * @return InterceptInboundCall $inboundCallMode
      */
     public function getInboundCallMode()
     {
@@ -363,7 +363,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alternateBlockingAnnouncement
      */
     public function getAlternateBlockingAnnouncement()
     {
@@ -383,7 +383,7 @@ class UserInterceptUserGetResponse16sp1 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $routeToVoiceMail
      */
     public function getRouteToVoiceMail()
     {

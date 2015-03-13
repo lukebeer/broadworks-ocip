@@ -29,7 +29,7 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
     protected $alias       = null;
 
     /**
-     * @return UserFaxMessagingGetResponse17sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceFaxMessaging\UserFaxMessagingGetResponse17sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -71,7 +71,7 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -93,7 +93,7 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return Extension17
+     * @return Extension17 $extension
      */
     public function getExtension()
     {
@@ -115,7 +115,7 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $alias
      */
     public function getAlias()
     {

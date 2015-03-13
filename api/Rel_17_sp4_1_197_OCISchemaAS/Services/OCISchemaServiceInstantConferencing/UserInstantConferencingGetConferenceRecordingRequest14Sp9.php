@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingResponse14Sp9;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -37,7 +36,7 @@ class UserInstantConferencingGetConferenceRecordingRequest14Sp9 extends ComplexT
     }
 
     /**
-     * @return UserInstantConferencingGetConferenceRecordingResponse14Sp9
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingResponse14Sp9 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +58,7 @@ class UserInstantConferencingGetConferenceRecordingRequest14Sp9 extends ComplexT
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -79,7 +78,7 @@ class UserInstantConferencingGetConferenceRecordingRequest14Sp9 extends ComplexT
 
     /**
      * 
-     * @return InstantConferencingRecordingKey
+     * @return InstantConferencingRecordingKey $recordingKey
      */
     public function getRecordingKey()
     {

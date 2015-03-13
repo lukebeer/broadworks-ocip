@@ -72,7 +72,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -94,7 +94,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -116,7 +116,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -138,7 +138,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $newCriteriaName
      */
     public function getNewCriteriaName()
     {
@@ -158,7 +158,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -178,7 +178,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return CriteriaFromDnModify
+     * @return CriteriaFromDnModify $fromDnCriteria
      */
     public function getFromDnCriteria()
     {
@@ -200,7 +200,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -220,7 +220,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResource
+     * @return ExtendedFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -242,7 +242,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -262,7 +262,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResource
+     * @return ExtendedFileResource $videoFile
      */
     public function getVideoFile()
     {
@@ -284,7 +284,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $callWaitingAudioSelection
      */
     public function getCallWaitingAudioSelection()
     {
@@ -304,7 +304,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResource
+     * @return ExtendedFileResource $callWaitingAudioFile
      */
     public function getCallWaitingAudioFile()
     {
@@ -326,7 +326,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $callWaitingVideoSelection
      */
     public function getCallWaitingVideoSelection()
     {
@@ -346,7 +346,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResource
+     * @return ExtendedFileResource $callWaitingVideoFile
      */
     public function getCallWaitingVideoFile()
     {

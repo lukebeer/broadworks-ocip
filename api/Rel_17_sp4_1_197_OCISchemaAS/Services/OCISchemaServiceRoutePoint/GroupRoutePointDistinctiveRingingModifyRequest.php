@@ -42,7 +42,7 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -84,7 +84,7 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDistinctiveRinging
      */
     public function getEnableDistinctiveRinging()
     {
@@ -106,7 +106,7 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return RingPattern
+     * @return RingPattern $distinctiveRingingRingPattern
      */
     public function getDistinctiveRingingRingPattern()
     {
@@ -128,7 +128,7 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return RingPattern
+     * @return RingPattern $distinctiveRingingForceDeliveryRingPattern
      */
     public function getDistinctiveRingingForceDeliveryRingPattern()
     {

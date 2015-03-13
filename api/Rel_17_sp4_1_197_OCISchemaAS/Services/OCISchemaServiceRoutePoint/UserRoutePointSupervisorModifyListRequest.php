@@ -34,7 +34,7 @@ class UserRoutePointSupervisorModifyListRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserRoutePointSupervisorModifyListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -76,7 +76,7 @@ class UserRoutePointSupervisorModifyListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $supervisorUserIdList
      */
     public function getSupervisorUserIdList()
     {

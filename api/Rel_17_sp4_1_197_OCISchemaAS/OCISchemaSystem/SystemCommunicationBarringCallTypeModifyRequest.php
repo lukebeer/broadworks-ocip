@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerCallType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -34,7 +33,7 @@ class SystemCommunicationBarringCallTypeModifyRequest extends ComplexType implem
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +55,7 @@ class SystemCommunicationBarringCallTypeModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return CommunicationBarringCallType
+     * @return CommunicationBarringCallType $callType
      */
     public function getCallType()
     {
@@ -78,7 +77,7 @@ class SystemCommunicationBarringCallTypeModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return NetworkServerCallType
+     * @return NetworkServerCallType $networkServerCallType
      */
     public function getNetworkServerCallType()
     {

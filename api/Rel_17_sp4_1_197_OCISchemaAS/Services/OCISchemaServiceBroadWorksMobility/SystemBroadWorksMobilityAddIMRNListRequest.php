@@ -35,7 +35,7 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return DN
+     * @return DN $imrnNumber
      */
     public function getImrnNumber()
     {
@@ -77,7 +77,7 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return DNRange
+     * @return DNRange $numberRange
      */
     public function getNumberRange()
     {

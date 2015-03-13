@@ -24,7 +24,7 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
     protected $defaultLanguage = null;
 
     /**
-     * @return ServiceProviderLanguageGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderLanguageGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return Language
+     * @return Language $language
      */
     public function getLanguage()
     {
@@ -68,7 +68,7 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return Language
+     * @return Language $defaultLanguage
      */
     public function getDefaultLanguage()
     {

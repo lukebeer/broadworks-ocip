@@ -34,7 +34,7 @@ class UserSharedCallAppearanceAddEndpointRequest14 extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserSharedCallAppearanceAddEndpointRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -76,7 +76,7 @@ class UserSharedCallAppearanceAddEndpointRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return AccessDeviceEndpointAdd
+     * @return AccessDeviceEndpointAdd $accessDeviceEndpoint
      */
     public function getAccessDeviceEndpoint()
     {

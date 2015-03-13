@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OCILocale;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Encoding;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -44,7 +43,7 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +65,7 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return Language
+     * @return Language $language
      */
     public function getLanguage()
     {
@@ -86,7 +85,7 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $becomeDefaultLanguage
      */
     public function getBecomeDefaultLanguage()
     {
@@ -108,7 +107,7 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return OCILocale
+     * @return OCILocale $locale
      */
     public function getLocale()
     {
@@ -130,7 +129,7 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return Encoding
+     * @return Encoding $encoding
      */
     public function getEncoding()
     {

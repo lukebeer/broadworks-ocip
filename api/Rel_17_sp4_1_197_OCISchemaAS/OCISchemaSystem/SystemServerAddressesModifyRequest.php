@@ -42,7 +42,7 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $webServerClusterPublicFQDN
      */
     public function getWebServerClusterPublicFQDN()
     {
@@ -86,7 +86,7 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $applicationServerClusterPrimaryPublicFQDN
      */
     public function getApplicationServerClusterPrimaryPublicFQDN()
     {
@@ -108,7 +108,7 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $applicationServerClusterSecondaryPublicFQDN
      */
     public function getApplicationServerClusterSecondaryPublicFQDN()
     {
@@ -130,7 +130,7 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $applicationServerClusterPrimaryPrivateFQDN
      */
     public function getApplicationServerClusterPrimaryPrivateFQDN()
     {
@@ -152,7 +152,7 @@ class SystemServerAddressesModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $applicationServerClusterSecondaryPrivateFQDN
      */
     public function getApplicationServerClusterSecondaryPrivateFQDN()
     {

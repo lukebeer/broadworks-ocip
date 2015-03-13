@@ -26,7 +26,7 @@ class UserInstantConferencingGetInstanceListResponse extends ComplexType impleme
     protected $instantConferencingTable = null;
 
     /**
-     * @return UserInstantConferencingGetInstanceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetInstanceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

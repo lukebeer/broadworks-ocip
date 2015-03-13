@@ -47,7 +47,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +69,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -91,7 +91,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -111,7 +111,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ServicePackAuthorization
+     * @return ServicePackAuthorization $servicePackAuthorization
      */
     public function getServicePackAuthorization()
     {
@@ -131,7 +131,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return GroupServiceAuthorization
+     * @return GroupServiceAuthorization $groupServiceAuthorization
      */
     public function getGroupServiceAuthorization()
     {
@@ -151,7 +151,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return UserServiceAuthorization
+     * @return UserServiceAuthorization $userServiceAuthorization
      */
     public function getUserServiceAuthorization()
     {

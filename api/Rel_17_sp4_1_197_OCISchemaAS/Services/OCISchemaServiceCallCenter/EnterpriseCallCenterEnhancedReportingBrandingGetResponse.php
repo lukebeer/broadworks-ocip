@@ -25,7 +25,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexTy
     protected $brandingFileDescription = null;
 
     /**
-     * @return EnterpriseCallCenterEnhancedReportingBrandingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingBrandingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexTy
 
     /**
      * 
-     * @return CallCenterEnhancedReportingBrandingChoice
+     * @return CallCenterEnhancedReportingBrandingChoice $brandingChoice
      */
     public function getBrandingChoice()
     {
@@ -69,7 +69,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexTy
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $brandingFileDescription
      */
     public function getBrandingFileDescription()
     {

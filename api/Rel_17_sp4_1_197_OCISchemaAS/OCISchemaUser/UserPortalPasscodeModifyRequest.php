@@ -37,7 +37,7 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -81,7 +81,7 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Passcode
+     * @return Passcode $oldPasscode
      */
     public function getOldPasscode()
     {
@@ -103,7 +103,7 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Passcode
+     * @return Passcode $newPasscode
      */
     public function getNewPasscode()
     {

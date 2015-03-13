@@ -46,7 +46,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -90,7 +90,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -112,7 +112,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
 
     /**
      * 
-     * @return DeviceManagementFileFormat
+     * @return DeviceManagementFileFormat $fileFormat
      */
     public function getFileFormat()
     {
@@ -134,7 +134,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationMode
+     * @return AccessDeviceEnhancedConfigurationMode $fileSource
      */
     public function getFileSource()
     {
@@ -154,7 +154,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
 
     /**
      * 
-     * @return FileResource
+     * @return FileResource $uploadFile
      */
     public function getUploadFile()
     {

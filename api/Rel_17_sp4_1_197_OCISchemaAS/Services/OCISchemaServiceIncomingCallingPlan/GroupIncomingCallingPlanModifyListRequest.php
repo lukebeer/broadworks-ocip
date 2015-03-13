@@ -42,7 +42,7 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -106,7 +106,7 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return IncomingCallingPlanPermissionsModify
+     * @return IncomingCallingPlanPermissionsModify $groupPermissions
      */
     public function getGroupPermissions()
     {
@@ -126,7 +126,7 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
 
     /**
      * 
-     * @return IncomingCallingPlanDepartmentPermissionsModify
+     * @return IncomingCallingPlanDepartmentPermissionsModify $departmentPermissions
      */
     public function getDepartmentPermissions()
     {

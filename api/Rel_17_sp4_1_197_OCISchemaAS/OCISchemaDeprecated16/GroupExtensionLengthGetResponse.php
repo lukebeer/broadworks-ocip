@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupExtensionLength;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInte
     protected $extensionLength = null;
 
     /**
-     * @return GroupExtensionLengthGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupExtensionLengthGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return GroupExtensionLength
+     * @return GroupExtensionLength $extensionLength
      */
     public function getExtensionLength()
     {

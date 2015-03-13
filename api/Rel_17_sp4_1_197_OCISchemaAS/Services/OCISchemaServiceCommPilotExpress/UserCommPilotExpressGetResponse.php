@@ -31,7 +31,7 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
     protected $unavailable          = null;
 
     /**
-     * @return UserCommPilotExpressGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\UserCommPilotExpressGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CommPilotExpressProfile
+     * @return CommPilotExpressProfile $profile
      */
     public function getProfile()
     {
@@ -73,7 +73,7 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CommPilotExpressAvailableInOffice
+     * @return CommPilotExpressAvailableInOffice $availableInOffice
      */
     public function getAvailableInOffice()
     {
@@ -93,7 +93,7 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CommPilotExpressAvailableOutOfOffice
+     * @return CommPilotExpressAvailableOutOfOffice $availableOutOfOffice
      */
     public function getAvailableOutOfOffice()
     {
@@ -113,7 +113,7 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CommPilotExpressBusy
+     * @return CommPilotExpressBusy $busy
      */
     public function getBusy()
     {
@@ -133,7 +133,7 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CommPilotExpressUnavailable
+     * @return CommPilotExpressUnavailable $unavailable
      */
     public function getUnavailable()
     {

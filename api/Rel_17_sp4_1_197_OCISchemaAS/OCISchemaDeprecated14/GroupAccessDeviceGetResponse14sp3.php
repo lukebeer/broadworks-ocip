@@ -59,7 +59,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
     protected $mobilityManagerDefaultTerminatingServiceKey = null;
 
     /**
-     * @return GroupAccessDeviceGetResponse14sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupAccessDeviceGetResponse14sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -81,7 +81,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -103,7 +103,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AccessDeviceProtocol
+     * @return AccessDeviceProtocol $protocol
      */
     public function getProtocol()
     {
@@ -125,7 +125,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -147,7 +147,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $port
      */
     public function getPort()
     {
@@ -169,7 +169,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $outboundProxyServerNetAddress
      */
     public function getOutboundProxyServerNetAddress()
     {
@@ -191,7 +191,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $stunServerNetAddress
      */
     public function getStunServerNetAddress()
     {
@@ -213,7 +213,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AccessDeviceMACAddress
+     * @return AccessDeviceMACAddress $macAddress
      */
     public function getMacAddress()
     {
@@ -235,7 +235,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AccessDeviceSerialNumber
+     * @return AccessDeviceSerialNumber $serialNumber
      */
     public function getSerialNumber()
     {
@@ -257,7 +257,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AccessDeviceDescription
+     * @return AccessDeviceDescription $description
      */
     public function getDescription()
     {
@@ -277,7 +277,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return UnboundedPositiveInt
+     * @return UnboundedPositiveInt $numberOfPorts
      */
     public function getNumberOfPorts()
     {
@@ -297,7 +297,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:int
+     * @return int $numberOfAssignedPorts
      */
     public function getNumberOfAssignedPorts()
     {
@@ -319,7 +319,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AccessDeviceStatus
+     * @return AccessDeviceStatus $status
      */
     public function getStatus()
     {
@@ -341,7 +341,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationMode
+     * @return AccessDeviceEnhancedConfigurationMode $configurationMode
      */
     public function getConfigurationMode()
     {
@@ -363,7 +363,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationFileName
+     * @return AccessDeviceEnhancedConfigurationFileName $configurationFileName
      */
     public function getConfigurationFileName()
     {
@@ -385,7 +385,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AccessDevicePhysicalLocation
+     * @return AccessDevicePhysicalLocation $physicalLocation
      */
     public function getPhysicalLocation()
     {
@@ -407,7 +407,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $transportProtocol
      */
     public function getTransportProtocol()
     {
@@ -429,7 +429,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return URL
+     * @return URL $mobilityManagerProvisioningURL
      */
     public function getMobilityManagerProvisioningURL()
     {
@@ -451,7 +451,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return MobilityManagerProvisioningUserName
+     * @return MobilityManagerProvisioningUserName $mobilityManagerProvisioningUserName
      */
     public function getMobilityManagerProvisioningUserName()
     {
@@ -473,7 +473,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $mobilityManagerDefaultOriginatingServiceKey
      */
     public function getMobilityManagerDefaultOriginatingServiceKey()
     {
@@ -495,7 +495,7 @@ class GroupAccessDeviceGetResponse14sp3 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $mobilityManagerDefaultTerminatingServiceKey
      */
     public function getMobilityManagerDefaultTerminatingServiceKey()
     {

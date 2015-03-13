@@ -15,7 +15,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsTimeRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponsePagingControl;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -67,7 +66,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
     }
 
     /**
-     * @return UserEnhancedCallLogsGetListResponse17sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -89,7 +88,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -111,7 +110,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return EnhancedCallLogsCallLogsRequestType
+     * @return EnhancedCallLogsCallLogsRequestType $callLogType
      */
     public function getCallLogType()
     {
@@ -131,7 +130,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return EnhancedCallLogsTimeRange
+     * @return EnhancedCallLogsTimeRange $dateTimeRange
      */
     public function getDateTimeRange()
     {
@@ -151,7 +150,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return EnhancedCallLogsNumberFilter
+     * @return EnhancedCallLogsNumberFilter $numberFilter
      */
     public function getNumberFilter()
     {
@@ -171,7 +170,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return EnhancedCallLogsRedirectedNumberFilter
+     * @return EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter
      */
     public function getRedirectedNumberFilter()
     {
@@ -191,7 +190,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return EnhancedCallLogsAccountAuthorizationCodeFilter
+     * @return EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter
      */
     public function getAccountAuthorizationCodeFilter()
     {
@@ -213,7 +212,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return EnhancedCallLogsSubscriberType
+     * @return EnhancedCallLogsSubscriberType $subscriberType
      */
     public function getSubscriberType()
     {
@@ -233,7 +232,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return ResponsePagingControl
+     * @return ResponsePagingControl $responsePagingControl
      */
     public function getResponsePagingControl()
     {

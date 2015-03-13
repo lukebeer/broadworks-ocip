@@ -29,7 +29,7 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
     protected $monitoredUserTable         = null;
 
     /**
-     * @return UserBusyLampFieldGetResponse16sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBusyLampField\UserBusyLampFieldGetResponse16sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $listURI
      */
     public function getListURI()
     {
@@ -71,7 +71,7 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableCallParkNotification
      */
     public function getEnableCallParkNotification()
     {

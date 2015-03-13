@@ -23,7 +23,7 @@ class UserCallingLineIDBlockingOverrideGetResponse extends ComplexType implement
     protected $isActive = null;
 
     /**
-     * @return UserCallingLineIDBlockingOverrideGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingLineIDBlockingOverride\UserCallingLineIDBlockingOverrideGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserCallingLineIDBlockingOverrideGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {

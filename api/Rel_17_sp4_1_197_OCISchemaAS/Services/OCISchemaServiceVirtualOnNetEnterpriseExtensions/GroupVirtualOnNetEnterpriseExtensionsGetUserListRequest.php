@@ -15,7 +15,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -65,7 +64,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
     }
 
     /**
-     * @return GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,7 +86,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -109,7 +108,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -131,7 +130,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -153,7 +152,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -175,7 +174,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -197,7 +196,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -219,7 +218,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
 
     /**
      * 
-     * @return SearchCriteriaExtension
+     * @return SearchCriteriaExtension $searchCriteriaExtension
      */
     public function getSearchCriteriaExtension()
     {
@@ -241,7 +240,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
 
     /**
      * 
-     * @return SearchCriteriaExactVirtualOnNetCallTypeName
+     * @return SearchCriteriaExactVirtualOnNetCallTypeName $searchCriteriaExactVirtualOnNetCallTypeName
      */
     public function getSearchCriteriaExactVirtualOnNetCallTypeName()
     {

@@ -88,7 +88,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
     protected $primaryZoneName          = null;
 
     /**
-     * @return UserGetResponse17sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetResponse17sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -110,7 +110,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -132,7 +132,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -154,7 +154,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -176,7 +176,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {
@@ -198,7 +198,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallingLineIdLastName
+     * @return CallingLineIdLastName $callingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
@@ -220,7 +220,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallingLineIdFirstName
+     * @return CallingLineIdFirstName $callingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
@@ -242,7 +242,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return HiraganaLastName
+     * @return HiraganaLastName $hiraganaLastName
      */
     public function getHiraganaLastName()
     {
@@ -264,7 +264,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return HiraganaFirstName
+     * @return HiraganaFirstName $hiraganaFirstName
      */
     public function getHiraganaFirstName()
     {
@@ -286,7 +286,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -308,7 +308,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Extension17
+     * @return Extension17 $extension
      */
     public function getExtension()
     {
@@ -330,7 +330,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DN
+     * @return DN $callingLineIdPhoneNumber
      */
     public function getCallingLineIdPhoneNumber()
     {
@@ -350,7 +350,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $department
      */
     public function getDepartment()
     {
@@ -372,7 +372,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DepartmentFullPathName
+     * @return DepartmentFullPathName $departmentFullPath
      */
     public function getDepartmentFullPath()
     {
@@ -394,7 +394,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Language
+     * @return Language $language
      */
     public function getLanguage()
     {
@@ -416,7 +416,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return TimeZone
+     * @return TimeZone $timeZone
      */
     public function getTimeZone()
     {
@@ -438,7 +438,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return TimeZoneDisplayName
+     * @return TimeZoneDisplayName $timeZoneDisplayName
      */
     public function getTimeZoneDisplayName()
     {
@@ -460,7 +460,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $defaultAlias
      */
     public function getDefaultAlias()
     {
@@ -482,7 +482,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $alias
      */
     public function getAlias()
     {
@@ -504,7 +504,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Title
+     * @return Title $title
      */
     public function getTitle()
     {
@@ -526,7 +526,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return InformationalDN
+     * @return InformationalDN $pagerPhoneNumber
      */
     public function getPagerPhoneNumber()
     {
@@ -548,7 +548,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $mobilePhoneNumber
      */
     public function getMobilePhoneNumber()
     {
@@ -570,7 +570,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $emailAddress
      */
     public function getEmailAddress()
     {
@@ -592,7 +592,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return YahooId
+     * @return YahooId $yahooId
      */
     public function getYahooId()
     {
@@ -614,7 +614,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return AddressLocation
+     * @return AddressLocation $addressLocation
      */
     public function getAddressLocation()
     {
@@ -634,7 +634,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return StreetAddress
+     * @return StreetAddress $address
      */
     public function getAddress()
     {
@@ -656,7 +656,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $countryCode
      */
     public function getCountryCode()
     {
@@ -678,7 +678,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NationalPrefix
+     * @return NationalPrefix $nationalPrefix
      */
     public function getNationalPrefix()
     {
@@ -700,7 +700,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {
@@ -722,7 +722,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return OfficeZoneName
+     * @return OfficeZoneName $officeZoneName
      */
     public function getOfficeZoneName()
     {
@@ -744,7 +744,7 @@ class UserGetResponse17sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $primaryZoneName
      */
     public function getPrimaryZoneName()
     {

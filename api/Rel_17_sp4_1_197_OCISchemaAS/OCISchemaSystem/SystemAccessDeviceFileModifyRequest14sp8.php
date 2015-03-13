@@ -42,7 +42,7 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -86,7 +86,7 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
 
     /**
      * 
-     * @return DeviceManagementFileFormat
+     * @return DeviceManagementFileFormat $fileFormat
      */
     public function getFileFormat()
     {
@@ -108,7 +108,7 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationMode
+     * @return AccessDeviceEnhancedConfigurationMode $fileSource
      */
     public function getFileSource()
     {
@@ -128,7 +128,7 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
 
     /**
      * 
-     * @return FileResource
+     * @return FileResource $uploadFile
      */
     public function getUploadFile()
     {

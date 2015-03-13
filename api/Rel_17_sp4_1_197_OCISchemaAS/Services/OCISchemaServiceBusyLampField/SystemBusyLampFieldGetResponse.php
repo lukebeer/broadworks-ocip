@@ -23,7 +23,7 @@ class SystemBusyLampFieldGetResponse extends ComplexType implements ComplexInter
     protected $displayLocalUserIdentityLastNameFirst = null;
 
     /**
-     * @return SystemBusyLampFieldGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBusyLampField\SystemBusyLampFieldGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class SystemBusyLampFieldGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $displayLocalUserIdentityLastNameFirst
      */
     public function getDisplayLocalUserIdentityLastNameFirst()
     {

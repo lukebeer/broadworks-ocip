@@ -50,7 +50,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -94,7 +94,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $defaultDomain
      */
     public function getDefaultDomain()
     {
@@ -116,7 +116,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return ServiceProviderName
+     * @return ServiceProviderName $serviceProviderName
      */
     public function getServiceProviderName()
     {
@@ -138,7 +138,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $supportEmail
      */
     public function getSupportEmail()
     {
@@ -158,7 +158,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return Contact
+     * @return Contact $contact
      */
     public function getContact()
     {
@@ -178,7 +178,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return StreetAddress
+     * @return StreetAddress $address
      */
     public function getAddress()
     {

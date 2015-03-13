@@ -34,7 +34,7 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
 
     /**
      * 
-     * @return NetworkDeviceMonitorPollingIntervalMinutes
+     * @return NetworkDeviceMonitorPollingIntervalMinutes $pollingIntervalMinutes
      */
     public function getPollingIntervalMinutes()
     {
@@ -78,7 +78,7 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
 
     /**
      * 
-     * @return NetworkDeviceMonitorFailedPollingIntervalMinutes
+     * @return NetworkDeviceMonitorFailedPollingIntervalMinutes $failedPollingIntervalMinutes
      */
     public function getFailedPollingIntervalMinutes()
     {

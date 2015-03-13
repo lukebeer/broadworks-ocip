@@ -54,7 +54,7 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -76,7 +76,7 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -96,7 +96,7 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
 
     /**
      * 
-     * @return ServiceInstanceModifyProfile
+     * @return ServiceInstanceModifyProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -116,7 +116,7 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
 
     /**
      * 
-     * @return MeetMeConferencingConferencePorts
+     * @return MeetMeConferencingConferencePorts $allocatedPorts
      */
     public function getAllocatedPorts()
     {
@@ -138,7 +138,7 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {
@@ -158,7 +158,7 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowIndividualOutDial
      */
     public function getAllowIndividualOutDial()
     {
@@ -180,7 +180,7 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $operatorNumber
      */
     public function getOperatorNumber()
     {
@@ -200,7 +200,7 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $conferenceHostUserIdList
      */
     public function getConferenceHostUserIdList()
     {

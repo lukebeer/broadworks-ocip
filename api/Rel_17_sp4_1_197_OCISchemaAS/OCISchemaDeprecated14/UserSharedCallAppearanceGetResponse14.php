@@ -36,7 +36,7 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
     protected $bridgeWarningTone                      = null;
 
     /**
-     * @return UserSharedCallAppearanceGetResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserSharedCallAppearanceGetResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alertAllAppearancesForClickToDialCalls
      */
     public function getAlertAllAppearancesForClickToDialCalls()
     {
@@ -78,7 +78,7 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return SharedCallAppearanceMaximumAppearances
+     * @return SharedCallAppearanceMaximumAppearances $maxAppearances
      */
     public function getMaxAppearances()
     {
@@ -98,7 +98,7 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMultipleCallArrangement
      */
     public function getEnableMultipleCallArrangement()
     {
@@ -118,7 +118,7 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $multipleCallArrangementIsActive
      */
     public function getMultipleCallArrangementIsActive()
     {
@@ -158,7 +158,7 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowBridgingBetweenLocations
      */
     public function getAllowBridgingBetweenLocations()
     {
@@ -180,7 +180,7 @@ class UserSharedCallAppearanceGetResponse14 extends ComplexType implements Compl
 
     /**
      * 
-     * @return SharedCallAppearanceBridgeWarningTone
+     * @return SharedCallAppearanceBridgeWarningTone $bridgeWarningTone
      */
     public function getBridgeWarningTone()
     {

@@ -45,7 +45,7 @@ class GroupExistingUsersUnassignUserServiceListRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class GroupExistingUsersUnassignUserServiceListRequest extends ComplexType imple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -89,7 +89,7 @@ class GroupExistingUsersUnassignUserServiceListRequest extends ComplexType imple
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -111,7 +111,7 @@ class GroupExistingUsersUnassignUserServiceListRequest extends ComplexType imple
 
     /**
      * 
-     * @return UserService
+     * @return UserService $serviceName
      */
     public function getServiceName()
     {
@@ -133,7 +133,7 @@ class GroupExistingUsersUnassignUserServiceListRequest extends ComplexType imple
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {

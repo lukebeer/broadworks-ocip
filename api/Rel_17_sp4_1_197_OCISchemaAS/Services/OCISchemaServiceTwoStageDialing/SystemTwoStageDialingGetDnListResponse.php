@@ -25,7 +25,7 @@ class SystemTwoStageDialingGetDnListResponse extends ComplexType implements Comp
     protected $phoneNumberTable = null;
 
     /**
-     * @return SystemTwoStageDialingGetDnListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

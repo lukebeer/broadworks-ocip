@@ -42,7 +42,7 @@ class GroupSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexTy
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexTy
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexTy
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +108,7 @@ class GroupSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexTy
 
     /**
      * 
-     * @return SessionAdmissionControlGroupName
+     * @return SessionAdmissionControlGroupName $name
      */
     public function getName()
     {
@@ -128,7 +128,7 @@ class GroupSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexTy
 
     /**
      * 
-     * @return AccessDevice
+     * @return AccessDevice $devices
      */
     public function getDevices()
     {

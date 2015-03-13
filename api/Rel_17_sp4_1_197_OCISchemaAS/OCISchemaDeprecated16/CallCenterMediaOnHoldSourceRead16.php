@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\CallCenterMediaOnHoldSourceRead16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexInterface
 {
-    public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\CallCenterMediaOnHoldSourceRead16';
     public    $name                        = 'CallCenterMediaOnHoldSourceRead16';
     protected $audioMessageSourceSelection = null;
     protected $audioFileUrl                = null;
@@ -58,7 +56,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return CallCenterMediaOnHoldSourceRead16
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +76,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioMessageSourceSelection
      */
     public function getAudioMessageSourceSelection()
     {
@@ -98,7 +96,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioFileUrl
      */
     public function getAudioFileUrl()
     {
@@ -118,7 +116,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -138,7 +136,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioFileMediaType
      */
     public function getAudioFileMediaType()
     {
@@ -158,7 +156,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $externalAudioSource
      */
     public function getExternalAudioSource()
     {
@@ -178,7 +176,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $videoMessageSourceSelection
      */
     public function getVideoMessageSourceSelection()
     {
@@ -198,7 +196,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $videoFileUrl
      */
     public function getVideoFileUrl()
     {
@@ -218,7 +216,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -238,7 +236,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $videoFileMediaType
      */
     public function getVideoFileMediaType()
     {
@@ -258,7 +256,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $externalVideoSource
      */
     public function getExternalVideoSource()
     {

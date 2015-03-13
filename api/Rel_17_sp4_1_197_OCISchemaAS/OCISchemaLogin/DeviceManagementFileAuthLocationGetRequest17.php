@@ -17,7 +17,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RealmNam
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Md5Hash;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\DeviceManagementFileAuthLocationGetResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -69,7 +68,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
     }
 
     /**
-     * @return DeviceManagementFileAuthLocationGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\DeviceManagementFileAuthLocationGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -91,7 +90,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return DeviceAccessProtocol16
+     * @return DeviceAccessProtocol16 $deviceAccessProtocol
      */
     public function getDeviceAccessProtocol()
     {
@@ -113,7 +112,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return FileRepositoryAccessType
+     * @return FileRepositoryAccessType $deviceAccessMethod
      */
     public function getDeviceAccessMethod()
     {
@@ -135,7 +134,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return DeviceManagementAccessURI
+     * @return DeviceManagementAccessURI $deviceAccessURI
      */
     public function getDeviceAccessURI()
     {
@@ -157,7 +156,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return UserId
+     * @return UserId $accessDeviceUserName
      */
     public function getAccessDeviceUserName()
     {
@@ -179,7 +178,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return Password
+     * @return Password $accessDeviceUserPassword
      */
     public function getAccessDeviceUserPassword()
     {
@@ -201,7 +200,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return SignedPassword
+     * @return SignedPassword $signedPassword
      */
     public function getSignedPassword()
     {
@@ -223,7 +222,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return AccessDeviceMACAddress
+     * @return AccessDeviceMACAddress $macAddress
      */
     public function getMacAddress()
     {
@@ -245,7 +244,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return RealmName
+     * @return RealmName $realmName
      */
     public function getRealmName()
     {
@@ -267,7 +266,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return DigestHa1Complement
+     * @return DigestHa1Complement $digestHa1Complement
      */
     public function getDigestHa1Complement()
     {
@@ -289,7 +288,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
 
     /**
      * 
-     * @return Md5Hash
+     * @return Md5Hash $digestResponse
      */
     public function getDigestResponse()
     {

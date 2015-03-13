@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceMonthInterval;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthly;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceScheduleMonthly extends ComplexType implements ComplexInterface
 {
-    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceScheduleMonthly';
     public    $name                    = 'InstantConferencingRecurrenceScheduleMonthly';
     protected $recurrenceMonthInterval = null;
 
@@ -34,7 +32,7 @@ class InstantConferencingRecurrenceScheduleMonthly extends ComplexType implement
     }
 
     /**
-     * @return InstantConferencingRecurrenceScheduleMonthly
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +54,7 @@ class InstantConferencingRecurrenceScheduleMonthly extends ComplexType implement
 
     /**
      * 
-     * @return InstantConferencingRecurrenceMonthInterval
+     * @return InstantConferencingRecurrenceMonthInterval $recurrenceMonthInterval
      */
     public function getRecurrenceMonthInterval()
     {

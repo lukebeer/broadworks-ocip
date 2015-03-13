@@ -108,7 +108,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -130,7 +130,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -152,7 +152,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -174,7 +174,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return GroupLDAPIntegrationLevel
+     * @return GroupLDAPIntegrationLevel $useLevel
      */
     public function getUseLevel()
     {
@@ -196,7 +196,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $serverNetAddress
      */
     public function getServerNetAddress()
     {
@@ -218,7 +218,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return Port
+     * @return Port $serverPort
      */
     public function getServerPort()
     {
@@ -240,7 +240,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPSearchBase
+     * @return LDAPSearchBase $searchBase
      */
     public function getSearchBase()
     {
@@ -260,7 +260,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSSL
      */
     public function getUseSSL()
     {
@@ -280,7 +280,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireAuthentication
      */
     public function getRequireAuthentication()
     {
@@ -302,7 +302,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPAuthenticatedDN
+     * @return LDAPAuthenticatedDN $authenticatedDN
      */
     public function getAuthenticatedDN()
     {
@@ -324,7 +324,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPAuthenticatedPassword
+     * @return LDAPAuthenticatedPassword $authenticatedPassword
      */
     public function getAuthenticatedPassword()
     {
@@ -344,7 +344,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSortEnabled
      */
     public function getIsSortEnabled()
     {
@@ -364,7 +364,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isPagedResultEnabled
      */
     public function getIsPagedResultEnabled()
     {
@@ -386,7 +386,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPSearchFilter
+     * @return LDAPSearchFilter $searchFilter
      */
     public function getSearchFilter()
     {
@@ -406,7 +406,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeSearchAttributeInSearchFilter
      */
     public function getIncludeSearchAttributeInSearchFilter()
     {
@@ -428,7 +428,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column1AttributeName
      */
     public function getColumn1AttributeName()
     {
@@ -450,7 +450,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column2AttributeName
      */
     public function getColumn2AttributeName()
     {
@@ -472,7 +472,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column3AttributeName
      */
     public function getColumn3AttributeName()
     {
@@ -494,7 +494,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPColumnAttributeName
+     * @return LDAPColumnAttributeName $column4AttributeName
      */
     public function getColumn4AttributeName()
     {
@@ -516,7 +516,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column1Label
      */
     public function getColumn1Label()
     {
@@ -538,7 +538,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column2Label
      */
     public function getColumn2Label()
     {
@@ -560,7 +560,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column3Label
      */
     public function getColumn3Label()
     {
@@ -582,7 +582,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPColumnLabel
+     * @return LDAPColumnLabel $column4Label
      */
     public function getColumn4Label()
     {
@@ -604,7 +604,7 @@ class GroupLDAPIntegrationModifyDirectoryRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPSearchColumn
+     * @return LDAPSearchColumn $searchColumn
      */
     public function getSearchColumn()
     {

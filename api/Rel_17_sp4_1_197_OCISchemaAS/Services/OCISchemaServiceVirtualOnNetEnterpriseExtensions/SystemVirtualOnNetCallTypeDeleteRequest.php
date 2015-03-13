@@ -30,7 +30,7 @@ class SystemVirtualOnNetCallTypeDeleteRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemVirtualOnNetCallTypeDeleteRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return VirtualOnNetCallTypeName
+     * @return VirtualOnNetCallTypeName $virtualOnNetCallTypeName
      */
     public function getVirtualOnNetCallTypeName()
     {

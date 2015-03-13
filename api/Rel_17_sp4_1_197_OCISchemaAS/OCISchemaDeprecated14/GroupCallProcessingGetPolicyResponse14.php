@@ -41,7 +41,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
     protected $enforceGroupCallingLineIdentityRestriction = null;
 
     /**
-     * @return GroupCallProcessingGetPolicyResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallProcessingGetPolicyResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupSetting
      */
     public function getUseGroupSetting()
     {
@@ -81,7 +81,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousCalls
      */
     public function getUseMaxSimultaneousCalls()
     {
@@ -103,7 +103,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousCalls
      */
     public function getMaxSimultaneousCalls()
     {
@@ -123,7 +123,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousVideoCalls
      */
     public function getUseMaxSimultaneousVideoCalls()
     {
@@ -145,7 +145,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousVideoCalls
      */
     public function getMaxSimultaneousVideoCalls()
     {
@@ -165,7 +165,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForAnsweredCalls
      */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
@@ -187,7 +187,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes
+     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes $maxCallTimeForAnsweredCallsMinutes
      */
     public function getMaxCallTimeForAnsweredCallsMinutes()
     {
@@ -207,7 +207,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForUnansweredCalls
      */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
@@ -229,7 +229,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes
+     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes $maxCallTimeForUnansweredCallsMinutes
      */
     public function getMaxCallTimeForUnansweredCallsMinutes()
     {
@@ -251,7 +251,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaPolicySelection
+     * @return MediaPolicySelection $mediaPolicySelection
      */
     public function getMediaPolicySelection()
     {
@@ -273,7 +273,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaSetName
+     * @return MediaSetName $supportedMediaSetName
      */
     public function getSupportedMediaSetName()
     {
@@ -295,7 +295,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return NetworkUsageSelection
+     * @return NetworkUsageSelection $networkUsageSelection
      */
     public function getNetworkUsageSelection()
     {
@@ -315,7 +315,7 @@ class GroupCallProcessingGetPolicyResponse14 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceGroupCallingLineIdentityRestriction
      */
     public function getEnforceGroupCallingLineIdentityRestriction()
     {

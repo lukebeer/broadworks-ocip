@@ -65,7 +65,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,7 +87,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -107,7 +107,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -129,7 +129,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -149,7 +149,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEnableViaFAC
      */
     public function getAllowEnableViaFAC()
     {
@@ -169,7 +169,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementBeforeForwarding
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
@@ -191,7 +191,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -211,7 +211,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $audioUrlList
      */
     public function getAudioUrlList()
     {
@@ -231,7 +231,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $audioFileList
      */
     public function getAudioFileList()
     {
@@ -253,7 +253,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -273,7 +273,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $videoUrlList
      */
     public function getVideoUrlList()
     {
@@ -293,7 +293,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $videoFileList
      */
     public function getVideoFileList()
     {

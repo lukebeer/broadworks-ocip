@@ -55,7 +55,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -77,7 +77,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -99,7 +99,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -121,7 +121,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -141,7 +141,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceInstanceAddProfile
+     * @return ServiceInstanceAddProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -163,7 +163,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $destinationPhoneNumber
      */
     public function getDestinationPhoneNumber()
     {
@@ -183,7 +183,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isAnswerTimeoutEnabled
      */
     public function getIsAnswerTimeoutEnabled()
     {
@@ -205,7 +205,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
 
     /**
      * 
-     * @return InstantGroupCallAnswerTimeoutMinutes
+     * @return InstantGroupCallAnswerTimeoutMinutes $answerTimeoutMinutes
      */
     public function getAnswerTimeoutMinutes()
     {

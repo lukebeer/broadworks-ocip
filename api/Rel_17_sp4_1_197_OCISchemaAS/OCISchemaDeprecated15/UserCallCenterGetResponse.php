@@ -28,7 +28,7 @@ class UserCallCenterGetResponse extends ComplexType implements ComplexInterface
     protected $userTable     = null;
 
     /**
-     * @return UserCallCenterGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallCenterGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class UserCallCenterGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return AgentACDState
+     * @return AgentACDState $agentACDState
      */
     public function getAgentACDState()
     {

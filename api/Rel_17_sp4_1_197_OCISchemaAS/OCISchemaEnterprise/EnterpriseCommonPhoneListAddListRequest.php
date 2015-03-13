@@ -34,7 +34,7 @@ class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -76,7 +76,7 @@ class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return PhoneListEntry
+     * @return PhoneListEntry $entry
      */
     public function getEntry()
     {

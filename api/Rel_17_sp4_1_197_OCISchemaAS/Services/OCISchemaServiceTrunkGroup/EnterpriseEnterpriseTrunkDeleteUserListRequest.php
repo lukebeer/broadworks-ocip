@@ -38,7 +38,7 @@ class EnterpriseEnterpriseTrunkDeleteUserListRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class EnterpriseEnterpriseTrunkDeleteUserListRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class EnterpriseEnterpriseTrunkDeleteUserListRequest extends ComplexType impleme
 
     /**
      * 
-     * @return EnterpriseTrunkName
+     * @return EnterpriseTrunkName $enterpriseTrunkName
      */
     public function getEnterpriseTrunkName()
     {
@@ -104,7 +104,7 @@ class EnterpriseEnterpriseTrunkDeleteUserListRequest extends ComplexType impleme
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {

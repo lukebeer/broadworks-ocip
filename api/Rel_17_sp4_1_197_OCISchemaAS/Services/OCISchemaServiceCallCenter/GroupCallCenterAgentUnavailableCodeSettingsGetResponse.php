@@ -29,7 +29,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
     protected $defaultAgentUnavailableCode                     = null;
 
     /**
-     * @return GroupCallCenterAgentUnavailableCodeSettingsGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeSettingsGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAgentUnavailableCodes
      */
     public function getEnableAgentUnavailableCodes()
     {
@@ -71,7 +71,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCodeOnDND
      */
     public function getDefaultAgentUnavailableCodeOnDND()
     {
@@ -93,7 +93,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCodeOnPersonalCalls
      */
     public function getDefaultAgentUnavailableCodeOnPersonalCalls()
     {
@@ -115,7 +115,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCodeOnConsecutiveBounces
      */
     public function getDefaultAgentUnavailableCodeOnConsecutiveBounces()
     {
@@ -135,7 +135,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceUseOfAgentUnavailableCodes
      */
     public function getForceUseOfAgentUnavailableCodes()
     {
@@ -157,7 +157,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $defaultAgentUnavailableCode
      */
     public function getDefaultAgentUnavailableCode()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingAlternateNoAnswerGreetingRead16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingAlternateNoAnswerGreetingRead16';
     public    $name           = 'VoiceMessagingAlternateNoAnswerGreetingRead16';
     protected $name           = null;
     protected $audioFile      = null;
@@ -44,7 +42,7 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
     }
 
     /**
-     * @return VoiceMessagingAlternateNoAnswerGreetingRead16
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +62,7 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $name
      */
     public function getName()
     {
@@ -84,7 +82,7 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioFile
      */
     public function getAudioFile()
     {
@@ -104,7 +102,7 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioMediaType
      */
     public function getAudioMediaType()
     {
@@ -124,7 +122,7 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $videoFile
      */
     public function getVideoFile()
     {
@@ -144,7 +142,7 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $videoMediaType
      */
     public function getVideoMediaType()
     {

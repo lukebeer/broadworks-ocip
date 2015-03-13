@@ -49,7 +49,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest14sp9 extends Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,7 +71,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest14sp9 extends Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -91,7 +91,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest14sp9 extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $generateDailyReport
      */
     public function getGenerateDailyReport()
     {
@@ -113,7 +113,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest14sp9 extends Compl
 
     /**
      * 
-     * @return CallCenterStatisticsCollectionPeriodMinutes
+     * @return CallCenterStatisticsCollectionPeriodMinutes $collectionPeriodMinutes
      */
     public function getCollectionPeriodMinutes()
     {
@@ -135,7 +135,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest14sp9 extends Compl
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportingEmailAddress1
      */
     public function getReportingEmailAddress1()
     {
@@ -157,7 +157,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest14sp9 extends Compl
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportingEmailAddress2
      */
     public function getReportingEmailAddress2()
     {
@@ -179,7 +179,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest14sp9 extends Compl
 
     /**
      * 
-     * @return CallCenterStatisticsSource
+     * @return CallCenterStatisticsSource $statisticsSource
      */
     public function getStatisticsSource()
     {

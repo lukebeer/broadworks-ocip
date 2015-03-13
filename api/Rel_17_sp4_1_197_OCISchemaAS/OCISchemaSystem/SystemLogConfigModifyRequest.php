@@ -30,7 +30,7 @@ class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return FileResource
+     * @return FileResource $configFile
      */
     public function getConfigFile()
     {

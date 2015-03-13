@@ -34,7 +34,7 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
     protected $useServiceProviderLanguages = null;
 
     /**
-     * @return ServiceProviderGetResponse17sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetResponse17sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $defaultDomain
      */
     public function getDefaultDomain()
     {
@@ -78,7 +78,7 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ServiceProviderName
+     * @return ServiceProviderName $serviceProviderName
      */
     public function getServiceProviderName()
     {
@@ -100,7 +100,7 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $supportEmail
      */
     public function getSupportEmail()
     {
@@ -120,7 +120,7 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Contact
+     * @return Contact $contact
      */
     public function getContact()
     {
@@ -140,7 +140,7 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return StreetAddress
+     * @return StreetAddress $address
      */
     public function getAddress()
     {
@@ -160,7 +160,7 @@ class ServiceProviderGetResponse17sp1 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useServiceProviderLanguages
      */
     public function getUseServiceProviderLanguages()
     {

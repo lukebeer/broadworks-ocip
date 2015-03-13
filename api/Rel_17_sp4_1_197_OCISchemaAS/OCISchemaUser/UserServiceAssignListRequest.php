@@ -38,7 +38,7 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -82,7 +82,7 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return UserService
+     * @return UserService $serviceName
      */
     public function getServiceName()
     {
@@ -104,7 +104,7 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {

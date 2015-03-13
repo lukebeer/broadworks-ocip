@@ -38,7 +38,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyRequest extends Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyRequest extends Comp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -80,7 +80,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyRequest extends Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomSettings
      */
     public function getUseCustomSettings()
     {
@@ -100,7 +100,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyRequest extends Comp
 
     /**
      * 
-     * @return OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions
+     * @return OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $userPermissions
      */
     public function getUserPermissions()
     {

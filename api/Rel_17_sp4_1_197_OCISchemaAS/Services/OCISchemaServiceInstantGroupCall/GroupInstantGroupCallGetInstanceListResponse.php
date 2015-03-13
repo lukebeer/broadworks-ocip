@@ -26,7 +26,7 @@ class GroupInstantGroupCallGetInstanceListResponse extends ComplexType implement
     protected $instantGroupCallTable = null;
 
     /**
-     * @return GroupInstantGroupCallGetInstanceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallGetInstanceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

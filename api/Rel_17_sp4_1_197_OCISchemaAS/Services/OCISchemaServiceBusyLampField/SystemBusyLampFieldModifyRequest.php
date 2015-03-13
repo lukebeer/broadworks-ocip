@@ -31,7 +31,7 @@ class SystemBusyLampFieldModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class SystemBusyLampFieldModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $displayLocalUserIdentityLastNameFirst
      */
     public function getDisplayLocalUserIdentityLastNameFirst()
     {

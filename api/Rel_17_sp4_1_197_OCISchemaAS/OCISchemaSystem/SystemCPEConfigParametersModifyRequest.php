@@ -50,7 +50,7 @@ class SystemCPEConfigParametersModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class SystemCPEConfigParametersModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableIPDeviceManagement
      */
     public function getEnableIPDeviceManagement()
     {
@@ -92,7 +92,7 @@ class SystemCPEConfigParametersModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return DeviceManagementFTPConnectTimeoutSeconds
+     * @return DeviceManagementFTPConnectTimeoutSeconds $ftpConnectTimeoutSeconds
      */
     public function getFtpConnectTimeoutSeconds()
     {
@@ -114,7 +114,7 @@ class SystemCPEConfigParametersModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return DeviceManagementFTPFileTransferTimeoutSeconds
+     * @return DeviceManagementFTPFileTransferTimeoutSeconds $ftpFileTransferTimeoutSeconds
      */
     public function getFtpFileTransferTimeoutSeconds()
     {
@@ -136,7 +136,7 @@ class SystemCPEConfigParametersModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return DeviceManagementPauseBetweenFileRebuildMilliseconds
+     * @return DeviceManagementPauseBetweenFileRebuildMilliseconds $pauseBetweenFileRebuildMilliseconds
      */
     public function getPauseBetweenFileRebuildMilliseconds()
     {
@@ -158,7 +158,7 @@ class SystemCPEConfigParametersModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return DeviceManagementMaxBusyTimeMinutes
+     * @return DeviceManagementMaxBusyTimeMinutes $maxBusyTimeMinutes
      */
     public function getMaxBusyTimeMinutes()
     {
@@ -180,7 +180,7 @@ class SystemCPEConfigParametersModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $deviceAccessAppServerClusterName
      */
     public function getDeviceAccessAppServerClusterName()
     {

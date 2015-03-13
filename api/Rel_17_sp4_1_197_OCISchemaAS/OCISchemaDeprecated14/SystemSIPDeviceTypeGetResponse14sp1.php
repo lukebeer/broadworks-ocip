@@ -49,7 +49,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
     protected $earlyMediaSupport          = null;
 
     /**
-     * @return SystemSIPDeviceTypeGetResponse14sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSIPDeviceTypeGetResponse14sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +69,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isObsolete
      */
     public function getIsObsolete()
     {
@@ -89,7 +89,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return UnboundedPositiveInt
+     * @return UnboundedPositiveInt $numberOfPorts
      */
     public function getNumberOfPorts()
     {
@@ -111,7 +111,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SignalingAddressType
+     * @return SignalingAddressType $profile
      */
     public function getProfile()
     {
@@ -131,7 +131,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $registrationCapable
      */
     public function getRegistrationCapable()
     {
@@ -151,7 +151,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isConferenceDevice
      */
     public function getIsConferenceDevice()
     {
@@ -171,7 +171,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isMusicOnHoldDevice
      */
     public function getIsMusicOnHoldDevice()
     {
@@ -191,7 +191,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $authenticationOverride
      */
     public function getAuthenticationOverride()
     {
@@ -211,7 +211,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $RFC3264Hold
      */
     public function getRFC3264Hold()
     {
@@ -231,7 +231,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isTrusted
      */
     public function getIsTrusted()
     {
@@ -251,7 +251,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $E164Capable
      */
     public function getE164Capable()
     {
@@ -271,7 +271,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $routeAdvance
      */
     public function getRouteAdvance()
     {
@@ -291,7 +291,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forwardingOverride
      */
     public function getForwardingOverride()
     {
@@ -311,7 +311,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $wirelessIntegration
      */
     public function getWirelessIntegration()
     {
@@ -333,7 +333,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return WebBasedConfigURL
+     * @return WebBasedConfigURL $webBasedConfigURL
      */
     public function getWebBasedConfigURL()
     {
@@ -353,7 +353,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isVideoCapable
      */
     public function getIsVideoCapable()
     {
@@ -373,7 +373,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $PBXIntegration
      */
     public function getPBXIntegration()
     {
@@ -393,7 +393,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useBusinessTrunkingContact
      */
     public function getUseBusinessTrunkingContact()
     {
@@ -413,7 +413,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $staticRegistrationCapable
      */
     public function getStaticRegistrationCapable()
     {
@@ -433,7 +433,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CPEDeviceOptions
+     * @return CPEDeviceOptions $cpeDeviceOptions
      */
     public function getCpeDeviceOptions()
     {
@@ -455,7 +455,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDeviceProtocol
+     * @return AccessDeviceProtocol $protocolChoice
      */
     public function getProtocolChoice()
     {
@@ -477,7 +477,7 @@ class SystemSIPDeviceTypeGetResponse14sp1 extends ComplexType implements Complex
 
     /**
      * 
-     * @return EarlyMediaSupportType
+     * @return EarlyMediaSupportType $earlyMediaSupport
      */
     public function getEarlyMediaSupport()
     {

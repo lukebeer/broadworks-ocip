@@ -34,7 +34,7 @@ class UserOCICallControlApplicationModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserOCICallControlApplicationModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -76,7 +76,7 @@ class UserOCICallControlApplicationModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ReplacementOCICallControlApplicationIdList
+     * @return ReplacementOCICallControlApplicationIdList $applicationIdList
      */
     public function getApplicationIdList()
     {

@@ -26,7 +26,7 @@ class GroupCallCenterDistinctiveRingingGetResponse extends ComplexType implement
     protected $distinctiveRingingForceDeliveryRingPattern = null;
 
     /**
-     * @return GroupCallCenterDistinctiveRingingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterDistinctiveRingingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupCallCenterDistinctiveRingingGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $distinctiveRingingCallCenterCalls
      */
     public function getDistinctiveRingingCallCenterCalls()
     {
@@ -68,7 +68,7 @@ class GroupCallCenterDistinctiveRingingGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return RingPattern
+     * @return RingPattern $distinctiveRingingRingPatternForCallCenter
      */
     public function getDistinctiveRingingRingPatternForCallCenter()
     {
@@ -90,7 +90,7 @@ class GroupCallCenterDistinctiveRingingGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return RingPattern
+     * @return RingPattern $distinctiveRingingForceDeliveryRingPattern
      */
     public function getDistinctiveRingingForceDeliveryRingPattern()
     {

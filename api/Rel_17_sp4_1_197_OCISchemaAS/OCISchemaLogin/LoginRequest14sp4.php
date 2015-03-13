@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SignedPassword;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -40,7 +39,7 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return LoginResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +61,7 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -84,7 +83,7 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SignedPassword
+     * @return SignedPassword $signedPassword
      */
     public function getSignedPassword()
     {
@@ -106,7 +105,7 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Password
+     * @return Password $plainTextPassword
      */
     public function getPlainTextPassword()
     {

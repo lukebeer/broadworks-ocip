@@ -76,7 +76,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -98,7 +98,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -118,7 +118,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRepeatedDigits
      */
     public function getDisallowRepeatedDigits()
     {
@@ -138,7 +138,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserNumber
      */
     public function getDisallowUserNumber()
     {
@@ -158,7 +158,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedUserNumber
      */
     public function getDisallowReversedUserNumber()
     {
@@ -178,7 +178,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPasscode
      */
     public function getDisallowOldPasscode()
     {
@@ -198,7 +198,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPasscode
      */
     public function getDisallowReversedOldPasscode()
     {
@@ -220,7 +220,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return VoiceMessagingMinPasscodeCodeLength
+     * @return VoiceMessagingMinPasscodeCodeLength $minCodeLength
      */
     public function getMinCodeLength()
     {
@@ -242,7 +242,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return VoiceMessagingMaxPasscodeCodeLength
+     * @return VoiceMessagingMaxPasscodeCodeLength $maxCodeLength
      */
     public function getMaxCodeLength()
     {
@@ -262,7 +262,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableLoginAfterMaxFailedLoginAttempts
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
@@ -284,7 +284,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return VoiceMessagingMaxFailedLoginAttempts
+     * @return VoiceMessagingMaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -304,7 +304,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expirePassword
      */
     public function getExpirePassword()
     {
@@ -326,7 +326,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return VoiceMessagingPasscodeExpiresDays
+     * @return VoiceMessagingPasscodeExpiresDays $passcodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
@@ -346,7 +346,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -368,7 +368,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {

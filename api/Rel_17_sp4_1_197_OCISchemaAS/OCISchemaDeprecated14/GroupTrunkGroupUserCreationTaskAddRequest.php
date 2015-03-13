@@ -70,7 +70,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -92,7 +92,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -114,7 +114,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return TrunkGroupUserCreationTaskName
+     * @return TrunkGroupUserCreationTaskName $taskName
      */
     public function getTaskName()
     {
@@ -136,7 +136,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return TrunkGroupUserCreationUserIdFormat
+     * @return TrunkGroupUserCreationUserIdFormat $userIdFormat
      */
     public function getUserIdFormat()
     {
@@ -158,7 +158,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $userIdDomain
      */
     public function getUserIdDomain()
     {
@@ -178,7 +178,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $populateExtension
      */
     public function getPopulateExtension()
     {
@@ -200,7 +200,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return TrunkGroupUserCreationSIPURIFormat
+     * @return TrunkGroupUserCreationSIPURIFormat $linePortFormat
      */
     public function getLinePortFormat()
     {
@@ -222,7 +222,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $linePortDomain
      */
     public function getLinePortDomain()
     {
@@ -242,7 +242,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $populateContact
      */
     public function getPopulateContact()
     {
@@ -264,7 +264,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return TrunkGroupUserCreationSIPURIFormat
+     * @return TrunkGroupUserCreationSIPURIFormat $contactFormat
      */
     public function getContactFormat()
     {
@@ -286,7 +286,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $contactDomain
      */
     public function getContactDomain()
     {
@@ -308,7 +308,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {
@@ -330,7 +330,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return UserService
+     * @return UserService $userService
      */
     public function getUserService()
     {

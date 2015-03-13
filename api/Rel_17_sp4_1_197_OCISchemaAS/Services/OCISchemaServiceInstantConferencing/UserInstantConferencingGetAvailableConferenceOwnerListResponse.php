@@ -23,7 +23,7 @@ class UserInstantConferencingGetAvailableConferenceOwnerListResponse extends Com
     protected $bridge = null;
 
     /**
-     * @return UserInstantConferencingGetAvailableConferenceOwnerListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableConferenceOwnerListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserInstantConferencingGetAvailableConferenceOwnerListResponse extends Com
 
     /**
      * 
-     * @return InstantConferencingBridgeOwnerList
+     * @return InstantConferencingBridgeOwnerList $bridge
      */
     public function getBridge()
     {

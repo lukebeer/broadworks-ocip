@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRoutingPriorityOrder;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterRoutingPolicy;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -42,7 +41,7 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +63,7 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +85,7 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +107,7 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return CallCenterRoutingPolicy
+     * @return CallCenterRoutingPolicy $routingPolicy
      */
     public function getRoutingPolicy()
     {
@@ -128,7 +127,7 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return CallCenterRoutingPriorityOrder
+     * @return CallCenterRoutingPriorityOrder $routingPriorityOrder
      */
     public function getRoutingPriorityOrder()
     {

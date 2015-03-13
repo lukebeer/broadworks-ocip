@@ -58,7 +58,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -80,7 +80,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -102,7 +102,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -124,7 +124,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -144,7 +144,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceInstanceAddProfile
+     * @return ServiceInstanceAddProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -166,7 +166,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return BroadWorksAnywhereScope
+     * @return BroadWorksAnywhereScope $broadWorksAnywhereScope
      */
     public function getBroadWorksAnywhereScope()
     {
@@ -188,7 +188,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return BroadWorksAnywhereCLIDPrompt
+     * @return BroadWorksAnywhereCLIDPrompt $promptForCLID
      */
     public function getPromptForCLID()
     {
@@ -208,7 +208,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $silentPromptMode
      */
     public function getSilentPromptMode()
     {
@@ -228,7 +228,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $promptForPasscode
      */
     public function getPromptForPasscode()
     {

@@ -23,7 +23,7 @@ class UserPrivacyGetResponse extends ComplexType implements ComplexInterface
     protected $enableDirectoryPrivacy = null;
 
     /**
-     * @return UserPrivacyGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserPrivacyGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserPrivacyGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDirectoryPrivacy
      */
     public function getEnableDirectoryPrivacy()
     {

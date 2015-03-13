@@ -66,7 +66,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -88,7 +88,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -110,7 +110,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return ServicePackMigrationTaskName
+     * @return ServicePackMigrationTaskName $taskName
      */
     public function getTaskName()
     {
@@ -132,7 +132,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return ServicePackMigrationTaskName
+     * @return ServicePackMigrationTaskName $newTaskName
      */
     public function getNewTaskName()
     {
@@ -151,7 +151,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:dateTime
+     * @return xs:dateTime $startTimestamp
      */
     public function getStartTimestamp()
     {
@@ -173,7 +173,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return ServicePackMigrationMaxDurationHours
+     * @return ServicePackMigrationMaxDurationHours $maxDurationHours
      */
     public function getMaxDurationHours()
     {
@@ -193,7 +193,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendReportEmail
      */
     public function getSendReportEmail()
     {
@@ -215,7 +215,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportDeliveryEmailAddress
      */
     public function getReportDeliveryEmailAddress()
     {
@@ -235,7 +235,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $abortOnError
      */
     public function getAbortOnError()
     {
@@ -257,7 +257,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return ServicePackMigrationAbortErrorThreshold
+     * @return ServicePackMigrationAbortErrorThreshold $abortErrorThreshold
      */
     public function getAbortErrorThreshold()
     {
@@ -277,7 +277,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $reportAllUsers
      */
     public function getReportAllUsers()
     {
@@ -297,7 +297,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $automaticallyIncrementServiceQuantity
      */
     public function getAutomaticallyIncrementServiceQuantity()
     {

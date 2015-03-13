@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringIncomingRule;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommunicationBarringIncomingRule extends ComplexType implements ComplexInterface
 {
-    public    $responseType         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringIncomingRule';
     public    $name                 = 'CommunicationBarringIncomingRule';
     protected $digitPatternCriteria = null;
     protected $action               = null;
@@ -46,7 +44,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return CommunicationBarringIncomingRule
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +64,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $digitPatternCriteria
      */
     public function getDigitPatternCriteria()
     {
@@ -86,7 +84,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $action
      */
     public function getAction()
     {
@@ -106,7 +104,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callTimeoutSeconds
      */
     public function getCallTimeoutSeconds()
     {
@@ -126,7 +124,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -146,7 +144,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -166,7 +164,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $priority
      */
     public function getPriority()
     {

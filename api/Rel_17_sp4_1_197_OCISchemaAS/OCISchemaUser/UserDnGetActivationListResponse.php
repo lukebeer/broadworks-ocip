@@ -26,7 +26,7 @@ class UserDnGetActivationListResponse extends ComplexType implements ComplexInte
     protected $dnTable = null;
 
     /**
-     * @return UserDnGetActivationListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserDnGetActivationListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

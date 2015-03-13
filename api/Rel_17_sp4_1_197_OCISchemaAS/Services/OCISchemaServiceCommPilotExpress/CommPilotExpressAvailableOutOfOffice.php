@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressAvailableOutOfOffice;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressAvailableOutOfOffice extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressAvailableOutOfOffice';
     public    $name               = 'CommPilotExpressAvailableOutOfOffice';
     protected $incomingCalls      = null;
     protected $incomingCallNotify = null;
@@ -34,7 +32,7 @@ class CommPilotExpressAvailableOutOfOffice extends ComplexType implements Comple
     }
 
     /**
-     * @return CommPilotExpressAvailableOutOfOffice
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class CommPilotExpressAvailableOutOfOffice extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $incomingCalls
      */
     public function getIncomingCalls()
     {
@@ -74,7 +72,7 @@ class CommPilotExpressAvailableOutOfOffice extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $incomingCallNotify
      */
     public function getIncomingCallNotify()
     {

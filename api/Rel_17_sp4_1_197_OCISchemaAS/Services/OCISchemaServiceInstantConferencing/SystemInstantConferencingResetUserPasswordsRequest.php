@@ -31,7 +31,7 @@ class SystemInstantConferencingResetUserPasswordsRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemInstantConferencingResetUserPasswordsRequest extends ComplexType imp
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {

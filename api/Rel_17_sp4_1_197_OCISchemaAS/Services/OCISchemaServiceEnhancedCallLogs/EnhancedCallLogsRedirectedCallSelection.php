@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsRedirectedCallSelection;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +24,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnhancedCallLogsRedirectedCallSelection extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsRedirectedCallSelection';
     public    $name           = 'EnhancedCallLogsRedirectedCallSelection';
     protected $redirectedCall = null;
     protected $redirectType   = null;
@@ -39,7 +37,7 @@ class EnhancedCallLogsRedirectedCallSelection extends ComplexType implements Com
     }
 
     /**
-     * @return EnhancedCallLogsRedirectedCallSelection
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +57,7 @@ class EnhancedCallLogsRedirectedCallSelection extends ComplexType implements Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $redirectedCall
      */
     public function getRedirectedCall()
     {
@@ -79,7 +77,7 @@ class EnhancedCallLogsRedirectedCallSelection extends ComplexType implements Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $redirectType
      */
     public function getRedirectType()
     {

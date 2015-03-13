@@ -28,7 +28,7 @@ class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInter
     protected $internalSource                     = null;
 
     /**
-     * @return UserMusicOnHoldUserGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserMusicOnHoldUserGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -68,7 +68,7 @@ class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return MusicOnHoldUserSourceRead
+     * @return MusicOnHoldUserSourceRead $source
      */
     public function getSource()
     {
@@ -88,7 +88,7 @@ class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useAlternateSourceForInternalCalls
      */
     public function getUseAlternateSourceForInternalCalls()
     {
@@ -108,7 +108,7 @@ class UserMusicOnHoldUserGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return MusicOnHoldUserSourceRead
+     * @return MusicOnHoldUserSourceRead $internalSource
      */
     public function getInternalSource()
     {

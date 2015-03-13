@@ -35,7 +35,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
     protected $videoFileUrl         = null;
 
     /**
-     * @return GroupCustomRingbackGroupGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCustomRingback\GroupCustomRingbackGroupGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -77,7 +77,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -99,7 +99,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -121,7 +121,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $audioMediaType
      */
     public function getAudioMediaType()
     {
@@ -143,7 +143,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return URL
+     * @return URL $audioFileUrl
      */
     public function getAudioFileUrl()
     {
@@ -165,7 +165,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -187,7 +187,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -209,7 +209,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $videoMediaType
      */
     public function getVideoMediaType()
     {
@@ -231,7 +231,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
 
     /**
      * 
-     * @return URL
+     * @return URL $videoFileUrl
      */
     public function getVideoFileUrl()
     {

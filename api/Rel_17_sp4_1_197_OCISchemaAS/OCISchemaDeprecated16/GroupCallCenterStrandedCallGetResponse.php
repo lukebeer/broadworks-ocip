@@ -37,7 +37,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
     protected $videoMediaType        = null;
 
     /**
-     * @return GroupCallCenterStrandedCallGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterStrandedCallGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return CallCenterStrandedCallProcessingAction
+     * @return CallCenterStrandedCallProcessingAction $action
      */
     public function getAction()
     {
@@ -81,7 +81,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -103,7 +103,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -125,7 +125,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return URL
+     * @return URL $audioFileUrl
      */
     public function getAudioFileUrl()
     {
@@ -147,7 +147,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -169,7 +169,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $audioMediaType
      */
     public function getAudioMediaType()
     {
@@ -191,7 +191,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -213,7 +213,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return URL
+     * @return URL $videoFileUrl
      */
     public function getVideoFileUrl()
     {
@@ -235,7 +235,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -257,7 +257,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $videoMediaType
      */
     public function getVideoMediaType()
     {

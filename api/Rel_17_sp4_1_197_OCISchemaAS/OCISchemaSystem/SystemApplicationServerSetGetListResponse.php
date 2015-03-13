@@ -24,7 +24,7 @@ class SystemApplicationServerSetGetListResponse extends ComplexType implements C
     protected $applicationServerSets = null;
 
     /**
-     * @return SystemApplicationServerSetGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemApplicationServerSetGetListResponse extends ComplexType implements C
 
     /**
      * 
-     * @return ApplicationServerSetName
+     * @return ApplicationServerSetName $applicationServerSets
      */
     public function getApplicationServerSets()
     {

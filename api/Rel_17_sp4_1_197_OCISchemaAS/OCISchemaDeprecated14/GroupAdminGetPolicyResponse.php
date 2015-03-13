@@ -40,7 +40,7 @@ class GroupAdminGetPolicyResponse extends ComplexType implements ComplexInterfac
     protected $serviceAccess                 = null;
 
     /**
-     * @return GroupAdminGetPolicyResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupAdminGetPolicyResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +62,7 @@ class GroupAdminGetPolicyResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupAdminProfileAccess
+     * @return GroupAdminProfileAccess $profileAccess
      */
     public function getProfileAccess()
     {
@@ -84,7 +84,7 @@ class GroupAdminGetPolicyResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupAdminUserAccess
+     * @return GroupAdminUserAccess $userAccess
      */
     public function getUserAccess()
     {
@@ -106,7 +106,7 @@ class GroupAdminGetPolicyResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupAdminAdminAccess
+     * @return GroupAdminAdminAccess $adminAccess
      */
     public function getAdminAccess()
     {
@@ -128,7 +128,7 @@ class GroupAdminGetPolicyResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupAdminDepartmentAccess
+     * @return GroupAdminDepartmentAccess $departmentAccess
      */
     public function getDepartmentAccess()
     {
@@ -150,7 +150,7 @@ class GroupAdminGetPolicyResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupAdminAccessDeviceAccess
+     * @return GroupAdminAccessDeviceAccess $accessDeviceAccess
      */
     public function getAccessDeviceAccess()
     {
@@ -172,7 +172,7 @@ class GroupAdminGetPolicyResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupAdminEnhancedServiceInstanceAccess
+     * @return GroupAdminEnhancedServiceInstanceAccess $enhancedServiceInstanceAccess
      */
     public function getEnhancedServiceInstanceAccess()
     {
@@ -194,7 +194,7 @@ class GroupAdminGetPolicyResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupAdminFeatureAccessCodeAccess
+     * @return GroupAdminFeatureAccessCodeAccess $featureAccessCodeAccess
      */
     public function getFeatureAccessCodeAccess()
     {
@@ -216,7 +216,7 @@ class GroupAdminGetPolicyResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupAdminPhoneNumberExtensionAccess
+     * @return GroupAdminPhoneNumberExtensionAccess $phoneNumberExtensionAccess
      */
     public function getPhoneNumberExtensionAccess()
     {
@@ -238,7 +238,7 @@ class GroupAdminGetPolicyResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return GroupAdminServiceAccess
+     * @return GroupAdminServiceAccess $serviceAccess
      */
     public function getServiceAccess()
     {

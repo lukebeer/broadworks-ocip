@@ -17,7 +17,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseTrunkName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -70,7 +69,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return GroupEnterpriseTrunkGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -92,7 +91,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -114,7 +113,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -136,7 +135,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return EnterpriseTrunkName
+     * @return EnterpriseTrunkName $enterpriseTrunkName
      */
     public function getEnterpriseTrunkName()
     {
@@ -158,7 +157,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -180,7 +179,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -202,7 +201,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -224,7 +223,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -246,7 +245,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return SearchCriteriaUserId
+     * @return SearchCriteriaUserId $searchCriteriaUserId
      */
     public function getSearchCriteriaUserId()
     {
@@ -268,7 +267,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -290,7 +289,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return SearchCriteriaAlternateTrunkIdentity
+     * @return SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity
      */
     public function getSearchCriteriaAlternateTrunkIdentity()
     {

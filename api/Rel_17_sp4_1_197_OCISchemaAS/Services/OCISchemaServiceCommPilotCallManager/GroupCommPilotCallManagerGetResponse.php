@@ -23,7 +23,7 @@ class GroupCommPilotCallManagerGetResponse extends ComplexType implements Comple
     protected $groupDirectory = null;
 
     /**
-     * @return GroupCommPilotCallManagerGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotCallManager\GroupCommPilotCallManagerGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupCommPilotCallManagerGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return CommPilotCallManagerGroupDirectoryDisplaySelection
+     * @return CommPilotCallManagerGroupDirectoryDisplaySelection $groupDirectory
      */
     public function getGroupDirectory()
     {

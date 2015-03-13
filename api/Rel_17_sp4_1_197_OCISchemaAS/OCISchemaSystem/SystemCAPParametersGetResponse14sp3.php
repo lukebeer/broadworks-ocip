@@ -36,7 +36,7 @@ class SystemCAPParametersGetResponse14sp3 extends ComplexType implements Complex
     protected $capServerCallCenterMaxClientConnections = null;
 
     /**
-     * @return SystemCAPParametersGetResponse14sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCAPParametersGetResponse14sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class SystemCAPParametersGetResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -80,7 +80,7 @@ class SystemCAPParametersGetResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CAPMaxClientConnections
+     * @return CAPMaxClientConnections $maxClientConnections
      */
     public function getMaxClientConnections()
     {
@@ -100,7 +100,7 @@ class SystemCAPParametersGetResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableConnectionPing
      */
     public function getEnableConnectionPing()
     {
@@ -122,7 +122,7 @@ class SystemCAPParametersGetResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CAPConnectionPingIntervalMinutes
+     * @return CAPConnectionPingIntervalMinutes $connectionPingIntervalMinutes
      */
     public function getConnectionPingIntervalMinutes()
     {
@@ -144,7 +144,7 @@ class SystemCAPParametersGetResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $CCC2ServerPort
      */
     public function getCCC2ServerPort()
     {
@@ -166,7 +166,7 @@ class SystemCAPParametersGetResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CCC2MaxClientConnections
+     * @return CCC2MaxClientConnections $CCC2MaxClientConnections
      */
     public function getCCC2MaxClientConnections()
     {
@@ -188,7 +188,7 @@ class SystemCAPParametersGetResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $capServerCallCenterPort
      */
     public function getCapServerCallCenterPort()
     {
@@ -210,7 +210,7 @@ class SystemCAPParametersGetResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CAPServerCallCenterMaxClientConnections
+     * @return CAPServerCallCenterMaxClientConnections $capServerCallCenterMaxClientConnections
      */
     public function getCapServerCallCenterMaxClientConnections()
     {

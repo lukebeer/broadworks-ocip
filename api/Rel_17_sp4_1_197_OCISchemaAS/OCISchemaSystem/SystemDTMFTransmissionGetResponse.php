@@ -25,7 +25,7 @@ class SystemDTMFTransmissionGetResponse extends ComplexType implements ComplexIn
     protected $signalingContentType = null;
 
     /**
-     * @return SystemDTMFTransmissionGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDTMFTransmissionGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class SystemDTMFTransmissionGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DTMFTransmissionMethod
+     * @return DTMFTransmissionMethod $transmissionMethod
      */
     public function getTransmissionMethod()
     {
@@ -69,7 +69,7 @@ class SystemDTMFTransmissionGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DtmfTransmissionSignalingContentType
+     * @return DtmfTransmissionSignalingContentType $signalingContentType
      */
     public function getSignalingContentType()
     {

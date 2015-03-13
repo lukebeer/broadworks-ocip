@@ -30,7 +30,7 @@ class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $emergencyAndRepairIntercept
      */
     public function getEmergencyAndRepairIntercept()
     {

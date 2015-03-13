@@ -56,7 +56,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +78,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -100,7 +100,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -122,7 +122,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return PreAlertingAnnouncementInterrupt
+     * @return PreAlertingAnnouncementInterrupt $announcementInterruption
      */
     public function getAnnouncementInterruption()
     {
@@ -144,7 +144,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return PreAlertingAnnouncementInterruptDigits
+     * @return PreAlertingAnnouncementInterruptDigits $interruptionDigitSequence
      */
     public function getInterruptionDigitSequence()
     {
@@ -166,7 +166,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -186,7 +186,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -208,7 +208,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -228,7 +228,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $videoFile
      */
     public function getVideoFile()
     {

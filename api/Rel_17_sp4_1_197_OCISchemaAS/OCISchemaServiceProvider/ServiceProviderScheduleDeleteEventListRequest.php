@@ -38,7 +38,7 @@ class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -80,7 +80,7 @@ class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {
@@ -102,7 +102,7 @@ class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return EventName
+     * @return EventName $eventName
      */
     public function getEventName()
     {

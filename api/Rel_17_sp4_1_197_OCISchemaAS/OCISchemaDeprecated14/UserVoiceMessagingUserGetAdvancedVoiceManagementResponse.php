@@ -39,7 +39,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
     protected $personalMailServerPassword          = null;
 
     /**
-     * @return UserVoiceMessagingUserGetAdvancedVoiceManagementResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserVoiceMessagingUserGetAdvancedVoiceManagementResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
 
     /**
      * 
-     * @return VoiceMessagingUserMailServerSelection
+     * @return VoiceMessagingUserMailServerSelection $mailServerSelection
      */
     public function getMailServerSelection()
     {
@@ -83,7 +83,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $groupMailServerEmailAddress
      */
     public function getGroupMailServerEmailAddress()
     {
@@ -105,7 +105,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
 
     /**
      * 
-     * @return VoiceMessagingMailServerUserId
+     * @return VoiceMessagingMailServerUserId $groupMailServerUserId
      */
     public function getGroupMailServerUserId()
     {
@@ -127,7 +127,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
 
     /**
      * 
-     * @return Password
+     * @return Password $groupMailServerPassword
      */
     public function getGroupMailServerPassword()
     {
@@ -149,7 +149,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $personalMailServerNetAddress
      */
     public function getPersonalMailServerNetAddress()
     {
@@ -171,7 +171,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
 
     /**
      * 
-     * @return VoiceMessagingMailServerProtocol
+     * @return VoiceMessagingMailServerProtocol $personalMailServerProtocol
      */
     public function getPersonalMailServerProtocol()
     {
@@ -191,7 +191,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $personalMailServerRealDeleteForImap
      */
     public function getPersonalMailServerRealDeleteForImap()
     {
@@ -213,7 +213,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $personalMailServerEmailAddress
      */
     public function getPersonalMailServerEmailAddress()
     {
@@ -235,7 +235,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
 
     /**
      * 
-     * @return VoiceMessagingMailServerUserId
+     * @return VoiceMessagingMailServerUserId $personalMailServerUserId
      */
     public function getPersonalMailServerUserId()
     {
@@ -257,7 +257,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
 
     /**
      * 
-     * @return Password
+     * @return Password $personalMailServerPassword
      */
     public function getPersonalMailServerPassword()
     {

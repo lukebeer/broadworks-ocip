@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceDuration;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MeetMeConferencingConferenceDuration extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceDuration';
     public    $name    = 'MeetMeConferencingConferenceDuration';
     protected $hours   = null;
     protected $minutes = null;
@@ -34,7 +32,7 @@ class MeetMeConferencingConferenceDuration extends ComplexType implements Comple
     }
 
     /**
-     * @return MeetMeConferencingConferenceDuration
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class MeetMeConferencingConferenceDuration extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $hours
      */
     public function getHours()
     {
@@ -74,7 +72,7 @@ class MeetMeConferencingConferenceDuration extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $minutes
      */
     public function getMinutes()
     {

@@ -44,7 +44,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
     protected $defaultPassword                         = null;
 
     /**
-     * @return SystemVoiceMessagingGroupGetPasscodeRulesResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemVoiceMessagingGroupGetPasscodeRulesResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRepeatedDigits
      */
     public function getDisallowRepeatedDigits()
     {
@@ -84,7 +84,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserNumber
      */
     public function getDisallowUserNumber()
     {
@@ -104,7 +104,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedUserNumber
      */
     public function getDisallowReversedUserNumber()
     {
@@ -124,7 +124,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPasscode
      */
     public function getDisallowOldPasscode()
     {
@@ -144,7 +144,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPasscode
      */
     public function getDisallowReversedOldPasscode()
     {
@@ -166,7 +166,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return VoiceMessagingMinPasscodeCodeLength
+     * @return VoiceMessagingMinPasscodeCodeLength $minCodeLength
      */
     public function getMinCodeLength()
     {
@@ -188,7 +188,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return VoiceMessagingMaxPasscodeCodeLength
+     * @return VoiceMessagingMaxPasscodeCodeLength $maxCodeLength
      */
     public function getMaxCodeLength()
     {
@@ -208,7 +208,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableLoginAfterMaxFailedLoginAttempts
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
@@ -230,7 +230,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return VoiceMessagingMaxFailedLoginAttempts
+     * @return VoiceMessagingMaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -250,7 +250,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expirePassword
      */
     public function getExpirePassword()
     {
@@ -272,7 +272,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return VoiceMessagingPasscodeExpiresDays
+     * @return VoiceMessagingPasscodeExpiresDays $passcodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
@@ -292,7 +292,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -314,7 +314,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
@@ -336,7 +336,7 @@ class SystemVoiceMessagingGroupGetPasscodeRulesResponse14 extends ComplexType im
 
     /**
      * 
-     * @return Password
+     * @return Password $defaultPassword
      */
     public function getDefaultPassword()
     {

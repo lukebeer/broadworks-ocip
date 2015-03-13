@@ -38,7 +38,7 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $scheduleName
      */
     public function getScheduleName()
     {
@@ -104,7 +104,7 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ScheduleType
+     * @return ScheduleType $scheduleType
      */
     public function getScheduleType()
     {

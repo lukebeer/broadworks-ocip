@@ -30,7 +30,7 @@ class SystemDeviceManagementTagDeleteListRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemDeviceManagementTagDeleteListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return DeviceManagementTagName
+     * @return DeviceManagementTagName $tagName
      */
     public function getTagName()
     {

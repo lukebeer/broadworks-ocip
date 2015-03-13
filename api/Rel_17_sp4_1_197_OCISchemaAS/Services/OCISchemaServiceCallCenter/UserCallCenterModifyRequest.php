@@ -79,7 +79,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -101,7 +101,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -123,7 +123,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return AgentACDState
+     * @return AgentACDState $agentACDState
      */
     public function getAgentACDState()
     {
@@ -145,7 +145,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $agentUnavailableCode
      */
     public function getAgentUnavailableCode()
     {
@@ -165,7 +165,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDefaultGuardTimer
      */
     public function getUseDefaultGuardTimer()
     {
@@ -185,7 +185,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableGuardTimer
      */
     public function getEnableGuardTimer()
     {
@@ -207,7 +207,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return CallCenterGuardTimerSeconds
+     * @return CallCenterGuardTimerSeconds $guardTimerSeconds
      */
     public function getGuardTimerSeconds()
     {
@@ -227,7 +227,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultUnavailableSettings
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
@@ -247,7 +247,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnDNDActivation
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
@@ -267,7 +267,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceUnavailableOnPersonalCalls
      */
     public function getForceUnavailableOnPersonalCalls()
     {
@@ -287,7 +287,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnBouncedCallLimit
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
@@ -309,7 +309,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable
+     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable $numberConsecutiveBouncedCallsToForceAgentUnavailable
      */
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
     {
@@ -329,7 +329,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $makeOutgoingCallsAsCallCenter
      */
     public function getMakeOutgoingCallsAsCallCenter()
     {
@@ -349,7 +349,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return DNISKey
+     * @return DNISKey $outgoingCallDNIS
      */
     public function getOutgoingCallDNIS()
     {
@@ -369,7 +369,7 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return CallCenterAgentAvailability
+     * @return CallCenterAgentAvailability $callCenterAvailability
      */
     public function getCallCenterAvailability()
     {

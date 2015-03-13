@@ -24,7 +24,7 @@ class GroupInstantConferencingGetAvailableUserListResponse extends ComplexType i
     protected $userTable = null;
 
     /**
-     * @return GroupInstantConferencingGetAvailableUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\GroupInstantConferencingGetAvailableUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

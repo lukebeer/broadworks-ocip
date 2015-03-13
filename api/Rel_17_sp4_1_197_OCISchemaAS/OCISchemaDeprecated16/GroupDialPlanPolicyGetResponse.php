@@ -31,7 +31,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
     protected $privateDigitMap                  = null;
 
     /**
-     * @return GroupDialPlanPolicyGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupDialPlanPolicyGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return GroupDialPlanPolicySettingLevel
+     * @return GroupDialPlanPolicySettingLevel $useSetting
      */
     public function getUseSetting()
     {
@@ -73,7 +73,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requiresAccessCodeForPublicCalls
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
@@ -93,7 +93,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowE164PublicCalls
      */
     public function getAllowE164PublicCalls()
     {
@@ -115,7 +115,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $publicDigitMap
      */
     public function getPublicDigitMap()
     {
@@ -137,7 +137,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $privateDigitMap
      */
     public function getPrivateDigitMap()
     {

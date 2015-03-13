@@ -41,7 +41,7 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -85,7 +85,7 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -107,7 +107,7 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {
@@ -129,7 +129,7 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $defaultNetworkClassOfService
      */
     public function getDefaultNetworkClassOfService()
     {

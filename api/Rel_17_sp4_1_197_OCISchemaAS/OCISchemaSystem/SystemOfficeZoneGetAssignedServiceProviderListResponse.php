@@ -26,7 +26,7 @@ class SystemOfficeZoneGetAssignedServiceProviderListResponse extends ComplexType
     protected $serviceProviderTable = null;
 
     /**
-     * @return SystemOfficeZoneGetAssignedServiceProviderListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetAssignedServiceProviderListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -25,7 +25,7 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
     protected $publicIdentityRefreshDelaySeconds = null;
 
     /**
-     * @return SystemShInterfaceParametersGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemShInterfaceParametersGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $hssRealm
      */
     public function getHssRealm()
     {
@@ -69,7 +69,7 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
 
     /**
      * 
-     * @return ShInterfacePublicIdentityRefreshDelaySeconds
+     * @return ShInterfacePublicIdentityRefreshDelaySeconds $publicIdentityRefreshDelaySeconds
      */
     public function getPublicIdentityRefreshDelaySeconds()
     {

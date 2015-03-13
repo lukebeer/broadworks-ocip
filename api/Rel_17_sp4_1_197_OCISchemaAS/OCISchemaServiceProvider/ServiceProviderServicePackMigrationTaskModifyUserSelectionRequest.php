@@ -47,7 +47,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +69,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -91,7 +91,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
 
     /**
      * 
-     * @return ServicePackMigrationTaskName
+     * @return ServicePackMigrationTaskName $taskName
      */
     public function getTaskName()
     {
@@ -113,7 +113,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
 
     /**
      * 
-     * @return ServicePackMigrationTaskUserSelectionType
+     * @return ServicePackMigrationTaskUserSelectionType $userSelectionType
      */
     public function getUserSelectionType()
     {
@@ -133,7 +133,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
 
     /**
      * 
-     * @return ReplacementUserServiceList
+     * @return ReplacementUserServiceList $userServiceNameList
      */
     public function getUserServiceNameList()
     {
@@ -153,7 +153,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
 
     /**
      * 
-     * @return ReplacementServicePackNameList
+     * @return ReplacementServicePackNameList $servicePackNameList
      */
     public function getServicePackNameList()
     {

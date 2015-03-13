@@ -53,7 +53,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
     protected $manualVideoMediaType         = null;
 
     /**
-     * @return GroupCallCenterNightServiceGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterNightServiceGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +75,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return CallCenterScheduledServiceAction
+     * @return CallCenterScheduledServiceAction $action
      */
     public function getAction()
     {
@@ -97,7 +97,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $businessHours
      */
     public function getBusinessHours()
     {
@@ -117,7 +117,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceNightService
      */
     public function getForceNightService()
     {
@@ -137,7 +137,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowManualOverrideViaFAC
      */
     public function getAllowManualOverrideViaFAC()
     {
@@ -159,7 +159,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -179,7 +179,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementBeforeAction
      */
     public function getPlayAnnouncementBeforeAction()
     {
@@ -201,7 +201,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -223,7 +223,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return URL
+     * @return URL $audioFileUrl
      */
     public function getAudioFileUrl()
     {
@@ -245,7 +245,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -267,7 +267,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $audioMediaType
      */
     public function getAudioMediaType()
     {
@@ -289,7 +289,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -311,7 +311,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return URL
+     * @return URL $videoFileUrl
      */
     public function getVideoFileUrl()
     {
@@ -333,7 +333,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -355,7 +355,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $videoMediaType
      */
     public function getVideoMediaType()
     {
@@ -377,7 +377,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return CallCenterManualNightServiceAnnouncementMode
+     * @return CallCenterManualNightServiceAnnouncementMode $manualAnnouncementMode
      */
     public function getManualAnnouncementMode()
     {
@@ -399,7 +399,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $manualAudioMessageSelection
      */
     public function getManualAudioMessageSelection()
     {
@@ -421,7 +421,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return URL
+     * @return URL $manualAudioFileUrl
      */
     public function getManualAudioFileUrl()
     {
@@ -443,7 +443,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $manualAudioFileDescription
      */
     public function getManualAudioFileDescription()
     {
@@ -465,7 +465,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $manualAudioMediaType
      */
     public function getManualAudioMediaType()
     {
@@ -487,7 +487,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $manualVideoMessageSelection
      */
     public function getManualVideoMessageSelection()
     {
@@ -509,7 +509,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return URL
+     * @return URL $manualVideoFileUrl
      */
     public function getManualVideoFileUrl()
     {
@@ -531,7 +531,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $manualVideoFileDescription
      */
     public function getManualVideoFileDescription()
     {
@@ -553,7 +553,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $manualVideoMediaType
      */
     public function getManualVideoMediaType()
     {

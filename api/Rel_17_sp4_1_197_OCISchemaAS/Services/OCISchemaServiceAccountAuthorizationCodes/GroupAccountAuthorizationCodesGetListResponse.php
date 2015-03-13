@@ -23,7 +23,7 @@ class GroupAccountAuthorizationCodesGetListResponse extends ComplexType implemen
     protected $codeEntry = null;
 
     /**
-     * @return GroupAccountAuthorizationCodesGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class GroupAccountAuthorizationCodesGetListResponse extends ComplexType implemen
 
     /**
      * 
-     * @return AccountAuthorizationCodeEntry
+     * @return AccountAuthorizationCodeEntry $codeEntry
      */
     public function getCodeEntry()
     {

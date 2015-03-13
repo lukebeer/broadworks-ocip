@@ -31,7 +31,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
     protected $fromDnCriteria           = null;
 
     /**
-     * @return UserCallForwardingSelectiveGetCriteriaResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallForwardingSelective\UserCallForwardingSelectiveGetCriteriaResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -71,7 +71,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -93,7 +93,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
 
     /**
      * 
-     * @return CallForwardingSelectiveNumberSelection16
+     * @return CallForwardingSelectiveNumberSelection16 $forwardToNumberSelection
      */
     public function getForwardToNumberSelection()
     {
@@ -115,7 +115,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -135,7 +135,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

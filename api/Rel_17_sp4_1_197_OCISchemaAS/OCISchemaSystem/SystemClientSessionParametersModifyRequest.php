@@ -34,7 +34,7 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableInactivityTimeout
      */
     public function getEnableInactivityTimeout()
     {
@@ -76,7 +76,7 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ClientSessionTimeoutMinutes
+     * @return ClientSessionTimeoutMinutes $inactivityTimeoutMinutes
      */
     public function getInactivityTimeoutMinutes()
     {

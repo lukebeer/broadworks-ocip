@@ -30,7 +30,7 @@ class SystemApplicationServerSetDeleteRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemApplicationServerSetDeleteRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ApplicationServerSetName
+     * @return ApplicationServerSetName $name
      */
     public function getName()
     {

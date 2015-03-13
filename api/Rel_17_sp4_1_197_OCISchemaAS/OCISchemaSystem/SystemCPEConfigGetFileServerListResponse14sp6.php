@@ -24,7 +24,7 @@ class SystemCPEConfigGetFileServerListResponse14sp6 extends ComplexType implemen
     protected $fileServerTable = null;
 
     /**
-     * @return SystemCPEConfigGetFileServerListResponse14sp6
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigGetFileServerListResponse14sp6 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

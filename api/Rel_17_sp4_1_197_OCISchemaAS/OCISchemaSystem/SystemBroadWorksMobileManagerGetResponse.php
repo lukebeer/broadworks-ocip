@@ -34,7 +34,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
     protected $signalingPort      = null;
 
     /**
-     * @return SystemBroadWorksMobileManagerGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBroadWorksMobileManagerGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $scfApiNetAddress1
      */
     public function getScfApiNetAddress1()
     {
@@ -78,7 +78,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $scfApiNetAddress2
      */
     public function getScfApiNetAddress2()
     {
@@ -100,7 +100,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return BroadWorksMobileManagerUserName
+     * @return BroadWorksMobileManagerUserName $userName
      */
     public function getUserName()
     {
@@ -122,7 +122,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $emailFromAddress
      */
     public function getEmailFromAddress()
     {
@@ -142,7 +142,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $scfIMSOnly
      */
     public function getScfIMSOnly()
     {
@@ -164,7 +164,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $signalingIPAddress
      */
     public function getSignalingIPAddress()
     {
@@ -186,7 +186,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return Port
+     * @return Port $signalingPort
      */
     public function getSignalingPort()
     {

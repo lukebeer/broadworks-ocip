@@ -29,7 +29,7 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
     protected $timeZoneDisplayName = null;
 
     /**
-     * @return GroupGetDefaultResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetDefaultResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $defaultDomain
      */
     public function getDefaultDomain()
     {
@@ -73,7 +73,7 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserLimit
+     * @return GroupUserLimit $userLimit
      */
     public function getUserLimit()
     {
@@ -95,7 +95,7 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return TimeZone
+     * @return TimeZone $timeZone
      */
     public function getTimeZone()
     {
@@ -117,7 +117,7 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return TimeZoneDisplayName
+     * @return TimeZoneDisplayName $timeZoneDisplayName
      */
     public function getTimeZoneDisplayName()
     {

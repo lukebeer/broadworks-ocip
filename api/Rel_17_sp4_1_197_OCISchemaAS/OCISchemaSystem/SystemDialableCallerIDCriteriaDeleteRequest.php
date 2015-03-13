@@ -30,7 +30,7 @@ class SystemDialableCallerIDCriteriaDeleteRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemDialableCallerIDCriteriaDeleteRequest extends ComplexType implements
 
     /**
      * 
-     * @return DialableCallerIDCriteriaName
+     * @return DialableCallerIDCriteriaName $name
      */
     public function getName()
     {

@@ -53,7 +53,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
     protected $manualVideoMediaTypeList     = null;
 
     /**
-     * @return GroupCallCenterNightServiceGetResponse17sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterNightServiceGetResponse17sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +75,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterScheduledServiceAction
+     * @return CallCenterScheduledServiceAction $action
      */
     public function getAction()
     {
@@ -95,7 +95,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $businessHours
      */
     public function getBusinessHours()
     {
@@ -115,7 +115,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceNightService
      */
     public function getForceNightService()
     {
@@ -135,7 +135,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowManualOverrideViaFAC
      */
     public function getAllowManualOverrideViaFAC()
     {
@@ -157,7 +157,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -177,7 +177,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementBeforeAction
      */
     public function getPlayAnnouncementBeforeAction()
     {
@@ -199,7 +199,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -219,7 +219,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $audioUrlList
      */
     public function getAudioUrlList()
     {
@@ -239,7 +239,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $audioFileList
      */
     public function getAudioFileList()
     {
@@ -259,7 +259,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList
      */
     public function getAudioMediaTypeList()
     {
@@ -281,7 +281,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -301,7 +301,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $videoUrlList
      */
     public function getVideoUrlList()
     {
@@ -321,7 +321,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $videoFileList
      */
     public function getVideoFileList()
     {
@@ -341,7 +341,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList
      */
     public function getVideoMediaTypeList()
     {
@@ -363,7 +363,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterManualNightServiceAnnouncementMode
+     * @return CallCenterManualNightServiceAnnouncementMode $manualAnnouncementMode
      */
     public function getManualAnnouncementMode()
     {
@@ -385,7 +385,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $manualAudioMessageSelection
      */
     public function getManualAudioMessageSelection()
     {
@@ -405,7 +405,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $manualAudioUrlList
      */
     public function getManualAudioUrlList()
     {
@@ -425,7 +425,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $manualAudioFileList
      */
     public function getManualAudioFileList()
     {
@@ -445,7 +445,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $manualAudioMediaTypeList
      */
     public function getManualAudioMediaTypeList()
     {
@@ -467,7 +467,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $manualVideoMessageSelection
      */
     public function getManualVideoMessageSelection()
     {
@@ -487,7 +487,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $manualVideoUrlList
      */
     public function getManualVideoUrlList()
     {
@@ -507,7 +507,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $manualVideoFileList
      */
     public function getManualVideoFileList()
     {
@@ -527,7 +527,7 @@ class GroupCallCenterNightServiceGetResponse17sp1 extends ComplexType implements
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $manualVideoMediaTypeList
      */
     public function getManualVideoMediaTypeList()
     {

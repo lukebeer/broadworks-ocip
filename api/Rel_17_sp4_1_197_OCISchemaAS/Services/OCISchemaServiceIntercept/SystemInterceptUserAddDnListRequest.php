@@ -30,7 +30,7 @@ class SystemInterceptUserAddDnListRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemInterceptUserAddDnListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return InterceptDNListEntry
+     * @return InterceptDNListEntry $interceptDNList
      */
     public function getInterceptDNList()
     {

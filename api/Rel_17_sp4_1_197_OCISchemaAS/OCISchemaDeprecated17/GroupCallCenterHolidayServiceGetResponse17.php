@@ -41,7 +41,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
     protected $videoMediaTypeList           = null;
 
     /**
-     * @return GroupCallCenterHolidayServiceGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallCenterHolidayServiceGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterScheduledServiceAction
+     * @return CallCenterScheduledServiceAction $action
      */
     public function getAction()
     {
@@ -85,7 +85,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -107,7 +107,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -127,7 +127,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementBeforeAction
      */
     public function getPlayAnnouncementBeforeAction()
     {
@@ -149,7 +149,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -169,7 +169,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $audioUrlList
      */
     public function getAudioUrlList()
     {
@@ -189,7 +189,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $audioFileList
      */
     public function getAudioFileList()
     {
@@ -209,7 +209,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList
      */
     public function getAudioMediaTypeList()
     {
@@ -231,7 +231,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -251,7 +251,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $videoUrlList
      */
     public function getVideoUrlList()
     {
@@ -271,7 +271,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $videoFileList
      */
     public function getVideoFileList()
     {
@@ -291,7 +291,7 @@ class GroupCallCenterHolidayServiceGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList
      */
     public function getVideoMediaTypeList()
     {

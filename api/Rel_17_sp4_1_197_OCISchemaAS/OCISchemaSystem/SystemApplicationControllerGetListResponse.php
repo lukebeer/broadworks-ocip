@@ -25,7 +25,7 @@ class SystemApplicationControllerGetListResponse extends ComplexType implements 
     protected $applicationControllerTable = null;
 
     /**
-     * @return SystemApplicationControllerGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationControllerGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

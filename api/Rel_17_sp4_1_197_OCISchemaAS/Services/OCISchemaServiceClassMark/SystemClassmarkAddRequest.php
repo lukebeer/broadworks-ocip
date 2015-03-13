@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\ClassmarkValue;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\Classmark;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebDisplayKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -38,7 +37,7 @@ class SystemClassmarkAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +59,7 @@ class SystemClassmarkAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Classmark
+     * @return Classmark $classmark
      */
     public function getClassmark()
     {
@@ -82,7 +81,7 @@ class SystemClassmarkAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ClassmarkValue
+     * @return ClassmarkValue $value
      */
     public function getValue()
     {
@@ -104,7 +103,7 @@ class SystemClassmarkAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return WebDisplayKey
+     * @return WebDisplayKey $webDisplayKey
      */
     public function getWebDisplayKey()
     {

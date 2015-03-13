@@ -67,7 +67,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,7 +87,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return DNISKey
+     * @return DNISKey $dnisKey
      */
     public function getDnisKey()
     {
@@ -109,7 +109,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return DNISName
+     * @return DNISName $newDNISName
      */
     public function getNewDNISName()
     {
@@ -131,7 +131,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return DN
+     * @return DN $dnisPhoneNumber
      */
     public function getDnisPhoneNumber()
     {
@@ -153,7 +153,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return Extension17
+     * @return Extension17 $extension
      */
     public function getExtension()
     {
@@ -173,7 +173,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomCLIDSettings
      */
     public function getUseCustomCLIDSettings()
     {
@@ -195,7 +195,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return DN
+     * @return DN $callingLineIdPhoneNumber
      */
     public function getCallingLineIdPhoneNumber()
     {
@@ -217,7 +217,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CallingLineIdLastName
+     * @return CallingLineIdLastName $callingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
@@ -239,7 +239,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CallingLineIdFirstName
+     * @return CallingLineIdFirstName $callingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
@@ -259,7 +259,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomDnisAnnouncementSettings
      */
     public function getUseCustomDnisAnnouncementSettings()
     {
@@ -281,7 +281,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return DNISPriority
+     * @return DNISPriority $priority
      */
     public function getPriority()
     {
@@ -301,7 +301,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutgoingACDCall
      */
     public function getAllowOutgoingACDCall()
     {

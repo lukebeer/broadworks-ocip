@@ -33,7 +33,7 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
     protected $recordingWebAppURL                      = null;
 
     /**
-     * @return SystemMeetMeConferencingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemMeetMeConferencingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return MeetMeConferencingConferencePassCodeLength
+     * @return MeetMeConferencingConferencePassCodeLength $conferenceIdLength
      */
     public function getConferenceIdLength()
     {
@@ -77,7 +77,7 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return MeetMeConferencingConferencePassCodeLength
+     * @return MeetMeConferencingConferencePassCodeLength $moderatorPinLength
      */
     public function getModeratorPinLength()
     {
@@ -97,7 +97,7 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableConferenceEndDateRestriction
      */
     public function getEnableConferenceEndDateRestriction()
     {
@@ -119,7 +119,7 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return MeetMeConferencingConferenceEndDateRestrictionMonths
+     * @return MeetMeConferencingConferenceEndDateRestrictionMonths $conferenceEndDateRestrictionMonths
      */
     public function getConferenceEndDateRestrictionMonths()
     {
@@ -139,7 +139,7 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deleteExpiredConferencesAfterHoldPeriod
      */
     public function getDeleteExpiredConferencesAfterHoldPeriod()
     {
@@ -161,7 +161,7 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return MeetMeConferencingExpiredConferenceHoldPeriodDays
+     * @return MeetMeConferencingExpiredConferenceHoldPeriodDays $expiredConferenceHoldPeriodDays
      */
     public function getExpiredConferenceHoldPeriodDays()
     {
@@ -183,7 +183,7 @@ class SystemMeetMeConferencingGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return URL
+     * @return URL $recordingWebAppURL
      */
     public function getRecordingWebAppURL()
     {

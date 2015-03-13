@@ -52,7 +52,7 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +74,7 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -96,7 +96,7 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -116,7 +116,7 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -138,7 +138,7 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -158,7 +158,7 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -180,7 +180,7 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -200,7 +200,7 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $videoFile
      */
     public function getVideoFile()
     {

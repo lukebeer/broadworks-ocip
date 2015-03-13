@@ -33,7 +33,7 @@ class GroupGroupPagingDeleteOriginatorListRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class GroupGroupPagingDeleteOriginatorListRequest extends ComplexType implements
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -77,7 +77,7 @@ class GroupGroupPagingDeleteOriginatorListRequest extends ComplexType implements
 
     /**
      * 
-     * @return UserId
+     * @return UserId $originatorUserId
      */
     public function getOriginatorUserId()
     {

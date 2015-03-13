@@ -37,7 +37,7 @@ class SystemProvisioningValidationModifyRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemProvisioningValidationModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -77,7 +77,7 @@ class SystemProvisioningValidationModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isNetworkServerQueryActive
      */
     public function getIsNetworkServerQueryActive()
     {
@@ -99,7 +99,7 @@ class SystemProvisioningValidationModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ProvisioningValidationTimeoutSeconds
+     * @return ProvisioningValidationTimeoutSeconds $timeoutSeconds
      */
     public function getTimeoutSeconds()
     {

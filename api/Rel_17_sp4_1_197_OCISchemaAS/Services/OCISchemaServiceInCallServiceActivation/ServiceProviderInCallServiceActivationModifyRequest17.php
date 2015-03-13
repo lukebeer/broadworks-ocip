@@ -36,7 +36,7 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -80,7 +80,7 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
 
     /**
      * 
-     * @return InCallServiceActivationDigits
+     * @return InCallServiceActivationDigits $flashActivationDigits
      */
     public function getFlashActivationDigits()
     {
@@ -102,7 +102,7 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
 
     /**
      * 
-     * @return InCallServiceActivationDigits
+     * @return InCallServiceActivationDigits $callTransferActivationDigits
      */
     public function getCallTransferActivationDigits()
     {

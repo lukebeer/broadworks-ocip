@@ -55,7 +55,7 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -77,7 +77,7 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -99,7 +99,7 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -119,7 +119,7 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {
@@ -141,7 +141,7 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return EventName
+     * @return EventName $eventName
      */
     public function getEventName()
     {
@@ -163,7 +163,7 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return EventName
+     * @return EventName $newEventName
      */
     public function getNewEventName()
     {
@@ -182,7 +182,7 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $startDate
      */
     public function getStartDate()
     {
@@ -201,7 +201,7 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $endDate
      */
     public function getEndDate()
     {
@@ -221,7 +221,7 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Recurrence
+     * @return Recurrence $recurrence
      */
     public function getRecurrence()
     {

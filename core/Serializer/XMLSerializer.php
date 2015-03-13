@@ -56,7 +56,6 @@ class XMLSerializer implements SerializerInterface {
                         $method = $reflectionClass->getMethod($methodName)->getParameters();
                         $type = $method[0]->getClass()->getName();
                         $obj = $this->buildComplex($type, $value);
-                        $obj->$methodName($obj);
                     }
                     $object->$methodName($obj);
                 }

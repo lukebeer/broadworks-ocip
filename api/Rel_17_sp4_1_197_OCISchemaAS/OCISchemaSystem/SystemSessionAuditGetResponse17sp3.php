@@ -47,7 +47,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
     protected $emergencyCallCleanupMinutes        = null;
 
     /**
-     * @return SystemSessionAuditGetResponse17sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSessionAuditGetResponse17sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isAuditActive
      */
     public function getIsAuditActive()
     {
@@ -89,7 +89,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SessionAuditIntervalSeconds
+     * @return SessionAuditIntervalSeconds $auditIntervalSeconds
      */
     public function getAuditIntervalSeconds()
     {
@@ -111,7 +111,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SessionAuditTimeoutPeriodSeconds
+     * @return SessionAuditTimeoutPeriodSeconds $auditTimeoutSeconds
      */
     public function getAuditTimeoutSeconds()
     {
@@ -131,7 +131,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $releaseCallOnAuditFailure
      */
     public function getReleaseCallOnAuditFailure()
     {
@@ -151,7 +151,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSIPRefreshAllowedOnAudit
      */
     public function getIsSIPRefreshAllowedOnAudit()
     {
@@ -171,7 +171,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUpdateForSIPRefresh
      */
     public function getAllowUpdateForSIPRefresh()
     {
@@ -191,7 +191,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSIPSessionTimerActive
      */
     public function getIsSIPSessionTimerActive()
     {
@@ -213,7 +213,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SIPSessionExpiresMinimumSeconds
+     * @return SIPSessionExpiresMinimumSeconds $sipSessionExpiresMinimumSeconds
      */
     public function getSipSessionExpiresMinimumSeconds()
     {
@@ -233,7 +233,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceSIPSessionExpiresMaximum
      */
     public function getEnforceSIPSessionExpiresMaximum()
     {
@@ -255,7 +255,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SIPSessionExpiresMaximumSeconds
+     * @return SIPSessionExpiresMaximumSeconds $sipSessionExpiresMaximumSeconds
      */
     public function getSipSessionExpiresMaximumSeconds()
     {
@@ -277,7 +277,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SIPSessionExpiresTimerSeconds
+     * @return SIPSessionExpiresTimerSeconds $sipSessionExpiresTimerSeconds
      */
     public function getSipSessionExpiresTimerSeconds()
     {
@@ -297,7 +297,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alwaysUseSessionTimerWhenSupported
      */
     public function getAlwaysUseSessionTimerWhenSupported()
     {
@@ -319,7 +319,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SessionTimerRefresher
+     * @return SessionTimerRefresher $preferredSessionTimerRefresher
      */
     public function getPreferredSessionTimerRefresher()
     {
@@ -339,7 +339,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableEmergencyCallAlarmTimer
      */
     public function getEnableEmergencyCallAlarmTimer()
     {
@@ -361,7 +361,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return EmergencyCallAlarmMinutes
+     * @return EmergencyCallAlarmMinutes $emergencyCallAlarmMinutes
      */
     public function getEmergencyCallAlarmMinutes()
     {
@@ -381,7 +381,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableEmergencyCallCleanupTimer
      */
     public function getEnableEmergencyCallCleanupTimer()
     {
@@ -403,7 +403,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return EmergencyCallCleanupMinutes
+     * @return EmergencyCallCleanupMinutes $emergencyCallCleanupMinutes
      */
     public function getEmergencyCallCleanupMinutes()
     {

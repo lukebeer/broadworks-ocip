@@ -65,7 +65,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,7 +87,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -107,7 +107,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $distinctiveRing
      */
     public function getDistinctiveRing()
     {
@@ -127,7 +127,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AlternateNumberEntry17
+     * @return AlternateNumberEntry17 $alternateEntry01
      */
     public function getAlternateEntry01()
     {
@@ -147,7 +147,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AlternateNumberEntry17
+     * @return AlternateNumberEntry17 $alternateEntry02
      */
     public function getAlternateEntry02()
     {
@@ -167,7 +167,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AlternateNumberEntry17
+     * @return AlternateNumberEntry17 $alternateEntry03
      */
     public function getAlternateEntry03()
     {
@@ -187,7 +187,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AlternateNumberEntry17
+     * @return AlternateNumberEntry17 $alternateEntry04
      */
     public function getAlternateEntry04()
     {
@@ -207,7 +207,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AlternateNumberEntry17
+     * @return AlternateNumberEntry17 $alternateEntry05
      */
     public function getAlternateEntry05()
     {
@@ -227,7 +227,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AlternateNumberEntry17
+     * @return AlternateNumberEntry17 $alternateEntry06
      */
     public function getAlternateEntry06()
     {
@@ -247,7 +247,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AlternateNumberEntry17
+     * @return AlternateNumberEntry17 $alternateEntry07
      */
     public function getAlternateEntry07()
     {
@@ -267,7 +267,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AlternateNumberEntry17
+     * @return AlternateNumberEntry17 $alternateEntry08
      */
     public function getAlternateEntry08()
     {
@@ -287,7 +287,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AlternateNumberEntry17
+     * @return AlternateNumberEntry17 $alternateEntry09
      */
     public function getAlternateEntry09()
     {
@@ -307,7 +307,7 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AlternateNumberEntry17
+     * @return AlternateNumberEntry17 $alternateEntry10
      */
     public function getAlternateEntry10()
     {

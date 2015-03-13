@@ -14,7 +14,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemGetRegistrationContactListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -57,7 +56,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
     }
 
     /**
-     * @return SystemGetRegistrationContactListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemGetRegistrationContactListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -79,7 +78,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceLevel
+     * @return AccessDeviceLevel $deviceLevel
      */
     public function getDeviceLevel()
     {
@@ -101,7 +100,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -123,7 +122,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -145,7 +144,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return SearchCriteriaRegistrationURI
+     * @return SearchCriteriaRegistrationURI $searchCriteriaRegistrationURI
      */
     public function getSearchCriteriaRegistrationURI()
     {
@@ -167,7 +166,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return SearchCriteriaSIPContact
+     * @return SearchCriteriaSIPContact $searchCriteriaSIPContact
      */
     public function getSearchCriteriaSIPContact()
     {
@@ -189,7 +188,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return RegistrationEndpointType
+     * @return RegistrationEndpointType $endpointType
      */
     public function getEndpointType()
     {
@@ -209,7 +208,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expired
      */
     public function getExpired()
     {

@@ -25,7 +25,7 @@ class SystemDeviceManagementTagSetGetListResponse extends ComplexType implements
     protected $tagSetName = null;
 
     /**
-     * @return SystemDeviceManagementTagSetGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagSetGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class SystemDeviceManagementTagSetGetListResponse extends ComplexType implements
 
     /**
      * 
-     * @return DeviceManagementTagSetName
+     * @return DeviceManagementTagSetName $tagSetName
      */
     public function getTagSetName()
     {

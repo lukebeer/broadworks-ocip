@@ -46,7 +46,7 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -90,7 +90,7 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -112,7 +112,7 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -134,7 +134,7 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return DeviceManagementTagName
+     * @return DeviceManagementTagName $tagName
      */
     public function getTagName()
     {
@@ -156,7 +156,7 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return DeviceManagementTagValue
+     * @return DeviceManagementTagValue $tagValue
      */
     public function getTagValue()
     {

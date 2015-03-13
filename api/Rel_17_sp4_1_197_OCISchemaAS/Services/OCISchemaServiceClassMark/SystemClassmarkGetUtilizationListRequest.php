@@ -11,10 +11,8 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserFirstName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaUserLastName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\Classmark;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\SystemClassmarkGetUtilizationListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -57,7 +55,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
     }
 
     /**
-     * @return SystemClassmarkGetUtilizationListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\SystemClassmarkGetUtilizationListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -79,7 +77,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return Classmark
+     * @return Classmark $classmark
      */
     public function getClassmark()
     {
@@ -101,7 +99,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -123,7 +121,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -145,7 +143,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return SearchCriteriaExactServiceProvider
+     * @return SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProviderId
      */
     public function getSearchCriteriaExactServiceProviderId()
     {
@@ -167,7 +165,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -189,7 +187,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -211,7 +209,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {

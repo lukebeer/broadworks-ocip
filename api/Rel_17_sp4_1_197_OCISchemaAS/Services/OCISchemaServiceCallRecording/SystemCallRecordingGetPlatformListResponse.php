@@ -26,7 +26,7 @@ class SystemCallRecordingGetPlatformListResponse extends ComplexType implements 
     protected $callRecordingPlatformTable = null;
 
     /**
-     * @return SystemCallRecordingGetPlatformListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemCallRecordingGetPlatformListResponse extends ComplexType implements 
 
     /**
      * 
-     * @return CallRecordingPlatformName
+     * @return CallRecordingPlatformName $systemDefault
      */
     public function getSystemDefault()
     {

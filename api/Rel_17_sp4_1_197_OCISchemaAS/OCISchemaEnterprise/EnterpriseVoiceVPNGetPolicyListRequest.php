@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupLocationCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -46,7 +45,7 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return EnterpriseVoiceVPNGetPolicyListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +67,7 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -90,7 +89,7 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -112,7 +111,7 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return SearchCriteriaGroupLocationCode
+     * @return SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode
      */
     public function getSearchCriteriaGroupLocationCode()
     {
@@ -134,7 +133,7 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return SearchCriteriaExactPolicySelection
+     * @return SearchCriteriaExactPolicySelection $searchCriteriaExactPolicySelection
      */
     public function getSearchCriteriaExactPolicySelection()
     {

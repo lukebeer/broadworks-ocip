@@ -40,7 +40,7 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +62,7 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -82,7 +82,7 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -102,7 +102,7 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableCallingLineIdDelivery
      */
     public function getDisableCallingLineIdDelivery()
     {

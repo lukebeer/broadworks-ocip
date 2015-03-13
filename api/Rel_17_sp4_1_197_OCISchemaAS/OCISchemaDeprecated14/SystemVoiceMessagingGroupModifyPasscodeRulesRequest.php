@@ -76,7 +76,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -96,7 +96,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRepeatedDigits
      */
     public function getDisallowRepeatedDigits()
     {
@@ -116,7 +116,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserNumber
      */
     public function getDisallowUserNumber()
     {
@@ -136,7 +136,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedUserNumber
      */
     public function getDisallowReversedUserNumber()
     {
@@ -156,7 +156,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPasscode
      */
     public function getDisallowOldPasscode()
     {
@@ -176,7 +176,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPasscode
      */
     public function getDisallowReversedOldPasscode()
     {
@@ -198,7 +198,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return VoiceMessagingMinPasscodeCodeLength
+     * @return VoiceMessagingMinPasscodeCodeLength $minCodeLength
      */
     public function getMinCodeLength()
     {
@@ -220,7 +220,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return VoiceMessagingMaxPasscodeCodeLength
+     * @return VoiceMessagingMaxPasscodeCodeLength $maxCodeLength
      */
     public function getMaxCodeLength()
     {
@@ -240,7 +240,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableLoginAfterMaxFailedLoginAttempts
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
@@ -262,7 +262,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return VoiceMessagingMaxFailedLoginAttempts
+     * @return VoiceMessagingMaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -282,7 +282,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expirePassword
      */
     public function getExpirePassword()
     {
@@ -304,7 +304,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return VoiceMessagingPasscodeExpiresDays
+     * @return VoiceMessagingPasscodeExpiresDays $passcodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
@@ -324,7 +324,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -346,7 +346,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
@@ -368,7 +368,7 @@ class SystemVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType im
 
     /**
      * 
-     * @return Password
+     * @return Password $defaultPassword
      */
     public function getDefaultPassword()
     {

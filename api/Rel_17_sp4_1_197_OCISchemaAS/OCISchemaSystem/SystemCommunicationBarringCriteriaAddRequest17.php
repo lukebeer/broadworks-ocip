@@ -131,7 +131,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -153,7 +153,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return CommunicationBarringCriteriaName
+     * @return CommunicationBarringCriteriaName $name
      */
     public function getName()
     {
@@ -175,7 +175,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return CommunicationBarringCriteriaDescription
+     * @return CommunicationBarringCriteriaDescription $description
      */
     public function getDescription()
     {
@@ -197,7 +197,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return CommunicationBarringCallType
+     * @return CommunicationBarringCallType $matchCallType
      */
     public function getMatchCallType()
     {
@@ -219,7 +219,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return CommunicationBarringAlternateCallIndicator
+     * @return CommunicationBarringAlternateCallIndicator $matchAlternateCallIndicator
      */
     public function getMatchAlternateCallIndicator()
     {
@@ -241,7 +241,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return VirtualOnNetCallTypeName
+     * @return VirtualOnNetCallTypeName $matchVirtualOnNetCallType
      */
     public function getMatchVirtualOnNetCallType()
     {
@@ -261,7 +261,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchPublicNetwork
      */
     public function getMatchPublicNetwork()
     {
@@ -281,7 +281,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchPrivateNetwork
      */
     public function getMatchPrivateNetwork()
     {
@@ -301,7 +301,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchLocalCategory
      */
     public function getMatchLocalCategory()
     {
@@ -321,7 +321,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchNationalCategory
      */
     public function getMatchNationalCategory()
     {
@@ -341,7 +341,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInterlataCategory
      */
     public function getMatchInterlataCategory()
     {
@@ -361,7 +361,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchIntralataCategory
      */
     public function getMatchIntralataCategory()
     {
@@ -381,7 +381,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInternationalCategory
      */
     public function getMatchInternationalCategory()
     {
@@ -401,7 +401,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchPrivateCategory
      */
     public function getMatchPrivateCategory()
     {
@@ -421,7 +421,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchEmergencyCategory
      */
     public function getMatchEmergencyCategory()
     {
@@ -441,7 +441,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchOtherCategory
      */
     public function getMatchOtherCategory()
     {
@@ -461,7 +461,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInterNetwork
      */
     public function getMatchInterNetwork()
     {
@@ -481,7 +481,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInterHostingNE
      */
     public function getMatchInterHostingNE()
     {
@@ -501,7 +501,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInterAS
      */
     public function getMatchInterAS()
     {
@@ -521,7 +521,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchIntraAS
      */
     public function getMatchIntraAS()
     {
@@ -541,7 +541,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchChargeCalls
      */
     public function getMatchChargeCalls()
     {
@@ -561,7 +561,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchNoChargeCalls
      */
     public function getMatchNoChargeCalls()
     {
@@ -581,7 +581,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchGroupCalls
      */
     public function getMatchGroupCalls()
     {
@@ -601,7 +601,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchEnterpriseCalls
      */
     public function getMatchEnterpriseCalls()
     {
@@ -621,7 +621,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchNetworkCalls
      */
     public function getMatchNetworkCalls()
     {
@@ -641,7 +641,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchNetworkURLCalls
      */
     public function getMatchNetworkURLCalls()
     {
@@ -661,7 +661,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchRepairCalls
      */
     public function getMatchRepairCalls()
     {
@@ -681,7 +681,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchEmergencyCalls
      */
     public function getMatchEmergencyCalls()
     {
@@ -701,7 +701,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInternalCalls
      */
     public function getMatchInternalCalls()
     {
@@ -723,7 +723,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return LocationCriteria
+     * @return LocationCriteria $matchLocation
      */
     public function getMatchLocation()
     {
@@ -745,7 +745,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return RoamingCriteria
+     * @return RoamingCriteria $matchRoaming
      */
     public function getMatchRoaming()
     {
@@ -767,7 +767,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -789,7 +789,7 @@ class SystemCommunicationBarringCriteriaAddRequest17 extends ComplexType impleme
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $holidaySchedule
      */
     public function getHolidaySchedule()
     {

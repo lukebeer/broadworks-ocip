@@ -30,7 +30,7 @@ class ServiceProviderAccessDeviceGetUserListResponse extends ComplexType impleme
     protected $deviceUserTable = null;
 
     /**
-     * @return ServiceProviderAccessDeviceGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

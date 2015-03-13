@@ -48,7 +48,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -92,7 +92,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
 
     /**
      * 
-     * @return UserId
+     * @return UserId $bridgeServiceUserId
      */
     public function getBridgeServiceUserId()
     {
@@ -114,7 +114,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingDocumentId
+     * @return InstantConferencingDocumentId $documentId
      */
     public function getDocumentId()
     {
@@ -136,7 +136,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -158,7 +158,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingSlideName
+     * @return InstantConferencingSlideName $previousSlideName
      */
     public function getPreviousSlideName()
     {
@@ -180,7 +180,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
 
     /**
      * 
-     * @return InstantConferencingSlideName
+     * @return InstantConferencingSlideName $newSlideName
      */
     public function getNewSlideName()
     {

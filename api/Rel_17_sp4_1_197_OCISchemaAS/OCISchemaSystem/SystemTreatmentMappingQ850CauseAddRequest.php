@@ -34,7 +34,7 @@ class SystemTreatmentMappingQ850CauseAddRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemTreatmentMappingQ850CauseAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return Q850CauseValue
+     * @return Q850CauseValue $q850CauseValue
      */
     public function getQ850CauseValue()
     {
@@ -78,7 +78,7 @@ class SystemTreatmentMappingQ850CauseAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $treatmentId
      */
     public function getTreatmentId()
     {

@@ -50,7 +50,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -94,7 +94,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $deliveryFromAddress
      */
     public function getDeliveryFromAddress()
     {
@@ -116,7 +116,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $notificationFromAddress
      */
     public function getNotificationFromAddress()
     {
@@ -138,7 +138,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $voicePortalLockoutFromAddress
      */
     public function getVoicePortalLockoutFromAddress()
     {
@@ -158,7 +158,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultDeliveryFromAddress
      */
     public function getUseSystemDefaultDeliveryFromAddress()
     {
@@ -178,7 +178,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultNotificationFromAddress
      */
     public function getUseSystemDefaultNotificationFromAddress()
     {
@@ -198,7 +198,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemDefaultVoicePortalLockoutFromAddress
      */
     public function getUseSystemDefaultVoicePortalLockoutFromAddress()
     {

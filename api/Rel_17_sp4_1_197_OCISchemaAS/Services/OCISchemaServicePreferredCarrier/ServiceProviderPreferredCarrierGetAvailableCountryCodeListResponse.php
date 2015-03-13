@@ -25,7 +25,7 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
     protected $countryCode        = null;
 
     /**
-     * @return ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $defaultCountryCode
      */
     public function getDefaultCountryCode()
     {
@@ -69,7 +69,7 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $countryCode
      */
     public function getCountryCode()
     {

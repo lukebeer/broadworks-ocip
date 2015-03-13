@@ -63,7 +63,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -85,7 +85,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -107,7 +107,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallCenterOverflowProcessingAction
+     * @return CallCenterOverflowProcessingAction $action
      */
     public function getAction()
     {
@@ -129,7 +129,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -149,7 +149,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overflowAfterTimeout
      */
     public function getOverflowAfterTimeout()
     {
@@ -171,7 +171,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return HuntForwardTimeoutSeconds
+     * @return HuntForwardTimeoutSeconds $timeoutSeconds
      */
     public function getTimeoutSeconds()
     {
@@ -191,7 +191,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementBeforeOverflowProcessing
      */
     public function getPlayAnnouncementBeforeOverflowProcessing()
     {
@@ -213,7 +213,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -233,7 +233,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -255,7 +255,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -275,7 +275,7 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $videoFile
      */
     public function getVideoFile()
     {

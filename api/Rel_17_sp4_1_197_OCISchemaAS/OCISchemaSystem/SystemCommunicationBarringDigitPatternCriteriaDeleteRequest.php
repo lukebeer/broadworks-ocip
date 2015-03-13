@@ -30,7 +30,7 @@ class SystemCommunicationBarringDigitPatternCriteriaDeleteRequest extends Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemCommunicationBarringDigitPatternCriteriaDeleteRequest extends Comple
 
     /**
      * 
-     * @return DigitPatternCriteriaName
+     * @return DigitPatternCriteriaName $name
      */
     public function getName()
     {

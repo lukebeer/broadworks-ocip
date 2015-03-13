@@ -25,7 +25,7 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
     protected $callExpirationDays = null;
 
     /**
-     * @return ServiceProviderEnhancedCallLogsGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderEnhancedCallLogsGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return EnhancedCallLogsMaxLoggedCalls
+     * @return EnhancedCallLogsMaxLoggedCalls $maxLoggedCalls
      */
     public function getMaxLoggedCalls()
     {
@@ -69,7 +69,7 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return EnhancedCallLogsCallExpirationDays
+     * @return EnhancedCallLogsCallExpirationDays $callExpirationDays
      */
     public function getCallExpirationDays()
     {

@@ -44,7 +44,7 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -88,7 +88,7 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -110,7 +110,7 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ExtensionLength
+     * @return ExtensionLength $minExtensionLength
      */
     public function getMinExtensionLength()
     {
@@ -132,7 +132,7 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ExtensionLength
+     * @return ExtensionLength $maxExtensionLength
      */
     public function getMaxExtensionLength()
     {
@@ -154,7 +154,7 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ExtensionLength
+     * @return ExtensionLength $defaultExtensionLength
      */
     public function getDefaultExtensionLength()
     {

@@ -30,7 +30,7 @@ class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexT
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexT
 
     /**
      * 
-     * @return NetworkServerTreatment
+     * @return NetworkServerTreatment $nsTreatment
      */
     public function getNsTreatment()
     {

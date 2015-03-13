@@ -29,7 +29,7 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
     protected $alterPasswords                = null;
 
     /**
-     * @return SystemOCIReportingParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemOCIReportingParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -71,7 +71,7 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableConnectionPing
      */
     public function getEnableConnectionPing()
     {
@@ -93,7 +93,7 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return OCIReportingConnectionPingIntervalSeconds
+     * @return OCIReportingConnectionPingIntervalSeconds $connectionPingIntervalSeconds
      */
     public function getConnectionPingIntervalSeconds()
     {
@@ -113,7 +113,7 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alterPasswords
      */
     public function getAlterPasswords()
     {

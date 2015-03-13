@@ -25,7 +25,7 @@ class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType
     protected $departmentNumbers = null;
 
     /**
-     * @return GroupOutgoingCallingPlanTransferNumbersGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanTransferNumbersGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType
 
     /**
      * 
-     * @return OutgoingCallingPlanTransferNumbers
+     * @return OutgoingCallingPlanTransferNumbers $groupNumbers
      */
     public function getGroupNumbers()
     {
@@ -65,7 +65,7 @@ class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType
 
     /**
      * 
-     * @return OutgoingCallingPlanDepartmentTransferNumbers
+     * @return OutgoingCallingPlanDepartmentTransferNumbers $departmentNumbers
      */
     public function getDepartmentNumbers()
     {

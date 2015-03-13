@@ -42,7 +42,7 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
 
     /**
      * 
-     * @return NetAddressExtended
+     * @return NetAddressExtended $address
      */
     public function getAddress()
     {
@@ -84,7 +84,7 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isNetAddressExtended
      */
     public function getIsNetAddressExtended()
     {
@@ -106,7 +106,7 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
 
     /**
      * 
-     * @return ChargingFunctionElementServerType
+     * @return ChargingFunctionElementServerType $type
      */
     public function getType()
     {
@@ -128,7 +128,7 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
 
     /**
      * 
-     * @return ChargingFunctionElementServerDescription
+     * @return ChargingFunctionElementServerDescription $description
      */
     public function getDescription()
     {

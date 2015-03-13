@@ -42,7 +42,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -106,7 +106,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:int
+     * @return int $maxActiveCalls
      */
     public function getMaxActiveCalls()
     {
@@ -126,7 +126,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $burstingMaxActiveCalls
      */
     public function getBurstingMaxActiveCalls()
     {

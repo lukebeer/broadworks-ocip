@@ -42,7 +42,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -84,7 +84,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -106,7 +106,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -126,7 +126,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRingSplashActive
      */
     public function getIsRingSplashActive()
     {

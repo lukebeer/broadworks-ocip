@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ResponsePagingControl;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallLogsType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserEnhancedCallLogsGetListResponse16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -42,7 +41,7 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
     }
 
     /**
-     * @return UserEnhancedCallLogsGetListResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserEnhancedCallLogsGetListResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +63,7 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -86,7 +85,7 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallLogsType
+     * @return CallLogsType $callLogType
      */
     public function getCallLogType()
     {
@@ -106,7 +105,7 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
 
     /**
      * 
-     * @return ResponsePagingControl
+     * @return ResponsePagingControl $responsePagingControl
      */
     public function getResponsePagingControl()
     {

@@ -23,7 +23,7 @@ class UserPhysicalLocationGetResponse extends ComplexType implements ComplexInte
     protected $isActive = null;
 
     /**
-     * @return UserPhysicalLocationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePhysicalLocation\UserPhysicalLocationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserPhysicalLocationGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {

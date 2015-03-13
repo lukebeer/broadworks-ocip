@@ -55,7 +55,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -77,7 +77,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -97,7 +97,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
 
     /**
      * 
-     * @return InstantConferencingConferenceKey
+     * @return InstantConferencingConferenceKey $conferenceKey
      */
     public function getConferenceKey()
     {
@@ -119,7 +119,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
 
     /**
      * 
-     * @return InstantConferencingCallId
+     * @return InstantConferencingCallId $conferenceCallId
      */
     public function getConferenceCallId()
     {
@@ -141,7 +141,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
 
     /**
      * 
-     * @return InstantConferencingCallControlAction
+     * @return InstantConferencingCallControlAction $action
      */
     public function getAction()
     {
@@ -163,7 +163,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -185,7 +185,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
 
     /**
      * 
-     * @return InstantConferencingParticipantName
+     * @return InstantConferencingParticipantName $userName
      */
     public function getUserName()
     {
@@ -207,7 +207,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
 
     /**
      * 
-     * @return InstantConferencingLegId
+     * @return InstantConferencingLegId $legId
      */
     public function getLegId()
     {

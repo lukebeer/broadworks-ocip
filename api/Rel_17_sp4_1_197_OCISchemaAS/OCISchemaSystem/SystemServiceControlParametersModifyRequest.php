@@ -34,7 +34,7 @@ class SystemServiceControlParametersModifyRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemServiceControlParametersModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -78,7 +78,7 @@ class SystemServiceControlParametersModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ServiceControlMaxClientConnections
+     * @return ServiceControlMaxClientConnections $maxClientConnections
      */
     public function getMaxClientConnections()
     {

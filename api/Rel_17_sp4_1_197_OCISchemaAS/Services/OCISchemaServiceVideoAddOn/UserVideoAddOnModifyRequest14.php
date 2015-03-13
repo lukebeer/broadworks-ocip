@@ -42,7 +42,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -84,7 +84,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -106,7 +106,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return VideoAddOnMaxOriginatingCallDelaySeconds
+     * @return VideoAddOnMaxOriginatingCallDelaySeconds $maxOriginatingCallDelaySeconds
      */
     public function getMaxOriginatingCallDelaySeconds()
     {
@@ -126,7 +126,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return AccessDeviceEndpointModify
+     * @return AccessDeviceEndpointModify $accessDeviceEndpoint
      */
     public function getAccessDeviceEndpoint()
     {

@@ -23,7 +23,7 @@ class UserInCallServiceActivationGetResponse extends ComplexType implements Comp
     protected $isActive = null;
 
     /**
-     * @return UserInCallServiceActivationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInCallServiceActivation\UserInCallServiceActivationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserInCallServiceActivationGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {

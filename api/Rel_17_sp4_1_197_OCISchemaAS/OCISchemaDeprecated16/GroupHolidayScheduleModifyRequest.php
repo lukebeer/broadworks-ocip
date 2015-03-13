@@ -102,7 +102,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -124,7 +124,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -146,7 +146,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -168,7 +168,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $holidayScheduleName
      */
     public function getHolidayScheduleName()
     {
@@ -190,7 +190,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $newHolidayScheduleName
      */
     public function getNewHolidayScheduleName()
     {
@@ -210,7 +210,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday01
      */
     public function getHoliday01()
     {
@@ -230,7 +230,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday02
      */
     public function getHoliday02()
     {
@@ -250,7 +250,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday03
      */
     public function getHoliday03()
     {
@@ -270,7 +270,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday04
      */
     public function getHoliday04()
     {
@@ -290,7 +290,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday05
      */
     public function getHoliday05()
     {
@@ -310,7 +310,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday06
      */
     public function getHoliday06()
     {
@@ -330,7 +330,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday07
      */
     public function getHoliday07()
     {
@@ -350,7 +350,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday08
      */
     public function getHoliday08()
     {
@@ -370,7 +370,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday09
      */
     public function getHoliday09()
     {
@@ -390,7 +390,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday10
      */
     public function getHoliday10()
     {
@@ -410,7 +410,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday11
      */
     public function getHoliday11()
     {
@@ -430,7 +430,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday12
      */
     public function getHoliday12()
     {
@@ -450,7 +450,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday13
      */
     public function getHoliday13()
     {
@@ -470,7 +470,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday14
      */
     public function getHoliday14()
     {
@@ -490,7 +490,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday15
      */
     public function getHoliday15()
     {
@@ -510,7 +510,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday16
      */
     public function getHoliday16()
     {
@@ -530,7 +530,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday17
      */
     public function getHoliday17()
     {
@@ -550,7 +550,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday18
      */
     public function getHoliday18()
     {
@@ -570,7 +570,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday19
      */
     public function getHoliday19()
     {
@@ -590,7 +590,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday20
      */
     public function getHoliday20()
     {

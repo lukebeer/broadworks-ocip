@@ -30,7 +30,7 @@ class GroupInstantConferencingDeleteInstanceRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class GroupInstantConferencingDeleteInstanceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {

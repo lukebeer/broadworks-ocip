@@ -48,7 +48,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -90,7 +90,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableCallDispositionCodes
      */
     public function getEnableCallDispositionCodes()
     {
@@ -110,7 +110,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeOrganizationCodes
      */
     public function getIncludeOrganizationCodes()
     {
@@ -130,7 +130,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceUseOfCallDispositionCodes
      */
     public function getForceUseOfCallDispositionCodes()
     {
@@ -150,7 +150,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
 
     /**
      * 
-     * @return CallDispositionCodeWithLevel
+     * @return CallDispositionCodeWithLevel $defaultCallDispositionCode
      */
     public function getDefaultCallDispositionCode()
     {
@@ -170,7 +170,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
 
     /**
      * 
-     * @return CallDispositionCodeActivation
+     * @return CallDispositionCodeActivation $callDispositionCodeActivation
      */
     public function getCallDispositionCodeActivation()
     {

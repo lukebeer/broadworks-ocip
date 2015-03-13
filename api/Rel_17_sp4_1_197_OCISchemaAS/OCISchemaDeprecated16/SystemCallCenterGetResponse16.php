@@ -34,7 +34,7 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
     protected $numberConsecutiveBouncedCallsToForceAgentUnavailable = null;
 
     /**
-     * @return SystemCallCenterGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCallCenterGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {
@@ -78,7 +78,7 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallCenterStatisticsSamplingPeriodMinutes
+     * @return CallCenterStatisticsSamplingPeriodMinutes $statisticsSamplingPeriodMinutes
      */
     public function getStatisticsSamplingPeriodMinutes()
     {
@@ -98,7 +98,7 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $defaultEnableGuardTimer
      */
     public function getDefaultEnableGuardTimer()
     {
@@ -120,7 +120,7 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallCenterGuardTimerSeconds
+     * @return CallCenterGuardTimerSeconds $defaultGuardTimerSeconds
      */
     public function getDefaultGuardTimerSeconds()
     {
@@ -140,7 +140,7 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnDNDActivation
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
@@ -160,7 +160,7 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnPersonalCalls
      */
     public function getForceAgentUnavailableOnPersonalCalls()
     {
@@ -180,7 +180,7 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnBouncedCallLimit
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
@@ -202,7 +202,7 @@ class SystemCallCenterGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable
+     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable $numberConsecutiveBouncedCallsToForceAgentUnavailable
      */
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
     {

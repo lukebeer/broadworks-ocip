@@ -51,7 +51,7 @@ class SystemCPEConfigModifyFileServerRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -73,7 +73,7 @@ class SystemCPEConfigModifyFileServerRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -95,7 +95,7 @@ class SystemCPEConfigModifyFileServerRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $ftpHostNetAddress
      */
     public function getFtpHostNetAddress()
     {
@@ -117,7 +117,7 @@ class SystemCPEConfigModifyFileServerRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return FTPUserId
+     * @return FTPUserId $ftpUserId
      */
     public function getFtpUserId()
     {
@@ -139,7 +139,7 @@ class SystemCPEConfigModifyFileServerRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return FTPUserPassword
+     * @return FTPUserPassword $ftpUserPassword
      */
     public function getFtpUserPassword()
     {
@@ -161,7 +161,7 @@ class SystemCPEConfigModifyFileServerRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return CPEFileDirectory
+     * @return CPEFileDirectory $cpeFileDirectory
      */
     public function getCpeFileDirectory()
     {
@@ -181,7 +181,7 @@ class SystemCPEConfigModifyFileServerRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $passiveFTP
      */
     public function getPassiveFTP()
     {

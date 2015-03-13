@@ -29,7 +29,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
     protected $denyCallTerminations      = null;
 
     /**
-     * @return GroupBroadWorksMobilityGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\GroupBroadWorksMobilityGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return BroadWorksMobilityGroupSettingLevel
+     * @return BroadWorksMobilityGroupSettingLevel $useSettingLevel
      */
     public function getUseSettingLevel()
     {
@@ -71,7 +71,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableLocationServices
      */
     public function getEnableLocationServices()
     {
@@ -91,7 +91,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMSRNLookup
      */
     public function getEnableMSRNLookup()
     {
@@ -111,7 +111,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMobileStateChecking
      */
     public function getEnableMobileStateChecking()
     {
@@ -131,7 +131,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallOriginations
      */
     public function getDenyCallOriginations()
     {
@@ -151,7 +151,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallTerminations
      */
     public function getDenyCallTerminations()
     {

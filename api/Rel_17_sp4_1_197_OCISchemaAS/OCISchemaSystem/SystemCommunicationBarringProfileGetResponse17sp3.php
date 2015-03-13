@@ -54,7 +54,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
     protected $callMeNowRule                    = null;
 
     /**
-     * @return SystemCommunicationBarringProfileGetResponse17sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetResponse17sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -76,7 +76,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringProfileDescription
+     * @return CommunicationBarringProfileDescription $description
      */
     public function getDescription()
     {
@@ -98,7 +98,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringOriginatingAction
+     * @return CommunicationBarringOriginatingAction $originatingDefaultAction
      */
     public function getOriginatingDefaultAction()
     {
@@ -120,7 +120,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $originatingDefaultTreatmentId
      */
     public function getOriginatingDefaultTreatmentId()
     {
@@ -142,7 +142,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $originatingDefaultTransferNumber
      */
     public function getOriginatingDefaultTransferNumber()
     {
@@ -164,7 +164,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $originatingDefaultCallTimeout
      */
     public function getOriginatingDefaultCallTimeout()
     {
@@ -184,7 +184,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringOriginatingRule
+     * @return CommunicationBarringOriginatingRule $originatingRule
      */
     public function getOriginatingRule()
     {
@@ -206,7 +206,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringRedirectingAction
+     * @return CommunicationBarringRedirectingAction $redirectingDefaultAction
      */
     public function getRedirectingDefaultAction()
     {
@@ -228,7 +228,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $redirectingDefaultCallTimeout
      */
     public function getRedirectingDefaultCallTimeout()
     {
@@ -248,7 +248,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringRedirectingRule
+     * @return CommunicationBarringRedirectingRule $redirectingRule
      */
     public function getRedirectingRule()
     {
@@ -270,7 +270,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringIncomingAction
+     * @return CommunicationBarringIncomingAction $incomingDefaultAction
      */
     public function getIncomingDefaultAction()
     {
@@ -292,7 +292,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $incomingDefaultCallTimeout
      */
     public function getIncomingDefaultCallTimeout()
     {
@@ -312,7 +312,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringIncomingRule
+     * @return CommunicationBarringIncomingRule $incomingRule
      */
     public function getIncomingRule()
     {
@@ -334,7 +334,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringCallMeNowAction
+     * @return CommunicationBarringCallMeNowAction $callMeNowDefaultAction
      */
     public function getCallMeNowDefaultAction()
     {
@@ -356,7 +356,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $callMeNowDefaultCallTimeout
      */
     public function getCallMeNowDefaultCallTimeout()
     {
@@ -376,7 +376,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringCallMeNowRule
+     * @return CommunicationBarringCallMeNowRule $callMeNowRule
      */
     public function getCallMeNowRule()
     {

@@ -30,7 +30,7 @@ class SystemConnectedLineIdentificationPresentationModifyRequest extends Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemConnectedLineIdentificationPresentationModifyRequest extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceUserServiceAssignment
      */
     public function getEnforceUserServiceAssignment()
     {

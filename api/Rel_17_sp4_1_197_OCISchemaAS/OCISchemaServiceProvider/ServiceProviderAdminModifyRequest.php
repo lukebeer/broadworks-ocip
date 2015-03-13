@@ -48,7 +48,7 @@ class ServiceProviderAdminModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class ServiceProviderAdminModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -92,7 +92,7 @@ class ServiceProviderAdminModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {
@@ -114,7 +114,7 @@ class ServiceProviderAdminModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -136,7 +136,7 @@ class ServiceProviderAdminModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Password
+     * @return Password $password
      */
     public function getPassword()
     {
@@ -158,7 +158,7 @@ class ServiceProviderAdminModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Language
+     * @return Language $language
      */
     public function getLanguage()
     {

@@ -44,7 +44,7 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -88,7 +88,7 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -110,7 +110,7 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -130,7 +130,7 @@ class GroupDnUnassignListRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DNRange
+     * @return DNRange $dnRange
      */
     public function getDnRange()
     {

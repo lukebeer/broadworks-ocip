@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaPriorityOrder;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DialableCallerIDCriteriaPriorityOrder extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialableCallerIDCriteriaPriorityOrder';
     public    $name         = 'DialableCallerIDCriteriaPriorityOrder';
     protected $criteriaName = null;
     protected $priority     = null;
@@ -34,7 +32,7 @@ class DialableCallerIDCriteriaPriorityOrder extends ComplexType implements Compl
     }
 
     /**
-     * @return DialableCallerIDCriteriaPriorityOrder
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class DialableCallerIDCriteriaPriorityOrder extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $criteriaName
      */
     public function getCriteriaName()
     {
@@ -74,7 +72,7 @@ class DialableCallerIDCriteriaPriorityOrder extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $priority
      */
     public function getPriority()
     {

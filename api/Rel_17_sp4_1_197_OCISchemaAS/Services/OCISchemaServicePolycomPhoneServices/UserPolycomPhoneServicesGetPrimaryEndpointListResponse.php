@@ -24,7 +24,7 @@ class UserPolycomPhoneServicesGetPrimaryEndpointListResponse extends ComplexType
     protected $deviceUserTable = null;
 
     /**
-     * @return UserPolycomPhoneServicesGetPrimaryEndpointListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePolycomPhoneServices\UserPolycomPhoneServicesGetPrimaryEndpointListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

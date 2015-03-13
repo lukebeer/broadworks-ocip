@@ -28,7 +28,7 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
     protected $privateDigitMap = null;
 
     /**
-     * @return GroupDigitCollectionGetResponse13mp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDigitCollectionGetResponse13mp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
 
     /**
      * 
-     * @return GroupDigitCollectionSettingLevel
+     * @return GroupDigitCollectionSettingLevel $useSetting
      */
     public function getUseSetting()
     {
@@ -72,7 +72,7 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AccessCode
+     * @return AccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -94,7 +94,7 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $publicDigitMap
      */
     public function getPublicDigitMap()
     {
@@ -116,7 +116,7 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $privateDigitMap
      */
     public function getPrivateDigitMap()
     {

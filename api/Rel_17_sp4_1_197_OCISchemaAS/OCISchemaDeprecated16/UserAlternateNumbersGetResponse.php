@@ -34,7 +34,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
     protected $alternateEntry10 = null;
 
     /**
-     * @return UserAlternateNumbersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserAlternateNumbersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $distinctiveRing
      */
     public function getDistinctiveRing()
     {
@@ -74,7 +74,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AlternateNumberEntry
+     * @return AlternateNumberEntry $alternateEntry01
      */
     public function getAlternateEntry01()
     {
@@ -94,7 +94,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AlternateNumberEntry
+     * @return AlternateNumberEntry $alternateEntry02
      */
     public function getAlternateEntry02()
     {
@@ -114,7 +114,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AlternateNumberEntry
+     * @return AlternateNumberEntry $alternateEntry03
      */
     public function getAlternateEntry03()
     {
@@ -134,7 +134,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AlternateNumberEntry
+     * @return AlternateNumberEntry $alternateEntry04
      */
     public function getAlternateEntry04()
     {
@@ -154,7 +154,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AlternateNumberEntry
+     * @return AlternateNumberEntry $alternateEntry05
      */
     public function getAlternateEntry05()
     {
@@ -174,7 +174,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AlternateNumberEntry
+     * @return AlternateNumberEntry $alternateEntry06
      */
     public function getAlternateEntry06()
     {
@@ -194,7 +194,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AlternateNumberEntry
+     * @return AlternateNumberEntry $alternateEntry07
      */
     public function getAlternateEntry07()
     {
@@ -214,7 +214,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AlternateNumberEntry
+     * @return AlternateNumberEntry $alternateEntry08
      */
     public function getAlternateEntry08()
     {
@@ -234,7 +234,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AlternateNumberEntry
+     * @return AlternateNumberEntry $alternateEntry09
      */
     public function getAlternateEntry09()
     {
@@ -254,7 +254,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AlternateNumberEntry
+     * @return AlternateNumberEntry $alternateEntry10
      */
     public function getAlternateEntry10()
     {

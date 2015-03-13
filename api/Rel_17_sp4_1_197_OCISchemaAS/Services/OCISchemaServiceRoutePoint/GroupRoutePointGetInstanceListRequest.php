@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -50,7 +49,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return GroupRoutePointGetInstanceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +71,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -94,7 +93,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -116,7 +115,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return DepartmentName
+     * @return DepartmentName $groupDepartmentName
      */
     public function getGroupDepartmentName()
     {
@@ -138,7 +137,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -160,7 +159,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaRoutePointName
+     * @return SearchCriteriaRoutePointName $searchCriteriaRoutePointName
      */
     public function getSearchCriteriaRoutePointName()
     {

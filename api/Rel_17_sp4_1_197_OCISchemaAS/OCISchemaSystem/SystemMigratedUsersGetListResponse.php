@@ -23,7 +23,7 @@ class SystemMigratedUsersGetListResponse extends ComplexType implements ComplexI
     protected $userId = null;
 
     /**
-     * @return SystemMigratedUsersGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMigratedUsersGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemMigratedUsersGetListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {

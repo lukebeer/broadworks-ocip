@@ -37,7 +37,7 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -81,7 +81,7 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $originatingServiceKey
      */
     public function getOriginatingServiceKey()
     {
@@ -103,7 +103,7 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return MobilityManagerServiceKey
+     * @return MobilityManagerServiceKey $terminatingServiceKey
      */
     public function getTerminatingServiceKey()
     {

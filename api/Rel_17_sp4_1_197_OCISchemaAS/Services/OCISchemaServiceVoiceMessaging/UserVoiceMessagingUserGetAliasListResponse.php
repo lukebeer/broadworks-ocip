@@ -23,7 +23,7 @@ class UserVoiceMessagingUserGetAliasListResponse extends ComplexType implements 
     protected $phoneNumber = null;
 
     /**
-     * @return UserVoiceMessagingUserGetAliasListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetAliasListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserVoiceMessagingUserGetAliasListResponse extends ComplexType implements 
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {

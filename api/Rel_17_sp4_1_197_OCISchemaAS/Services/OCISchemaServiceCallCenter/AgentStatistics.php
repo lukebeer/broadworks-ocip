@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\AgentStatistics;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AgentStatistics extends ComplexType implements ComplexInterface
 {
-    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\AgentStatistics';
     public    $name                    = 'AgentStatistics';
     protected $numberOfCallsHandled    = null;
     protected $numberOfCallsUnanswered = null;
@@ -43,7 +41,7 @@ class AgentStatistics extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return AgentStatistics
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +61,7 @@ class AgentStatistics extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $numberOfCallsHandled
      */
     public function getNumberOfCallsHandled()
     {
@@ -83,7 +81,7 @@ class AgentStatistics extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $numberOfCallsUnanswered
      */
     public function getNumberOfCallsUnanswered()
     {
@@ -103,7 +101,7 @@ class AgentStatistics extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $averageCallSeconds
      */
     public function getAverageCallSeconds()
     {
@@ -123,7 +121,7 @@ class AgentStatistics extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $totalTalkSeconds
      */
     public function getTotalTalkSeconds()
     {
@@ -143,7 +141,7 @@ class AgentStatistics extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $totalStaffedSeconds
      */
     public function getTotalStaffedSeconds()
     {

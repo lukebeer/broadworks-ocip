@@ -25,7 +25,7 @@ class UserPhoneDirectoryGetSearchedListResponse extends ComplexType implements C
     protected $directoryTable = null;
 
     /**
-     * @return UserPhoneDirectoryGetSearchedListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetSearchedListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

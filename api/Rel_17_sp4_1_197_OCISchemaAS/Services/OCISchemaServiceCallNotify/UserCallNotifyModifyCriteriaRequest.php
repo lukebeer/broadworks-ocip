@@ -53,7 +53,7 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +75,7 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -97,7 +97,7 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -119,7 +119,7 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $newCriteriaName
      */
     public function getNewCriteriaName()
     {
@@ -139,7 +139,7 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -159,7 +159,7 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return CriteriaFromDnModify
+     * @return CriteriaFromDnModify $fromDnCriteria
      */
     public function getFromDnCriteria()
     {
@@ -179,7 +179,7 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -199,7 +199,7 @@ class UserCallNotifyModifyCriteriaRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {

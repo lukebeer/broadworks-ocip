@@ -9,10 +9,8 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderNetworkClassOfServiceGetAssignedGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -50,7 +48,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
     }
 
     /**
-     * @return ServiceProviderNetworkClassOfServiceGetAssignedGroupListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderNetworkClassOfServiceGetAssignedGroupListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +70,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -94,7 +92,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {
@@ -116,7 +114,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -138,7 +136,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -160,7 +158,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
 
     /**
      * 
-     * @return SearchCriteriaGroupName
+     * @return SearchCriteriaGroupName $searchCriteriaGroupName
      */
     public function getSearchCriteriaGroupName()
     {

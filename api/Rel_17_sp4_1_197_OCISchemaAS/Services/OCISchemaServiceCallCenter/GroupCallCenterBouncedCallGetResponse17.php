@@ -35,7 +35,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
     protected $bounceCallCenterCallOnHoldSeconds = null;
 
     /**
-     * @return GroupCallCenterBouncedCallGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterBouncedCallGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -77,7 +77,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return HuntNoAnswerRings
+     * @return HuntNoAnswerRings $numberOfRingsBeforeBouncingCall
      */
     public function getNumberOfRingsBeforeBouncingCall()
     {
@@ -97,7 +97,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableTransfer
      */
     public function getEnableTransfer()
     {
@@ -119,7 +119,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -139,7 +139,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $bounceCallWhenAgentUnavailable
      */
     public function getBounceCallWhenAgentUnavailable()
     {
@@ -159,7 +159,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alertCallCenterCallOnHold
      */
     public function getAlertCallCenterCallOnHold()
     {
@@ -181,7 +181,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return AlertCallCenterCallOnHoldSeconds
+     * @return AlertCallCenterCallOnHoldSeconds $alertCallCenterCallOnHoldSeconds
      */
     public function getAlertCallCenterCallOnHoldSeconds()
     {
@@ -201,7 +201,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $bounceCallCenterCallOnHold
      */
     public function getBounceCallCenterCallOnHold()
     {
@@ -223,7 +223,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return BounceCallCenterCallOnHoldSeconds
+     * @return BounceCallCenterCallOnHoldSeconds $bounceCallCenterCallOnHoldSeconds
      */
     public function getBounceCallCenterCallOnHoldSeconds()
     {

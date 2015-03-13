@@ -44,7 +44,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
     protected $loginDisabledNotifyEmailAddress         = null;
 
     /**
-     * @return GroupVoiceMessagingGroupGetPasscodeRulesResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupVoiceMessagingGroupGetPasscodeRulesResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return GroupPasscodeRulesLevel
+     * @return GroupPasscodeRulesLevel $useRuleLevel
      */
     public function getUseRuleLevel()
     {
@@ -86,7 +86,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRepeatedDigits
      */
     public function getDisallowRepeatedDigits()
     {
@@ -106,7 +106,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserNumber
      */
     public function getDisallowUserNumber()
     {
@@ -126,7 +126,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedUserNumber
      */
     public function getDisallowReversedUserNumber()
     {
@@ -146,7 +146,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPasscode
      */
     public function getDisallowOldPasscode()
     {
@@ -166,7 +166,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPasscode
      */
     public function getDisallowReversedOldPasscode()
     {
@@ -188,7 +188,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return VoiceMessagingMinPasscodeCodeLength
+     * @return VoiceMessagingMinPasscodeCodeLength $minCodeLength
      */
     public function getMinCodeLength()
     {
@@ -210,7 +210,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return VoiceMessagingMaxPasscodeCodeLength
+     * @return VoiceMessagingMaxPasscodeCodeLength $maxCodeLength
      */
     public function getMaxCodeLength()
     {
@@ -230,7 +230,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableLoginAfterMaxFailedLoginAttempts
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
@@ -252,7 +252,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return VoiceMessagingMaxFailedLoginAttempts
+     * @return VoiceMessagingMaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -272,7 +272,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expirePassword
      */
     public function getExpirePassword()
     {
@@ -294,7 +294,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return VoiceMessagingPasscodeExpiresDays
+     * @return VoiceMessagingPasscodeExpiresDays $passcodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
@@ -314,7 +314,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -336,7 +336,7 @@ class GroupVoiceMessagingGroupGetPasscodeRulesResponse extends ComplexType imple
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {

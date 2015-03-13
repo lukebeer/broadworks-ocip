@@ -56,7 +56,7 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +78,7 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return MeetMeConferencingConferencePassCodeLength
+     * @return MeetMeConferencingConferencePassCodeLength $conferenceIdLength
      */
     public function getConferenceIdLength()
     {
@@ -100,7 +100,7 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return MeetMeConferencingConferencePassCodeLength
+     * @return MeetMeConferencingConferencePassCodeLength $moderatorPinLength
      */
     public function getModeratorPinLength()
     {
@@ -120,7 +120,7 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableConferenceEndDateRestriction
      */
     public function getEnableConferenceEndDateRestriction()
     {
@@ -142,7 +142,7 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return MeetMeConferencingConferenceEndDateRestrictionMonths
+     * @return MeetMeConferencingConferenceEndDateRestrictionMonths $conferenceEndDateRestrictionMonths
      */
     public function getConferenceEndDateRestrictionMonths()
     {
@@ -162,7 +162,7 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deleteExpiredConferencesAfterHoldPeriod
      */
     public function getDeleteExpiredConferencesAfterHoldPeriod()
     {
@@ -184,7 +184,7 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return MeetMeConferencingExpiredConferenceHoldPeriodDays
+     * @return MeetMeConferencingExpiredConferenceHoldPeriodDays $expiredConferenceHoldPeriodDays
      */
     public function getExpiredConferenceHoldPeriodDays()
     {
@@ -206,7 +206,7 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return URL
+     * @return URL $recordingWebAppURL
      */
     public function getRecordingWebAppURL()
     {
@@ -228,7 +228,7 @@ class SystemMeetMeConferencingModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return MeetMeConferencingRecordingFileFormat
+     * @return MeetMeConferencingRecordingFileFormat $recordingFileFormat
      */
     public function getRecordingFileFormat()
     {

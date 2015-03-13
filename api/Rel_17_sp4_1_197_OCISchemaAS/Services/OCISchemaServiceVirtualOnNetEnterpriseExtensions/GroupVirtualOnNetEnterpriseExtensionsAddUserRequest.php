@@ -44,7 +44,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -88,7 +88,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +108,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
 
     /**
      * 
-     * @return VirtualOnNetUser
+     * @return VirtualOnNetUser $virtualOnNetUser
      */
     public function getVirtualOnNetUser()
     {
@@ -128,7 +128,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
 
     /**
      * 
-     * @return VirtualOnNetUserRange
+     * @return VirtualOnNetUserRange $virtualOnNetUserRange
      */
     public function getVirtualOnNetUserRange()
     {

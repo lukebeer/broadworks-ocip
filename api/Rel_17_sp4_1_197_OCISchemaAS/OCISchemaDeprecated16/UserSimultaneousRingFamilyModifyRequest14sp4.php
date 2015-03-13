@@ -38,7 +38,7 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -80,7 +80,7 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -102,7 +102,7 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
 
     /**
      * 
-     * @return SimultaneousRingSelection
+     * @return SimultaneousRingSelection $incomingCalls
      */
     public function getIncomingCalls()
     {

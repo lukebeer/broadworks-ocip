@@ -34,7 +34,7 @@ class UserCallForwardingSelectiveDeleteCriteriaRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserCallForwardingSelectiveDeleteCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -78,7 +78,7 @@ class UserCallForwardingSelectiveDeleteCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {

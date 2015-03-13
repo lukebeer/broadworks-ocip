@@ -27,7 +27,7 @@ class UserPolycomPhoneServicesGetResponse extends ComplexType implements Complex
     protected $groupCustomContactDirectory                   = null;
 
     /**
-     * @return UserPolycomPhoneServicesGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePolycomPhoneServices\UserPolycomPhoneServicesGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserPolycomPhoneServicesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $integratePhoneDirectoryWithBroadWorks
      */
     public function getIntegratePhoneDirectoryWithBroadWorks()
     {
@@ -67,7 +67,7 @@ class UserPolycomPhoneServicesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeUserPersonalPhoneListInDirectory
      */
     public function getIncludeUserPersonalPhoneListInDirectory()
     {
@@ -87,7 +87,7 @@ class UserPolycomPhoneServicesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeGroupCustomContactDirectoryInDirectory
      */
     public function getIncludeGroupCustomContactDirectoryInDirectory()
     {
@@ -109,7 +109,7 @@ class UserPolycomPhoneServicesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return CustomContactDirectoryName
+     * @return CustomContactDirectoryName $groupCustomContactDirectory
      */
     public function getGroupCustomContactDirectory()
     {

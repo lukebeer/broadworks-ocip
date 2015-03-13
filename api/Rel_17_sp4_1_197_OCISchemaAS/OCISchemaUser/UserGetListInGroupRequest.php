@@ -16,7 +16,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInGroupResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -66,7 +65,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return UserGetListInGroupResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInGroupResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -88,7 +87,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -110,7 +109,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $GroupId
      */
     public function getGroupId()
     {
@@ -132,7 +131,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -154,7 +153,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -176,7 +175,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -198,7 +197,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -220,7 +219,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SearchCriteriaEmailAddress
+     * @return SearchCriteriaEmailAddress $searchCriteriaEmailAddress
      */
     public function getSearchCriteriaEmailAddress()
     {
@@ -242,7 +241,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SearchCriteriaExactUserDepartment
+     * @return SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment
      */
     public function getSearchCriteriaExactUserDepartment()
     {
@@ -264,7 +263,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SearchCriteriaExactUserInTrunkGroup
+     * @return SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup
      */
     public function getSearchCriteriaExactUserInTrunkGroup()
     {

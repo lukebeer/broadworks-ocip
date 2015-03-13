@@ -25,7 +25,7 @@ class GroupShInterfaceGetUserListResponse extends ComplexType implements Complex
     protected $entry = null;
 
     /**
-     * @return GroupShInterfaceGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupShInterfaceGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupShInterfaceGetUserListResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return ShInterfaceUserListEntry
+     * @return ShInterfaceUserListEntry $entry
      */
     public function getEntry()
     {

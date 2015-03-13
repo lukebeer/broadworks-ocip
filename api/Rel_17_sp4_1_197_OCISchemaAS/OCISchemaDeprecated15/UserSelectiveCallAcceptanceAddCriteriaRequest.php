@@ -42,7 +42,7 @@ class UserSelectiveCallAcceptanceAddCriteriaRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class UserSelectiveCallAcceptanceAddCriteriaRequest extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -86,7 +86,7 @@ class UserSelectiveCallAcceptanceAddCriteriaRequest extends ComplexType implemen
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -106,7 +106,7 @@ class UserSelectiveCallAcceptanceAddCriteriaRequest extends ComplexType implemen
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -126,7 +126,7 @@ class UserSelectiveCallAcceptanceAddCriteriaRequest extends ComplexType implemen
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

@@ -24,7 +24,7 @@ class SystemExpensiveCallTypeGetListResponse extends ComplexType implements Comp
     protected $alternateCallIndicator = null;
 
     /**
-     * @return SystemExpensiveCallTypeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemExpensiveCallTypeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemExpensiveCallTypeGetListResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return NetworkServerAlternateCallIndicator
+     * @return NetworkServerAlternateCallIndicator $alternateCallIndicator
      */
     public function getAlternateCallIndicator()
     {

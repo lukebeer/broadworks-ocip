@@ -33,7 +33,7 @@ class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ExtensionLength
+     * @return ExtensionLength $minExtensionLength
      */
     public function getMinExtensionLength()
     {
@@ -77,7 +77,7 @@ class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ExtensionLength
+     * @return ExtensionLength $maxExtensionLength
      */
     public function getMaxExtensionLength()
     {

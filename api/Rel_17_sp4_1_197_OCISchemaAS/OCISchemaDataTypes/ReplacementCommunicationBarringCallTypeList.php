@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementCommunicationBarringCallTypeList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementCommunicationBarringCallTypeList extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementCommunicationBarringCallTypeList';
     public    $name     = 'ReplacementCommunicationBarringCallTypeList';
     protected $callType = null;
 
@@ -33,7 +31,7 @@ class ReplacementCommunicationBarringCallTypeList extends ComplexType implements
     }
 
     /**
-     * @return ReplacementCommunicationBarringCallTypeList
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +51,7 @@ class ReplacementCommunicationBarringCallTypeList extends ComplexType implements
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callType
      */
     public function getCallType()
     {

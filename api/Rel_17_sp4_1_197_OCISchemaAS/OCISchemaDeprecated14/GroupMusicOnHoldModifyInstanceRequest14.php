@@ -63,7 +63,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -85,7 +85,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -107,7 +107,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -127,7 +127,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $department
      */
     public function getDepartment()
     {
@@ -147,7 +147,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringCallHold
      */
     public function getIsActiveDuringCallHold()
     {
@@ -167,7 +167,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringCallPark
      */
     public function getIsActiveDuringCallPark()
     {
@@ -187,7 +187,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveDuringBusyCampOn
      */
     public function getIsActiveDuringBusyCampOn()
     {
@@ -209,7 +209,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return MusicOnHoldMessageSelection
+     * @return MusicOnHoldMessageSelection $messageSelection
      */
     public function getMessageSelection()
     {
@@ -229,7 +229,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceEndpointModify
+     * @return AccessDeviceEndpointModify $accessDeviceEndpoint
      */
     public function getAccessDeviceEndpoint()
     {
@@ -249,7 +249,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -269,7 +269,7 @@ class GroupMusicOnHoldModifyInstanceRequest14 extends ComplexType implements Com
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $videoFile
      */
     public function getVideoFile()
     {

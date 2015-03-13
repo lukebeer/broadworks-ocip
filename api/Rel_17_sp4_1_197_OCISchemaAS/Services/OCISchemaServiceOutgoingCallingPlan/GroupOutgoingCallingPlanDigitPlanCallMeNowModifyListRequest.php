@@ -42,7 +42,7 @@ class GroupOutgoingCallingPlanDigitPlanCallMeNowModifyListRequest extends Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupOutgoingCallingPlanDigitPlanCallMeNowModifyListRequest extends Comple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupOutgoingCallingPlanDigitPlanCallMeNowModifyListRequest extends Comple
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -106,7 +106,7 @@ class GroupOutgoingCallingPlanDigitPlanCallMeNowModifyListRequest extends Comple
 
     /**
      * 
-     * @return OutgoingCallingPlanDigitPatternCallMeNowPermissions
+     * @return OutgoingCallingPlanDigitPatternCallMeNowPermissions $groupPermissions
      */
     public function getGroupPermissions()
     {
@@ -126,7 +126,7 @@ class GroupOutgoingCallingPlanDigitPlanCallMeNowModifyListRequest extends Comple
 
     /**
      * 
-     * @return OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify
+     * @return OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify $departmentPermissions
      */
     public function getDepartmentPermissions()
     {

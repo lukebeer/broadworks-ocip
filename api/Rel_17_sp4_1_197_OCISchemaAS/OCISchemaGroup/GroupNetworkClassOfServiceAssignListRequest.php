@@ -43,7 +43,7 @@ class GroupNetworkClassOfServiceAssignListRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class GroupNetworkClassOfServiceAssignListRequest extends ComplexType implements
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -87,7 +87,7 @@ class GroupNetworkClassOfServiceAssignListRequest extends ComplexType implements
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -109,7 +109,7 @@ class GroupNetworkClassOfServiceAssignListRequest extends ComplexType implements
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {
@@ -131,7 +131,7 @@ class GroupNetworkClassOfServiceAssignListRequest extends ComplexType implements
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $defaultNetworkClassOfService
      */
     public function getDefaultNetworkClassOfService()
     {

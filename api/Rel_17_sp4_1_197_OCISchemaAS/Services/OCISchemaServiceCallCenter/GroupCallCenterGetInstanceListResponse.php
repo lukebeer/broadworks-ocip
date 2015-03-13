@@ -28,7 +28,7 @@ class GroupCallCenterGetInstanceListResponse extends ComplexType implements Comp
     protected $callCenterTable = null;
 
     /**
-     * @return GroupCallCenterGetInstanceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

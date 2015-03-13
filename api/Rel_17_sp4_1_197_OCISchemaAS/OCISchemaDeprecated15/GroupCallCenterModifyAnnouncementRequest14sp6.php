@@ -63,7 +63,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -85,7 +85,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -107,7 +107,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
 
     /**
      * 
-     * @return CallCenterAnnouncementSelection
+     * @return CallCenterAnnouncementSelection $entranceMessageSelection
      */
     public function getEntranceMessageSelection()
     {
@@ -127,7 +127,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $entranceMessageAudioFile
      */
     public function getEntranceMessageAudioFile()
     {
@@ -147,7 +147,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $entranceMessageVideoFile
      */
     public function getEntranceMessageVideoFile()
     {
@@ -169,7 +169,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
 
     /**
      * 
-     * @return CallCenterAnnouncementSelection
+     * @return CallCenterAnnouncementSelection $periodicComfortMessageSelection
      */
     public function getPeriodicComfortMessageSelection()
     {
@@ -189,7 +189,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $periodicComfortMessageAudioFile
      */
     public function getPeriodicComfortMessageAudioFile()
     {
@@ -209,7 +209,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $periodicComfortMessageVideoFile
      */
     public function getPeriodicComfortMessageVideoFile()
     {
@@ -229,7 +229,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
 
     /**
      * 
-     * @return CallCenterMusicOnHoldSourceModify
+     * @return CallCenterMusicOnHoldSourceModify $onHoldSource
      */
     public function getOnHoldSource()
     {
@@ -249,7 +249,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $onHoldUseAlternateSourceForInternalCalls
      */
     public function getOnHoldUseAlternateSourceForInternalCalls()
     {
@@ -269,7 +269,7 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
 
     /**
      * 
-     * @return CallCenterMusicOnHoldSourceModify
+     * @return CallCenterMusicOnHoldSourceModify $onHoldInternalSource
      */
     public function getOnHoldInternalSource()
     {

@@ -39,7 +39,7 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ApplicationControllerName
+     * @return ApplicationControllerName $name
      */
     public function getName()
     {
@@ -83,7 +83,7 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $subscriberId
      */
     public function getSubscriberId()
     {
@@ -105,7 +105,7 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ChannelSetId
+     * @return ChannelSetId $channelSetId
      */
     public function getChannelSetId()
     {

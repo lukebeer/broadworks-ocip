@@ -43,7 +43,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
     protected $maxNonPagedResponseSize         = null;
 
     /**
-     * @return SystemEnhancedCallLogsGetResponse17sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\SystemEnhancedCallLogsGetResponse17sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSendEnabled
      */
     public function getIsSendEnabled()
     {
@@ -85,7 +85,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $server1NetAddress
      */
     public function getServer1NetAddress()
     {
@@ -107,7 +107,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $server1SendPort
      */
     public function getServer1SendPort()
     {
@@ -129,7 +129,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return Port
+     * @return Port $server1RetrievePort
      */
     public function getServer1RetrievePort()
     {
@@ -151,7 +151,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $server2NetAddress
      */
     public function getServer2NetAddress()
     {
@@ -173,7 +173,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $server2SendPort
      */
     public function getServer2SendPort()
     {
@@ -195,7 +195,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return Port
+     * @return Port $server2RetrievePort
      */
     public function getServer2RetrievePort()
     {
@@ -217,7 +217,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return EnhancedCallLogsSharedSecret
+     * @return EnhancedCallLogsSharedSecret $sharedSecret
      */
     public function getSharedSecret()
     {
@@ -239,7 +239,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return EnhancedCallLogsRetransmissionDelayMilliSeconds
+     * @return EnhancedCallLogsRetransmissionDelayMilliSeconds $retransmissionDelayMilliSeconds
      */
     public function getRetransmissionDelayMilliSeconds()
     {
@@ -261,7 +261,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return EnhancedCallLogsMaxTransmissions
+     * @return EnhancedCallLogsMaxTransmissions $maxTransmissions
      */
     public function getMaxTransmissions()
     {
@@ -283,7 +283,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return EnhancedCallLogsSoapTimeoutSeconds
+     * @return EnhancedCallLogsSoapTimeoutSeconds $soapTimeoutSeconds
      */
     public function getSoapTimeoutSeconds()
     {
@@ -303,7 +303,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDBS
      */
     public function getUseDBS()
     {
@@ -325,7 +325,7 @@ class SystemEnhancedCallLogsGetResponse17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return EnhancedCallLogsNonPagedResponseSize
+     * @return EnhancedCallLogsNonPagedResponseSize $maxNonPagedResponseSize
      */
     public function getMaxNonPagedResponseSize()
     {

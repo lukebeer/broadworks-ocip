@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceCommunicationBarringProfile;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class NetworkClassOfServiceCommunicationBarringProfile extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetworkClassOfServiceCommunicationBarringProfile';
     public    $name      = 'NetworkClassOfServiceCommunicationBarringProfile';
     protected $name      = null;
     protected $isPrimary = null;
@@ -36,7 +34,7 @@ class NetworkClassOfServiceCommunicationBarringProfile extends ComplexType imple
     }
 
     /**
-     * @return NetworkClassOfServiceCommunicationBarringProfile
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +54,7 @@ class NetworkClassOfServiceCommunicationBarringProfile extends ComplexType imple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $name
      */
     public function getName()
     {
@@ -76,7 +74,7 @@ class NetworkClassOfServiceCommunicationBarringProfile extends ComplexType imple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isPrimary
      */
     public function getIsPrimary()
     {

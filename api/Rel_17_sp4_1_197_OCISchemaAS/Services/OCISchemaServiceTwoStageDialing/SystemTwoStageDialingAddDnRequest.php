@@ -34,7 +34,7 @@ class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -78,7 +78,7 @@ class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return TwoStageDialingDescription
+     * @return TwoStageDialingDescription $description
      */
     public function getDescription()
     {

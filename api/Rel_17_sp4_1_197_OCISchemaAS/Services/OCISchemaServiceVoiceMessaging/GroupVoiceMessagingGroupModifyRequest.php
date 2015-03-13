@@ -70,7 +70,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -92,7 +92,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -114,7 +114,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -136,7 +136,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return VoiceMessagingGroupMailServerChoices
+     * @return VoiceMessagingGroupMailServerChoices $useMailServerSetting
      */
     public function getUseMailServerSetting()
     {
@@ -156,7 +156,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $warnCallerBeforeRecordingVoiceMessage
      */
     public function getWarnCallerBeforeRecordingVoiceMessage()
     {
@@ -176,7 +176,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUsersConfiguringAdvancedSettings
      */
     public function getAllowUsersConfiguringAdvancedSettings()
     {
@@ -196,7 +196,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowComposeOrForwardMessageToEntireGroup
      */
     public function getAllowComposeOrForwardMessageToEntireGroup()
     {
@@ -218,7 +218,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $mailServerNetAddress
      */
     public function getMailServerNetAddress()
     {
@@ -240,7 +240,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return VoiceMessagingMailServerProtocol
+     * @return VoiceMessagingMailServerProtocol $mailServerProtocol
      */
     public function getMailServerProtocol()
     {
@@ -260,7 +260,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $realDeleteForImap
      */
     public function getRealDeleteForImap()
     {
@@ -282,7 +282,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return VoiceMessagingMailboxLengthMinutes
+     * @return VoiceMessagingMailboxLengthMinutes $maxMailboxLengthMinutes
      */
     public function getMaxMailboxLengthMinutes()
     {
@@ -302,7 +302,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $doesMessageAge
      */
     public function getDoesMessageAge()
     {
@@ -324,7 +324,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return VoiceMessagingHoldPeriodDays
+     * @return VoiceMessagingHoldPeriodDays $holdPeriodDays
      */
     public function getHoldPeriodDays()
     {

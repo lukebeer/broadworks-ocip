@@ -34,7 +34,7 @@ class SystemSMDIModifyACLEntryRequest14sp2 extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemSMDIModifyACLEntryRequest14sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -78,7 +78,7 @@ class SystemSMDIModifyACLEntryRequest14sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return NetworkACLEntryDescription
+     * @return NetworkACLEntryDescription $description
      */
     public function getDescription()
     {

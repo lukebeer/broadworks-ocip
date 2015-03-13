@@ -31,7 +31,7 @@ class SystemMaliciousCallTraceGetResponse extends ComplexType implements Complex
     protected $userTable                  = null;
 
     /**
-     * @return SystemMaliciousCallTraceGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\SystemMaliciousCallTraceGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class SystemMaliciousCallTraceGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playMCTWarningAnnouncement
      */
     public function getPlayMCTWarningAnnouncement()
     {

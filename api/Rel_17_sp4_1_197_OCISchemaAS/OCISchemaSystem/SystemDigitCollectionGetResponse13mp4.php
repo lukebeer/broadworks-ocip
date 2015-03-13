@@ -26,7 +26,7 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
     protected $privateDigitMap = null;
 
     /**
-     * @return SystemDigitCollectionGetResponse13mp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDigitCollectionGetResponse13mp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
 
     /**
      * 
-     * @return AccessCode
+     * @return AccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -70,7 +70,7 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $publicDigitMap
      */
     public function getPublicDigitMap()
     {
@@ -92,7 +92,7 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $privateDigitMap
      */
     public function getPrivateDigitMap()
     {

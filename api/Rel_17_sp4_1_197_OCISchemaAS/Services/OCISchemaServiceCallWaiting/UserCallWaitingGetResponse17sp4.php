@@ -27,7 +27,7 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
     protected $disableCallingLineIdDelivery = null;
 
     /**
-     * @return UserCallWaitingGetResponse17sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallWaiting\UserCallWaitingGetResponse17sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -67,7 +67,7 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableCallingLineIdDelivery
      */
     public function getDisableCallingLineIdDelivery()
     {

@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceTimeFrame;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecurrenceSchedule;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingScheduleRecurring;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingScheduleRecurring extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingScheduleRecurring';
     public    $name                = 'InstantConferencingScheduleRecurring';
     protected $startTime           = null;
     protected $duration            = null;
@@ -41,7 +39,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
     }
 
     /**
-     * @return InstantConferencingScheduleRecurring
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:time
+     * @return xs:time $startTime
      */
     public function getStartTime()
     {
@@ -79,7 +77,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:duration
+     * @return xs:duration $duration
      */
     public function getDuration()
     {
@@ -101,7 +99,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
 
     /**
      * 
-     * @return InstantConferencingRecurrenceTimeFrame
+     * @return InstantConferencingRecurrenceTimeFrame $recurrenceTimeFrame
      */
     public function getRecurrenceTimeFrame()
     {
@@ -121,7 +119,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
 
     /**
      * 
-     * @return InstantConferencingRecurrenceSchedule
+     * @return InstantConferencingRecurrenceSchedule $recurrenceSchedule
      */
     public function getRecurrenceSchedule()
     {

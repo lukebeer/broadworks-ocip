@@ -42,7 +42,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -84,7 +84,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useServiceProviderCriteria
      */
     public function getUseServiceProviderCriteria()
     {
@@ -106,7 +106,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return NsScreeningFailurePolicy
+     * @return NsScreeningFailurePolicy $nsScreeningFailurePolicy
      */
     public function getNsScreeningFailurePolicy()
     {
@@ -126,7 +126,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return DialableCallerIDCriteriaPriorityOrder
+     * @return DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder
      */
     public function getCriteriaPriorityOrder()
     {

@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDigitPattern;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -40,7 +39,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
     }
 
     /**
-     * @return SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +61,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
 
     /**
      * 
-     * @return DigitPatternCriteriaName
+     * @return DigitPatternCriteriaName $name
      */
     public function getName()
     {
@@ -84,7 +83,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -106,7 +105,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
 
     /**
      * 
-     * @return SearchCriteriaDigitPattern
+     * @return SearchCriteriaDigitPattern $searchCriteriaDigitPattern
      */
     public function getSearchCriteriaDigitPattern()
     {

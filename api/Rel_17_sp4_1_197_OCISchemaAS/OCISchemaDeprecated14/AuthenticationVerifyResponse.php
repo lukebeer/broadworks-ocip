@@ -41,7 +41,7 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
     protected $firstName           = null;
 
     /**
-     * @return AuthenticationVerifyResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\AuthenticationVerifyResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return LoginType
+     * @return LoginType $loginType
      */
     public function getLoginType()
     {
@@ -85,7 +85,7 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return OCILocale
+     * @return OCILocale $locale
      */
     public function getLocale()
     {
@@ -107,7 +107,7 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return Encoding
+     * @return Encoding $encoding
      */
     public function getEncoding()
     {
@@ -129,7 +129,7 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -151,7 +151,7 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -171,7 +171,7 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isEnterprise
      */
     public function getIsEnterprise()
     {
@@ -191,7 +191,7 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:int
+     * @return int $passwordExpiresDays
      */
     public function getPasswordExpiresDays()
     {
@@ -213,7 +213,7 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $userDomain
      */
     public function getUserDomain()
     {
@@ -235,7 +235,7 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -257,7 +257,7 @@ class AuthenticationVerifyResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {

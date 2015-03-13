@@ -34,7 +34,7 @@ class UserBroadWorksReceptionistOfficeModifyRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserBroadWorksReceptionistOfficeModifyRequest extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -76,7 +76,7 @@ class UserBroadWorksReceptionistOfficeModifyRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $monitoredUserIdList
      */
     public function getMonitoredUserIdList()
     {

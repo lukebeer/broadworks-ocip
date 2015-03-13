@@ -29,7 +29,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
     protected $reportDevice                     = null;
 
     /**
-     * @return SystemPerformanceMeasurementReportingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -71,7 +71,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return PerformanceMeasurementReportingIntervalMinutes
+     * @return PerformanceMeasurementReportingIntervalMinutes $reportingInterval
      */
     public function getReportingInterval()
     {
@@ -91,7 +91,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $resetMeasurementsAfterEachReport
      */
     public function getResetMeasurementsAfterEachReport()
     {
@@ -111,7 +111,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $reportEnterprise
      */
     public function getReportEnterprise()
     {
@@ -131,7 +131,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $reportServiceProvider
      */
     public function getReportServiceProvider()
     {
@@ -151,7 +151,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $reportDevice
      */
     public function getReportDevice()
     {

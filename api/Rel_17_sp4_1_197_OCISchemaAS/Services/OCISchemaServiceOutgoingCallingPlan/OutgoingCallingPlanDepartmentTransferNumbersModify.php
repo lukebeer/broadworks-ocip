@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDepartmentTransferNumbersModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDepartmentTransferNumbersModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDepartmentTransferNumbersModify';
     public    $name            = 'OutgoingCallingPlanDepartmentTransferNumbersModify';
     protected $departmentKey   = null;
     protected $transferNumbers = null;
@@ -34,7 +32,7 @@ class OutgoingCallingPlanDepartmentTransferNumbersModify extends ComplexType imp
     }
 
     /**
-     * @return OutgoingCallingPlanDepartmentTransferNumbersModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class OutgoingCallingPlanDepartmentTransferNumbersModify extends ComplexType imp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $departmentKey
      */
     public function getDepartmentKey()
     {
@@ -74,7 +72,7 @@ class OutgoingCallingPlanDepartmentTransferNumbersModify extends ComplexType imp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $transferNumbers
      */
     public function getTransferNumbers()
     {

@@ -38,7 +38,7 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return OCICallControlApplicationId
+     * @return OCICallControlApplicationId $applicationId
      */
     public function getApplicationId()
     {
@@ -80,7 +80,7 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSystemWide
      */
     public function getEnableSystemWide()
     {
@@ -102,7 +102,7 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return OCICallControlApplicationDescription
+     * @return OCICallControlApplicationDescription $description
      */
     public function getDescription()
     {

@@ -25,7 +25,7 @@ class GroupCallCenterGetDNISAgentListResponse extends ComplexType implements Com
     protected $agentTable = null;
 
     /**
-     * @return GroupCallCenterGetDNISAgentListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetDNISAgentListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

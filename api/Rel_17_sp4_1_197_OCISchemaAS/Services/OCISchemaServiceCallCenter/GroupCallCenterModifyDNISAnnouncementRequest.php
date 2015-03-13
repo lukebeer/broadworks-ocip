@@ -115,7 +115,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -135,7 +135,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return DNISKey
+     * @return DNISKey $dnisKey
      */
     public function getDnisKey()
     {
@@ -155,7 +155,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playEntranceMessage
      */
     public function getPlayEntranceMessage()
     {
@@ -175,7 +175,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $mandatoryEntranceMessage
      */
     public function getMandatoryEntranceMessage()
     {
@@ -197,7 +197,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $entranceAudioMessageSelection
      */
     public function getEntranceAudioMessageSelection()
     {
@@ -217,7 +217,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $entranceMessageAudioUrlList
      */
     public function getEntranceMessageAudioUrlList()
     {
@@ -237,7 +237,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $entranceMessageAudioFileList
      */
     public function getEntranceMessageAudioFileList()
     {
@@ -259,7 +259,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $entranceVideoMessageSelection
      */
     public function getEntranceVideoMessageSelection()
     {
@@ -279,7 +279,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $entranceMessageVideoUrlList
      */
     public function getEntranceMessageVideoUrlList()
     {
@@ -299,7 +299,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $entranceMessageVideoFileList
      */
     public function getEntranceMessageVideoFileList()
     {
@@ -319,7 +319,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playPeriodicComfortMessage
      */
     public function getPlayPeriodicComfortMessage()
     {
@@ -341,7 +341,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterTimeBetweenComfortMessagesSeconds
+     * @return CallCenterTimeBetweenComfortMessagesSeconds $timeBetweenComfortMessagesSeconds
      */
     public function getTimeBetweenComfortMessagesSeconds()
     {
@@ -363,7 +363,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $periodicComfortAudioMessageSelection
      */
     public function getPeriodicComfortAudioMessageSelection()
     {
@@ -383,7 +383,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $periodicComfortMessageAudioUrlList
      */
     public function getPeriodicComfortMessageAudioUrlList()
     {
@@ -403,7 +403,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $periodicComfortMessageAudioFileList
      */
     public function getPeriodicComfortMessageAudioFileList()
     {
@@ -425,7 +425,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $periodicComfortVideoMessageSelection
      */
     public function getPeriodicComfortVideoMessageSelection()
     {
@@ -445,7 +445,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $periodicComfortMessageVideoUrlList
      */
     public function getPeriodicComfortMessageVideoUrlList()
     {
@@ -465,7 +465,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $periodicComfortMessageVideoFileList
      */
     public function getPeriodicComfortMessageVideoFileList()
     {
@@ -485,7 +485,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMediaOnHoldForQueuedCalls
      */
     public function getEnableMediaOnHoldForQueuedCalls()
     {
@@ -505,7 +505,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterMediaOnHoldSourceModify17
+     * @return CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource
      */
     public function getMediaOnHoldSource()
     {
@@ -525,7 +525,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playWhisperMessage
      */
     public function getPlayWhisperMessage()
     {
@@ -547,7 +547,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $whisperAudioMessageSelection
      */
     public function getWhisperAudioMessageSelection()
     {
@@ -567,7 +567,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $whisperMessageAudioUrlList
      */
     public function getWhisperMessageAudioUrlList()
     {
@@ -587,7 +587,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $whisperMessageAudioFileList
      */
     public function getWhisperMessageAudioFileList()
     {
@@ -609,7 +609,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $whisperVideoMessageSelection
      */
     public function getWhisperVideoMessageSelection()
     {
@@ -629,7 +629,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $whisperMessageVideoUrlList
      */
     public function getWhisperMessageVideoUrlList()
     {
@@ -649,7 +649,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $whisperMessageVideoFileList
      */
     public function getWhisperMessageVideoFileList()
     {
@@ -669,7 +669,7 @@ class GroupCallCenterModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return EstimatedWaitMessageOptionsModify
+     * @return EstimatedWaitMessageOptionsModify $estimatedWaitMessageOptionsModify
      */
     public function getEstimatedWaitMessageOptionsModify()
     {

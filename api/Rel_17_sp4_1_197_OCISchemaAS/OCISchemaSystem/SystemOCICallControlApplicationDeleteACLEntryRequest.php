@@ -34,7 +34,7 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
 
     /**
      * 
-     * @return OCICallControlApplicationId
+     * @return OCICallControlApplicationId $applicationId
      */
     public function getApplicationId()
     {
@@ -78,7 +78,7 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $netAddress
      */
     public function getNetAddress()
     {

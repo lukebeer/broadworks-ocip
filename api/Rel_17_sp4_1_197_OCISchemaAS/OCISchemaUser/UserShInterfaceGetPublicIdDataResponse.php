@@ -33,7 +33,7 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
     protected $IMSUserState = null;
 
     /**
-     * @return UserShInterfaceGetPublicIdDataResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceGetPublicIdDataResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -77,7 +77,7 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return UserType
+     * @return UserType $userType
      */
     public function getUserType()
     {
@@ -99,7 +99,7 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return EndpointType
+     * @return EndpointType $endpointType
      */
     public function getEndpointType()
     {
@@ -121,7 +121,7 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $SCSCFName
      */
     public function getSCSCFName()
     {
@@ -143,7 +143,7 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return IMSUserState
+     * @return IMSUserState $IMSUserState
      */
     public function getIMSUserState()
     {

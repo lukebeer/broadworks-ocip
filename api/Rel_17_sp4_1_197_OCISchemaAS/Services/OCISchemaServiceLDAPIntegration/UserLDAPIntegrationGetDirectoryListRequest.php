@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPSearchKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\LDAPPage;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -40,7 +39,7 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
     }
 
     /**
-     * @return UserLDAPIntegrationGetDirectoryListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +61,7 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -84,7 +83,7 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPSearchKey
+     * @return LDAPSearchKey $searchKey
      */
     public function getSearchKey()
     {
@@ -104,7 +103,7 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return LDAPPage
+     * @return LDAPPage $page
      */
     public function getPage()
     {

@@ -30,7 +30,7 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse16 extends ComplexTyp
     protected $statisticsSource        = null;
 
     /**
-     * @return GroupCallCenterGetInstanceStatisticsReportingResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallCenterGetInstanceStatisticsReportingResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse16 extends ComplexTyp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $generateDailyReport
      */
     public function getGenerateDailyReport()
     {
@@ -72,7 +72,7 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse16 extends ComplexTyp
 
     /**
      * 
-     * @return CallCenterStatisticsCollectionPeriodMinutes
+     * @return CallCenterStatisticsCollectionPeriodMinutes $collectionPeriodMinutes
      */
     public function getCollectionPeriodMinutes()
     {
@@ -94,7 +94,7 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse16 extends ComplexTyp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportingEmailAddress1
      */
     public function getReportingEmailAddress1()
     {
@@ -116,7 +116,7 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse16 extends ComplexTyp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportingEmailAddress2
      */
     public function getReportingEmailAddress2()
     {
@@ -138,7 +138,7 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse16 extends ComplexTyp
 
     /**
      * 
-     * @return CallCenterStatisticsSource
+     * @return CallCenterStatisticsSource $statisticsSource
      */
     public function getStatisticsSource()
     {

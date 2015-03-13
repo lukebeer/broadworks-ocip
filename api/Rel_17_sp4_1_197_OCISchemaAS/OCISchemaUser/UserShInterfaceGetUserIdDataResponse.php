@@ -25,7 +25,7 @@ class UserShInterfaceGetUserIdDataResponse extends ComplexType implements Comple
     protected $entry = null;
 
     /**
-     * @return UserShInterfaceGetUserIdDataResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceGetUserIdDataResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserShInterfaceGetUserIdDataResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return ShInterfaceUserIdDataEntry
+     * @return ShInterfaceUserIdDataEntry $entry
      */
     public function getEntry()
     {

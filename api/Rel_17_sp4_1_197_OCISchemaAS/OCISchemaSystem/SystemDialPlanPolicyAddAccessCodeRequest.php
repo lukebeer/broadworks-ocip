@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCodeDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -44,7 +43,7 @@ class SystemDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +65,7 @@ class SystemDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return DialPlanAccessCode
+     * @return DialPlanAccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -86,7 +85,7 @@ class SystemDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeCodeForNetworkTranslationsAndRouting
      */
     public function getIncludeCodeForNetworkTranslationsAndRouting()
     {
@@ -106,7 +105,7 @@ class SystemDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeCodeForScreeningServices
      */
     public function getIncludeCodeForScreeningServices()
     {
@@ -126,7 +125,7 @@ class SystemDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSecondaryDialTone
      */
     public function getEnableSecondaryDialTone()
     {
@@ -148,7 +147,7 @@ class SystemDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return DialPlanAccessCodeDescription
+     * @return DialPlanAccessCodeDescription $description
      */
     public function getDescription()
     {

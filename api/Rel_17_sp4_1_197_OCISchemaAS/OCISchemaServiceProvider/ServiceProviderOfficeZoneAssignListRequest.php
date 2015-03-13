@@ -39,7 +39,7 @@ class ServiceProviderOfficeZoneAssignListRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class ServiceProviderOfficeZoneAssignListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -83,7 +83,7 @@ class ServiceProviderOfficeZoneAssignListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return OfficeZoneName
+     * @return OfficeZoneName $officeZoneName
      */
     public function getOfficeZoneName()
     {
@@ -105,7 +105,7 @@ class ServiceProviderOfficeZoneAssignListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return OfficeZoneName
+     * @return OfficeZoneName $defaultOfficeZoneName
      */
     public function getDefaultOfficeZoneName()
     {

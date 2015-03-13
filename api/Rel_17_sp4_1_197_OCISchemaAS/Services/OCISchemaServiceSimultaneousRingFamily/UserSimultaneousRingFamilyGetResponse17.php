@@ -29,7 +29,7 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
     protected $criteriaTable          = null;
 
     /**
-     * @return UserSimultaneousRingFamilyGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSimultaneousRingFamily\UserSimultaneousRingFamilyGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -69,7 +69,7 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $doNotRingIfOnCall
      */
     public function getDoNotRingIfOnCall()
     {
@@ -89,7 +89,7 @@ class UserSimultaneousRingFamilyGetResponse17 extends ComplexType implements Com
 
     /**
      * 
-     * @return SimultaneousRingNumber
+     * @return SimultaneousRingNumber $simultaneousRingNumber
      */
     public function getSimultaneousRingNumber()
     {

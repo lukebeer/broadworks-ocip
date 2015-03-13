@@ -30,7 +30,7 @@ class UserEnhancedCallLogsGetListResponse17sp4 extends ComplexType implements Co
     protected $totalNumberOfRows = null;
 
     /**
-     * @return UserEnhancedCallLogsGetListResponse17sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class UserEnhancedCallLogsGetListResponse17sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:int
+     * @return int $totalNumberOfRows
      */
     public function getTotalNumberOfRows()
     {

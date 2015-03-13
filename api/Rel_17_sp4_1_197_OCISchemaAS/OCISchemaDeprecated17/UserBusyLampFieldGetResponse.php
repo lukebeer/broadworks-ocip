@@ -29,7 +29,7 @@ class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterfa
     protected $monitoredUserTable = null;
 
     /**
-     * @return UserBusyLampFieldGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserBusyLampFieldGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $listURI
      */
     public function getListURI()
     {

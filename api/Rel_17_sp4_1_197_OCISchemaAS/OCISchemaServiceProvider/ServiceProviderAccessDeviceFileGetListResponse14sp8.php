@@ -25,7 +25,7 @@ class ServiceProviderAccessDeviceFileGetListResponse14sp8 extends ComplexType im
     protected $deviceFilesTable = null;
 
     /**
-     * @return ServiceProviderAccessDeviceFileGetListResponse14sp8
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceFileGetListResponse14sp8 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

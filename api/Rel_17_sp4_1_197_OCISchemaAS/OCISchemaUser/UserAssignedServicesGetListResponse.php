@@ -26,7 +26,7 @@ class UserAssignedServicesGetListResponse extends ComplexType implements Complex
     protected $userServiceEntry  = null;
 
     /**
-     * @return UserAssignedServicesGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAssignedServicesGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class UserAssignedServicesGetListResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return AssignedGroupServicesEntry
+     * @return AssignedGroupServicesEntry $groupServiceEntry
      */
     public function getGroupServiceEntry()
     {
@@ -66,7 +66,7 @@ class UserAssignedServicesGetListResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return AssignedUserServicesEntry
+     * @return AssignedUserServicesEntry $userServiceEntry
      */
     public function getUserServiceEntry()
     {

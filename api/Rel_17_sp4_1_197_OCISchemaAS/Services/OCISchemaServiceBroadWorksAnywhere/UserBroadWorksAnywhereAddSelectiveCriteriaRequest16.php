@@ -54,7 +54,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest16 extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -76,7 +76,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest16 extends ComplexType im
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -98,7 +98,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest16 extends ComplexType im
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -120,7 +120,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest16 extends ComplexType im
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -140,7 +140,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest16 extends ComplexType im
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -160,7 +160,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest16 extends ComplexType im
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -180,7 +180,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest16 extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {
@@ -200,7 +200,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest16 extends ComplexType im
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

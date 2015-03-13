@@ -42,7 +42,7 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return MediaName
+     * @return MediaName $mediaName
      */
     public function getMediaName()
     {
@@ -86,7 +86,7 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CodecName
+     * @return CodecName $codecName
      */
     public function getCodecName()
     {
@@ -108,7 +108,7 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return MediaBandwidthEnforcementType
+     * @return MediaBandwidthEnforcementType $bandwidthEnforcementType
      */
     public function getBandwidthEnforcementType()
     {
@@ -130,7 +130,7 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return MediaBandwidthBitsPerSecond
+     * @return MediaBandwidthBitsPerSecond $mediaBandwidth
      */
     public function getMediaBandwidth()
     {

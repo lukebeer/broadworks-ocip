@@ -99,7 +99,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -121,7 +121,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -143,7 +143,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderPasswordRulesApplyTo
+     * @return ServiceProviderPasswordRulesApplyTo $rulesApplyTo
      */
     public function getRulesApplyTo()
     {
@@ -163,7 +163,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowWebAddExternalAuthenticationUsers
      */
     public function getAllowWebAddExternalAuthenticationUsers()
     {
@@ -183,7 +183,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserId
      */
     public function getDisallowUserId()
     {
@@ -203,7 +203,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPassword
      */
     public function getDisallowOldPassword()
     {
@@ -223,7 +223,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPassword
      */
     public function getDisallowReversedOldPassword()
     {
@@ -243,7 +243,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinDigits
      */
     public function getRestrictMinDigits()
     {
@@ -265,7 +265,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordMinDigits
+     * @return PasswordMinDigits $minDigits
      */
     public function getMinDigits()
     {
@@ -285,7 +285,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinUpperCaseLetters
      */
     public function getRestrictMinUpperCaseLetters()
     {
@@ -307,7 +307,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordMinUpperCaseLetters
+     * @return PasswordMinUpperCaseLetters $minUpperCaseLetters
      */
     public function getMinUpperCaseLetters()
     {
@@ -327,7 +327,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinLowerCaseLetters
      */
     public function getRestrictMinLowerCaseLetters()
     {
@@ -349,7 +349,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordMinLowerCaseLetters
+     * @return PasswordMinLowerCaseLetters $minLowerCaseLetters
      */
     public function getMinLowerCaseLetters()
     {
@@ -369,7 +369,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinNonAlphanumericCharacters
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
@@ -391,7 +391,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordMinNonAlphanumericCharacters
+     * @return PasswordMinNonAlphanumericCharacters $minNonAlphanumericCharacters
      */
     public function getMinNonAlphanumericCharacters()
     {
@@ -413,7 +413,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordMinLength
+     * @return PasswordMinLength $minLength
      */
     public function getMinLength()
     {
@@ -435,7 +435,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return MaxFailedLoginAttempts
+     * @return MaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -457,7 +457,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordExpiresDays
+     * @return PasswordExpiresDays $passwordExpiresDays
      */
     public function getPasswordExpiresDays()
     {
@@ -477,7 +477,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -499,7 +499,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
@@ -519,7 +519,7 @@ class ServiceProviderPasswordRulesModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRulesModification
      */
     public function getDisallowRulesModification()
     {

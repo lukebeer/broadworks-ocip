@@ -34,7 +34,7 @@ class SystemPortalAPIAddACLEntryRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemPortalAPIAddACLEntryRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -78,7 +78,7 @@ class SystemPortalAPIAddACLEntryRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetworkACLEntryDescription
+     * @return NetworkACLEntryDescription $description
      */
     public function getDescription()
     {

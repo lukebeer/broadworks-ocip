@@ -48,7 +48,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
     protected $officeZoneAccess              = null;
 
     /**
-     * @return GroupAdminGetPolicyResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupAdminGetPolicyResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminProfileAccess
+     * @return GroupAdminProfileAccess $profileAccess
      */
     public function getProfileAccess()
     {
@@ -92,7 +92,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminUserAccess
+     * @return GroupAdminUserAccess $userAccess
      */
     public function getUserAccess()
     {
@@ -114,7 +114,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminAdminAccess
+     * @return GroupAdminAdminAccess $adminAccess
      */
     public function getAdminAccess()
     {
@@ -136,7 +136,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminDepartmentAccess
+     * @return GroupAdminDepartmentAccess $departmentAccess
      */
     public function getDepartmentAccess()
     {
@@ -158,7 +158,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminAccessDeviceAccess
+     * @return GroupAdminAccessDeviceAccess $accessDeviceAccess
      */
     public function getAccessDeviceAccess()
     {
@@ -180,7 +180,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminEnhancedServiceInstanceAccess
+     * @return GroupAdminEnhancedServiceInstanceAccess $enhancedServiceInstanceAccess
      */
     public function getEnhancedServiceInstanceAccess()
     {
@@ -202,7 +202,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminFeatureAccessCodeAccess
+     * @return GroupAdminFeatureAccessCodeAccess $featureAccessCodeAccess
      */
     public function getFeatureAccessCodeAccess()
     {
@@ -224,7 +224,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminPhoneNumberExtensionAccess
+     * @return GroupAdminPhoneNumberExtensionAccess $phoneNumberExtensionAccess
      */
     public function getPhoneNumberExtensionAccess()
     {
@@ -246,7 +246,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminCallingLineIdNumberAccess
+     * @return GroupAdminCallingLineIdNumberAccess $callingLineIdNumberAccess
      */
     public function getCallingLineIdNumberAccess()
     {
@@ -268,7 +268,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminServiceAccess
+     * @return GroupAdminServiceAccess $serviceAccess
      */
     public function getServiceAccess()
     {
@@ -290,7 +290,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminTrunkGroupAccess
+     * @return GroupAdminTrunkGroupAccess $trunkGroupAccess
      */
     public function getTrunkGroupAccess()
     {
@@ -312,7 +312,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminSessionAdmissionControlAccess
+     * @return GroupAdminSessionAdmissionControlAccess $sessionAdmissionControlAccess
      */
     public function getSessionAdmissionControlAccess()
     {
@@ -334,7 +334,7 @@ class GroupAdminGetPolicyResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminOfficeZoneAccess
+     * @return GroupAdminOfficeZoneAccess $officeZoneAccess
      */
     public function getOfficeZoneAccess()
     {

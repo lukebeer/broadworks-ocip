@@ -25,7 +25,7 @@ class ServiceProviderAccessDeviceCustomTagGetListResponse extends ComplexType im
     protected $deviceCustomTagsTable = null;
 
     /**
-     * @return ServiceProviderAccessDeviceCustomTagGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceCustomTagGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

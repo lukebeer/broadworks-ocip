@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBillingCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -49,7 +48,7 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
     }
 
     /**
-     * @return UserInstantConferencingGetConferenceBridgeReportResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,7 +70,7 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -93,7 +92,7 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $bridgeServiceUserId
      */
     public function getBridgeServiceUserId()
     {
@@ -112,7 +111,7 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $reportStartDate
      */
     public function getReportStartDate()
     {
@@ -131,7 +130,7 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $reportEndDate
      */
     public function getReportEndDate()
     {
@@ -153,7 +152,7 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
 
     /**
      * 
-     * @return InstantConferencingBillingCode
+     * @return InstantConferencingBillingCode $billingCode
      */
     public function getBillingCode()
     {
@@ -175,7 +174,7 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportDeliveryEmailAddress
      */
     public function getReportDeliveryEmailAddress()
     {

@@ -43,7 +43,7 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -85,7 +85,7 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableZoneCallingRestrictions
      */
     public function getEnableZoneCallingRestrictions()
     {
@@ -105,7 +105,7 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableOriginationRoamingRestrictions
      */
     public function getEnableOriginationRoamingRestrictions()
     {
@@ -125,7 +125,7 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableEmergencyOriginationRoamingRestrictions
      */
     public function getEnableEmergencyOriginationRoamingRestrictions()
     {
@@ -145,7 +145,7 @@ class ServiceProviderZoneCallingRestrictionsModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableTerminationRoamingRestrictions
      */
     public function getEnableTerminationRoamingRestrictions()
     {

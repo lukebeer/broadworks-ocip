@@ -38,7 +38,7 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -82,7 +82,7 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return DeviceManagementTagName
+     * @return DeviceManagementTagName $tagName
      */
     public function getTagName()
     {
@@ -104,7 +104,7 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return DeviceManagementTagValue
+     * @return DeviceManagementTagValue $tagValue
      */
     public function getTagValue()
     {

@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastCallCenterGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -48,7 +47,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
     }
 
     /**
-     * @return GroupCallCenterCurrentAndPastCallCenterGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastCallCenterGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +69,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -90,7 +89,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isPremiumOnly
      */
     public function getIsPremiumOnly()
     {
@@ -112,7 +111,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -134,7 +133,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -156,7 +155,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
 
     /**
      * 
-     * @return SearchCriteriaCallCenterName
+     * @return SearchCriteriaCallCenterName $searchCriteriaCallCenterName
      */
     public function getSearchCriteriaCallCenterName()
     {

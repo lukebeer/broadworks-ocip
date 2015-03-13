@@ -15,7 +15,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Res
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAssignmentListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -62,7 +61,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return GroupDnGetAssignmentListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAssignmentListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -84,7 +83,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -106,7 +105,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -128,7 +127,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -150,7 +149,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -172,7 +171,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -194,7 +193,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -216,7 +215,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaExactDnDepartment
+     * @return SearchCriteriaExactDnDepartment $searchCriteriaExactDnDepartment
      */
     public function getSearchCriteriaExactDnDepartment()
     {
@@ -238,7 +237,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SearchCriteriaExactDnActivation
+     * @return SearchCriteriaExactDnActivation $searchCriteriaExactDnActivation
      */
     public function getSearchCriteriaExactDnActivation()
     {

@@ -23,7 +23,7 @@ class SystemSelectiveServicesGetResponse extends ComplexType implements ComplexI
     protected $scheduleCombination = null;
 
     /**
-     * @return SystemSelectiveServicesGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSelectiveServicesGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemSelectiveServicesGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ScheduleCombinationType
+     * @return ScheduleCombinationType $scheduleCombination
      */
     public function getScheduleCombination()
     {

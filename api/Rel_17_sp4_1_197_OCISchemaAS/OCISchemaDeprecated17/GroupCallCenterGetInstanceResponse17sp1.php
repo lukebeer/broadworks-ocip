@@ -58,7 +58,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
     protected $playRingingWhenOfferingCall         = null;
 
     /**
-     * @return GroupCallCenterGetInstanceResponse17sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallCenterGetInstanceResponse17sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +78,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceInstanceReadProfile17
+     * @return ServiceInstanceReadProfile17 $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -100,7 +100,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return CallCenterType
+     * @return CallCenterType $type
      */
     public function getType()
     {
@@ -122,7 +122,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return HuntPolicy
+     * @return HuntPolicy $policy
      */
     public function getPolicy()
     {
@@ -142,7 +142,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -164,7 +164,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return CallCenterQueueLength16
+     * @return CallCenterQueueLength16 $queueLength
      */
     public function getQueueLength()
     {
@@ -184,7 +184,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableReporting
      */
     public function getEnableReporting()
     {
@@ -206,7 +206,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return CallCenterReportingServerName
+     * @return CallCenterReportingServerName $reportingServerName
      */
     public function getReportingServerName()
     {
@@ -226,7 +226,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallerToDialEscapeDigit
      */
     public function getAllowCallerToDialEscapeDigit()
     {
@@ -248,7 +248,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return DtmfDigit
+     * @return DtmfDigit $escapeDigit
      */
     public function getEscapeDigit()
     {
@@ -268,7 +268,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $resetCallStatisticsUponEntryInQueue
      */
     public function getResetCallStatisticsUponEntryInQueue()
     {
@@ -288,7 +288,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowAgentLogoff
      */
     public function getAllowAgentLogoff()
     {
@@ -308,7 +308,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallWaitingForAgents
      */
     public function getAllowCallWaitingForAgents()
     {
@@ -328,7 +328,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallsToAgentsInWrapUp
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
@@ -348,7 +348,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideAgentWrapUpTime
      */
     public function getOverrideAgentWrapUpTime()
     {
@@ -370,7 +370,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return CallCenterWrapUpSeconds
+     * @return CallCenterWrapUpSeconds $wrapUpSeconds
      */
     public function getWrapUpSeconds()
     {
@@ -390,7 +390,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceDeliveryOfCalls
      */
     public function getForceDeliveryOfCalls()
     {
@@ -412,7 +412,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return CallCenterForceDeliveryWaitTimeSeconds
+     * @return CallCenterForceDeliveryWaitTimeSeconds $forceDeliveryWaitTimeSeconds
      */
     public function getForceDeliveryWaitTimeSeconds()
     {
@@ -432,7 +432,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutomaticStateChangeForAgents
      */
     public function getEnableAutomaticStateChangeForAgents()
     {
@@ -454,7 +454,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return AgentACDAutomaticState
+     * @return AgentACDAutomaticState $agentStateAfterCall
      */
     public function getAgentStateAfterCall()
     {
@@ -476,7 +476,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $agentUnavailableCode
      */
     public function getAgentUnavailableCode()
     {
@@ -498,7 +498,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return AudioFileCodec
+     * @return AudioFileCodec $externalPreferredAudioCodec
      */
     public function getExternalPreferredAudioCodec()
     {
@@ -520,7 +520,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return AudioFileCodec
+     * @return AudioFileCodec $internalPreferredAudioCodec
      */
     public function getInternalPreferredAudioCodec()
     {
@@ -540,7 +540,7 @@ class GroupCallCenterGetInstanceResponse17sp1 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playRingingWhenOfferingCall
      */
     public function getPlayRingingWhenOfferingCall()
     {

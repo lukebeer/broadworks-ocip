@@ -64,7 +64,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -86,7 +86,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -108,7 +108,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
 
     /**
      * 
-     * @return SessionAdmissionControlGroupName
+     * @return SessionAdmissionControlGroupName $name
      */
     public function getName()
     {
@@ -130,7 +130,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxSession
      */
     public function getMaxSession()
     {
@@ -152,7 +152,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserOriginatingSessions
      */
     public function getMaxUserOriginatingSessions()
     {
@@ -174,7 +174,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserTerminatingSessions
      */
     public function getMaxUserTerminatingSessions()
     {
@@ -196,7 +196,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedSession
      */
     public function getReservedSession()
     {
@@ -218,7 +218,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedUserOriginatingSessions
      */
     public function getReservedUserOriginatingSessions()
     {
@@ -240,7 +240,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedUserTerminatingSessions
      */
     public function getReservedUserTerminatingSessions()
     {
@@ -260,7 +260,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $becomeDefaultGroup
      */
     public function getBecomeDefaultGroup()
     {
@@ -280,7 +280,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $countIntraSACGroupSessions
      */
     public function getCountIntraSACGroupSessions()
     {
@@ -300,7 +300,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
 
     /**
      * 
-     * @return EnterpriseAccessDevice
+     * @return EnterpriseAccessDevice $devices
      */
     public function getDevices()
     {

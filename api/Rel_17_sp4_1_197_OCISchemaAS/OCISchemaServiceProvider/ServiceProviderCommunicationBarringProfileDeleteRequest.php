@@ -37,7 +37,7 @@ class ServiceProviderCommunicationBarringProfileDeleteRequest extends ComplexTyp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class ServiceProviderCommunicationBarringProfileDeleteRequest extends ComplexTyp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -81,7 +81,7 @@ class ServiceProviderCommunicationBarringProfileDeleteRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringProfileName
+     * @return CommunicationBarringProfileName $name
      */
     public function getName()
     {
@@ -103,7 +103,7 @@ class ServiceProviderCommunicationBarringProfileDeleteRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringProfileName
+     * @return CommunicationBarringProfileName $defaultProfile
      */
     public function getDefaultProfile()
     {

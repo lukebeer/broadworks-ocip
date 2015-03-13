@@ -34,7 +34,7 @@ class ServiceProviderCommunicationBarringCriteriaAssignListRequest extends Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class ServiceProviderCommunicationBarringCriteriaAssignListRequest extends Compl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -78,7 +78,7 @@ class ServiceProviderCommunicationBarringCriteriaAssignListRequest extends Compl
 
     /**
      * 
-     * @return CommunicationBarringCriteriaName
+     * @return CommunicationBarringCriteriaName $criteriaName
      */
     public function getCriteriaName()
     {

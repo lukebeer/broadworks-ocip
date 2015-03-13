@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringAlternateCallIndicator;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\NetworkServerAlternateCallIndicator;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -34,7 +33,7 @@ class SystemCommunicationBarringAlternateCallIndicatorAddRequest extends Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +55,7 @@ class SystemCommunicationBarringAlternateCallIndicatorAddRequest extends Complex
 
     /**
      * 
-     * @return CommunicationBarringAlternateCallIndicator
+     * @return CommunicationBarringAlternateCallIndicator $alternateCallIndicator
      */
     public function getAlternateCallIndicator()
     {
@@ -78,7 +77,7 @@ class SystemCommunicationBarringAlternateCallIndicatorAddRequest extends Complex
 
     /**
      * 
-     * @return NetworkServerAlternateCallIndicator
+     * @return NetworkServerAlternateCallIndicator $networkServerAlternateCallIndicator
      */
     public function getNetworkServerAlternateCallIndicator()
     {

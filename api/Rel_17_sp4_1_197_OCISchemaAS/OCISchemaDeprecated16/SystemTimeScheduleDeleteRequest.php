@@ -30,7 +30,7 @@ class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $timeScheduleName
      */
     public function getTimeScheduleName()
     {

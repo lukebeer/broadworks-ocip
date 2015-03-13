@@ -28,7 +28,7 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
     protected $criteriaTable              = null;
 
     /**
-     * @return ServiceProviderDialableCallerIDGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialableCallerIDGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useServiceProviderCriteria
      */
     public function getUseServiceProviderCriteria()
     {
@@ -70,7 +70,7 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return NsScreeningFailurePolicy
+     * @return NsScreeningFailurePolicy $nsScreeningFailurePolicy
      */
     public function getNsScreeningFailurePolicy()
     {

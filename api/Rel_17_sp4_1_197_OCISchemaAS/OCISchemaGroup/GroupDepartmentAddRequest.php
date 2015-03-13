@@ -42,7 +42,7 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +108,7 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DepartmentName
+     * @return DepartmentName $departmentName
      */
     public function getDepartmentName()
     {
@@ -128,7 +128,7 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $parentDepartmentKey
      */
     public function getParentDepartmentKey()
     {

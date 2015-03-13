@@ -7,12 +7,10 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringProfileName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -50,7 +48,7 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest exte
     }
 
     /**
-     * @return ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +70,7 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest exte
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -94,7 +92,7 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest exte
 
     /**
      * 
-     * @return CommunicationBarringProfileName
+     * @return CommunicationBarringProfileName $profile
      */
     public function getProfile()
     {
@@ -116,7 +114,7 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest exte
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -138,7 +136,7 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest exte
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -160,7 +158,7 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest exte
 
     /**
      * 
-     * @return SearchCriteriaGroupName
+     * @return SearchCriteriaGroupName $searchCriteriaGroupName
      */
     public function getSearchCriteriaGroupName()
     {

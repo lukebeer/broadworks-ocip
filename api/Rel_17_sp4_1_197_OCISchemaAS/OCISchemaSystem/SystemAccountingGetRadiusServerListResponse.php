@@ -24,7 +24,7 @@ class SystemAccountingGetRadiusServerListResponse extends ComplexType implements
     protected $radiusServerTable = null;
 
     /**
-     * @return SystemAccountingGetRadiusServerListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingGetRadiusServerListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

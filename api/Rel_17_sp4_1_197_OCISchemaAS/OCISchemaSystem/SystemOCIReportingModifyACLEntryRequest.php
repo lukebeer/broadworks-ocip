@@ -38,7 +38,7 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -82,7 +82,7 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return NetworkACLEntryDescription
+     * @return NetworkACLEntryDescription $description
      */
     public function getDescription()
     {
@@ -102,7 +102,7 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMessages
      */
     public function getRestrictMessages()
     {

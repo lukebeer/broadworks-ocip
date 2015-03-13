@@ -30,7 +30,7 @@ class SystemAccountingDeleteChargingFunctionElementServerRequest extends Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemAccountingDeleteChargingFunctionElementServerRequest extends Complex
 
     /**
      * 
-     * @return NetAddressExtended
+     * @return NetAddressExtended $address
      */
     public function getAddress()
     {

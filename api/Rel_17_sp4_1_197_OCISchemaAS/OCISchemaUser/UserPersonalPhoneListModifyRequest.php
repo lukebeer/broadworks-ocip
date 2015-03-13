@@ -41,7 +41,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -85,7 +85,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return PhoneListEntryName
+     * @return PhoneListEntryName $entryName
      */
     public function getEntryName()
     {
@@ -107,7 +107,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return PhoneListEntryName
+     * @return PhoneListEntryName $newEntryName
      */
     public function getNewEntryName()
     {
@@ -129,7 +129,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $phoneNumber
      */
     public function getPhoneNumber()
     {

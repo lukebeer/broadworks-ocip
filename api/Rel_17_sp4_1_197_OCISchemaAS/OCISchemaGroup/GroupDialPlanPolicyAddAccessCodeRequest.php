@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCodeDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
@@ -52,7 +51,7 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +73,7 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -96,7 +95,7 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -118,7 +117,7 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return DialPlanAccessCode
+     * @return DialPlanAccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -138,7 +137,7 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeCodeForNetworkTranslationsAndRouting
      */
     public function getIncludeCodeForNetworkTranslationsAndRouting()
     {
@@ -158,7 +157,7 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeCodeForScreeningServices
      */
     public function getIncludeCodeForScreeningServices()
     {
@@ -178,7 +177,7 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSecondaryDialTone
      */
     public function getEnableSecondaryDialTone()
     {
@@ -200,7 +199,7 @@ class GroupDialPlanPolicyAddAccessCodeRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return DialPlanAccessCodeDescription
+     * @return DialPlanAccessCodeDescription $description
      */
     public function getDescription()
     {

@@ -29,7 +29,7 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
     protected $countIntraServiceProviderSessions = null;
 
     /**
-     * @return ServiceProviderSessionAdmissionControlGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderSessionAdmissionControlGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictAggregateSessions
      */
     public function getRestrictAggregateSessions()
     {
@@ -71,7 +71,7 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxSessions
      */
     public function getMaxSessions()
     {
@@ -93,7 +93,7 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserOriginatingSessions
      */
     public function getMaxUserOriginatingSessions()
     {
@@ -115,7 +115,7 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserTerminatingSessions
      */
     public function getMaxUserTerminatingSessions()
     {
@@ -135,7 +135,7 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $countIntraServiceProviderSessions
      */
     public function getCountIntraServiceProviderSessions()
     {

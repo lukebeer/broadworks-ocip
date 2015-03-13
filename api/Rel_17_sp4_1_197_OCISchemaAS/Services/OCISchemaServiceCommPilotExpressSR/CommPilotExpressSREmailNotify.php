@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSREmailNotify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSREmailNotify extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSREmailNotify';
     public    $name         = 'CommPilotExpressSREmailNotify';
     protected $sendEmail    = null;
     protected $emailAddress = null;
@@ -34,7 +32,7 @@ class CommPilotExpressSREmailNotify extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return CommPilotExpressSREmailNotify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class CommPilotExpressSREmailNotify extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $sendEmail
      */
     public function getSendEmail()
     {
@@ -74,7 +72,7 @@ class CommPilotExpressSREmailNotify extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $emailAddress
      */
     public function getEmailAddress()
     {

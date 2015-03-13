@@ -34,7 +34,7 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
 
     /**
      * 
-     * @return SystemMaxLoginAttempts
+     * @return SystemMaxLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -78,7 +78,7 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
 
     /**
      * 
-     * @return SystemMinLoginIdLength
+     * @return SystemMinLoginIdLength $minLoginIdLength
      */
     public function getMinLoginIdLength()
     {

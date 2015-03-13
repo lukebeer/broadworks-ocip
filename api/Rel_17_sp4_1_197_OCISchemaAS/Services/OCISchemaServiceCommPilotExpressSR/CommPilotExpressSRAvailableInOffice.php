@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRAvailableInOffice;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRAvailableInOffice extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\CommPilotExpressSRAvailableInOffice';
     public    $name               = 'CommPilotExpressSRAvailableInOffice';
     protected $busySetting        = null;
     protected $noAnswerSetting    = null;
@@ -37,7 +35,7 @@ class CommPilotExpressSRAvailableInOffice extends ComplexType implements Complex
     }
 
     /**
-     * @return CommPilotExpressSRAvailableInOffice
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class CommPilotExpressSRAvailableInOffice extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $busySetting
      */
     public function getBusySetting()
     {
@@ -77,7 +75,7 @@ class CommPilotExpressSRAvailableInOffice extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $noAnswerSetting
      */
     public function getNoAnswerSetting()
     {
@@ -97,7 +95,7 @@ class CommPilotExpressSRAvailableInOffice extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $incomingCallNotify
      */
     public function getIncomingCallNotify()
     {

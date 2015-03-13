@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterScheduledReportServiceLevelInclusionsModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType                                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterScheduledReportServiceLevelInclusionsModify';
     public    $name                                        = 'CallCenterScheduledReportServiceLevelInclusionsModify';
     protected $includeOverflowTimeTransferedInServiceLevel = null;
     protected $includeOtherTransfersInServiceLevel         = null;
@@ -40,7 +38,7 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
     }
 
     /**
-     * @return CallCenterScheduledReportServiceLevelInclusionsModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $includeOverflowTimeTransferedInServiceLevel
      */
     public function getIncludeOverflowTimeTransferedInServiceLevel()
     {
@@ -80,7 +78,7 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $includeOtherTransfersInServiceLevel
      */
     public function getIncludeOtherTransfersInServiceLevel()
     {
@@ -100,7 +98,7 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $abandonedCallsInServiceLevel
      */
     public function getAbandonedCallsInServiceLevel()
     {
@@ -120,7 +118,7 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $abandonedCallIntervalSeconds
      */
     public function getAbandonedCallIntervalSeconds()
     {

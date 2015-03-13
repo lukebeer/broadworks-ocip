@@ -29,7 +29,7 @@ class UserSequentialRingGetCriteriaResponse16 extends ComplexType implements Com
     protected $fromDnCriteria  = null;
 
     /**
-     * @return UserSequentialRingGetCriteriaResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\UserSequentialRingGetCriteriaResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserSequentialRingGetCriteriaResponse16 extends ComplexType implements Com
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -69,7 +69,7 @@ class UserSequentialRingGetCriteriaResponse16 extends ComplexType implements Com
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -89,7 +89,7 @@ class UserSequentialRingGetCriteriaResponse16 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {
@@ -109,7 +109,7 @@ class UserSequentialRingGetCriteriaResponse16 extends ComplexType implements Com
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

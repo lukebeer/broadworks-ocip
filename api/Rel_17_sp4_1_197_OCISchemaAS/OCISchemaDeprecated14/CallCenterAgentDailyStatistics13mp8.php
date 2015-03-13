@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\CallCenterAgentDailyStatistics13mp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements ComplexInterface
 {
-    public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\CallCenterAgentDailyStatistics13mp8';
     public    $name                       = 'CallCenterAgentDailyStatistics13mp8';
     protected $numberOfCallsReceived      = null;
     protected $numberOfCallsNotAnswered   = null;
@@ -46,7 +44,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
     }
 
     /**
-     * @return CallCenterAgentDailyStatistics13mp8
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +64,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $numberOfCallsReceived
      */
     public function getNumberOfCallsReceived()
     {
@@ -86,7 +84,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $numberOfCallsNotAnswered
      */
     public function getNumberOfCallsNotAnswered()
     {
@@ -106,7 +104,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $averageTimePerCallSeconds
      */
     public function getAverageTimePerCallSeconds()
     {
@@ -126,7 +124,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeInCallsSeconds
      */
     public function getTimeInCallsSeconds()
     {
@@ -146,7 +144,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeLoggedOffSeconds
      */
     public function getTimeLoggedOffSeconds()
     {
@@ -166,7 +164,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeLoggedOnAndIdleSeconds
      */
     public function getTimeLoggedOnAndIdleSeconds()
     {

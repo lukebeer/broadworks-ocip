@@ -24,7 +24,7 @@ class SystemDomainGetAssignedServiceProviderListResponse extends ComplexType imp
     protected $serviceProviderTable = null;
 
     /**
-     * @return SystemDomainGetAssignedServiceProviderListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainGetAssignedServiceProviderListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

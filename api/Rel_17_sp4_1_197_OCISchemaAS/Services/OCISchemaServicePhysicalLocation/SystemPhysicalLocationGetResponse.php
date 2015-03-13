@@ -24,7 +24,7 @@ class SystemPhysicalLocationGetResponse extends ComplexType implements ComplexIn
     protected $alwaysAllowEmergencyCalls = null;
 
     /**
-     * @return SystemPhysicalLocationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePhysicalLocation\SystemPhysicalLocationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class SystemPhysicalLocationGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alwaysAllowEmergencyCalls
      */
     public function getAlwaysAllowEmergencyCalls()
     {

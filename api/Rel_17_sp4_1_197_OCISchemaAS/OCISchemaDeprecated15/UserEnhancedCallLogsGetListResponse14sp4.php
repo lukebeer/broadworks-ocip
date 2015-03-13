@@ -26,7 +26,7 @@ class UserEnhancedCallLogsGetListResponse14sp4 extends ComplexType implements Co
     protected $missed   = null;
 
     /**
-     * @return UserEnhancedCallLogsGetListResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserEnhancedCallLogsGetListResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class UserEnhancedCallLogsGetListResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallLogsEntry
+     * @return CallLogsEntry $placed
      */
     public function getPlaced()
     {
@@ -66,7 +66,7 @@ class UserEnhancedCallLogsGetListResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallLogsEntry
+     * @return CallLogsEntry $received
      */
     public function getReceived()
     {
@@ -86,7 +86,7 @@ class UserEnhancedCallLogsGetListResponse14sp4 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallLogsEntry
+     * @return CallLogsEntry $missed
      */
     public function getMissed()
     {

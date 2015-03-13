@@ -34,7 +34,7 @@ class ServiceProviderMeetMeConferencingModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class ServiceProviderMeetMeConferencingModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -76,7 +76,7 @@ class ServiceProviderMeetMeConferencingModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return MeetMeConferencingConferencePorts
+     * @return MeetMeConferencingConferencePorts $allocatedPorts
      */
     public function getAllocatedPorts()
     {

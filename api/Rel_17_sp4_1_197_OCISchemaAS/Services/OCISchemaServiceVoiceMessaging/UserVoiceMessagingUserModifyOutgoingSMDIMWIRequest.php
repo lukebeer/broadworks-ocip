@@ -38,7 +38,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -80,7 +80,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -100,7 +100,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
 
     /**
      * 
-     * @return ReplacementOutgoingDNList
+     * @return ReplacementOutgoingDNList $outgoingSMDIMWIPhoneNumberList
      */
     public function getOutgoingSMDIMWIPhoneNumberList()
     {

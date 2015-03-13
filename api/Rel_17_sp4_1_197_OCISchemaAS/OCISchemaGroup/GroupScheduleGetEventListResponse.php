@@ -24,7 +24,7 @@ class GroupScheduleGetEventListResponse extends ComplexType implements ComplexIn
     protected $eventName = null;
 
     /**
-     * @return GroupScheduleGetEventListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupScheduleGetEventListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupScheduleGetEventListResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return EventName
+     * @return EventName $eventName
      */
     public function getEventName()
     {

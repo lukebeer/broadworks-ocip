@@ -27,7 +27,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse extends ComplexTy
     protected $userTable = null;
 
     /**
-     * @return GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

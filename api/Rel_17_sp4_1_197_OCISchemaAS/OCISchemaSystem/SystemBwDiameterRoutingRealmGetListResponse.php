@@ -23,7 +23,7 @@ class SystemBwDiameterRoutingRealmGetListResponse extends ComplexType implements
     protected $routingRealmTable = null;
 
     /**
-     * @return SystemBwDiameterRoutingRealmGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterRoutingRealmGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

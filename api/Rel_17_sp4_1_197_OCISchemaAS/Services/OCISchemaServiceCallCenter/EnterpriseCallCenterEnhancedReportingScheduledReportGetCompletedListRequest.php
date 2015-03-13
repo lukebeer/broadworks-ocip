@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaCallCenterScheduledReportName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -48,7 +47,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListReques
     }
 
     /**
-     * @return EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +69,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListReques
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -92,7 +91,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListReques
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -114,7 +113,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListReques
 
     /**
      * 
-     * @return SearchCriteriaCallCenterScheduledReportName
+     * @return SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName
      */
     public function getSearchCriteriaCallCenterScheduledReportName()
     {
@@ -136,7 +135,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListReques
 
     /**
      * 
-     * @return SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor
+     * @return SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor
      */
     public function getSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor()
     {
@@ -158,7 +157,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListReques
 
     /**
      * 
-     * @return SearchCriteriaExactCallCenterReportTemplateKey
+     * @return SearchCriteriaExactCallCenterReportTemplateKey $searchCriteriaExactCallCenterReportTemplateKey
      */
     public function getSearchCriteriaExactCallCenterReportTemplateKey()
     {

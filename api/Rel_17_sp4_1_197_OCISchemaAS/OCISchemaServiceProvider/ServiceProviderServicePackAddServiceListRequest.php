@@ -38,7 +38,7 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {
@@ -104,7 +104,7 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
 
     /**
      * 
-     * @return UserService
+     * @return UserService $serviceName
      */
     public function getServiceName()
     {

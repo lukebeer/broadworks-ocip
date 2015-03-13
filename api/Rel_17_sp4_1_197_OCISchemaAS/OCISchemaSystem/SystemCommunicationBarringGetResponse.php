@@ -23,7 +23,7 @@ class SystemCommunicationBarringGetResponse extends ComplexType implements Compl
     protected $directTransferScreening = null;
 
     /**
-     * @return SystemCommunicationBarringGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class SystemCommunicationBarringGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $directTransferScreening
      */
     public function getDirectTransferScreening()
     {

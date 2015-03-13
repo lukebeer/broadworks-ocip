@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DigitPatternCriteriaName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -44,7 +43,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
     }
 
     /**
-     * @return ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +65,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -88,7 +87,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
 
     /**
      * 
-     * @return DigitPatternCriteriaName
+     * @return DigitPatternCriteriaName $name
      */
     public function getName()
     {
@@ -110,7 +109,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -132,7 +131,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
 
     /**
      * 
-     * @return SearchCriteriaDigitPattern
+     * @return SearchCriteriaDigitPattern $searchCriteriaDigitPattern
      */
     public function getSearchCriteriaDigitPattern()
     {

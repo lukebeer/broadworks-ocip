@@ -47,7 +47,7 @@ class SystemScheduleModifyEventRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class SystemScheduleModifyEventRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {
@@ -89,7 +89,7 @@ class SystemScheduleModifyEventRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return EventName
+     * @return EventName $eventName
      */
     public function getEventName()
     {
@@ -111,7 +111,7 @@ class SystemScheduleModifyEventRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return EventName
+     * @return EventName $newEventName
      */
     public function getNewEventName()
     {
@@ -130,7 +130,7 @@ class SystemScheduleModifyEventRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $startDate
      */
     public function getStartDate()
     {
@@ -149,7 +149,7 @@ class SystemScheduleModifyEventRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $endDate
      */
     public function getEndDate()
     {
@@ -169,7 +169,7 @@ class SystemScheduleModifyEventRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return Recurrence
+     * @return Recurrence $recurrence
      */
     public function getRecurrence()
     {

@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetListResponse14;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -50,7 +49,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
     }
 
     /**
-     * @return SystemAccessDeviceGetListResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetListResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +71,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -94,7 +93,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SearchCriteriaDeviceName
+     * @return SearchCriteriaDeviceName $searchCriteriaDeviceName
      */
     public function getSearchCriteriaDeviceName()
     {
@@ -116,7 +115,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SearchCriteriaDeviceMACAddress
+     * @return SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress
      */
     public function getSearchCriteriaDeviceMACAddress()
     {
@@ -138,7 +137,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SearchCriteriaDeviceNetAddress
+     * @return SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress
      */
     public function getSearchCriteriaDeviceNetAddress()
     {
@@ -160,7 +159,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SearchCriteriaExactDeviceType
+     * @return SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType
      */
     public function getSearchCriteriaExactDeviceType()
     {

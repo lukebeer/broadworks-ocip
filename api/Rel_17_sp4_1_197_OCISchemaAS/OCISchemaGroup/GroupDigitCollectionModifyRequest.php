@@ -49,7 +49,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,7 +71,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -93,7 +93,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -115,7 +115,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return GroupDigitCollectionSettingLevel
+     * @return GroupDigitCollectionSettingLevel $useSetting
      */
     public function getUseSetting()
     {
@@ -137,7 +137,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AccessCode
+     * @return AccessCode $accessCode
      */
     public function getAccessCode()
     {
@@ -159,7 +159,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $publicDigitMap
      */
     public function getPublicDigitMap()
     {
@@ -181,7 +181,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $privateDigitMap
      */
     public function getPrivateDigitMap()
     {

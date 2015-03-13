@@ -45,7 +45,7 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -87,7 +87,7 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -107,7 +107,7 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $doNotRingIfOnCall
      */
     public function getDoNotRingIfOnCall()
     {
@@ -127,7 +127,7 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
 
     /**
      * 
-     * @return SimultaneousRingReplacementNumberList
+     * @return SimultaneousRingReplacementNumberList $simultaneousRingNumberList
      */
     public function getSimultaneousRingNumberList()
     {
@@ -147,7 +147,7 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
 
     /**
      * 
-     * @return CriteriaActivation
+     * @return CriteriaActivation $criteriaActivation
      */
     public function getCriteriaActivation()
     {

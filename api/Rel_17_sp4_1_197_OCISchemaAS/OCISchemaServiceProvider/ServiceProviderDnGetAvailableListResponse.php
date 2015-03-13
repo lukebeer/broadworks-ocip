@@ -24,7 +24,7 @@ class ServiceProviderDnGetAvailableListResponse extends ComplexType implements C
     protected $availableDn = null;
 
     /**
-     * @return ServiceProviderDnGetAvailableListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDnGetAvailableListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class ServiceProviderDnGetAvailableListResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:token
+     * @return string $availableDn
      */
     public function getAvailableDn()
     {

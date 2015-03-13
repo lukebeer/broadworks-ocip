@@ -23,7 +23,7 @@ class UserServiceScriptsUserGetLogResponse extends ComplexType implements Comple
     protected $logContent = null;
 
     /**
-     * @return UserServiceScriptsUserGetLogResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts\UserServiceScriptsUserGetLogResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -42,7 +42,7 @@ class UserServiceScriptsUserGetLogResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:base64Binary
+     * @return xs:base64Binary $logContent
      */
     public function getLogContent()
     {

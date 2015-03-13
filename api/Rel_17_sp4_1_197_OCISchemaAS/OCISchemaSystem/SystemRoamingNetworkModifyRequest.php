@@ -34,7 +34,7 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DN
+     * @return DN $mscAddress
      */
     public function getMscAddress()
     {
@@ -78,7 +78,7 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetworkTranslationIndex
+     * @return NetworkTranslationIndex $networkTranslationIndex
      */
     public function getNetworkTranslationIndex()
     {

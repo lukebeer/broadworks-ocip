@@ -37,7 +37,7 @@ class GroupCustomContactDirectoryGetResponse17 extends ComplexType implements Co
     protected $userTable = null;
 
     /**
-     * @return GroupCustomContactDirectoryGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -38,7 +38,7 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
 
     /**
      * 
-     * @return DigitPatternCriteriaName
+     * @return DigitPatternCriteriaName $name
      */
     public function getName()
     {
@@ -82,7 +82,7 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
 
     /**
      * 
-     * @return DigitPatternCriteriaDescription
+     * @return DigitPatternCriteriaDescription $description
      */
     public function getDescription()
     {
@@ -104,7 +104,7 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
 
     /**
      * 
-     * @return DigitPattern
+     * @return DigitPattern $matchDigitPattern
      */
     public function getMatchDigitPattern()
     {

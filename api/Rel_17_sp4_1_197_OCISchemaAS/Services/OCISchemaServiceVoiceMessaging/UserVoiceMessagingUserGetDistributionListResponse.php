@@ -25,7 +25,7 @@ class UserVoiceMessagingUserGetDistributionListResponse extends ComplexType impl
     protected $phoneNumber = null;
 
     /**
-     * @return UserVoiceMessagingUserGetDistributionListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetDistributionListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserVoiceMessagingUserGetDistributionListResponse extends ComplexType impl
 
     /**
      * 
-     * @return VoiceMessagingDistributionListDescription
+     * @return VoiceMessagingDistributionListDescription $description
      */
     public function getDescription()
     {
@@ -69,7 +69,7 @@ class UserVoiceMessagingUserGetDistributionListResponse extends ComplexType impl
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $phoneNumber
      */
     public function getPhoneNumber()
     {

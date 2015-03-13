@@ -40,6 +40,22 @@ abstract class TypeMap {
                 return false;
         }
     }
+
+    static public function returntype($type) {
+        switch ($type) {
+            case 'xs:boolean':
+            case 'xs:bool':
+                return ' boolean ';
+            case 'xs:NMTOKEN':
+            case 'xs:string':
+            case 'xs:token':
+                return ' string ';
+            case 'xs:int':
+                return ' int ';
+            default:
+                return " $type ";
+        }
+    }
 }
 
 function camel($value) {
@@ -120,7 +136,7 @@ class BuildAPI {
                     $maxlen = (strlen($item['name']) > $maxlen) ? strlen($item['name']) : $maxlen;
                 }
                 if ($this->checkComplexType($responseName)) {
-                    if (!preg_match("/response/i", $uname)) {
+                    if (preg_match("/request/i", $uname)) {
                         $code .= str_pad("    public    \$responseType", $maxlen+15, ' ') . " = '$this->base_namespace\\$this->schema_out\\{$this->namespaces[$responseName]}\\$responseName';\n";
                     }
                 }
@@ -150,7 +166,7 @@ class BuildAPI {
                     //$code .= str_pad('        $this->set'.$item['name'], $maxlen+15, ' ');
                     //$code .= " = ";
                     if (array_key_exists('type', $item)) {
-                        if (array_key_exists($item['type'], $this->namespaces)) {
+                        if ((array_key_exists($item['type'], $this->namespaces) && (!preg_match("/{$item['name']}/i", $uname)))) {
                             $types[] = "use $this->base_namespace\\$this->schema_out\\" . ucfirst($this->namespaces[$item['type']]) . "\\" . $item['type'] . ";";
                         }
                     }
@@ -162,7 +178,8 @@ class BuildAPI {
                 if (!preg_match("/response/i", $name)) $code .= "    }\n\n";
                 $pad = "    ";
                 $code .= "$pad/**\n";
-                $code .= "$pad * @return $responseName";
+                $code .= "$pad * @return";
+                $code .= (preg_match("/response/i", $responseName)) ? " \\{$this->base_namespace}\\{$this->schema_out}\\{$this->namespaces[$responseName]}\\{$responseName} \$response" : " mixed \$response";
                 $code .= "\n$pad */\n$pad";
                 $code .= "public function get(Client \$client, \$responseOutput = ResponseOutput::STD)\n";
                 $code .= "$pad{\n";
@@ -198,12 +215,12 @@ class BuildAPI {
                             if (count($item['restrictions']) > 0) {
                                 foreach (get_object_vars($item['restrictions']) as $restriction) {
                                     if (is_object($restriction)) {
-                                        $types[] = "use Broadworks_OCIP\core\Builder\Restrictions\\" . ucfirst($restriction->getName()) . ";\n";
+                                        $types[] = "use Broadworks_OCIP\core\Builder\Restrictions\\" . ucfirst($restriction->getName()) . ";";
                                         $value = $restriction->attributes()->value;
                                         $value = (is_int($value)) ? $value : '"' . $value . '"';
                                         $code .= "        \$this->{$item['name']}->addRestriction(new " . ucfirst($restriction->getName()) . "($value));\n";
                                     } elseif (is_array($restriction)) {
-                                        $types[] = "use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;\n";
+                                        $types[] = "use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;";
                                         $enumerations = [];
                                         foreach ($restriction as $item) {
                                             switch ($item->getName()) {
@@ -227,7 +244,7 @@ class BuildAPI {
                     $code .= "\n$pad";
                     $code .= "/**\n";
                     $code .= "$pad * ". implode("\n$pad * ", explode("\n", trim($item['documentation'])));
-                    $code .= (preg_match('/table/i', $item['type'])) ? "\n$pad * @return TableType" : "\n$pad * @return {$item['type']}";
+                    $code .= (preg_match('/table/i', $item['type'])) ? "\n$pad * @return TableType" : "\n$pad * @return".TypeMap::returntype($item['type'])."\${$item['name']}";
                     $code .= "\n$pad */\n$pad";
                     $code .= "public function get".ucfirst($item['name'])."()\n";
                     $code .= "$pad{\n";
@@ -245,7 +262,7 @@ class BuildAPI {
                 $types = array_combine($types, array_map('strlen', $types));
                 arsort($types);
                 $header .= implode("\n", array_unique(array_keys($types)))."\n";
-                if ((!empty($responseName) && (!preg_match("/response/i", $name)))) $header .= "use {$this->base_namespace}\\{$this->schema_out}\\{$this->namespaces[$responseName]}\\{$responseName};\n";
+                if ((!empty($responseName) && (!preg_match("/response|$name/i", $name)))) $header .= "use {$this->base_namespace}\\{$this->schema_out}\\{$this->namespaces[$responseName]}\\{$responseName};\n";
                 $header .= "use Broadworks_OCIP\\core\\Builder\\Types\\ComplexInterface;\n";
                 $header .= "use Broadworks_OCIP\\core\\Builder\\Types\\ComplexType;\n";
                 $header .= "use Broadworks_OCIP\\core\\Response\\ResponseOutput;\n";

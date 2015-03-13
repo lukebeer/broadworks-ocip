@@ -38,7 +38,7 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -80,7 +80,7 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomSettings
      */
     public function getUseCustomSettings()
     {
@@ -100,7 +100,7 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
 
     /**
      * 
-     * @return OutgoingCallingPlanCallMeNowPermissionsModify
+     * @return OutgoingCallingPlanCallMeNowPermissionsModify $userPermissions
      */
     public function getUserPermissions()
     {

@@ -24,7 +24,7 @@ class GroupEnterpriseTrunkGetAvailableUserListResponse extends ComplexType imple
     protected $userTable = null;
 
     /**
-     * @return GroupEnterpriseTrunkGetAvailableUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetAvailableUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -29,7 +29,7 @@ class SystemCountryCodeGetListResponse extends ComplexType implements ComplexInt
     protected $countryCodeTable   = null;
 
     /**
-     * @return SystemCountryCodeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCountryCodeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class SystemCountryCodeGetListResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $defaultCountryCode
      */
     public function getDefaultCountryCode()
     {

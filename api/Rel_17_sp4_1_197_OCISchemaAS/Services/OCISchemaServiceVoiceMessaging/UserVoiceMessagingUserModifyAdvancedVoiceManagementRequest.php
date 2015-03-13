@@ -67,7 +67,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -89,7 +89,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -111,7 +111,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
 
     /**
      * 
-     * @return VoiceMessagingUserMailServerSelection
+     * @return VoiceMessagingUserMailServerSelection $mailServerSelection
      */
     public function getMailServerSelection()
     {
@@ -133,7 +133,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $groupMailServerEmailAddress
      */
     public function getGroupMailServerEmailAddress()
     {
@@ -155,7 +155,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
 
     /**
      * 
-     * @return VoiceMessagingMailServerUserId
+     * @return VoiceMessagingMailServerUserId $groupMailServerUserId
      */
     public function getGroupMailServerUserId()
     {
@@ -177,7 +177,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
 
     /**
      * 
-     * @return Password
+     * @return Password $groupMailServerPassword
      */
     public function getGroupMailServerPassword()
     {
@@ -199,7 +199,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $personalMailServerNetAddress
      */
     public function getPersonalMailServerNetAddress()
     {
@@ -221,7 +221,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
 
     /**
      * 
-     * @return VoiceMessagingMailServerProtocol
+     * @return VoiceMessagingMailServerProtocol $personalMailServerProtocol
      */
     public function getPersonalMailServerProtocol()
     {
@@ -241,7 +241,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $personalMailServerRealDeleteForImap
      */
     public function getPersonalMailServerRealDeleteForImap()
     {
@@ -263,7 +263,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $personalMailServerEmailAddress
      */
     public function getPersonalMailServerEmailAddress()
     {
@@ -285,7 +285,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
 
     /**
      * 
-     * @return VoiceMessagingMailServerUserId
+     * @return VoiceMessagingMailServerUserId $personalMailServerUserId
      */
     public function getPersonalMailServerUserId()
     {
@@ -307,7 +307,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
 
     /**
      * 
-     * @return Password
+     * @return Password $personalMailServerPassword
      */
     public function getPersonalMailServerPassword()
     {

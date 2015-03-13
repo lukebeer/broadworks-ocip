@@ -49,7 +49,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,7 +71,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType 
 
     /**
      * 
-     * @return SystemUserCallingLineIdSelection
+     * @return SystemUserCallingLineIdSelection $userCallingLineIdSelection
      */
     public function getUserCallingLineIdSelection()
     {
@@ -91,7 +91,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isExtendedCallingLineIdActive
      */
     public function getIsExtendedCallingLineIdActive()
     {
@@ -111,7 +111,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRingTimeOutActive
      */
     public function getIsRingTimeOutActive()
     {
@@ -133,7 +133,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType 
 
     /**
      * 
-     * @return SystemUserRingTimeoutSeconds
+     * @return SystemUserRingTimeoutSeconds $ringTimeoutSeconds
      */
     public function getRingTimeoutSeconds()
     {
@@ -153,7 +153,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEmergencyRemoteOfficeOriginations
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
@@ -175,7 +175,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest extends ComplexType 
 
     /**
      * 
-     * @return MaxNoAnswerNumberOfRings
+     * @return MaxNoAnswerNumberOfRings $maxNoAnswerNumberOfRings
      */
     public function getMaxNoAnswerNumberOfRings()
     {

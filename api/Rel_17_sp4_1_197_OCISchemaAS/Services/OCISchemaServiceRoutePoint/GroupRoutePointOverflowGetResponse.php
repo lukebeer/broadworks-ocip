@@ -42,7 +42,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
     protected $videoMediaTypeList                       = null;
 
     /**
-     * @return GroupRoutePointOverflowGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointOverflowGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterOverflowProcessingAction
+     * @return CallCenterOverflowProcessingAction $action
      */
     public function getAction()
     {
@@ -86,7 +86,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -106,7 +106,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overflowAfterTimeout
      */
     public function getOverflowAfterTimeout()
     {
@@ -128,7 +128,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return HuntForwardTimeoutSeconds
+     * @return HuntForwardTimeoutSeconds $timeoutSeconds
      */
     public function getTimeoutSeconds()
     {
@@ -148,7 +148,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementBeforeOverflowProcessing
      */
     public function getPlayAnnouncementBeforeOverflowProcessing()
     {
@@ -170,7 +170,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -190,7 +190,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $audioUrlList
      */
     public function getAudioUrlList()
     {
@@ -210,7 +210,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $audioFileList
      */
     public function getAudioFileList()
     {
@@ -230,7 +230,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList
      */
     public function getAudioMediaTypeList()
     {
@@ -252,7 +252,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -272,7 +272,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $videoUrlList
      */
     public function getVideoUrlList()
     {
@@ -292,7 +292,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $videoFileList
      */
     public function getVideoFileList()
     {
@@ -312,7 +312,7 @@ class GroupRoutePointOverflowGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList
      */
     public function getVideoMediaTypeList()
     {

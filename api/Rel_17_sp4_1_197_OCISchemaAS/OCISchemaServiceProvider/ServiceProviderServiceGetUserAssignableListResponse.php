@@ -23,7 +23,7 @@ class ServiceProviderServiceGetUserAssignableListResponse extends ComplexType im
     protected $serviceName = null;
 
     /**
-     * @return ServiceProviderServiceGetUserAssignableListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServiceGetUserAssignableListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class ServiceProviderServiceGetUserAssignableListResponse extends ComplexType im
 
     /**
      * 
-     * @return UserService
+     * @return UserService $serviceName
      */
     public function getServiceName()
     {

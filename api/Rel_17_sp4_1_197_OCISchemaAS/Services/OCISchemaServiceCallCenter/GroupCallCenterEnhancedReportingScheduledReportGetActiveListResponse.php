@@ -28,7 +28,7 @@ class GroupCallCenterEnhancedReportingScheduledReportGetActiveListResponse exten
     protected $scheduledReportTable = null;
 
     /**
-     * @return GroupCallCenterEnhancedReportingScheduledReportGetActiveListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingScheduledReportGetActiveListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

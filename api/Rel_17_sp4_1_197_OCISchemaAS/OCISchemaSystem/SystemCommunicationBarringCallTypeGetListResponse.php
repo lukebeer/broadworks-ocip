@@ -23,7 +23,7 @@ class SystemCommunicationBarringCallTypeGetListResponse extends ComplexType impl
     protected $callTypeTable = null;
 
     /**
-     * @return SystemCommunicationBarringCallTypeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCallTypeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

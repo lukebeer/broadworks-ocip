@@ -40,7 +40,7 @@ class GroupServiceInstancePrivacyModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +62,7 @@ class GroupServiceInstancePrivacyModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -82,7 +82,7 @@ class GroupServiceInstancePrivacyModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDirectoryPrivacy
      */
     public function getEnableDirectoryPrivacy()
     {
@@ -102,7 +102,7 @@ class GroupServiceInstancePrivacyModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutoAttendantExtensionDialingPrivacy
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
@@ -122,7 +122,7 @@ class GroupServiceInstancePrivacyModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutoAttendantNameDialingPrivacy
      */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {

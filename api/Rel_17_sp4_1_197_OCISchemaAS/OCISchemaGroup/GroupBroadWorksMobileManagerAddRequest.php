@@ -69,7 +69,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -91,7 +91,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -113,7 +113,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -135,7 +135,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return BroadWorksMobileManagerInformationFile
+     * @return BroadWorksMobileManagerInformationFile $informationFile
      */
     public function getInformationFile()
     {
@@ -157,7 +157,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return BroadWorksMobileManagerCertificateFile
+     * @return BroadWorksMobileManagerCertificateFile $certificateFile
      */
     public function getCertificateFile()
     {
@@ -177,7 +177,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -197,7 +197,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $localToCarrier
      */
     public function getLocalToCarrier()
     {
@@ -217,7 +217,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $maxTxPerSecondEnabled
      */
     public function getMaxTxPerSecondEnabled()
     {
@@ -239,7 +239,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return BroadWorksMobileManagerMaxTxPerSecond
+     * @return BroadWorksMobileManagerMaxTxPerSecond $maxTxPerSecond
      */
     public function getMaxTxPerSecond()
     {
@@ -259,7 +259,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $tldnEnabled
      */
     public function getTldnEnabled()
     {
@@ -279,7 +279,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $genericNumberEnabled
      */
     public function getGenericNumberEnabled()
     {
@@ -299,7 +299,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $mobileStateCheckEnabled
      */
     public function getMobileStateCheckEnabled()
     {
@@ -319,7 +319,7 @@ class GroupBroadWorksMobileManagerAddRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $locationBasedServicesEnabled
      */
     public function getLocationBasedServicesEnabled()
     {

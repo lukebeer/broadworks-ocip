@@ -25,7 +25,7 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
     protected $customBrandingFileDescription = null;
 
     /**
-     * @return SystemCallCenterEnhancedReportingBrandingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingBrandingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
 
     /**
      * 
-     * @return CallCenterEnhancedReportingSystemBrandingChoice
+     * @return CallCenterEnhancedReportingSystemBrandingChoice $brandingChoice
      */
     public function getBrandingChoice()
     {
@@ -69,7 +69,7 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $customBrandingFileDescription
      */
     public function getCustomBrandingFileDescription()
     {

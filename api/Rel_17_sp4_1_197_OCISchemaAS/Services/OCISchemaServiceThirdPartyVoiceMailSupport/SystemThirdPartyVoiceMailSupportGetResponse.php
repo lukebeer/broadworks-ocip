@@ -23,7 +23,7 @@ class SystemThirdPartyVoiceMailSupportGetResponse extends ComplexType implements
     protected $overrideAltCallerIdForVMRetrieval = null;
 
     /**
-     * @return SystemThirdPartyVoiceMailSupportGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\SystemThirdPartyVoiceMailSupportGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class SystemThirdPartyVoiceMailSupportGetResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideAltCallerIdForVMRetrieval
      */
     public function getOverrideAltCallerIdForVMRetrieval()
     {

@@ -27,7 +27,7 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
     protected $numberOfRings        = null;
 
     /**
-     * @return UserCallForwardingNoAnswerGetResponse13mp16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallForwardingNoAnswer\UserCallForwardingNoAnswerGetResponse13mp16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -69,7 +69,7 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -91,7 +91,7 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
 
     /**
      * 
-     * @return CallForwardingNoAnswerNumberOfRings
+     * @return CallForwardingNoAnswerNumberOfRings $numberOfRings
      */
     public function getNumberOfRings()
     {

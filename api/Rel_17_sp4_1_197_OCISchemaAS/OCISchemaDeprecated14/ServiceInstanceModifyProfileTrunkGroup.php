@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceInstanceModifyProfileTrunkGroup;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements ComplexInterface
 {
-    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceInstanceModifyProfileTrunkGroup';
     public    $name                   = 'ServiceInstanceModifyProfileTrunkGroup';
     protected $name                   = null;
     protected $callingLineIdLastName  = null;
@@ -64,7 +62,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
     }
 
     /**
-     * @return ServiceInstanceModifyProfileTrunkGroup
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -84,7 +82,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $name
      */
     public function getName()
     {
@@ -104,7 +102,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
@@ -124,7 +122,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
@@ -144,7 +142,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $hiraganaLastName
      */
     public function getHiraganaLastName()
     {
@@ -164,7 +162,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $hiraganaFirstName
      */
     public function getHiraganaFirstName()
     {
@@ -184,7 +182,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -204,7 +202,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $extension
      */
     public function getExtension()
     {
@@ -224,7 +222,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $password
      */
     public function getPassword()
     {
@@ -244,7 +242,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $department
      */
     public function getDepartment()
     {
@@ -264,7 +262,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $language
      */
     public function getLanguage()
     {
@@ -284,7 +282,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeZone
      */
     public function getTimeZone()
     {
@@ -304,7 +302,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $sipAliasList
      */
     public function getSipAliasList()
     {

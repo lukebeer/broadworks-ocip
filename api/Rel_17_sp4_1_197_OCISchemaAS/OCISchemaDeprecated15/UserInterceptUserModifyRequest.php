@@ -60,7 +60,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -82,7 +82,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -102,7 +102,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -124,7 +124,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AnnouncementSelection
+     * @return AnnouncementSelection $announcementSelection
      */
     public function getAnnouncementSelection()
     {
@@ -144,7 +144,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -164,7 +164,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $videoFile
      */
     public function getVideoFile()
     {
@@ -184,7 +184,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playNewPhoneNumber
      */
     public function getPlayNewPhoneNumber()
     {
@@ -206,7 +206,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DN
+     * @return DN $newPhoneNumber
      */
     public function getNewPhoneNumber()
     {
@@ -226,7 +226,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $transferOnZeroToPhoneNumber
      */
     public function getTransferOnZeroToPhoneNumber()
     {
@@ -248,7 +248,7 @@ class UserInterceptUserModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {

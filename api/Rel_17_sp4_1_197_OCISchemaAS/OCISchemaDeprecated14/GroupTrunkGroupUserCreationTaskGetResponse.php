@@ -45,7 +45,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
     protected $taskSummary        = null;
 
     /**
-     * @return GroupTrunkGroupUserCreationTaskGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupUserCreationTaskGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return TrunkGroupUserCreationUserIdFormat
+     * @return TrunkGroupUserCreationUserIdFormat $userIdFormat
      */
     public function getUserIdFormat()
     {
@@ -89,7 +89,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $userIdDomain
      */
     public function getUserIdDomain()
     {
@@ -109,7 +109,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $populateExtension
      */
     public function getPopulateExtension()
     {
@@ -131,7 +131,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return TrunkGroupUserCreationSIPURIFormat
+     * @return TrunkGroupUserCreationSIPURIFormat $linePortFormat
      */
     public function getLinePortFormat()
     {
@@ -153,7 +153,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $linePortDomain
      */
     public function getLinePortDomain()
     {
@@ -173,7 +173,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $populateContact
      */
     public function getPopulateContact()
     {
@@ -195,7 +195,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return TrunkGroupUserCreationSIPURIFormat
+     * @return TrunkGroupUserCreationSIPURIFormat $contactFormat
      */
     public function getContactFormat()
     {
@@ -217,7 +217,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $contactDomain
      */
     public function getContactDomain()
     {
@@ -237,7 +237,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:int
+     * @return int $usersCreated
      */
     public function getUsersCreated()
     {
@@ -257,7 +257,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:int
+     * @return int $totalUsersToCreate
      */
     public function getTotalUsersToCreate()
     {
@@ -277,7 +277,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:int
+     * @return int $errorCount
      */
     public function getErrorCount()
     {
@@ -299,7 +299,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {
@@ -321,7 +321,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return UserService
+     * @return UserService $userServiceName
      */
     public function getUserServiceName()
     {
@@ -343,7 +343,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return TrunkGroupUserCreationTaskStatus
+     * @return TrunkGroupUserCreationTaskStatus $status
      */
     public function getStatus()
     {
@@ -365,7 +365,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return TrunkGroupUserCreationMode
+     * @return TrunkGroupUserCreationMode $userCreationMode
      */
     public function getUserCreationMode()
     {
@@ -385,7 +385,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:token
+     * @return string $taskSummary
      */
     public function getTaskSummary()
     {

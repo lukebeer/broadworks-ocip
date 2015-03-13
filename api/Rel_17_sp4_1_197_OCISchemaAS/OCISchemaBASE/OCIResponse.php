@@ -22,7 +22,7 @@ class OCIResponse extends ComplexType implements ComplexInterface
     public    $name = 'OCIResponse';
 
     /**
-     * @return OCIResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCIResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -25,7 +25,7 @@ class SystemSIPDeviceTypeLanguageMappingGetListResponse extends ComplexType impl
     protected $deviceTypeLanguagesTable = null;
 
     /**
-     * @return SystemSIPDeviceTypeLanguageMappingGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeLanguageMappingGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

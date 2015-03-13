@@ -40,7 +40,7 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +62,7 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -84,7 +84,7 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -103,7 +103,7 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
 
     /**
      * 
-     * @return 
+     * @return  $homeZoneIpAddressList
      */
     public function getHomeZoneIpAddressList()
     {
@@ -122,7 +122,7 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
 
     /**
      * 
-     * @return 
+     * @return  $homeZoneIpAddressRangeList
      */
     public function getHomeZoneIpAddressRangeList()
     {

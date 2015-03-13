@@ -8,11 +8,8 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
-
 use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
-
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +21,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class StreetAddress extends ComplexType implements ComplexInterface
 {
-    public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress';
     public    $name                       = 'StreetAddress';
     protected $addressLine1               = null;
     protected $addressLine2               = null;
@@ -53,7 +49,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return StreetAddress
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +71,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $addressLine1
      */
     public function getAddressLine1()
     {
@@ -97,7 +93,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $addressLine2
      */
     public function getAddressLine2()
     {
@@ -119,7 +115,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $city
      */
     public function getCity()
     {
@@ -141,7 +137,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $stateOrProvince
      */
     public function getStateOrProvince()
     {
@@ -163,7 +159,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $stateOrProvinceDisplayName
      */
     public function getStateOrProvinceDisplayName()
     {
@@ -185,7 +181,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $zipOrPostalCode
      */
     public function getZipOrPostalCode()
     {
@@ -207,7 +203,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $country
      */
     public function getCountry()
     {

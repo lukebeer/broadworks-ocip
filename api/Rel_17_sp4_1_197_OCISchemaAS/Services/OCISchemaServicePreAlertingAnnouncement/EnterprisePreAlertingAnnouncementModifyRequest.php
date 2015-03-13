@@ -52,7 +52,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +74,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -96,7 +96,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return PreAlertingAnnouncementInterrupt
+     * @return PreAlertingAnnouncementInterrupt $announcementInterruption
      */
     public function getAnnouncementInterruption()
     {
@@ -118,7 +118,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return PreAlertingAnnouncementInterruptDigits
+     * @return PreAlertingAnnouncementInterruptDigits $interruptionDigitSequence
      */
     public function getInterruptionDigitSequence()
     {
@@ -140,7 +140,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -160,7 +160,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -182,7 +182,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -202,7 +202,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $videoFile
      */
     public function getVideoFile()
     {

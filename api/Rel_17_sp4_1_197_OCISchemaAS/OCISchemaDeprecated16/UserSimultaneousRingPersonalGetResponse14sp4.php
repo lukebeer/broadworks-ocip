@@ -28,7 +28,7 @@ class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implement
     protected $phoneNumberTable = null;
 
     /**
-     * @return UserSimultaneousRingPersonalGetResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingPersonalGetResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -70,7 +70,7 @@ class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implement
 
     /**
      * 
-     * @return SimultaneousRingSelection
+     * @return SimultaneousRingSelection $incomingCalls
      */
     public function getIncomingCalls()
     {

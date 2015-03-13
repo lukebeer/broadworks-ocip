@@ -8,11 +8,8 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
-
 use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
-
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Contact;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +21,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class Contact extends ComplexType implements ComplexInterface
 {
-    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Contact';
     public    $name          = 'Contact';
     protected $contactName   = null;
     protected $contactNumber = null;
@@ -41,7 +37,7 @@ class Contact extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return Contact
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +59,7 @@ class Contact extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $contactName
      */
     public function getContactName()
     {
@@ -85,7 +81,7 @@ class Contact extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $contactNumber
      */
     public function getContactNumber()
     {
@@ -105,7 +101,7 @@ class Contact extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $contactEmail
      */
     public function getContactEmail()
     {

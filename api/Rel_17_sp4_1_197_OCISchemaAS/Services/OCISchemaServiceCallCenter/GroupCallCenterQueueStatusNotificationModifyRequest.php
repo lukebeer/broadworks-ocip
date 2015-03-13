@@ -48,7 +48,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -90,7 +90,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableQueueStatusNotification
      */
     public function getEnableQueueStatusNotification()
     {
@@ -110,7 +110,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableQueueDepthThreshold
      */
     public function getEnableQueueDepthThreshold()
     {
@@ -130,7 +130,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableWaitingTimeThreshold
      */
     public function getEnableWaitingTimeThreshold()
     {
@@ -152,7 +152,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return CallCenterQueueDepthNotificationThreshold
+     * @return CallCenterQueueDepthNotificationThreshold $numberOfCallsThreshold
      */
     public function getNumberOfCallsThreshold()
     {
@@ -174,7 +174,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return CallCenterWaitingTimeNotificationThresholdSeconds
+     * @return CallCenterWaitingTimeNotificationThresholdSeconds $waitingTimeOfCallsThreshold
      */
     public function getWaitingTimeOfCallsThreshold()
     {

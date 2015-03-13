@@ -34,7 +34,7 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
 
     /**
      * 
-     * @return SMDIServerRouteDestination
+     * @return SMDIServerRouteDestination $routeDestination
      */
     public function getRouteDestination()
     {
@@ -75,7 +75,7 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
 
     /**
      * 
-     * @return 
+     * @return  $deviceNameList
      */
     public function getDeviceNameList()
     {

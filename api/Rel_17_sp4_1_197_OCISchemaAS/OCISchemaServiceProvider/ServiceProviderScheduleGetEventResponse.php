@@ -26,7 +26,7 @@ class ServiceProviderScheduleGetEventResponse extends ComplexType implements Com
     protected $recurrence = null;
 
     /**
-     * @return ServiceProviderScheduleGetEventResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class ServiceProviderScheduleGetEventResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $startDate
      */
     public function getStartDate()
     {
@@ -64,7 +64,7 @@ class ServiceProviderScheduleGetEventResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $endDate
      */
     public function getEndDate()
     {
@@ -84,7 +84,7 @@ class ServiceProviderScheduleGetEventResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return Recurrence
+     * @return Recurrence $recurrence
      */
     public function getRecurrence()
     {

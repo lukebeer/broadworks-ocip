@@ -26,7 +26,7 @@ class SystemPerformanceMeasurementGenerateReportRequest extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

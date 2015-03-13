@@ -25,7 +25,7 @@ class GroupDeviceTypeFileGetListResponse14sp8 extends ComplexType implements Com
     protected $groupDeviceTypeFilesTable = null;
 
     /**
-     * @return GroupDeviceTypeFileGetListResponse14sp8
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDeviceTypeFileGetListResponse14sp8 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

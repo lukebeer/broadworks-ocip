@@ -45,7 +45,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
     protected $holiday20           = null;
 
     /**
-     * @return GroupHolidayScheduleGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupHolidayScheduleGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $holidayScheduleName
      */
     public function getHolidayScheduleName()
     {
@@ -87,7 +87,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday01
      */
     public function getHoliday01()
     {
@@ -107,7 +107,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday02
      */
     public function getHoliday02()
     {
@@ -127,7 +127,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday03
      */
     public function getHoliday03()
     {
@@ -147,7 +147,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday04
      */
     public function getHoliday04()
     {
@@ -167,7 +167,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday05
      */
     public function getHoliday05()
     {
@@ -187,7 +187,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday06
      */
     public function getHoliday06()
     {
@@ -207,7 +207,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday07
      */
     public function getHoliday07()
     {
@@ -227,7 +227,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday08
      */
     public function getHoliday08()
     {
@@ -247,7 +247,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday09
      */
     public function getHoliday09()
     {
@@ -267,7 +267,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday10
      */
     public function getHoliday10()
     {
@@ -287,7 +287,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday11
      */
     public function getHoliday11()
     {
@@ -307,7 +307,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday12
      */
     public function getHoliday12()
     {
@@ -327,7 +327,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday13
      */
     public function getHoliday13()
     {
@@ -347,7 +347,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday14
      */
     public function getHoliday14()
     {
@@ -367,7 +367,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday15
      */
     public function getHoliday15()
     {
@@ -387,7 +387,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday16
      */
     public function getHoliday16()
     {
@@ -407,7 +407,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday17
      */
     public function getHoliday17()
     {
@@ -427,7 +427,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday18
      */
     public function getHoliday18()
     {
@@ -447,7 +447,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday19
      */
     public function getHoliday19()
     {
@@ -467,7 +467,7 @@ class GroupHolidayScheduleGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Holiday
+     * @return Holiday $holiday20
      */
     public function getHoliday20()
     {

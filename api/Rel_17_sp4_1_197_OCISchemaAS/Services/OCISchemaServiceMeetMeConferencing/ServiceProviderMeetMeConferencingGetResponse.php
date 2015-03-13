@@ -23,7 +23,7 @@ class ServiceProviderMeetMeConferencingGetResponse extends ComplexType implement
     protected $allocatedPorts = null;
 
     /**
-     * @return ServiceProviderMeetMeConferencingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\ServiceProviderMeetMeConferencingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class ServiceProviderMeetMeConferencingGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return MeetMeConferencingConferencePorts
+     * @return MeetMeConferencingConferencePorts $allocatedPorts
      */
     public function getAllocatedPorts()
     {

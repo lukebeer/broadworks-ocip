@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanDepartmentPermissions;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class IncomingCallingPlanDepartmentPermissions extends ComplexType implements ComplexInterface
 {
-    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanDepartmentPermissions';
     public    $name                   = 'IncomingCallingPlanDepartmentPermissions';
     protected $departmentKey          = null;
     protected $departmentFullPathName = null;
@@ -46,7 +44,7 @@ class IncomingCallingPlanDepartmentPermissions extends ComplexType implements Co
     }
 
     /**
-     * @return IncomingCallingPlanDepartmentPermissions
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +64,7 @@ class IncomingCallingPlanDepartmentPermissions extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $departmentKey
      */
     public function getDepartmentKey()
     {
@@ -86,7 +84,7 @@ class IncomingCallingPlanDepartmentPermissions extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $departmentFullPathName
      */
     public function getDepartmentFullPathName()
     {
@@ -106,7 +104,7 @@ class IncomingCallingPlanDepartmentPermissions extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowFromWithinGroup
      */
     public function getAllowFromWithinGroup()
     {
@@ -126,7 +124,7 @@ class IncomingCallingPlanDepartmentPermissions extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowFromOutsideGroup
      */
     public function getAllowFromOutsideGroup()
     {
@@ -146,7 +144,7 @@ class IncomingCallingPlanDepartmentPermissions extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowCollectCalls
      */
     public function getAllowCollectCalls()
     {
@@ -166,7 +164,7 @@ class IncomingCallingPlanDepartmentPermissions extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $digitPatternPermission
      */
     public function getDigitPatternPermission()
     {

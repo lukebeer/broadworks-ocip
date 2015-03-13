@@ -30,7 +30,7 @@ class SystemBCCTDeleteOCIInterfaceAddressRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemBCCTDeleteOCIInterfaceAddressRequest extends ComplexType implements 
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $interfaceNetAddress
      */
     public function getInterfaceNetAddress()
     {

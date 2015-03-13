@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\SystemMaliciousCallTraceGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -30,7 +29,7 @@ class SystemMaliciousCallTraceGetRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return SystemMaliciousCallTraceGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\SystemMaliciousCallTraceGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

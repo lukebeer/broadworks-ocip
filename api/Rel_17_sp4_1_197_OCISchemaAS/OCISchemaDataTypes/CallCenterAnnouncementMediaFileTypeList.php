@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementMediaFileTypeList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementMediaFileTypeList';
     public    $name       = 'CallCenterAnnouncementMediaFileTypeList';
     protected $mediaType1 = null;
     protected $mediaType2 = null;
@@ -40,7 +38,7 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
     }
 
     /**
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $mediaType1
      */
     public function getMediaType1()
     {
@@ -80,7 +78,7 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $mediaType2
      */
     public function getMediaType2()
     {
@@ -100,7 +98,7 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $mediaType3
      */
     public function getMediaType3()
     {
@@ -120,7 +118,7 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $mediaType4
      */
     public function getMediaType4()
     {

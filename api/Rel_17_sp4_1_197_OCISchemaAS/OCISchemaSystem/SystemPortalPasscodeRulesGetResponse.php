@@ -43,7 +43,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
     protected $defaultPassword                         = null;
 
     /**
-     * @return SystemPortalPasscodeRulesGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPortalPasscodeRulesGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRepeatedDigits
      */
     public function getDisallowRepeatedDigits()
     {
@@ -83,7 +83,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserNumber
      */
     public function getDisallowUserNumber()
     {
@@ -103,7 +103,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedUserNumber
      */
     public function getDisallowReversedUserNumber()
     {
@@ -123,7 +123,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPasscode
      */
     public function getDisallowOldPasscode()
     {
@@ -143,7 +143,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPasscode
      */
     public function getDisallowReversedOldPasscode()
     {
@@ -165,7 +165,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return PasscodeMinLength
+     * @return PasscodeMinLength $minCodeLength
      */
     public function getMinCodeLength()
     {
@@ -187,7 +187,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return PasscodeMaxLength
+     * @return PasscodeMaxLength $maxCodeLength
      */
     public function getMaxCodeLength()
     {
@@ -207,7 +207,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableLoginAfterMaxFailedLoginAttempts
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
@@ -229,7 +229,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return PortalMaxFailedLoginAttempts
+     * @return PortalMaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -249,7 +249,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expirePassword
      */
     public function getExpirePassword()
     {
@@ -271,7 +271,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return PasscodeExpiresDays
+     * @return PasscodeExpiresDays $passcodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
@@ -291,7 +291,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -313,7 +313,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
@@ -335,7 +335,7 @@ class SystemPortalPasscodeRulesGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return Password
+     * @return Password $defaultPassword
      */
     public function getDefaultPassword()
     {

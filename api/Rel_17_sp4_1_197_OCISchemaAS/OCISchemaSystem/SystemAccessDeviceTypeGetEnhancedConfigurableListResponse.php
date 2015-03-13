@@ -27,7 +27,7 @@ class SystemAccessDeviceTypeGetEnhancedConfigurableListResponse extends ComplexT
     protected $deviceTypeTable = null;
 
     /**
-     * @return SystemAccessDeviceTypeGetEnhancedConfigurableListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceTypeGetEnhancedConfigurableListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

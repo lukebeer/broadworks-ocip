@@ -42,7 +42,7 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $ftpHostNetAddress
      */
     public function getFtpHostNetAddress()
     {
@@ -86,7 +86,7 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
 
     /**
      * 
-     * @return FTPUserId
+     * @return FTPUserId $ftpUserId
      */
     public function getFtpUserId()
     {
@@ -108,7 +108,7 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
 
     /**
      * 
-     * @return FTPUserPassword
+     * @return FTPUserPassword $ftpUserPassword
      */
     public function getFtpUserPassword()
     {
@@ -128,7 +128,7 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $passiveFTP
      */
     public function getPassiveFTP()
     {

@@ -23,7 +23,7 @@ class SystemBCCTGetOCIInterfaceAddressListResponse extends ComplexType implement
     protected $interfaceNetAddress = null;
 
     /**
-     * @return SystemBCCTGetOCIInterfaceAddressListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemBCCTGetOCIInterfaceAddressListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemBCCTGetOCIInterfaceAddressListResponse extends ComplexType implement
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $interfaceNetAddress
      */
     public function getInterfaceNetAddress()
     {

@@ -65,7 +65,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,7 +87,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return CommunicationBarringProfileName
+     * @return CommunicationBarringProfileName $name
      */
     public function getName()
     {
@@ -109,7 +109,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return CommunicationBarringProfileDescription
+     * @return CommunicationBarringProfileDescription $description
      */
     public function getDescription()
     {
@@ -131,7 +131,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return CommunicationBarringOriginatingAction
+     * @return CommunicationBarringOriginatingAction $originatingDefaultAction
      */
     public function getOriginatingDefaultAction()
     {
@@ -153,7 +153,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $originatingDefaultTreatmentId
      */
     public function getOriginatingDefaultTreatmentId()
     {
@@ -175,7 +175,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $originatingDefaultTransferNumber
      */
     public function getOriginatingDefaultTransferNumber()
     {
@@ -197,7 +197,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $originatingDefaultCallTimeout
      */
     public function getOriginatingDefaultCallTimeout()
     {
@@ -217,7 +217,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return CommunicationBarringOriginatingRule
+     * @return CommunicationBarringOriginatingRule $originatingRule
      */
     public function getOriginatingRule()
     {
@@ -239,7 +239,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return CommunicationBarringRedirectingAction
+     * @return CommunicationBarringRedirectingAction $redirectingDefaultAction
      */
     public function getRedirectingDefaultAction()
     {
@@ -261,7 +261,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $redirectingDefaultCallTimeout
      */
     public function getRedirectingDefaultCallTimeout()
     {
@@ -281,7 +281,7 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
 
     /**
      * 
-     * @return CommunicationBarringRedirectingRule
+     * @return CommunicationBarringRedirectingRule $redirectingRule
      */
     public function getRedirectingRule()
     {

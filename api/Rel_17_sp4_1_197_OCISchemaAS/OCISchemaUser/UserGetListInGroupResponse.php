@@ -26,7 +26,7 @@ class UserGetListInGroupResponse extends ComplexType implements ComplexInterface
     protected $userTable = null;
 
     /**
-     * @return UserGetListInGroupResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInGroupResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

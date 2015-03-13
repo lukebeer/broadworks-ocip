@@ -25,7 +25,7 @@ class GroupCallCenterGetAgentListResponse extends ComplexType implements Complex
     protected $agentTable = null;
 
     /**
-     * @return GroupCallCenterGetAgentListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAgentListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

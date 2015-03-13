@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MusicOnHoldUserSourceRead;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MusicOnHoldUserSourceRead extends ComplexType implements ComplexInterface
 {
-    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\MusicOnHoldUserSourceRead';
     public    $name                   = 'MusicOnHoldUserSourceRead';
     protected $messageSourceSelection = null;
     protected $customSource           = null;
@@ -34,7 +32,7 @@ class MusicOnHoldUserSourceRead extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return MusicOnHoldUserSourceRead
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class MusicOnHoldUserSourceRead extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $messageSourceSelection
      */
     public function getMessageSourceSelection()
     {
@@ -74,7 +72,7 @@ class MusicOnHoldUserSourceRead extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $customSource
      */
     public function getCustomSource()
     {

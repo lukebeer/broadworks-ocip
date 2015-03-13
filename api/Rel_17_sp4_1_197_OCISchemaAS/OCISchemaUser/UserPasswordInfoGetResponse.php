@@ -23,7 +23,7 @@ class UserPasswordInfoGetResponse extends ComplexType implements ComplexInterfac
     protected $isLoginDisabled = null;
 
     /**
-     * @return UserPasswordInfoGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPasswordInfoGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserPasswordInfoGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isLoginDisabled
      */
     public function getIsLoginDisabled()
     {

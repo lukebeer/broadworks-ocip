@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressRedirectionWithExceptionModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressRedirectionWithExceptionModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpress\CommPilotExpressRedirectionWithExceptionModify';
     public    $name                                      = 'CommPilotExpressRedirectionWithExceptionModify';
     protected $sendCallsToVoiceMailExceptExcludedNumbers = null;
     protected $excludedPhoneNumber01                     = null;
@@ -44,7 +42,7 @@ class CommPilotExpressRedirectionWithExceptionModify extends ComplexType impleme
     }
 
     /**
-     * @return CommPilotExpressRedirectionWithExceptionModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +62,7 @@ class CommPilotExpressRedirectionWithExceptionModify extends ComplexType impleme
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $sendCallsToVoiceMailExceptExcludedNumbers
      */
     public function getSendCallsToVoiceMailExceptExcludedNumbers()
     {
@@ -84,7 +82,7 @@ class CommPilotExpressRedirectionWithExceptionModify extends ComplexType impleme
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $excludedPhoneNumber01
      */
     public function getExcludedPhoneNumber01()
     {
@@ -104,7 +102,7 @@ class CommPilotExpressRedirectionWithExceptionModify extends ComplexType impleme
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $excludedPhoneNumber02
      */
     public function getExcludedPhoneNumber02()
     {
@@ -124,7 +122,7 @@ class CommPilotExpressRedirectionWithExceptionModify extends ComplexType impleme
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $excludedPhoneNumber03
      */
     public function getExcludedPhoneNumber03()
     {
@@ -144,7 +142,7 @@ class CommPilotExpressRedirectionWithExceptionModify extends ComplexType impleme
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $forwardExcludedNumbersTo
      */
     public function getForwardExcludedNumbersTo()
     {

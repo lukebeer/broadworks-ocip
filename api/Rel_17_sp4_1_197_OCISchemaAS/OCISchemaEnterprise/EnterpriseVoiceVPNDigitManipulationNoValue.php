@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationOperationNoValue;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationNoValue;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationNoValue';
     public    $name      = 'EnterpriseVoiceVPNDigitManipulationNoValue';
     protected $operation = null;
 
@@ -31,7 +29,7 @@ class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements 
     }
 
     /**
-     * @return EnterpriseVoiceVPNDigitManipulationNoValue
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +51,7 @@ class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements 
 
     /**
      * 
-     * @return EnterpriseVoiceVPNDigitManipulationOperationNoValue
+     * @return EnterpriseVoiceVPNDigitManipulationOperationNoValue $operation
      */
     public function getOperation()
     {

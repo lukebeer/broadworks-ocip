@@ -24,7 +24,7 @@ class GroupFileRepositoryDeviceUserGetListResponse extends ComplexType implement
     protected $fileRepositoryUserTable = null;
 
     /**
-     * @return GroupFileRepositoryDeviceUserGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFileRepositoryDeviceUserGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

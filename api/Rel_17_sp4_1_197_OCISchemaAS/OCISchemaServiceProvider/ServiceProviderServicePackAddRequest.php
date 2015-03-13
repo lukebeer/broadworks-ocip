@@ -50,7 +50,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -94,7 +94,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {
@@ -116,7 +116,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServicePackDescription
+     * @return ServicePackDescription $servicePackDescription
      */
     public function getServicePackDescription()
     {
@@ -136,7 +136,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isAvailableForUse
      */
     public function getIsAvailableForUse()
     {
@@ -156,7 +156,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return UnboundedPositiveInt
+     * @return UnboundedPositiveInt $servicePackQuantity
      */
     public function getServicePackQuantity()
     {
@@ -178,7 +178,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return UserService
+     * @return UserService $serviceName
      */
     public function getServiceName()
     {

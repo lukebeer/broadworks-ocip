@@ -57,7 +57,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -79,7 +79,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -101,7 +101,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -123,7 +123,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -145,7 +145,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $newCriteriaName
      */
     public function getNewCriteriaName()
     {
@@ -165,7 +165,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -185,7 +185,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
 
     /**
      * 
-     * @return CriteriaFromDnModify
+     * @return CriteriaFromDnModify $fromDnCriteria
      */
     public function getFromDnCriteria()
     {
@@ -205,7 +205,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -225,7 +225,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {

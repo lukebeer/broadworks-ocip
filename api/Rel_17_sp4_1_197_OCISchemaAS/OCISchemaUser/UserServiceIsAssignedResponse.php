@@ -23,7 +23,7 @@ class UserServiceIsAssignedResponse extends ComplexType implements ComplexInterf
     protected $isAssigned = null;
 
     /**
-     * @return UserServiceIsAssignedResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserServiceIsAssignedResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserServiceIsAssignedResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isAssigned
      */
     public function getIsAssigned()
     {

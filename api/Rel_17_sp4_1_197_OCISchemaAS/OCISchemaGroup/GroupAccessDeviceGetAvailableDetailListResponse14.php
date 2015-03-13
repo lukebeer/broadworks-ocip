@@ -23,7 +23,7 @@ class GroupAccessDeviceGetAvailableDetailListResponse14 extends ComplexType impl
     protected $availableAccessDevice = null;
 
     /**
-     * @return GroupAccessDeviceGetAvailableDetailListResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -42,7 +42,7 @@ class GroupAccessDeviceGetAvailableDetailListResponse14 extends ComplexType impl
 
     /**
      * 
-     * @return 
+     * @return  $availableAccessDevice
      */
     public function getAvailableAccessDevice()
     {

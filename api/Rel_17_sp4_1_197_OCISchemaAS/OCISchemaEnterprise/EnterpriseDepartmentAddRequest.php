@@ -38,7 +38,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $enterpriseId
      */
     public function getEnterpriseId()
     {
@@ -82,7 +82,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DepartmentName
+     * @return DepartmentName $departmentName
      */
     public function getDepartmentName()
     {
@@ -102,7 +102,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return EnterpriseDepartmentKey
+     * @return EnterpriseDepartmentKey $parentDepartmentKey
      */
     public function getParentDepartmentKey()
     {

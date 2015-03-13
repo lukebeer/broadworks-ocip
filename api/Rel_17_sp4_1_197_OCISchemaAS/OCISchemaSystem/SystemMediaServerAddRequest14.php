@@ -42,7 +42,7 @@ class SystemMediaServerAddRequest14 extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemMediaServerAddRequest14 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -86,7 +86,7 @@ class SystemMediaServerAddRequest14 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $port
      */
     public function getPort()
     {
@@ -108,7 +108,7 @@ class SystemMediaServerAddRequest14 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $transportProtocol
      */
     public function getTransportProtocol()
     {
@@ -130,7 +130,7 @@ class SystemMediaServerAddRequest14 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return MediaServerDescription
+     * @return MediaServerDescription $description
      */
     public function getDescription()
     {

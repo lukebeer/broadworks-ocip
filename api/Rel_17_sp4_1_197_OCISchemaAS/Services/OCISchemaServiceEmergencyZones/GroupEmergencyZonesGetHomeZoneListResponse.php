@@ -25,7 +25,7 @@ class GroupEmergencyZonesGetHomeZoneListResponse extends ComplexType implements 
     protected $homeZoneIpAddressRange = null;
 
     /**
-     * @return GroupEmergencyZonesGetHomeZoneListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones\GroupEmergencyZonesGetHomeZoneListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class GroupEmergencyZonesGetHomeZoneListResponse extends ComplexType implements 
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $homeZoneIpAddress
      */
     public function getHomeZoneIpAddress()
     {
@@ -67,7 +67,7 @@ class GroupEmergencyZonesGetHomeZoneListResponse extends ComplexType implements 
 
     /**
      * 
-     * @return IPAddressRange
+     * @return IPAddressRange $homeZoneIpAddressRange
      */
     public function getHomeZoneIpAddressRange()
     {

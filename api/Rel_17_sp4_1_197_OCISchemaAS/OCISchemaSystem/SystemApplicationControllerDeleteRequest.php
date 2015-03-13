@@ -30,7 +30,7 @@ class SystemApplicationControllerDeleteRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemApplicationControllerDeleteRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ApplicationControllerName
+     * @return ApplicationControllerName $name
      */
     public function getName()
     {

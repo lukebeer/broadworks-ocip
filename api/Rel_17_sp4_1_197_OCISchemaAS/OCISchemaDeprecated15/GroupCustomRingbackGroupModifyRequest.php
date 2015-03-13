@@ -53,7 +53,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +75,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -97,7 +97,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -117,7 +117,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -139,7 +139,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -159,7 +159,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ExtendedFileResource
+     * @return ExtendedFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -181,7 +181,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -201,7 +201,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ExtendedFileResource
+     * @return ExtendedFileResource $videoFile
      */
     public function getVideoFile()
     {

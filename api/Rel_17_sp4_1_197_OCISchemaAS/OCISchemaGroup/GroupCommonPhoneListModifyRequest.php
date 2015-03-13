@@ -45,7 +45,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -89,7 +89,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -111,7 +111,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return PhoneListEntryName
+     * @return PhoneListEntryName $entryName
      */
     public function getEntryName()
     {
@@ -133,7 +133,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return PhoneListEntryName
+     * @return PhoneListEntryName $newEntryName
      */
     public function getNewEntryName()
     {
@@ -155,7 +155,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $phoneNumber
      */
     public function getPhoneNumber()
     {

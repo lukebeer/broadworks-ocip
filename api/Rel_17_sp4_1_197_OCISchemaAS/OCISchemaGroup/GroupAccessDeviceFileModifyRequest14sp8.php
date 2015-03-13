@@ -50,7 +50,7 @@ class GroupAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class GroupAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -94,7 +94,7 @@ class GroupAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -116,7 +116,7 @@ class GroupAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -138,7 +138,7 @@ class GroupAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Com
 
     /**
      * 
-     * @return DeviceManagementFileFormat
+     * @return DeviceManagementFileFormat $fileFormat
      */
     public function getFileFormat()
     {
@@ -160,7 +160,7 @@ class GroupAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationMode
+     * @return AccessDeviceEnhancedConfigurationMode $fileSource
      */
     public function getFileSource()
     {
@@ -180,7 +180,7 @@ class GroupAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Com
 
     /**
      * 
-     * @return FileResource
+     * @return FileResource $uploadFile
      */
     public function getUploadFile()
     {

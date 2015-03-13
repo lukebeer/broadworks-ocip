@@ -29,7 +29,7 @@ class UserPriorityAlertGetCriteriaResponse16 extends ComplexType implements Comp
     protected $fromDnCriteria  = null;
 
     /**
-     * @return UserPriorityAlertGetCriteriaResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePriorityAlert\UserPriorityAlertGetCriteriaResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserPriorityAlertGetCriteriaResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -69,7 +69,7 @@ class UserPriorityAlertGetCriteriaResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -89,7 +89,7 @@ class UserPriorityAlertGetCriteriaResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {
@@ -109,7 +109,7 @@ class UserPriorityAlertGetCriteriaResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return PriorityAlertCriteriaFromDn
+     * @return PriorityAlertCriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

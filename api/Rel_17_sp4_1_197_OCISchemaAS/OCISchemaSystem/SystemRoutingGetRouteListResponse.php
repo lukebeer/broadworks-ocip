@@ -23,7 +23,7 @@ class SystemRoutingGetRouteListResponse extends ComplexType implements ComplexIn
     protected $routeName = null;
 
     /**
-     * @return SystemRoutingGetRouteListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingGetRouteListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemRoutingGetRouteListResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return RouteName
+     * @return RouteName $routeName
      */
     public function getRouteName()
     {

@@ -50,7 +50,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
     protected $networkSendReasonHeader   = null;
 
     /**
-     * @return SystemConfigurableTreatmentGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemConfigurableTreatmentGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ConfigurableTreatmentDescription
+     * @return ConfigurableTreatmentDescription $description
      */
     public function getDescription()
     {
@@ -94,7 +94,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ChargeIndicator
+     * @return ChargeIndicator $chargeIndicator
      */
     public function getChargeIndicator()
     {
@@ -116,7 +116,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return SIPFailureStatusCode
+     * @return SIPFailureStatusCode $accessSIPStatusCode
      */
     public function getAccessSIPStatusCode()
     {
@@ -138,7 +138,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return SIPStatusMessage
+     * @return SIPStatusMessage $accessSIPStatusMessage
      */
     public function getAccessSIPStatusMessage()
     {
@@ -160,7 +160,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return SIPFailureStatusCode
+     * @return SIPFailureStatusCode $networkSIPStatusCode
      */
     public function getNetworkSIPStatusCode()
     {
@@ -182,7 +182,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return SIPStatusMessage
+     * @return SIPStatusMessage $networkSIPStatusMessage
      */
     public function getNetworkSIPStatusMessage()
     {
@@ -204,7 +204,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return Q850CauseValue
+     * @return Q850CauseValue $q850CauseValue
      */
     public function getQ850CauseValue()
     {
@@ -226,7 +226,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return Q850Text
+     * @return Q850Text $q850Text
      */
     public function getQ850Text()
     {
@@ -248,7 +248,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaTreatmentFileName
+     * @return MediaTreatmentFileName $accessTreatmentAudioFile
      */
     public function getAccessTreatmentAudioFile()
     {
@@ -270,7 +270,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaTreatmentFileName
+     * @return MediaTreatmentFileName $accessTreatmentVideoFile
      */
     public function getAccessTreatmentVideoFile()
     {
@@ -292,7 +292,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaTreatmentFileName
+     * @return MediaTreatmentFileName $networkTreatmentAudioFile
      */
     public function getNetworkTreatmentAudioFile()
     {
@@ -314,7 +314,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaTreatmentFileName
+     * @return MediaTreatmentFileName $networkTreatmentVideoFile
      */
     public function getNetworkTreatmentVideoFile()
     {
@@ -336,7 +336,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return CDRTerminationCause
+     * @return CDRTerminationCause $cdrTerminationCause
      */
     public function getCdrTerminationCause()
     {
@@ -356,7 +356,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $routeAdvance
      */
     public function getRouteAdvance()
     {
@@ -378,7 +378,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return InternalReleaseCause
+     * @return InternalReleaseCause $internalReleaseCause
      */
     public function getInternalReleaseCause()
     {
@@ -398,7 +398,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $accessSendReasonHeader
      */
     public function getAccessSendReasonHeader()
     {
@@ -418,7 +418,7 @@ class SystemConfigurableTreatmentGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $networkSendReasonHeader
      */
     public function getNetworkSendReasonHeader()
     {

@@ -45,7 +45,7 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $primaryServerNetAddress
      */
     public function getPrimaryServerNetAddress()
     {
@@ -89,7 +89,7 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $secondaryServerNetAddress
      */
     public function getSecondaryServerNetAddress()
     {
@@ -111,7 +111,7 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SMTPFromAddress
+     * @return SMTPFromAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {
@@ -133,7 +133,7 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SMTPSubject
+     * @return SMTPSubject $defaultSubject
      */
     public function getDefaultSubject()
     {
@@ -153,7 +153,7 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $supportDNSSRVForMailServerAccess
      */
     public function getSupportDNSSRVForMailServerAccess()
     {

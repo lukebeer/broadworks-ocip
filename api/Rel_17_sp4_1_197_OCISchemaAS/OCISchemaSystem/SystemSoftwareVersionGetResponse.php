@@ -23,7 +23,7 @@ class SystemSoftwareVersionGetResponse extends ComplexType implements ComplexInt
     protected $version = null;
 
     /**
-     * @return SystemSoftwareVersionGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSoftwareVersionGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class SystemSoftwareVersionGetResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:token
+     * @return string $version
      */
     public function getVersion()
     {

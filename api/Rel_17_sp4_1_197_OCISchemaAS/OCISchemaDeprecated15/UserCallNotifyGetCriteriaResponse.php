@@ -25,7 +25,7 @@ class UserCallNotifyGetCriteriaResponse extends ComplexType implements ComplexIn
     protected $fromDnCriteria = null;
 
     /**
-     * @return UserCallNotifyGetCriteriaResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallNotifyGetCriteriaResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserCallNotifyGetCriteriaResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -65,7 +65,7 @@ class UserCallNotifyGetCriteriaResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

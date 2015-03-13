@@ -44,7 +44,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
     protected $documentTable           = null;
 
     /**
-     * @return UserInstantConferencingGetStandAloneConferenceDocumentListResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
 
     /**
      * 
-     * @return InstantConferencingCallId
+     * @return InstantConferencingCallId $conferenceCallId
      */
     public function getConferenceCallId()
     {
@@ -88,7 +88,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
 
     /**
      * 
-     * @return InstantConferencingDocumentId
+     * @return InstantConferencingDocumentId $documentId
      */
     public function getDocumentId()
     {
@@ -108,7 +108,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isExpired
      */
     public function getIsExpired()
     {
@@ -130,7 +130,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $participantAccessCode
      */
     public function getParticipantAccessCode()
     {
@@ -152,7 +152,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $leaderAccessCode
      */
     public function getLeaderAccessCode()
     {
@@ -174,7 +174,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $conferenceServerFQDN
      */
     public function getConferenceServerFQDN()
     {
@@ -196,7 +196,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
 
     /**
      * 
-     * @return InstantConferencingPresentationPassword
+     * @return InstantConferencingPresentationPassword $presentationPassword
      */
     public function getPresentationPassword()
     {
@@ -218,7 +218,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListResponse14 exten
 
     /**
      * 
-     * @return InstantConferencingPresentationPasswordHex
+     * @return InstantConferencingPresentationPasswordHex $presentationPasswordHex
      */
     public function getPresentationPasswordHex()
     {

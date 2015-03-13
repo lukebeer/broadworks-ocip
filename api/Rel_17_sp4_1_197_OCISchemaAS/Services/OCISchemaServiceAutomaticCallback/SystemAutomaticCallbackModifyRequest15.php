@@ -58,7 +58,7 @@ class SystemAutomaticCallbackModifyRequest15 extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -80,7 +80,7 @@ class SystemAutomaticCallbackModifyRequest15 extends ComplexType implements Comp
 
     /**
      * 
-     * @return AutomaticCallbackMonitorMinutes
+     * @return AutomaticCallbackMonitorMinutes $monitorMinutes
      */
     public function getMonitorMinutes()
     {
@@ -102,7 +102,7 @@ class SystemAutomaticCallbackModifyRequest15 extends ComplexType implements Comp
 
     /**
      * 
-     * @return AutomaticCallbackMaxMonitorsPerOriginator
+     * @return AutomaticCallbackMaxMonitorsPerOriginator $maxMonitorsPerOriginator
      */
     public function getMaxMonitorsPerOriginator()
     {
@@ -124,7 +124,7 @@ class SystemAutomaticCallbackModifyRequest15 extends ComplexType implements Comp
 
     /**
      * 
-     * @return AutomaticCallbackMaxCallbackRings
+     * @return AutomaticCallbackMaxCallbackRings $maxCallbackRings
      */
     public function getMaxCallbackRings()
     {
@@ -146,7 +146,7 @@ class SystemAutomaticCallbackModifyRequest15 extends ComplexType implements Comp
 
     /**
      * 
-     * @return AutomaticCallbackMaxMonitorsPerTerminator
+     * @return AutomaticCallbackMaxMonitorsPerTerminator $maxMonitorsPerTerminator
      */
     public function getMaxMonitorsPerTerminator()
     {
@@ -168,7 +168,7 @@ class SystemAutomaticCallbackModifyRequest15 extends ComplexType implements Comp
 
     /**
      * 
-     * @return AutomaticCallbackTerminatorIdleGuardSeconds
+     * @return AutomaticCallbackTerminatorIdleGuardSeconds $terminatorIdleGuardSeconds
      */
     public function getTerminatorIdleGuardSeconds()
     {
@@ -190,7 +190,7 @@ class SystemAutomaticCallbackModifyRequest15 extends ComplexType implements Comp
 
     /**
      * 
-     * @return AutomaticCallbackMethod
+     * @return AutomaticCallbackMethod $callbackMethod
      */
     public function getCallbackMethod()
     {
@@ -212,7 +212,7 @@ class SystemAutomaticCallbackModifyRequest15 extends ComplexType implements Comp
 
     /**
      * 
-     * @return AutomaticCallbackPollingIntervalSeconds
+     * @return AutomaticCallbackPollingIntervalSeconds $pollingIntervalSeconds
      */
     public function getPollingIntervalSeconds()
     {
@@ -234,7 +234,7 @@ class SystemAutomaticCallbackModifyRequest15 extends ComplexType implements Comp
 
     /**
      * 
-     * @return AutomaticCallbackActivationDigit
+     * @return AutomaticCallbackActivationDigit $activationDigit
      */
     public function getActivationDigit()
     {

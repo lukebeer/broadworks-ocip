@@ -41,7 +41,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
     protected $loginDisabledNotifyEmailAddress         = null;
 
     /**
-     * @return ServiceProviderPortalPasscodeRulesGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderPortalPasscodeRulesGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRepeatedDigits
      */
     public function getDisallowRepeatedDigits()
     {
@@ -81,7 +81,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserNumber
      */
     public function getDisallowUserNumber()
     {
@@ -101,7 +101,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedUserNumber
      */
     public function getDisallowReversedUserNumber()
     {
@@ -121,7 +121,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPasscode
      */
     public function getDisallowOldPasscode()
     {
@@ -141,7 +141,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPasscode
      */
     public function getDisallowReversedOldPasscode()
     {
@@ -163,7 +163,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return PasscodeMinLength
+     * @return PasscodeMinLength $minCodeLength
      */
     public function getMinCodeLength()
     {
@@ -185,7 +185,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return PasscodeMaxLength
+     * @return PasscodeMaxLength $maxCodeLength
      */
     public function getMaxCodeLength()
     {
@@ -205,7 +205,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableLoginAfterMaxFailedLoginAttempts
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
@@ -227,7 +227,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return PortalMaxFailedLoginAttempts
+     * @return PortalMaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -247,7 +247,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expirePassword
      */
     public function getExpirePassword()
     {
@@ -269,7 +269,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return PasscodeExpiresDays
+     * @return PasscodeExpiresDays $passcodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
@@ -289,7 +289,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -311,7 +311,7 @@ class ServiceProviderPortalPasscodeRulesGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {

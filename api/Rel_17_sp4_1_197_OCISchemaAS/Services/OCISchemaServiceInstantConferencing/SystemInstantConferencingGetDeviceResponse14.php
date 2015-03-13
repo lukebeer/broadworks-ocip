@@ -29,7 +29,7 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
     protected $transportProtocol = null;
 
     /**
-     * @return SystemInstantConferencingGetDeviceResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetDeviceResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $clusterNetAddress
      */
     public function getClusterNetAddress()
     {
@@ -73,7 +73,7 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $signalingPort
      */
     public function getSignalingPort()
     {
@@ -95,7 +95,7 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
 
     /**
      * 
-     * @return InstantConferencingDeviceDescription
+     * @return InstantConferencingDeviceDescription $description
      */
     public function getDescription()
     {
@@ -117,7 +117,7 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $transportProtocol
      */
     public function getTransportProtocol()
     {

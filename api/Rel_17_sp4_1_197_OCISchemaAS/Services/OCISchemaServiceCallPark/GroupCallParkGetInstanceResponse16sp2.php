@@ -33,7 +33,7 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
     protected $userTable             = null;
 
     /**
-     * @return GroupCallParkGetInstanceResponse16sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\GroupCallParkGetInstanceResponse16sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $recallAlternateUserId
      */
     public function getRecallAlternateUserId()
     {
@@ -77,7 +77,7 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
 
     /**
      * 
-     * @return CallParkRecallTo
+     * @return CallParkRecallTo $recallTo
      */
     public function getRecallTo()
     {

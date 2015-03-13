@@ -25,7 +25,7 @@ class GroupCallCenterCurrentAndPastAgentGetListResponse extends ComplexType impl
     protected $deletedAgentUserTable = null;
 
     /**
-     * @return GroupCallCenterCurrentAndPastAgentGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastAgentGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

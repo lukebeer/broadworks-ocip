@@ -62,7 +62,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -84,7 +84,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -104,7 +104,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
 
     /**
      * 
-     * @return ServiceInstanceModifyProfile
+     * @return ServiceInstanceModifyProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -126,7 +126,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
 
     /**
      * 
-     * @return AccessDeviceEndpointLinePort
+     * @return AccessDeviceEndpointLinePort $conferenceBridgeLinePort
      */
     public function getConferenceBridgeLinePort()
     {
@@ -146,7 +146,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
 
     /**
      * 
-     * @return InstantConferencingAllocatedPorts
+     * @return InstantConferencingAllocatedPorts $allocatedPorts
      */
     public function getAllocatedPorts()
     {
@@ -168,7 +168,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
 
     /**
      * 
-     * @return InstantConferencingOutcallProfile
+     * @return InstantConferencingOutcallProfile $serviceProfileAppliedOnOutcall
      */
     public function getServiceProfileAppliedOnOutcall()
     {
@@ -188,7 +188,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutdialInInvitation
      */
     public function getAllowOutdialInInvitation()
     {
@@ -208,7 +208,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowDocumentDownload
      */
     public function getAllowDocumentDownload()
     {
@@ -228,7 +228,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $bridgeAdministratorUserIdList
      */
     public function getBridgeAdministratorUserIdList()
     {
@@ -250,7 +250,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {

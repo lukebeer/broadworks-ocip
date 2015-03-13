@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\ISDNUserPartOriginatingLineInformationValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\ISDNGenericTransparencyDescriptorOliValue;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\CallingPartyCategoryValue;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\CallingPartyCategoryName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebDisplayKey;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -62,7 +61,7 @@ class SystemCallingPartyCategoryAddRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -84,7 +83,7 @@ class SystemCallingPartyCategoryAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallingPartyCategoryName
+     * @return CallingPartyCategoryName $category
      */
     public function getCategory()
     {
@@ -106,7 +105,7 @@ class SystemCallingPartyCategoryAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallingPartyCategoryValue
+     * @return CallingPartyCategoryValue $cpcValue
      */
     public function getCpcValue()
     {
@@ -128,7 +127,7 @@ class SystemCallingPartyCategoryAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ISDNUserPartOriginatingLineInformationValue
+     * @return ISDNUserPartOriginatingLineInformationValue $isupOliValue
      */
     public function getIsupOliValue()
     {
@@ -150,7 +149,7 @@ class SystemCallingPartyCategoryAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ISDNGenericTransparencyDescriptorOliValue
+     * @return ISDNGenericTransparencyDescriptorOliValue $gtdOliValue
      */
     public function getGtdOliValue()
     {
@@ -170,7 +169,7 @@ class SystemCallingPartyCategoryAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $userCategory
      */
     public function getUserCategory()
     {
@@ -190,7 +189,7 @@ class SystemCallingPartyCategoryAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $payPhone
      */
     public function getPayPhone()
     {
@@ -210,7 +209,7 @@ class SystemCallingPartyCategoryAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $operator
      */
     public function getOperator()
     {
@@ -230,7 +229,7 @@ class SystemCallingPartyCategoryAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $default
      */
     public function getDefault()
     {
@@ -250,7 +249,7 @@ class SystemCallingPartyCategoryAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $collectCall
      */
     public function getCollectCall()
     {
@@ -272,7 +271,7 @@ class SystemCallingPartyCategoryAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return WebDisplayKey
+     * @return WebDisplayKey $webDisplayKey
      */
     public function getWebDisplayKey()
     {

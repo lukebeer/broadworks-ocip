@@ -35,7 +35,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
     protected $conferenceLegTable = null;
 
     /**
-     * @return UserInstantConferencingGetConferenceCallResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceCallResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isBridgeActive
      */
     public function getIsBridgeActive()
     {
@@ -77,7 +77,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingTitle
+     * @return InstantConferencingTitle $title
      */
     public function getTitle()
     {
@@ -97,7 +97,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isLocked
      */
     public function getIsLocked()
     {
@@ -117,7 +117,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRecording
      */
     public function getIsRecording()
     {
@@ -137,7 +137,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isExpired
      */
     public function getIsExpired()
     {
@@ -157,7 +157,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isPaused
      */
     public function getIsPaused()
     {

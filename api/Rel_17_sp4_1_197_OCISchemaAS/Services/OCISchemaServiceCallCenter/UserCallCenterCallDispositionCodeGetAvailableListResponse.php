@@ -28,7 +28,7 @@ class UserCallCenterCallDispositionCodeGetAvailableListResponse extends ComplexT
     protected $dispositionCodesTable = null;
 
     /**
-     * @return UserCallCenterCallDispositionCodeGetAvailableListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterCallDispositionCodeGetAvailableListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

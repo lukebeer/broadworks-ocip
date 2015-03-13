@@ -38,7 +38,7 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableLockout
      */
     public function getEnableLockout()
     {
@@ -80,7 +80,7 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return CommunicationBarringUserControlNumberOfAttempts
+     * @return CommunicationBarringUserControlNumberOfAttempts $maxNumberOfFailedAttempts
      */
     public function getMaxNumberOfFailedAttempts()
     {
@@ -102,7 +102,7 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
 
     /**
      * 
-     * @return CommunicationBarringUserControlLockoutMinutes
+     * @return CommunicationBarringUserControlLockoutMinutes $lockoutMinutes
      */
     public function getLockoutMinutes()
     {

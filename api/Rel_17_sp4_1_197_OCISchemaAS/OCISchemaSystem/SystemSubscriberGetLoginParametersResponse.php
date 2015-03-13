@@ -25,7 +25,7 @@ class SystemSubscriberGetLoginParametersResponse extends ComplexType implements 
     protected $minLoginIdLength       = null;
 
     /**
-     * @return SystemSubscriberGetLoginParametersResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSubscriberGetLoginParametersResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class SystemSubscriberGetLoginParametersResponse extends ComplexType implements 
 
     /**
      * 
-     * @return SystemMaxLoginAttempts
+     * @return SystemMaxLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -69,7 +69,7 @@ class SystemSubscriberGetLoginParametersResponse extends ComplexType implements 
 
     /**
      * 
-     * @return SystemMinLoginIdLength
+     * @return SystemMinLoginIdLength $minLoginIdLength
      */
     public function getMinLoginIdLength()
     {

@@ -54,7 +54,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
     protected $enableCallQueueWhenNoAgentsAvailable = null;
 
     /**
-     * @return GroupCallCenterGetInstanceResponse14sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetInstanceResponse14sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +74,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceInstanceReadProfile
+     * @return ServiceInstanceReadProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -96,7 +96,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return HuntPolicy
+     * @return HuntPolicy $policy
      */
     public function getPolicy()
     {
@@ -116,7 +116,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $huntAfterNoAnswer
      */
     public function getHuntAfterNoAnswer()
     {
@@ -138,7 +138,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return HuntNoAnswerRings
+     * @return HuntNoAnswerRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {
@@ -158,7 +158,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forwardAfterTimeout
      */
     public function getForwardAfterTimeout()
     {
@@ -180,7 +180,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return HuntForwardTimeoutSeconds
+     * @return HuntForwardTimeoutSeconds $forwardTimeoutSeconds
      */
     public function getForwardTimeoutSeconds()
     {
@@ -202,7 +202,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -222,7 +222,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -244,7 +244,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return CallCenterQueueLength
+     * @return CallCenterQueueLength $queueLength
      */
     public function getQueueLength()
     {
@@ -264,7 +264,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowAgentLogoff
      */
     public function getAllowAgentLogoff()
     {
@@ -284,7 +284,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playMusicOnHold
      */
     public function getPlayMusicOnHold()
     {
@@ -304,7 +304,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playComfortMessage
      */
     public function getPlayComfortMessage()
     {
@@ -326,7 +326,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return CallCenterTimeBetweenComfortMessagesSeconds
+     * @return CallCenterTimeBetweenComfortMessagesSeconds $timeBetweenComfortMessagesSeconds
      */
     public function getTimeBetweenComfortMessagesSeconds()
     {
@@ -346,7 +346,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableGuardTimer
      */
     public function getEnableGuardTimer()
     {
@@ -368,7 +368,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return CallCenterGuardTimerSeconds
+     * @return CallCenterGuardTimerSeconds $guardTimerSeconds
      */
     public function getGuardTimerSeconds()
     {
@@ -408,7 +408,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallWaitingForAgents
      */
     public function getAllowCallWaitingForAgents()
     {
@@ -428,7 +428,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallsToAgentsInWrapUp
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
@@ -448,7 +448,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableCallQueueWhenNoAgentsAvailable
      */
     public function getEnableCallQueueWhenNoAgentsAvailable()
     {

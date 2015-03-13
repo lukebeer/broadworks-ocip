@@ -31,7 +31,7 @@ class SystemMailParametersGetResponse extends ComplexType implements ComplexInte
     protected $supportDNSSRVForMailServerAccess = null;
 
     /**
-     * @return SystemMailParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMailParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemMailParametersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $primaryServerNetAddress
      */
     public function getPrimaryServerNetAddress()
     {
@@ -75,7 +75,7 @@ class SystemMailParametersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $secondaryServerNetAddress
      */
     public function getSecondaryServerNetAddress()
     {
@@ -97,7 +97,7 @@ class SystemMailParametersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SMTPFromAddress
+     * @return SMTPFromAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {
@@ -119,7 +119,7 @@ class SystemMailParametersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SMTPSubject
+     * @return SMTPSubject $defaultSubject
      */
     public function getDefaultSubject()
     {
@@ -139,7 +139,7 @@ class SystemMailParametersGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $supportDNSSRVForMailServerAccess
      */
     public function getSupportDNSSRVForMailServerAccess()
     {

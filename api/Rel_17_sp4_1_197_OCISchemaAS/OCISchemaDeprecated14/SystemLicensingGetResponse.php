@@ -34,7 +34,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
     protected $licenseTable      = null;
 
     /**
-     * @return SystemLicensingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemLicensingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LicenseStrictness
+     * @return LicenseStrictness $licenseStrictness
      */
     public function getLicenseStrictness()
     {
@@ -78,7 +78,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupUserLicenseLimit
+     * @return GroupUserLicenseLimit $groupUserlimit
      */
     public function getGroupUserlimit()
     {
@@ -97,7 +97,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:dateTime
+     * @return xs:dateTime $expirationDate
      */
     public function getExpirationDate()
     {
@@ -119,7 +119,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServerHostId
+     * @return ServerHostId $hostId
      */
     public function getHostId()
     {
@@ -141,7 +141,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LicenseName
+     * @return LicenseName $licenseName
      */
     public function getLicenseName()
     {

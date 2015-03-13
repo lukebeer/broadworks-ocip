@@ -35,7 +35,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
     protected $agentStatistics          = null;
 
     /**
-     * @return GroupCallCenterGetInstanceStatisticsResponse13mp8
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetInstanceStatisticsResponse13mp8 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
 
     /**
      * 
-     * @return xs:int
+     * @return int $numberOfCallsQueuedNow
      */
     public function getNumberOfCallsQueuedNow()
     {
@@ -75,7 +75,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $generateDailyReport
      */
     public function getGenerateDailyReport()
     {
@@ -97,7 +97,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
 
     /**
      * 
-     * @return CallCenterStatisticsCollectionPeriodMinutes
+     * @return CallCenterStatisticsCollectionPeriodMinutes $collectionPeriodMinutes
      */
     public function getCollectionPeriodMinutes()
     {
@@ -119,7 +119,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportingEmailAddress1
      */
     public function getReportingEmailAddress1()
     {
@@ -141,7 +141,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportingEmailAddress2
      */
     public function getReportingEmailAddress2()
     {
@@ -161,7 +161,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
 
     /**
      * 
-     * @return CallCenterQueueStatistics13mp8
+     * @return CallCenterQueueStatistics13mp8 $queueStatisticsYesterday
      */
     public function getQueueStatisticsYesterday()
     {
@@ -181,7 +181,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
 
     /**
      * 
-     * @return CallCenterQueueStatistics13mp8
+     * @return CallCenterQueueStatistics13mp8 $queueStatisticsToday
      */
     public function getQueueStatisticsToday()
     {
@@ -201,7 +201,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
 
     /**
      * 
-     * @return CallCenterAgentStatistics13mp8
+     * @return CallCenterAgentStatistics13mp8 $agentStatistics
      */
     public function getAgentStatistics()
     {

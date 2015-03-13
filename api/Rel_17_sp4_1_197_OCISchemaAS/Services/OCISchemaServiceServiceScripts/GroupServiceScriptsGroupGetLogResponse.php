@@ -23,7 +23,7 @@ class GroupServiceScriptsGroupGetLogResponse extends ComplexType implements Comp
     protected $logContent = null;
 
     /**
-     * @return GroupServiceScriptsGroupGetLogResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts\GroupServiceScriptsGroupGetLogResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -42,7 +42,7 @@ class GroupServiceScriptsGroupGetLogResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:base64Binary
+     * @return xs:base64Binary $logContent
      */
     public function getLogContent()
     {

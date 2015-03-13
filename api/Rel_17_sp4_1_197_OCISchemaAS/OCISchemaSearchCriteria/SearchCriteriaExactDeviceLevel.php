@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceLevel;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDeviceLevel;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactDeviceLevel extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactDeviceLevel';
     public    $name        = 'SearchCriteriaExactDeviceLevel';
     protected $deviceLevel = null;
 
@@ -31,7 +29,7 @@ class SearchCriteriaExactDeviceLevel extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return SearchCriteriaExactDeviceLevel
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +51,7 @@ class SearchCriteriaExactDeviceLevel extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AccessDeviceLevel
+     * @return AccessDeviceLevel $deviceLevel
      */
     public function getDeviceLevel()
     {

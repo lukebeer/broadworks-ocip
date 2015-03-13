@@ -84,7 +84,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -106,7 +106,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -128,7 +128,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -150,7 +150,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return GroupPasscodeRulesLevel
+     * @return GroupPasscodeRulesLevel $useRuleLevel
      */
     public function getUseRuleLevel()
     {
@@ -170,7 +170,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRepeatedDigits
      */
     public function getDisallowRepeatedDigits()
     {
@@ -190,7 +190,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserNumber
      */
     public function getDisallowUserNumber()
     {
@@ -210,7 +210,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedUserNumber
      */
     public function getDisallowReversedUserNumber()
     {
@@ -230,7 +230,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPasscode
      */
     public function getDisallowOldPasscode()
     {
@@ -250,7 +250,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPasscode
      */
     public function getDisallowReversedOldPasscode()
     {
@@ -272,7 +272,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return VoiceMessagingMinPasscodeCodeLength
+     * @return VoiceMessagingMinPasscodeCodeLength $minCodeLength
      */
     public function getMinCodeLength()
     {
@@ -294,7 +294,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return VoiceMessagingMaxPasscodeCodeLength
+     * @return VoiceMessagingMaxPasscodeCodeLength $maxCodeLength
      */
     public function getMaxCodeLength()
     {
@@ -314,7 +314,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableLoginAfterMaxFailedLoginAttempts
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
@@ -336,7 +336,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return VoiceMessagingMaxFailedLoginAttempts
+     * @return VoiceMessagingMaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -356,7 +356,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expirePassword
      */
     public function getExpirePassword()
     {
@@ -378,7 +378,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return VoiceMessagingPasscodeExpiresDays
+     * @return VoiceMessagingPasscodeExpiresDays $passcodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
@@ -398,7 +398,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -420,7 +420,7 @@ class GroupVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType imp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {

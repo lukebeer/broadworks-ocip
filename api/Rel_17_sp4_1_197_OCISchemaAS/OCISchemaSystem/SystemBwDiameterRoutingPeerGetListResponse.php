@@ -23,7 +23,7 @@ class SystemBwDiameterRoutingPeerGetListResponse extends ComplexType implements 
     protected $routingPeerTable = null;
 
     /**
-     * @return SystemBwDiameterRoutingPeerGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterRoutingPeerGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

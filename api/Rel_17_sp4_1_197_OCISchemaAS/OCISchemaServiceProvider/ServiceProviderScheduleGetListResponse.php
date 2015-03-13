@@ -24,7 +24,7 @@ class ServiceProviderScheduleGetListResponse extends ComplexType implements Comp
     protected $scheduleKey = null;
 
     /**
-     * @return ServiceProviderScheduleGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class ServiceProviderScheduleGetListResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {

@@ -29,7 +29,7 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
     protected $protocolChoice = null;
 
     /**
-     * @return SystemMGCPDeviceTypeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMGCPDeviceTypeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isObsolete
      */
     public function getIsObsolete()
     {
@@ -71,7 +71,7 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SignalingAddressType
+     * @return SignalingAddressType $profile
      */
     public function getProfile()
     {
@@ -91,7 +91,7 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return UnboundedPositiveInt
+     * @return UnboundedPositiveInt $numberOfPorts
      */
     public function getNumberOfPorts()
     {
@@ -113,7 +113,7 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return AccessDeviceProtocol
+     * @return AccessDeviceProtocol $protocolChoice
      */
     public function getProtocolChoice()
     {

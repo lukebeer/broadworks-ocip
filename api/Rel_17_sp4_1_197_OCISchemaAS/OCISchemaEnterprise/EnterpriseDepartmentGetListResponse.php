@@ -26,7 +26,7 @@ class EnterpriseDepartmentGetListResponse extends ComplexType implements Complex
     protected $fullPathName  = null;
 
     /**
-     * @return EnterpriseDepartmentGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class EnterpriseDepartmentGetListResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $departmentKey
      */
     public function getDepartmentKey()
     {
@@ -68,7 +68,7 @@ class EnterpriseDepartmentGetListResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return DepartmentFullPathName
+     * @return DepartmentFullPathName $fullPathName
      */
     public function getFullPathName()
     {

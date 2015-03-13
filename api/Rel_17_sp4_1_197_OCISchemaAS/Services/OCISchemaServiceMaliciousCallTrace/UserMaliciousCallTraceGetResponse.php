@@ -28,7 +28,7 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
     protected $traceTimePeriod    = null;
 
     /**
-     * @return UserMaliciousCallTraceGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\UserMaliciousCallTraceGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -70,7 +70,7 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return MaliciousCallTraceCallTypeSelection
+     * @return MaliciousCallTraceCallTypeSelection $traceTypeSelection
      */
     public function getTraceTypeSelection()
     {
@@ -90,7 +90,7 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $traceForTimePeriod
      */
     public function getTraceForTimePeriod()
     {
@@ -110,7 +110,7 @@ class UserMaliciousCallTraceGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return MaliciousCallTraceTimePeriod
+     * @return MaliciousCallTraceTimePeriod $traceTimePeriod
      */
     public function getTraceTimePeriod()
     {

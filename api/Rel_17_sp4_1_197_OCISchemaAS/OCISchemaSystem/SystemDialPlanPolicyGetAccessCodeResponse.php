@@ -27,7 +27,7 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
     protected $description                                 = null;
 
     /**
-     * @return SystemDialPlanPolicyGetAccessCodeResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialPlanPolicyGetAccessCodeResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeCodeForNetworkTranslationsAndRouting
      */
     public function getIncludeCodeForNetworkTranslationsAndRouting()
     {
@@ -67,7 +67,7 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeCodeForScreeningServices
      */
     public function getIncludeCodeForScreeningServices()
     {
@@ -87,7 +87,7 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSecondaryDialTone
      */
     public function getEnableSecondaryDialTone()
     {
@@ -109,7 +109,7 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
 
     /**
      * 
-     * @return DialPlanAccessCodeDescription
+     * @return DialPlanAccessCodeDescription $description
      */
     public function getDescription()
     {

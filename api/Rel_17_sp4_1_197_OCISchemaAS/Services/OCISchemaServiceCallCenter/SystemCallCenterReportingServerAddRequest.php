@@ -51,7 +51,7 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -73,7 +73,7 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return CallCenterReportingServerName
+     * @return CallCenterReportingServerName $name
      */
     public function getName()
     {
@@ -95,7 +95,7 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return URL
+     * @return URL $url
      */
     public function getUrl()
     {
@@ -117,7 +117,7 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -139,7 +139,7 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
 
     /**
      * 
-     * @return CallCenterReportingServerDescription
+     * @return CallCenterReportingServerDescription $description
      */
     public function getDescription()
     {

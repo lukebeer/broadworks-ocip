@@ -26,7 +26,7 @@ class GroupAccessDeviceFileGetResponse14sp8 extends ComplexType implements Compl
     protected $configurationFileName = null;
 
     /**
-     * @return GroupAccessDeviceFileGetResponse14sp8
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupAccessDeviceFileGetResponse14sp8 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class GroupAccessDeviceFileGetResponse14sp8 extends ComplexType implements Compl
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationMode
+     * @return AccessDeviceEnhancedConfigurationMode $fileSource
      */
     public function getFileSource()
     {
@@ -70,7 +70,7 @@ class GroupAccessDeviceFileGetResponse14sp8 extends ComplexType implements Compl
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationFileName
+     * @return AccessDeviceEnhancedConfigurationFileName $configurationFileName
      */
     public function getConfigurationFileName()
     {

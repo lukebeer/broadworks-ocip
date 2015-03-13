@@ -26,7 +26,7 @@ class GroupServiceScriptsGroupGetResponse extends ComplexType implements Complex
     protected $scriptContent = null;
 
     /**
-     * @return GroupServiceScriptsGroupGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts\GroupServiceScriptsGroupGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupServiceScriptsGroupGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -68,7 +68,7 @@ class GroupServiceScriptsGroupGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceScriptsName
+     * @return ServiceScriptsName $scriptName
      */
     public function getScriptName()
     {
@@ -87,7 +87,7 @@ class GroupServiceScriptsGroupGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:base64Binary
+     * @return xs:base64Binary $scriptContent
      */
     public function getScriptContent()
     {

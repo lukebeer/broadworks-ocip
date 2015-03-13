@@ -59,7 +59,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
     protected $dialableCallerIDAccess        = null;
 
     /**
-     * @return ServiceProviderAdminGetPolicyResponse17sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAdminGetPolicyResponse17sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -81,7 +81,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminProfileAccess
+     * @return ServiceProviderAdminProfileAccess $profileAccess
      */
     public function getProfileAccess()
     {
@@ -103,7 +103,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminGroupAccess
+     * @return ServiceProviderAdminGroupAccess $groupAccess
      */
     public function getGroupAccess()
     {
@@ -125,7 +125,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminUserAccess
+     * @return ServiceProviderAdminUserAccess $userAccess
      */
     public function getUserAccess()
     {
@@ -147,7 +147,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminAdminAccess
+     * @return ServiceProviderAdminAdminAccess $adminAccess
      */
     public function getAdminAccess()
     {
@@ -169,7 +169,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminDepartmentAccess
+     * @return ServiceProviderAdminDepartmentAccess $departmentAccess
      */
     public function getDepartmentAccess()
     {
@@ -191,7 +191,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminAccessDeviceAccess
+     * @return ServiceProviderAdminAccessDeviceAccess $accessDeviceAccess
      */
     public function getAccessDeviceAccess()
     {
@@ -213,7 +213,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminPhoneNumberExtensionAccess
+     * @return ServiceProviderAdminPhoneNumberExtensionAccess $phoneNumberExtensionAccess
      */
     public function getPhoneNumberExtensionAccess()
     {
@@ -235,7 +235,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminCallingLineIdNumberAccess
+     * @return ServiceProviderAdminCallingLineIdNumberAccess $callingLineIdNumberAccess
      */
     public function getCallingLineIdNumberAccess()
     {
@@ -257,7 +257,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminServiceAccess
+     * @return ServiceProviderAdminServiceAccess $serviceAccess
      */
     public function getServiceAccess()
     {
@@ -279,7 +279,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminServicePackAccess
+     * @return ServiceProviderAdminServicePackAccess $servicePackAccess
      */
     public function getServicePackAccess()
     {
@@ -301,7 +301,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminSessionAdmissionControlAccess
+     * @return ServiceProviderAdminSessionAdmissionControlAccess $sessionAdmissionControlAccess
      */
     public function getSessionAdmissionControlAccess()
     {
@@ -323,7 +323,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminWebBrandingAccess
+     * @return ServiceProviderAdminWebBrandingAccess $webBrandingAccess
      */
     public function getWebBrandingAccess()
     {
@@ -345,7 +345,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminOfficeZoneAccess
+     * @return ServiceProviderAdminOfficeZoneAccess $officeZoneAccess
      */
     public function getOfficeZoneAccess()
     {
@@ -367,7 +367,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminCommunicationBarringAccess
+     * @return ServiceProviderAdminCommunicationBarringAccess $communicationBarringAccess
      */
     public function getCommunicationBarringAccess()
     {
@@ -389,7 +389,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return EnterpriseAdminNetworkPolicyAccess
+     * @return EnterpriseAdminNetworkPolicyAccess $networkPolicyAccess
      */
     public function getNetworkPolicyAccess()
     {
@@ -411,7 +411,7 @@ class ServiceProviderAdminGetPolicyResponse17sp3 extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderAdminDialableCallerIDAccess
+     * @return ServiceProviderAdminDialableCallerIDAccess $dialableCallerIDAccess
      */
     public function getDialableCallerIDAccess()
     {

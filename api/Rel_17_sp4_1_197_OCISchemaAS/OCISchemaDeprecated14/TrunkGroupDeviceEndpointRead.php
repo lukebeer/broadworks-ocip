@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\TrunkGroupDeviceEndpointRead;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterface
 {
-    public    $responseType              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\TrunkGroupDeviceEndpointRead';
     public    $name                      = 'TrunkGroupDeviceEndpointRead';
     protected $serviceUserId             = null;
     protected $name                      = null;
@@ -46,7 +44,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return TrunkGroupDeviceEndpointRead
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +64,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -86,7 +84,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $name
      */
     public function getName()
     {
@@ -106,7 +104,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $linePort
      */
     public function getLinePort()
     {
@@ -126,7 +124,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $contact
      */
     public function getContact()
     {
@@ -146,7 +144,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $staticRegistrationCapable
      */
     public function getStaticRegistrationCapable()
     {
@@ -166,7 +164,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $useDomain
      */
     public function getUseDomain()
     {

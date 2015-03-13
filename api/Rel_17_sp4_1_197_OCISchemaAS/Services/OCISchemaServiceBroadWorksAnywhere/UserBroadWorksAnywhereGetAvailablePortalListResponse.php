@@ -24,7 +24,7 @@ class UserBroadWorksAnywhereGetAvailablePortalListResponse extends ComplexType i
     protected $portalTable = null;
 
     /**
-     * @return UserBroadWorksAnywhereGetAvailablePortalListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetAvailablePortalListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

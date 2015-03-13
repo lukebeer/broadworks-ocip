@@ -8,11 +8,9 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaRoutePointName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutePointExternalSystemGetAssignedRoutePointListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -48,7 +46,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
     }
 
     /**
-     * @return GroupRoutePointExternalSystemGetAssignedRoutePointListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutePointExternalSystemGetAssignedRoutePointListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +68,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -92,7 +90,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -114,7 +112,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
 
     /**
      * 
-     * @return RoutePointExternalSystem
+     * @return RoutePointExternalSystem $externalSystem
      */
     public function getExternalSystem()
     {
@@ -136,7 +134,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -158,7 +156,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
 
     /**
      * 
-     * @return SearchCriteriaRoutePointName
+     * @return SearchCriteriaRoutePointName $searchCriteriaRoutePointName
      */
     public function getSearchCriteriaRoutePointName()
     {

@@ -24,7 +24,7 @@ class UserSMDIMessageDeskGetServerListResponse extends ComplexType implements Co
     protected $smdiServerTable = null;
 
     /**
-     * @return UserSMDIMessageDeskGetServerListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\UserSMDIMessageDeskGetServerListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

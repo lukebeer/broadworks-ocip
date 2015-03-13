@@ -25,7 +25,7 @@ class SystemSIPDeviceTypeFileGetListResponse14sp8 extends ComplexType implements
     protected $deviceTypeFilesTable = null;
 
     /**
-     * @return SystemSIPDeviceTypeFileGetListResponse14sp8
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeFileGetListResponse14sp8 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

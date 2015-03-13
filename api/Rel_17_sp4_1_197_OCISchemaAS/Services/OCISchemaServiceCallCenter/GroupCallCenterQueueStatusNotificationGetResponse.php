@@ -30,7 +30,7 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
     protected $waitingTimeOfCallsThreshold   = null;
 
     /**
-     * @return GroupCallCenterQueueStatusNotificationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterQueueStatusNotificationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableQueueStatusNotification
      */
     public function getEnableQueueStatusNotification()
     {
@@ -70,7 +70,7 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableQueueDepthThreshold
      */
     public function getEnableQueueDepthThreshold()
     {
@@ -90,7 +90,7 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableWaitingTimeThreshold
      */
     public function getEnableWaitingTimeThreshold()
     {
@@ -112,7 +112,7 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return CallCenterQueueDepthNotificationThreshold
+     * @return CallCenterQueueDepthNotificationThreshold $numberOfCallsThreshold
      */
     public function getNumberOfCallsThreshold()
     {
@@ -134,7 +134,7 @@ class GroupCallCenterQueueStatusNotificationGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return CallCenterWaitingTimeNotificationThresholdSeconds
+     * @return CallCenterWaitingTimeNotificationThresholdSeconds $waitingTimeOfCallsThreshold
      */
     public function getWaitingTimeOfCallsThreshold()
     {

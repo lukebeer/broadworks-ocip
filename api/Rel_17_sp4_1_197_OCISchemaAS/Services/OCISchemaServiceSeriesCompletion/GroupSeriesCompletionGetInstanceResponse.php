@@ -24,7 +24,7 @@ class GroupSeriesCompletionGetInstanceResponse extends ComplexType implements Co
     protected $userTable = null;
 
     /**
-     * @return GroupSeriesCompletionGetInstanceResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSeriesCompletion\GroupSeriesCompletionGetInstanceResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

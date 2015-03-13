@@ -23,7 +23,7 @@ class SystemCallWaitingGetResponse extends ComplexType implements ComplexInterfa
     protected $playDistinctiveRingback = null;
 
     /**
-     * @return SystemCallWaitingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallWaiting\SystemCallWaitingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class SystemCallWaitingGetResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playDistinctiveRingback
      */
     public function getPlayDistinctiveRingback()
     {

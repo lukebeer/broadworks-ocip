@@ -37,7 +37,7 @@ class SystemCallNotifyModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class SystemCallNotifyModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {
@@ -79,7 +79,7 @@ class SystemCallNotifyModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useShortSubjectLine
      */
     public function getUseShortSubjectLine()
     {
@@ -99,7 +99,7 @@ class SystemCallNotifyModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDnInMailBody
      */
     public function getUseDnInMailBody()
     {

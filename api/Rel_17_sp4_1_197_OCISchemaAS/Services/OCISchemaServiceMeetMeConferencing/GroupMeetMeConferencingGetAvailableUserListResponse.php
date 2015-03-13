@@ -24,7 +24,7 @@ class GroupMeetMeConferencingGetAvailableUserListResponse extends ComplexType im
     protected $userTable = null;
 
     /**
-     * @return GroupMeetMeConferencingGetAvailableUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetAvailableUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -25,7 +25,7 @@ class UserSpeedDial100GetListResponse extends ComplexType implements ComplexInte
     protected $speedDialEntry = null;
 
     /**
-     * @return UserSpeedDial100GetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserSpeedDial100GetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserSpeedDial100GetListResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SpeedDialPrefix
+     * @return SpeedDialPrefix $prefix
      */
     public function getPrefix()
     {
@@ -67,7 +67,7 @@ class UserSpeedDial100GetListResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SpeedDial100Entry
+     * @return SpeedDial100Entry $speedDialEntry
      */
     public function getSpeedDialEntry()
     {

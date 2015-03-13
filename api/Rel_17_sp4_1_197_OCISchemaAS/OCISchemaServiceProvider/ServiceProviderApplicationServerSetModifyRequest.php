@@ -34,7 +34,7 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -78,7 +78,7 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return ApplicationServerSetName
+     * @return ApplicationServerSetName $applicationServerSetName
      */
     public function getApplicationServerSetName()
     {

@@ -25,7 +25,7 @@ class EnterpriseEnterpriseTrunkGetListResponse extends ComplexType implements Co
     protected $enterpriseTrunkTable = null;
 
     /**
-     * @return EnterpriseEnterpriseTrunkGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

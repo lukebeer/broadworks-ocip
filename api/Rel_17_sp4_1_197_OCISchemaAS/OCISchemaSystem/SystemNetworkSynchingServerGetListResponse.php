@@ -26,7 +26,7 @@ class SystemNetworkSynchingServerGetListResponse extends ComplexType implements 
     protected $networkSynchingServerTable       = null;
 
     /**
-     * @return SystemNetworkSynchingServerGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkSynchingServerGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemNetworkSynchingServerGetListResponse extends ComplexType implements 
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $preferredNetworkServerNetAddress
      */
     public function getPreferredNetworkServerNetAddress()
     {

@@ -54,7 +54,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
     protected $bridgeNationalPrefix           = null;
 
     /**
-     * @return UserInstantConferencingGetStandAloneConferenceResponse14Sp6
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceResponse14Sp6 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -76,7 +76,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return InstantConferencingCallId
+     * @return InstantConferencingCallId $conferenceCallId
      */
     public function getConferenceCallId()
     {
@@ -96,7 +96,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return UserDisplayNames
+     * @return UserDisplayNames $conferenceOwnerDisplayNames
      */
     public function getConferenceOwnerDisplayNames()
     {
@@ -118,7 +118,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return InstantConferencingTitle
+     * @return InstantConferencingTitle $title
      */
     public function getTitle()
     {
@@ -138,7 +138,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $leaderRequired
      */
     public function getLeaderRequired()
     {
@@ -158,7 +158,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $leaderReleaseDropsParticipants
      */
     public function getLeaderReleaseDropsParticipants()
     {
@@ -178,7 +178,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $announceCallers
      */
     public function getAnnounceCallers()
     {
@@ -200,7 +200,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return InstantConferencingConferenceType
+     * @return InstantConferencingConferenceType $conferenceType
      */
     public function getConferenceType()
     {
@@ -220,7 +220,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return InstantConferencingSchedule
+     * @return InstantConferencingSchedule $conferenceSchedule
      */
     public function getConferenceSchedule()
     {
@@ -242,7 +242,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return InstantConferencingBillingCode
+     * @return InstantConferencingBillingCode $billingCode
      */
     public function getBillingCode()
     {
@@ -264,7 +264,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $leaderAccessCode
      */
     public function getLeaderAccessCode()
     {
@@ -286,7 +286,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $participantAccessCode
      */
     public function getParticipantAccessCode()
     {
@@ -306,7 +306,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isCallActive
      */
     public function getIsCallActive()
     {
@@ -326,7 +326,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isExpired
      */
     public function getIsExpired()
     {
@@ -346,7 +346,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isFuture
      */
     public function getIsFuture()
     {
@@ -366,7 +366,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $hasPresentation
      */
     public function getHasPresentation()
     {
@@ -388,7 +388,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return InstantConferencingPresentationPassword
+     * @return InstantConferencingPresentationPassword $presentationPassword
      */
     public function getPresentationPassword()
     {
@@ -408,7 +408,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutdialInInvitation
      */
     public function getAllowOutdialInInvitation()
     {
@@ -430,7 +430,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return DN
+     * @return DN $bridgePhoneNumber
      */
     public function getBridgePhoneNumber()
     {
@@ -452,7 +452,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $bridgeCountryCode
      */
     public function getBridgeCountryCode()
     {
@@ -474,7 +474,7 @@ class UserInstantConferencingGetStandAloneConferenceResponse14Sp6 extends Comple
 
     /**
      * 
-     * @return NationalPrefix
+     * @return NationalPrefix $bridgeNationalPrefix
      */
     public function getBridgeNationalPrefix()
     {

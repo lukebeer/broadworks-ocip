@@ -34,7 +34,7 @@ class GroupCallCenterModifyAgentListRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class GroupCallCenterModifyAgentListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -76,7 +76,7 @@ class GroupCallCenterModifyAgentListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $agentUserIdList
      */
     public function getAgentUserIdList()
     {

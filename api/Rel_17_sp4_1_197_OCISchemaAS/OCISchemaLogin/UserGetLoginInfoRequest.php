@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin; 
 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\UserGetLoginInfoResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -30,7 +29,7 @@ class UserGetLoginInfoRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return UserGetLoginInfoResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\UserGetLoginInfoResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

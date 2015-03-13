@@ -57,7 +57,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -79,7 +79,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -101,7 +101,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -123,7 +123,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $newCriteriaName
      */
     public function getNewCriteriaName()
     {
@@ -143,7 +143,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -163,7 +163,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -185,7 +185,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return CallForwardingSelectiveNumberSelection16
+     * @return CallForwardingSelectiveNumberSelection16 $forwardToNumberSelection
      */
     public function getForwardToNumberSelection()
     {
@@ -207,7 +207,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -227,7 +227,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return CriteriaFromDnModify
+     * @return CriteriaFromDnModify $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

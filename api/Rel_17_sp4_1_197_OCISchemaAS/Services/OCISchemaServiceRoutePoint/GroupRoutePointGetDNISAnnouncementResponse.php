@@ -23,7 +23,7 @@ class GroupRoutePointGetDNISAnnouncementResponse extends ComplexType implements 
     protected $mediaOnHoldSource = null;
 
     /**
-     * @return GroupRoutePointGetDNISAnnouncementResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAnnouncementResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class GroupRoutePointGetDNISAnnouncementResponse extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterMediaOnHoldSourceRead17
+     * @return CallCenterMediaOnHoldSourceRead17 $mediaOnHoldSource
      */
     public function getMediaOnHoldSource()
     {

@@ -26,7 +26,7 @@ class SystemServiceControlParametersGetResponse extends ComplexType implements C
     protected $maxClientConnections = null;
 
     /**
-     * @return SystemServiceControlParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceControlParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemServiceControlParametersGetResponse extends ComplexType implements C
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -70,7 +70,7 @@ class SystemServiceControlParametersGetResponse extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceControlMaxClientConnections
+     * @return ServiceControlMaxClientConnections $maxClientConnections
      */
     public function getMaxClientConnections()
     {

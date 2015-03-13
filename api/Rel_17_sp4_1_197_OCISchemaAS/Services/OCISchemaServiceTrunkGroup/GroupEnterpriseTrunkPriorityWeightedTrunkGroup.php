@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkPriorityWeightedTrunkGroup;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkPriorityWeightedTrunkGroup';
     public    $name       = 'GroupEnterpriseTrunkPriorityWeightedTrunkGroup';
     protected $trunkGroup = null;
     protected $priority   = null;
@@ -37,7 +35,7 @@ class GroupEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType impleme
     }
 
     /**
-     * @return GroupEnterpriseTrunkPriorityWeightedTrunkGroup
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class GroupEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType impleme
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $trunkGroup
      */
     public function getTrunkGroup()
     {
@@ -77,7 +75,7 @@ class GroupEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType impleme
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $priority
      */
     public function getPriority()
     {
@@ -97,7 +95,7 @@ class GroupEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType impleme
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $weight
      */
     public function getWeight()
     {

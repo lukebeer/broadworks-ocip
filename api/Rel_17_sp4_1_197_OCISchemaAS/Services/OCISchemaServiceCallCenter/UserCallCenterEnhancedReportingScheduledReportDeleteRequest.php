@@ -34,7 +34,7 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $supervisorUserId
      */
     public function getSupervisorUserId()
     {
@@ -78,7 +78,7 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
 
     /**
      * 
-     * @return CallCenterScheduledReportName
+     * @return CallCenterScheduledReportName $name
      */
     public function getName()
     {

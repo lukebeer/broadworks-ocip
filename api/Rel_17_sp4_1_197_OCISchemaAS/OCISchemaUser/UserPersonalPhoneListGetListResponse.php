@@ -24,7 +24,7 @@ class UserPersonalPhoneListGetListResponse extends ComplexType implements Comple
     protected $entry = null;
 
     /**
-     * @return UserPersonalPhoneListGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class UserPersonalPhoneListGetListResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return PhoneListEntry
+     * @return PhoneListEntry $entry
      */
     public function getEntry()
     {

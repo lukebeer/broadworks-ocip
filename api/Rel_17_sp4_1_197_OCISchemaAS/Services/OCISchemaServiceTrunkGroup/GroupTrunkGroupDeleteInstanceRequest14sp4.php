@@ -30,7 +30,7 @@ class GroupTrunkGroupDeleteInstanceRequest14sp4 extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupTrunkGroupDeleteInstanceRequest14sp4 extends ComplexType implements C
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $trunkGroupKey
      */
     public function getTrunkGroupKey()
     {

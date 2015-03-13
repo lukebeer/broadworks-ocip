@@ -25,7 +25,7 @@ class SystemFileRepositoryDeviceGetResponse extends ComplexType implements Compl
     protected $port          = null;
 
     /**
-     * @return SystemFileRepositoryDeviceGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemFileRepositoryDeviceGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class SystemFileRepositoryDeviceGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return CPEFileDirectory
+     * @return CPEFileDirectory $rootDirectory
      */
     public function getRootDirectory()
     {
@@ -69,7 +69,7 @@ class SystemFileRepositoryDeviceGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return Port
+     * @return Port $port
      */
     public function getPort()
     {

@@ -36,7 +36,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
     protected $userDomain          = null;
 
     /**
-     * @return LoginResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LoginType
+     * @return LoginType $loginType
      */
     public function getLoginType()
     {
@@ -80,7 +80,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return OCILocale
+     * @return OCILocale $locale
      */
     public function getLocale()
     {
@@ -102,7 +102,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Encoding
+     * @return Encoding $encoding
      */
     public function getEncoding()
     {
@@ -124,7 +124,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -146,7 +146,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -166,7 +166,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isEnterprise
      */
     public function getIsEnterprise()
     {
@@ -186,7 +186,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:int
+     * @return int $passwordExpiresDays
      */
     public function getPasswordExpiresDays()
     {
@@ -208,7 +208,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $userDomain
      */
     public function getUserDomain()
     {

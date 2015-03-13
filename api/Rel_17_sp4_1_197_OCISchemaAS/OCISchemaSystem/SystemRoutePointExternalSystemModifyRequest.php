@@ -37,7 +37,7 @@ class SystemRoutePointExternalSystemModifyRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class SystemRoutePointExternalSystemModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return RoutePointExternalSystem
+     * @return RoutePointExternalSystem $name
      */
     public function getName()
     {
@@ -81,7 +81,7 @@ class SystemRoutePointExternalSystemModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return RoutePointExternalSystem
+     * @return RoutePointExternalSystem $newName
      */
     public function getNewName()
     {
@@ -103,7 +103,7 @@ class SystemRoutePointExternalSystemModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ExternalSystemDescription
+     * @return ExternalSystemDescription $description
      */
     public function getDescription()
     {

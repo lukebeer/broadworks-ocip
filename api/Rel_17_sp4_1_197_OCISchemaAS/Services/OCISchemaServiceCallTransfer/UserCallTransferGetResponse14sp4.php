@@ -30,7 +30,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
     protected $busyCampOnSeconds                         = null;
 
     /**
-     * @return UserCallTransferGetResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallTransfer\UserCallTransferGetResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRecallActive
      */
     public function getIsRecallActive()
     {
@@ -72,7 +72,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CallTransferRecallNumberOfRings
+     * @return CallTransferRecallNumberOfRings $recallNumberOfRings
      */
     public function getRecallNumberOfRings()
     {
@@ -92,7 +92,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDiversionInhibitorForBlindTransfer
      */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
@@ -112,7 +112,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDiversionInhibitorForConsultativeCalls
      */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {
@@ -132,7 +132,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableBusyCampOn
      */
     public function getEnableBusyCampOn()
     {
@@ -154,7 +154,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CallTransferBusyCampOnSeconds
+     * @return CallTransferBusyCampOnSeconds $busyCampOnSeconds
      */
     public function getBusyCampOnSeconds()
     {

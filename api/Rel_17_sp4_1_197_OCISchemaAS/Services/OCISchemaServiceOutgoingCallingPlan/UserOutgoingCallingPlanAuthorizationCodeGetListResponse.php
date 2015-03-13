@@ -23,7 +23,7 @@ class UserOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexTyp
     protected $codeEntry = null;
 
     /**
-     * @return UserOutgoingCallingPlanAuthorizationCodeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanAuthorizationCodeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexTyp
 
     /**
      * 
-     * @return OutgoingCallingPlanAuthorizationCodeEntry
+     * @return OutgoingCallingPlanAuthorizationCodeEntry $codeEntry
      */
     public function getCodeEntry()
     {

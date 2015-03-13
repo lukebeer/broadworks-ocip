@@ -23,7 +23,7 @@ class SystemInventoryReportGetResponse extends ComplexType implements ComplexInt
     protected $defaultFromAddress = null;
 
     /**
-     * @return SystemInventoryReportGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInventoryReport\SystemInventoryReportGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemInventoryReportGetResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {

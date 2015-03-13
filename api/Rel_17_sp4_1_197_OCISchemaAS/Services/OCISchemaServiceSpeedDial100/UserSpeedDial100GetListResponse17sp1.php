@@ -25,7 +25,7 @@ class UserSpeedDial100GetListResponse17sp1 extends ComplexType implements Comple
     protected $speedDialEntry = null;
 
     /**
-     * @return UserSpeedDial100GetListResponse17sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\UserSpeedDial100GetListResponse17sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserSpeedDial100GetListResponse17sp1 extends ComplexType implements Comple
 
     /**
      * 
-     * @return SpeedDialPrefix
+     * @return SpeedDialPrefix $prefix
      */
     public function getPrefix()
     {
@@ -67,7 +67,7 @@ class UserSpeedDial100GetListResponse17sp1 extends ComplexType implements Comple
 
     /**
      * 
-     * @return SpeedDial100Entry
+     * @return SpeedDial100Entry $speedDialEntry
      */
     public function getSpeedDialEntry()
     {

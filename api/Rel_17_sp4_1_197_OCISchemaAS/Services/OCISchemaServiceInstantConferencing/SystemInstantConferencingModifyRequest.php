@@ -37,7 +37,7 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $defaultDropAllParticipantsWhenLeaderLeaves
      */
     public function getDefaultDropAllParticipantsWhenLeaderLeaves()
     {
@@ -77,7 +77,7 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $defaultAllowDialOutInInvitation
      */
     public function getDefaultAllowDialOutInInvitation()
     {
@@ -99,7 +99,7 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {

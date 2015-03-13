@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCodeDescription;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
@@ -46,7 +45,7 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +67,7 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -90,7 +89,7 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -112,7 +111,7 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return CallDispositionCode
+     * @return CallDispositionCode $code
      */
     public function getCode()
     {
@@ -132,7 +131,7 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -154,7 +153,7 @@ class GroupCallCenterCallDispositionCodeModifyRequest extends ComplexType implem
 
     /**
      * 
-     * @return CallDispositionCodeDescription
+     * @return CallDispositionCodeDescription $description
      */
     public function getDescription()
     {

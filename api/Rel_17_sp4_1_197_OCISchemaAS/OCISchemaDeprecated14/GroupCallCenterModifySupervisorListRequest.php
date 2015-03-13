@@ -40,7 +40,7 @@ class GroupCallCenterModifySupervisorListRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +62,7 @@ class GroupCallCenterModifySupervisorListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -84,7 +84,7 @@ class GroupCallCenterModifySupervisorListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return URL
+     * @return URL $reportingServerURL
      */
     public function getReportingServerURL()
     {
@@ -104,7 +104,7 @@ class GroupCallCenterModifySupervisorListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $supervisorUserIdList
      */
     public function getSupervisorUserIdList()
     {

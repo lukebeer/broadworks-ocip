@@ -27,7 +27,7 @@ class GroupCustomContactDirectoryGetAvailableUserListResponse extends ComplexTyp
     protected $userTable = null;
 
     /**
-     * @return GroupCustomContactDirectoryGetAvailableUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCustomContactDirectoryGetAvailableUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

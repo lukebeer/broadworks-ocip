@@ -24,7 +24,7 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
     protected $domain                       = null;
 
     /**
-     * @return ServiceProviderDomainGetAssignedListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDomainGetAssignedListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $serviceProviderDefaultDomain
      */
     public function getServiceProviderDefaultDomain()
     {
@@ -68,7 +68,7 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $domain
      */
     public function getDomain()
     {

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DNISKey;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ class UserCallCenterGetAvailableDNISListResponse extends ComplexType implements 
     protected $availableDNIS = null;
 
     /**
-     * @return UserCallCenterGetAvailableDNISListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterGetAvailableDNISListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class UserCallCenterGetAvailableDNISListResponse extends ComplexType implements 
 
     /**
      * 
-     * @return DNISKey
+     * @return DNISKey $availableDNIS
      */
     public function getAvailableDNIS()
     {

@@ -40,7 +40,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
     protected $videoMediaTypeList                       = null;
 
     /**
-     * @return GroupCallCenterComfortMessageBypassGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterComfortMessageBypassGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -82,7 +82,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterComfortMessageBypassThresholdSeconds
+     * @return CallCenterComfortMessageBypassThresholdSeconds $callWaitingAgeThresholdSeconds
      */
     public function getCallWaitingAgeThresholdSeconds()
     {
@@ -102,7 +102,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementAfterRinging
      */
     public function getPlayAnnouncementAfterRinging()
     {
@@ -124,7 +124,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds
+     * @return CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds $ringTimeBeforePlayingAnnouncementSeconds
      */
     public function getRingTimeBeforePlayingAnnouncementSeconds()
     {
@@ -146,7 +146,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -166,7 +166,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $audioUrlList
      */
     public function getAudioUrlList()
     {
@@ -186,7 +186,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $audioFileList
      */
     public function getAudioFileList()
     {
@@ -206,7 +206,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $audioMediaTypeList
      */
     public function getAudioMediaTypeList()
     {
@@ -228,7 +228,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -248,7 +248,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterAnnouncementURLList
+     * @return CallCenterAnnouncementURLList $videoUrlList
      */
     public function getVideoUrlList()
     {
@@ -268,7 +268,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterAnnouncementDescriptionList
+     * @return CallCenterAnnouncementDescriptionList $videoFileList
      */
     public function getVideoFileList()
     {
@@ -288,7 +288,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterAnnouncementMediaFileTypeList
+     * @return CallCenterAnnouncementMediaFileTypeList $videoMediaTypeList
      */
     public function getVideoMediaTypeList()
     {

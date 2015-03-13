@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\PhysicalLocation;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ class SystemZoneLocationBasedPhysicalLocationGetListResponse extends ComplexType
     protected $physicalLocation = null;
 
     /**
-     * @return SystemZoneLocationBasedPhysicalLocationGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneLocationBasedPhysicalLocationGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemZoneLocationBasedPhysicalLocationGetListResponse extends ComplexType
 
     /**
      * 
-     * @return PhysicalLocation
+     * @return PhysicalLocation $physicalLocation
      */
     public function getPhysicalLocation()
     {

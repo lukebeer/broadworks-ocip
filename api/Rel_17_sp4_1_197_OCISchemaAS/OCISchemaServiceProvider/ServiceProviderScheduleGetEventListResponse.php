@@ -24,7 +24,7 @@ class ServiceProviderScheduleGetEventListResponse extends ComplexType implements
     protected $eventName = null;
 
     /**
-     * @return ServiceProviderScheduleGetEventListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class ServiceProviderScheduleGetEventListResponse extends ComplexType implements
 
     /**
      * 
-     * @return EventName
+     * @return EventName $eventName
      */
     public function getEventName()
     {

@@ -41,7 +41,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
     protected $enableCallParkNotification             = null;
 
     /**
-     * @return UserSharedCallAppearanceGetResponse16sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetResponse16sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alertAllAppearancesForClickToDialCalls
      */
     public function getAlertAllAppearancesForClickToDialCalls()
     {
@@ -81,7 +81,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alertAllAppearancesForGroupPagingCalls
      */
     public function getAlertAllAppearancesForGroupPagingCalls()
     {
@@ -103,7 +103,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return SharedCallAppearanceMaximumAppearances
+     * @return SharedCallAppearanceMaximumAppearances $maxAppearances
      */
     public function getMaxAppearances()
     {
@@ -123,7 +123,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowSCACallRetrieve
      */
     public function getAllowSCACallRetrieve()
     {
@@ -143,7 +143,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMultipleCallArrangement
      */
     public function getEnableMultipleCallArrangement()
     {
@@ -163,7 +163,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $multipleCallArrangementIsActive
      */
     public function getMultipleCallArrangementIsActive()
     {
@@ -203,7 +203,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowBridgingBetweenLocations
      */
     public function getAllowBridgingBetweenLocations()
     {
@@ -225,7 +225,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return SharedCallAppearanceBridgeWarningTone
+     * @return SharedCallAppearanceBridgeWarningTone $bridgeWarningTone
      */
     public function getBridgeWarningTone()
     {
@@ -245,7 +245,7 @@ class UserSharedCallAppearanceGetResponse16sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableCallParkNotification
      */
     public function getEnableCallParkNotification()
     {

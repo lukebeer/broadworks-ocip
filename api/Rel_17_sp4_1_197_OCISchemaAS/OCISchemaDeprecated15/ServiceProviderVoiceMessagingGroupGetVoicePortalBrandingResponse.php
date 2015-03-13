@@ -28,7 +28,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
     protected $voiceMessagingGreetingFileDescription = null;
 
     /**
-     * @return ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
 
     /**
      * 
-     * @return VoiceMessagingBrandingSelection
+     * @return VoiceMessagingBrandingSelection $voicePortalGreetingSelection
      */
     public function getVoicePortalGreetingSelection()
     {
@@ -72,7 +72,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $voicePortalGreetingFileDescription
      */
     public function getVoicePortalGreetingFileDescription()
     {
@@ -94,7 +94,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
 
     /**
      * 
-     * @return VoiceMessagingBrandingSelection
+     * @return VoiceMessagingBrandingSelection $voiceMessagingGreetingSelection
      */
     public function getVoiceMessagingGreetingSelection()
     {
@@ -116,7 +116,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $voiceMessagingGreetingFileDescription
      */
     public function getVoiceMessagingGreetingFileDescription()
     {

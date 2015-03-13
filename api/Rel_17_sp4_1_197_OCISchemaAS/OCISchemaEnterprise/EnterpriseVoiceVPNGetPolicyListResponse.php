@@ -25,7 +25,7 @@ class EnterpriseVoiceVPNGetPolicyListResponse extends ComplexType implements Com
     protected $locationList = null;
 
     /**
-     * @return EnterpriseVoiceVPNGetPolicyListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

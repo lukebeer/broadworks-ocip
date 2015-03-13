@@ -24,7 +24,7 @@ class SystemExternalAuthenticationGetACLListResponse extends ComplexType impleme
     protected $aclTable = null;
 
     /**
-     * @return SystemExternalAuthenticationGetACLListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExternalAuthenticationGetACLListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

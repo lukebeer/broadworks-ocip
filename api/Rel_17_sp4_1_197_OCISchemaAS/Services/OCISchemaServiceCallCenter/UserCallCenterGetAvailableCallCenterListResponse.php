@@ -24,7 +24,7 @@ class UserCallCenterGetAvailableCallCenterListResponse extends ComplexType imple
     protected $callCenterTable = null;
 
     /**
-     * @return UserCallCenterGetAvailableCallCenterListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterGetAvailableCallCenterListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

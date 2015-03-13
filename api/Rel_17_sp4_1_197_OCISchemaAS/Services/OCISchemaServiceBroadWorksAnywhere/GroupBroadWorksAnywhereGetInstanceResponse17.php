@@ -31,7 +31,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse17 extends ComplexType implement
     protected $promptForPasscode       = null;
 
     /**
-     * @return GroupBroadWorksAnywhereGetInstanceResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\GroupBroadWorksAnywhereGetInstanceResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse17 extends ComplexType implement
 
     /**
      * 
-     * @return ServiceInstanceReadProfile17
+     * @return ServiceInstanceReadProfile17 $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -73,7 +73,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse17 extends ComplexType implement
 
     /**
      * 
-     * @return BroadWorksAnywhereScope
+     * @return BroadWorksAnywhereScope $broadWorksAnywhereScope
      */
     public function getBroadWorksAnywhereScope()
     {
@@ -95,7 +95,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse17 extends ComplexType implement
 
     /**
      * 
-     * @return BroadWorksAnywhereCLIDPrompt
+     * @return BroadWorksAnywhereCLIDPrompt $promptForCLID
      */
     public function getPromptForCLID()
     {
@@ -115,7 +115,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse17 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $silentPromptMode
      */
     public function getSilentPromptMode()
     {
@@ -135,7 +135,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse17 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $promptForPasscode
      */
     public function getPromptForPasscode()
     {

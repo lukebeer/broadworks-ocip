@@ -28,7 +28,7 @@ class EnterpriseVoiceVPNGetResponse extends ComplexType implements ComplexInterf
     protected $e164Selection    = null;
 
     /**
-     * @return EnterpriseVoiceVPNGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\EnterpriseVoiceVPNGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class EnterpriseVoiceVPNGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -70,7 +70,7 @@ class EnterpriseVoiceVPNGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return EnterpriseVoiceVPNDefaultSelection
+     * @return EnterpriseVoiceVPNDefaultSelection $defaultSelection
      */
     public function getDefaultSelection()
     {
@@ -92,7 +92,7 @@ class EnterpriseVoiceVPNGetResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return EnterpriseVoiceVPNNonMatchingE164NumberSelection
+     * @return EnterpriseVoiceVPNNonMatchingE164NumberSelection $e164Selection
      */
     public function getE164Selection()
     {

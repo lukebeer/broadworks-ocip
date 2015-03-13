@@ -50,7 +50,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -94,7 +94,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return BroadWorksMobilityServiceProviderSettingLevel
+     * @return BroadWorksMobilityServiceProviderSettingLevel $useSettingLevel
      */
     public function getUseSettingLevel()
     {
@@ -114,7 +114,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableLocationServices
      */
     public function getEnableLocationServices()
     {
@@ -134,7 +134,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMSRNLookup
      */
     public function getEnableMSRNLookup()
     {
@@ -154,7 +154,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMobileStateChecking
      */
     public function getEnableMobileStateChecking()
     {
@@ -174,7 +174,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallOriginations
      */
     public function getDenyCallOriginations()
     {
@@ -194,7 +194,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallTerminations
      */
     public function getDenyCallTerminations()
     {

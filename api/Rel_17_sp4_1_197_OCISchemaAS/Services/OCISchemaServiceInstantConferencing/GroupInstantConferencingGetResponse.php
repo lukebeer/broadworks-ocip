@@ -26,7 +26,7 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
     protected $portsConsumedByGroupBridges       = null;
 
     /**
-     * @return GroupInstantConferencingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\GroupInstantConferencingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $portsAvailableFromServiceProvider
      */
     public function getPortsAvailableFromServiceProvider()
     {
@@ -66,7 +66,7 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $portsAllocatedToGroup
      */
     public function getPortsAllocatedToGroup()
     {
@@ -86,7 +86,7 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:int
+     * @return int $portsConsumedByGroupBridges
      */
     public function getPortsConsumedByGroupBridges()
     {

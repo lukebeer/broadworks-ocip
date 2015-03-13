@@ -88,7 +88,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -110,7 +110,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -132,7 +132,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminProfileAccess
+     * @return GroupAdminProfileAccess $profileAccess
      */
     public function getProfileAccess()
     {
@@ -154,7 +154,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminUserAccess
+     * @return GroupAdminUserAccess $userAccess
      */
     public function getUserAccess()
     {
@@ -176,7 +176,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminAdminAccess
+     * @return GroupAdminAdminAccess $adminAccess
      */
     public function getAdminAccess()
     {
@@ -198,7 +198,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminDepartmentAccess
+     * @return GroupAdminDepartmentAccess $departmentAccess
      */
     public function getDepartmentAccess()
     {
@@ -220,7 +220,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminAccessDeviceAccess
+     * @return GroupAdminAccessDeviceAccess $accessDeviceAccess
      */
     public function getAccessDeviceAccess()
     {
@@ -242,7 +242,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminEnhancedServiceInstanceAccess
+     * @return GroupAdminEnhancedServiceInstanceAccess $enhancedServiceInstanceAccess
      */
     public function getEnhancedServiceInstanceAccess()
     {
@@ -264,7 +264,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminFeatureAccessCodeAccess
+     * @return GroupAdminFeatureAccessCodeAccess $featureAccessCodeAccess
      */
     public function getFeatureAccessCodeAccess()
     {
@@ -286,7 +286,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminPhoneNumberExtensionAccess
+     * @return GroupAdminPhoneNumberExtensionAccess $phoneNumberExtensionAccess
      */
     public function getPhoneNumberExtensionAccess()
     {
@@ -308,7 +308,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminCallingLineIdNumberAccess
+     * @return GroupAdminCallingLineIdNumberAccess $callingLineIdNumberAccess
      */
     public function getCallingLineIdNumberAccess()
     {
@@ -330,7 +330,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminServiceAccess
+     * @return GroupAdminServiceAccess $serviceAccess
      */
     public function getServiceAccess()
     {
@@ -352,7 +352,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminTrunkGroupAccess
+     * @return GroupAdminTrunkGroupAccess $trunkGroupAccess
      */
     public function getTrunkGroupAccess()
     {
@@ -374,7 +374,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminSessionAdmissionControlAccess
+     * @return GroupAdminSessionAdmissionControlAccess $sessionAdmissionControlAccess
      */
     public function getSessionAdmissionControlAccess()
     {
@@ -396,7 +396,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminOfficeZoneAccess
+     * @return GroupAdminOfficeZoneAccess $officeZoneAccess
      */
     public function getOfficeZoneAccess()
     {
@@ -418,7 +418,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return GroupAdminDialableCallerIDAccess
+     * @return GroupAdminDialableCallerIDAccess $dialableCallerIDAccess
      */
     public function getDialableCallerIDAccess()
     {

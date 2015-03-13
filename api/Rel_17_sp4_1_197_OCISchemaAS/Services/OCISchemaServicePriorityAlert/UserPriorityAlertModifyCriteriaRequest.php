@@ -53,7 +53,7 @@ class UserPriorityAlertModifyCriteriaRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +75,7 @@ class UserPriorityAlertModifyCriteriaRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -97,7 +97,7 @@ class UserPriorityAlertModifyCriteriaRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -119,7 +119,7 @@ class UserPriorityAlertModifyCriteriaRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $newCriteriaName
      */
     public function getNewCriteriaName()
     {
@@ -139,7 +139,7 @@ class UserPriorityAlertModifyCriteriaRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -159,7 +159,7 @@ class UserPriorityAlertModifyCriteriaRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return PriorityAlertCriteriaFromDnModify
+     * @return PriorityAlertCriteriaFromDnModify $fromDnCriteria
      */
     public function getFromDnCriteria()
     {
@@ -179,7 +179,7 @@ class UserPriorityAlertModifyCriteriaRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -199,7 +199,7 @@ class UserPriorityAlertModifyCriteriaRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {

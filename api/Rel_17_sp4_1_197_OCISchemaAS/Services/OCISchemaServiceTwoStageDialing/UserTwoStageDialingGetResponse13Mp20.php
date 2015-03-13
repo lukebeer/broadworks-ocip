@@ -24,7 +24,7 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
     protected $allowActivationWithUserAddresses = null;
 
     /**
-     * @return UserTwoStageDialingGetResponse13Mp20
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing\UserTwoStageDialingGetResponse13Mp20 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -64,7 +64,7 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowActivationWithUserAddresses
      */
     public function getAllowActivationWithUserAddresses()
     {

@@ -27,7 +27,7 @@ class UserFaxMessagingGetResponse extends ComplexType implements ComplexInterfac
     protected $extension   = null;
 
     /**
-     * @return UserFaxMessagingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserFaxMessagingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserFaxMessagingGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -69,7 +69,7 @@ class UserFaxMessagingGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -91,7 +91,7 @@ class UserFaxMessagingGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return Extension
+     * @return Extension $extension
      */
     public function getExtension()
     {

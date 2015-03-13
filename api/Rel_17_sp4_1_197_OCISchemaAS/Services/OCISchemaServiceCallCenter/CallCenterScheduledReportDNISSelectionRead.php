@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterScheduledReportDNISSelectionRead;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterScheduledReportDNISSelectionRead extends ComplexType implements ComplexInterface
 {
-    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterScheduledReportDNISSelectionRead';
     public    $name          = 'CallCenterScheduledReportDNISSelectionRead';
     protected $serviceUserId = null;
     protected $deleted       = null;
@@ -34,7 +32,7 @@ class CallCenterScheduledReportDNISSelectionRead extends ComplexType implements 
     }
 
     /**
-     * @return CallCenterScheduledReportDNISSelectionRead
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class CallCenterScheduledReportDNISSelectionRead extends ComplexType implements 
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -74,7 +72,7 @@ class CallCenterScheduledReportDNISSelectionRead extends ComplexType implements 
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deleted
      */
     public function getDeleted()
     {

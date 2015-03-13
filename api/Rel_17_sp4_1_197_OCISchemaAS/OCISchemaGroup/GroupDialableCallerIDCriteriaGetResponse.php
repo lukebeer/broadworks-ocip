@@ -39,7 +39,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
     protected $matchOtherCategory          = null;
 
     /**
-     * @return GroupDialableCallerIDCriteriaGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialableCallerIDCriteriaGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return DialableCallerIDCriteriaDescription
+     * @return DialableCallerIDCriteriaDescription $description
      */
     public function getDescription()
     {
@@ -83,7 +83,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return DialableCallerIDPrefixDigits
+     * @return DialableCallerIDPrefixDigits $prefixDigits
      */
     public function getPrefixDigits()
     {
@@ -105,7 +105,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return CommunicationBarringCallType
+     * @return CommunicationBarringCallType $matchCallType
      */
     public function getMatchCallType()
     {
@@ -127,7 +127,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return CommunicationBarringAlternateCallIndicator
+     * @return CommunicationBarringAlternateCallIndicator $matchAlternateCallIndicator
      */
     public function getMatchAlternateCallIndicator()
     {
@@ -147,7 +147,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchLocalCategory
      */
     public function getMatchLocalCategory()
     {
@@ -167,7 +167,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchNationalCategory
      */
     public function getMatchNationalCategory()
     {
@@ -187,7 +187,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInterlataCategory
      */
     public function getMatchInterlataCategory()
     {
@@ -207,7 +207,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchIntralataCategory
      */
     public function getMatchIntralataCategory()
     {
@@ -227,7 +227,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInternationalCategory
      */
     public function getMatchInternationalCategory()
     {
@@ -247,7 +247,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchPrivateCategory
      */
     public function getMatchPrivateCategory()
     {
@@ -267,7 +267,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchEmergencyCategory
      */
     public function getMatchEmergencyCategory()
     {
@@ -287,7 +287,7 @@ class GroupDialableCallerIDCriteriaGetResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchOtherCategory
      */
     public function getMatchOtherCategory()
     {

@@ -43,7 +43,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
     protected $phoneNumber         = null;
 
     /**
-     * @return AuthenticationVerifyResponse14sp8
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\AuthenticationVerifyResponse14sp8 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return LoginType
+     * @return LoginType $loginType
      */
     public function getLoginType()
     {
@@ -87,7 +87,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return OCILocale
+     * @return OCILocale $locale
      */
     public function getLocale()
     {
@@ -109,7 +109,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Encoding
+     * @return Encoding $encoding
      */
     public function getEncoding()
     {
@@ -131,7 +131,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -153,7 +153,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -173,7 +173,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isEnterprise
      */
     public function getIsEnterprise()
     {
@@ -193,7 +193,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:int
+     * @return int $passwordExpiresDays
      */
     public function getPasswordExpiresDays()
     {
@@ -215,7 +215,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -237,7 +237,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {
@@ -259,7 +259,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -281,7 +281,7 @@ class AuthenticationVerifyResponse14sp8 extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {

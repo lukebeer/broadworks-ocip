@@ -7,8 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\VirtualOnNetCallTypeName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactVirtualOnNetCallTypeName;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactVirtualOnNetCallTypeName extends ComplexType implements ComplexInterface
 {
-    public    $responseType             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactVirtualOnNetCallTypeName';
     public    $name                     = 'SearchCriteriaExactVirtualOnNetCallTypeName';
     protected $virtualOnNetCallTypeName = null;
 
@@ -31,7 +29,7 @@ class SearchCriteriaExactVirtualOnNetCallTypeName extends ComplexType implements
     }
 
     /**
-     * @return SearchCriteriaExactVirtualOnNetCallTypeName
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +51,7 @@ class SearchCriteriaExactVirtualOnNetCallTypeName extends ComplexType implements
 
     /**
      * 
-     * @return VirtualOnNetCallTypeName
+     * @return VirtualOnNetCallTypeName $virtualOnNetCallTypeName
      */
     public function getVirtualOnNetCallTypeName()
     {

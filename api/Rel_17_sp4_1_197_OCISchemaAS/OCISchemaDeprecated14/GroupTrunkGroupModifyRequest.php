@@ -41,7 +41,7 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +63,7 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -85,7 +85,7 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -105,7 +105,7 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $maxActiveCalls
      */
     public function getMaxActiveCalls()
     {
@@ -125,7 +125,7 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $burstingMaxActiveCalls
      */
     public function getBurstingMaxActiveCalls()
     {

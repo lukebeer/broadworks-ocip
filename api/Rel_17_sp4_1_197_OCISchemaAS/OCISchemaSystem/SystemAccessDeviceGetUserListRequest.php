@@ -19,7 +19,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -76,7 +75,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return SystemAccessDeviceGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -98,7 +97,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -120,7 +119,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -142,7 +141,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return SearchCriteriaLinePortUserPart
+     * @return SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart
      */
     public function getSearchCriteriaLinePortUserPart()
     {
@@ -164,7 +163,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return SearchCriteriaLinePortDomain
+     * @return SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain
      */
     public function getSearchCriteriaLinePortDomain()
     {
@@ -186,7 +185,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -208,7 +207,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -230,7 +229,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -252,7 +251,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return SearchCriteriaUserId
+     * @return SearchCriteriaUserId $searchCriteriaUserId
      */
     public function getSearchCriteriaUserId()
     {
@@ -274,7 +273,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -296,7 +295,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return SearchCriteriaExactServiceProvider
+     * @return SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider
      */
     public function getSearchCriteriaExactServiceProvider()
     {
@@ -318,7 +317,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return SearchCriteriaExactEndpointType
+     * @return SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType
      */
     public function getSearchCriteriaExactEndpointType()
     {
@@ -340,7 +339,7 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return SearchCriteriaExactUserType
+     * @return SearchCriteriaExactUserType $searchCriteriaExactUserType
      */
     public function getSearchCriteriaExactUserType()
     {

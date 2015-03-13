@@ -23,7 +23,7 @@ class PublicClusterGetFullyQualifiedDomainNameResponse extends ComplexType imple
     protected $publicClusterFQDN = null;
 
     /**
-     * @return PublicClusterGetFullyQualifiedDomainNameResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PublicClusterGetFullyQualifiedDomainNameResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class PublicClusterGetFullyQualifiedDomainNameResponse extends ComplexType imple
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $publicClusterFQDN
      */
     public function getPublicClusterFQDN()
     {

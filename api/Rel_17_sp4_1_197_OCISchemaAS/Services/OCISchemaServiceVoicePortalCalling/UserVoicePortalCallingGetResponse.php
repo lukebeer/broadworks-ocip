@@ -23,7 +23,7 @@ class UserVoicePortalCallingGetResponse extends ComplexType implements ComplexIn
     protected $isActive = null;
 
     /**
-     * @return UserVoicePortalCallingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoicePortalCalling\UserVoicePortalCallingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserVoicePortalCallingGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {

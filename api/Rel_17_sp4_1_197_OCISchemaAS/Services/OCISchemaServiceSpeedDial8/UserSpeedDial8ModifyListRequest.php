@@ -35,7 +35,7 @@ class UserSpeedDial8ModifyListRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class UserSpeedDial8ModifyListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -77,7 +77,7 @@ class UserSpeedDial8ModifyListRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SpeedDial8Entry
+     * @return SpeedDial8Entry $speedDialEntry
      */
     public function getSpeedDialEntry()
     {

@@ -13,7 +13,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDe
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AuthenticationMode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\EarlyMediaSupportType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\WebBasedConfigURL;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\TrunkMode;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -128,7 +127,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -150,7 +149,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -170,7 +169,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isObsolete
      */
     public function getIsObsolete()
     {
@@ -190,7 +189,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $registrationCapable
      */
     public function getRegistrationCapable()
     {
@@ -210,7 +209,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $RFC3264Hold
      */
     public function getRFC3264Hold()
     {
@@ -230,7 +229,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isTrusted
      */
     public function getIsTrusted()
     {
@@ -250,7 +249,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $E164Capable
      */
     public function getE164Capable()
     {
@@ -270,7 +269,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $routeAdvance
      */
     public function getRouteAdvance()
     {
@@ -290,7 +289,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forwardingOverride
      */
     public function getForwardingOverride()
     {
@@ -310,7 +309,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $wirelessIntegration
      */
     public function getWirelessIntegration()
     {
@@ -332,7 +331,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return WebBasedConfigURL
+     * @return WebBasedConfigURL $webBasedConfigURL
      */
     public function getWebBasedConfigURL()
     {
@@ -352,7 +351,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isVideoCapable
      */
     public function getIsVideoCapable()
     {
@@ -372,7 +371,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $PBXIntegration
      */
     public function getPBXIntegration()
     {
@@ -392,7 +391,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $staticRegistrationCapable
      */
     public function getStaticRegistrationCapable()
     {
@@ -412,7 +411,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CPEDeviceModifyOptions16sp1
+     * @return CPEDeviceModifyOptions16sp1 $cpeDeviceOptions
      */
     public function getCpeDeviceOptions()
     {
@@ -434,7 +433,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return EarlyMediaSupportType
+     * @return EarlyMediaSupportType $earlyMediaSupport
      */
     public function getEarlyMediaSupport()
     {
@@ -454,7 +453,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $authenticateRefer
      */
     public function getAuthenticateRefer()
     {
@@ -474,7 +473,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $autoConfigSoftClient
      */
     public function getAutoConfigSoftClient()
     {
@@ -496,7 +495,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AuthenticationMode
+     * @return AuthenticationMode $authenticationMode
      */
     public function getAuthenticationMode()
     {
@@ -516,7 +515,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requiresBroadWorksDigitCollection
      */
     public function getRequiresBroadWorksDigitCollection()
     {
@@ -536,7 +535,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requiresBroadWorksCallWaitingTone
      */
     public function getRequiresBroadWorksCallWaitingTone()
     {
@@ -556,7 +555,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requiresMWISubscription
      */
     public function getRequiresMWISubscription()
     {
@@ -576,7 +575,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useHistoryInfoHeaderOnAccessSide
      */
     public function getUseHistoryInfoHeaderOnAccessSide()
     {
@@ -596,7 +595,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $adviceOfChargeCapable
      */
     public function getAdviceOfChargeCapable()
     {
@@ -618,7 +617,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AccessDeviceResetEvent
+     * @return AccessDeviceResetEvent $resetEvent
      */
     public function getResetEvent()
     {
@@ -638,7 +637,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $supportCallCenterMIMEType
      */
     public function getSupportCallCenterMIMEType()
     {
@@ -660,7 +659,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return TrunkMode
+     * @return TrunkMode $trunkMode
      */
     public function getTrunkMode()
     {
@@ -680,7 +679,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $addPCalledPartyId
      */
     public function getAddPCalledPartyId()
     {
@@ -700,7 +699,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $supportIdentityInUpdateAndReInvite
      */
     public function getSupportIdentityInUpdateAndReInvite()
     {
@@ -722,7 +721,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return UnscreenedPresentationIdentityPolicy
+     * @return UnscreenedPresentationIdentityPolicy $unscreenedPresentationIdentityPolicy
      */
     public function getUnscreenedPresentationIdentityPolicy()
     {

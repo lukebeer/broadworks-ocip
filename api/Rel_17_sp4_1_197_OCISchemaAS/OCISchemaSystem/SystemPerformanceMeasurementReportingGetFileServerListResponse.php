@@ -24,7 +24,7 @@ class SystemPerformanceMeasurementReportingGetFileServerListResponse extends Com
     protected $fileServerTable = null;
 
     /**
-     * @return SystemPerformanceMeasurementReportingGetFileServerListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingGetFileServerListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

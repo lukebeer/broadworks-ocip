@@ -31,7 +31,7 @@ class SystemZoneCallingRestrictionsZoneDeleteRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemZoneCallingRestrictionsZoneDeleteRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $zoneName
      */
     public function getZoneName()
     {

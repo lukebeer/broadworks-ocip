@@ -49,7 +49,7 @@ class EnterpriseEnterpriseTrunkModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,7 +71,7 @@ class EnterpriseEnterpriseTrunkModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -93,7 +93,7 @@ class EnterpriseEnterpriseTrunkModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return EnterpriseTrunkName
+     * @return EnterpriseTrunkName $enterpriseTrunkName
      */
     public function getEnterpriseTrunkName()
     {
@@ -115,7 +115,7 @@ class EnterpriseEnterpriseTrunkModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return EnterpriseTrunkName
+     * @return EnterpriseTrunkName $newEnterpriseTrunkName
      */
     public function getNewEnterpriseTrunkName()
     {
@@ -137,7 +137,7 @@ class EnterpriseEnterpriseTrunkModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return EnterpriseTrunkMaximumRerouteAttempts
+     * @return EnterpriseTrunkMaximumRerouteAttempts $maximumRerouteAttempts
      */
     public function getMaximumRerouteAttempts()
     {
@@ -159,7 +159,7 @@ class EnterpriseEnterpriseTrunkModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return EnterpriseTrunkRouteExhaustionAction
+     * @return EnterpriseTrunkRouteExhaustionAction $routeExhaustionAction
      */
     public function getRouteExhaustionAction()
     {
@@ -181,7 +181,7 @@ class EnterpriseEnterpriseTrunkModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $routeExhaustionForwardAddress
      */
     public function getRouteExhaustionForwardAddress()
     {

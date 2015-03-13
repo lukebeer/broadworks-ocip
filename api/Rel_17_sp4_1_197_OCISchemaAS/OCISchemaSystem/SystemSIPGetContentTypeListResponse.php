@@ -25,7 +25,7 @@ class SystemSIPGetContentTypeListResponse extends ComplexType implements Complex
     protected $contentTypeTable = null;
 
     /**
-     * @return SystemSIPGetContentTypeListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPGetContentTypeListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

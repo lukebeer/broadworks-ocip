@@ -25,7 +25,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse extends Comple
     protected $userPermissions   = null;
 
     /**
-     * @return UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse extends Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomSettings
      */
     public function getUseCustomSettings()
     {
@@ -65,7 +65,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse extends Comple
 
     /**
      * 
-     * @return OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions
+     * @return OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $userPermissions
      */
     public function getUserPermissions()
     {

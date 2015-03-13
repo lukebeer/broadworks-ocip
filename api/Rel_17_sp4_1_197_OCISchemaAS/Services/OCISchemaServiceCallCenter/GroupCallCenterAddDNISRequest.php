@@ -63,7 +63,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -83,7 +83,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return DNISKey
+     * @return DNISKey $dnisKey
      */
     public function getDnisKey()
     {
@@ -105,7 +105,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return DN
+     * @return DN $dnisPhoneNumber
      */
     public function getDnisPhoneNumber()
     {
@@ -127,7 +127,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return Extension17
+     * @return Extension17 $extension
      */
     public function getExtension()
     {
@@ -147,7 +147,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomCLIDSettings
      */
     public function getUseCustomCLIDSettings()
     {
@@ -169,7 +169,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return DN
+     * @return DN $callingLineIdPhoneNumber
      */
     public function getCallingLineIdPhoneNumber()
     {
@@ -191,7 +191,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallingLineIdLastName
+     * @return CallingLineIdLastName $callingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
@@ -213,7 +213,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallingLineIdFirstName
+     * @return CallingLineIdFirstName $callingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
@@ -233,7 +233,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomDnisAnnouncementSettings
      */
     public function getUseCustomDnisAnnouncementSettings()
     {
@@ -255,7 +255,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return DNISPriority
+     * @return DNISPriority $priority
      */
     public function getPriority()
     {
@@ -275,7 +275,7 @@ class GroupCallCenterAddDNISRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutgoingACDCall
      */
     public function getAllowOutgoingACDCall()
     {

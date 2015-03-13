@@ -30,7 +30,7 @@ class GroupAutoAttendantDeleteInstanceRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class GroupAutoAttendantDeleteInstanceRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {

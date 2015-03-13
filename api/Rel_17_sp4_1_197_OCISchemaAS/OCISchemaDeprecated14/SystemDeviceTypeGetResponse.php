@@ -35,7 +35,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
     protected $useDomain                 = null;
 
     /**
-     * @return SystemDeviceTypeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDeviceTypeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isObsolete
      */
     public function getIsObsolete()
     {
@@ -77,7 +77,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SignalingAddressType
+     * @return SignalingAddressType $profile
      */
     public function getProfile()
     {
@@ -99,7 +99,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return WebBasedConfigURL
+     * @return WebBasedConfigURL $webBasedConfigURL
      */
     public function getWebBasedConfigURL()
     {
@@ -119,7 +119,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $staticRegistrationCapable
      */
     public function getStaticRegistrationCapable()
     {
@@ -139,7 +139,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return CPEDeviceOptions
+     * @return CPEDeviceOptions $cpeDeviceOptions
      */
     public function getCpeDeviceOptions()
     {
@@ -161,7 +161,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return AccessDeviceProtocol
+     * @return AccessDeviceProtocol $protocolChoice
      */
     public function getProtocolChoice()
     {
@@ -181,7 +181,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isIpAddressOptional
      */
     public function getIsIpAddressOptional()
     {
@@ -201,7 +201,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDomain
      */
     public function getUseDomain()
     {

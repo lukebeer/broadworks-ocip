@@ -74,7 +74,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -96,7 +96,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return DialableCallerIDCriteriaName
+     * @return DialableCallerIDCriteriaName $name
      */
     public function getName()
     {
@@ -118,7 +118,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return DialableCallerIDCriteriaName
+     * @return DialableCallerIDCriteriaName $newName
      */
     public function getNewName()
     {
@@ -140,7 +140,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return DialableCallerIDCriteriaDescription
+     * @return DialableCallerIDCriteriaDescription $description
      */
     public function getDescription()
     {
@@ -162,7 +162,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return DialableCallerIDPrefixDigits
+     * @return DialableCallerIDPrefixDigits $prefixDigits
      */
     public function getPrefixDigits()
     {
@@ -182,7 +182,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ReplacementCommunicationBarringCallTypeList
+     * @return ReplacementCommunicationBarringCallTypeList $matchCallType
      */
     public function getMatchCallType()
     {
@@ -202,7 +202,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return ReplacementCommunicationBarringAlternateCallIndicatorList
+     * @return ReplacementCommunicationBarringAlternateCallIndicatorList $matchAlternateCallIndicator
      */
     public function getMatchAlternateCallIndicator()
     {
@@ -222,7 +222,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchLocalCategory
      */
     public function getMatchLocalCategory()
     {
@@ -242,7 +242,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchNationalCategory
      */
     public function getMatchNationalCategory()
     {
@@ -262,7 +262,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInterlataCategory
      */
     public function getMatchInterlataCategory()
     {
@@ -282,7 +282,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchIntralataCategory
      */
     public function getMatchIntralataCategory()
     {
@@ -302,7 +302,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInternationalCategory
      */
     public function getMatchInternationalCategory()
     {
@@ -322,7 +322,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchPrivateCategory
      */
     public function getMatchPrivateCategory()
     {
@@ -342,7 +342,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchEmergencyCategory
      */
     public function getMatchEmergencyCategory()
     {
@@ -362,7 +362,7 @@ class SystemDialableCallerIDCriteriaModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchOtherCategory
      */
     public function getMatchOtherCategory()
     {

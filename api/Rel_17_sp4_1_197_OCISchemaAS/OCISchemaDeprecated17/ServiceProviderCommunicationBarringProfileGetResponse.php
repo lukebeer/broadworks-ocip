@@ -47,7 +47,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
     protected $isDefault                        = null;
 
     /**
-     * @return ServiceProviderCommunicationBarringProfileGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderCommunicationBarringProfileGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +69,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return CommunicationBarringProfileDescription
+     * @return CommunicationBarringProfileDescription $description
      */
     public function getDescription()
     {
@@ -91,7 +91,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return CommunicationBarringOriginatingAction
+     * @return CommunicationBarringOriginatingAction $originatingDefaultAction
      */
     public function getOriginatingDefaultAction()
     {
@@ -113,7 +113,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $originatingDefaultTreatmentId
      */
     public function getOriginatingDefaultTreatmentId()
     {
@@ -135,7 +135,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $originatingDefaultTransferNumber
      */
     public function getOriginatingDefaultTransferNumber()
     {
@@ -157,7 +157,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $originatingDefaultCallTimeout
      */
     public function getOriginatingDefaultCallTimeout()
     {
@@ -177,7 +177,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return ServiceProviderCommunicationBarringHierarchicalOriginatingRule
+     * @return ServiceProviderCommunicationBarringHierarchicalOriginatingRule $originatingRule
      */
     public function getOriginatingRule()
     {
@@ -199,7 +199,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return CommunicationBarringRedirectingAction
+     * @return CommunicationBarringRedirectingAction $redirectingDefaultAction
      */
     public function getRedirectingDefaultAction()
     {
@@ -221,7 +221,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $redirectingDefaultCallTimeout
      */
     public function getRedirectingDefaultCallTimeout()
     {
@@ -241,7 +241,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return ServiceProviderCommunicationBarringHierarchicalRedirectingRule
+     * @return ServiceProviderCommunicationBarringHierarchicalRedirectingRule $redirectingRule
      */
     public function getRedirectingRule()
     {
@@ -263,7 +263,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return CommunicationBarringIncomingAction
+     * @return CommunicationBarringIncomingAction $incomingDefaultAction
      */
     public function getIncomingDefaultAction()
     {
@@ -285,7 +285,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $incomingDefaultCallTimeout
      */
     public function getIncomingDefaultCallTimeout()
     {
@@ -305,7 +305,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return CommunicationBarringIncomingRule
+     * @return CommunicationBarringIncomingRule $incomingRule
      */
     public function getIncomingRule()
     {
@@ -325,7 +325,7 @@ class ServiceProviderCommunicationBarringProfileGetResponse extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isDefault
      */
     public function getIsDefault()
     {

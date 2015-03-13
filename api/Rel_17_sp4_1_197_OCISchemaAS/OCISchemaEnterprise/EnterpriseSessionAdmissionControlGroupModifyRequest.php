@@ -67,7 +67,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -89,7 +89,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -111,7 +111,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return SessionAdmissionControlGroupName
+     * @return SessionAdmissionControlGroupName $name
      */
     public function getName()
     {
@@ -133,7 +133,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return SessionAdmissionControlGroupName
+     * @return SessionAdmissionControlGroupName $newName
      */
     public function getNewName()
     {
@@ -155,7 +155,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxSession
      */
     public function getMaxSession()
     {
@@ -177,7 +177,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserOriginatingSessions
      */
     public function getMaxUserOriginatingSessions()
     {
@@ -199,7 +199,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserTerminatingSessions
      */
     public function getMaxUserTerminatingSessions()
     {
@@ -221,7 +221,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedSession
      */
     public function getReservedSession()
     {
@@ -243,7 +243,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedUserOriginatingSessions
      */
     public function getReservedUserOriginatingSessions()
     {
@@ -265,7 +265,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $reservedUserTerminatingSessions
      */
     public function getReservedUserTerminatingSessions()
     {
@@ -285,7 +285,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $becomeDefaultGroup
      */
     public function getBecomeDefaultGroup()
     {
@@ -305,7 +305,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $countIntraSACGroupSessions
      */
     public function getCountIntraSACGroupSessions()
     {
@@ -325,7 +325,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return ReplacementEnterpriseDeviceList
+     * @return ReplacementEnterpriseDeviceList $deviceList
      */
     public function getDeviceList()
     {

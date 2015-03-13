@@ -29,7 +29,7 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
     protected $allowEmergencyRemoteOfficeOriginations = null;
 
     /**
-     * @return SystemSubscriberGetCallProcessingParametersResponse14sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSubscriberGetCallProcessingParametersResponse14sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
 
     /**
      * 
-     * @return SystemUserCallingLineIdSelection
+     * @return SystemUserCallingLineIdSelection $userCallingLineIdSelection
      */
     public function getUserCallingLineIdSelection()
     {
@@ -71,7 +71,7 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isExtendedCallingLineIdActive
      */
     public function getIsExtendedCallingLineIdActive()
     {
@@ -91,7 +91,7 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRingTimeOutActive
      */
     public function getIsRingTimeOutActive()
     {
@@ -113,7 +113,7 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
 
     /**
      * 
-     * @return SystemUserRingTimeoutSeconds
+     * @return SystemUserRingTimeoutSeconds $ringTimeoutSeconds
      */
     public function getRingTimeoutSeconds()
     {
@@ -133,7 +133,7 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEmergencyRemoteOfficeOriginations
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {

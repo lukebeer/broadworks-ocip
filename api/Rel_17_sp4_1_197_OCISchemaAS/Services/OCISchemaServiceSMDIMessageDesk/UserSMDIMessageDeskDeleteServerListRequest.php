@@ -34,7 +34,7 @@ class UserSMDIMessageDeskDeleteServerListRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserSMDIMessageDeskDeleteServerListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -78,7 +78,7 @@ class UserSMDIMessageDeskDeleteServerListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return SMDIDeviceName
+     * @return SMDIDeviceName $deviceName
      */
     public function getDeviceName()
     {

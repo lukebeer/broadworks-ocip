@@ -30,7 +30,7 @@ class SystemRoutingDeleteTranslationRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemRoutingDeleteTranslationRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return RoutingDigits
+     * @return RoutingDigits $digits
      */
     public function getDigits()
     {

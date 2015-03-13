@@ -34,7 +34,7 @@ class SystemVirtualOnNetCallTypeModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemVirtualOnNetCallTypeModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return VirtualOnNetCallTypeName
+     * @return VirtualOnNetCallTypeName $virtualOnNetCallTypeName
      */
     public function getVirtualOnNetCallTypeName()
     {
@@ -78,7 +78,7 @@ class SystemVirtualOnNetCallTypeModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return VirtualOnNetCallTypeCdrValue
+     * @return VirtualOnNetCallTypeCdrValue $virtualOnNetCallTypeCdrValue
      */
     public function getVirtualOnNetCallTypeCdrValue()
     {

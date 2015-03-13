@@ -44,7 +44,7 @@ class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implem
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implem
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -86,7 +86,7 @@ class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implem
 
     /**
      * 
-     * @return AccessDeviceEndpointAdd
+     * @return AccessDeviceEndpointAdd $accessDeviceEndpoint
      */
     public function getAccessDeviceEndpoint()
     {
@@ -106,7 +106,7 @@ class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -126,7 +126,7 @@ class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOrigination
      */
     public function getAllowOrigination()
     {
@@ -146,7 +146,7 @@ class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowTermination
      */
     public function getAllowTermination()
     {

@@ -26,7 +26,7 @@ class GroupTrunkGroupGetInstanceListResponse14sp4 extends ComplexType implements
     protected $trunkGroupTable = null;
 
     /**
-     * @return GroupTrunkGroupGetInstanceListResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceListResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

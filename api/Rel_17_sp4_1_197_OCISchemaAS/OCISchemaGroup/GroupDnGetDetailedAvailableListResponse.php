@@ -26,7 +26,7 @@ class GroupDnGetDetailedAvailableListResponse extends ComplexType implements Com
     protected $dnTable = null;
 
     /**
-     * @return GroupDnGetDetailedAvailableListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetDetailedAvailableListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

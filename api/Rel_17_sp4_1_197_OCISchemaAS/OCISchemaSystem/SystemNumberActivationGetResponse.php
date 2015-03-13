@@ -24,7 +24,7 @@ class SystemNumberActivationGetResponse extends ComplexType implements ComplexIn
     protected $useNumberActivation = null;
 
     /**
-     * @return SystemNumberActivationGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNumberActivationGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class SystemNumberActivationGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useNumberActivation
      */
     public function getUseNumberActivation()
     {

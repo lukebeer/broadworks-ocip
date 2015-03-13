@@ -50,7 +50,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -94,7 +94,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $clusterNetAddress
      */
     public function getClusterNetAddress()
     {
@@ -116,7 +116,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $signalingPort
      */
     public function getSignalingPort()
     {
@@ -138,7 +138,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
 
     /**
      * 
-     * @return InstantConferencingDeviceDescription
+     * @return InstantConferencingDeviceDescription $description
      */
     public function getDescription()
     {
@@ -158,7 +158,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
 
     /**
      * 
-     * @return InstantConferencingIntegratedDeviceModify
+     * @return InstantConferencingIntegratedDeviceModify $integrated
      */
     public function getIntegrated()
     {
@@ -180,7 +180,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $transportProtocol
      */
     public function getTransportProtocol()
     {

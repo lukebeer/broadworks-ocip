@@ -42,7 +42,7 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -108,7 +108,7 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
 
     /**
      * 
-     * @return DeviceManagementTagName
+     * @return DeviceManagementTagName $tagName
      */
     public function getTagName()
     {
@@ -130,7 +130,7 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
 
     /**
      * 
-     * @return DeviceManagementTagValue
+     * @return DeviceManagementTagValue $tagValue
      */
     public function getTagValue()
     {

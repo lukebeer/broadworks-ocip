@@ -60,7 +60,7 @@ class GroupCallCenterHolidayServiceModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -82,7 +82,7 @@ class GroupCallCenterHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -104,7 +104,7 @@ class GroupCallCenterHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterScheduledServiceAction
+     * @return CallCenterScheduledServiceAction $action
      */
     public function getAction()
     {
@@ -126,7 +126,7 @@ class GroupCallCenterHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -148,7 +148,7 @@ class GroupCallCenterHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -168,7 +168,7 @@ class GroupCallCenterHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementBeforeAction
      */
     public function getPlayAnnouncementBeforeAction()
     {
@@ -190,7 +190,7 @@ class GroupCallCenterHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -210,7 +210,7 @@ class GroupCallCenterHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -232,7 +232,7 @@ class GroupCallCenterHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -252,7 +252,7 @@ class GroupCallCenterHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $videoFile
      */
     public function getVideoFile()
     {

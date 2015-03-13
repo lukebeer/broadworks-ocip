@@ -67,7 +67,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -89,7 +89,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -111,7 +111,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterScheduledServiceAction
+     * @return CallCenterScheduledServiceAction $action
      */
     public function getAction()
     {
@@ -133,7 +133,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -155,7 +155,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -175,7 +175,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementBeforeAction
      */
     public function getPlayAnnouncementBeforeAction()
     {
@@ -197,7 +197,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -217,7 +217,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $audioUrlList
      */
     public function getAudioUrlList()
     {
@@ -237,7 +237,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $audioFileList
      */
     public function getAudioFileList()
     {
@@ -259,7 +259,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -279,7 +279,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementURLListModify
+     * @return CallCenterAnnouncementURLListModify $videoUrlList
      */
     public function getVideoUrlList()
     {
@@ -299,7 +299,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterAnnouncementFileListModify
+     * @return CallCenterAnnouncementFileListModify $videoFileList
      */
     public function getVideoFileList()
     {

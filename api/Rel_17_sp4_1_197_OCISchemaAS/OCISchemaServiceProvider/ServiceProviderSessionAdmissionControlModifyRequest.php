@@ -47,7 +47,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +69,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -89,7 +89,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictAggregateSessions
      */
     public function getRestrictAggregateSessions()
     {
@@ -111,7 +111,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxSessions
      */
     public function getMaxSessions()
     {
@@ -133,7 +133,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserOriginatingSessions
      */
     public function getMaxUserOriginatingSessions()
     {
@@ -155,7 +155,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return NonNegativeInt
+     * @return NonNegativeInt $maxUserTerminatingSessions
      */
     public function getMaxUserTerminatingSessions()
     {
@@ -175,7 +175,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $countIntraServiceProviderSessions
      */
     public function getCountIntraServiceProviderSessions()
     {

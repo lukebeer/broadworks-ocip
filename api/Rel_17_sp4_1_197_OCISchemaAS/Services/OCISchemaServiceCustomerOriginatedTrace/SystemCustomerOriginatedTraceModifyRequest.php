@@ -30,7 +30,7 @@ class SystemCustomerOriginatedTraceModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemCustomerOriginatedTraceModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $screenMaliciousCallers
      */
     public function getScreenMaliciousCallers()
     {

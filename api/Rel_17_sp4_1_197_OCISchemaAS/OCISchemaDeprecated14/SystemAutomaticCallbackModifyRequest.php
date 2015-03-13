@@ -47,7 +47,7 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +69,7 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMonitorMinutes
+     * @return AutomaticCallbackMonitorMinutes $monitorMinutes
      */
     public function getMonitorMinutes()
     {
@@ -91,7 +91,7 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackWaitBetweenRetryOriginatorMinutes
+     * @return AutomaticCallbackWaitBetweenRetryOriginatorMinutes $waitBetweenRetryOriginatorMinutes
      */
     public function getWaitBetweenRetryOriginatorMinutes()
     {
@@ -113,7 +113,7 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMaxMonitorsPerOriginator
+     * @return AutomaticCallbackMaxMonitorsPerOriginator $maxMonitorsPerOriginator
      */
     public function getMaxMonitorsPerOriginator()
     {
@@ -135,7 +135,7 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMaxCallbackRings
+     * @return AutomaticCallbackMaxCallbackRings $maxCallbackRings
      */
     public function getMaxCallbackRings()
     {
@@ -157,7 +157,7 @@ class SystemAutomaticCallbackModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return AutomaticCallbackMaxRetryOriginatorMinutes
+     * @return AutomaticCallbackMaxRetryOriginatorMinutes $maxRetryOriginatorMinutes
      */
     public function getMaxRetryOriginatorMinutes()
     {

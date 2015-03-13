@@ -35,7 +35,7 @@ class ServiceProviderServicePackMigrationTaskModifyGroupListRequest extends Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class ServiceProviderServicePackMigrationTaskModifyGroupListRequest extends Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -79,7 +79,7 @@ class ServiceProviderServicePackMigrationTaskModifyGroupListRequest extends Comp
 
     /**
      * 
-     * @return ServicePackMigrationTaskName
+     * @return ServicePackMigrationTaskName $taskName
      */
     public function getTaskName()
     {

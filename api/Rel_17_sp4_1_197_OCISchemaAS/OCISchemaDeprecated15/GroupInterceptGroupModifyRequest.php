@@ -64,7 +64,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -86,7 +86,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -108,7 +108,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -128,7 +128,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -150,7 +150,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return AnnouncementSelection
+     * @return AnnouncementSelection $announcementSelection
      */
     public function getAnnouncementSelection()
     {
@@ -170,7 +170,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -190,7 +190,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $videoFile
      */
     public function getVideoFile()
     {
@@ -210,7 +210,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playNewPhoneNumber
      */
     public function getPlayNewPhoneNumber()
     {
@@ -232,7 +232,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return DN
+     * @return DN $newPhoneNumber
      */
     public function getNewPhoneNumber()
     {
@@ -252,7 +252,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $transferOnZeroToPhoneNumber
      */
     public function getTransferOnZeroToPhoneNumber()
     {
@@ -274,7 +274,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {

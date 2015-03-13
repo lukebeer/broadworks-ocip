@@ -37,7 +37,7 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendSavedAndUrgentMWIOnNotification
      */
     public function getSendSavedAndUrgentMWIOnNotification()
     {
@@ -77,7 +77,7 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendMessageSummaryUpdateOnRegister
      */
     public function getSendMessageSummaryUpdateOnRegister()
     {
@@ -99,7 +99,7 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return VoiceMessageSummaryUpdateSeconds
+     * @return VoiceMessageSummaryUpdateSeconds $minTimeBetweenMWIOnRegister
      */
     public function getMinTimeBetweenMWIOnRegister()
     {

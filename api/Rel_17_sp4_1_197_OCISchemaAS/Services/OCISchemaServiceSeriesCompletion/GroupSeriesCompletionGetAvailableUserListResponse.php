@@ -24,7 +24,7 @@ class GroupSeriesCompletionGetAvailableUserListResponse extends ComplexType impl
     protected $userTable = null;
 
     /**
-     * @return GroupSeriesCompletionGetAvailableUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSeriesCompletion\GroupSeriesCompletionGetAvailableUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

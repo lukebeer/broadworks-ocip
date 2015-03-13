@@ -46,7 +46,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
     protected $reportFileKey      = null;
 
     /**
-     * @return GroupTrunkGroupUserCreationTaskGetResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return TrunkGroupUserCreationUserIdFormat
+     * @return TrunkGroupUserCreationUserIdFormat $userIdFormat
      */
     public function getUserIdFormat()
     {
@@ -90,7 +90,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $userIdDomain
      */
     public function getUserIdDomain()
     {
@@ -110,7 +110,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $populateExtension
      */
     public function getPopulateExtension()
     {
@@ -132,7 +132,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return TrunkGroupUserCreationSIPURIFormat
+     * @return TrunkGroupUserCreationSIPURIFormat $linePortFormat
      */
     public function getLinePortFormat()
     {
@@ -154,7 +154,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $linePortDomain
      */
     public function getLinePortDomain()
     {
@@ -174,7 +174,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $populateContact
      */
     public function getPopulateContact()
     {
@@ -196,7 +196,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return TrunkGroupUserCreationSIPURIFormat
+     * @return TrunkGroupUserCreationSIPURIFormat $contactFormat
      */
     public function getContactFormat()
     {
@@ -218,7 +218,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $contactDomain
      */
     public function getContactDomain()
     {
@@ -238,7 +238,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return xs:int
+     * @return int $usersCreated
      */
     public function getUsersCreated()
     {
@@ -258,7 +258,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return xs:int
+     * @return int $totalUsersToCreate
      */
     public function getTotalUsersToCreate()
     {
@@ -278,7 +278,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return xs:int
+     * @return int $errorCount
      */
     public function getErrorCount()
     {
@@ -300,7 +300,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {
@@ -322,7 +322,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return UserService
+     * @return UserService $userServiceName
      */
     public function getUserServiceName()
     {
@@ -344,7 +344,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return TrunkGroupUserCreationTaskStatus
+     * @return TrunkGroupUserCreationTaskStatus $status
      */
     public function getStatus()
     {
@@ -366,7 +366,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return TrunkGroupUserCreationMode
+     * @return TrunkGroupUserCreationMode $userCreationMode
      */
     public function getUserCreationMode()
     {
@@ -386,7 +386,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return xs:token
+     * @return string $taskSummary
      */
     public function getTaskSummary()
     {
@@ -406,7 +406,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse14sp4 extends ComplexType implem
 
     /**
      * 
-     * @return xs:token
+     * @return string $reportFileKey
      */
     public function getReportFileKey()
     {

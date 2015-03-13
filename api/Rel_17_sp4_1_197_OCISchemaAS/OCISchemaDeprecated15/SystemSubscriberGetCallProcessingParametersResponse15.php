@@ -31,7 +31,7 @@ class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType 
     protected $maxNoAnswerNumberOfRings               = null;
 
     /**
-     * @return SystemSubscriberGetCallProcessingParametersResponse15
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemSubscriberGetCallProcessingParametersResponse15 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType 
 
     /**
      * 
-     * @return SystemUserCallingLineIdSelection
+     * @return SystemUserCallingLineIdSelection $userCallingLineIdSelection
      */
     public function getUserCallingLineIdSelection()
     {
@@ -73,7 +73,7 @@ class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isExtendedCallingLineIdActive
      */
     public function getIsExtendedCallingLineIdActive()
     {
@@ -93,7 +93,7 @@ class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRingTimeOutActive
      */
     public function getIsRingTimeOutActive()
     {
@@ -115,7 +115,7 @@ class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType 
 
     /**
      * 
-     * @return SystemUserRingTimeoutSeconds
+     * @return SystemUserRingTimeoutSeconds $ringTimeoutSeconds
      */
     public function getRingTimeoutSeconds()
     {
@@ -135,7 +135,7 @@ class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEmergencyRemoteOfficeOriginations
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
@@ -157,7 +157,7 @@ class SystemSubscriberGetCallProcessingParametersResponse15 extends ComplexType 
 
     /**
      * 
-     * @return MaxNoAnswerNumberOfRings
+     * @return MaxNoAnswerNumberOfRings $maxNoAnswerNumberOfRings
      */
     public function getMaxNoAnswerNumberOfRings()
     {

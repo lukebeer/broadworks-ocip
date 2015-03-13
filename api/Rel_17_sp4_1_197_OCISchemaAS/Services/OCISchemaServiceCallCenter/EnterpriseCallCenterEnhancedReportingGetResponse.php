@@ -25,7 +25,7 @@ class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType imple
     protected $webStatisticSource = null;
 
     /**
-     * @return EnterpriseCallCenterEnhancedReportingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterReportServerChoice
+     * @return CallCenterReportServerChoice $reportingServer
      */
     public function getReportingServer()
     {
@@ -69,7 +69,7 @@ class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterReportWebStatisticsSource
+     * @return CallCenterReportWebStatisticsSource $webStatisticSource
      */
     public function getWebStatisticSource()
     {

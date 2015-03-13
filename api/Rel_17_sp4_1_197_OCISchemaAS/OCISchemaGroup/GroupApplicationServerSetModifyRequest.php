@@ -38,7 +38,7 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ApplicationServerSetName
+     * @return ApplicationServerSetName $applicationServerSetName
      */
     public function getApplicationServerSetName()
     {
@@ -82,7 +82,7 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -104,7 +104,7 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {

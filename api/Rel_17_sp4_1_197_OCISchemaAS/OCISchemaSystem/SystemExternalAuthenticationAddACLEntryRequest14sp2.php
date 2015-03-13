@@ -34,7 +34,7 @@ class SystemExternalAuthenticationAddACLEntryRequest14sp2 extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemExternalAuthenticationAddACLEntryRequest14sp2 extends ComplexType im
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -78,7 +78,7 @@ class SystemExternalAuthenticationAddACLEntryRequest14sp2 extends ComplexType im
 
     /**
      * 
-     * @return NetworkACLEntryDescription
+     * @return NetworkACLEntryDescription $description
      */
     public function getDescription()
     {

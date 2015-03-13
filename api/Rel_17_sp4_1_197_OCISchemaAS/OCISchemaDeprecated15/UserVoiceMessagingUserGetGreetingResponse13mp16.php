@@ -38,7 +38,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
     protected $noAnswerNumberOfRings         = null;
 
     /**
-     * @return UserVoiceMessagingUserGetGreetingResponse13mp16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserVoiceMessagingUserGetGreetingResponse13mp16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return AnnouncementSelection
+     * @return AnnouncementSelection $busyAnnouncementSelection
      */
     public function getBusyAnnouncementSelection()
     {
@@ -82,7 +82,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $busyPersonalAudioFile
      */
     public function getBusyPersonalAudioFile()
     {
@@ -104,7 +104,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $busyPersonalVideoFile
      */
     public function getBusyPersonalVideoFile()
     {
@@ -126,7 +126,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return VoiceMessagingNoAnswerGreetingSelection
+     * @return VoiceMessagingNoAnswerGreetingSelection $noAnswerAnnouncementSelection
      */
     public function getNoAnswerAnnouncementSelection()
     {
@@ -148,7 +148,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $noAnswerPersonalAudioFile
      */
     public function getNoAnswerPersonalAudioFile()
     {
@@ -170,7 +170,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $noAnswerPersonalVideoFile
      */
     public function getNoAnswerPersonalVideoFile()
     {
@@ -190,7 +190,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingRead
+     * @return VoiceMessagingAlternateNoAnswerGreetingRead $noAnswerAlternateGreeting01
      */
     public function getNoAnswerAlternateGreeting01()
     {
@@ -210,7 +210,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingRead
+     * @return VoiceMessagingAlternateNoAnswerGreetingRead $noAnswerAlternateGreeting02
      */
     public function getNoAnswerAlternateGreeting02()
     {
@@ -230,7 +230,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingRead
+     * @return VoiceMessagingAlternateNoAnswerGreetingRead $noAnswerAlternateGreeting03
      */
     public function getNoAnswerAlternateGreeting03()
     {
@@ -252,7 +252,7 @@ class UserVoiceMessagingUserGetGreetingResponse13mp16 extends ComplexType implem
 
     /**
      * 
-     * @return VoiceMessagingNumberOfRings
+     * @return VoiceMessagingNumberOfRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {

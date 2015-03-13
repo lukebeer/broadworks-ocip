@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CommunicationBarringAuthorizationCodeEntry;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +25,7 @@ class GroupCommunicationBarringAuthorizationCodeGetListResponse extends ComplexT
     protected $code = null;
 
     /**
-     * @return GroupCommunicationBarringAuthorizationCodeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommunicationBarringAuthorizationCodeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupCommunicationBarringAuthorizationCodeGetListResponse extends ComplexT
 
     /**
      * 
-     * @return CommunicationBarringAuthorizationCodeEntry
+     * @return CommunicationBarringAuthorizationCodeEntry $code
      */
     public function getCode()
     {

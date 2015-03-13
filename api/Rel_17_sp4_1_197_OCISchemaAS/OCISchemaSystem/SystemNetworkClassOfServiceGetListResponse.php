@@ -25,7 +25,7 @@ class SystemNetworkClassOfServiceGetListResponse extends ComplexType implements 
     protected $networkClassOfServiceTable = null;
 
     /**
-     * @return SystemNetworkClassOfServiceGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -23,7 +23,7 @@ class UserSpeedDial8GetListResponse extends ComplexType implements ComplexInterf
     protected $speedDialEntry = null;
 
     /**
-     * @return UserSpeedDial8GetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial8\UserSpeedDial8GetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserSpeedDial8GetListResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SpeedDial8Entry
+     * @return SpeedDial8Entry $speedDialEntry
      */
     public function getSpeedDialEntry()
     {

@@ -32,7 +32,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
     protected $phoneNumber         = null;
 
     /**
-     * @return UserInstantConferencingLoginStandAloneResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
 
     /**
      * 
-     * @return OCILocale
+     * @return OCILocale $locale
      */
     public function getLocale()
     {
@@ -76,7 +76,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
 
     /**
      * 
-     * @return Encoding
+     * @return Encoding $encoding
      */
     public function getEncoding()
     {
@@ -98,7 +98,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
 
     /**
      * 
-     * @return TimeZone
+     * @return TimeZone $timeZone
      */
     public function getTimeZone()
     {
@@ -120,7 +120,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
 
     /**
      * 
-     * @return TimeZoneDisplayName
+     * @return TimeZoneDisplayName $timeZoneDisplayName
      */
     public function getTimeZoneDisplayName()
     {
@@ -142,7 +142,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {

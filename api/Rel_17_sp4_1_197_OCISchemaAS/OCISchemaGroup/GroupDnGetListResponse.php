@@ -24,7 +24,7 @@ class GroupDnGetListResponse extends ComplexType implements ComplexInterface
     protected $phoneNumber = null;
 
     /**
-     * @return GroupDnGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupDnGetListResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {

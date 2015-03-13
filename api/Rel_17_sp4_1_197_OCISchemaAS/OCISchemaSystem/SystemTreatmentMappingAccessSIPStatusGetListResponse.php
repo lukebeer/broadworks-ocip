@@ -24,7 +24,7 @@ class SystemTreatmentMappingAccessSIPStatusGetListResponse extends ComplexType i
     protected $treatmentMappingTable = null;
 
     /**
-     * @return SystemTreatmentMappingAccessSIPStatusGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingAccessSIPStatusGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

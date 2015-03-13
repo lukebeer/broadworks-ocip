@@ -28,7 +28,7 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
     protected $clickToDialAccessCode = null;
 
     /**
-     * @return SystemServiceActivationAccessCodeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceActivationAccessCodeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -70,7 +70,7 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return ServiceActivationAccessCode
+     * @return ServiceActivationAccessCode $terminatingAccessCode
      */
     public function getTerminatingAccessCode()
     {
@@ -92,7 +92,7 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return ServiceActivationAccessCode
+     * @return ServiceActivationAccessCode $redirectingAccessCode
      */
     public function getRedirectingAccessCode()
     {
@@ -114,7 +114,7 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
 
     /**
      * 
-     * @return ServiceActivationAccessCode
+     * @return ServiceActivationAccessCode $clickToDialAccessCode
      */
     public function getClickToDialAccessCode()
     {

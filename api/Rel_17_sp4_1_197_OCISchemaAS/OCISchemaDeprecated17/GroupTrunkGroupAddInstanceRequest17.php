@@ -177,7 +177,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -199,7 +199,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -221,7 +221,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -243,7 +243,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrunkGroupName
+     * @return TrunkGroupName $name
      */
     public function getName()
     {
@@ -263,7 +263,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrunkGroupPilotUser
+     * @return TrunkGroupPilotUser $pilotUser
      */
     public function getPilotUser()
     {
@@ -283,7 +283,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $department
      */
     public function getDepartment()
     {
@@ -303,7 +303,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDevice
+     * @return AccessDevice $accessDevice
      */
     public function getAccessDevice()
     {
@@ -325,7 +325,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return MaxActiveCalls
+     * @return MaxActiveCalls $maxActiveCalls
      */
     public function getMaxActiveCalls()
     {
@@ -347,7 +347,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return MaxIncomingCalls
+     * @return MaxIncomingCalls $maxIncomingCalls
      */
     public function getMaxIncomingCalls()
     {
@@ -369,7 +369,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return MaxOutgoingCalls
+     * @return MaxOutgoingCalls $maxOutgoingCalls
      */
     public function getMaxOutgoingCalls()
     {
@@ -389,7 +389,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableBursting
      */
     public function getEnableBursting()
     {
@@ -411,7 +411,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return BurstingMaxActiveCalls
+     * @return BurstingMaxActiveCalls $burstingMaxActiveCalls
      */
     public function getBurstingMaxActiveCalls()
     {
@@ -433,7 +433,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return BurstingMaxIncomingCalls
+     * @return BurstingMaxIncomingCalls $burstingMaxIncomingCalls
      */
     public function getBurstingMaxIncomingCalls()
     {
@@ -455,7 +455,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return BurstingMaxOutgoingCalls
+     * @return BurstingMaxOutgoingCalls $burstingMaxOutgoingCalls
      */
     public function getBurstingMaxOutgoingCalls()
     {
@@ -477,7 +477,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrunkGroupCapacityExceededAction
+     * @return TrunkGroupCapacityExceededAction $capacityExceededAction
      */
     public function getCapacityExceededAction()
     {
@@ -499,7 +499,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $capacityExceededForwardAddress
      */
     public function getCapacityExceededForwardAddress()
     {
@@ -519,7 +519,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $capacityExceededRerouteTrunkGroupKey
      */
     public function getCapacityExceededRerouteTrunkGroupKey()
     {
@@ -541,7 +541,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrapInitialThreshold
+     * @return TrapInitialThreshold $capacityExceededTrapInitialCalls
      */
     public function getCapacityExceededTrapInitialCalls()
     {
@@ -563,7 +563,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrapOffsetThreshold
+     * @return TrapOffsetThreshold $capacityExceededTrapOffsetCalls
      */
     public function getCapacityExceededTrapOffsetCalls()
     {
@@ -585,7 +585,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrunkGroupUnreachableDestinationAction
+     * @return TrunkGroupUnreachableDestinationAction $unreachableDestinationAction
      */
     public function getUnreachableDestinationAction()
     {
@@ -607,7 +607,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $unreachableDestinationForwardAddress
      */
     public function getUnreachableDestinationForwardAddress()
     {
@@ -627,7 +627,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey
      */
     public function getUnreachableDestinationRerouteTrunkGroupKey()
     {
@@ -649,7 +649,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrunkGroupInvitationTimeoutSeconds
+     * @return TrunkGroupInvitationTimeoutSeconds $invitationTimeout
      */
     public function getInvitationTimeout()
     {
@@ -669,7 +669,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireAuthentication
      */
     public function getRequireAuthentication()
     {
@@ -691,7 +691,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SIPAuthenticationUserName
+     * @return SIPAuthenticationUserName $sipAuthenticationUserName
      */
     public function getSipAuthenticationUserName()
     {
@@ -713,7 +713,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return Password
+     * @return Password $sipAuthenticationPassword
      */
     public function getSipAuthenticationPassword()
     {
@@ -735,7 +735,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $hostedUserId
      */
     public function getHostedUserId()
     {
@@ -757,7 +757,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $trunkGroupIdentity
      */
     public function getTrunkGroupIdentity()
     {
@@ -779,7 +779,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return OtgDtgIdentity
+     * @return OtgDtgIdentity $otgDtgIdentity
      */
     public function getOtgDtgIdentity()
     {
@@ -799,7 +799,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeTrunkGroupIdentity
      */
     public function getIncludeTrunkGroupIdentity()
     {
@@ -819,7 +819,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeDtgIdentity
      */
     public function getIncludeDtgIdentity()
     {
@@ -839,7 +839,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableNetworkAddressIdentity
      */
     public function getEnableNetworkAddressIdentity()
     {
@@ -859,7 +859,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUnscreenedCalls
      */
     public function getAllowUnscreenedCalls()
     {
@@ -879,7 +879,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUnscreenedEmergencyCalls
      */
     public function getAllowUnscreenedEmergencyCalls()
     {
@@ -901,7 +901,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrunkGroupPilotUserCallingLineIdentityUsagePolicy
+     * @return TrunkGroupPilotUserCallingLineIdentityUsagePolicy $pilotUserCallingLineIdentityPolicy
      */
     public function getPilotUserCallingLineIdentityPolicy()
     {
@@ -923,7 +923,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrunkGroupPilotUserChargeNumberUsagePolicy
+     * @return TrunkGroupPilotUserChargeNumberUsagePolicy $pilotUserChargeNumberPolicy
      */
     public function getPilotUserChargeNumberPolicy()
     {
@@ -945,7 +945,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrunkGroupCallForwardingAlwaysAction
+     * @return TrunkGroupCallForwardingAlwaysAction $callForwardingAlwaysAction
      */
     public function getCallForwardingAlwaysAction()
     {
@@ -967,7 +967,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $callForwardingAlwaysForwardAddress
      */
     public function getCallForwardingAlwaysForwardAddress()
     {
@@ -987,7 +987,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey
      */
     public function getCallForwardingAlwaysRerouteTrunkGroupKey()
     {
@@ -1009,7 +1009,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $peeringDomain
      */
     public function getPeeringDomain()
     {
@@ -1029,7 +1029,7 @@ class GroupTrunkGroupAddInstanceRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $routeToPeeringDomain
      */
     public function getRouteToPeeringDomain()
     {

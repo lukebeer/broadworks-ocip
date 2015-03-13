@@ -27,7 +27,7 @@ class EnterpriseEnterpriseTrunkGetResponse extends ComplexType implements Comple
     protected $routeExhaustionForwardAddress = null;
 
     /**
-     * @return EnterpriseEnterpriseTrunkGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class EnterpriseEnterpriseTrunkGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return EnterpriseTrunkMaximumRerouteAttempts
+     * @return EnterpriseTrunkMaximumRerouteAttempts $maximumRerouteAttempts
      */
     public function getMaximumRerouteAttempts()
     {
@@ -71,7 +71,7 @@ class EnterpriseEnterpriseTrunkGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return EnterpriseTrunkRouteExhaustionAction
+     * @return EnterpriseTrunkRouteExhaustionAction $routeExhaustionAction
      */
     public function getRouteExhaustionAction()
     {
@@ -93,7 +93,7 @@ class EnterpriseEnterpriseTrunkGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $routeExhaustionForwardAddress
      */
     public function getRouteExhaustionForwardAddress()
     {

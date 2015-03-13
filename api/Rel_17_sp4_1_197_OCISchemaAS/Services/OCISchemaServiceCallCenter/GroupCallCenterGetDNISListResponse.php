@@ -34,7 +34,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
     protected $dnisTable                           = null;
 
     /**
-     * @return GroupCallCenterGetDNISListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetDNISListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $displayDNISNumber
      */
     public function getDisplayDNISNumber()
     {
@@ -74,7 +74,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $displayDNISName
      */
     public function getDisplayDNISName()
     {
@@ -94,7 +94,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $promoteCallsFromPriority1to0
      */
     public function getPromoteCallsFromPriority1to0()
     {
@@ -114,7 +114,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $promoteCallsFromPriority2to1
      */
     public function getPromoteCallsFromPriority2to1()
     {
@@ -134,7 +134,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $promoteCallsFromPriority3to2
      */
     public function getPromoteCallsFromPriority3to2()
     {
@@ -156,7 +156,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DNISPromoteCallPrioritySeconds
+     * @return DNISPromoteCallPrioritySeconds $promoteCallsFromPriority1to0Seconds
      */
     public function getPromoteCallsFromPriority1to0Seconds()
     {
@@ -178,7 +178,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DNISPromoteCallPrioritySeconds
+     * @return DNISPromoteCallPrioritySeconds $promoteCallsFromPriority2to1Seconds
      */
     public function getPromoteCallsFromPriority2to1Seconds()
     {
@@ -200,7 +200,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DNISPromoteCallPrioritySeconds
+     * @return DNISPromoteCallPrioritySeconds $promoteCallsFromPriority3to2Seconds
      */
     public function getPromoteCallsFromPriority3to2Seconds()
     {

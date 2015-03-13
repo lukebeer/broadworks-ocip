@@ -27,7 +27,7 @@ class EnhancedCallLogsResponsePagingControl extends ComplexType implements Compl
     protected $responsePageSize   = null;
 
     /**
-     * @return EnhancedCallLogsResponsePagingControl
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsResponsePagingControl $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class EnhancedCallLogsResponsePagingControl extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $responseStartIndex
      */
     public function getResponseStartIndex()
     {
@@ -67,7 +67,7 @@ class EnhancedCallLogsResponsePagingControl extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $responsePageSize
      */
     public function getResponsePageSize()
     {

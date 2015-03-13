@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDeviceTypeGetAvailableListResponse14sp1;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -48,7 +47,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp1 extends ComplexType implement
     }
 
     /**
-     * @return SystemDeviceTypeGetAvailableListResponse14sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDeviceTypeGetAvailableListResponse14sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +67,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowConference
      */
     public function getAllowConference()
     {
@@ -88,7 +87,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowMusicOnHold
      */
     public function getAllowMusicOnHold()
     {
@@ -108,7 +107,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $onlyConference
      */
     public function getOnlyConference()
     {
@@ -128,7 +127,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $onlyVideoCapable
      */
     public function getOnlyVideoCapable()
     {
@@ -148,7 +147,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $onlyOptionalIpAddress
      */
     public function getOnlyOptionalIpAddress()
     {

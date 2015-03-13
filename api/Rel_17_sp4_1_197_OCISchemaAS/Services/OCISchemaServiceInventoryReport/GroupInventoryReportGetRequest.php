@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceP
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -56,7 +55,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return GroupInventoryReportGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +77,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -100,7 +99,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -120,7 +119,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeUsers
      */
     public function getIncludeUsers()
     {
@@ -140,7 +139,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeServices
      */
     public function getIncludeServices()
     {
@@ -160,7 +159,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeDns
      */
     public function getIncludeDns()
     {
@@ -180,7 +179,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeAccessDevices
      */
     public function getIncludeAccessDevices()
     {
@@ -200,7 +199,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeDepartments
      */
     public function getIncludeDepartments()
     {
@@ -222,7 +221,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportDeliveryEmailAddress
      */
     public function getReportDeliveryEmailAddress()
     {

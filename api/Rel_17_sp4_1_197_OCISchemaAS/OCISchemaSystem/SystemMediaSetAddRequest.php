@@ -34,7 +34,7 @@ class SystemMediaSetAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemMediaSetAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return MediaSetName
+     * @return MediaSetName $setName
      */
     public function getSetName()
     {
@@ -78,7 +78,7 @@ class SystemMediaSetAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return MediaName
+     * @return MediaName $mediaName
      */
     public function getMediaName()
     {

@@ -25,7 +25,7 @@ class SystemPortalAPIGetACLListResponse extends ComplexType implements ComplexIn
     protected $aclTable = null;
 
     /**
-     * @return SystemPortalAPIGetACLListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPortalAPIGetACLListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

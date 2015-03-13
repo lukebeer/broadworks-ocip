@@ -32,7 +32,7 @@ class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexI
     protected $maxRetryOriginatorMinutes         = null;
 
     /**
-     * @return SystemAutomaticCallbackGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAutomaticCallbackGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AutomaticCallbackMonitorMinutes
+     * @return AutomaticCallbackMonitorMinutes $monitorMinutes
      */
     public function getMonitorMinutes()
     {
@@ -76,7 +76,7 @@ class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AutomaticCallbackWaitBetweenRetryOriginatorMinutes
+     * @return AutomaticCallbackWaitBetweenRetryOriginatorMinutes $waitBetweenRetryOriginatorMinutes
      */
     public function getWaitBetweenRetryOriginatorMinutes()
     {
@@ -98,7 +98,7 @@ class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AutomaticCallbackMaxMonitorsPerOriginator
+     * @return AutomaticCallbackMaxMonitorsPerOriginator $maxMonitorsPerOriginator
      */
     public function getMaxMonitorsPerOriginator()
     {
@@ -120,7 +120,7 @@ class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AutomaticCallbackMaxCallbackRings
+     * @return AutomaticCallbackMaxCallbackRings $maxCallbackRings
      */
     public function getMaxCallbackRings()
     {
@@ -142,7 +142,7 @@ class SystemAutomaticCallbackGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AutomaticCallbackMaxRetryOriginatorMinutes
+     * @return AutomaticCallbackMaxRetryOriginatorMinutes $maxRetryOriginatorMinutes
      */
     public function getMaxRetryOriginatorMinutes()
     {

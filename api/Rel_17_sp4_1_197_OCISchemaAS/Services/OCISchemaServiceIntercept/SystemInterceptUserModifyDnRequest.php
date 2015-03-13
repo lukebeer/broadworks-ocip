@@ -34,7 +34,7 @@ class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -78,7 +78,7 @@ class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return InterceptPhoneNumberDescription
+     * @return InterceptPhoneNumberDescription $description
      */
     public function getDescription()
     {

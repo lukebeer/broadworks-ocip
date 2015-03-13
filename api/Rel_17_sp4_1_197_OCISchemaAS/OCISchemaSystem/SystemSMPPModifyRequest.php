@@ -56,7 +56,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +78,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $primarySMPPServerNetAddress
      */
     public function getPrimarySMPPServerNetAddress()
     {
@@ -100,7 +100,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Port
+     * @return Port $primarySMPPPort
      */
     public function getPrimarySMPPPort()
     {
@@ -122,7 +122,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $secondarySMPPServerNetAddress
      */
     public function getSecondarySMPPServerNetAddress()
     {
@@ -144,7 +144,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Port
+     * @return Port $secondarySMPPPort
      */
     public function getSecondarySMPPPort()
     {
@@ -166,7 +166,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SMPPSystemId
+     * @return SMPPSystemId $systemId
      */
     public function getSystemId()
     {
@@ -188,7 +188,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SMPPPassword
+     * @return SMPPPassword $password
      */
     public function getPassword()
     {
@@ -210,7 +210,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SMPPVersion
+     * @return SMPPVersion $version
      */
     public function getVersion()
     {
@@ -232,7 +232,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SMPPSystemType
+     * @return SMPPSystemType $systemType
      */
     public function getSystemType()
     {

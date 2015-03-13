@@ -30,7 +30,7 @@ class SystemHomeNetworkAddRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemHomeNetworkAddRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return DN
+     * @return DN $mscAddress
      */
     public function getMscAddress()
     {

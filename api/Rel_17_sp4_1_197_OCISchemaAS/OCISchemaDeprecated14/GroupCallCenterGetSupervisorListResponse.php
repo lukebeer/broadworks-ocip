@@ -28,7 +28,7 @@ class GroupCallCenterGetSupervisorListResponse extends ComplexType implements Co
     protected $supervisorTable    = null;
 
     /**
-     * @return GroupCallCenterGetSupervisorListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetSupervisorListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupCallCenterGetSupervisorListResponse extends ComplexType implements Co
 
     /**
      * 
-     * @return URL
+     * @return URL $reportingServerURL
      */
     public function getReportingServerURL()
     {

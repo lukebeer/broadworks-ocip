@@ -21,7 +21,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPhoneDirectoryGetListResponse17;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -97,7 +96,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
     }
 
     /**
-     * @return GroupPhoneDirectoryGetListResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPhoneDirectoryGetListResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -119,7 +118,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -141,7 +140,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -161,7 +160,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isExtendedInfoRequested
      */
     public function getIsExtendedInfoRequested()
     {
@@ -183,7 +182,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -205,7 +204,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -227,7 +226,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -249,7 +248,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -271,7 +270,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaGroupLocationCode
+     * @return SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode
      */
     public function getSearchCriteriaGroupLocationCode()
     {
@@ -293,7 +292,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaExtension
+     * @return SearchCriteriaExtension $searchCriteriaExtension
      */
     public function getSearchCriteriaExtension()
     {
@@ -315,7 +314,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaMobilePhoneNumber
+     * @return SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber
      */
     public function getSearchCriteriaMobilePhoneNumber()
     {
@@ -337,7 +336,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaEmailAddress
+     * @return SearchCriteriaEmailAddress $searchCriteriaEmailAddress
      */
     public function getSearchCriteriaEmailAddress()
     {
@@ -359,7 +358,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaYahooId
+     * @return SearchCriteriaYahooId $searchCriteriaYahooId
      */
     public function getSearchCriteriaYahooId()
     {
@@ -381,7 +380,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaExactUserGroup
+     * @return SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup
      */
     public function getSearchCriteriaExactUserGroup()
     {
@@ -403,7 +402,7 @@ class GroupPhoneDirectoryGetListRequest17 extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaExactUserDepartment
+     * @return SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment
      */
     public function getSearchCriteriaExactUserDepartment()
     {

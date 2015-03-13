@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceRecordingKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MeetMeConferencingConferenceRecordingKey extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\MeetMeConferencingConferenceRecordingKey';
     public    $name         = 'MeetMeConferencingConferenceRecordingKey';
     protected $bridgeId     = null;
     protected $conferenceId = null;
@@ -37,7 +35,7 @@ class MeetMeConferencingConferenceRecordingKey extends ComplexType implements Co
     }
 
     /**
-     * @return MeetMeConferencingConferenceRecordingKey
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +55,7 @@ class MeetMeConferencingConferenceRecordingKey extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $bridgeId
      */
     public function getBridgeId()
     {
@@ -77,7 +75,7 @@ class MeetMeConferencingConferenceRecordingKey extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $conferenceId
      */
     public function getConferenceId()
     {
@@ -97,7 +95,7 @@ class MeetMeConferencingConferenceRecordingKey extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $startTime
      */
     public function getStartTime()
     {

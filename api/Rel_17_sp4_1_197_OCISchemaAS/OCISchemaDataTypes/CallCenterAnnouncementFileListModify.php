@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementFileListModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAnnouncementFileListModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementFileListModify';
     public    $name  = 'CallCenterAnnouncementFileListModify';
     protected $file1 = null;
     protected $file2 = null;
@@ -40,7 +38,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
     }
 
     /**
-     * @return CallCenterAnnouncementFileListModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $file1
      */
     public function getFile1()
     {
@@ -80,7 +78,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $file2
      */
     public function getFile2()
     {
@@ -100,7 +98,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $file3
      */
     public function getFile3()
     {
@@ -120,7 +118,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $file4
      */
     public function getFile4()
     {

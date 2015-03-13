@@ -34,7 +34,7 @@ class SystemTreatmentMappingNetworkSIPStatusModifyRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemTreatmentMappingNetworkSIPStatusModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return SIPFailureStatusCode
+     * @return SIPFailureStatusCode $sipStatusCode
      */
     public function getSipStatusCode()
     {
@@ -78,7 +78,7 @@ class SystemTreatmentMappingNetworkSIPStatusModifyRequest extends ComplexType im
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $treatmentId
      */
     public function getTreatmentId()
     {

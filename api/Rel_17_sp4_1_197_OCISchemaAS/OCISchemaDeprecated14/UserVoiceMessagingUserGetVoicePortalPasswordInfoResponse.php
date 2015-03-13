@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -26,7 +25,7 @@ class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexTy
     protected $password        = null;
 
     /**
-     * @return UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +45,7 @@ class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isLoginDisabled
      */
     public function getIsLoginDisabled()
     {
@@ -68,7 +67,7 @@ class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexTy
 
     /**
      * 
-     * @return Password
+     * @return Password $password
      */
     public function getPassword()
     {

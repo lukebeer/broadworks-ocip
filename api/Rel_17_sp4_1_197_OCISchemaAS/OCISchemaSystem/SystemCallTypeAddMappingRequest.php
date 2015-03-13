@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallTypeDigitMap;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -38,7 +37,7 @@ class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +59,7 @@ class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $countryCode
      */
     public function getCountryCode()
     {
@@ -82,7 +81,7 @@ class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CallTypeDigitMap
+     * @return CallTypeDigitMap $digitMap
      */
     public function getDigitMap()
     {
@@ -104,7 +103,7 @@ class SystemCallTypeAddMappingRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SystemCallType
+     * @return SystemCallType $callType
      */
     public function getCallType()
     {

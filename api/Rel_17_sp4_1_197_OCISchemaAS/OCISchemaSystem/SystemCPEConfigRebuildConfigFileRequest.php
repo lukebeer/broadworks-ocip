@@ -35,7 +35,7 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -79,7 +79,7 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return CPEDeviceConfigRebuildType
+     * @return CPEDeviceConfigRebuildType $rebuildType
      */
     public function getRebuildType()
     {

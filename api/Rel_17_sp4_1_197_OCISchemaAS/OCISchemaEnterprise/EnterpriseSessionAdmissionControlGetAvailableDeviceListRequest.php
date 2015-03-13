@@ -15,7 +15,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -60,7 +59,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
     }
 
     /**
-     * @return EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -82,7 +81,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -104,7 +103,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -126,7 +125,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
 
     /**
      * 
-     * @return SearchCriteriaDeviceName
+     * @return SearchCriteriaDeviceName $searchCriteriaDeviceName
      */
     public function getSearchCriteriaDeviceName()
     {
@@ -148,7 +147,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
 
     /**
      * 
-     * @return SearchCriteriaDeviceMACAddress
+     * @return SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress
      */
     public function getSearchCriteriaDeviceMACAddress()
     {
@@ -170,7 +169,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
 
     /**
      * 
-     * @return SearchCriteriaDeviceNetAddress
+     * @return SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress
      */
     public function getSearchCriteriaDeviceNetAddress()
     {
@@ -192,7 +191,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -214,7 +213,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
 
     /**
      * 
-     * @return SearchCriteriaExactDeviceType
+     * @return SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType
      */
     public function getSearchCriteriaExactDeviceType()
     {
@@ -236,7 +235,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
 
     /**
      * 
-     * @return SearchCriteriaExactDeviceLevel
+     * @return SearchCriteriaExactDeviceLevel $searchCriteriaExactDeviceLevel
      */
     public function getSearchCriteriaExactDeviceLevel()
     {

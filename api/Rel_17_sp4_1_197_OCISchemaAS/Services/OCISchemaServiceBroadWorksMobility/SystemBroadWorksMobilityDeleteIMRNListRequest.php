@@ -30,7 +30,7 @@ class SystemBroadWorksMobilityDeleteIMRNListRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemBroadWorksMobilityDeleteIMRNListRequest extends ComplexType implemen
 
     /**
      * 
-     * @return DN
+     * @return DN $imrnNumber
      */
     public function getImrnNumber()
     {

@@ -23,7 +23,7 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse extends
     protected $codeEntry = null;
 
     /**
-     * @return GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse extends
 
     /**
      * 
-     * @return OutgoingCallingPlanAuthorizationCodeEntry
+     * @return OutgoingCallingPlanAuthorizationCodeEntry $codeEntry
      */
     public function getCodeEntry()
     {

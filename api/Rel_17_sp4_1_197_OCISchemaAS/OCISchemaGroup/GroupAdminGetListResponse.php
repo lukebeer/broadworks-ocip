@@ -25,7 +25,7 @@ class GroupAdminGetListResponse extends ComplexType implements ComplexInterface
     protected $groupAdminTable = null;
 
     /**
-     * @return GroupAdminGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAdminGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

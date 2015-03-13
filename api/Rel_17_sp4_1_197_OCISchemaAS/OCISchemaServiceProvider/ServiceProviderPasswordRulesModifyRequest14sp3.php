@@ -102,7 +102,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -124,7 +124,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -146,7 +146,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderPasswordRulesApplyTo
+     * @return ServiceProviderPasswordRulesApplyTo $rulesApplyTo
      */
     public function getRulesApplyTo()
     {
@@ -166,7 +166,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowWebAddExternalAuthenticationUsers
      */
     public function getAllowWebAddExternalAuthenticationUsers()
     {
@@ -186,7 +186,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserId
      */
     public function getDisallowUserId()
     {
@@ -206,7 +206,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPassword
      */
     public function getDisallowOldPassword()
     {
@@ -226,7 +226,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPassword
      */
     public function getDisallowReversedOldPassword()
     {
@@ -246,7 +246,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinDigits
      */
     public function getRestrictMinDigits()
     {
@@ -268,7 +268,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return PasswordMinDigits
+     * @return PasswordMinDigits $minDigits
      */
     public function getMinDigits()
     {
@@ -288,7 +288,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinUpperCaseLetters
      */
     public function getRestrictMinUpperCaseLetters()
     {
@@ -310,7 +310,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return PasswordMinUpperCaseLetters
+     * @return PasswordMinUpperCaseLetters $minUpperCaseLetters
      */
     public function getMinUpperCaseLetters()
     {
@@ -330,7 +330,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinLowerCaseLetters
      */
     public function getRestrictMinLowerCaseLetters()
     {
@@ -352,7 +352,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return PasswordMinLowerCaseLetters
+     * @return PasswordMinLowerCaseLetters $minLowerCaseLetters
      */
     public function getMinLowerCaseLetters()
     {
@@ -372,7 +372,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinNonAlphanumericCharacters
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
@@ -394,7 +394,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return PasswordMinNonAlphanumericCharacters
+     * @return PasswordMinNonAlphanumericCharacters $minNonAlphanumericCharacters
      */
     public function getMinNonAlphanumericCharacters()
     {
@@ -416,7 +416,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return PasswordMinLength
+     * @return PasswordMinLength $minLength
      */
     public function getMinLength()
     {
@@ -438,7 +438,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return MaxFailedLoginAttempts
+     * @return MaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -460,7 +460,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return PasswordExpiresDays
+     * @return PasswordExpiresDays $passwordExpiresDays
      */
     public function getPasswordExpiresDays()
     {
@@ -480,7 +480,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -502,7 +502,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
@@ -522,7 +522,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowPreviousPasswords
      */
     public function getDisallowPreviousPasswords()
     {
@@ -544,7 +544,7 @@ class ServiceProviderPasswordRulesModifyRequest14sp3 extends ComplexType impleme
 
     /**
      * 
-     * @return PasswordHistoryCount
+     * @return PasswordHistoryCount $numberOfPreviousPasswords
      */
     public function getNumberOfPreviousPasswords()
     {

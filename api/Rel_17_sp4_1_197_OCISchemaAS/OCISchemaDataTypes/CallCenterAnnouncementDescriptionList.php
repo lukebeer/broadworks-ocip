@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementDescriptionList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAnnouncementDescriptionList extends ComplexType implements ComplexInterface
 {
-    public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallCenterAnnouncementDescriptionList';
     public    $name             = 'CallCenterAnnouncementDescriptionList';
     protected $fileDescription1 = null;
     protected $fileDescription2 = null;
@@ -40,7 +38,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
     }
 
     /**
-     * @return CallCenterAnnouncementDescriptionList
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $fileDescription1
      */
     public function getFileDescription1()
     {
@@ -80,7 +78,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $fileDescription2
      */
     public function getFileDescription2()
     {
@@ -100,7 +98,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $fileDescription3
      */
     public function getFileDescription3()
     {
@@ -120,7 +118,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $fileDescription4
      */
     public function getFileDescription4()
     {

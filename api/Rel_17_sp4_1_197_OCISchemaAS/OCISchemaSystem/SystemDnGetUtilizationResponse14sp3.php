@@ -34,7 +34,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
     protected $isActivated          = null;
 
     /**
-     * @return SystemDnGetUtilizationResponse14sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDnGetUtilizationResponse14sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -78,7 +78,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -100,7 +100,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -122,7 +122,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserType
+     * @return UserType $userType
      */
     public function getUserType()
     {
@@ -142,7 +142,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isGroupCallingLineId
      */
     public function getIsGroupCallingLineId()
     {
@@ -162,7 +162,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActivated
      */
     public function getIsActivated()
     {

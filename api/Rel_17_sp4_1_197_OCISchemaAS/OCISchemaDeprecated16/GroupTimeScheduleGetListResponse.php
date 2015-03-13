@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ScheduleName;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +24,7 @@ class GroupTimeScheduleGetListResponse extends ComplexType implements ComplexInt
     protected $timeSchedule = null;
 
     /**
-     * @return GroupTimeScheduleGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupTimeScheduleGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupTimeScheduleGetListResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $timeSchedule
      */
     public function getTimeSchedule()
     {

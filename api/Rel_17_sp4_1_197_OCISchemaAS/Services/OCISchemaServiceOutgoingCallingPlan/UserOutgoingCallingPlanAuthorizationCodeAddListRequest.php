@@ -34,7 +34,7 @@ class UserOutgoingCallingPlanAuthorizationCodeAddListRequest extends ComplexType
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserOutgoingCallingPlanAuthorizationCodeAddListRequest extends ComplexType
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -76,7 +76,7 @@ class UserOutgoingCallingPlanAuthorizationCodeAddListRequest extends ComplexType
 
     /**
      * 
-     * @return OutgoingCallingPlanAuthorizationCodeEntry
+     * @return OutgoingCallingPlanAuthorizationCodeEntry $codeEntry
      */
     public function getCodeEntry()
     {

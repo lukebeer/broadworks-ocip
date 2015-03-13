@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseDepartmentKey;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +22,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseDepartmentKey extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EnterpriseDepartmentKey';
     public    $name              = 'EnterpriseDepartmentKey';
     protected $serviceProviderId = null;
     protected $name              = null;
@@ -37,7 +35,7 @@ class EnterpriseDepartmentKey extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return EnterpriseDepartmentKey
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +57,7 @@ class EnterpriseDepartmentKey extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -81,7 +79,7 @@ class EnterpriseDepartmentKey extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DepartmentName
+     * @return DepartmentName $name
      */
     public function getName()
     {

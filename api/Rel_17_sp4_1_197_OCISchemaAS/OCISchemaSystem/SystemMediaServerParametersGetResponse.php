@@ -28,7 +28,7 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
     protected $useStaticMediaServerDevice                 = null;
 
     /**
-     * @return SystemMediaServerParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaServerParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaServerResponseTimerMilliseconds
+     * @return MediaServerResponseTimerMilliseconds $mediaServerResponseTimerMilliseconds
      */
     public function getMediaServerResponseTimerMilliseconds()
     {
@@ -72,7 +72,7 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaServerSelectionRouteTimerMilliseconds
+     * @return MediaServerSelectionRouteTimerMilliseconds $mediaServerSelectionRouteTimerMilliseconds
      */
     public function getMediaServerSelectionRouteTimerMilliseconds()
     {
@@ -92,7 +92,7 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useStaticMediaServerDevice
      */
     public function getUseStaticMediaServerDevice()
     {

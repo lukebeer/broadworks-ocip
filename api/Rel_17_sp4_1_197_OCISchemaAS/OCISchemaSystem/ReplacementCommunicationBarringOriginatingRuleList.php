@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ReplacementCommunicationBarringOriginatingRuleList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementCommunicationBarringOriginatingRuleList extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ReplacementCommunicationBarringOriginatingRuleList';
     public    $name = 'ReplacementCommunicationBarringOriginatingRuleList';
     protected $rule = null;
 
@@ -33,7 +31,7 @@ class ReplacementCommunicationBarringOriginatingRuleList extends ComplexType imp
     }
 
     /**
-     * @return ReplacementCommunicationBarringOriginatingRuleList
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +51,7 @@ class ReplacementCommunicationBarringOriginatingRuleList extends ComplexType imp
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $rule
      */
     public function getRule()
     {

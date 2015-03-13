@@ -45,7 +45,7 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -89,7 +89,7 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
 
     /**
      * 
-     * @return Password
+     * @return Password $password
      */
     public function getPassword()
     {
@@ -111,7 +111,7 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
 
     /**
      * 
-     * @return LoginToken
+     * @return LoginToken $loginToken
      */
     public function getLoginToken()
     {

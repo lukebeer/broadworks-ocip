@@ -8,8 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationOperationOptionalValue;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationValue;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationOptionalValue;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNDigitManipulationOptionalValue';
     public    $name      = 'EnterpriseVoiceVPNDigitManipulationOptionalValue';
     protected $operation = null;
     protected $value     = null;
@@ -35,7 +32,7 @@ class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType imple
     }
 
     /**
-     * @return EnterpriseVoiceVPNDigitManipulationOptionalValue
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +54,7 @@ class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType imple
 
     /**
      * 
-     * @return EnterpriseVoiceVPNDigitManipulationOperationOptionalValue
+     * @return EnterpriseVoiceVPNDigitManipulationOperationOptionalValue $operation
      */
     public function getOperation()
     {
@@ -79,7 +76,7 @@ class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType imple
 
     /**
      * 
-     * @return EnterpriseVoiceVPNDigitManipulationValue
+     * @return EnterpriseVoiceVPNDigitManipulationValue $value
      */
     public function getValue()
     {

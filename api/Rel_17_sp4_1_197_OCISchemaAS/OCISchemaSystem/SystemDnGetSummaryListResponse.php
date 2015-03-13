@@ -24,7 +24,7 @@ class SystemDnGetSummaryListResponse extends ComplexType implements ComplexInter
     protected $dnSummaryTable = null;
 
     /**
-     * @return SystemDnGetSummaryListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDnGetSummaryListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

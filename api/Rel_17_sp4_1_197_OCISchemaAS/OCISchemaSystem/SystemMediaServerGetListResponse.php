@@ -24,7 +24,7 @@ class SystemMediaServerGetListResponse extends ComplexType implements ComplexInt
     protected $mediaServerTable = null;
 
     /**
-     * @return SystemMediaServerGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaServerGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -37,7 +37,7 @@ class SystemCallCenterEnhancedReportingModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemCallCenterEnhancedReportingModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $archiveReports
      */
     public function getArchiveReports()
     {
@@ -79,7 +79,7 @@ class SystemCallCenterEnhancedReportingModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return URL
+     * @return URL $reportApplicationURL
      */
     public function getReportApplicationURL()
     {
@@ -101,7 +101,7 @@ class SystemCallCenterEnhancedReportingModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return URL
+     * @return URL $repositoryApplicationURL
      */
     public function getRepositoryApplicationURL()
     {

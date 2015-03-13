@@ -30,7 +30,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
     protected $voiceMessagingGreetingMediaType       = null;
 
     /**
-     * @return GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
 
     /**
      * 
-     * @return VoiceMessagingBrandingSelection
+     * @return VoiceMessagingBrandingSelection $voicePortalGreetingSelection
      */
     public function getVoicePortalGreetingSelection()
     {
@@ -74,7 +74,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $voicePortalGreetingFileDescription
      */
     public function getVoicePortalGreetingFileDescription()
     {
@@ -96,7 +96,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $voicePortalGreetingMediaType
      */
     public function getVoicePortalGreetingMediaType()
     {
@@ -118,7 +118,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
 
     /**
      * 
-     * @return VoiceMessagingBrandingSelection
+     * @return VoiceMessagingBrandingSelection $voiceMessagingGreetingSelection
      */
     public function getVoiceMessagingGreetingSelection()
     {
@@ -140,7 +140,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $voiceMessagingGreetingFileDescription
      */
     public function getVoiceMessagingGreetingFileDescription()
     {
@@ -162,7 +162,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $voiceMessagingGreetingMediaType
      */
     public function getVoiceMessagingGreetingMediaType()
     {

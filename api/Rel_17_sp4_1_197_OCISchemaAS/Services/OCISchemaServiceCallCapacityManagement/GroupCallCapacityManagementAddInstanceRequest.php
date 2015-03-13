@@ -56,7 +56,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +78,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -100,7 +100,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -122,7 +122,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceInstanceName
+     * @return ServiceInstanceName $name
      */
     public function getName()
     {
@@ -144,7 +144,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return CallCapacityCallLimit
+     * @return CallCapacityCallLimit $maxActiveCallsAllowed
      */
     public function getMaxActiveCallsAllowed()
     {
@@ -166,7 +166,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return CallCapacityCallLimit
+     * @return CallCapacityCallLimit $maxIncomingActiveCallsAllowed
      */
     public function getMaxIncomingActiveCallsAllowed()
     {
@@ -188,7 +188,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return CallCapacityCallLimit
+     * @return CallCapacityCallLimit $maxOutgoingActiveCallsAllowed
      */
     public function getMaxOutgoingActiveCallsAllowed()
     {
@@ -208,7 +208,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $becomeDefaultGroupForNewUsers
      */
     public function getBecomeDefaultGroupForNewUsers()
     {
@@ -230,7 +230,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {

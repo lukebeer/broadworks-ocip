@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternRedirectingPermissions;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDigitPatternRedirectingPermissions extends ComplexType implements ComplexInterface
 {
-    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanDigitPatternRedirectingPermissions';
     public    $name                    = 'OutgoingCallingPlanDigitPatternRedirectingPermissions';
     protected $digitPatternPermissions = null;
 
@@ -31,7 +29,7 @@ class OutgoingCallingPlanDigitPatternRedirectingPermissions extends ComplexType 
     }
 
     /**
-     * @return OutgoingCallingPlanDigitPatternRedirectingPermissions
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +49,7 @@ class OutgoingCallingPlanDigitPatternRedirectingPermissions extends ComplexType 
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $digitPatternPermissions
      */
     public function getDigitPatternPermissions()
     {

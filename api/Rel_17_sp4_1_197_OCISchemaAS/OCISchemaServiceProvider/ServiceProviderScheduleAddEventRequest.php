@@ -48,7 +48,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -90,7 +90,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {
@@ -112,7 +112,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return EventName
+     * @return EventName $eventName
      */
     public function getEventName()
     {
@@ -131,7 +131,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $startDate
      */
     public function getStartDate()
     {
@@ -150,7 +150,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $endDate
      */
     public function getEndDate()
     {
@@ -170,7 +170,7 @@ class ServiceProviderScheduleAddEventRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return Recurrence
+     * @return Recurrence $recurrence
      */
     public function getRecurrence()
     {

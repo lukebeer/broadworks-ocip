@@ -34,7 +34,7 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return MediaSetName
+     * @return MediaSetName $setName
      */
     public function getSetName()
     {
@@ -76,7 +76,7 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return ReplacementMediaNameList
+     * @return ReplacementMediaNameList $mediaNameList
      */
     public function getMediaNameList()
     {

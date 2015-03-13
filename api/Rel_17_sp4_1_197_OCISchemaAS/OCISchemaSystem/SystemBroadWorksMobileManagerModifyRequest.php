@@ -57,7 +57,7 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -79,7 +79,7 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $scfApiNetAddress1
      */
     public function getScfApiNetAddress1()
     {
@@ -101,7 +101,7 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $scfApiNetAddress2
      */
     public function getScfApiNetAddress2()
     {
@@ -123,7 +123,7 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return BroadWorksMobileManagerUserName
+     * @return BroadWorksMobileManagerUserName $userName
      */
     public function getUserName()
     {
@@ -145,7 +145,7 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return BroadWorksMobileManagerPassword
+     * @return BroadWorksMobileManagerPassword $password
      */
     public function getPassword()
     {
@@ -167,7 +167,7 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $emailFromAddress
      */
     public function getEmailFromAddress()
     {
@@ -187,7 +187,7 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $scfIMSOnly
      */
     public function getScfIMSOnly()
     {
@@ -209,7 +209,7 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $signalingIPAddress
      */
     public function getSignalingIPAddress()
     {
@@ -231,7 +231,7 @@ class SystemBroadWorksMobileManagerModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return Port
+     * @return Port $signalingPort
      */
     public function getSignalingPort()
     {

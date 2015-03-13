@@ -24,7 +24,7 @@ class GroupCallingPlanGetDigitPatternListResponse extends ComplexType implements
     protected $digitPatternTable = null;
 
     /**
-     * @return GroupCallingPlanGetDigitPatternListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPlan\GroupCallingPlanGetDigitPatternListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

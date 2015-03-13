@@ -25,7 +25,7 @@ class EnterpriseSessionAdmissionControlGroupGetListResponse extends ComplexType 
     protected $sessionAdmissionControlGroupTable = null;
 
     /**
-     * @return EnterpriseSessionAdmissionControlGroupGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

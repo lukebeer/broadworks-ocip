@@ -38,7 +38,7 @@ class SystemMediaServerParametersModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemMediaServerParametersModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return MediaServerResponseTimerMilliseconds
+     * @return MediaServerResponseTimerMilliseconds $mediaServerResponseTimerMilliseconds
      */
     public function getMediaServerResponseTimerMilliseconds()
     {
@@ -82,7 +82,7 @@ class SystemMediaServerParametersModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return MediaServerSelectionRouteTimerMilliseconds
+     * @return MediaServerSelectionRouteTimerMilliseconds $mediaServerSelectionRouteTimerMilliseconds
      */
     public function getMediaServerSelectionRouteTimerMilliseconds()
     {
@@ -102,7 +102,7 @@ class SystemMediaServerParametersModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useStaticMediaServerDevice
      */
     public function getUseStaticMediaServerDevice()
     {

@@ -21,7 +21,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDn;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderEndpointGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -84,7 +83,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return ServiceProviderEndpointGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderEndpointGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -106,7 +105,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -128,7 +127,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -150,7 +149,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaGroupId
+     * @return SearchCriteriaGroupId $searchCriteriaGroupId
      */
     public function getSearchCriteriaGroupId()
     {
@@ -172,7 +171,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaLinePortUserPart
+     * @return SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart
      */
     public function getSearchCriteriaLinePortUserPart()
     {
@@ -194,7 +193,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaLinePortDomain
+     * @return SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain
      */
     public function getSearchCriteriaLinePortDomain()
     {
@@ -216,7 +215,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -238,7 +237,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -260,7 +259,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaUserId
+     * @return SearchCriteriaUserId $searchCriteriaUserId
      */
     public function getSearchCriteriaUserId()
     {
@@ -282,7 +281,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -304,7 +303,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaExtension
+     * @return SearchCriteriaExtension $searchCriteriaExtension
      */
     public function getSearchCriteriaExtension()
     {
@@ -326,7 +325,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaDeviceType
+     * @return SearchCriteriaDeviceType $searchCriteriaDeviceType
      */
     public function getSearchCriteriaDeviceType()
     {
@@ -348,7 +347,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaDeviceName
+     * @return SearchCriteriaDeviceName $searchCriteriaDeviceName
      */
     public function getSearchCriteriaDeviceName()
     {
@@ -370,7 +369,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaDeviceMACAddress
+     * @return SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress
      */
     public function getSearchCriteriaDeviceMACAddress()
     {
@@ -392,7 +391,7 @@ class ServiceProviderEndpointGetListRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SearchCriteriaDeviceNetAddress
+     * @return SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress
      */
     public function getSearchCriteriaDeviceNetAddress()
     {

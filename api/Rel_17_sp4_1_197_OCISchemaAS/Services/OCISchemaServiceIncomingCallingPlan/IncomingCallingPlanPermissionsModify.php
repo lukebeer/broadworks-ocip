@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanPermissionsModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class IncomingCallingPlanPermissionsModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanPermissionsModify';
     public    $name                   = 'IncomingCallingPlanPermissionsModify';
     protected $allowFromWithinGroup   = null;
     protected $allowFromOutsideGroup  = null;
@@ -41,7 +39,7 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
     }
 
     /**
-     * @return IncomingCallingPlanPermissionsModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +59,7 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowFromWithinGroup
      */
     public function getAllowFromWithinGroup()
     {
@@ -81,7 +79,7 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowFromOutsideGroup
      */
     public function getAllowFromOutsideGroup()
     {
@@ -101,7 +99,7 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowCollectCalls
      */
     public function getAllowCollectCalls()
     {
@@ -121,7 +119,7 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $digitPatternPermission
      */
     public function getDigitPatternPermission()
     {

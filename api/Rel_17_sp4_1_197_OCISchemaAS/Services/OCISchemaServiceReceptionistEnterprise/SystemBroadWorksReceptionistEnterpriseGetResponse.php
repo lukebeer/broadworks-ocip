@@ -24,7 +24,7 @@ class SystemBroadWorksReceptionistEnterpriseGetResponse extends ComplexType impl
     protected $maxMonitoredUsers = null;
 
     /**
-     * @return SystemBroadWorksReceptionistEnterpriseGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistEnterprise\SystemBroadWorksReceptionistEnterpriseGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemBroadWorksReceptionistEnterpriseGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return MaximumMonitoredUsers
+     * @return MaximumMonitoredUsers $maxMonitoredUsers
      */
     public function getMaxMonitoredUsers()
     {

@@ -34,7 +34,7 @@ class UserSpeedDial100AddListRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserSpeedDial100AddListRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -76,7 +76,7 @@ class UserSpeedDial100AddListRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SpeedDial100Entry
+     * @return SpeedDial100Entry $speedDialEntry
      */
     public function getSpeedDialEntry()
     {

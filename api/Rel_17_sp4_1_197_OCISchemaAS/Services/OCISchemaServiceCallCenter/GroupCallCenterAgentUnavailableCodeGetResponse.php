@@ -25,7 +25,7 @@ class GroupCallCenterAgentUnavailableCodeGetResponse extends ComplexType impleme
     protected $description = null;
 
     /**
-     * @return GroupCallCenterAgentUnavailableCodeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupCallCenterAgentUnavailableCodeGetResponse extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -67,7 +67,7 @@ class GroupCallCenterAgentUnavailableCodeGetResponse extends ComplexType impleme
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCodeDescription
+     * @return CallCenterAgentUnavailableCodeDescription $description
      */
     public function getDescription()
     {

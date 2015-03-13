@@ -24,7 +24,7 @@ class GroupCallCenterGetAvailableUserListResponse extends ComplexType implements
     protected $userTable = null;
 
     /**
-     * @return GroupCallCenterGetAvailableUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterGetAvailableUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

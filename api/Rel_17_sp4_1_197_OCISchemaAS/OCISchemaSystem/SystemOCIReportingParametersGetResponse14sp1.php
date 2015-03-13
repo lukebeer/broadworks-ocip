@@ -30,7 +30,7 @@ class SystemOCIReportingParametersGetResponse14sp1 extends ComplexType implement
     protected $enablePublicIdentityReporting = null;
 
     /**
-     * @return SystemOCIReportingParametersGetResponse14sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIReportingParametersGetResponse14sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemOCIReportingParametersGetResponse14sp1 extends ComplexType implement
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -72,7 +72,7 @@ class SystemOCIReportingParametersGetResponse14sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableConnectionPing
      */
     public function getEnableConnectionPing()
     {
@@ -94,7 +94,7 @@ class SystemOCIReportingParametersGetResponse14sp1 extends ComplexType implement
 
     /**
      * 
-     * @return OCIReportingConnectionPingIntervalSeconds
+     * @return OCIReportingConnectionPingIntervalSeconds $connectionPingIntervalSeconds
      */
     public function getConnectionPingIntervalSeconds()
     {
@@ -114,7 +114,7 @@ class SystemOCIReportingParametersGetResponse14sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alterPasswords
      */
     public function getAlterPasswords()
     {
@@ -134,7 +134,7 @@ class SystemOCIReportingParametersGetResponse14sp1 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enablePublicIdentityReporting
      */
     public function getEnablePublicIdentityReporting()
     {

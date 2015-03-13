@@ -108,7 +108,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -130,7 +130,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -152,7 +152,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -174,7 +174,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -194,7 +194,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceInstanceAddProfileCallCenter
+     * @return ServiceInstanceAddProfileCallCenter $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -216,7 +216,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CallCenterType
+     * @return CallCenterType $type
      */
     public function getType()
     {
@@ -238,7 +238,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return HuntPolicy
+     * @return HuntPolicy $policy
      */
     public function getPolicy()
     {
@@ -258,7 +258,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -280,7 +280,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CallCenterQueueLength16
+     * @return CallCenterQueueLength16 $queueLength
      */
     public function getQueueLength()
     {
@@ -302,7 +302,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CallCenterReportingServerName
+     * @return CallCenterReportingServerName $reportingServerName
      */
     public function getReportingServerName()
     {
@@ -322,7 +322,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallerToDialEscapeDigit
      */
     public function getAllowCallerToDialEscapeDigit()
     {
@@ -344,7 +344,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return DtmfDigit
+     * @return DtmfDigit $escapeDigit
      */
     public function getEscapeDigit()
     {
@@ -364,7 +364,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $resetCallStatisticsUponEntryInQueue
      */
     public function getResetCallStatisticsUponEntryInQueue()
     {
@@ -384,7 +384,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowAgentLogoff
      */
     public function getAllowAgentLogoff()
     {
@@ -404,7 +404,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallWaitingForAgents
      */
     public function getAllowCallWaitingForAgents()
     {
@@ -424,7 +424,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallsToAgentsInWrapUp
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
@@ -444,7 +444,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideAgentWrapUpTime
      */
     public function getOverrideAgentWrapUpTime()
     {
@@ -466,7 +466,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CallCenterWrapUpSeconds
+     * @return CallCenterWrapUpSeconds $wrapUpSeconds
      */
     public function getWrapUpSeconds()
     {
@@ -486,7 +486,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceDeliveryOfCalls
      */
     public function getForceDeliveryOfCalls()
     {
@@ -508,7 +508,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return CallCenterForceDeliveryWaitTimeSeconds
+     * @return CallCenterForceDeliveryWaitTimeSeconds $forceDeliveryWaitTimeSeconds
      */
     public function getForceDeliveryWaitTimeSeconds()
     {
@@ -530,7 +530,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return AudioFileCodec
+     * @return AudioFileCodec $externalPreferredAudioCodec
      */
     public function getExternalPreferredAudioCodec()
     {
@@ -552,7 +552,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return AudioFileCodec
+     * @return AudioFileCodec $internalPreferredAudioCodec
      */
     public function getInternalPreferredAudioCodec()
     {
@@ -572,7 +572,7 @@ class GroupCallCenterAddInstanceRequest16 extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playRingingWhenOfferingCall
      */
     public function getPlayRingingWhenOfferingCall()
     {

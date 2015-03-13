@@ -28,7 +28,7 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
     protected $usePhoneContext  = null;
 
     /**
-     * @return EnterpriseVoiceVPNGetResponse14sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetResponse14sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -70,7 +70,7 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return EnterpriseVoiceVPNDefaultSelection
+     * @return EnterpriseVoiceVPNDefaultSelection $defaultSelection
      */
     public function getDefaultSelection()
     {
@@ -92,7 +92,7 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return EnterpriseVoiceVPNNonMatchingE164NumberSelection
+     * @return EnterpriseVoiceVPNNonMatchingE164NumberSelection $e164Selection
      */
     public function getE164Selection()
     {
@@ -112,7 +112,7 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $usePhoneContext
      */
     public function getUsePhoneContext()
     {

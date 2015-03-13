@@ -39,7 +39,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
     protected $criteriaTable        = null;
 
     /**
-     * @return UserPreAlertingAnnouncementGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreAlertingAnnouncement\UserPreAlertingAnnouncementGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -81,7 +81,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -103,7 +103,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -125,7 +125,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $audioMediaType
      */
     public function getAudioMediaType()
     {
@@ -147,7 +147,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return URL
+     * @return URL $audioFileUrl
      */
     public function getAudioFileUrl()
     {
@@ -169,7 +169,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -191,7 +191,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -213,7 +213,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $videoMediaType
      */
     public function getVideoMediaType()
     {
@@ -235,7 +235,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return URL
+     * @return URL $videoFileUrl
      */
     public function getVideoFileUrl()
     {

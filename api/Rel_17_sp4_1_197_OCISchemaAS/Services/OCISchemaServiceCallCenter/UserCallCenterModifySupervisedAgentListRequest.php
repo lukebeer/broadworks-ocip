@@ -37,7 +37,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
 
     /**
      * 
-     * @return UserId
+     * @return UserId $supervisorUserId
      */
     public function getSupervisorUserId()
     {
@@ -81,7 +81,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -101,7 +101,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $agentUserIdList
      */
     public function getAgentUserIdList()
     {

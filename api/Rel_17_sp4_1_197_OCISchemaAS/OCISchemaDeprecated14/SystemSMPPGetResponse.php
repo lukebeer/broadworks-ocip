@@ -33,7 +33,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
     protected $version                       = null;
 
     /**
-     * @return SystemSMPPGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSMPPGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $primarySMPPServerNetAddress
      */
     public function getPrimarySMPPServerNetAddress()
     {
@@ -77,7 +77,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Port
+     * @return Port $primarySMPPPort
      */
     public function getPrimarySMPPPort()
     {
@@ -99,7 +99,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $secondarySMPPServerNetAddress
      */
     public function getSecondarySMPPServerNetAddress()
     {
@@ -121,7 +121,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Port
+     * @return Port $secondarySMPPPort
      */
     public function getSecondarySMPPPort()
     {
@@ -143,7 +143,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SMPPSystemId
+     * @return SMPPSystemId $systemId
      */
     public function getSystemId()
     {
@@ -165,7 +165,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SMPPPassword
+     * @return SMPPPassword $password
      */
     public function getPassword()
     {
@@ -187,7 +187,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SMPPVersion
+     * @return SMPPVersion $version
      */
     public function getVersion()
     {

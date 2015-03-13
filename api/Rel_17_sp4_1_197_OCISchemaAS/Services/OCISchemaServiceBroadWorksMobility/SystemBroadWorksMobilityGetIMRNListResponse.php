@@ -23,7 +23,7 @@ class SystemBroadWorksMobilityGetIMRNListResponse extends ComplexType implements
     protected $imrnNumber = null;
 
     /**
-     * @return SystemBroadWorksMobilityGetIMRNListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemBroadWorksMobilityGetIMRNListResponse extends ComplexType implements
 
     /**
      * 
-     * @return DN
+     * @return DN $imrnNumber
      */
     public function getImrnNumber()
     {

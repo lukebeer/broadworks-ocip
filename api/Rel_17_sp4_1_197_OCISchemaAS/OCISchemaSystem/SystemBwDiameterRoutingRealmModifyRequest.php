@@ -9,7 +9,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterApplicationId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\BwDiameterPeerInstance;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DomainName;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -42,7 +41,7 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +63,7 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return BwDiameterPeerInstance
+     * @return BwDiameterPeerInstance $instance
      */
     public function getInstance()
     {
@@ -86,7 +85,7 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $realm
      */
     public function getRealm()
     {
@@ -108,7 +107,7 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return BwDiameterApplicationId
+     * @return BwDiameterApplicationId $applicationId
      */
     public function getApplicationId()
     {
@@ -128,7 +127,7 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $default
      */
     public function getDefault()
     {

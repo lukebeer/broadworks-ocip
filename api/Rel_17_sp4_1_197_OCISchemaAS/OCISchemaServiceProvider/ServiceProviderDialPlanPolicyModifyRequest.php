@@ -47,7 +47,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +69,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -89,7 +89,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requiresAccessCodeForPublicCalls
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
@@ -109,7 +109,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowE164PublicCalls
      */
     public function getAllowE164PublicCalls()
     {
@@ -129,7 +129,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $preferE164NumberFormatForCallbackServices
      */
     public function getPreferE164NumberFormatForCallbackServices()
     {
@@ -151,7 +151,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $publicDigitMap
      */
     public function getPublicDigitMap()
     {
@@ -173,7 +173,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return DigitMap
+     * @return DigitMap $privateDigitMap
      */
     public function getPrivateDigitMap()
     {

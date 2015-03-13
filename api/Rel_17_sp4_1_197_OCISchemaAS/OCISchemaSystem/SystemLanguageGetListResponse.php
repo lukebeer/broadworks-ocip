@@ -26,7 +26,7 @@ class SystemLanguageGetListResponse extends ComplexType implements ComplexInterf
     protected $languageTable   = null;
 
     /**
-     * @return SystemLanguageGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLanguageGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemLanguageGetListResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return Language
+     * @return Language $defaultLanguage
      */
     public function getDefaultLanguage()
     {

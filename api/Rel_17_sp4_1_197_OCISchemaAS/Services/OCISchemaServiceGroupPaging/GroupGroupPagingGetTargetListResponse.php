@@ -25,7 +25,7 @@ class GroupGroupPagingGetTargetListResponse extends ComplexType implements Compl
     protected $targetTable = null;
 
     /**
-     * @return GroupGroupPagingGetTargetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetTargetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

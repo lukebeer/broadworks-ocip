@@ -27,7 +27,7 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
     protected $useDiversionInhibitorForConsultativeCalls = null;
 
     /**
-     * @return UserCallTransferGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserCallTransferGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRecallActive
      */
     public function getIsRecallActive()
     {
@@ -69,7 +69,7 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return CallTransferRecallNumberOfRings
+     * @return CallTransferRecallNumberOfRings $recallNumberOfRings
      */
     public function getRecallNumberOfRings()
     {
@@ -89,7 +89,7 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDiversionInhibitorForBlindTransfer
      */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
@@ -109,7 +109,7 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDiversionInhibitorForConsultativeCalls
      */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {

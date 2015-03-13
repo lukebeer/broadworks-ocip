@@ -26,7 +26,7 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
     protected $defaultFromAddress                         = null;
 
     /**
-     * @return SystemInstantConferencingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $defaultDropAllParticipantsWhenLeaderLeaves
      */
     public function getDefaultDropAllParticipantsWhenLeaderLeaves()
     {
@@ -66,7 +66,7 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $defaultAllowDialOutInInvitation
      */
     public function getDefaultAllowDialOutInInvitation()
     {
@@ -88,7 +88,7 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {

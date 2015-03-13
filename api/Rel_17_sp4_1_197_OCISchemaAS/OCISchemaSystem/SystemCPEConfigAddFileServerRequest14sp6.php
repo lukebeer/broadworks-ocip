@@ -38,7 +38,7 @@ class SystemCPEConfigAddFileServerRequest14sp6 extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemCPEConfigAddFileServerRequest14sp6 extends ComplexType implements Co
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -82,7 +82,7 @@ class SystemCPEConfigAddFileServerRequest14sp6 extends ComplexType implements Co
 
     /**
      * 
-     * @return FileRepositoryName
+     * @return FileRepositoryName $fileRepositoryName
      */
     public function getFileRepositoryName()
     {
@@ -104,7 +104,7 @@ class SystemCPEConfigAddFileServerRequest14sp6 extends ComplexType implements Co
 
     /**
      * 
-     * @return CPEFileDirectory
+     * @return CPEFileDirectory $cpeFileDirectory
      */
     public function getCpeFileDirectory()
     {

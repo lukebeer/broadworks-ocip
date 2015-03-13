@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CommunicationBarringOriginatingRule15sp2;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CommunicationBarringOriginatingRule15sp2';
     public    $name           = 'CommunicationBarringOriginatingRule15sp2';
     protected $criteria       = null;
     protected $action         = null;
@@ -40,7 +38,7 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
     }
 
     /**
-     * @return CommunicationBarringOriginatingRule15sp2
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $criteria
      */
     public function getCriteria()
     {
@@ -80,7 +78,7 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $action
      */
     public function getAction()
     {
@@ -100,7 +98,7 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $treatmentId
      */
     public function getTreatmentId()
     {
@@ -120,7 +118,7 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $transferNumber
      */
     public function getTransferNumber()
     {

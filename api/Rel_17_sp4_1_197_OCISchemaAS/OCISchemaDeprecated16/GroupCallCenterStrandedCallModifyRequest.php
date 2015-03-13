@@ -52,7 +52,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +74,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -96,7 +96,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return CallCenterStrandedCallProcessingAction
+     * @return CallCenterStrandedCallProcessingAction $action
      */
     public function getAction()
     {
@@ -118,7 +118,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -140,7 +140,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -160,7 +160,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -182,7 +182,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -202,7 +202,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $videoFile
      */
     public function getVideoFile()
     {

@@ -38,7 +38,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -82,7 +82,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
 
     /**
      * 
-     * @return CallCenterEnhancedReportingBrandingChoice
+     * @return CallCenterEnhancedReportingBrandingChoice $brandingChoice
      */
     public function getBrandingChoice()
     {
@@ -102,7 +102,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $brandingFile
      */
     public function getBrandingFile()
     {

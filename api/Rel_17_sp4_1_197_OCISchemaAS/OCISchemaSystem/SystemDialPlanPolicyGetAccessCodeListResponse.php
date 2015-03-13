@@ -24,7 +24,7 @@ class SystemDialPlanPolicyGetAccessCodeListResponse extends ComplexType implemen
     protected $accessCodeTable = null;
 
     /**
-     * @return SystemDialPlanPolicyGetAccessCodeListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialPlanPolicyGetAccessCodeListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

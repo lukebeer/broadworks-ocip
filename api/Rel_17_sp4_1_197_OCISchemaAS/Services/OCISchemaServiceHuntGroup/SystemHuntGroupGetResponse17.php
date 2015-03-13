@@ -26,7 +26,7 @@ class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterfa
     protected $uniformCallDistributionPolicyScope = null;
 
     /**
-     * @return SystemHuntGroupGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHuntGroup\SystemHuntGroupGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $anonymousInsteadOfPrivateCLID
      */
     public function getAnonymousInsteadOfPrivateCLID()
     {
@@ -66,7 +66,7 @@ class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $removeHuntGroupNameFromCLID
      */
     public function getRemoveHuntGroupNameFromCLID()
     {
@@ -88,7 +88,7 @@ class SystemHuntGroupGetResponse17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return HuntGroupUniformCallDistributionPolicyScope
+     * @return HuntGroupUniformCallDistributionPolicyScope $uniformCallDistributionPolicyScope
      */
     public function getUniformCallDistributionPolicyScope()
     {

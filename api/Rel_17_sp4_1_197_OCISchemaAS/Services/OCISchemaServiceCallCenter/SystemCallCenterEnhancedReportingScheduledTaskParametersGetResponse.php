@@ -27,7 +27,7 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse extend
     protected $deleteScheduledReportDaysAfterCompletion = null;
 
     /**
-     * @return SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse extend
 
     /**
      * 
-     * @return CallCenterScheduledReportSearchIntervalMinutes
+     * @return CallCenterScheduledReportSearchIntervalMinutes $scheduledReportSearchIntervalMinutes
      */
     public function getScheduledReportSearchIntervalMinutes()
     {
@@ -71,7 +71,7 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse extend
 
     /**
      * 
-     * @return CallCenterMaximumScheduledReportsPerInterval
+     * @return CallCenterMaximumScheduledReportsPerInterval $maximumScheduledReportsPerInterval
      */
     public function getMaximumScheduledReportsPerInterval()
     {
@@ -93,7 +93,7 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse extend
 
     /**
      * 
-     * @return CallCenterDaysAfterScheduledReportCompletion
+     * @return CallCenterDaysAfterScheduledReportCompletion $deleteScheduledReportDaysAfterCompletion
      */
     public function getDeleteScheduledReportDaysAfterCompletion()
     {

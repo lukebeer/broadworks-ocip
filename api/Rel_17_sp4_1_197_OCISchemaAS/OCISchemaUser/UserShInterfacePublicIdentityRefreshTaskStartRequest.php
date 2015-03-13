@@ -30,7 +30,7 @@ class UserShInterfacePublicIdentityRefreshTaskStartRequest extends ComplexType i
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class UserShInterfacePublicIdentityRefreshTaskStartRequest extends ComplexType i
 
     /**
      * 
-     * @return PublicUserIdentity
+     * @return PublicUserIdentity $publicUserIdentity
      */
     public function getPublicUserIdentity()
     {

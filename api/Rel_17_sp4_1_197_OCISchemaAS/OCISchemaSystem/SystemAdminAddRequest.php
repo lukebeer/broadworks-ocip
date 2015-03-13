@@ -54,7 +54,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -76,7 +76,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -98,7 +98,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {
@@ -120,7 +120,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -142,7 +142,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Password
+     * @return Password $password
      */
     public function getPassword()
     {
@@ -164,7 +164,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Language
+     * @return Language $language
      */
     public function getLanguage()
     {
@@ -186,7 +186,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SystemAdminType
+     * @return SystemAdminType $adminType
      */
     public function getAdminType()
     {
@@ -206,7 +206,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $readOnly
      */
     public function getReadOnly()
     {

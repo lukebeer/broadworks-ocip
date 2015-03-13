@@ -24,7 +24,7 @@ class GroupHolidayScheduleGetListResponse extends ComplexType implements Complex
     protected $holidayScheduleName = null;
 
     /**
-     * @return GroupHolidayScheduleGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupHolidayScheduleGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupHolidayScheduleGetListResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $holidayScheduleName
      */
     public function getHolidayScheduleName()
     {

@@ -38,7 +38,7 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AdviceOfChargeDelayBetweenNotificationSeconds
+     * @return AdviceOfChargeDelayBetweenNotificationSeconds $delayBetweenNotificationSeconds
      */
     public function getDelayBetweenNotificationSeconds()
     {
@@ -82,7 +82,7 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AdviceOfChargeIncomingAocHandling
+     * @return AdviceOfChargeIncomingAocHandling $incomingAocHandling
      */
     public function getIncomingAocHandling()
     {
@@ -104,7 +104,7 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $costInformationSource
      */
     public function getCostInformationSource()
     {

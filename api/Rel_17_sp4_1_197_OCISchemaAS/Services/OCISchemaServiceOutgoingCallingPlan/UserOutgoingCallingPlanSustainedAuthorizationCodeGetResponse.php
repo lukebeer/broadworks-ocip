@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingCallingPlanAuthorizationCode;
+
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -23,7 +23,7 @@ class UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse extends Compl
     protected $code = null;
 
     /**
-     * @return UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse extends Compl
 
     /**
      * 
-     * @return OutgoingCallingPlanAuthorizationCode
+     * @return OutgoingCallingPlanAuthorizationCode $code
      */
     public function getCode()
     {

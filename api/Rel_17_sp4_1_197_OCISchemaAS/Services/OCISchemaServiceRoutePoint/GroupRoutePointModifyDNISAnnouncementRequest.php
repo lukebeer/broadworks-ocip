@@ -34,7 +34,7 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return DNISKey
+     * @return DNISKey $dnisKey
      */
     public function getDnisKey()
     {
@@ -74,7 +74,7 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
 
     /**
      * 
-     * @return CallCenterMediaOnHoldSourceModify17
+     * @return CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource
      */
     public function getMediaOnHoldSource()
     {

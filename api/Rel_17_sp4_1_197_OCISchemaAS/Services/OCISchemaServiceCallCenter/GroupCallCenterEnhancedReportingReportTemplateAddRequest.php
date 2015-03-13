@@ -96,7 +96,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -118,7 +118,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -140,7 +140,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -162,7 +162,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportTemplateName
+     * @return CallCenterReportTemplateName $name
      */
     public function getName()
     {
@@ -184,7 +184,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportTemplateDescription
+     * @return CallCenterReportTemplateDescription $description
      */
     public function getDescription()
     {
@@ -206,7 +206,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportDataTemplateName
+     * @return CallCenterReportDataTemplateName $dataTemplate
      */
     public function getDataTemplate()
     {
@@ -228,7 +228,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportDataTemplateFilterNumber
+     * @return CallCenterReportDataTemplateFilterNumber $filterNumber
      */
     public function getFilterNumber()
     {
@@ -248,7 +248,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $xsltTemplate
      */
     public function getXsltTemplate()
     {
@@ -270,7 +270,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportTemplateAccessOption
+     * @return CallCenterReportTemplateAccessOption $scope
      */
     public function getScope()
     {
@@ -290,7 +290,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isEnabled
      */
     public function getIsEnabled()
     {
@@ -310,7 +310,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRealtimeReport
      */
     public function getIsRealtimeReport()
     {
@@ -332,7 +332,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $callCompletionThresholdParam
      */
     public function getCallCompletionThresholdParam()
     {
@@ -354,7 +354,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $shortDurationThresholdParam
      */
     public function getShortDurationThresholdParam()
     {
@@ -376,7 +376,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $serviceLevelThresholdParam
      */
     public function getServiceLevelThresholdParam()
     {
@@ -398,7 +398,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $serviceLevelInclusionsParam
      */
     public function getServiceLevelInclusionsParam()
     {
@@ -420,7 +420,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $serviceLevelObjectiveThresholdParam
      */
     public function getServiceLevelObjectiveThresholdParam()
     {
@@ -442,7 +442,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportInputParameterOption
+     * @return CallCenterReportInputParameterOption $abandonedCallThresholdParam
      */
     public function getAbandonedCallThresholdParam()
     {
@@ -464,7 +464,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportServiceLevelInputParameterNumber
+     * @return CallCenterReportServiceLevelInputParameterNumber $serviceLevelThresholdParamNumber
      */
     public function getServiceLevelThresholdParamNumber()
     {
@@ -486,7 +486,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportAbandonedCallInputParameterNumber
+     * @return CallCenterReportAbandonedCallInputParameterNumber $abandonedCallThresholdParamNumber
      */
     public function getAbandonedCallThresholdParamNumber()
     {
@@ -508,7 +508,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
 
     /**
      * 
-     * @return CallCenterReportDataTemplateQueryFilterValue
+     * @return CallCenterReportDataTemplateQueryFilterValue $filterValue
      */
     public function getFilterValue()
     {

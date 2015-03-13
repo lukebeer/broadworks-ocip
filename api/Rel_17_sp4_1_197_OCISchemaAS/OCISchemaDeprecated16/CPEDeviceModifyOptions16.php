@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\CPEDeviceModifyOptions16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -24,7 +23,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\CPEDeviceModifyOptions16';
     public    $name                              = 'CPEDeviceModifyOptions16';
     protected $enableMonitoring                  = null;
     protected $resetEvent                        = null;
@@ -41,7 +39,7 @@ class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return CPEDeviceModifyOptions16
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +59,7 @@ class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $enableMonitoring
      */
     public function getEnableMonitoring()
     {
@@ -81,7 +79,7 @@ class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $resetEvent
      */
     public function getResetEvent()
     {
@@ -101,7 +99,7 @@ class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $deviceManagementDeviceTypeOptions
      */
     public function getDeviceManagementDeviceTypeOptions()
     {

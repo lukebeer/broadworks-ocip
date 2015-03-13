@@ -49,7 +49,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexTy
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,7 +71,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexTy
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -93,7 +93,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexTy
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -115,7 +115,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexTy
 
     /**
      * 
-     * @return VoiceMessagingBrandingSelection
+     * @return VoiceMessagingBrandingSelection $voicePortalGreetingSelection
      */
     public function getVoicePortalGreetingSelection()
     {
@@ -135,7 +135,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexTy
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $voicePortalGreetingFile
      */
     public function getVoicePortalGreetingFile()
     {
@@ -157,7 +157,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexTy
 
     /**
      * 
-     * @return VoiceMessagingBrandingSelection
+     * @return VoiceMessagingBrandingSelection $voiceMessagingGreetingSelection
      */
     public function getVoiceMessagingGreetingSelection()
     {
@@ -177,7 +177,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexTy
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $voiceMessagingGreetingFile
      */
     public function getVoiceMessagingGreetingFile()
     {

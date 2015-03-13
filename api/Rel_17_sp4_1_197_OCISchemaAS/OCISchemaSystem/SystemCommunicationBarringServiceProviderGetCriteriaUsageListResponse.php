@@ -24,7 +24,7 @@ class SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse exte
     protected $serviceProviderTable = null;
 
     /**
-     * @return SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -32,7 +32,7 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
     protected $language           = null;
 
     /**
-     * @return GroupDepartmentAdminGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return GroupDepartmentKey
+     * @return GroupDepartmentKey $departmentKey
      */
     public function getDepartmentKey()
     {
@@ -74,7 +74,7 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return DepartmentName
+     * @return DepartmentName $departmentFullPath
      */
     public function getDepartmentFullPath()
     {
@@ -96,7 +96,7 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {
@@ -118,7 +118,7 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -140,7 +140,7 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return Language
+     * @return Language $language
      */
     public function getLanguage()
     {

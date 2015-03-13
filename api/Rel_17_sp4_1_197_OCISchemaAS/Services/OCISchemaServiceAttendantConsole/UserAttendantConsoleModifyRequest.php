@@ -48,7 +48,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -90,7 +90,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $launchOnLogin
      */
     public function getLaunchOnLogin()
     {
@@ -110,7 +110,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUserConfigCallDetails
      */
     public function getAllowUserConfigCallDetails()
     {
@@ -130,7 +130,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUserViewCallDetails
      */
     public function getAllowUserViewCallDetails()
     {
@@ -150,7 +150,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AttendantConsoleReplacementDisplayColumnList
+     * @return AttendantConsoleReplacementDisplayColumnList $displayColumnList
      */
     public function getDisplayColumnList()
     {
@@ -170,7 +170,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $monitoredUserIdList
      */
     public function getMonitoredUserIdList()
     {

@@ -31,7 +31,7 @@ class SystemExternalEmergencyRoutingParametersGetResponse13mp13 extends ComplexT
     protected $connectionTimeoutSeconds = null;
 
     /**
-     * @return SystemExternalEmergencyRoutingParametersGetResponse13mp13
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExternalEmergencyRoutingParametersGetResponse13mp13 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemExternalEmergencyRoutingParametersGetResponse13mp13 extends ComplexT
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $serviceURI
      */
     public function getServiceURI()
     {
@@ -75,7 +75,7 @@ class SystemExternalEmergencyRoutingParametersGetResponse13mp13 extends ComplexT
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $defaultEmergencyNumber
      */
     public function getDefaultEmergencyNumber()
     {
@@ -95,7 +95,7 @@ class SystemExternalEmergencyRoutingParametersGetResponse13mp13 extends ComplexT
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -115,7 +115,7 @@ class SystemExternalEmergencyRoutingParametersGetResponse13mp13 extends ComplexT
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $supportsDNSSRV
      */
     public function getSupportsDNSSRV()
     {
@@ -137,7 +137,7 @@ class SystemExternalEmergencyRoutingParametersGetResponse13mp13 extends ComplexT
 
     /**
      * 
-     * @return ExternalEmergencyRoutingConnectionTimeoutSeconds
+     * @return ExternalEmergencyRoutingConnectionTimeoutSeconds $connectionTimeoutSeconds
      */
     public function getConnectionTimeoutSeconds()
     {

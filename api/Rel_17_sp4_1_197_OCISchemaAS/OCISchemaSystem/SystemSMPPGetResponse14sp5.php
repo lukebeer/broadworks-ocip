@@ -35,7 +35,7 @@ class SystemSMPPGetResponse14sp5 extends ComplexType implements ComplexInterface
     protected $systemType                    = null;
 
     /**
-     * @return SystemSMPPGetResponse14sp5
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSMPPGetResponse14sp5 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemSMPPGetResponse14sp5 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $primarySMPPServerNetAddress
      */
     public function getPrimarySMPPServerNetAddress()
     {
@@ -79,7 +79,7 @@ class SystemSMPPGetResponse14sp5 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Port
+     * @return Port $primarySMPPPort
      */
     public function getPrimarySMPPPort()
     {
@@ -101,7 +101,7 @@ class SystemSMPPGetResponse14sp5 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $secondarySMPPServerNetAddress
      */
     public function getSecondarySMPPServerNetAddress()
     {
@@ -123,7 +123,7 @@ class SystemSMPPGetResponse14sp5 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Port
+     * @return Port $secondarySMPPPort
      */
     public function getSecondarySMPPPort()
     {
@@ -145,7 +145,7 @@ class SystemSMPPGetResponse14sp5 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SMPPSystemId
+     * @return SMPPSystemId $systemId
      */
     public function getSystemId()
     {
@@ -167,7 +167,7 @@ class SystemSMPPGetResponse14sp5 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SMPPPassword
+     * @return SMPPPassword $password
      */
     public function getPassword()
     {
@@ -189,7 +189,7 @@ class SystemSMPPGetResponse14sp5 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SMPPVersion
+     * @return SMPPVersion $version
      */
     public function getVersion()
     {
@@ -211,7 +211,7 @@ class SystemSMPPGetResponse14sp5 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SMPPSystemType
+     * @return SMPPSystemType $systemType
      */
     public function getSystemType()
     {

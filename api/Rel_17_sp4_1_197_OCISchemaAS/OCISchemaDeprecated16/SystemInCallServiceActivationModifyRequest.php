@@ -31,7 +31,7 @@ class SystemInCallServiceActivationModifyRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemInCallServiceActivationModifyRequest extends ComplexType implements 
 
     /**
      * 
-     * @return InCallServiceActivationDigits
+     * @return InCallServiceActivationDigits $defaultActivationDigits
      */
     public function getDefaultActivationDigits()
     {

@@ -35,7 +35,7 @@ class GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse ext
     protected $reportTemplateTable = null;
 
     /**
-     * @return GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

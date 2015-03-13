@@ -36,7 +36,7 @@ class SystemDeviceTypeGetResponse16 extends ComplexType implements ComplexInterf
     protected $isMobilityManagerDevice   = null;
 
     /**
-     * @return SystemDeviceTypeGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemDeviceTypeGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemDeviceTypeGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isObsolete
      */
     public function getIsObsolete()
     {
@@ -78,7 +78,7 @@ class SystemDeviceTypeGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SignalingAddressType
+     * @return SignalingAddressType $profile
      */
     public function getProfile()
     {
@@ -100,7 +100,7 @@ class SystemDeviceTypeGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return WebBasedConfigURL
+     * @return WebBasedConfigURL $webBasedConfigURL
      */
     public function getWebBasedConfigURL()
     {
@@ -120,7 +120,7 @@ class SystemDeviceTypeGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $staticRegistrationCapable
      */
     public function getStaticRegistrationCapable()
     {
@@ -140,7 +140,7 @@ class SystemDeviceTypeGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CPEDeviceOptionsRead16
+     * @return CPEDeviceOptionsRead16 $cpeDeviceOptions
      */
     public function getCpeDeviceOptions()
     {
@@ -162,7 +162,7 @@ class SystemDeviceTypeGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return AccessDeviceProtocol
+     * @return AccessDeviceProtocol $protocolChoice
      */
     public function getProtocolChoice()
     {
@@ -182,7 +182,7 @@ class SystemDeviceTypeGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isIpAddressOptional
      */
     public function getIsIpAddressOptional()
     {
@@ -202,7 +202,7 @@ class SystemDeviceTypeGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDomain
      */
     public function getUseDomain()
     {
@@ -222,7 +222,7 @@ class SystemDeviceTypeGetResponse16 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isMobilityManagerDevice
      */
     public function getIsMobilityManagerDevice()
     {

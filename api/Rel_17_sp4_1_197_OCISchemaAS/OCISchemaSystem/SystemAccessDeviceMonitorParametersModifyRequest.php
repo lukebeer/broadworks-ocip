@@ -30,7 +30,7 @@ class SystemAccessDeviceMonitorParametersModifyRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemAccessDeviceMonitorParametersModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return AccessDeviceMonitorPollingIntervalMinutes
+     * @return AccessDeviceMonitorPollingIntervalMinutes $pollingIntervalMinutes
      */
     public function getPollingIntervalMinutes()
     {

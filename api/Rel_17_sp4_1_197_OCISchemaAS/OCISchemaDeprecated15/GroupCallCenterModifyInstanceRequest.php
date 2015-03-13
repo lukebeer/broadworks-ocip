@@ -103,7 +103,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -125,7 +125,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -145,7 +145,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceInstanceModifyProfile
+     * @return ServiceInstanceModifyProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -167,7 +167,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return HuntPolicy
+     * @return HuntPolicy $policy
      */
     public function getPolicy()
     {
@@ -187,7 +187,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $huntAfterNoAnswer
      */
     public function getHuntAfterNoAnswer()
     {
@@ -209,7 +209,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return HuntNoAnswerRings
+     * @return HuntNoAnswerRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {
@@ -229,7 +229,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forwardAfterTimeout
      */
     public function getForwardAfterTimeout()
     {
@@ -251,7 +251,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return HuntForwardTimeoutSeconds
+     * @return HuntForwardTimeoutSeconds $forwardTimeoutSeconds
      */
     public function getForwardTimeoutSeconds()
     {
@@ -273,7 +273,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -293,7 +293,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -315,7 +315,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallCenterQueueLength
+     * @return CallCenterQueueLength $queueLength
      */
     public function getQueueLength()
     {
@@ -335,7 +335,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowAgentLogoff
      */
     public function getAllowAgentLogoff()
     {
@@ -355,7 +355,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playMusicOnHold
      */
     public function getPlayMusicOnHold()
     {
@@ -375,7 +375,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playComfortMessage
      */
     public function getPlayComfortMessage()
     {
@@ -397,7 +397,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallCenterTimeBetweenComfortMessagesSeconds
+     * @return CallCenterTimeBetweenComfortMessagesSeconds $timeBetweenComfortMessagesSeconds
      */
     public function getTimeBetweenComfortMessagesSeconds()
     {
@@ -417,7 +417,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableGuardTimer
      */
     public function getEnableGuardTimer()
     {
@@ -439,7 +439,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallCenterGuardTimerSeconds
+     * @return CallCenterGuardTimerSeconds $guardTimerSeconds
      */
     public function getGuardTimerSeconds()
     {
@@ -459,7 +459,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $agentUserIdList
      */
     public function getAgentUserIdList()
     {
@@ -479,7 +479,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallWaitingForAgents
      */
     public function getAllowCallWaitingForAgents()
     {
@@ -499,7 +499,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowCallsToAgentsInWrapUp
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
@@ -519,7 +519,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableCallQueueWhenNoAgentsAvailable
      */
     public function getEnableCallQueueWhenNoAgentsAvailable()
     {
@@ -541,7 +541,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return CallCenterStatisticsSource
+     * @return CallCenterStatisticsSource $statisticsSource
      */
     public function getStatisticsSource()
     {

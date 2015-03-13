@@ -25,7 +25,7 @@ class GroupDirectoryNumberHuntingGetResponse extends ComplexType implements Comp
     protected $agentUserTable = null;
 
     /**
-     * @return GroupDirectoryNumberHuntingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

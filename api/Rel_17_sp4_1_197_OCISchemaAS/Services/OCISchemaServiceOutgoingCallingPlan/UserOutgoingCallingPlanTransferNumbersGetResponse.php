@@ -25,7 +25,7 @@ class UserOutgoingCallingPlanTransferNumbersGetResponse extends ComplexType impl
     protected $userNumbers       = null;
 
     /**
-     * @return UserOutgoingCallingPlanTransferNumbersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanTransferNumbersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserOutgoingCallingPlanTransferNumbersGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomSettings
      */
     public function getUseCustomSettings()
     {
@@ -65,7 +65,7 @@ class UserOutgoingCallingPlanTransferNumbersGetResponse extends ComplexType impl
 
     /**
      * 
-     * @return OutgoingCallingPlanTransferNumbers
+     * @return OutgoingCallingPlanTransferNumbers $userNumbers
      */
     public function getUserNumbers()
     {

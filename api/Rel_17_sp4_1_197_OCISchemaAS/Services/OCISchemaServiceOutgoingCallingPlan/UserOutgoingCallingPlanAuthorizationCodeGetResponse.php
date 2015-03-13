@@ -23,7 +23,7 @@ class UserOutgoingCallingPlanAuthorizationCodeGetResponse extends ComplexType im
     protected $useCustomSettings = null;
 
     /**
-     * @return UserOutgoingCallingPlanAuthorizationCodeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanAuthorizationCodeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class UserOutgoingCallingPlanAuthorizationCodeGetResponse extends ComplexType im
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomSettings
      */
     public function getUseCustomSettings()
     {

@@ -67,7 +67,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -89,7 +89,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -111,7 +111,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
 
     /**
      * 
-     * @return AnnouncementSelection
+     * @return AnnouncementSelection $busyAnnouncementSelection
      */
     public function getBusyAnnouncementSelection()
     {
@@ -131,7 +131,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $busyPersonalAudioFile
      */
     public function getBusyPersonalAudioFile()
     {
@@ -151,7 +151,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $busyPersonalVideoFile
      */
     public function getBusyPersonalVideoFile()
     {
@@ -173,7 +173,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
 
     /**
      * 
-     * @return VoiceMessagingNoAnswerGreetingSelection
+     * @return VoiceMessagingNoAnswerGreetingSelection $noAnswerAnnouncementSelection
      */
     public function getNoAnswerAnnouncementSelection()
     {
@@ -193,7 +193,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $noAnswerPersonalAudioFile
      */
     public function getNoAnswerPersonalAudioFile()
     {
@@ -213,7 +213,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $noAnswerPersonalVideoFile
      */
     public function getNoAnswerPersonalVideoFile()
     {
@@ -233,7 +233,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingModify
+     * @return VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting01
      */
     public function getNoAnswerAlternateGreeting01()
     {
@@ -253,7 +253,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingModify
+     * @return VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting02
      */
     public function getNoAnswerAlternateGreeting02()
     {
@@ -273,7 +273,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
 
     /**
      * 
-     * @return VoiceMessagingAlternateNoAnswerGreetingModify
+     * @return VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting03
      */
     public function getNoAnswerAlternateGreeting03()
     {
@@ -295,7 +295,7 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
 
     /**
      * 
-     * @return VoiceMessagingNumberOfRings
+     * @return VoiceMessagingNumberOfRings $noAnswerNumberOfRings
      */
     public function getNoAnswerNumberOfRings()
     {

@@ -25,7 +25,7 @@ class SystemZoneCallingRestrictionsZoneGetListResponse extends ComplexType imple
     protected $zoneTable = null;
 
     /**
-     * @return SystemZoneCallingRestrictionsZoneGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsZoneGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

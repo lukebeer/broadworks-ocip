@@ -34,7 +34,7 @@ class UserTimeScheduleDeleteRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserTimeScheduleDeleteRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -78,7 +78,7 @@ class UserTimeScheduleDeleteRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $timeScheduleName
      */
     public function getTimeScheduleName()
     {

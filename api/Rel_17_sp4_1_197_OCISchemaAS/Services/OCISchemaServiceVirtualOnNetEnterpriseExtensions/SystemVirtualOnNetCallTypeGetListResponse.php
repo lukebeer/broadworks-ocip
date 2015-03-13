@@ -26,7 +26,7 @@ class SystemVirtualOnNetCallTypeGetListResponse extends ComplexType implements C
     protected $virtualOnNetCallTypeTable = null;
 
     /**
-     * @return SystemVirtualOnNetCallTypeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\SystemVirtualOnNetCallTypeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -45,7 +45,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $zoneName
      */
     public function getZoneName()
     {
@@ -89,7 +89,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -109,7 +109,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return IPAddressRange
+     * @return IPAddressRange $netAddressRange
      */
     public function getNetAddressRange()
     {
@@ -131,7 +131,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return PhysicalLocation
+     * @return PhysicalLocation $locationBasedPhysicalLocation
      */
     public function getLocationBasedPhysicalLocation()
     {
@@ -153,7 +153,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return PhysicalLocation
+     * @return PhysicalLocation $callingZonePhysicalLocation
      */
     public function getCallingZonePhysicalLocation()
     {

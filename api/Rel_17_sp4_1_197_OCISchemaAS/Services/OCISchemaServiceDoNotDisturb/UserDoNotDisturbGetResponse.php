@@ -24,7 +24,7 @@ class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterfac
     protected $ringSplash = null;
 
     /**
-     * @return UserDoNotDisturbGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDoNotDisturb\UserDoNotDisturbGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -64,7 +64,7 @@ class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $ringSplash
      */
     public function getRingSplash()
     {

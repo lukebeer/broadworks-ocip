@@ -24,7 +24,7 @@ class UserCallingNameDeliveryGetResponse extends ComplexType implements ComplexI
     protected $isActiveForInternalCalls = null;
 
     /**
-     * @return UserCallingNameDeliveryGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingNameDelivery\UserCallingNameDeliveryGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class UserCallingNameDeliveryGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveForExternalCalls
      */
     public function getIsActiveForExternalCalls()
     {
@@ -64,7 +64,7 @@ class UserCallingNameDeliveryGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActiveForInternalCalls
      */
     public function getIsActiveForInternalCalls()
     {

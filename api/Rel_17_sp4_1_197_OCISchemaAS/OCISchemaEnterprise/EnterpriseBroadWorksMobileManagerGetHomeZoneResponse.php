@@ -31,7 +31,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
     protected $cellIdentity       = null;
 
     /**
-     * @return EnterpriseBroadWorksMobileManagerGetHomeZoneResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetHomeZoneResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
 
     /**
      * 
-     * @return BroadWorksMobileManagerDomainName
+     * @return BroadWorksMobileManagerDomainName $homeZoneDomainName
      */
     public function getHomeZoneDomainName()
     {
@@ -75,7 +75,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneMobileCountryCode
+     * @return BroadWorksMobileManagerHomeZoneMobileCountryCode $mobileCountryCode
      */
     public function getMobileCountryCode()
     {
@@ -97,7 +97,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneNetworkCountryCode
+     * @return BroadWorksMobileManagerHomeZoneNetworkCountryCode $mobileNetworkCode
      */
     public function getMobileNetworkCode()
     {
@@ -119,7 +119,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneLocationAreaCode
+     * @return BroadWorksMobileManagerHomeZoneLocationAreaCode $locationAreaCode
      */
     public function getLocationAreaCode()
     {
@@ -141,7 +141,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneCellId
+     * @return BroadWorksMobileManagerHomeZoneCellId $cellIdentity
      */
     public function getCellIdentity()
     {

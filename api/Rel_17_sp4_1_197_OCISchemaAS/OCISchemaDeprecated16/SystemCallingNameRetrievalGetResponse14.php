@@ -29,7 +29,7 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
     protected $serverTransportProtocol = null;
 
     /**
-     * @return SystemCallingNameRetrievalGetResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCallingNameRetrievalGetResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
 
     /**
      * 
-     * @return CallingNameRetrievalQueryTimerMilliSeconds
+     * @return CallingNameRetrievalQueryTimerMilliSeconds $queryTimerMilliSeconds
      */
     public function getQueryTimerMilliSeconds()
     {
@@ -73,7 +73,7 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $serverNetAddress
      */
     public function getServerNetAddress()
     {
@@ -95,7 +95,7 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -117,7 +117,7 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $serverTransportProtocol
      */
     public function getServerTransportProtocol()
     {

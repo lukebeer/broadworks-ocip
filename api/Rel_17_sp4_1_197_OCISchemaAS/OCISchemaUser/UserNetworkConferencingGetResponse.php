@@ -25,7 +25,7 @@ class UserNetworkConferencingGetResponse extends ComplexType implements ComplexI
     protected $maxConferenceParties = null;
 
     /**
-     * @return UserNetworkConferencingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserNetworkConferencingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserNetworkConferencingGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $conferenceURI
      */
     public function getConferenceURI()
     {
@@ -69,7 +69,7 @@ class UserNetworkConferencingGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallProcessingMaxConferenceParties
+     * @return CallProcessingMaxConferenceParties $maxConferenceParties
      */
     public function getMaxConferenceParties()
     {

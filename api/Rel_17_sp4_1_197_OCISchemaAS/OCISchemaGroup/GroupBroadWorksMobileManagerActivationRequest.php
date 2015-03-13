@@ -43,7 +43,7 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -87,7 +87,7 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -107,7 +107,7 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -129,7 +129,7 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
 
     /**
      * 
-     * @return BroadWorksMobileManagerDeactivationReason
+     * @return BroadWorksMobileManagerDeactivationReason $deactivationReason
      */
     public function getDeactivationReason()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementCommunicationBarringAlternateCallIndicatorList;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -22,7 +21,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementCommunicationBarringAlternateCallIndicatorList extends ComplexType implements ComplexInterface
 {
-    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ReplacementCommunicationBarringAlternateCallIndicatorList';
     public    $name                   = 'ReplacementCommunicationBarringAlternateCallIndicatorList';
     protected $alternateCallIndicator = null;
 
@@ -33,7 +31,7 @@ class ReplacementCommunicationBarringAlternateCallIndicatorList extends ComplexT
     }
 
     /**
-     * @return ReplacementCommunicationBarringAlternateCallIndicatorList
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +51,7 @@ class ReplacementCommunicationBarringAlternateCallIndicatorList extends ComplexT
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $alternateCallIndicator
      */
     public function getAlternateCallIndicator()
     {

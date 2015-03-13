@@ -42,7 +42,7 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return CallingNameRetrievalQueryTimerMilliSeconds
+     * @return CallingNameRetrievalQueryTimerMilliSeconds $queryTimerMilliSeconds
      */
     public function getQueryTimerMilliSeconds()
     {
@@ -86,7 +86,7 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $serverNetAddress
      */
     public function getServerNetAddress()
     {
@@ -108,7 +108,7 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $serverPort
      */
     public function getServerPort()
     {
@@ -130,7 +130,7 @@ class SystemCallingNameRetrievalModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $serverTransportProtocol
      */
     public function getServerTransportProtocol()
     {

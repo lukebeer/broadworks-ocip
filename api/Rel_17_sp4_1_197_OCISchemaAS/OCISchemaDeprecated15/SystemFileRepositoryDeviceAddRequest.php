@@ -38,7 +38,7 @@ class SystemFileRepositoryDeviceAddRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemFileRepositoryDeviceAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return FileRepositoryName
+     * @return FileRepositoryName $name
      */
     public function getName()
     {
@@ -82,7 +82,7 @@ class SystemFileRepositoryDeviceAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return CPEFileDirectory
+     * @return CPEFileDirectory $rootDirectory
      */
     public function getRootDirectory()
     {
@@ -104,7 +104,7 @@ class SystemFileRepositoryDeviceAddRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return Port
+     * @return Port $port
      */
     public function getPort()
     {

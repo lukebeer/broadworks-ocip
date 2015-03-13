@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderCommunicationBarringHierarchicalRedirectingRule;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringHierarchicalRedirectingRule extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderCommunicationBarringHierarchicalRedirectingRule';
     public    $name               = 'ServiceProviderCommunicationBarringHierarchicalRedirectingRule';
     protected $action             = null;
     protected $callTimeoutSeconds = null;
@@ -43,7 +41,7 @@ class ServiceProviderCommunicationBarringHierarchicalRedirectingRule extends Com
     }
 
     /**
-     * @return ServiceProviderCommunicationBarringHierarchicalRedirectingRule
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +61,7 @@ class ServiceProviderCommunicationBarringHierarchicalRedirectingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $action
      */
     public function getAction()
     {
@@ -83,7 +81,7 @@ class ServiceProviderCommunicationBarringHierarchicalRedirectingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callTimeoutSeconds
      */
     public function getCallTimeoutSeconds()
     {
@@ -103,7 +101,7 @@ class ServiceProviderCommunicationBarringHierarchicalRedirectingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -123,7 +121,7 @@ class ServiceProviderCommunicationBarringHierarchicalRedirectingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -143,7 +141,7 @@ class ServiceProviderCommunicationBarringHierarchicalRedirectingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $priority
      */
     public function getPriority()
     {

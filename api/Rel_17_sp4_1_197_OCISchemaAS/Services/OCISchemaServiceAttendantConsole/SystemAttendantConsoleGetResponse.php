@@ -24,7 +24,7 @@ class SystemAttendantConsoleGetResponse extends ComplexType implements ComplexIn
     protected $maxMonitoredUsers = null;
 
     /**
-     * @return SystemAttendantConsoleGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\SystemAttendantConsoleGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemAttendantConsoleGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return MaximumMonitoredUsers
+     * @return MaximumMonitoredUsers $maxMonitoredUsers
      */
     public function getMaxMonitoredUsers()
     {

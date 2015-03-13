@@ -23,7 +23,7 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse ext
     protected $profileTable = null;
 
     /**
-     * @return ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

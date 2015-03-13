@@ -24,7 +24,7 @@ class GroupEnterpriseTrunkGetUserListResponse extends ComplexType implements Com
     protected $enterpriseTrunkUserTable = null;
 
     /**
-     * @return GroupEnterpriseTrunkGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

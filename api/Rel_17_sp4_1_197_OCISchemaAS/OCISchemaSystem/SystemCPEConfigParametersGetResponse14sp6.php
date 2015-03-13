@@ -34,7 +34,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
     protected $deviceAccessAppServerClusterName    = null;
 
     /**
-     * @return SystemCPEConfigParametersGetResponse14sp6
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigParametersGetResponse14sp6 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableIPDeviceManagement
      */
     public function getEnableIPDeviceManagement()
     {
@@ -76,7 +76,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
 
     /**
      * 
-     * @return DeviceManagementFTPConnectTimeoutSeconds
+     * @return DeviceManagementFTPConnectTimeoutSeconds $ftpConnectTimeoutSeconds
      */
     public function getFtpConnectTimeoutSeconds()
     {
@@ -98,7 +98,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
 
     /**
      * 
-     * @return DeviceManagementFTPFileTransferTimeoutSeconds
+     * @return DeviceManagementFTPFileTransferTimeoutSeconds $ftpFileTransferTimeoutSeconds
      */
     public function getFtpFileTransferTimeoutSeconds()
     {
@@ -120,7 +120,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
 
     /**
      * 
-     * @return DeviceManagementPauseBetweenFileRebuildMilliseconds
+     * @return DeviceManagementPauseBetweenFileRebuildMilliseconds $pauseBetweenFileRebuildMilliseconds
      */
     public function getPauseBetweenFileRebuildMilliseconds()
     {
@@ -142,7 +142,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
 
     /**
      * 
-     * @return DeviceManagementMaxBusyTimeMinutes
+     * @return DeviceManagementMaxBusyTimeMinutes $maxBusyTimeMinutes
      */
     public function getMaxBusyTimeMinutes()
     {
@@ -164,7 +164,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $deviceAccessAppServerClusterName
      */
     public function getDeviceAccessAppServerClusterName()
     {

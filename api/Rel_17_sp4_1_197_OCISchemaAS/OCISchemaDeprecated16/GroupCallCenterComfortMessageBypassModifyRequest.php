@@ -59,7 +59,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -81,7 +81,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -101,7 +101,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -123,7 +123,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterComfortMessageBypassThresholdSeconds
+     * @return CallCenterComfortMessageBypassThresholdSeconds $callWaitingAgeThresholdSeconds
      */
     public function getCallWaitingAgeThresholdSeconds()
     {
@@ -143,7 +143,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementAfterRinging
      */
     public function getPlayAnnouncementAfterRinging()
     {
@@ -165,7 +165,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds
+     * @return CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds $ringTimeBeforePlayingAnnouncementSeconds
      */
     public function getRingTimeBeforePlayingAnnouncementSeconds()
     {
@@ -187,7 +187,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -207,7 +207,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -229,7 +229,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -249,7 +249,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $videoFile
      */
     public function getVideoFile()
     {

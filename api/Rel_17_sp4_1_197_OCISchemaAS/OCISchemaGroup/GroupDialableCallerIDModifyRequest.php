@@ -46,7 +46,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -90,7 +90,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -110,7 +110,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupCriteria
      */
     public function getUseGroupCriteria()
     {
@@ -132,7 +132,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return NsScreeningFailurePolicy
+     * @return NsScreeningFailurePolicy $nsScreeningFailurePolicy
      */
     public function getNsScreeningFailurePolicy()
     {
@@ -152,7 +152,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return DialableCallerIDCriteriaPriorityOrder
+     * @return DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder
      */
     public function getCriteriaPriorityOrder()
     {

@@ -34,7 +34,7 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -76,7 +76,7 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ReplacementUserIdList
+     * @return ReplacementUserIdList $targetUserIdList
      */
     public function getTargetUserIdList()
     {

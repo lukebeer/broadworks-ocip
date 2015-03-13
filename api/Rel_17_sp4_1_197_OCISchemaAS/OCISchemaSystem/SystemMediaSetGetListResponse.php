@@ -23,7 +23,7 @@ class SystemMediaSetGetListResponse extends ComplexType implements ComplexInterf
     protected $mediaSetName = null;
 
     /**
-     * @return SystemMediaSetGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaSetGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemMediaSetGetListResponse extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return MediaSetName
+     * @return MediaSetName $mediaSetName
      */
     public function getMediaSetName()
     {

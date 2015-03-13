@@ -25,7 +25,7 @@ class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
     protected $passcodeTimeoutSeconds = null;
 
     /**
-     * @return SystemCallMeNowGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\SystemCallMeNowGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallMeNowPasscodeLength
+     * @return CallMeNowPasscodeLength $passcodeLength
      */
     public function getPasscodeLength()
     {
@@ -69,7 +69,7 @@ class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallMeNowPasscodeTimeoutSeconds
+     * @return CallMeNowPasscodeTimeoutSeconds $passcodeTimeoutSeconds
      */
     public function getPasscodeTimeoutSeconds()
     {

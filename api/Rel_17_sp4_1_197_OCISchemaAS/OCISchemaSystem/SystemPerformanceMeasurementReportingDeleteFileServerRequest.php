@@ -30,7 +30,7 @@ class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends Compl
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $ftpHostNetAddress
      */
     public function getFtpHostNetAddress()
     {

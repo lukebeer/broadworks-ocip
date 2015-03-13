@@ -48,7 +48,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return FileRepositoryName
+     * @return FileRepositoryName $fileRepositoryName
      */
     public function getFileRepositoryName()
     {
@@ -92,7 +92,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return FileRepositoryUserName
+     * @return FileRepositoryUserName $userName
      */
     public function getUserName()
     {
@@ -114,7 +114,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return FileRepositoryUserPassword
+     * @return FileRepositoryUserPassword $password
      */
     public function getPassword()
     {
@@ -134,7 +134,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowPut
      */
     public function getAllowPut()
     {
@@ -154,7 +154,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowDelete
      */
     public function getAllowDelete()
     {
@@ -174,7 +174,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowGet
      */
     public function getAllowGet()
     {

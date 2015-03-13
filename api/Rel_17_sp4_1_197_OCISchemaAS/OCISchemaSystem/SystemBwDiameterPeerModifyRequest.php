@@ -46,7 +46,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return BwDiameterPeerInstance
+     * @return BwDiameterPeerInstance $instance
      */
     public function getInstance()
     {
@@ -90,7 +90,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $identity
      */
     public function getIdentity()
     {
@@ -112,7 +112,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $ipAddress
      */
     public function getIpAddress()
     {
@@ -134,7 +134,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $port
      */
     public function getPort()
     {
@@ -154,7 +154,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enabled
      */
     public function getEnabled()
     {

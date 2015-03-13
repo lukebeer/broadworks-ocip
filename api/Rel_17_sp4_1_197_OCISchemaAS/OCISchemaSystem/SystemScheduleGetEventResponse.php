@@ -26,7 +26,7 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
     protected $recurrence = null;
 
     /**
-     * @return SystemScheduleGetEventResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleGetEventResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $startDate
      */
     public function getStartDate()
     {
@@ -64,7 +64,7 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:date
+     * @return xs:date $endDate
      */
     public function getEndDate()
     {
@@ -84,7 +84,7 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return Recurrence
+     * @return Recurrence $recurrence
      */
     public function getRecurrence()
     {

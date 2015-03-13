@@ -24,7 +24,7 @@ class SystemConfigurableFileSystemGetResponse extends ComplexType implements Com
     protected $mediaDirectory = null;
 
     /**
-     * @return SystemConfigurableFileSystemGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableFileSystemGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemConfigurableFileSystemGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return ConfigurableFileSystemDirectory
+     * @return ConfigurableFileSystemDirectory $mediaDirectory
      */
     public function getMediaDirectory()
     {

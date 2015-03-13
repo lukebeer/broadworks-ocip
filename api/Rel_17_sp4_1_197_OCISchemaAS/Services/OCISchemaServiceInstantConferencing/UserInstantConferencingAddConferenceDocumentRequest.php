@@ -42,7 +42,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -84,7 +84,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
 
     /**
      * 
-     * @return InstantConferencingConferenceKey
+     * @return InstantConferencingConferenceKey $conferenceKey
      */
     public function getConferenceKey()
     {
@@ -104,7 +104,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $documentFile
      */
     public function getDocumentFile()
     {
@@ -126,7 +126,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
 
     /**
      * 
-     * @return Password
+     * @return Password $encryptionPassword
      */
     public function getEncryptionPassword()
     {

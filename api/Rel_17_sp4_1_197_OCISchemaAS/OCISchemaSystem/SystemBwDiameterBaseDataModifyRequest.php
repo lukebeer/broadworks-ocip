@@ -77,7 +77,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -99,7 +99,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $xsRealm
      */
     public function getXsRealm()
     {
@@ -121,7 +121,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $xsListeningPort
      */
     public function getXsListeningPort()
     {
@@ -143,7 +143,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $psRealm
      */
     public function getPsRealm()
     {
@@ -165,7 +165,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $psListeningPort
      */
     public function getPsListeningPort()
     {
@@ -185,7 +185,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $psRelayThroughXs
      */
     public function getPsRelayThroughXs()
     {
@@ -207,7 +207,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $xsRelayListeningPort
      */
     public function getXsRelayListeningPort()
     {
@@ -229,7 +229,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterTcTimerSeconds
+     * @return BwDiameterTcTimerSeconds $tcTimerSeconds
      */
     public function getTcTimerSeconds()
     {
@@ -251,7 +251,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterTwTimerSeconds
+     * @return BwDiameterTwTimerSeconds $twTimerSeconds
      */
     public function getTwTimerSeconds()
     {
@@ -273,7 +273,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterRequestTimerSeconds
+     * @return BwDiameterRequestTimerSeconds $requestTimerSeconds
      */
     public function getRequestTimerSeconds()
     {
@@ -295,7 +295,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterBusyPeerOutstandingTxnCount
+     * @return BwDiameterBusyPeerOutstandingTxnCount $busyPeerDetectionOutstandingTxnCount
      */
     public function getBusyPeerDetectionOutstandingTxnCount()
     {
@@ -317,7 +317,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterBusyPeerOutstandingTxnCount
+     * @return BwDiameterBusyPeerOutstandingTxnCount $busyPeerRestoreOutstandingTxnCount
      */
     public function getBusyPeerRestoreOutstandingTxnCount()
     {
@@ -339,7 +339,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterDynamicEntryInactivityTimerHours
+     * @return BwDiameterDynamicEntryInactivityTimerHours $dynamicEntryInactivityTimerHours
      */
     public function getDynamicEntryInactivityTimerHours()
     {
@@ -361,7 +361,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterAdvertisedApplication
+     * @return BwDiameterAdvertisedApplication $advertisedOfflineBillingApplication
      */
     public function getAdvertisedOfflineBillingApplication()
     {
@@ -383,7 +383,7 @@ class SystemBwDiameterBaseDataModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return BwDiameterAdvertisedApplication
+     * @return BwDiameterAdvertisedApplication $advertisedOnlineBillingApplication
      */
     public function getAdvertisedOnlineBillingApplication()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderCommunicationBarringHierarchicalOriginatingRule;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderCommunicationBarringHierarchicalOriginatingRule';
     public    $name               = 'ServiceProviderCommunicationBarringHierarchicalOriginatingRule';
     protected $action             = null;
     protected $treatmentId        = null;
@@ -49,7 +47,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
     }
 
     /**
-     * @return ServiceProviderCommunicationBarringHierarchicalOriginatingRule
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -69,7 +67,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $action
      */
     public function getAction()
     {
@@ -89,7 +87,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $treatmentId
      */
     public function getTreatmentId()
     {
@@ -109,7 +107,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $transferNumber
      */
     public function getTransferNumber()
     {
@@ -129,7 +127,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $callTimeoutSeconds
      */
     public function getCallTimeoutSeconds()
     {
@@ -149,7 +147,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -169,7 +167,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -189,7 +187,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $priority
      */
     public function getPriority()
     {

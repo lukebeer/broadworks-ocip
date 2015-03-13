@@ -33,7 +33,7 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
     protected $scfSignalingPort          = null;
 
     /**
-     * @return SystemBroadWorksMobilityGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableLocationServices
      */
     public function getEnableLocationServices()
     {
@@ -73,7 +73,7 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMSRNLookup
      */
     public function getEnableMSRNLookup()
     {
@@ -93,7 +93,7 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMobileStateChecking
      */
     public function getEnableMobileStateChecking()
     {
@@ -113,7 +113,7 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallOriginations
      */
     public function getDenyCallOriginations()
     {
@@ -133,7 +133,7 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallTerminations
      */
     public function getDenyCallTerminations()
     {
@@ -155,7 +155,7 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return IMRNTimeoutMilliseconds
+     * @return IMRNTimeoutMilliseconds $imrnTimeoutMillisecnds
      */
     public function getImrnTimeoutMillisecnds()
     {
@@ -177,7 +177,7 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return IPAddress
+     * @return IPAddress $scfSignalingIPAddress
      */
     public function getScfSignalingIPAddress()
     {
@@ -199,7 +199,7 @@ class SystemBroadWorksMobilityGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port
+     * @return Port $scfSignalingPort
      */
     public function getScfSignalingPort()
     {

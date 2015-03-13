@@ -23,7 +23,7 @@ class ServiceProviderServicePackGetListResponse extends ComplexType implements C
     protected $servicePackName = null;
 
     /**
-     * @return ServiceProviderServicePackGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class ServiceProviderServicePackGetListResponse extends ComplexType implements C
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {

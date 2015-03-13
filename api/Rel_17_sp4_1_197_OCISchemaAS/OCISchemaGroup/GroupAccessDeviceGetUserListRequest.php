@@ -19,7 +19,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetUserListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -76,7 +75,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return GroupAccessDeviceGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -98,7 +97,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -120,7 +119,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -142,7 +141,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -164,7 +163,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -186,7 +185,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaLinePortUserPart
+     * @return SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart
      */
     public function getSearchCriteriaLinePortUserPart()
     {
@@ -208,7 +207,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaLinePortDomain
+     * @return SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain
      */
     public function getSearchCriteriaLinePortDomain()
     {
@@ -230,7 +229,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaUserLastName
+     * @return SearchCriteriaUserLastName $searchCriteriaUserLastName
      */
     public function getSearchCriteriaUserLastName()
     {
@@ -252,7 +251,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaUserFirstName
+     * @return SearchCriteriaUserFirstName $searchCriteriaUserFirstName
      */
     public function getSearchCriteriaUserFirstName()
     {
@@ -274,7 +273,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaDn
+     * @return SearchCriteriaDn $searchCriteriaDn
      */
     public function getSearchCriteriaDn()
     {
@@ -296,7 +295,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaUserId
+     * @return SearchCriteriaUserId $searchCriteriaUserId
      */
     public function getSearchCriteriaUserId()
     {
@@ -318,7 +317,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaExactEndpointType
+     * @return SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType
      */
     public function getSearchCriteriaExactEndpointType()
     {
@@ -340,7 +339,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return SearchCriteriaExactUserType
+     * @return SearchCriteriaExactUserType $searchCriteriaExactUserType
      */
     public function getSearchCriteriaExactUserType()
     {

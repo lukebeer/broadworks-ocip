@@ -38,7 +38,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
     protected $videoFileUrl              = null;
 
     /**
-     * @return GroupPreAlertingAnnouncementGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreAlertingAnnouncement\GroupPreAlertingAnnouncementGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return PreAlertingAnnouncementInterrupt
+     * @return PreAlertingAnnouncementInterrupt $announcementInterruption
      */
     public function getAnnouncementInterruption()
     {
@@ -82,7 +82,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return PreAlertingAnnouncementInterruptDigits
+     * @return PreAlertingAnnouncementInterruptDigits $interruptionDigitSequence
      */
     public function getInterruptionDigitSequence()
     {
@@ -104,7 +104,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -126,7 +126,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -148,7 +148,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $audioMediaType
      */
     public function getAudioMediaType()
     {
@@ -170,7 +170,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return URL
+     * @return URL $audioFileUrl
      */
     public function getAudioFileUrl()
     {
@@ -192,7 +192,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -214,7 +214,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -236,7 +236,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $videoMediaType
      */
     public function getVideoMediaType()
     {
@@ -258,7 +258,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
 
     /**
      * 
-     * @return URL
+     * @return URL $videoFileUrl
      */
     public function getVideoFileUrl()
     {

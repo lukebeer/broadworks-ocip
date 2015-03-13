@@ -23,7 +23,7 @@ class ServiceProviderBroadWorksCommunicatorGetResponse extends ComplexType imple
     protected $configurationServerURL = null;
 
     /**
-     * @return ServiceProviderBroadWorksCommunicatorGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicator\ServiceProviderBroadWorksCommunicatorGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class ServiceProviderBroadWorksCommunicatorGetResponse extends ComplexType imple
 
     /**
      * 
-     * @return URL
+     * @return URL $configurationServerURL
      */
     public function getConfigurationServerURL()
     {

@@ -34,7 +34,7 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return BwDiameterPeerInstance
+     * @return BwDiameterPeerInstance $instance
      */
     public function getInstance()
     {
@@ -78,7 +78,7 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $identity
      */
     public function getIdentity()
     {

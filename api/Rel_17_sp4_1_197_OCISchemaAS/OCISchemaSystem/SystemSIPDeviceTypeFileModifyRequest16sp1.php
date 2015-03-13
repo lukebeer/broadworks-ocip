@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceTy
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileCustomization;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementFileFormat;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementAccessURI;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FileResource;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -63,7 +62,7 @@ class SystemSIPDeviceTypeFileModifyRequest16sp1 extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -85,7 +84,7 @@ class SystemSIPDeviceTypeFileModifyRequest16sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return AccessDeviceType
+     * @return AccessDeviceType $deviceType
      */
     public function getDeviceType()
     {
@@ -107,7 +106,7 @@ class SystemSIPDeviceTypeFileModifyRequest16sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return DeviceManagementFileFormat
+     * @return DeviceManagementFileFormat $fileFormat
      */
     public function getFileFormat()
     {
@@ -129,7 +128,7 @@ class SystemSIPDeviceTypeFileModifyRequest16sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return DeviceManagementFileCustomization
+     * @return DeviceManagementFileCustomization $fileCustomization
      */
     public function getFileCustomization()
     {
@@ -151,7 +150,7 @@ class SystemSIPDeviceTypeFileModifyRequest16sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return DeviceTypeFileEnhancedConfigurationMode
+     * @return DeviceTypeFileEnhancedConfigurationMode $fileSource
      */
     public function getFileSource()
     {
@@ -171,7 +170,7 @@ class SystemSIPDeviceTypeFileModifyRequest16sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return FileResource
+     * @return FileResource $uploadFile
      */
     public function getUploadFile()
     {
@@ -191,7 +190,7 @@ class SystemSIPDeviceTypeFileModifyRequest16sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useHttpDigestAuthentication
      */
     public function getUseHttpDigestAuthentication()
     {
@@ -211,7 +210,7 @@ class SystemSIPDeviceTypeFileModifyRequest16sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $macBasedFileAuthentication
      */
     public function getMacBasedFileAuthentication()
     {
@@ -231,7 +230,7 @@ class SystemSIPDeviceTypeFileModifyRequest16sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $userNamePasswordFileAuthentication
      */
     public function getUserNamePasswordFileAuthentication()
     {
@@ -251,7 +250,7 @@ class SystemSIPDeviceTypeFileModifyRequest16sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $macInNonRequestURI
      */
     public function getMacInNonRequestURI()
     {
@@ -273,7 +272,7 @@ class SystemSIPDeviceTypeFileModifyRequest16sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return DeviceManagementAccessURI
+     * @return DeviceManagementAccessURI $macFormatInNonRequestURI
      */
     public function getMacFormatInNonRequestURI()
     {

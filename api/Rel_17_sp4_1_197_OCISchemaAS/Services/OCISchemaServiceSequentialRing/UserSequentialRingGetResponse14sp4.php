@@ -36,7 +36,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
     protected $criteriaTable                = null;
 
     /**
-     * @return UserSequentialRingGetResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSequentialRing\UserSequentialRingGetResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $ringBaseLocationFirst
      */
     public function getRingBaseLocationFirst()
     {
@@ -78,7 +78,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SequentialRingNumberOfRings
+     * @return SequentialRingNumberOfRings $baseLocationNumberOfRings
      */
     public function getBaseLocationNumberOfRings()
     {
@@ -98,7 +98,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $continueIfBaseLocationIsBusy
      */
     public function getContinueIfBaseLocationIsBusy()
     {
@@ -118,7 +118,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $callerMayStopSearch
      */
     public function getCallerMayStopSearch()
     {
@@ -138,7 +138,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SequentialRingLocation14sp4
+     * @return SequentialRingLocation14sp4 $Location01
      */
     public function getLocation01()
     {
@@ -158,7 +158,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SequentialRingLocation14sp4
+     * @return SequentialRingLocation14sp4 $Location02
      */
     public function getLocation02()
     {
@@ -178,7 +178,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SequentialRingLocation14sp4
+     * @return SequentialRingLocation14sp4 $Location03
      */
     public function getLocation03()
     {
@@ -198,7 +198,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SequentialRingLocation14sp4
+     * @return SequentialRingLocation14sp4 $Location04
      */
     public function getLocation04()
     {
@@ -218,7 +218,7 @@ class UserSequentialRingGetResponse14sp4 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SequentialRingLocation14sp4
+     * @return SequentialRingLocation14sp4 $Location05
      */
     public function getLocation05()
     {

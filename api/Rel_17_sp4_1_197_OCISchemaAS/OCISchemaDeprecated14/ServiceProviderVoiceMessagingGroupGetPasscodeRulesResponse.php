@@ -42,7 +42,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
     protected $loginDisabledNotifyEmailAddress         = null;
 
     /**
-     * @return ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +62,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRepeatedDigits
      */
     public function getDisallowRepeatedDigits()
     {
@@ -82,7 +82,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserNumber
      */
     public function getDisallowUserNumber()
     {
@@ -102,7 +102,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedUserNumber
      */
     public function getDisallowReversedUserNumber()
     {
@@ -122,7 +122,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPasscode
      */
     public function getDisallowOldPasscode()
     {
@@ -142,7 +142,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPasscode
      */
     public function getDisallowReversedOldPasscode()
     {
@@ -164,7 +164,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return VoiceMessagingMinPasscodeCodeLength
+     * @return VoiceMessagingMinPasscodeCodeLength $minCodeLength
      */
     public function getMinCodeLength()
     {
@@ -186,7 +186,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return VoiceMessagingMaxPasscodeCodeLength
+     * @return VoiceMessagingMaxPasscodeCodeLength $maxCodeLength
      */
     public function getMaxCodeLength()
     {
@@ -206,7 +206,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableLoginAfterMaxFailedLoginAttempts
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
@@ -228,7 +228,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return VoiceMessagingMaxFailedLoginAttempts
+     * @return VoiceMessagingMaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -248,7 +248,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expirePassword
      */
     public function getExpirePassword()
     {
@@ -270,7 +270,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return VoiceMessagingPasscodeExpiresDays
+     * @return VoiceMessagingPasscodeExpiresDays $passcodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
@@ -290,7 +290,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -312,7 +312,7 @@ class ServiceProviderVoiceMessagingGroupGetPasscodeRulesResponse extends Complex
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {

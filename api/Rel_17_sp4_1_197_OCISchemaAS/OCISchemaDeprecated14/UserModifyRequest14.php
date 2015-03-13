@@ -118,7 +118,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -140,7 +140,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -162,7 +162,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return LastName
+     * @return LastName $lastName
      */
     public function getLastName()
     {
@@ -184,7 +184,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $firstName
      */
     public function getFirstName()
     {
@@ -206,7 +206,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallingLineIdLastName
+     * @return CallingLineIdLastName $callingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
@@ -228,7 +228,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallingLineIdFirstName
+     * @return CallingLineIdFirstName $callingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
@@ -250,7 +250,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return HiraganaLastName
+     * @return HiraganaLastName $hiraganaLastName
      */
     public function getHiraganaLastName()
     {
@@ -272,7 +272,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return HiraganaFirstName
+     * @return HiraganaFirstName $hiraganaFirstName
      */
     public function getHiraganaFirstName()
     {
@@ -294,7 +294,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -316,7 +316,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Extension
+     * @return Extension $extension
      */
     public function getExtension()
     {
@@ -338,7 +338,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DN
+     * @return DN $callingLineIdPhoneNumber
      */
     public function getCallingLineIdPhoneNumber()
     {
@@ -360,7 +360,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Password
+     * @return Password $oldPassword
      */
     public function getOldPassword()
     {
@@ -382,7 +382,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Password
+     * @return Password $newPassword
      */
     public function getNewPassword()
     {
@@ -402,7 +402,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $department
      */
     public function getDepartment()
     {
@@ -424,7 +424,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Language
+     * @return Language $language
      */
     public function getLanguage()
     {
@@ -446,7 +446,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return TimeZone
+     * @return TimeZone $timeZone
      */
     public function getTimeZone()
     {
@@ -466,7 +466,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ReplacementSIPAliasList
+     * @return ReplacementSIPAliasList $sipAliasList
      */
     public function getSipAliasList()
     {
@@ -485,7 +485,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return 
+     * @return  $endpoint
      */
     public function getEndpoint()
     {
@@ -507,7 +507,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return Title
+     * @return Title $title
      */
     public function getTitle()
     {
@@ -529,7 +529,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return InformationalDN
+     * @return InformationalDN $pagerPhoneNumber
      */
     public function getPagerPhoneNumber()
     {
@@ -551,7 +551,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $mobilePhoneNumber
      */
     public function getMobilePhoneNumber()
     {
@@ -573,7 +573,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $emailAddress
      */
     public function getEmailAddress()
     {
@@ -595,7 +595,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return YahooId
+     * @return YahooId $yahooId
      */
     public function getYahooId()
     {
@@ -617,7 +617,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return AddressLocation
+     * @return AddressLocation $addressLocation
      */
     public function getAddressLocation()
     {
@@ -637,7 +637,7 @@ class UserModifyRequest14 extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return StreetAddress
+     * @return StreetAddress $address
      */
     public function getAddress()
     {

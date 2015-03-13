@@ -27,7 +27,7 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
     protected $agentStatistics = null;
 
     /**
-     * @return GroupCallCenterGetInstanceStatisticsResponse14sp9
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
 
     /**
      * 
-     * @return CallCenterStatisticsRange
+     * @return CallCenterStatisticsRange $statisticsRange
      */
     public function getStatisticsRange()
     {
@@ -67,7 +67,7 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
 
     /**
      * 
-     * @return CallCenterQueueStatistics14sp9
+     * @return CallCenterQueueStatistics14sp9 $queueStatistics
      */
     public function getQueueStatistics()
     {
@@ -87,7 +87,7 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
 
     /**
      * 
-     * @return CallCenterAgentStatistics14sp9
+     * @return CallCenterAgentStatistics14sp9 $agentStatistics
      */
     public function getAgentStatistics()
     {

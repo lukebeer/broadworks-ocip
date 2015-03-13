@@ -38,7 +38,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
     protected $transferPhoneNumber         = null;
 
     /**
-     * @return UserInterceptUserGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserInterceptUserGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -80,7 +80,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return AnnouncementSelection
+     * @return AnnouncementSelection $announcementSelection
      */
     public function getAnnouncementSelection()
     {
@@ -102,7 +102,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -124,7 +124,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $audioMediaType
      */
     public function getAudioMediaType()
     {
@@ -146,7 +146,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -168,7 +168,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $videoMediaType
      */
     public function getVideoMediaType()
     {
@@ -188,7 +188,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playNewPhoneNumber
      */
     public function getPlayNewPhoneNumber()
     {
@@ -210,7 +210,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DN
+     * @return DN $newPhoneNumber
      */
     public function getNewPhoneNumber()
     {
@@ -230,7 +230,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $transferOnZeroToPhoneNumber
      */
     public function getTransferOnZeroToPhoneNumber()
     {
@@ -252,7 +252,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {

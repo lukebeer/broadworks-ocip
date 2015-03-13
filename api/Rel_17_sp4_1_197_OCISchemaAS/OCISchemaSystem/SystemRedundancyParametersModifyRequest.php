@@ -34,7 +34,7 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return RedundancyRollBackTimerMinutes
+     * @return RedundancyRollBackTimerMinutes $rollBackTimerMinutes
      */
     public function getRollBackTimerMinutes()
     {
@@ -76,7 +76,7 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendSipOptionMessageUponMigration
      */
     public function getSendSipOptionMessageUponMigration()
     {

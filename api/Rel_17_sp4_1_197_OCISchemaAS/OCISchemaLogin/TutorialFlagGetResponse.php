@@ -23,7 +23,7 @@ class TutorialFlagGetResponse extends ComplexType implements ComplexInterface
     protected $enableTutorial = null;
 
     /**
-     * @return TutorialFlagGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\TutorialFlagGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class TutorialFlagGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableTutorial
      */
     public function getEnableTutorial()
     {

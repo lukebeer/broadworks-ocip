@@ -36,7 +36,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
     protected $userServiceTable       = null;
 
     /**
-     * @return ServiceProviderServicePackGetDetailListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetDetailListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {
@@ -80,7 +80,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
 
     /**
      * 
-     * @return ServicePackDescription
+     * @return ServicePackDescription $servicePackDescription
      */
     public function getServicePackDescription()
     {
@@ -100,7 +100,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isAvailableForUse
      */
     public function getIsAvailableForUse()
     {
@@ -120,7 +120,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
 
     /**
      * 
-     * @return UnboundedPositiveInt
+     * @return UnboundedPositiveInt $servicePackQuantity
      */
     public function getServicePackQuantity()
     {
@@ -140,7 +140,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $assignedQuantity
      */
     public function getAssignedQuantity()
     {
@@ -160,7 +160,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
 
     /**
      * 
-     * @return UnboundedPositiveInt
+     * @return UnboundedPositiveInt $allowedQuantity
      */
     public function getAllowedQuantity()
     {

@@ -25,7 +25,7 @@ class SystemMGCPDeviceTypeGetListResponse extends ComplexType implements Complex
     protected $deviceTypeTable = null;
 
     /**
-     * @return SystemMGCPDeviceTypeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMGCPDeviceTypeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

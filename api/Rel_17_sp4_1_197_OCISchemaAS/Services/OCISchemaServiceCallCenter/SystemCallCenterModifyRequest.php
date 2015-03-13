@@ -77,7 +77,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -99,7 +99,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {
@@ -121,7 +121,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallCenterStatisticsSamplingPeriodMinutes
+     * @return CallCenterStatisticsSamplingPeriodMinutes $statisticsSamplingPeriodMinutes
      */
     public function getStatisticsSamplingPeriodMinutes()
     {
@@ -141,7 +141,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $defaultEnableGuardTimer
      */
     public function getDefaultEnableGuardTimer()
     {
@@ -163,7 +163,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallCenterGuardTimerSeconds
+     * @return CallCenterGuardTimerSeconds $defaultGuardTimerSeconds
      */
     public function getDefaultGuardTimerSeconds()
     {
@@ -183,7 +183,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnDNDActivation
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
@@ -203,7 +203,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnPersonalCalls
      */
     public function getForceAgentUnavailableOnPersonalCalls()
     {
@@ -223,7 +223,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceAgentUnavailableOnBouncedCallLimit
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
@@ -245,7 +245,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable
+     * @return CallCenterConsecutiveBouncedCallsToForceAgentUnavailable $numberConsecutiveBouncedCallsToForceAgentUnavailable
      */
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
     {
@@ -265,7 +265,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $defaultPlayRingWhenOfferCall
      */
     public function getDefaultPlayRingWhenOfferCall()
     {
@@ -287,7 +287,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallCenterUniformCallDistributionPolicyScope
+     * @return CallCenterUniformCallDistributionPolicyScope $uniformCallDistributionPolicyScope
      */
     public function getUniformCallDistributionPolicyScope()
     {
@@ -309,7 +309,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallHandlingSamplingPeriodMinutes
+     * @return CallHandlingSamplingPeriodMinutes $callHandlingSamplingPeriodMinutes
      */
     public function getCallHandlingSamplingPeriodMinutes()
     {
@@ -331,7 +331,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallHandlingMinimumSamplingSize
+     * @return CallHandlingMinimumSamplingSize $callHandlingMinimumSamplingSize
      */
     public function getCallHandlingMinimumSamplingSize()
     {
@@ -351,7 +351,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playToneToAgentForEmergencyCall
      */
     public function getPlayToneToAgentForEmergencyCall()
     {
@@ -373,7 +373,7 @@ class SystemCallCenterModifyRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallCenterEmergencyCallCLIDPrefix
+     * @return CallCenterEmergencyCallCLIDPrefix $emergencyCallCLIDPrefix
      */
     public function getEmergencyCallCLIDPrefix()
     {

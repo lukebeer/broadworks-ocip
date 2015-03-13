@@ -24,7 +24,7 @@ class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexI
     protected $allocatedPorts = null;
 
     /**
-     * @return GroupMeetMeConferencingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return MeetMeConferencingConferencePorts
+     * @return MeetMeConferencingConferencePorts $availablePorts
      */
     public function getAvailablePorts()
     {
@@ -64,7 +64,7 @@ class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return MeetMeConferencingConferencePorts
+     * @return MeetMeConferencingConferencePorts $allocatedPorts
      */
     public function getAllocatedPorts()
     {

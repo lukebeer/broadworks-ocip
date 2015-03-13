@@ -42,7 +42,7 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +108,7 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $scheduleName
      */
     public function getScheduleName()
     {
@@ -130,7 +130,7 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ScheduleType
+     * @return ScheduleType $scheduleType
      */
     public function getScheduleType()
     {

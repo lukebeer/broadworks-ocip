@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\FileRepositoryProtocolFTP;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class FileRepositoryProtocolFTP extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\FileRepositoryProtocolFTP';
     public    $name       = 'FileRepositoryProtocolFTP';
     protected $ftpPassive = null;
     protected $netAddress = null;
@@ -34,7 +32,7 @@ class FileRepositoryProtocolFTP extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return FileRepositoryProtocolFTP
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class FileRepositoryProtocolFTP extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $ftpPassive
      */
     public function getFtpPassive()
     {
@@ -74,7 +72,7 @@ class FileRepositoryProtocolFTP extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $netAddress
      */
     public function getNetAddress()
     {

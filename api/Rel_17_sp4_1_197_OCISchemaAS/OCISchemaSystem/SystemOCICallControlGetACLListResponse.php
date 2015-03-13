@@ -24,7 +24,7 @@ class SystemOCICallControlGetACLListResponse extends ComplexType implements Comp
     protected $aclTable = null;
 
     /**
-     * @return SystemOCICallControlGetACLListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCICallControlGetACLListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

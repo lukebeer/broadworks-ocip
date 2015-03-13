@@ -24,7 +24,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse exten
     protected $matchDigitPattern = null;
 
     /**
-     * @return SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse exten
 
     /**
      * 
-     * @return DigitPattern
+     * @return DigitPattern $matchDigitPattern
      */
     public function getMatchDigitPattern()
     {

@@ -46,7 +46,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -90,7 +90,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -112,7 +112,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AccessDeviceName
+     * @return AccessDeviceName $deviceName
      */
     public function getDeviceName()
     {
@@ -134,7 +134,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AccessDeviceEndpointLinePort
+     * @return AccessDeviceEndpointLinePort $linePort
      */
     public function getLinePort()
     {
@@ -154,7 +154,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isPrimaryLinePort
      */
     public function getIsPrimaryLinePort()
     {

@@ -26,7 +26,7 @@ class UserGetListInServiceProviderResponse extends ComplexType implements Comple
     protected $userTable = null;
 
     /**
-     * @return UserGetListInServiceProviderResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInServiceProviderResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

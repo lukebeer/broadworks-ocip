@@ -31,7 +31,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
     protected $monitoredUserTable         = null;
 
     /**
-     * @return UserAttendantConsoleGetResponse14sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\UserAttendantConsoleGetResponse14sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -51,7 +51,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $launchOnLogin
      */
     public function getLaunchOnLogin()
     {
@@ -71,7 +71,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUserConfigCallDetails
      */
     public function getAllowUserConfigCallDetails()
     {
@@ -91,7 +91,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUserViewCallDetails
      */
     public function getAllowUserViewCallDetails()
     {
@@ -113,7 +113,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AttendantConsoleDisplayColumn
+     * @return AttendantConsoleDisplayColumn $displayColumn
      */
     public function getDisplayColumn()
     {

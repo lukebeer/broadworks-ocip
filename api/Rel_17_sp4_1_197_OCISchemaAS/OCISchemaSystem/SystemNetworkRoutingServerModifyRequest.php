@@ -46,7 +46,7 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -90,7 +90,7 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $port
      */
     public function getPort()
     {
@@ -112,7 +112,7 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return TransportProtocol
+     * @return TransportProtocol $transportProtocol
      */
     public function getTransportProtocol()
     {
@@ -132,7 +132,7 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $poll
      */
     public function getPoll()
     {
@@ -154,7 +154,7 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return NetworkServerDescription
+     * @return NetworkServerDescription $description
      */
     public function getDescription()
     {

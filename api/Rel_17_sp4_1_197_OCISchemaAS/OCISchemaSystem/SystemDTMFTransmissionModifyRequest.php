@@ -34,7 +34,7 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return DTMFTransmissionMethod
+     * @return DTMFTransmissionMethod $transmissionMethod
      */
     public function getTransmissionMethod()
     {
@@ -78,7 +78,7 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return DtmfTransmissionSignalingContentType
+     * @return DtmfTransmissionSignalingContentType $signalingContentType
      */
     public function getSignalingContentType()
     {

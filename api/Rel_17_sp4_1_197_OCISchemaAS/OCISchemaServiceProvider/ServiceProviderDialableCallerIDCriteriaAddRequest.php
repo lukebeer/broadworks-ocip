@@ -74,7 +74,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -96,7 +96,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -118,7 +118,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return DialableCallerIDCriteriaName
+     * @return DialableCallerIDCriteriaName $name
      */
     public function getName()
     {
@@ -140,7 +140,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return DialableCallerIDCriteriaDescription
+     * @return DialableCallerIDCriteriaDescription $description
      */
     public function getDescription()
     {
@@ -162,7 +162,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return DialableCallerIDPrefixDigits
+     * @return DialableCallerIDPrefixDigits $prefixDigits
      */
     public function getPrefixDigits()
     {
@@ -184,7 +184,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringCallType
+     * @return CommunicationBarringCallType $matchCallType
      */
     public function getMatchCallType()
     {
@@ -206,7 +206,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return CommunicationBarringAlternateCallIndicator
+     * @return CommunicationBarringAlternateCallIndicator $matchAlternateCallIndicator
      */
     public function getMatchAlternateCallIndicator()
     {
@@ -226,7 +226,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchLocalCategory
      */
     public function getMatchLocalCategory()
     {
@@ -246,7 +246,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchNationalCategory
      */
     public function getMatchNationalCategory()
     {
@@ -266,7 +266,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInterlataCategory
      */
     public function getMatchInterlataCategory()
     {
@@ -286,7 +286,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchIntralataCategory
      */
     public function getMatchIntralataCategory()
     {
@@ -306,7 +306,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInternationalCategory
      */
     public function getMatchInternationalCategory()
     {
@@ -326,7 +326,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchPrivateCategory
      */
     public function getMatchPrivateCategory()
     {
@@ -346,7 +346,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchEmergencyCategory
      */
     public function getMatchEmergencyCategory()
     {
@@ -366,7 +366,7 @@ class ServiceProviderDialableCallerIDCriteriaAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchOtherCategory
      */
     public function getMatchOtherCategory()
     {

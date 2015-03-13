@@ -31,7 +31,7 @@ class SystemExportAddressingDataRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemExportAddressingDataRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return FileName
+     * @return FileName $fileName
      */
     public function getFileName()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanOriginatingPermissionsModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\OutgoingCallingPlanOriginatingPermissionsModify';
     public    $name                        = 'OutgoingCallingPlanOriginatingPermissionsModify';
     protected $group                       = null;
     protected $local                       = null;
@@ -70,7 +68,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
     }
 
     /**
-     * @return OutgoingCallingPlanOriginatingPermissionsModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -90,7 +88,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $group
      */
     public function getGroup()
     {
@@ -110,7 +108,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $local
      */
     public function getLocal()
     {
@@ -130,7 +128,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $tollFree
      */
     public function getTollFree()
     {
@@ -150,7 +148,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $toll
      */
     public function getToll()
     {
@@ -170,7 +168,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $international
      */
     public function getInternational()
     {
@@ -190,7 +188,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $operatorAssisted
      */
     public function getOperatorAssisted()
     {
@@ -210,7 +208,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $chargeableDirectoryAssisted
      */
     public function getChargeableDirectoryAssisted()
     {
@@ -230,7 +228,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $specialServicesI
      */
     public function getSpecialServicesI()
     {
@@ -250,7 +248,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $specialServicesII
      */
     public function getSpecialServicesII()
     {
@@ -270,7 +268,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $premiumServicesI
      */
     public function getPremiumServicesI()
     {
@@ -290,7 +288,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $premiumServicesII
      */
     public function getPremiumServicesII()
     {
@@ -310,7 +308,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $casual
      */
     public function getCasual()
     {
@@ -330,7 +328,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $urlDialing
      */
     public function getUrlDialing()
     {
@@ -350,7 +348,7 @@ class OutgoingCallingPlanOriginatingPermissionsModify extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $unknown
      */
     public function getUnknown()
     {

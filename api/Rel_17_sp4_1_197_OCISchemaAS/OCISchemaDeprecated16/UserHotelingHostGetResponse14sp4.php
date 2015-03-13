@@ -39,7 +39,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
     protected $guestAssociationDateTime = null;
 
     /**
-     * @return UserHotelingHostGetResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHotelingHostGetResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -79,7 +79,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceAssociationLimit
      */
     public function getEnforceAssociationLimit()
     {
@@ -101,7 +101,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return HotelingAssociationLimitHours
+     * @return HotelingAssociationLimitHours $associationLimitHours
      */
     public function getAssociationLimitHours()
     {
@@ -123,7 +123,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return HotelingHostAccessLevel
+     * @return HotelingHostAccessLevel $accessLevel
      */
     public function getAccessLevel()
     {
@@ -145,7 +145,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return LastName
+     * @return LastName $guestLastName
      */
     public function getGuestLastName()
     {
@@ -167,7 +167,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $guestFirstName
      */
     public function getGuestFirstName()
     {
@@ -189,7 +189,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return DN
+     * @return DN $guestPhoneNumber
      */
     public function getGuestPhoneNumber()
     {
@@ -211,7 +211,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return Extension
+     * @return Extension $guestExtension
      */
     public function getGuestExtension()
     {
@@ -233,7 +233,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return LocationDialingCode
+     * @return LocationDialingCode $guestLocationDialingCode
      */
     public function getGuestLocationDialingCode()
     {
@@ -252,7 +252,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:dateTime
+     * @return xs:dateTime $guestAssociationDateTime
      */
     public function getGuestAssociationDateTime()
     {

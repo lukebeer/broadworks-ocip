@@ -31,7 +31,7 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
     protected $unavailable          = null;
 
     /**
-     * @return UserCommPilotExpressSRGetResponse13mp16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\UserCommPilotExpressSRGetResponse13mp16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
 
     /**
      * 
-     * @return CommPilotExpressSRProfile
+     * @return CommPilotExpressSRProfile $profile
      */
     public function getProfile()
     {
@@ -73,7 +73,7 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
 
     /**
      * 
-     * @return CommPilotExpressSRAvailableInOffice
+     * @return CommPilotExpressSRAvailableInOffice $availableInOffice
      */
     public function getAvailableInOffice()
     {
@@ -93,7 +93,7 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
 
     /**
      * 
-     * @return CommPilotExpressSRAvailableOutOfOffice
+     * @return CommPilotExpressSRAvailableOutOfOffice $availableOutOfOffice
      */
     public function getAvailableOutOfOffice()
     {
@@ -113,7 +113,7 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
 
     /**
      * 
-     * @return CommPilotExpressSRBusy
+     * @return CommPilotExpressSRBusy $busy
      */
     public function getBusy()
     {
@@ -133,7 +133,7 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
 
     /**
      * 
-     * @return CommPilotExpressSRUnavailable
+     * @return CommPilotExpressSRUnavailable $unavailable
      */
     public function getUnavailable()
     {

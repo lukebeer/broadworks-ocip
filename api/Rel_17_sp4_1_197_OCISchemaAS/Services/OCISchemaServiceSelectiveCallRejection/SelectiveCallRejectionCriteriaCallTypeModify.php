@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection\SelectiveCallRejectionCriteriaCallTypeModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SelectiveCallRejectionCriteriaCallTypeModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection\SelectiveCallRejectionCriteriaCallTypeModify';
     public    $name                      = 'SelectiveCallRejectionCriteriaCallTypeModify';
     protected $fromDnCriteriaSelection   = null;
     protected $includeAnonymousCallers   = null;
@@ -40,7 +38,7 @@ class SelectiveCallRejectionCriteriaCallTypeModify extends ComplexType implement
     }
 
     /**
-     * @return SelectiveCallRejectionCriteriaCallTypeModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class SelectiveCallRejectionCriteriaCallTypeModify extends ComplexType implement
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $fromDnCriteriaSelection
      */
     public function getFromDnCriteriaSelection()
     {
@@ -80,7 +78,7 @@ class SelectiveCallRejectionCriteriaCallTypeModify extends ComplexType implement
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $includeAnonymousCallers
      */
     public function getIncludeAnonymousCallers()
     {
@@ -100,7 +98,7 @@ class SelectiveCallRejectionCriteriaCallTypeModify extends ComplexType implement
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $includeUnavailableCallers
      */
     public function getIncludeUnavailableCallers()
     {
@@ -120,7 +118,7 @@ class SelectiveCallRejectionCriteriaCallTypeModify extends ComplexType implement
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $phoneNumberList
      */
     public function getPhoneNumberList()
     {

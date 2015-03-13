@@ -41,7 +41,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
     protected $preferredSessionTimerRefresher     = null;
 
     /**
-     * @return SystemSessionAuditGetResponse14sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemSessionAuditGetResponse14sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -61,7 +61,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isAuditActive
      */
     public function getIsAuditActive()
     {
@@ -83,7 +83,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SessionAuditIntervalSeconds
+     * @return SessionAuditIntervalSeconds $auditIntervalSeconds
      */
     public function getAuditIntervalSeconds()
     {
@@ -105,7 +105,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SessionAuditTimeoutPeriodSeconds
+     * @return SessionAuditTimeoutPeriodSeconds $auditTimeoutSeconds
      */
     public function getAuditTimeoutSeconds()
     {
@@ -125,7 +125,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $releaseCallOnAuditFailure
      */
     public function getReleaseCallOnAuditFailure()
     {
@@ -145,7 +145,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSIPRefreshAllowedOnAudit
      */
     public function getIsSIPRefreshAllowedOnAudit()
     {
@@ -165,7 +165,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUpdateForSIPRefresh
      */
     public function getAllowUpdateForSIPRefresh()
     {
@@ -185,7 +185,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isSIPSessionTimerActive
      */
     public function getIsSIPSessionTimerActive()
     {
@@ -207,7 +207,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SIPSessionExpiresMinimumSeconds
+     * @return SIPSessionExpiresMinimumSeconds $sipSessionExpiresMinimumSeconds
      */
     public function getSipSessionExpiresMinimumSeconds()
     {
@@ -227,7 +227,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceSIPSessionExpiresMaximum
      */
     public function getEnforceSIPSessionExpiresMaximum()
     {
@@ -249,7 +249,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SIPSessionExpiresMaximumSeconds
+     * @return SIPSessionExpiresMaximumSeconds $sipSessionExpiresMaximumSeconds
      */
     public function getSipSessionExpiresMaximumSeconds()
     {
@@ -271,7 +271,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SIPSessionExpiresTimerSeconds
+     * @return SIPSessionExpiresTimerSeconds $sipSessionExpiresTimerSeconds
      */
     public function getSipSessionExpiresTimerSeconds()
     {
@@ -291,7 +291,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alwaysUseSessionTimerWhenSupported
      */
     public function getAlwaysUseSessionTimerWhenSupported()
     {
@@ -313,7 +313,7 @@ class SystemSessionAuditGetResponse14sp3 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return SessionTimerRefresher
+     * @return SessionTimerRefresher $preferredSessionTimerRefresher
      */
     public function getPreferredSessionTimerRefresher()
     {

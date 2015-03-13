@@ -27,7 +27,7 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
     protected $sipRequestURI   = null;
 
     /**
-     * @return UserExternalCustomRingbackGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCustomRingback\UserExternalCustomRingbackGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -69,7 +69,7 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return ExternalCustomRingbackSettingLevel
+     * @return ExternalCustomRingbackSettingLevel $useSettingLevel
      */
     public function getUseSettingLevel()
     {
@@ -91,7 +91,7 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return SIPContact
+     * @return SIPContact $sipRequestURI
      */
     public function getSipRequestURI()
     {

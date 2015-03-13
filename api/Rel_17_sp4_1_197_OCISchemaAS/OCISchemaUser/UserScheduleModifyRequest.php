@@ -38,7 +38,7 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -80,7 +80,7 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ScheduleKey
+     * @return ScheduleKey $scheduleKey
      */
     public function getScheduleKey()
     {
@@ -102,7 +102,7 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $newScheduleName
      */
     public function getNewScheduleName()
     {

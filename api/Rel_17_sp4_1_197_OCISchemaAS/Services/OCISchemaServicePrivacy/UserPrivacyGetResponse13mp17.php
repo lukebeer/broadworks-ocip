@@ -36,7 +36,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
     protected $permittedMonitorUserIdTable                = null;
 
     /**
-     * @return UserPrivacyGetResponse13mp17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy\UserPrivacyGetResponse13mp17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableDirectoryPrivacy
      */
     public function getEnableDirectoryPrivacy()
     {
@@ -76,7 +76,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutoAttendantExtensionDialingPrivacy
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
@@ -96,7 +96,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutoAttendantNameDialingPrivacy
      */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {
@@ -116,7 +116,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enablePhoneStatusPrivacy
      */
     public function getEnablePhoneStatusPrivacy()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackLineMatchAction;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\LegacyAutomaticCallbackLineType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -37,7 +36,7 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +58,7 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
 
     /**
      * 
-     * @return LegacyAutomaticCallbackLineType
+     * @return LegacyAutomaticCallbackLineType $lineType
      */
     public function getLineType()
     {
@@ -81,7 +80,7 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
 
     /**
      * 
-     * @return LegacyAutomaticCallbackLineMatchAction
+     * @return LegacyAutomaticCallbackLineMatchAction $matchAction
      */
     public function getMatchAction()
     {
@@ -103,7 +102,7 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
 
     /**
      * 
-     * @return LegacyAutomaticCallbackLineMatchAction
+     * @return LegacyAutomaticCallbackLineMatchAction $noMatchAction
      */
     public function getNoMatchAction()
     {

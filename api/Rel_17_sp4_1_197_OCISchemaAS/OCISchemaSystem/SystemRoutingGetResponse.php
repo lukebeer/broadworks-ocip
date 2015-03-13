@@ -32,7 +32,7 @@ class SystemRoutingGetResponse extends ComplexType implements ComplexInterface
     protected $maxAddressesDuringSetup           = null;
 
     /**
-     * @return SystemRoutingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemRoutingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isRouteRoundRobin
      */
     public function getIsRouteRoundRobin()
     {
@@ -74,7 +74,7 @@ class SystemRoutingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return RouteTimerSeconds
+     * @return RouteTimerSeconds $routeTimerSeconds
      */
     public function getRouteTimerSeconds()
     {
@@ -96,7 +96,7 @@ class SystemRoutingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return RoutingDNSResolvedAddressSelectionPolicy
+     * @return RoutingDNSResolvedAddressSelectionPolicy $dnsResolvedAddressSelectionPolicy
      */
     public function getDnsResolvedAddressSelectionPolicy()
     {
@@ -118,7 +118,7 @@ class SystemRoutingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return RoutingStatefulExpirationMinutes
+     * @return RoutingStatefulExpirationMinutes $statefulExpirationMinutes
      */
     public function getStatefulExpirationMinutes()
     {
@@ -140,7 +140,7 @@ class SystemRoutingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return RoutingMaxAddresses
+     * @return RoutingMaxAddresses $maxAddressesPerHostname
      */
     public function getMaxAddressesPerHostname()
     {
@@ -162,7 +162,7 @@ class SystemRoutingGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return RoutingMaxAddresses
+     * @return RoutingMaxAddresses $maxAddressesDuringSetup
      */
     public function getMaxAddressesDuringSetup()
     {

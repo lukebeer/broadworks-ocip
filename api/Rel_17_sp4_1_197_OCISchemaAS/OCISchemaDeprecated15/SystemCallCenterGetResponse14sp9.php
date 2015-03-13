@@ -25,7 +25,7 @@ class SystemCallCenterGetResponse14sp9 extends ComplexType implements ComplexInt
     protected $statisticsSamplingPeriodMinutes = null;
 
     /**
-     * @return SystemCallCenterGetResponse14sp9
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemCallCenterGetResponse14sp9 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class SystemCallCenterGetResponse14sp9 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultFromAddress
      */
     public function getDefaultFromAddress()
     {
@@ -69,7 +69,7 @@ class SystemCallCenterGetResponse14sp9 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return CallCenterStatisticsSamplingPeriodMinutes
+     * @return CallCenterStatisticsSamplingPeriodMinutes $statisticsSamplingPeriodMinutes
      */
     public function getStatisticsSamplingPeriodMinutes()
     {

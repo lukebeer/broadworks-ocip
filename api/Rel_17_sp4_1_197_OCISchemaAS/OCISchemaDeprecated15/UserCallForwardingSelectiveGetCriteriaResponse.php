@@ -29,7 +29,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
     protected $fromDnCriteria           = null;
 
     /**
-     * @return UserCallForwardingSelectiveGetCriteriaResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallForwardingSelectiveGetCriteriaResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -71,7 +71,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
 
     /**
      * 
-     * @return CallForwardingSelectiveNumberSelection
+     * @return CallForwardingSelectiveNumberSelection $forwardToNumberSelection
      */
     public function getForwardToNumberSelection()
     {
@@ -93,7 +93,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -113,7 +113,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

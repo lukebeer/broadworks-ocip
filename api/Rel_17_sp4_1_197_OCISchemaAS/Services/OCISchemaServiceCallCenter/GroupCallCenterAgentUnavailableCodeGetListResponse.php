@@ -24,7 +24,7 @@ class GroupCallCenterAgentUnavailableCodeGetListResponse extends ComplexType imp
     protected $unavailableCodesTable = null;
 
     /**
-     * @return GroupCallCenterAgentUnavailableCodeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

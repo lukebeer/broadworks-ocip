@@ -27,7 +27,7 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
     protected $serviceUtilizationTable = null;
 
     /**
-     * @return ServiceProviderServicePackGetUtilizationListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetUtilizationListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $servicePackName
      */
     public function getServicePackName()
     {

@@ -38,7 +38,7 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSMDI
      */
     public function getEnableSMDI()
     {
@@ -80,7 +80,7 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $listeningPort
      */
     public function getListeningPort()
     {
@@ -102,7 +102,7 @@ class SystemSMDIParametersModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SMDIMaxConnections
+     * @return SMDIMaxConnections $maxConnections
      */
     public function getMaxConnections()
     {

@@ -27,7 +27,7 @@ class GroupGetUserServiceAssignedUserListResponse extends ComplexType implements
     protected $userListTable = null;
 
     /**
-     * @return GroupGetUserServiceAssignedUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetUserServiceAssignedUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

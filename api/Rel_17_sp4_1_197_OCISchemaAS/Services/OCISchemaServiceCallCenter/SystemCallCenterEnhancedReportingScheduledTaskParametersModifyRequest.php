@@ -38,7 +38,7 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest exte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest exte
 
     /**
      * 
-     * @return CallCenterScheduledReportSearchIntervalMinutes
+     * @return CallCenterScheduledReportSearchIntervalMinutes $scheduledReportSearchIntervalMinutes
      */
     public function getScheduledReportSearchIntervalMinutes()
     {
@@ -82,7 +82,7 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest exte
 
     /**
      * 
-     * @return CallCenterMaximumScheduledReportsPerInterval
+     * @return CallCenterMaximumScheduledReportsPerInterval $maximumScheduledReportsPerInterval
      */
     public function getMaximumScheduledReportsPerInterval()
     {
@@ -104,7 +104,7 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest exte
 
     /**
      * 
-     * @return CallCenterDaysAfterScheduledReportCompletion
+     * @return CallCenterDaysAfterScheduledReportCompletion $deleteScheduledReportDaysAfterCompletion
      */
     public function getDeleteScheduledReportDaysAfterCompletion()
     {

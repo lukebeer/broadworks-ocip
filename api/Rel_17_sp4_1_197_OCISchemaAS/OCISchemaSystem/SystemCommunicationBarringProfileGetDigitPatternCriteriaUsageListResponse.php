@@ -24,7 +24,7 @@ class SystemCommunicationBarringProfileGetDigitPatternCriteriaUsageListResponse 
     protected $profileTable = null;
 
     /**
-     * @return SystemCommunicationBarringProfileGetDigitPatternCriteriaUsageListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetDigitPatternCriteriaUsageListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

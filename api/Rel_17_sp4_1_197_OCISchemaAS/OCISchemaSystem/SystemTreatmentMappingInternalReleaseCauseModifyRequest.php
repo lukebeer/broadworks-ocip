@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\InternalReleaseCause16;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TreatmentId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -34,7 +33,7 @@ class SystemTreatmentMappingInternalReleaseCauseModifyRequest extends ComplexTyp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +55,7 @@ class SystemTreatmentMappingInternalReleaseCauseModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return InternalReleaseCause16
+     * @return InternalReleaseCause16 $internalReleaseCause
      */
     public function getInternalReleaseCause()
     {
@@ -78,7 +77,7 @@ class SystemTreatmentMappingInternalReleaseCauseModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $treatmentId
      */
     public function getTreatmentId()
     {

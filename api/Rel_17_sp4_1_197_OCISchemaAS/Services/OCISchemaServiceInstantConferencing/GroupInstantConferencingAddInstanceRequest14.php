@@ -69,7 +69,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -91,7 +91,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -113,7 +113,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -135,7 +135,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -155,7 +155,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return ServiceInstanceAddProfile
+     * @return ServiceInstanceAddProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -177,7 +177,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return AccessDeviceEndpointLinePort
+     * @return AccessDeviceEndpointLinePort $conferenceBridgeLinePort
      */
     public function getConferenceBridgeLinePort()
     {
@@ -197,7 +197,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return InstantConferencingAllocatedPorts
+     * @return InstantConferencingAllocatedPorts $allocatedPorts
      */
     public function getAllocatedPorts()
     {
@@ -219,7 +219,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return InstantConferencingOutcallProfile
+     * @return InstantConferencingOutcallProfile $serviceProfileAppliedOnOutcall
      */
     public function getServiceProfileAppliedOnOutcall()
     {
@@ -239,7 +239,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutdialInInvitation
      */
     public function getAllowOutdialInInvitation()
     {
@@ -259,7 +259,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowDocumentDownload
      */
     public function getAllowDocumentDownload()
     {
@@ -281,7 +281,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return UserId
+     * @return UserId $bridgeAdministratorUserId
      */
     public function getBridgeAdministratorUserId()
     {
@@ -303,7 +303,7 @@ class GroupInstantConferencingAddInstanceRequest14 extends ComplexType implement
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {

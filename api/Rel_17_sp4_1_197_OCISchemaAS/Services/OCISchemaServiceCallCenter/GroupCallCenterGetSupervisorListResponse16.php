@@ -25,7 +25,7 @@ class GroupCallCenterGetSupervisorListResponse16 extends ComplexType implements 
     protected $supervisorTable = null;
 
     /**
-     * @return GroupCallCenterGetSupervisorListResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetSupervisorListResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

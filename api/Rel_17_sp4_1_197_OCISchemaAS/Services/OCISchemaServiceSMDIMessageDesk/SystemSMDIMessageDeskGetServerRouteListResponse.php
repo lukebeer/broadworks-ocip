@@ -24,7 +24,7 @@ class SystemSMDIMessageDeskGetServerRouteListResponse extends ComplexType implem
     protected $smdiServerRouteTable = null;
 
     /**
-     * @return SystemSMDIMessageDeskGetServerRouteListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskGetServerRouteListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

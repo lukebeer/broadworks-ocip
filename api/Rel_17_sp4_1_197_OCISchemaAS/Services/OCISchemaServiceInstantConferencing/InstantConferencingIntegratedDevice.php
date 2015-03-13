@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingIntegratedDevice;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingIntegratedDevice extends ComplexType implements ComplexInterface
 {
-    public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingIntegratedDevice';
     public    $name                        = 'InstantConferencingIntegratedDevice';
     protected $userName                    = null;
     protected $password                    = null;
@@ -43,7 +41,7 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
     }
 
     /**
-     * @return InstantConferencingIntegratedDevice
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +61,7 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $userName
      */
     public function getUserName()
     {
@@ -83,7 +81,7 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $password
      */
     public function getPassword()
     {
@@ -103,7 +101,7 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $secureProvisioning
      */
     public function getSecureProvisioning()
     {
@@ -123,7 +121,7 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $unencryptedProvisioningPort
      */
     public function getUnencryptedProvisioningPort()
     {
@@ -143,7 +141,7 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $encryptedProvisioningPort
      */
     public function getEncryptedProvisioningPort()
     {

@@ -25,7 +25,7 @@ class UserGetServiceInstanceListInServiceProviderResponse extends ComplexType im
     protected $serviceInstanceTable = null;
 
     /**
-     * @return UserGetServiceInstanceListInServiceProviderResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInServiceProviderResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

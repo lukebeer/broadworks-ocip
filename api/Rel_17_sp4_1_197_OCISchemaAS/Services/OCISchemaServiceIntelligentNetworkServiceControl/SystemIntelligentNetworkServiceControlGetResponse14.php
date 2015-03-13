@@ -33,7 +33,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
     protected $msgTemporarilyUnavailable     = null;
 
     /**
-     * @return SystemIntelligentNetworkServiceControlGetResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntelligentNetworkServiceControl\SystemIntelligentNetworkServiceControlGetResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
 
     /**
      * 
-     * @return IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds
+     * @return IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds $preAnswerActionTimeoutSeconds
      */
     public function getPreAnswerActionTimeoutSeconds()
     {
@@ -77,7 +77,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgRejectNoVoiceMail
      */
     public function getMsgRejectNoVoiceMail()
     {
@@ -99,7 +99,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgRejectVoiceMail
      */
     public function getMsgRejectVoiceMail()
     {
@@ -121,7 +121,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgPreAnswerWait
      */
     public function getMsgPreAnswerWait()
     {
@@ -143,7 +143,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgBusy
      */
     public function getMsgBusy()
     {
@@ -165,7 +165,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgRelease
      */
     public function getMsgRelease()
     {
@@ -187,7 +187,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgNoAnswer
      */
     public function getMsgNoAnswer()
     {
@@ -209,7 +209,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgOCPReject
      */
     public function getMsgOCPReject()
     {
@@ -231,7 +231,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgForwardLoop
      */
     public function getMsgForwardLoop()
     {
@@ -253,7 +253,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
 
     /**
      * 
-     * @return Treatment
+     * @return Treatment $msgTemporarilyUnavailable
      */
     public function getMsgTemporarilyUnavailable()
     {

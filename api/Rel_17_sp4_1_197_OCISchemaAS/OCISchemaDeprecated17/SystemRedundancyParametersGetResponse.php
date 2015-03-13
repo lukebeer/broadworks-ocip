@@ -26,7 +26,7 @@ class SystemRedundancyParametersGetResponse extends ComplexType implements Compl
     protected $rollBackTimerMinutes = null;
 
     /**
-     * @return SystemRedundancyParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemRedundancyParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +48,7 @@ class SystemRedundancyParametersGetResponse extends ComplexType implements Compl
 
     /**
      * 
-     * @return RedundancyRollBackTimerMinutes
+     * @return RedundancyRollBackTimerMinutes $rollBackTimerMinutes
      */
     public function getRollBackTimerMinutes()
     {

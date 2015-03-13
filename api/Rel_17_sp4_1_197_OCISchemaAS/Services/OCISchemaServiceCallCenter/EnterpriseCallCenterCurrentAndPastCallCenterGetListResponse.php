@@ -24,7 +24,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse extends Comple
     protected $deletedServiceUserId = null;
 
     /**
-     * @return EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse extends Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -68,7 +68,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse extends Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $deletedServiceUserId
      */
     public function getDeletedServiceUserId()
     {

@@ -34,7 +34,7 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $ftpHostNetAddress
      */
     public function getFtpHostNetAddress()
     {
@@ -76,7 +76,7 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $passiveFTP
      */
     public function getPassiveFTP()
     {

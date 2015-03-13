@@ -15,7 +15,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEn
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsNumberFilter;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnhancedCallLogsTimeRange;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnterpriseEnhancedCallLogsGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -64,7 +63,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
     }
 
     /**
-     * @return EnterpriseEnhancedCallLogsGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnterpriseEnhancedCallLogsGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -86,7 +85,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -108,7 +107,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return EnhancedCallLogsCallLogsRequestType
+     * @return EnhancedCallLogsCallLogsRequestType $callLogType
      */
     public function getCallLogType()
     {
@@ -128,7 +127,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return EnhancedCallLogsTimeRange
+     * @return EnhancedCallLogsTimeRange $dateTimeRange
      */
     public function getDateTimeRange()
     {
@@ -148,7 +147,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return EnhancedCallLogsNumberFilter
+     * @return EnhancedCallLogsNumberFilter $numberFilter
      */
     public function getNumberFilter()
     {
@@ -168,7 +167,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return EnhancedCallLogsRedirectedNumberFilter
+     * @return EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter
      */
     public function getRedirectedNumberFilter()
     {
@@ -188,7 +187,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return EnhancedCallLogsAccountAuthorizationCodeFilter
+     * @return EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter
      */
     public function getAccountAuthorizationCodeFilter()
     {
@@ -210,7 +209,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return EnhancedCallLogsSubscriberType
+     * @return EnhancedCallLogsSubscriberType $subscriberType
      */
     public function getSubscriberType()
     {
@@ -230,7 +229,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return EnhancedCallLogsResponsePagingControl
+     * @return EnhancedCallLogsResponsePagingControl $responsePagingControl
      */
     public function getResponsePagingControl()
     {

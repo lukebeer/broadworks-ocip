@@ -24,7 +24,7 @@ class SystemDomainGetListResponse extends ComplexType implements ComplexInterfac
     protected $domain              = null;
 
     /**
-     * @return SystemDomainGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemDomainGetListResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $systemDefaultDomain
      */
     public function getSystemDefaultDomain()
     {
@@ -68,7 +68,7 @@ class SystemDomainGetListResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $domain
      */
     public function getDomain()
     {

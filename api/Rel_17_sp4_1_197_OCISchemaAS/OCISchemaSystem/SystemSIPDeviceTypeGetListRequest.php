@@ -10,7 +10,6 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactSignalingAddressType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaDeviceType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -41,7 +40,7 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return SystemSIPDeviceTypeGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +62,7 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -85,7 +84,7 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SearchCriteriaDeviceType
+     * @return SearchCriteriaDeviceType $searchCriteriaDeviceType
      */
     public function getSearchCriteriaDeviceType()
     {
@@ -107,7 +106,7 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SearchCriteriaExactSignalingAddressType
+     * @return SearchCriteriaExactSignalingAddressType $searchCriteriaExactSignalingAddressType
      */
     public function getSearchCriteriaExactSignalingAddressType()
     {

@@ -37,7 +37,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
     protected $bridgeAdministratorUserTable   = null;
 
     /**
-     * @return GroupInstantConferencingGetInstanceResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupInstantConferencingGetInstanceResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceInstanceReadProfile
+     * @return ServiceInstanceReadProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -79,7 +79,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
 
     /**
      * 
-     * @return AccessDeviceEndpointLinePort
+     * @return AccessDeviceEndpointLinePort $conferenceBridgeLinePort
      */
     public function getConferenceBridgeLinePort()
     {
@@ -99,7 +99,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
 
     /**
      * 
-     * @return InstantConferencingAllocatedPorts
+     * @return InstantConferencingAllocatedPorts $allocatedPorts
      */
     public function getAllocatedPorts()
     {
@@ -121,7 +121,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
 
     /**
      * 
-     * @return InstantConferencingOutcallProfile
+     * @return InstantConferencingOutcallProfile $serviceProfileAppliedOnOutcall
      */
     public function getServiceProfileAppliedOnOutcall()
     {
@@ -141,7 +141,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutdialInInvitation
      */
     public function getAllowOutdialInInvitation()
     {
@@ -161,7 +161,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowDocumentDownload
      */
     public function getAllowDocumentDownload()
     {

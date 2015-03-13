@@ -56,7 +56,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
     protected $maxConcurrentFindMeFollowMeInvocations          = null;
 
     /**
-     * @return SystemCallProcessingGetPolicyResponse14sp1
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCallProcessingGetPolicyResponse14sp1 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -76,7 +76,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousCalls
      */
     public function getUseMaxSimultaneousCalls()
     {
@@ -98,7 +98,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousCalls
      */
     public function getMaxSimultaneousCalls()
     {
@@ -118,7 +118,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousVideoCalls
      */
     public function getUseMaxSimultaneousVideoCalls()
     {
@@ -140,7 +140,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousVideoCalls
      */
     public function getMaxSimultaneousVideoCalls()
     {
@@ -160,7 +160,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForAnsweredCalls
      */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
@@ -182,7 +182,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes
+     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes $maxCallTimeForAnsweredCallsMinutes
      */
     public function getMaxCallTimeForAnsweredCallsMinutes()
     {
@@ -202,7 +202,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForUnansweredCalls
      */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
@@ -224,7 +224,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes
+     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes $maxCallTimeForUnansweredCallsMinutes
      */
     public function getMaxCallTimeForUnansweredCallsMinutes()
     {
@@ -246,7 +246,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return MediaPolicySelection
+     * @return MediaPolicySelection $mediaPolicySelection
      */
     public function getMediaPolicySelection()
     {
@@ -268,7 +268,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return MediaSetName
+     * @return MediaSetName $supportedMediaSetName
      */
     public function getSupportedMediaSetName()
     {
@@ -290,7 +290,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return NetworkUsageSelection
+     * @return NetworkUsageSelection $networkUsageSelection
      */
     public function getNetworkUsageSelection()
     {
@@ -310,7 +310,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceGroupCallingLineIdentityRestriction
      */
     public function getEnforceGroupCallingLineIdentityRestriction()
     {
@@ -330,7 +330,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceEnterpriseCallingLineIdentityRestriction
      */
     public function getEnforceEnterpriseCallingLineIdentityRestriction()
     {
@@ -352,7 +352,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $conferenceURI
      */
     public function getConferenceURI()
     {
@@ -374,7 +374,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return CallProcessingMaxConferenceParties
+     * @return CallProcessingMaxConferenceParties $maxConferenceParties
      */
     public function getMaxConferenceParties()
     {
@@ -394,7 +394,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxConcurrentRedirectedCalls
      */
     public function getUseMaxConcurrentRedirectedCalls()
     {
@@ -416,7 +416,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return CallProcessingMaxConcurrentRedirectedCalls
+     * @return CallProcessingMaxConcurrentRedirectedCalls $maxConcurrentRedirectedCalls
      */
     public function getMaxConcurrentRedirectedCalls()
     {
@@ -436,7 +436,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxFindMeFollowMeDepth
      */
     public function getUseMaxFindMeFollowMeDepth()
     {
@@ -458,7 +458,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return CallProcessingMaxFindMeFollowMeDepth
+     * @return CallProcessingMaxFindMeFollowMeDepth $maxFindMeFollowMeDepth
      */
     public function getMaxFindMeFollowMeDepth()
     {
@@ -480,7 +480,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return CallProcessingMaxRedirectionDepth
+     * @return CallProcessingMaxRedirectionDepth $maxRedirectionDepth
      */
     public function getMaxRedirectionDepth()
     {
@@ -500,7 +500,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxConcurrentFindMeFollowMeInvocations
      */
     public function getUseMaxConcurrentFindMeFollowMeInvocations()
     {
@@ -522,7 +522,7 @@ class SystemCallProcessingGetPolicyResponse14sp1 extends ComplexType implements 
 
     /**
      * 
-     * @return CallProcessingMaxConcurrentFindMeFollowMeInvocations
+     * @return CallProcessingMaxConcurrentFindMeFollowMeInvocations $maxConcurrentFindMeFollowMeInvocations
      */
     public function getMaxConcurrentFindMeFollowMeInvocations()
     {

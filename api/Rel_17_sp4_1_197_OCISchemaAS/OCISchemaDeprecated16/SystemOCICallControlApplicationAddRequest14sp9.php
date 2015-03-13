@@ -42,7 +42,7 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
 
     /**
      * 
-     * @return OCICallControlApplicationId
+     * @return OCICallControlApplicationId $applicationId
      */
     public function getApplicationId()
     {
@@ -84,7 +84,7 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSystemWide
      */
     public function getEnableSystemWide()
     {
@@ -106,7 +106,7 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
 
     /**
      * 
-     * @return OCICallApplicationNotificationTimeOutSeconds
+     * @return OCICallApplicationNotificationTimeOutSeconds $notificationTimeoutSeconds
      */
     public function getNotificationTimeoutSeconds()
     {
@@ -128,7 +128,7 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
 
     /**
      * 
-     * @return OCICallControlApplicationDescription
+     * @return OCICallControlApplicationDescription $description
      */
     public function getDescription()
     {

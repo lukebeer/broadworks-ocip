@@ -24,7 +24,7 @@ class GroupDomainGetAssignedListResponse extends ComplexType implements ComplexI
     protected $domain             = null;
 
     /**
-     * @return GroupDomainGetAssignedListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDomainGetAssignedListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupDomainGetAssignedListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $groupDefaultDomain
      */
     public function getGroupDefaultDomain()
     {
@@ -68,7 +68,7 @@ class GroupDomainGetAssignedListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $domain
      */
     public function getDomain()
     {

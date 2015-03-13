@@ -54,7 +54,7 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -76,7 +76,7 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -96,7 +96,7 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
 
     /**
      * 
-     * @return xs:string
+     * @return string $homeZoneId
      */
     public function getHomeZoneId()
     {
@@ -118,7 +118,7 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
 
     /**
      * 
-     * @return BroadWorksMobileManagerDomainName
+     * @return BroadWorksMobileManagerDomainName $homeZoneDomainName
      */
     public function getHomeZoneDomainName()
     {
@@ -140,7 +140,7 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneMobileCountryCode
+     * @return BroadWorksMobileManagerHomeZoneMobileCountryCode $mobileCountryCode
      */
     public function getMobileCountryCode()
     {
@@ -162,7 +162,7 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneNetworkCountryCode
+     * @return BroadWorksMobileManagerHomeZoneNetworkCountryCode $mobileNetworkCode
      */
     public function getMobileNetworkCode()
     {
@@ -184,7 +184,7 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneLocationAreaCode
+     * @return BroadWorksMobileManagerHomeZoneLocationAreaCode $locationAreaCode
      */
     public function getLocationAreaCode()
     {
@@ -206,7 +206,7 @@ class EnterpriseBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType
 
     /**
      * 
-     * @return BroadWorksMobileManagerHomeZoneCellId
+     * @return BroadWorksMobileManagerHomeZoneCellId $cellIdentity
      */
     public function getCellIdentity()
     {

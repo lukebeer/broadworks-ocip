@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\CallCenterAgentStatistics13mp8;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\CallCenterAgentStatistics13mp8';
     public    $name                = 'CallCenterAgentStatistics13mp8';
     protected $agentUserId         = null;
     protected $agentDisplayNames   = null;
@@ -43,7 +41,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return CallCenterAgentStatistics13mp8
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -63,7 +61,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $agentUserId
      */
     public function getAgentUserId()
     {
@@ -83,7 +81,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $agentDisplayNames
      */
     public function getAgentDisplayNames()
     {
@@ -103,7 +101,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $available
      */
     public function getAvailable()
     {
@@ -123,7 +121,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $statisticsYesterday
      */
     public function getStatisticsYesterday()
     {
@@ -143,7 +141,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $statisticsToday
      */
     public function getStatisticsToday()
     {

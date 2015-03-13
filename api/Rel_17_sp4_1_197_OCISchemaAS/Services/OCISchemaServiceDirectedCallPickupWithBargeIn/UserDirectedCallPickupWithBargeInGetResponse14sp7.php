@@ -24,7 +24,7 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
     protected $enableAutomaticTargetSelection = null;
 
     /**
-     * @return UserDirectedCallPickupWithBargeInGetResponse14sp7
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDirectedCallPickupWithBargeIn\UserDirectedCallPickupWithBargeInGetResponse14sp7 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableBargeInWarningTone
      */
     public function getEnableBargeInWarningTone()
     {
@@ -64,7 +64,7 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutomaticTargetSelection
      */
     public function getEnableAutomaticTargetSelection()
     {

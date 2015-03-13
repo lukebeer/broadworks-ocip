@@ -30,7 +30,7 @@ class SystemHomeNetworkDeleteRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemHomeNetworkDeleteRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DN
+     * @return DN $mscAddress
      */
     public function getMscAddress()
     {

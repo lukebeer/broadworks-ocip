@@ -49,7 +49,7 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,7 +71,7 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -93,7 +93,7 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -113,7 +113,7 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -135,7 +135,7 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return EmergencyZonesProhibition
+     * @return EmergencyZonesProhibition $emergencyZonesProhibition
      */
     public function getEmergencyZonesProhibition()
     {
@@ -155,7 +155,7 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendEmergencyCallNotifyEmail
      */
     public function getSendEmergencyCallNotifyEmail()
     {
@@ -177,7 +177,7 @@ class GroupEmergencyZonesModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $emergencyCallNotifyEmailAddress
      */
     public function getEmergencyCallNotifyEmailAddress()
     {

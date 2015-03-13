@@ -25,7 +25,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse extends Comp
     protected $userTable = null;
 
     /**
-     * @return EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

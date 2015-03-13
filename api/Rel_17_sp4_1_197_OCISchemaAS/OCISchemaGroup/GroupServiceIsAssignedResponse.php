@@ -23,7 +23,7 @@ class GroupServiceIsAssignedResponse extends ComplexType implements ComplexInter
     protected $isAssigned = null;
 
     /**
-     * @return GroupServiceIsAssignedResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceIsAssignedResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -43,7 +43,7 @@ class GroupServiceIsAssignedResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isAssigned
      */
     public function getIsAssigned()
     {

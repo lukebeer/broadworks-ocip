@@ -50,7 +50,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
     protected $defaultExternalRoutingAddress        = null;
 
     /**
-     * @return SystemVoiceMessagingGroupGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemVoiceMessagingGroupGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $realDeleteForImap
      */
     public function getRealDeleteForImap()
     {
@@ -90,7 +90,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDnInMailBody
      */
     public function getUseDnInMailBody()
     {
@@ -110,7 +110,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useShortSubjectLine
      */
     public function getUseShortSubjectLine()
     {
@@ -132,7 +132,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return VoiceMessagingMaxMessageLengthMinutes
+     * @return VoiceMessagingMaxMessageLengthMinutes $maxMessageLengthMinutes
      */
     public function getMaxMessageLengthMinutes()
     {
@@ -154,7 +154,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return VoiceMessagingMailboxLengthMinutes
+     * @return VoiceMessagingMailboxLengthMinutes $maxMailboxLengthMinutes
      */
     public function getMaxMailboxLengthMinutes()
     {
@@ -174,7 +174,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $doesMessageAge
      */
     public function getDoesMessageAge()
     {
@@ -196,7 +196,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return VoiceMessagingHoldPeriodDays
+     * @return VoiceMessagingHoldPeriodDays $holdPeriodDays
      */
     public function getHoldPeriodDays()
     {
@@ -218,7 +218,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $mailServerNetAddress
      */
     public function getMailServerNetAddress()
     {
@@ -240,7 +240,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return VoiceMessagingMailServerProtocol
+     * @return VoiceMessagingMailServerProtocol $mailServerProtocol
      */
     public function getMailServerProtocol()
     {
@@ -262,7 +262,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultDeliveryFromAddress
      */
     public function getDefaultDeliveryFromAddress()
     {
@@ -284,7 +284,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultNotificationFromAddress
      */
     public function getDefaultNotificationFromAddress()
     {
@@ -306,7 +306,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $defaultVoicePortalLockoutFromAddress
      */
     public function getDefaultVoicePortalLockoutFromAddress()
     {
@@ -326,7 +326,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useOutgoingMWIOnSMDI
      */
     public function getUseOutgoingMWIOnSMDI()
     {
@@ -348,7 +348,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return VoiceMessagingMessageWaitingIndicatorDelayInSeconds
+     * @return VoiceMessagingMessageWaitingIndicatorDelayInSeconds $mwiDelayInSeconds
      */
     public function getMwiDelayInSeconds()
     {
@@ -370,7 +370,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return SystemVoicePortalScope
+     * @return SystemVoicePortalScope $voicePortalScope
      */
     public function getVoicePortalScope()
     {
@@ -390,7 +390,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enterpriseVoicePortalLicensed
      */
     public function getEnterpriseVoicePortalLicensed()
     {
@@ -410,7 +410,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $networkWideMessaging
      */
     public function getNetworkWideMessaging()
     {
@@ -430,7 +430,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useExternalRouting
      */
     public function getUseExternalRouting()
     {
@@ -452,7 +452,7 @@ class SystemVoiceMessagingGroupGetResponse16 extends ComplexType implements Comp
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $defaultExternalRoutingAddress
      */
     public function getDefaultExternalRoutingAddress()
     {

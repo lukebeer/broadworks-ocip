@@ -25,7 +25,7 @@ class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterfac
     protected $description = null;
 
     /**
-     * @return UserSpeedDial100GetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\UserSpeedDial100GetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -69,7 +69,7 @@ class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return SpeedDialDescription
+     * @return SpeedDialDescription $description
      */
     public function getDescription()
     {

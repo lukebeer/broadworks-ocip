@@ -44,7 +44,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -88,7 +88,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -108,7 +108,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupPreferredCarrierNameModify
+     * @return GroupPreferredCarrierNameModify $intraLataCarrier
      */
     public function getIntraLataCarrier()
     {
@@ -128,7 +128,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupPreferredCarrierNameModify
+     * @return GroupPreferredCarrierNameModify $interLataCarrier
      */
     public function getInterLataCarrier()
     {
@@ -148,7 +148,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupPreferredCarrierNameModify
+     * @return GroupPreferredCarrierNameModify $internationalCarrier
      */
     public function getInternationalCarrier()
     {

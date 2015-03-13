@@ -32,7 +32,7 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
     protected $applicationServerClusterSecondaryPrivateFQDN = null;
 
     /**
-     * @return SystemServerAddressesGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServerAddressesGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $webServerClusterPublicFQDN
      */
     public function getWebServerClusterPublicFQDN()
     {
@@ -76,7 +76,7 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $applicationServerClusterPrimaryPublicFQDN
      */
     public function getApplicationServerClusterPrimaryPublicFQDN()
     {
@@ -98,7 +98,7 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $applicationServerClusterSecondaryPublicFQDN
      */
     public function getApplicationServerClusterSecondaryPublicFQDN()
     {
@@ -120,7 +120,7 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $applicationServerClusterPrimaryPrivateFQDN
      */
     public function getApplicationServerClusterPrimaryPrivateFQDN()
     {
@@ -142,7 +142,7 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $applicationServerClusterSecondaryPrivateFQDN
      */
     public function getApplicationServerClusterSecondaryPrivateFQDN()
     {

@@ -34,7 +34,7 @@ class SystemDomainParametersModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +54,7 @@ class SystemDomainParametersModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useAliasForDomain
      */
     public function getUseAliasForDomain()
     {
@@ -76,7 +76,7 @@ class SystemDomainParametersModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $defaultDomain
      */
     public function getDefaultDomain()
     {

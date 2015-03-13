@@ -28,7 +28,7 @@ class GroupScheduleGetListResponse extends ComplexType implements ComplexInterfa
     protected $scheduleLevel = null;
 
     /**
-     * @return GroupScheduleGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupScheduleGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupScheduleGetListResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ScheduleName
+     * @return ScheduleName $scheduleName
      */
     public function getScheduleName()
     {
@@ -72,7 +72,7 @@ class GroupScheduleGetListResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ScheduleType
+     * @return ScheduleType $scheduleType
      */
     public function getScheduleType()
     {
@@ -94,7 +94,7 @@ class GroupScheduleGetListResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return ScheduleLevel
+     * @return ScheduleLevel $scheduleLevel
      */
     public function getScheduleLevel()
     {

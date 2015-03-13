@@ -28,7 +28,7 @@ class SystemASRParametersGetResponse14sp7 extends ComplexType implements Complex
     protected $listeningPort                   = null;
 
     /**
-     * @return SystemASRParametersGetResponse14sp7
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemASRParametersGetResponse14sp7 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemASRParametersGetResponse14sp7 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ASRMaxTransmissions
+     * @return ASRMaxTransmissions $maxTransmissions
      */
     public function getMaxTransmissions()
     {
@@ -72,7 +72,7 @@ class SystemASRParametersGetResponse14sp7 extends ComplexType implements Complex
 
     /**
      * 
-     * @return ASRRetransmissionDelayMilliSeconds
+     * @return ASRRetransmissionDelayMilliSeconds $retransmissionDelayMilliSeconds
      */
     public function getRetransmissionDelayMilliSeconds()
     {
@@ -94,7 +94,7 @@ class SystemASRParametersGetResponse14sp7 extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $listeningPort
      */
     public function getListeningPort()
     {

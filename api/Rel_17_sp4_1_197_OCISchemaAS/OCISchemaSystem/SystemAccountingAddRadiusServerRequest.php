@@ -38,7 +38,7 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -82,7 +82,7 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $port
      */
     public function getPort()
     {
@@ -104,7 +104,7 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return RadiusServerDescription
+     * @return RadiusServerDescription $description
      */
     public function getDescription()
     {

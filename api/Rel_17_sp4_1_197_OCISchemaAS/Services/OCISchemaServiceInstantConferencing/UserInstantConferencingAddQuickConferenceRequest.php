@@ -51,7 +51,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -73,7 +73,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -95,7 +95,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $bridgeServiceUserId
      */
     public function getBridgeServiceUserId()
     {
@@ -117,7 +117,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $leaderPhoneNumber
      */
     public function getLeaderPhoneNumber()
     {
@@ -139,7 +139,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingParticipantName
+     * @return InstantConferencingParticipantName $leaderName
      */
     public function getLeaderName()
     {
@@ -161,7 +161,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $participantPhoneNumber
      */
     public function getParticipantPhoneNumber()
     {
@@ -183,7 +183,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingParticipantName
+     * @return InstantConferencingParticipantName $participantName
      */
     public function getParticipantName()
     {
@@ -205,7 +205,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
 
     /**
      * 
-     * @return InstantConferencingBillingCode
+     * @return InstantConferencingBillingCode $billingCode
      */
     public function getBillingCode()
     {

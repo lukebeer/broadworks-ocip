@@ -30,7 +30,7 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
     protected $originatorCLIDPrefix           = null;
 
     /**
-     * @return GroupGroupPagingGetInstanceResponse17sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetInstanceResponse17sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return ServiceInstanceReadProfile17
+     * @return ServiceInstanceReadProfile17 $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -72,7 +72,7 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return GroupPagingConfirmationToneTimeoutSeconds
+     * @return GroupPagingConfirmationToneTimeoutSeconds $confirmationToneTimeoutSeconds
      */
     public function getConfirmationToneTimeoutSeconds()
     {
@@ -92,7 +92,7 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $deliverOriginatorCLIDInstead
      */
     public function getDeliverOriginatorCLIDInstead()
     {
@@ -114,7 +114,7 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
 
     /**
      * 
-     * @return GroupPagingOriginatorCLIDPrefix
+     * @return GroupPagingOriginatorCLIDPrefix $originatorCLIDPrefix
      */
     public function getOriginatorCLIDPrefix()
     {

@@ -40,7 +40,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -62,7 +62,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -82,7 +82,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserPreferredCarrierNameModify
+     * @return UserPreferredCarrierNameModify $intraLataCarrier
      */
     public function getIntraLataCarrier()
     {
@@ -102,7 +102,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserPreferredCarrierNameModify
+     * @return UserPreferredCarrierNameModify $interLataCarrier
      */
     public function getInterLataCarrier()
     {
@@ -122,7 +122,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserPreferredCarrierNameModify
+     * @return UserPreferredCarrierNameModify $internationalCarrier
      */
     public function getInternationalCarrier()
     {

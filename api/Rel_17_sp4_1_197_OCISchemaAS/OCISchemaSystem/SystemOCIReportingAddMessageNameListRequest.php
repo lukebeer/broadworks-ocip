@@ -35,7 +35,7 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -79,7 +79,7 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
 
     /**
      * 
-     * @return OCIReportingMessageName
+     * @return OCIReportingMessageName $messageNameStartsWith
      */
     public function getMessageNameStartsWith()
     {

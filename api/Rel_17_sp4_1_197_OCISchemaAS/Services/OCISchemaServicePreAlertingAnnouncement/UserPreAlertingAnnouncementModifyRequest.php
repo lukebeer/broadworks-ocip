@@ -52,7 +52,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -74,7 +74,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -94,7 +94,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -116,7 +116,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -136,7 +136,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -158,7 +158,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -178,7 +178,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $videoFile
      */
     public function getVideoFile()
     {
@@ -198,7 +198,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return CriteriaActivation
+     * @return CriteriaActivation $criteriaActivation
      */
     public function getCriteriaActivation()
     {

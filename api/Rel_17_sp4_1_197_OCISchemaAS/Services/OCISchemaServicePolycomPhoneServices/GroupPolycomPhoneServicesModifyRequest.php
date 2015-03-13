@@ -45,7 +45,7 @@ class GroupPolycomPhoneServicesModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -67,7 +67,7 @@ class GroupPolycomPhoneServicesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -89,7 +89,7 @@ class GroupPolycomPhoneServicesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -109,7 +109,7 @@ class GroupPolycomPhoneServicesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeGroupCommonPhoneListInDirectory
      */
     public function getIncludeGroupCommonPhoneListInDirectory()
     {
@@ -129,7 +129,7 @@ class GroupPolycomPhoneServicesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeGroupCustomContactDirectoryInDirectory
      */
     public function getIncludeGroupCustomContactDirectoryInDirectory()
     {
@@ -151,7 +151,7 @@ class GroupPolycomPhoneServicesModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return CustomContactDirectoryName
+     * @return CustomContactDirectoryName $groupCustomContactDirectory
      */
     public function getGroupCustomContactDirectory()
     {

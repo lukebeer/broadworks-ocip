@@ -39,7 +39,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
     protected $videoMediaType                   = null;
 
     /**
-     * @return GroupCallCenterForcedForwardingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterForcedForwardingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -81,7 +81,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -101,7 +101,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEnableViaFAC
      */
     public function getAllowEnableViaFAC()
     {
@@ -121,7 +121,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playAnnouncementBeforeForwarding
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
@@ -143,7 +143,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioMessageSelection
      */
     public function getAudioMessageSelection()
     {
@@ -165,7 +165,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return URL
+     * @return URL $audioFileUrl
      */
     public function getAudioFileUrl()
     {
@@ -187,7 +187,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $audioFileDescription
      */
     public function getAudioFileDescription()
     {
@@ -209,7 +209,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $audioMediaType
      */
     public function getAudioMediaType()
     {
@@ -231,7 +231,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoMessageSelection
      */
     public function getVideoMessageSelection()
     {
@@ -253,7 +253,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return URL
+     * @return URL $videoFileUrl
      */
     public function getVideoFileUrl()
     {
@@ -275,7 +275,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $videoFileDescription
      */
     public function getVideoFileDescription()
     {
@@ -297,7 +297,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return MediaFileType
+     * @return MediaFileType $videoMediaType
      */
     public function getVideoMediaType()
     {

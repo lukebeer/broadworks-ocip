@@ -42,7 +42,7 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -84,7 +84,7 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -106,7 +106,7 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CallMeNowAnswerConfirmation
+     * @return CallMeNowAnswerConfirmation $answerConfirmation
      */
     public function getAnswerConfirmation()
     {
@@ -126,7 +126,7 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return CriteriaActivation
+     * @return CriteriaActivation $criteriaActivation
      */
     public function getCriteriaActivation()
     {

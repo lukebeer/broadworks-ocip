@@ -46,7 +46,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
     protected $forceDeliveryWaitTimeSeconds        = null;
 
     /**
-     * @return GroupRoutePointGetInstanceResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +66,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceInstanceReadProfile17
+     * @return ServiceInstanceReadProfile17 $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -88,7 +88,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {
@@ -110,7 +110,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AudioFileCodec
+     * @return AudioFileCodec $externalPreferredAudioCodec
      */
     public function getExternalPreferredAudioCodec()
     {
@@ -132,7 +132,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AudioFileCodec
+     * @return AudioFileCodec $internalPreferredAudioCodec
      */
     public function getInternalPreferredAudioCodec()
     {
@@ -154,7 +154,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterQueueLength16
+     * @return CallCenterQueueLength16 $queueLength
      */
     public function getQueueLength()
     {
@@ -176,7 +176,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return NoAnswerTimeoutRings
+     * @return NoAnswerTimeoutRings $noAnswerTimeoutRings
      */
     public function getNoAnswerTimeoutRings()
     {
@@ -196,7 +196,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -216,7 +216,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playRingingWhenOfferingCall
      */
     public function getPlayRingingWhenOfferingCall()
     {
@@ -236,7 +236,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideAgentWrapUpTime
      */
     public function getOverrideAgentWrapUpTime()
     {
@@ -258,7 +258,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterWrapUpSeconds
+     * @return CallCenterWrapUpSeconds $wrapUpSeconds
      */
     public function getWrapUpSeconds()
     {
@@ -278,7 +278,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutomaticStateChangeForAgents
      */
     public function getEnableAutomaticStateChangeForAgents()
     {
@@ -300,7 +300,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return AgentACDAutomaticState
+     * @return AgentACDAutomaticState $agentStateAfterCall
      */
     public function getAgentStateAfterCall()
     {
@@ -322,7 +322,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $agentUnavailableCode
      */
     public function getAgentUnavailableCode()
     {
@@ -342,7 +342,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceDeliveryOfCalls
      */
     public function getForceDeliveryOfCalls()
     {
@@ -364,7 +364,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return CallCenterForceDeliveryWaitTimeSeconds
+     * @return CallCenterForceDeliveryWaitTimeSeconds $forceDeliveryWaitTimeSeconds
      */
     public function getForceDeliveryWaitTimeSeconds()
     {

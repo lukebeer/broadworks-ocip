@@ -34,7 +34,7 @@ class UserMeetMeConferencingDeleteConferenceListRequest extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserMeetMeConferencingDeleteConferenceListRequest extends ComplexType impl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -76,7 +76,7 @@ class UserMeetMeConferencingDeleteConferenceListRequest extends ComplexType impl
 
     /**
      * 
-     * @return MeetMeConferencingConferenceKey
+     * @return MeetMeConferencingConferenceKey $conferenceKey
      */
     public function getConferenceKey()
     {

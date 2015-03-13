@@ -43,7 +43,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -85,7 +85,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $usePersonalizedName
      */
     public function getUsePersonalizedName()
     {
@@ -105,7 +105,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $voicePortalAutoLogin
      */
     public function getVoicePortalAutoLogin()
     {
@@ -125,7 +125,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $personalizedNameAudioFile
      */
     public function getPersonalizedNameAudioFile()
     {

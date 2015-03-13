@@ -24,7 +24,7 @@ class GroupApplicationServerSetGetResponse extends ComplexType implements Comple
     protected $applicationServerSetName = null;
 
     /**
-     * @return GroupApplicationServerSetGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupApplicationServerSetGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class GroupApplicationServerSetGetResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return ApplicationServerSetName
+     * @return ApplicationServerSetName $applicationServerSetName
      */
     public function getApplicationServerSetName()
     {

@@ -37,7 +37,7 @@ class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -79,7 +79,7 @@ class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends Comple
 
     /**
      * 
-     * @return HuntAgentWeight
+     * @return HuntAgentWeight $agentWeight
      */
     public function getAgentWeight()
     {

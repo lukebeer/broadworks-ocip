@@ -55,7 +55,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
     protected $numberOfPreviousPasswords              = null;
 
     /**
-     * @return ServiceProviderPasswordRulesGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderPasswordRulesGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -77,7 +77,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderPasswordRulesApplyTo
+     * @return ServiceProviderPasswordRulesApplyTo $rulesApplyTo
      */
     public function getRulesApplyTo()
     {
@@ -97,7 +97,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowWebAddExternalAuthenticationUsers
      */
     public function getAllowWebAddExternalAuthenticationUsers()
     {
@@ -117,7 +117,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserId
      */
     public function getDisallowUserId()
     {
@@ -137,7 +137,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPassword
      */
     public function getDisallowOldPassword()
     {
@@ -157,7 +157,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPassword
      */
     public function getDisallowReversedOldPassword()
     {
@@ -177,7 +177,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinDigits
      */
     public function getRestrictMinDigits()
     {
@@ -199,7 +199,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordMinDigits
+     * @return PasswordMinDigits $minDigits
      */
     public function getMinDigits()
     {
@@ -219,7 +219,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinUpperCaseLetters
      */
     public function getRestrictMinUpperCaseLetters()
     {
@@ -241,7 +241,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordMinUpperCaseLetters
+     * @return PasswordMinUpperCaseLetters $minUpperCaseLetters
      */
     public function getMinUpperCaseLetters()
     {
@@ -261,7 +261,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinLowerCaseLetters
      */
     public function getRestrictMinLowerCaseLetters()
     {
@@ -283,7 +283,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordMinLowerCaseLetters
+     * @return PasswordMinLowerCaseLetters $minLowerCaseLetters
      */
     public function getMinLowerCaseLetters()
     {
@@ -303,7 +303,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $restrictMinNonAlphanumericCharacters
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
@@ -325,7 +325,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordMinNonAlphanumericCharacters
+     * @return PasswordMinNonAlphanumericCharacters $minNonAlphanumericCharacters
      */
     public function getMinNonAlphanumericCharacters()
     {
@@ -347,7 +347,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordMinLength
+     * @return PasswordMinLength $minLength
      */
     public function getMinLength()
     {
@@ -369,7 +369,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return MaxFailedLoginAttempts
+     * @return MaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -391,7 +391,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordExpiresDays
+     * @return PasswordExpiresDays $passwordExpiresDays
      */
     public function getPasswordExpiresDays()
     {
@@ -411,7 +411,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -433,7 +433,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
@@ -453,7 +453,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRulesModification
      */
     public function getDisallowRulesModification()
     {
@@ -473,7 +473,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowPreviousPasswords
      */
     public function getDisallowPreviousPasswords()
     {
@@ -495,7 +495,7 @@ class ServiceProviderPasswordRulesGetResponse16 extends ComplexType implements C
 
     /**
      * 
-     * @return PasswordHistoryCount
+     * @return PasswordHistoryCount $numberOfPreviousPasswords
      */
     public function getNumberOfPreviousPasswords()
     {

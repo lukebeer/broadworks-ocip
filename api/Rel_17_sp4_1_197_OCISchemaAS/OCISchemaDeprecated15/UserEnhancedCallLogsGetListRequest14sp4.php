@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\Enhan
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\EnhancedCallLogsOffset;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallLogsType;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserEnhancedCallLogsGetListResponse14sp4;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -48,7 +47,7 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
     }
 
     /**
-     * @return UserEnhancedCallLogsGetListResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserEnhancedCallLogsGetListResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +69,7 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -92,7 +91,7 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return CallLogsType
+     * @return CallLogsType $callLogType
      */
     public function getCallLogType()
     {
@@ -114,7 +113,7 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return EnhancedCallLogsOffset
+     * @return EnhancedCallLogsOffset $startingOffset
      */
     public function getStartingOffset()
     {
@@ -136,7 +135,7 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
 
     /**
      * 
-     * @return EnhancedCallLogsMaxLoggedCalls
+     * @return EnhancedCallLogsMaxLoggedCalls $numCalls
      */
     public function getNumCalls()
     {

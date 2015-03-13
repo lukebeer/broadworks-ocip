@@ -37,7 +37,7 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $anonymousInsteadOfPrivateCLID
      */
     public function getAnonymousInsteadOfPrivateCLID()
     {
@@ -77,7 +77,7 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $removeHuntGroupNameFromCLID
      */
     public function getRemoveHuntGroupNameFromCLID()
     {
@@ -99,7 +99,7 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return HuntGroupUniformCallDistributionPolicyScope
+     * @return HuntGroupUniformCallDistributionPolicyScope $uniformCallDistributionPolicyScope
      */
     public function getUniformCallDistributionPolicyScope()
     {

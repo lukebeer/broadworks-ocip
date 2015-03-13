@@ -74,7 +74,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -96,7 +96,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -118,7 +118,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -140,7 +140,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -160,7 +160,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return ServiceInstanceAddProfile
+     * @return ServiceInstanceAddProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -180,7 +180,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -200,7 +200,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $businessHours
      */
     public function getBusinessHours()
     {
@@ -220,7 +220,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -242,7 +242,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return AutoAttendantDialingScope
+     * @return AutoAttendantDialingScope $extensionDialingScope
      */
     public function getExtensionDialingScope()
     {
@@ -264,7 +264,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return AutoAttendantDialingScope
+     * @return AutoAttendantDialingScope $nameDialingScope
      */
     public function getNameDialingScope()
     {
@@ -286,7 +286,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return AutoAttendantNameDialingEntry
+     * @return AutoAttendantNameDialingEntry $nameDialingEntries
      */
     public function getNameDialingEntries()
     {
@@ -306,7 +306,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return AutoAttendantAddMenu16
+     * @return AutoAttendantAddMenu16 $businessHoursMenu
      */
     public function getBusinessHoursMenu()
     {
@@ -326,7 +326,7 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
 
     /**
      * 
-     * @return AutoAttendantAddMenu16
+     * @return AutoAttendantAddMenu16 $afterHoursMenu
      */
     public function getAfterHoursMenu()
     {

@@ -42,7 +42,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -86,7 +86,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $port
      */
     public function getPort()
     {
@@ -108,7 +108,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkServerDescription
+     * @return NetworkServerDescription $description
      */
     public function getDescription()
     {
@@ -128,7 +128,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $becomePreferred
      */
     public function getBecomePreferred()
     {

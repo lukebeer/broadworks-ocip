@@ -25,7 +25,7 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
     protected $remoteOfficePhoneNumber = null;
 
     /**
-     * @return UserRemoteOfficeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRemoteOffice\UserRemoteOfficeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -67,7 +67,7 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $remoteOfficePhoneNumber
      */
     public function getRemoteOfficePhoneNumber()
     {

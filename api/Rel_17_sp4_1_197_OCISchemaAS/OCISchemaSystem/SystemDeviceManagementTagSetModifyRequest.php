@@ -33,7 +33,7 @@ class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements C
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -55,7 +55,7 @@ class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return DeviceManagementTagSetName
+     * @return DeviceManagementTagSetName $tagSetName
      */
     public function getTagSetName()
     {
@@ -77,7 +77,7 @@ class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements C
 
     /**
      * 
-     * @return DeviceManagementTagSetName
+     * @return DeviceManagementTagSetName $newTagSetName
      */
     public function getNewTagSetName()
     {

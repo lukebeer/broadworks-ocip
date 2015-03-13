@@ -27,7 +27,7 @@ class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implemen
     protected $supervisorTable     = null;
 
     /**
-     * @return GroupCallCenterSupervisorReportingGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterSupervisorReportingGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implemen
 
     /**
      * 
-     * @return CallCenterReportingServerName
+     * @return CallCenterReportingServerName $reportingServerName
      */
     public function getReportingServerName()
     {

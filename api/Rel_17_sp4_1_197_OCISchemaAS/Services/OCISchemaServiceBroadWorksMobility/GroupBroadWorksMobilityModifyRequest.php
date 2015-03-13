@@ -54,7 +54,7 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -76,7 +76,7 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -98,7 +98,7 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -120,7 +120,7 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return BroadWorksMobilityGroupSettingLevel
+     * @return BroadWorksMobilityGroupSettingLevel $useSettingLevel
      */
     public function getUseSettingLevel()
     {
@@ -140,7 +140,7 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableLocationServices
      */
     public function getEnableLocationServices()
     {
@@ -160,7 +160,7 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMSRNLookup
      */
     public function getEnableMSRNLookup()
     {
@@ -180,7 +180,7 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMobileStateChecking
      */
     public function getEnableMobileStateChecking()
     {
@@ -200,7 +200,7 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallOriginations
      */
     public function getDenyCallOriginations()
     {
@@ -220,7 +220,7 @@ class GroupBroadWorksMobilityModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $denyCallTerminations
      */
     public function getDenyCallTerminations()
     {

@@ -26,7 +26,7 @@ class SystemDomainParametersGetResponse extends ComplexType implements ComplexIn
     protected $defaultDomain     = null;
 
     /**
-     * @return SystemDomainParametersGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainParametersGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemDomainParametersGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useAliasForDomain
      */
     public function getUseAliasForDomain()
     {
@@ -68,7 +68,7 @@ class SystemDomainParametersGetResponse extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $defaultDomain
      */
     public function getDefaultDomain()
     {

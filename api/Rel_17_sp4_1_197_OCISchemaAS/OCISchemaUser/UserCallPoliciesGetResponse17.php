@@ -25,7 +25,7 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
     protected $callBeingForwardedResponseCallType = null;
 
     /**
-     * @return UserCallPoliciesGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserCallPoliciesGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return ConnectedLineIdentificationPrivacyOnRedirectedCalls
+     * @return ConnectedLineIdentificationPrivacyOnRedirectedCalls $redirectedCallsCOLPPrivacy
      */
     public function getRedirectedCallsCOLPPrivacy()
     {
@@ -69,7 +69,7 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return CallBeingForwardedResponseCallType
+     * @return CallBeingForwardedResponseCallType $callBeingForwardedResponseCallType
      */
     public function getCallBeingForwardedResponseCallType()
     {

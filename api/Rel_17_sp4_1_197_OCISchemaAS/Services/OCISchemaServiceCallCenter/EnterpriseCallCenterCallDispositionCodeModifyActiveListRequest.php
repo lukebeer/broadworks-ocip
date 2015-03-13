@@ -34,7 +34,7 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -76,7 +76,7 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
 
     /**
      * 
-     * @return CallDispositionCodeActivation
+     * @return CallDispositionCodeActivation $callDispositionCodeActivation
      */
     public function getCallDispositionCodeActivation()
     {

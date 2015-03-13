@@ -11,7 +11,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -46,7 +45,7 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
     }
 
     /**
-     * @return ServiceProviderGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -66,7 +65,7 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isEnterprise
      */
     public function getIsEnterprise()
     {
@@ -88,7 +87,7 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -110,7 +109,7 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SearchCriteriaServiceProviderId
+     * @return SearchCriteriaServiceProviderId $searchCriteriaServiceProviderId
      */
     public function getSearchCriteriaServiceProviderId()
     {
@@ -132,7 +131,7 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
 
     /**
      * 
-     * @return SearchCriteriaServiceProviderName
+     * @return SearchCriteriaServiceProviderName $searchCriteriaServiceProviderName
      */
     public function getSearchCriteriaServiceProviderName()
     {

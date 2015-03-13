@@ -83,7 +83,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -105,7 +105,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -125,7 +125,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playEntranceMessage
      */
     public function getPlayEntranceMessage()
     {
@@ -145,7 +145,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $mandatoryEntranceMessage
      */
     public function getMandatoryEntranceMessage()
     {
@@ -167,7 +167,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $entranceAudioMessageSelection
      */
     public function getEntranceAudioMessageSelection()
     {
@@ -187,7 +187,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $entranceMessageAudioFile
      */
     public function getEntranceMessageAudioFile()
     {
@@ -209,7 +209,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $entranceVideoMessageSelection
      */
     public function getEntranceVideoMessageSelection()
     {
@@ -229,7 +229,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $entranceMessageVideoFile
      */
     public function getEntranceMessageVideoFile()
     {
@@ -249,7 +249,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playPeriodicComfortMessage
      */
     public function getPlayPeriodicComfortMessage()
     {
@@ -271,7 +271,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterTimeBetweenComfortMessagesSeconds
+     * @return CallCenterTimeBetweenComfortMessagesSeconds $timeBetweenComfortMessagesSeconds
      */
     public function getTimeBetweenComfortMessagesSeconds()
     {
@@ -293,7 +293,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $periodicComfortAudioMessageSelection
      */
     public function getPeriodicComfortAudioMessageSelection()
     {
@@ -313,7 +313,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $periodicComfortMessageAudioFile
      */
     public function getPeriodicComfortMessageAudioFile()
     {
@@ -335,7 +335,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $periodicComfortVideoMessageSelection
      */
     public function getPeriodicComfortVideoMessageSelection()
     {
@@ -355,7 +355,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $periodicComfortMessageVideoFile
      */
     public function getPeriodicComfortMessageVideoFile()
     {
@@ -375,7 +375,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableMediaOnHoldForQueuedCalls
      */
     public function getEnableMediaOnHoldForQueuedCalls()
     {
@@ -395,7 +395,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterMediaOnHoldSourceModify16
+     * @return CallCenterMediaOnHoldSourceModify16 $mediaOnHoldSource
      */
     public function getMediaOnHoldSource()
     {
@@ -415,7 +415,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $mediaOnHoldUseAlternateSourceForInternalCalls
      */
     public function getMediaOnHoldUseAlternateSourceForInternalCalls()
     {
@@ -435,7 +435,7 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
 
     /**
      * 
-     * @return CallCenterMediaOnHoldSourceModify16
+     * @return CallCenterMediaOnHoldSourceModify16 $mediaOnHoldInternalSource
      */
     public function getMediaOnHoldInternalSource()
     {

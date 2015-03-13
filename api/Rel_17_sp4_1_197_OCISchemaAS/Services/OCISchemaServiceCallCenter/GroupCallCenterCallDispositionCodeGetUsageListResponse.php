@@ -25,7 +25,7 @@ class GroupCallCenterCallDispositionCodeGetUsageListResponse extends ComplexType
     protected $callCenterTable = null;
 
     /**
-     * @return GroupCallCenterCallDispositionCodeGetUsageListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCallDispositionCodeGetUsageListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

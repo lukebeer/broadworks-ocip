@@ -62,7 +62,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -84,7 +84,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -106,7 +106,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return ServicePackMigrationTaskName
+     * @return ServicePackMigrationTaskName $taskName
      */
     public function getTaskName()
     {
@@ -125,7 +125,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:dateTime
+     * @return xs:dateTime $startTimestamp
      */
     public function getStartTimestamp()
     {
@@ -147,7 +147,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return ServicePackMigrationMaxDurationHours
+     * @return ServicePackMigrationMaxDurationHours $maxDurationHours
      */
     public function getMaxDurationHours()
     {
@@ -167,7 +167,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendReportEmail
      */
     public function getSendReportEmail()
     {
@@ -189,7 +189,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportDeliveryEmailAddress
      */
     public function getReportDeliveryEmailAddress()
     {
@@ -209,7 +209,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $abortOnError
      */
     public function getAbortOnError()
     {
@@ -231,7 +231,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return ServicePackMigrationAbortErrorThreshold
+     * @return ServicePackMigrationAbortErrorThreshold $abortErrorThreshold
      */
     public function getAbortErrorThreshold()
     {
@@ -251,7 +251,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $reportAllUsers
      */
     public function getReportAllUsers()
     {
@@ -271,7 +271,7 @@ class ServiceProviderServicePackMigrationTaskAddRequest extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $automaticallyIncrementServiceQuantity
      */
     public function getAutomaticallyIncrementServiceQuantity()
     {

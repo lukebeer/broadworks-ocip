@@ -26,7 +26,7 @@ class UserBroadWorksReceptionistOfficeGetResponse extends ComplexType implements
     protected $monitoredUserTable = null;
 
     /**
-     * @return UserBroadWorksReceptionistOfficeGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistOffice\UserBroadWorksReceptionistOfficeGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

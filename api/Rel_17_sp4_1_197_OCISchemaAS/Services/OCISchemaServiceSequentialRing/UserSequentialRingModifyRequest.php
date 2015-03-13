@@ -64,7 +64,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -86,7 +86,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -106,7 +106,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $ringBaseLocationFirst
      */
     public function getRingBaseLocationFirst()
     {
@@ -128,7 +128,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SequentialRingNumberOfRings
+     * @return SequentialRingNumberOfRings $baseLocationNumberOfRings
      */
     public function getBaseLocationNumberOfRings()
     {
@@ -148,7 +148,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $continueIfBaseLocationIsBusy
      */
     public function getContinueIfBaseLocationIsBusy()
     {
@@ -168,7 +168,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $callerMayStopSearch
      */
     public function getCallerMayStopSearch()
     {
@@ -188,7 +188,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SequentialRingLocationModify
+     * @return SequentialRingLocationModify $Location01
      */
     public function getLocation01()
     {
@@ -208,7 +208,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SequentialRingLocationModify
+     * @return SequentialRingLocationModify $Location02
      */
     public function getLocation02()
     {
@@ -228,7 +228,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SequentialRingLocationModify
+     * @return SequentialRingLocationModify $Location03
      */
     public function getLocation03()
     {
@@ -248,7 +248,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SequentialRingLocationModify
+     * @return SequentialRingLocationModify $Location04
      */
     public function getLocation04()
     {
@@ -268,7 +268,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return SequentialRingLocationModify
+     * @return SequentialRingLocationModify $Location05
      */
     public function getLocation05()
     {
@@ -288,7 +288,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
 
     /**
      * 
-     * @return CriteriaActivation
+     * @return CriteriaActivation $criteriaActivation
      */
     public function getCriteriaActivation()
     {

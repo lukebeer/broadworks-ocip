@@ -43,7 +43,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
     protected $loginDisabledNotifyEmailAddress         = null;
 
     /**
-     * @return GroupPortalPasscodeRulesGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupPortalPasscodeRulesGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return GroupPasscodeRulesLevel
+     * @return GroupPasscodeRulesLevel $useRuleLevel
      */
     public function getUseRuleLevel()
     {
@@ -85,7 +85,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowRepeatedDigits
      */
     public function getDisallowRepeatedDigits()
     {
@@ -105,7 +105,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowUserNumber
      */
     public function getDisallowUserNumber()
     {
@@ -125,7 +125,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedUserNumber
      */
     public function getDisallowReversedUserNumber()
     {
@@ -145,7 +145,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowOldPasscode
      */
     public function getDisallowOldPasscode()
     {
@@ -165,7 +165,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disallowReversedOldPasscode
      */
     public function getDisallowReversedOldPasscode()
     {
@@ -187,7 +187,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return PasscodeMinLength
+     * @return PasscodeMinLength $minCodeLength
      */
     public function getMinCodeLength()
     {
@@ -209,7 +209,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return PasscodeMaxLength
+     * @return PasscodeMaxLength $maxCodeLength
      */
     public function getMaxCodeLength()
     {
@@ -229,7 +229,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $disableLoginAfterMaxFailedLoginAttempts
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
@@ -251,7 +251,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return PortalMaxFailedLoginAttempts
+     * @return PortalMaxFailedLoginAttempts $maxFailedLoginAttempts
      */
     public function getMaxFailedLoginAttempts()
     {
@@ -271,7 +271,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $expirePassword
      */
     public function getExpirePassword()
     {
@@ -293,7 +293,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return PasscodeExpiresDays
+     * @return PasscodeExpiresDays $passcodeExpiresDays
      */
     public function getPasscodeExpiresDays()
     {
@@ -313,7 +313,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendLoginDisabledNotifyEmail
      */
     public function getSendLoginDisabledNotifyEmail()
     {
@@ -335,7 +335,7 @@ class GroupPortalPasscodeRulesGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $loginDisabledNotifyEmailAddress
      */
     public function getLoginDisabledNotifyEmailAddress()
     {

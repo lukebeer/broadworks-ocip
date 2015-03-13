@@ -46,7 +46,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
 
     /**
      * 
-     * @return OCICallControlApplicationId
+     * @return OCICallControlApplicationId $applicationId
      */
     public function getApplicationId()
     {
@@ -88,7 +88,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableSystemWide
      */
     public function getEnableSystemWide()
     {
@@ -110,7 +110,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
 
     /**
      * 
-     * @return OCICallApplicationNotificationTimeOutSeconds
+     * @return OCICallApplicationNotificationTimeOutSeconds $notificationTimeoutSeconds
      */
     public function getNotificationTimeoutSeconds()
     {
@@ -132,7 +132,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
 
     /**
      * 
-     * @return OCICallControlApplicationDescription
+     * @return OCICallControlApplicationDescription $description
      */
     public function getDescription()
     {
@@ -154,7 +154,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
 
     /**
      * 
-     * @return EventNotificationChannelsPerSet
+     * @return EventNotificationChannelsPerSet $maxEventChannelsPerSet
      */
     public function getMaxEventChannelsPerSet()
     {

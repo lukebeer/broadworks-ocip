@@ -37,7 +37,7 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -79,7 +79,7 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemPlayMCTWarningAnnouncement
      */
     public function getUseSystemPlayMCTWarningAnnouncement()
     {
@@ -99,7 +99,7 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playMCTWarningAnnouncement
      */
     public function getPlayMCTWarningAnnouncement()
     {

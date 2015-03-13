@@ -38,7 +38,7 @@ class GroupInstantConferencingGetInstanceResponse17 extends ComplexType implemen
     protected $networkClassOfService          = null;
 
     /**
-     * @return GroupInstantConferencingGetInstanceResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\GroupInstantConferencingGetInstanceResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class GroupInstantConferencingGetInstanceResponse17 extends ComplexType implemen
 
     /**
      * 
-     * @return ServiceInstanceReadProfile17
+     * @return ServiceInstanceReadProfile17 $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -80,7 +80,7 @@ class GroupInstantConferencingGetInstanceResponse17 extends ComplexType implemen
 
     /**
      * 
-     * @return AccessDeviceEndpointLinePort
+     * @return AccessDeviceEndpointLinePort $conferenceBridgeLinePort
      */
     public function getConferenceBridgeLinePort()
     {
@@ -100,7 +100,7 @@ class GroupInstantConferencingGetInstanceResponse17 extends ComplexType implemen
 
     /**
      * 
-     * @return InstantConferencingAllocatedPorts
+     * @return InstantConferencingAllocatedPorts $allocatedPorts
      */
     public function getAllocatedPorts()
     {
@@ -122,7 +122,7 @@ class GroupInstantConferencingGetInstanceResponse17 extends ComplexType implemen
 
     /**
      * 
-     * @return InstantConferencingOutcallProfile
+     * @return InstantConferencingOutcallProfile $serviceProfileAppliedOnOutcall
      */
     public function getServiceProfileAppliedOnOutcall()
     {
@@ -142,7 +142,7 @@ class GroupInstantConferencingGetInstanceResponse17 extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutdialInInvitation
      */
     public function getAllowOutdialInInvitation()
     {
@@ -162,7 +162,7 @@ class GroupInstantConferencingGetInstanceResponse17 extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowDocumentDownload
      */
     public function getAllowDocumentDownload()
     {
@@ -204,7 +204,7 @@ class GroupInstantConferencingGetInstanceResponse17 extends ComplexType implemen
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {

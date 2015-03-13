@@ -37,7 +37,7 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -59,7 +59,7 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -79,7 +79,7 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $maxActiveCalls
      */
     public function getMaxActiveCalls()
     {
@@ -99,7 +99,7 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return UnboundedNonNegativeInt
+     * @return UnboundedNonNegativeInt $burstingMaxActiveCalls
      */
     public function getBurstingMaxActiveCalls()
     {

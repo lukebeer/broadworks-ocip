@@ -42,7 +42,7 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -86,7 +86,7 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -106,7 +106,7 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -126,7 +126,7 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return PriorityAlertCriteriaFromDn
+     * @return PriorityAlertCriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

@@ -62,7 +62,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -84,7 +84,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -106,7 +106,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {
@@ -128,7 +128,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
 
     /**
      * 
-     * @return DN
+     * @return DN $newPhoneNumber
      */
     public function getNewPhoneNumber()
     {
@@ -150,7 +150,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
 
     /**
      * 
-     * @return BroadWorksAnywherePhoneNumberDescription
+     * @return BroadWorksAnywherePhoneNumberDescription $description
      */
     public function getDescription()
     {
@@ -170,7 +170,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -192,7 +192,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $outboundAlternateNumber
      */
     public function getOutboundAlternateNumber()
     {
@@ -212,7 +212,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $broadworksCallControl
      */
     public function getBroadworksCallControl()
     {
@@ -232,7 +232,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDiversionInhibitor
      */
     public function getUseDiversionInhibitor()
     {
@@ -252,7 +252,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $answerConfirmationRequired
      */
     public function getAnswerConfirmationRequired()
     {
@@ -272,7 +272,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
 
     /**
      * 
-     * @return CriteriaActivation
+     * @return CriteriaActivation $criteriaActivation
      */
     public function getCriteriaActivation()
     {

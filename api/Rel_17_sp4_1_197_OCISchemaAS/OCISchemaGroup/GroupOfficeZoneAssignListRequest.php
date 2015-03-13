@@ -43,7 +43,7 @@ class GroupOfficeZoneAssignListRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class GroupOfficeZoneAssignListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -87,7 +87,7 @@ class GroupOfficeZoneAssignListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -109,7 +109,7 @@ class GroupOfficeZoneAssignListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return OfficeZoneName
+     * @return OfficeZoneName $officeZoneName
      */
     public function getOfficeZoneName()
     {
@@ -131,7 +131,7 @@ class GroupOfficeZoneAssignListRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return OfficeZoneName
+     * @return OfficeZoneName $defaultOfficeZoneName
      */
     public function getDefaultOfficeZoneName()
     {

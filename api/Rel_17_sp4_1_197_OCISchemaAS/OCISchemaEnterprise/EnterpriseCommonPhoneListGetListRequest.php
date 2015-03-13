@@ -12,7 +12,6 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListGetListResponse;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -55,7 +54,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
     }
 
     /**
-     * @return EnterpriseCommonPhoneListGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -77,7 +76,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -99,7 +98,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ResponseSizeLimit
+     * @return ResponseSizeLimit $responseSizeLimit
      */
     public function getResponseSizeLimit()
     {
@@ -119,7 +118,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $searchCriteriaModeOr
      */
     public function getSearchCriteriaModeOr()
     {
@@ -141,7 +140,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return SearchCriteriaEnterpriseCommonPhoneListName
+     * @return SearchCriteriaEnterpriseCommonPhoneListName $searchCriteriaEnterpriseCommonPhoneListName
      */
     public function getSearchCriteriaEnterpriseCommonPhoneListName()
     {
@@ -163,7 +162,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return SearchCriteriaEnterpriseCommonPhoneListNumber
+     * @return SearchCriteriaEnterpriseCommonPhoneListNumber $searchCriteriaEnterpriseCommonPhoneListNumber
      */
     public function getSearchCriteriaEnterpriseCommonPhoneListNumber()
     {

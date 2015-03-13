@@ -42,7 +42,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
     protected $dynamicEntryInactivityTimerHours     = null;
 
     /**
-     * @return SystemBwDiameterBaseDataGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemBwDiameterBaseDataGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $xsRealm
      */
     public function getXsRealm()
     {
@@ -86,7 +86,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $xsListeningPort
      */
     public function getXsListeningPort()
     {
@@ -108,7 +108,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $psRealm
      */
     public function getPsRealm()
     {
@@ -130,7 +130,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $psListeningPort
      */
     public function getPsListeningPort()
     {
@@ -150,7 +150,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $psRelayThroughXs
      */
     public function getPsRelayThroughXs()
     {
@@ -172,7 +172,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $xsRelayListeningPort
      */
     public function getXsRelayListeningPort()
     {
@@ -194,7 +194,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return BwDiameterTcTimerSeconds
+     * @return BwDiameterTcTimerSeconds $tcTimerSeconds
      */
     public function getTcTimerSeconds()
     {
@@ -216,7 +216,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return BwDiameterTwTimerSeconds
+     * @return BwDiameterTwTimerSeconds $twTimerSeconds
      */
     public function getTwTimerSeconds()
     {
@@ -238,7 +238,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return BwDiameterRequestTimerSeconds
+     * @return BwDiameterRequestTimerSeconds $requestTimerSeconds
      */
     public function getRequestTimerSeconds()
     {
@@ -260,7 +260,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return BwDiameterBusyPeerOutstandingTxnCount
+     * @return BwDiameterBusyPeerOutstandingTxnCount $busyPeerDetectionOutstandingTxnCount
      */
     public function getBusyPeerDetectionOutstandingTxnCount()
     {
@@ -282,7 +282,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return BwDiameterBusyPeerOutstandingTxnCount
+     * @return BwDiameterBusyPeerOutstandingTxnCount $busyPeerRestoreOutstandingTxnCount
      */
     public function getBusyPeerRestoreOutstandingTxnCount()
     {
@@ -304,7 +304,7 @@ class SystemBwDiameterBaseDataGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return BwDiameterDynamicEntryInactivityTimerHours
+     * @return BwDiameterDynamicEntryInactivityTimerHours $dynamicEntryInactivityTimerHours
      */
     public function getDynamicEntryInactivityTimerHours()
     {

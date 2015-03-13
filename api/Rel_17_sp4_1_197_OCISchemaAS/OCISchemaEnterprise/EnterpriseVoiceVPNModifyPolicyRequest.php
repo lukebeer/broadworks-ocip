@@ -53,7 +53,7 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +75,7 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -97,7 +97,7 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return EnterpriseVoiceVPNLocationCode
+     * @return EnterpriseVoiceVPNLocationCode $locationDialingCode
      */
     public function getLocationDialingCode()
     {
@@ -119,7 +119,7 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return EnterpriseVoiceVPNExtensionLength
+     * @return EnterpriseVoiceVPNExtensionLength $minExtensionLength
      */
     public function getMinExtensionLength()
     {
@@ -141,7 +141,7 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return EnterpriseVoiceVPNExtensionLength
+     * @return EnterpriseVoiceVPNExtensionLength $maxExtensionLength
      */
     public function getMaxExtensionLength()
     {
@@ -163,7 +163,7 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return EnterpriseVoiceVPNDescription
+     * @return EnterpriseVoiceVPNDescription $description
      */
     public function getDescription()
     {
@@ -185,7 +185,7 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $routeGroupId
      */
     public function getRouteGroupId()
     {
@@ -207,7 +207,7 @@ class EnterpriseVoiceVPNModifyPolicyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return EnterpriseVoiceVPNPolicySelection
+     * @return EnterpriseVoiceVPNPolicySelection $policySelection
      */
     public function getPolicySelection()
     {

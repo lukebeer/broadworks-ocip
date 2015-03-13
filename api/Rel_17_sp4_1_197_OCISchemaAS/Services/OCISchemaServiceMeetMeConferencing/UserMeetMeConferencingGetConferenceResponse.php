@@ -38,7 +38,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
     protected $moderatorPin                 = null;
 
     /**
-     * @return UserMeetMeConferencingGetConferenceResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingGetConferenceResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
 
     /**
      * 
-     * @return MeetMeConferencingConferenceTitle
+     * @return MeetMeConferencingConferenceTitle $title
      */
     public function getTitle()
     {
@@ -82,7 +82,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
 
     /**
      * 
-     * @return MeetMeConferencingNumberOfParticipants
+     * @return MeetMeConferencingNumberOfParticipants $estimatedParticipants
      */
     public function getEstimatedParticipants()
     {
@@ -104,7 +104,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
 
     /**
      * 
-     * @return MeetMeConferencingConferenceAccountCode
+     * @return MeetMeConferencingConferenceAccountCode $accountCode
      */
     public function getAccountCode()
     {
@@ -124,7 +124,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $muteAllAttendeesOnEntry
      */
     public function getMuteAllAttendeesOnEntry()
     {
@@ -144,7 +144,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $endConferenceOnModeratorExit
      */
     public function getEndConferenceOnModeratorExit()
     {
@@ -164,7 +164,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $moderatorRequired
      */
     public function getModeratorRequired()
     {
@@ -186,7 +186,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
 
     /**
      * 
-     * @return MeetMeConferencingConferenceAttendeeNotification
+     * @return MeetMeConferencingConferenceAttendeeNotification $attendeeNotification
      */
     public function getAttendeeNotification()
     {
@@ -206,7 +206,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
 
     /**
      * 
-     * @return MeetMeConferencingConferenceSchedule
+     * @return MeetMeConferencingConferenceSchedule $conferenceSchedule
      */
     public function getConferenceSchedule()
     {
@@ -228,7 +228,7 @@ class UserMeetMeConferencingGetConferenceResponse extends ComplexType implements
 
     /**
      * 
-     * @return MeetMeConferencingConferencePassCode
+     * @return MeetMeConferencingConferencePassCode $moderatorPin
      */
     public function getModeratorPin()
     {

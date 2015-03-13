@@ -56,7 +56,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +78,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return FileRepositoryName
+     * @return FileRepositoryName $name
      */
     public function getName()
     {
@@ -100,7 +100,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return CPEFileDirectory
+     * @return CPEFileDirectory $rootDirectory
      */
     public function getRootDirectory()
     {
@@ -120,7 +120,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $secure
      */
     public function getSecure()
     {
@@ -142,7 +142,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -162,7 +162,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $ftpPassive
      */
     public function getFtpPassive()
     {
@@ -184,7 +184,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return FileRepositoryProtocol
+     * @return FileRepositoryProtocol $protocol
      */
     public function getProtocol()
     {
@@ -206,7 +206,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return Port
+     * @return Port $port
      */
     public function getPort()
     {
@@ -226,7 +226,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $ftpRemoteVerification
      */
     public function getFtpRemoteVerification()
     {

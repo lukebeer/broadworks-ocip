@@ -27,7 +27,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentResponse extends Compl
     protected $slideShowContentTable = null;
 
     /**
-     * @return UserInstantConferencingGetStandAloneSlideShowContentResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentResponse extends Compl
 
     /**
      * 
-     * @return URL
+     * @return URL $audioURL
      */
     public function getAudioURL()
     {

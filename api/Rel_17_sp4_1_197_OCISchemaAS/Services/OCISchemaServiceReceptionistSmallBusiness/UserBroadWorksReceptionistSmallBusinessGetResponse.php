@@ -26,7 +26,7 @@ class UserBroadWorksReceptionistSmallBusinessGetResponse extends ComplexType imp
     protected $monitoredUserTable = null;
 
     /**
-     * @return UserBroadWorksReceptionistSmallBusinessGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistSmallBusiness\UserBroadWorksReceptionistSmallBusinessGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

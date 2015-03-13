@@ -78,7 +78,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -100,7 +100,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -122,7 +122,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -144,7 +144,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return DialableCallerIDCriteriaName
+     * @return DialableCallerIDCriteriaName $name
      */
     public function getName()
     {
@@ -166,7 +166,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return DialableCallerIDCriteriaDescription
+     * @return DialableCallerIDCriteriaDescription $description
      */
     public function getDescription()
     {
@@ -188,7 +188,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return DialableCallerIDPrefixDigits
+     * @return DialableCallerIDPrefixDigits $prefixDigits
      */
     public function getPrefixDigits()
     {
@@ -210,7 +210,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return CommunicationBarringCallType
+     * @return CommunicationBarringCallType $matchCallType
      */
     public function getMatchCallType()
     {
@@ -232,7 +232,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return CommunicationBarringAlternateCallIndicator
+     * @return CommunicationBarringAlternateCallIndicator $matchAlternateCallIndicator
      */
     public function getMatchAlternateCallIndicator()
     {
@@ -252,7 +252,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchLocalCategory
      */
     public function getMatchLocalCategory()
     {
@@ -272,7 +272,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchNationalCategory
      */
     public function getMatchNationalCategory()
     {
@@ -292,7 +292,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInterlataCategory
      */
     public function getMatchInterlataCategory()
     {
@@ -312,7 +312,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchIntralataCategory
      */
     public function getMatchIntralataCategory()
     {
@@ -332,7 +332,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchInternationalCategory
      */
     public function getMatchInternationalCategory()
     {
@@ -352,7 +352,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchPrivateCategory
      */
     public function getMatchPrivateCategory()
     {
@@ -372,7 +372,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchEmergencyCategory
      */
     public function getMatchEmergencyCategory()
     {
@@ -392,7 +392,7 @@ class GroupDialableCallerIDCriteriaAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $matchOtherCategory
      */
     public function getMatchOtherCategory()
     {

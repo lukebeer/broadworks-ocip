@@ -30,7 +30,7 @@ class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playDistinctiveRingback
      */
     public function getPlayDistinctiveRingback()
     {

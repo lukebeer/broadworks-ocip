@@ -42,7 +42,7 @@ class GroupOutgoingCallingPlanCallMeNowModifyListRequest extends ComplexType imp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupOutgoingCallingPlanCallMeNowModifyListRequest extends ComplexType imp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupOutgoingCallingPlanCallMeNowModifyListRequest extends ComplexType imp
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -106,7 +106,7 @@ class GroupOutgoingCallingPlanCallMeNowModifyListRequest extends ComplexType imp
 
     /**
      * 
-     * @return OutgoingCallingPlanCallMeNowPermissionsModify
+     * @return OutgoingCallingPlanCallMeNowPermissionsModify $groupPermissions
      */
     public function getGroupPermissions()
     {
@@ -126,7 +126,7 @@ class GroupOutgoingCallingPlanCallMeNowModifyListRequest extends ComplexType imp
 
     /**
      * 
-     * @return OutgoingCallingPlanCallMeNowDepartmentPermissionsModify
+     * @return OutgoingCallingPlanCallMeNowDepartmentPermissionsModify $departmentPermissions
      */
     public function getDepartmentPermissions()
     {

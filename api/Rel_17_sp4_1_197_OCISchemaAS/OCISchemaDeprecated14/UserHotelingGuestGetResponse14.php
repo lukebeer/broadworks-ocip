@@ -33,7 +33,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
     protected $hostAssociationDateTime = null;
 
     /**
-     * @return UserHotelingGuestGetResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserHotelingGuestGetResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -75,7 +75,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return HotelingAssociationLimitHours
+     * @return HotelingAssociationLimitHours $associationLimitHours
      */
     public function getAssociationLimitHours()
     {
@@ -97,7 +97,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return UserId
+     * @return UserId $hostUserId
      */
     public function getHostUserId()
     {
@@ -119,7 +119,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return LastName
+     * @return LastName $hostLastName
      */
     public function getHostLastName()
     {
@@ -141,7 +141,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return FirstName
+     * @return FirstName $hostFirstName
      */
     public function getHostFirstName()
     {
@@ -160,7 +160,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:dateTime
+     * @return xs:dateTime $hostAssociationDateTime
      */
     public function getHostAssociationDateTime()
     {

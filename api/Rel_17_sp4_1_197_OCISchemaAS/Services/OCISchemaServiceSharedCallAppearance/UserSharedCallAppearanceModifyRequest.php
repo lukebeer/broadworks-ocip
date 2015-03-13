@@ -56,7 +56,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +78,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -98,7 +98,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alertAllAppearancesForClickToDialCalls
      */
     public function getAlertAllAppearancesForClickToDialCalls()
     {
@@ -118,7 +118,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $alertAllAppearancesForGroupPagingCalls
      */
     public function getAlertAllAppearancesForGroupPagingCalls()
     {
@@ -138,7 +138,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowSCACallRetrieve
      */
     public function getAllowSCACallRetrieve()
     {
@@ -158,7 +158,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $multipleCallArrangementIsActive
      */
     public function getMultipleCallArrangementIsActive()
     {
@@ -178,7 +178,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowBridgingBetweenLocations
      */
     public function getAllowBridgingBetweenLocations()
     {
@@ -200,7 +200,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return SharedCallAppearanceBridgeWarningTone
+     * @return SharedCallAppearanceBridgeWarningTone $bridgeWarningTone
      */
     public function getBridgeWarningTone()
     {
@@ -220,7 +220,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableCallParkNotification
      */
     public function getEnableCallParkNotification()
     {

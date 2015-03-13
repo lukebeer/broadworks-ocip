@@ -65,7 +65,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
     protected $hostedUserTable                            = null;
 
     /**
-     * @return GroupTrunkGroupGetInstanceResponse15
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupTrunkGroupGetInstanceResponse15 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -87,7 +87,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $pilotUserId
      */
     public function getPilotUserId()
     {
@@ -107,7 +107,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $department
      */
     public function getDepartment()
     {
@@ -127,7 +127,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return AccessDevice
+     * @return AccessDevice $accessDevice
      */
     public function getAccessDevice()
     {
@@ -149,7 +149,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return MaxActiveCalls
+     * @return MaxActiveCalls $maxActiveCalls
      */
     public function getMaxActiveCalls()
     {
@@ -171,7 +171,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return MaxIncomingCalls
+     * @return MaxIncomingCalls $maxIncomingCalls
      */
     public function getMaxIncomingCalls()
     {
@@ -193,7 +193,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return MaxOutgoingCalls
+     * @return MaxOutgoingCalls $maxOutgoingCalls
      */
     public function getMaxOutgoingCalls()
     {
@@ -213,7 +213,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableBursting
      */
     public function getEnableBursting()
     {
@@ -235,7 +235,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return BurstingMaxActiveCalls
+     * @return BurstingMaxActiveCalls $burstingMaxActiveCalls
      */
     public function getBurstingMaxActiveCalls()
     {
@@ -257,7 +257,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return BurstingMaxIncomingCalls
+     * @return BurstingMaxIncomingCalls $burstingMaxIncomingCalls
      */
     public function getBurstingMaxIncomingCalls()
     {
@@ -279,7 +279,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return BurstingMaxOutgoingCalls
+     * @return BurstingMaxOutgoingCalls $burstingMaxOutgoingCalls
      */
     public function getBurstingMaxOutgoingCalls()
     {
@@ -301,7 +301,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return TrunkGroupCapacityExceededAction
+     * @return TrunkGroupCapacityExceededAction $capacityExceededAction
      */
     public function getCapacityExceededAction()
     {
@@ -323,7 +323,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $capacityExceededForwardAddress
      */
     public function getCapacityExceededForwardAddress()
     {
@@ -343,7 +343,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $capacityExceededRerouteTrunkGroupKey
      */
     public function getCapacityExceededRerouteTrunkGroupKey()
     {
@@ -365,7 +365,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return TrapInitialThreshold
+     * @return TrapInitialThreshold $capacityExceededTrapInitialCalls
      */
     public function getCapacityExceededTrapInitialCalls()
     {
@@ -387,7 +387,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return TrapOffsetThreshold
+     * @return TrapOffsetThreshold $capacityExceededTrapOffsetCalls
      */
     public function getCapacityExceededTrapOffsetCalls()
     {
@@ -409,7 +409,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return TrunkGroupUnreachableDestinationAction
+     * @return TrunkGroupUnreachableDestinationAction $unreachableDestinationAction
      */
     public function getUnreachableDestinationAction()
     {
@@ -431,7 +431,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $unreachableDestinationForwardAddress
      */
     public function getUnreachableDestinationForwardAddress()
     {
@@ -451,7 +451,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey
      */
     public function getUnreachableDestinationRerouteTrunkGroupKey()
     {
@@ -473,7 +473,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return TrunkGroupInvitationTimeoutSeconds
+     * @return TrunkGroupInvitationTimeoutSeconds $invitationTimeout
      */
     public function getInvitationTimeout()
     {
@@ -493,7 +493,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireAuthentication
      */
     public function getRequireAuthentication()
     {
@@ -515,7 +515,7 @@ class GroupTrunkGroupGetInstanceResponse15 extends ComplexType implements Comple
 
     /**
      * 
-     * @return SIPAuthenticationUserName
+     * @return SIPAuthenticationUserName $sipAuthenticationUserName
      */
     public function getSipAuthenticationUserName()
     {

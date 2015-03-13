@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanPermissions;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class IncomingCallingPlanPermissions extends ComplexType implements ComplexInterface
 {
-    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIncomingCallingPlan\IncomingCallingPlanPermissions';
     public    $name                   = 'IncomingCallingPlanPermissions';
     protected $allowFromWithinGroup   = null;
     protected $allowFromOutsideGroup  = null;
@@ -40,7 +38,7 @@ class IncomingCallingPlanPermissions extends ComplexType implements ComplexInter
     }
 
     /**
-     * @return IncomingCallingPlanPermissions
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +58,7 @@ class IncomingCallingPlanPermissions extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowFromWithinGroup
      */
     public function getAllowFromWithinGroup()
     {
@@ -80,7 +78,7 @@ class IncomingCallingPlanPermissions extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowFromOutsideGroup
      */
     public function getAllowFromOutsideGroup()
     {
@@ -100,7 +98,7 @@ class IncomingCallingPlanPermissions extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $allowCollectCalls
      */
     public function getAllowCollectCalls()
     {
@@ -120,7 +118,7 @@ class IncomingCallingPlanPermissions extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $digitPatternPermission
      */
     public function getDigitPatternPermission()
     {

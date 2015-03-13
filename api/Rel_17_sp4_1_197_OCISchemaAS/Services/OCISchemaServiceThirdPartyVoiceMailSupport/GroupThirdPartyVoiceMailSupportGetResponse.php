@@ -25,7 +25,7 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
     protected $groupServer = null;
 
     /**
-     * @return GroupThirdPartyVoiceMailSupportGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\GroupThirdPartyVoiceMailSupportGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -67,7 +67,7 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
 
     /**
      * 
-     * @return ThirdPartyVoiceMailSupportMailServer
+     * @return ThirdPartyVoiceMailSupportMailServer $groupServer
      */
     public function getGroupServer()
     {

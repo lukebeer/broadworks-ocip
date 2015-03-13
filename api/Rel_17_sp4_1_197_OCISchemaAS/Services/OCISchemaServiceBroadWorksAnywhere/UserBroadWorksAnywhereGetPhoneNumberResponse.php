@@ -34,7 +34,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
     protected $criteriaTable              = null;
 
     /**
-     * @return UserBroadWorksAnywhereGetPhoneNumberResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetPhoneNumberResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
 
     /**
      * 
-     * @return BroadWorksAnywherePhoneNumberDescription
+     * @return BroadWorksAnywherePhoneNumberDescription $description
      */
     public function getDescription()
     {
@@ -78,7 +78,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $outboundAlternateNumber
      */
     public function getOutboundAlternateNumber()
     {
@@ -98,7 +98,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -118,7 +118,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $broadworksCallControl
      */
     public function getBroadworksCallControl()
     {
@@ -138,7 +138,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useDiversionInhibitor
      */
     public function getUseDiversionInhibitor()
     {
@@ -158,7 +158,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $answerConfirmationRequired
      */
     public function getAnswerConfirmationRequired()
     {

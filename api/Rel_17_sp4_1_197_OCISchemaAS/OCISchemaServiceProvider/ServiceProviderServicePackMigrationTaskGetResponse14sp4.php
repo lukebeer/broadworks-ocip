@@ -55,7 +55,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
     protected $assignServiceName                     = null;
 
     /**
-     * @return ServiceProviderServicePackMigrationTaskGetResponse14sp4
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetResponse14sp4 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -77,7 +77,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return ServicePackMigrationTaskName
+     * @return ServicePackMigrationTaskName $taskName
      */
     public function getTaskName()
     {
@@ -96,7 +96,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return xs:dateTime
+     * @return xs:dateTime $startTimestamp
      */
     public function getStartTimestamp()
     {
@@ -118,7 +118,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return ServicePackMigrationMaxDurationHours
+     * @return ServicePackMigrationMaxDurationHours $maxDurationHours
      */
     public function getMaxDurationHours()
     {
@@ -138,7 +138,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendReportEmail
      */
     public function getSendReportEmail()
     {
@@ -160,7 +160,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportDeliveryEmailAddress
      */
     public function getReportDeliveryEmailAddress()
     {
@@ -180,7 +180,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $abortOnError
      */
     public function getAbortOnError()
     {
@@ -202,7 +202,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return ServicePackMigrationAbortErrorThreshold
+     * @return ServicePackMigrationAbortErrorThreshold $abortErrorThreshold
      */
     public function getAbortErrorThreshold()
     {
@@ -222,7 +222,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $reportAllUsers
      */
     public function getReportAllUsers()
     {
@@ -242,7 +242,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $automaticallyIncrementServiceQuantity
      */
     public function getAutomaticallyIncrementServiceQuantity()
     {
@@ -262,7 +262,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return xs:int
+     * @return int $errorCount
      */
     public function getErrorCount()
     {
@@ -284,7 +284,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return ServicePackMigrationTaskStatus
+     * @return ServicePackMigrationTaskStatus $status
      */
     public function getStatus()
     {
@@ -304,7 +304,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return xs:int
+     * @return int $groupsProcessed
      */
     public function getGroupsProcessed()
     {
@@ -324,7 +324,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return xs:int
+     * @return int $groupsTotal
      */
     public function getGroupsTotal()
     {
@@ -344,7 +344,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return xs:int
+     * @return int $usersProcessed
      */
     public function getUsersProcessed()
     {
@@ -364,7 +364,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return xs:int
+     * @return int $usersTotal
      */
     public function getUsersTotal()
     {
@@ -386,7 +386,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return ServicePackMigrationTaskUserSelectionType
+     * @return ServicePackMigrationTaskUserSelectionType $userSelectionType
      */
     public function getUserSelectionType()
     {
@@ -408,7 +408,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return FileName
+     * @return FileName $reportFilePathName
      */
     public function getReportFilePathName()
     {
@@ -430,7 +430,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $userSelectionServicePackName
      */
     public function getUserSelectionServicePackName()
     {
@@ -452,7 +452,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return UserService
+     * @return UserService $userSelectionServiceName
      */
     public function getUserSelectionServiceName()
     {
@@ -474,7 +474,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $removeServicePackName
      */
     public function getRemoveServicePackName()
     {
@@ -496,7 +496,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return UserService
+     * @return UserService $removeServiceName
      */
     public function getRemoveServiceName()
     {
@@ -518,7 +518,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return ServicePackName
+     * @return ServicePackName $assignServicePackName
      */
     public function getAssignServicePackName()
     {
@@ -540,7 +540,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
 
     /**
      * 
-     * @return UserService
+     * @return UserService $assignServiceName
      */
     public function getAssignServiceName()
     {

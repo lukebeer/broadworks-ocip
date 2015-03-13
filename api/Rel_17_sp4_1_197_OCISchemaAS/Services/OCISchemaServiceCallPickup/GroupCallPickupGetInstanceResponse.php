@@ -24,7 +24,7 @@ class GroupCallPickupGetInstanceResponse extends ComplexType implements ComplexI
     protected $userTable = null;
 
     /**
-     * @return GroupCallPickupGetInstanceResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPickup\GroupCallPickupGetInstanceResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

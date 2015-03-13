@@ -50,7 +50,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -72,7 +72,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -94,7 +94,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -114,7 +114,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -136,7 +136,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
 
     /**
      * 
-     * @return CallForwardingSelectiveNumberSelection
+     * @return CallForwardingSelectiveNumberSelection $forwardToNumberSelection
      */
     public function getForwardToNumberSelection()
     {
@@ -158,7 +158,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {
@@ -178,7 +178,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
 
     /**
      * 
-     * @return CriteriaFromDn
+     * @return CriteriaFromDn $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

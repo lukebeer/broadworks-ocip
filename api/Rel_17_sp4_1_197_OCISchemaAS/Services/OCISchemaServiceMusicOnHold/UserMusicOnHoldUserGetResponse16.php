@@ -27,7 +27,7 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
     protected $internalSource                     = null;
 
     /**
-     * @return UserMusicOnHoldUserGetResponse16
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\UserMusicOnHoldUserGetResponse16 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -67,7 +67,7 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return MusicOnHoldUserSourceRead16
+     * @return MusicOnHoldUserSourceRead16 $source
      */
     public function getSource()
     {
@@ -87,7 +87,7 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useAlternateSourceForInternalCalls
      */
     public function getUseAlternateSourceForInternalCalls()
     {
@@ -107,7 +107,7 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return MusicOnHoldUserSourceRead16
+     * @return MusicOnHoldUserSourceRead16 $internalSource
      */
     public function getInternalSource()
     {

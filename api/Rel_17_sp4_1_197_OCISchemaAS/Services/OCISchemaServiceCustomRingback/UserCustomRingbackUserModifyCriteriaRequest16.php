@@ -79,7 +79,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -101,7 +101,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -123,7 +123,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -145,7 +145,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $newCriteriaName
      */
     public function getNewCriteriaName()
     {
@@ -165,7 +165,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -185,7 +185,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -205,7 +205,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {
@@ -225,7 +225,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return CriteriaFromDnModify
+     * @return CriteriaFromDnModify $fromDnCriteria
      */
     public function getFromDnCriteria()
     {
@@ -247,7 +247,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $audioSelection
      */
     public function getAudioSelection()
     {
@@ -267,7 +267,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $audioFile
      */
     public function getAudioFile()
     {
@@ -289,7 +289,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $videoSelection
      */
     public function getVideoSelection()
     {
@@ -309,7 +309,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $videoFile
      */
     public function getVideoFile()
     {
@@ -331,7 +331,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $callWaitingAudioSelection
      */
     public function getCallWaitingAudioSelection()
     {
@@ -351,7 +351,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $callWaitingAudioFile
      */
     public function getCallWaitingAudioFile()
     {
@@ -373,7 +373,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return ExtendedFileResourceSelection
+     * @return ExtendedFileResourceSelection $callWaitingVideoSelection
      */
     public function getCallWaitingVideoSelection()
     {
@@ -393,7 +393,7 @@ class UserCustomRingbackUserModifyCriteriaRequest16 extends ComplexType implemen
 
     /**
      * 
-     * @return ExtendedMediaFileResource
+     * @return ExtendedMediaFileResource $callWaitingVideoFile
      */
     public function getCallWaitingVideoFile()
     {

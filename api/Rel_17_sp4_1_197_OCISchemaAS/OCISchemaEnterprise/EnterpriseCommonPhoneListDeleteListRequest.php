@@ -34,7 +34,7 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -78,7 +78,7 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
 
     /**
      * 
-     * @return PhoneListEntryName
+     * @return PhoneListEntryName $entryName
      */
     public function getEntryName()
     {

@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingAlternateNoAnswerGreetingModify16;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class VoiceMessagingAlternateNoAnswerGreetingModify16 extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\VoiceMessagingAlternateNoAnswerGreetingModify16';
     public    $name      = 'VoiceMessagingAlternateNoAnswerGreetingModify16';
     protected $name      = null;
     protected $audioFile = null;
@@ -38,7 +36,7 @@ class VoiceMessagingAlternateNoAnswerGreetingModify16 extends ComplexType implem
     }
 
     /**
-     * @return VoiceMessagingAlternateNoAnswerGreetingModify16
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +56,7 @@ class VoiceMessagingAlternateNoAnswerGreetingModify16 extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $name
      */
     public function getName()
     {
@@ -78,7 +76,7 @@ class VoiceMessagingAlternateNoAnswerGreetingModify16 extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $audioFile
      */
     public function getAudioFile()
     {
@@ -98,7 +96,7 @@ class VoiceMessagingAlternateNoAnswerGreetingModify16 extends ComplexType implem
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $videoFile
      */
     public function getVideoFile()
     {

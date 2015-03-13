@@ -24,7 +24,7 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
     protected $enableEnhancedTollCallTyping = null;
 
     /**
-     * @return SystemOutgoingCallingPlanGetResponse17sp3
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanGetResponse17sp3 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $directTransferScreening
      */
     public function getDirectTransferScreening()
     {
@@ -64,7 +64,7 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableEnhancedTollCallTyping
      */
     public function getEnableEnhancedTollCallTyping()
     {

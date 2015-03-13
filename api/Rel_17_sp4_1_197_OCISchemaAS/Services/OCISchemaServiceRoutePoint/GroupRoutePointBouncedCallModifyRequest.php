@@ -48,7 +48,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -70,7 +70,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -90,7 +90,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -112,7 +112,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return HuntNoAnswerRings
+     * @return HuntNoAnswerRings $numberOfRingsBeforeBouncingCall
      */
     public function getNumberOfRingsBeforeBouncingCall()
     {
@@ -132,7 +132,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableTransfer
      */
     public function getEnableTransfer()
     {
@@ -154,7 +154,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $transferPhoneNumber
      */
     public function getTransferPhoneNumber()
     {
@@ -174,7 +174,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $bounceCallWhenAgentUnavailable
      */
     public function getBounceCallWhenAgentUnavailable()
     {

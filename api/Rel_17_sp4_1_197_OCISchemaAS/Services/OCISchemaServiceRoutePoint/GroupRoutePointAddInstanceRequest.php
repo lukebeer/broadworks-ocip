@@ -97,7 +97,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -119,7 +119,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -141,7 +141,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -163,7 +163,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -183,7 +183,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceInstanceAddProfileCallCenter
+     * @return ServiceInstanceAddProfileCallCenter $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -205,7 +205,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NetworkClassOfServiceName
+     * @return NetworkClassOfServiceName $networkClassOfService
      */
     public function getNetworkClassOfService()
     {
@@ -227,7 +227,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AudioFileCodec
+     * @return AudioFileCodec $externalPreferredAudioCodec
      */
     public function getExternalPreferredAudioCodec()
     {
@@ -249,7 +249,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AudioFileCodec
+     * @return AudioFileCodec $internalPreferredAudioCodec
      */
     public function getInternalPreferredAudioCodec()
     {
@@ -271,7 +271,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return CallCenterQueueLength16
+     * @return CallCenterQueueLength16 $queueLength
      */
     public function getQueueLength()
     {
@@ -293,7 +293,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return NoAnswerTimeoutRings
+     * @return NoAnswerTimeoutRings $noAnswerTimeoutRings
      */
     public function getNoAnswerTimeoutRings()
     {
@@ -313,7 +313,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableVideo
      */
     public function getEnableVideo()
     {
@@ -333,7 +333,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playRingingWhenOfferingCall
      */
     public function getPlayRingingWhenOfferingCall()
     {
@@ -353,7 +353,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideAgentWrapUpTime
      */
     public function getOverrideAgentWrapUpTime()
     {
@@ -375,7 +375,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return CallCenterWrapUpSeconds
+     * @return CallCenterWrapUpSeconds $wrapUpSeconds
      */
     public function getWrapUpSeconds()
     {
@@ -395,7 +395,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableAutomaticStateChangeForAgents
      */
     public function getEnableAutomaticStateChangeForAgents()
     {
@@ -417,7 +417,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return AgentACDAutomaticState
+     * @return AgentACDAutomaticState $agentStateAfterCall
      */
     public function getAgentStateAfterCall()
     {
@@ -439,7 +439,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return CallCenterAgentUnavailableCode
+     * @return CallCenterAgentUnavailableCode $agentUnavailableCode
      */
     public function getAgentUnavailableCode()
     {
@@ -459,7 +459,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $forceDeliveryOfCalls
      */
     public function getForceDeliveryOfCalls()
     {
@@ -481,7 +481,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return CallCenterForceDeliveryWaitTimeSeconds
+     * @return CallCenterForceDeliveryWaitTimeSeconds $forceDeliveryWaitTimeSeconds
      */
     public function getForceDeliveryWaitTimeSeconds()
     {

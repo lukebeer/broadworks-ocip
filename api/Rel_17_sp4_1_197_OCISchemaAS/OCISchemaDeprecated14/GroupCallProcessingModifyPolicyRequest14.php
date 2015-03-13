@@ -118,7 +118,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -140,7 +140,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -162,7 +162,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -182,7 +182,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useGroupSetting
      */
     public function getUseGroupSetting()
     {
@@ -202,7 +202,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousCalls
      */
     public function getUseMaxSimultaneousCalls()
     {
@@ -224,7 +224,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousCalls
      */
     public function getMaxSimultaneousCalls()
     {
@@ -244,7 +244,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxSimultaneousVideoCalls
      */
     public function getUseMaxSimultaneousVideoCalls()
     {
@@ -266,7 +266,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxSimultaneousCalls
+     * @return CallProcessingMaxSimultaneousCalls $maxSimultaneousVideoCalls
      */
     public function getMaxSimultaneousVideoCalls()
     {
@@ -286,7 +286,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForAnsweredCalls
      */
     public function getUseMaxCallTimeForAnsweredCalls()
     {
@@ -308,7 +308,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes
+     * @return CallProcessingMaxCallTimeForAnsweredCallsMinutes $maxCallTimeForAnsweredCallsMinutes
      */
     public function getMaxCallTimeForAnsweredCallsMinutes()
     {
@@ -328,7 +328,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxCallTimeForUnansweredCalls
      */
     public function getUseMaxCallTimeForUnansweredCalls()
     {
@@ -350,7 +350,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes
+     * @return CallProcessingMaxCallTimeForUnansweredCallsMinutes $maxCallTimeForUnansweredCallsMinutes
      */
     public function getMaxCallTimeForUnansweredCallsMinutes()
     {
@@ -372,7 +372,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return MediaPolicySelection
+     * @return MediaPolicySelection $mediaPolicySelection
      */
     public function getMediaPolicySelection()
     {
@@ -394,7 +394,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return MediaSetName
+     * @return MediaSetName $supportedMediaSetName
      */
     public function getSupportedMediaSetName()
     {
@@ -416,7 +416,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return NetworkUsageSelection
+     * @return NetworkUsageSelection $networkUsageSelection
      */
     public function getNetworkUsageSelection()
     {
@@ -436,7 +436,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enforceGroupCallingLineIdentityRestriction
      */
     public function getEnforceGroupCallingLineIdentityRestriction()
     {
@@ -456,7 +456,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEnterpriseGroupCallTypingForPrivateDialingPlan
      */
     public function getAllowEnterpriseGroupCallTypingForPrivateDialingPlan()
     {
@@ -476,7 +476,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowEnterpriseGroupCallTypingForPublicDialingPlan
      */
     public function getAllowEnterpriseGroupCallTypingForPublicDialingPlan()
     {
@@ -496,7 +496,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideCLIDRestrictionForExternalCallsViaPrivateDialingPlan
      */
     public function getOverrideCLIDRestrictionForExternalCallsViaPrivateDialingPlan()
     {
@@ -516,7 +516,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableEnterpriseExtensionDialing
      */
     public function getEnableEnterpriseExtensionDialing()
     {
@@ -536,7 +536,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxConcurrentRedirectedCalls
      */
     public function getUseMaxConcurrentRedirectedCalls()
     {
@@ -558,7 +558,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxConcurrentRedirectedCalls
+     * @return CallProcessingMaxConcurrentRedirectedCalls $maxConcurrentRedirectedCalls
      */
     public function getMaxConcurrentRedirectedCalls()
     {
@@ -578,7 +578,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxFindMeFollowMeDepth
      */
     public function getUseMaxFindMeFollowMeDepth()
     {
@@ -600,7 +600,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxFindMeFollowMeDepth
+     * @return CallProcessingMaxFindMeFollowMeDepth $maxFindMeFollowMeDepth
      */
     public function getMaxFindMeFollowMeDepth()
     {
@@ -622,7 +622,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxRedirectionDepth
+     * @return CallProcessingMaxRedirectionDepth $maxRedirectionDepth
      */
     public function getMaxRedirectionDepth()
     {
@@ -642,7 +642,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useMaxConcurrentFindMeFollowMeInvocations
      */
     public function getUseMaxConcurrentFindMeFollowMeInvocations()
     {
@@ -664,7 +664,7 @@ class GroupCallProcessingModifyPolicyRequest14 extends ComplexType implements Co
 
     /**
      * 
-     * @return CallProcessingMaxConcurrentFindMeFollowMeInvocations
+     * @return CallProcessingMaxConcurrentFindMeFollowMeInvocations $maxConcurrentFindMeFollowMeInvocations
      */
     public function getMaxConcurrentFindMeFollowMeInvocations()
     {

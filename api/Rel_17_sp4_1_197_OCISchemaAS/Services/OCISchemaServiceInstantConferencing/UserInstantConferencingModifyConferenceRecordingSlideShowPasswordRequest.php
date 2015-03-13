@@ -7,7 +7,6 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingSlideShowPassword;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingCallId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingRecordingKey;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
@@ -42,7 +41,7 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +63,7 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -84,7 +83,7 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
 
     /**
      * 
-     * @return InstantConferencingRecordingKey
+     * @return InstantConferencingRecordingKey $recordingKey
      */
     public function getRecordingKey()
     {
@@ -106,7 +105,7 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
 
     /**
      * 
-     * @return InstantConferencingRecordingCallId
+     * @return InstantConferencingRecordingCallId $recordingCallId
      */
     public function getRecordingCallId()
     {
@@ -128,7 +127,7 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
 
     /**
      * 
-     * @return InstantConferencingSlideShowPassword
+     * @return InstantConferencingSlideShowPassword $slideShowPassword
      */
     public function getSlideShowPassword()
     {

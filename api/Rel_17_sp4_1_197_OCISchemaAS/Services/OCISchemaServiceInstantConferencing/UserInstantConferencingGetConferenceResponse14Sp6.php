@@ -56,7 +56,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
     protected $bridgeNationalPrefix           = null;
 
     /**
-     * @return UserInstantConferencingGetConferenceResponse14Sp6
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceResponse14Sp6 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +78,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return InstantConferencingCallId
+     * @return InstantConferencingCallId $conferenceCallId
      */
     public function getConferenceCallId()
     {
@@ -100,7 +100,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $conferenceOwnerUserId
      */
     public function getConferenceOwnerUserId()
     {
@@ -120,7 +120,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return UserDisplayNames
+     * @return UserDisplayNames $conferenceOwnerDisplayNames
      */
     public function getConferenceOwnerDisplayNames()
     {
@@ -142,7 +142,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return InstantConferencingTitle
+     * @return InstantConferencingTitle $title
      */
     public function getTitle()
     {
@@ -162,7 +162,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $leaderRequired
      */
     public function getLeaderRequired()
     {
@@ -182,7 +182,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $leaderReleaseDropsParticipants
      */
     public function getLeaderReleaseDropsParticipants()
     {
@@ -202,7 +202,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $announceCallers
      */
     public function getAnnounceCallers()
     {
@@ -224,7 +224,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return InstantConferencingConferenceType
+     * @return InstantConferencingConferenceType $conferenceType
      */
     public function getConferenceType()
     {
@@ -244,7 +244,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return InstantConferencingSchedule
+     * @return InstantConferencingSchedule $conferenceSchedule
      */
     public function getConferenceSchedule()
     {
@@ -266,7 +266,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return InstantConferencingBillingCode
+     * @return InstantConferencingBillingCode $billingCode
      */
     public function getBillingCode()
     {
@@ -288,7 +288,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $leaderAccessCode
      */
     public function getLeaderAccessCode()
     {
@@ -310,7 +310,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return InstantConferencingAccessCode
+     * @return InstantConferencingAccessCode $participantAccessCode
      */
     public function getParticipantAccessCode()
     {
@@ -330,7 +330,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isCallActive
      */
     public function getIsCallActive()
     {
@@ -350,7 +350,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isExpired
      */
     public function getIsExpired()
     {
@@ -370,7 +370,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isFuture
      */
     public function getIsFuture()
     {
@@ -390,7 +390,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $hasPresentation
      */
     public function getHasPresentation()
     {
@@ -412,7 +412,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return InstantConferencingPresentationPassword
+     * @return InstantConferencingPresentationPassword $presentationPassword
      */
     public function getPresentationPassword()
     {
@@ -432,7 +432,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutdialInInvitation
      */
     public function getAllowOutdialInInvitation()
     {
@@ -454,7 +454,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return DN
+     * @return DN $bridgePhoneNumber
      */
     public function getBridgePhoneNumber()
     {
@@ -476,7 +476,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return CountryCode
+     * @return CountryCode $bridgeCountryCode
      */
     public function getBridgeCountryCode()
     {
@@ -498,7 +498,7 @@ class UserInstantConferencingGetConferenceResponse14Sp6 extends ComplexType impl
 
     /**
      * 
-     * @return NationalPrefix
+     * @return NationalPrefix $bridgeNationalPrefix
      */
     public function getBridgeNationalPrefix()
     {

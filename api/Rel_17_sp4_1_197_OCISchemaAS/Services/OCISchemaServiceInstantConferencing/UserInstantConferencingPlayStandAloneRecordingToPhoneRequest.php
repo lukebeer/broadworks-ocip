@@ -38,7 +38,7 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
 
     /**
      * 
-     * @return UserId
+     * @return UserId $conferenceOwnerUserId
      */
     public function getConferenceOwnerUserId()
     {
@@ -80,7 +80,7 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
 
     /**
      * 
-     * @return InstantConferencingRecordingKey
+     * @return InstantConferencingRecordingKey $recordingKey
      */
     public function getRecordingKey()
     {
@@ -102,7 +102,7 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $playBackPhoneNumber
      */
     public function getPlayBackPhoneNumber()
     {

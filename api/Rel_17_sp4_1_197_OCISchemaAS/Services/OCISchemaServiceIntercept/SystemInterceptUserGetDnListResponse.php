@@ -24,7 +24,7 @@ class SystemInterceptUserGetDnListResponse extends ComplexType implements Comple
     protected $interceptUserList = null;
 
     /**
-     * @return SystemInterceptUserGetDnListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\SystemInterceptUserGetDnListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -44,7 +44,7 @@ class SystemInterceptUserGetDnListResponse extends ComplexType implements Comple
 
     /**
      * 
-     * @return InterceptDNListEntry
+     * @return InterceptDNListEntry $interceptUserList
      */
     public function getInterceptUserList()
     {

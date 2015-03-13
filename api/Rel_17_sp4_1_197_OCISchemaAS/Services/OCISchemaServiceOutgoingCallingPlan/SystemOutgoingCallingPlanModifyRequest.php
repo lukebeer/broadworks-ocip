@@ -33,7 +33,7 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -53,7 +53,7 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $directTransferScreening
      */
     public function getDirectTransferScreening()
     {
@@ -73,7 +73,7 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableEnhancedTollCallTyping
      */
     public function getEnableEnhancedTollCallTyping()
     {

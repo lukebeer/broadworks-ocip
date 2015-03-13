@@ -26,7 +26,7 @@ class UserBroadWorksReceptionistOfficeGetAvailableUserListResponse extends Compl
     protected $userTable = null;
 
     /**
-     * @return UserBroadWorksReceptionistOfficeGetAvailableUserListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistOffice\UserBroadWorksReceptionistOfficeGetAvailableUserListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

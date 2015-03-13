@@ -35,7 +35,7 @@ class UserSpeedDial100ModifyListRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class UserSpeedDial100ModifyListRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -77,7 +77,7 @@ class UserSpeedDial100ModifyListRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return SpeedDial100EntryModify
+     * @return SpeedDial100EntryModify $speedDialEntry
      */
     public function getSpeedDialEntry()
     {

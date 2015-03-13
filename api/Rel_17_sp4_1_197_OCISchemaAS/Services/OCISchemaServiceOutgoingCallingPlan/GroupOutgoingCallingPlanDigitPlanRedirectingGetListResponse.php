@@ -25,7 +25,7 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse extends Comple
     protected $departmentPermissions = null;
 
     /**
-     * @return GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse extends Comple
 
     /**
      * 
-     * @return OutgoingCallingPlanDigitPatternRedirectingPermissions
+     * @return OutgoingCallingPlanDigitPatternRedirectingPermissions $groupPermissions
      */
     public function getGroupPermissions()
     {
@@ -65,7 +65,7 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse extends Comple
 
     /**
      * 
-     * @return OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions
+     * @return OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions $departmentPermissions
      */
     public function getDepartmentPermissions()
     {

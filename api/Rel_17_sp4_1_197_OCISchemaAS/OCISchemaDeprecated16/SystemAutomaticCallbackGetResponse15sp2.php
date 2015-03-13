@@ -35,7 +35,7 @@ class SystemAutomaticCallbackGetResponse15sp2 extends ComplexType implements Com
     protected $pollingIntervalSeconds     = null;
 
     /**
-     * @return SystemAutomaticCallbackGetResponse15sp2
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemAutomaticCallbackGetResponse15sp2 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -57,7 +57,7 @@ class SystemAutomaticCallbackGetResponse15sp2 extends ComplexType implements Com
 
     /**
      * 
-     * @return AutomaticCallbackMonitorMinutes
+     * @return AutomaticCallbackMonitorMinutes $monitorMinutes
      */
     public function getMonitorMinutes()
     {
@@ -79,7 +79,7 @@ class SystemAutomaticCallbackGetResponse15sp2 extends ComplexType implements Com
 
     /**
      * 
-     * @return AutomaticCallbackMaxMonitorsPerOriginator
+     * @return AutomaticCallbackMaxMonitorsPerOriginator $maxMonitorsPerOriginator
      */
     public function getMaxMonitorsPerOriginator()
     {
@@ -101,7 +101,7 @@ class SystemAutomaticCallbackGetResponse15sp2 extends ComplexType implements Com
 
     /**
      * 
-     * @return AutomaticCallbackMaxCallbackRings
+     * @return AutomaticCallbackMaxCallbackRings $maxCallbackRings
      */
     public function getMaxCallbackRings()
     {
@@ -123,7 +123,7 @@ class SystemAutomaticCallbackGetResponse15sp2 extends ComplexType implements Com
 
     /**
      * 
-     * @return AutomaticCallbackMaxMonitorsPerTerminator
+     * @return AutomaticCallbackMaxMonitorsPerTerminator $maxMonitorsPerTerminator
      */
     public function getMaxMonitorsPerTerminator()
     {
@@ -145,7 +145,7 @@ class SystemAutomaticCallbackGetResponse15sp2 extends ComplexType implements Com
 
     /**
      * 
-     * @return AutomaticCallbackTerminatorIdleGuardSeconds
+     * @return AutomaticCallbackTerminatorIdleGuardSeconds $terminatorIdleGuardSeconds
      */
     public function getTerminatorIdleGuardSeconds()
     {
@@ -167,7 +167,7 @@ class SystemAutomaticCallbackGetResponse15sp2 extends ComplexType implements Com
 
     /**
      * 
-     * @return AutomaticCallbackMethod
+     * @return AutomaticCallbackMethod $callbackMethod
      */
     public function getCallbackMethod()
     {
@@ -189,7 +189,7 @@ class SystemAutomaticCallbackGetResponse15sp2 extends ComplexType implements Com
 
     /**
      * 
-     * @return AutomaticCallbackPollingIntervalSeconds
+     * @return AutomaticCallbackPollingIntervalSeconds $pollingIntervalSeconds
      */
     public function getPollingIntervalSeconds()
     {

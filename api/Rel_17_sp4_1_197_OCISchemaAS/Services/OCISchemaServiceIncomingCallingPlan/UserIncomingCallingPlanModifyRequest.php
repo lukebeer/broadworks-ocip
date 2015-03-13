@@ -38,7 +38,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -80,7 +80,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomSettings
      */
     public function getUseCustomSettings()
     {
@@ -100,7 +100,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
 
     /**
      * 
-     * @return IncomingCallingPlanPermissionsModify
+     * @return IncomingCallingPlanPermissionsModify $userPermissions
      */
     public function getUserPermissions()
     {

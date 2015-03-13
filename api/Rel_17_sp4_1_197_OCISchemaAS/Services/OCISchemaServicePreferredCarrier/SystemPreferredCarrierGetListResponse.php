@@ -25,7 +25,7 @@ class SystemPreferredCarrierGetListResponse extends ComplexType implements Compl
     protected $systemCarrierTable = null;
 
     /**
-     * @return SystemPreferredCarrierGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

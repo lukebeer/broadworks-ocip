@@ -46,7 +46,7 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -68,7 +68,7 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -88,7 +88,7 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ServiceInstanceModifyProfile
+     * @return ServiceInstanceModifyProfile $serviceInstanceProfile
      */
     public function getServiceInstanceProfile()
     {
@@ -108,7 +108,7 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return ReplacementOutgoingDNorSIPURIList
+     * @return ReplacementOutgoingDNorSIPURIList $destinationPhoneNumberList
      */
     public function getDestinationPhoneNumberList()
     {
@@ -128,7 +128,7 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isAnswerTimeoutEnabled
      */
     public function getIsAnswerTimeoutEnabled()
     {
@@ -150,7 +150,7 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
 
     /**
      * 
-     * @return InstantGroupCallAnswerTimeoutMinutes
+     * @return InstantGroupCallAnswerTimeoutMinutes $answerTimeoutMinutes
      */
     public function getAnswerTimeoutMinutes()
     {

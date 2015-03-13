@@ -229,7 +229,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -251,7 +251,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -273,7 +273,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -295,7 +295,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupName
+     * @return TrunkGroupName $name
      */
     public function getName()
     {
@@ -315,7 +315,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupMultipleContactPilotUser
+     * @return TrunkGroupMultipleContactPilotUser $pilotUser
      */
     public function getPilotUser()
     {
@@ -335,7 +335,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return DepartmentKey
+     * @return DepartmentKey $department
      */
     public function getDepartment()
     {
@@ -355,7 +355,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return AccessDevice
+     * @return AccessDevice $accessDevice
      */
     public function getAccessDevice()
     {
@@ -377,7 +377,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return MaxActiveCalls
+     * @return MaxActiveCalls $maxActiveCalls
      */
     public function getMaxActiveCalls()
     {
@@ -399,7 +399,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return MaxIncomingCalls
+     * @return MaxIncomingCalls $maxIncomingCalls
      */
     public function getMaxIncomingCalls()
     {
@@ -421,7 +421,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return MaxOutgoingCalls
+     * @return MaxOutgoingCalls $maxOutgoingCalls
      */
     public function getMaxOutgoingCalls()
     {
@@ -441,7 +441,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableBursting
      */
     public function getEnableBursting()
     {
@@ -463,7 +463,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return BurstingMaxActiveCalls
+     * @return BurstingMaxActiveCalls $burstingMaxActiveCalls
      */
     public function getBurstingMaxActiveCalls()
     {
@@ -485,7 +485,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return BurstingMaxIncomingCalls
+     * @return BurstingMaxIncomingCalls $burstingMaxIncomingCalls
      */
     public function getBurstingMaxIncomingCalls()
     {
@@ -507,7 +507,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return BurstingMaxOutgoingCalls
+     * @return BurstingMaxOutgoingCalls $burstingMaxOutgoingCalls
      */
     public function getBurstingMaxOutgoingCalls()
     {
@@ -529,7 +529,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupCapacityExceededAction
+     * @return TrunkGroupCapacityExceededAction $capacityExceededAction
      */
     public function getCapacityExceededAction()
     {
@@ -551,7 +551,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $capacityExceededForwardAddress
      */
     public function getCapacityExceededForwardAddress()
     {
@@ -571,7 +571,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $capacityExceededRerouteTrunkGroupKey
      */
     public function getCapacityExceededRerouteTrunkGroupKey()
     {
@@ -593,7 +593,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrapInitialThreshold
+     * @return TrapInitialThreshold $capacityExceededTrapInitialCalls
      */
     public function getCapacityExceededTrapInitialCalls()
     {
@@ -615,7 +615,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrapOffsetThreshold
+     * @return TrapOffsetThreshold $capacityExceededTrapOffsetCalls
      */
     public function getCapacityExceededTrapOffsetCalls()
     {
@@ -637,7 +637,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupUnreachableDestinationAction
+     * @return TrunkGroupUnreachableDestinationAction $unreachableDestinationAction
      */
     public function getUnreachableDestinationAction()
     {
@@ -659,7 +659,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $unreachableDestinationForwardAddress
      */
     public function getUnreachableDestinationForwardAddress()
     {
@@ -679,7 +679,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey
      */
     public function getUnreachableDestinationRerouteTrunkGroupKey()
     {
@@ -701,7 +701,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupInvitationTimeoutSeconds
+     * @return TrunkGroupInvitationTimeoutSeconds $invitationTimeout
      */
     public function getInvitationTimeout()
     {
@@ -721,7 +721,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $requireAuthentication
      */
     public function getRequireAuthentication()
     {
@@ -743,7 +743,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return SIPAuthenticationUserName
+     * @return SIPAuthenticationUserName $sipAuthenticationUserName
      */
     public function getSipAuthenticationUserName()
     {
@@ -765,7 +765,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return Password
+     * @return Password $sipAuthenticationPassword
      */
     public function getSipAuthenticationPassword()
     {
@@ -787,7 +787,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $hostedUserId
      */
     public function getHostedUserId()
     {
@@ -809,7 +809,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return SIPURI
+     * @return SIPURI $trunkGroupIdentity
      */
     public function getTrunkGroupIdentity()
     {
@@ -831,7 +831,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return OtgDtgIdentity
+     * @return OtgDtgIdentity $otgDtgIdentity
      */
     public function getOtgDtgIdentity()
     {
@@ -851,7 +851,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowTerminationToTrunkGroupIdentity
      */
     public function getAllowTerminationToTrunkGroupIdentity()
     {
@@ -871,7 +871,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowTerminationToDtgIdentity
      */
     public function getAllowTerminationToDtgIdentity()
     {
@@ -891,7 +891,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeTrunkGroupIdentity
      */
     public function getIncludeTrunkGroupIdentity()
     {
@@ -911,7 +911,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeDtgIdentity
      */
     public function getIncludeDtgIdentity()
     {
@@ -931,7 +931,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeTrunkGroupIdentityForNetworkCalls
      */
     public function getIncludeTrunkGroupIdentityForNetworkCalls()
     {
@@ -951,7 +951,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $includeOtgIdentityForNetworkCalls
      */
     public function getIncludeOtgIdentityForNetworkCalls()
     {
@@ -971,7 +971,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $enableNetworkAddressIdentity
      */
     public function getEnableNetworkAddressIdentity()
     {
@@ -991,7 +991,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUnscreenedCalls
      */
     public function getAllowUnscreenedCalls()
     {
@@ -1011,7 +1011,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowUnscreenedEmergencyCalls
      */
     public function getAllowUnscreenedEmergencyCalls()
     {
@@ -1033,7 +1033,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupPilotUserCallingLineIdentityUsagePolicy
+     * @return TrunkGroupPilotUserCallingLineIdentityUsagePolicy $pilotUserCallingLineIdentityPolicy
      */
     public function getPilotUserCallingLineIdentityPolicy()
     {
@@ -1055,7 +1055,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupPilotUserChargeNumberUsagePolicy
+     * @return TrunkGroupPilotUserChargeNumberUsagePolicy $pilotUserChargeNumberPolicy
      */
     public function getPilotUserChargeNumberPolicy()
     {
@@ -1077,7 +1077,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupCallForwardingAlwaysAction
+     * @return TrunkGroupCallForwardingAlwaysAction $callForwardingAlwaysAction
      */
     public function getCallForwardingAlwaysAction()
     {
@@ -1099,7 +1099,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $callForwardingAlwaysForwardAddress
      */
     public function getCallForwardingAlwaysForwardAddress()
     {
@@ -1119,7 +1119,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupKey
+     * @return TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey
      */
     public function getCallForwardingAlwaysRerouteTrunkGroupKey()
     {
@@ -1141,7 +1141,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return DomainName
+     * @return DomainName $peeringDomain
      */
     public function getPeeringDomain()
     {
@@ -1161,7 +1161,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $routeToPeeringDomain
      */
     public function getRouteToPeeringDomain()
     {
@@ -1181,7 +1181,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $prefixEnabled
      */
     public function getPrefixEnabled()
     {
@@ -1203,7 +1203,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupPrefix
+     * @return TrunkGroupPrefix $prefix
      */
     public function getPrefix()
     {
@@ -1223,7 +1223,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $statefulReroutingEnabled
      */
     public function getStatefulReroutingEnabled()
     {
@@ -1243,7 +1243,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $sendContinuousOptionsMessage
      */
     public function getSendContinuousOptionsMessage()
     {
@@ -1265,7 +1265,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupContinuousOptionsSendingIntervalSeconds
+     * @return TrunkGroupContinuousOptionsSendingIntervalSeconds $continuousOptionsSendingIntervalSeconds
      */
     public function getContinuousOptionsSendingIntervalSeconds()
     {
@@ -1287,7 +1287,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupFailureOptionsSendingIntervalSeconds
+     * @return TrunkGroupFailureOptionsSendingIntervalSeconds $failureOptionsSendingIntervalSeconds
      */
     public function getFailureOptionsSendingIntervalSeconds()
     {
@@ -1309,7 +1309,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupThresholdCounter
+     * @return TrunkGroupThresholdCounter $failureThresholdCounter
      */
     public function getFailureThresholdCounter()
     {
@@ -1331,7 +1331,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupThresholdCounter
+     * @return TrunkGroupThresholdCounter $successThresholdCounter
      */
     public function getSuccessThresholdCounter()
     {
@@ -1353,7 +1353,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupThresholdCounter
+     * @return TrunkGroupThresholdCounter $inviteFailureThresholdCounter
      */
     public function getInviteFailureThresholdCounter()
     {
@@ -1375,7 +1375,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupFailureThresholdWindowSeconds
+     * @return TrunkGroupFailureThresholdWindowSeconds $inviteFailureThresholdWindowSeconds
      */
     public function getInviteFailureThresholdWindowSeconds()
     {
@@ -1397,7 +1397,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return TrunkGroupPilotUserCallingLineAssertedIdentityUsagePolicy
+     * @return TrunkGroupPilotUserCallingLineAssertedIdentityUsagePolicy $pilotUserCallingLineAssertedIdentityPolicy
      */
     public function getPilotUserCallingLineAssertedIdentityPolicy()
     {
@@ -1417,7 +1417,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useSystemCallingLineAssertedIdentityPolicy
      */
     public function getUseSystemCallingLineAssertedIdentityPolicy()
     {

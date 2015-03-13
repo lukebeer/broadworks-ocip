@@ -42,7 +42,7 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return ASRMaxTransmissions
+     * @return ASRMaxTransmissions $maxTransmissions
      */
     public function getMaxTransmissions()
     {
@@ -86,7 +86,7 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return ASRRetransmissionDelayMilliSeconds
+     * @return ASRRetransmissionDelayMilliSeconds $retransmissionDelayMilliSeconds
      */
     public function getRetransmissionDelayMilliSeconds()
     {
@@ -108,7 +108,7 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $listeningPort
      */
     public function getListeningPort()
     {
@@ -130,7 +130,7 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $sourceAddress
      */
     public function getSourceAddress()
     {

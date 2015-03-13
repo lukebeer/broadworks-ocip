@@ -49,7 +49,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -71,7 +71,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -91,7 +91,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $clearTodayStatistics
      */
     public function getClearTodayStatistics()
     {
@@ -111,7 +111,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $generateDailyReport
      */
     public function getGenerateDailyReport()
     {
@@ -133,7 +133,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
 
     /**
      * 
-     * @return CallCenterStatisticsCollectionPeriodMinutes
+     * @return CallCenterStatisticsCollectionPeriodMinutes $collectionPeriodMinutes
      */
     public function getCollectionPeriodMinutes()
     {
@@ -155,7 +155,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportingEmailAddress1
      */
     public function getReportingEmailAddress1()
     {
@@ -177,7 +177,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $reportingEmailAddress2
      */
     public function getReportingEmailAddress2()
     {

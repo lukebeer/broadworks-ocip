@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria; 
 
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +20,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor';
     public    $name                = 'SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor';
     protected $createdBySupervisor = null;
 
@@ -32,7 +30,7 @@ class SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor extends Co
     }
 
     /**
-     * @return SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +50,7 @@ class SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor extends Co
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $createdBySupervisor
      */
     public function getCreatedBySupervisor()
     {

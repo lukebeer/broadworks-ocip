@@ -25,7 +25,7 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
     protected $internationalCarrier = null;
 
     /**
-     * @return UserPreferredCarrierUserGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\UserPreferredCarrierUserGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserPreferredCarrierName
+     * @return UserPreferredCarrierName $intraLataCarrier
      */
     public function getIntraLataCarrier()
     {
@@ -65,7 +65,7 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserPreferredCarrierName
+     * @return UserPreferredCarrierName $interLataCarrier
      */
     public function getInterLataCarrier()
     {
@@ -85,7 +85,7 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
 
     /**
      * 
-     * @return UserPreferredCarrierName
+     * @return UserPreferredCarrierName $internationalCarrier
      */
     public function getInternationalCarrier()
     {

@@ -53,7 +53,7 @@ class UserPreAlertingAnnouncementModifyCriteriaRequest extends ComplexType imple
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +75,7 @@ class UserPreAlertingAnnouncementModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -97,7 +97,7 @@ class UserPreAlertingAnnouncementModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $criteriaName
      */
     public function getCriteriaName()
     {
@@ -119,7 +119,7 @@ class UserPreAlertingAnnouncementModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return CriteriaName
+     * @return CriteriaName $newCriteriaName
      */
     public function getNewCriteriaName()
     {
@@ -139,7 +139,7 @@ class UserPreAlertingAnnouncementModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return TimeSchedule
+     * @return TimeSchedule $timeSchedule
      */
     public function getTimeSchedule()
     {
@@ -159,7 +159,7 @@ class UserPreAlertingAnnouncementModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return HolidaySchedule
+     * @return HolidaySchedule $holidaySchedule
      */
     public function getHolidaySchedule()
     {
@@ -179,7 +179,7 @@ class UserPreAlertingAnnouncementModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $blacklisted
      */
     public function getBlacklisted()
     {
@@ -199,7 +199,7 @@ class UserPreAlertingAnnouncementModifyCriteriaRequest extends ComplexType imple
 
     /**
      * 
-     * @return CriteriaFromDnModify
+     * @return CriteriaFromDnModify $fromDnCriteria
      */
     public function getFromDnCriteria()
     {

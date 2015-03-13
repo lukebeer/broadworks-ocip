@@ -30,7 +30,7 @@ class SystemThirdPartyVoiceMailSupportModifyRequest extends ComplexType implemen
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class SystemThirdPartyVoiceMailSupportModifyRequest extends ComplexType implemen
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $overrideAltCallerIdForVMRetrieval
      */
     public function getOverrideAltCallerIdForVMRetrieval()
     {

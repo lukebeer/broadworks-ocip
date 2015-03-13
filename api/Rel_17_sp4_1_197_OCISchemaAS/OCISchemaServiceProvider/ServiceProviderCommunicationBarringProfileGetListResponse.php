@@ -25,7 +25,7 @@ class ServiceProviderCommunicationBarringProfileGetListResponse extends ComplexT
     protected $profileTable = null;
 
     /**
-     * @return ServiceProviderCommunicationBarringProfileGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

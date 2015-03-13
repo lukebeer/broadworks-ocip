@@ -25,7 +25,7 @@ class UserCallForwardingNotReachableGetResponse extends ComplexType implements C
     protected $forwardToPhoneNumber = null;
 
     /**
-     * @return UserCallForwardingNotReachableGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallForwardingNotReachable\UserCallForwardingNotReachableGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserCallForwardingNotReachableGetResponse extends ComplexType implements C
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -67,7 +67,7 @@ class UserCallForwardingNotReachableGetResponse extends ComplexType implements C
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $forwardToPhoneNumber
      */
     public function getForwardToPhoneNumber()
     {

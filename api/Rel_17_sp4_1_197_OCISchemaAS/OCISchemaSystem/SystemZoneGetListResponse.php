@@ -23,7 +23,7 @@ class SystemZoneGetListResponse extends ComplexType implements ComplexInterface
     protected $zoneName = null;
 
     /**
-     * @return SystemZoneGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class SystemZoneGetListResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $zoneName
      */
     public function getZoneName()
     {

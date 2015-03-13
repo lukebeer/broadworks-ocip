@@ -36,7 +36,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
     protected $allowOutgoingACDCall              = null;
 
     /**
-     * @return GroupCallCenterGetDNISResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetDNISResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -58,7 +58,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DN
+     * @return DN $dnisPhoneNumber
      */
     public function getDnisPhoneNumber()
     {
@@ -80,7 +80,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return Extension17
+     * @return Extension17 $extension
      */
     public function getExtension()
     {
@@ -100,7 +100,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomCLIDSettings
      */
     public function getUseCustomCLIDSettings()
     {
@@ -122,7 +122,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DN
+     * @return DN $callingLineIdPhoneNumber
      */
     public function getCallingLineIdPhoneNumber()
     {
@@ -144,7 +144,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return CallingLineIdLastName
+     * @return CallingLineIdLastName $callingLineIdLastName
      */
     public function getCallingLineIdLastName()
     {
@@ -166,7 +166,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return CallingLineIdFirstName
+     * @return CallingLineIdFirstName $callingLineIdFirstName
      */
     public function getCallingLineIdFirstName()
     {
@@ -186,7 +186,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $useCustomDnisAnnouncementSettings
      */
     public function getUseCustomDnisAnnouncementSettings()
     {
@@ -208,7 +208,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return DNISPriority
+     * @return DNISPriority $priority
      */
     public function getPriority()
     {
@@ -228,7 +228,7 @@ class GroupCallCenterGetDNISResponse extends ComplexType implements ComplexInter
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowOutgoingACDCall
      */
     public function getAllowOutgoingACDCall()
     {

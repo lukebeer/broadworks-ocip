@@ -23,7 +23,7 @@ class UserChargeNumberGetResponse extends ComplexType implements ComplexInterfac
     protected $phoneNumber = null;
 
     /**
-     * @return UserChargeNumberGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserChargeNumberGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserChargeNumberGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return DN
+     * @return DN $phoneNumber
      */
     public function getPhoneNumber()
     {

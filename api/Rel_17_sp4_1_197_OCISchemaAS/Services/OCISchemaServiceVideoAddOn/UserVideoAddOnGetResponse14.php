@@ -27,7 +27,7 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
     protected $accessDeviceEndpoint           = null;
 
     /**
-     * @return UserVideoAddOnGetResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVideoAddOn\UserVideoAddOnGetResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -69,7 +69,7 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return VideoAddOnMaxOriginatingCallDelaySeconds
+     * @return VideoAddOnMaxOriginatingCallDelaySeconds $maxOriginatingCallDelaySeconds
      */
     public function getMaxOriginatingCallDelaySeconds()
     {
@@ -89,7 +89,7 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return AccessDeviceEndpointRead14
+     * @return AccessDeviceEndpointRead14 $accessDeviceEndpoint
      */
     public function getAccessDeviceEndpoint()
     {

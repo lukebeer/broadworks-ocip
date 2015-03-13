@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationType14;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -28,7 +27,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
     protected $configurationFileName         = null;
 
     /**
-     * @return GroupAccessDeviceGetEnhancedConfigurationTypeResponse14
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -48,7 +47,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $supportsEnhancedConfiguration
      */
     public function getSupportsEnhancedConfiguration()
     {
@@ -68,7 +67,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $supportsReset
      */
     public function getSupportsReset()
     {
@@ -90,7 +89,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationType14
+     * @return AccessDeviceEnhancedConfigurationType14 $configurationType
      */
     public function getConfigurationType()
     {
@@ -112,7 +111,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
 
     /**
      * 
-     * @return AccessDeviceEnhancedConfigurationFileName
+     * @return AccessDeviceEnhancedConfigurationFileName $configurationFileName
      */
     public function getConfigurationFileName()
     {

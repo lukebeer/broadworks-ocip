@@ -24,7 +24,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends
     protected $description = null;
 
     /**
-     * @return ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends
 
     /**
      * 
-     * @return DigitPatternCriteriaDescription
+     * @return DigitPatternCriteriaDescription $description
      */
     public function getDescription()
     {

@@ -27,7 +27,7 @@ class SystemOfficeZoneGetResponse extends ComplexType implements ComplexInterfac
     protected $primaryZoneName = null;
 
     /**
-     * @return SystemOfficeZoneGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -49,7 +49,7 @@ class SystemOfficeZoneGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return OfficeZoneDescription
+     * @return OfficeZoneDescription $description
      */
     public function getDescription()
     {
@@ -71,7 +71,7 @@ class SystemOfficeZoneGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $zoneName
      */
     public function getZoneName()
     {
@@ -93,7 +93,7 @@ class SystemOfficeZoneGetResponse extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return ZoneName
+     * @return ZoneName $primaryZoneName
      */
     public function getPrimaryZoneName()
     {

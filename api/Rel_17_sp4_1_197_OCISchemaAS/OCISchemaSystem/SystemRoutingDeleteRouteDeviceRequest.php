@@ -38,7 +38,7 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return RouteName
+     * @return RouteName $routeName
      */
     public function getRouteName()
     {
@@ -82,7 +82,7 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return NetAddress
+     * @return NetAddress $netAddress
      */
     public function getNetAddress()
     {
@@ -104,7 +104,7 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
 
     /**
      * 
-     * @return Port1025
+     * @return Port1025 $port
      */
     public function getPort()
     {

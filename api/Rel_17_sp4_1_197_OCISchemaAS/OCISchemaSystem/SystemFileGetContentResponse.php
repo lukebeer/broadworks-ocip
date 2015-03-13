@@ -23,7 +23,7 @@ class SystemFileGetContentResponse extends ComplexType implements ComplexInterfa
     protected $fileContent = null;
 
     /**
-     * @return SystemFileGetContentResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileGetContentResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -42,7 +42,7 @@ class SystemFileGetContentResponse extends ComplexType implements ComplexInterfa
 
     /**
      * 
-     * @return xs:base64Binary
+     * @return xs:base64Binary $fileContent
      */
     public function getFileContent()
     {

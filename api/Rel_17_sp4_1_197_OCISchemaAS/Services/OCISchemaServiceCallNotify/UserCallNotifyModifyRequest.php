@@ -38,7 +38,7 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -60,7 +60,7 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -82,7 +82,7 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return EmailAddress
+     * @return EmailAddress $callNotifyEmailAddress
      */
     public function getCallNotifyEmailAddress()
     {
@@ -102,7 +102,7 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
 
     /**
      * 
-     * @return CriteriaActivation
+     * @return CriteriaActivation $criteriaActivation
      */
     public function getCriteriaActivation()
     {

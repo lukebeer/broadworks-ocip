@@ -199,7 +199,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -221,7 +221,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupCallingPlanAccess
+     * @return GroupCallingPlanAccess $groupCallingPlanAccess
      */
     public function getGroupCallingPlanAccess()
     {
@@ -243,7 +243,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupExtensionAccess
+     * @return GroupExtensionAccess $groupExtensionAccess
      */
     public function getGroupExtensionAccess()
     {
@@ -265,7 +265,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupLDAPIntegrationAccess
+     * @return GroupLDAPIntegrationAccess $groupLDAPIntegrationAccess
      */
     public function getGroupLDAPIntegrationAccess()
     {
@@ -287,7 +287,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupVoiceMessagingAccess
+     * @return GroupVoiceMessagingAccess $groupVoiceMessagingAccess
      */
     public function getGroupVoiceMessagingAccess()
     {
@@ -309,7 +309,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupDepartmentAdminUserAccess
+     * @return GroupDepartmentAdminUserAccess $groupDepartmentAdminUserAccess
      */
     public function getGroupDepartmentAdminUserAccess()
     {
@@ -331,7 +331,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupDepartmentAdminTrunkGroupAccess
+     * @return GroupDepartmentAdminTrunkGroupAccess $groupDepartmentAdminTrunkGroupAccess
      */
     public function getGroupDepartmentAdminTrunkGroupAccess()
     {
@@ -353,7 +353,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupDepartmentAdminPhoneNumberExtensionAccess
+     * @return GroupDepartmentAdminPhoneNumberExtensionAccess $groupDepartmentAdminPhoneNumberExtensionAccess
      */
     public function getGroupDepartmentAdminPhoneNumberExtensionAccess()
     {
@@ -375,7 +375,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupDepartmentAdminCallingLineIdNumberAccess
+     * @return GroupDepartmentAdminCallingLineIdNumberAccess $groupDepartmentAdminCallingLineIdNumberAccess
      */
     public function getGroupDepartmentAdminCallingLineIdNumberAccess()
     {
@@ -397,7 +397,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupUserAuthenticationAccess
+     * @return GroupUserAuthenticationAccess $groupUserAuthenticationAccess
      */
     public function getGroupUserAuthenticationAccess()
     {
@@ -419,7 +419,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupUserGroupDirectoryAccess
+     * @return GroupUserGroupDirectoryAccess $groupUserGroupDirectoryAccess
      */
     public function getGroupUserGroupDirectoryAccess()
     {
@@ -441,7 +441,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupUserProfileAccess
+     * @return GroupUserProfileAccess $groupUserProfileAccess
      */
     public function getGroupUserProfileAccess()
     {
@@ -463,7 +463,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupUserCallLogAccess
+     * @return GroupUserCallLogAccess $groupUserEnhancedCallLogsAccess
      */
     public function getGroupUserEnhancedCallLogsAccess()
     {
@@ -485,7 +485,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminProfileAccess
+     * @return GroupAdminProfileAccess $groupAdminProfileAccess
      */
     public function getGroupAdminProfileAccess()
     {
@@ -507,7 +507,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminUserAccess
+     * @return GroupAdminUserAccess $groupAdminUserAccess
      */
     public function getGroupAdminUserAccess()
     {
@@ -529,7 +529,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminAdminAccess
+     * @return GroupAdminAdminAccess $groupAdminAdminAccess
      */
     public function getGroupAdminAdminAccess()
     {
@@ -551,7 +551,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminDepartmentAccess
+     * @return GroupAdminDepartmentAccess $groupAdminDepartmentAccess
      */
     public function getGroupAdminDepartmentAccess()
     {
@@ -573,7 +573,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminAccessDeviceAccess
+     * @return GroupAdminAccessDeviceAccess $groupAdminAccessDeviceAccess
      */
     public function getGroupAdminAccessDeviceAccess()
     {
@@ -595,7 +595,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminEnhancedServiceInstanceAccess
+     * @return GroupAdminEnhancedServiceInstanceAccess $groupAdminEnhancedServiceInstanceAccess
      */
     public function getGroupAdminEnhancedServiceInstanceAccess()
     {
@@ -617,7 +617,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminFeatureAccessCodeAccess
+     * @return GroupAdminFeatureAccessCodeAccess $groupAdminFeatureAccessCodeAccess
      */
     public function getGroupAdminFeatureAccessCodeAccess()
     {
@@ -639,7 +639,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminPhoneNumberExtensionAccess
+     * @return GroupAdminPhoneNumberExtensionAccess $groupAdminPhoneNumberExtensionAccess
      */
     public function getGroupAdminPhoneNumberExtensionAccess()
     {
@@ -661,7 +661,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminCallingLineIdNumberAccess
+     * @return GroupAdminCallingLineIdNumberAccess $groupAdminCallingLineIdNumberAccess
      */
     public function getGroupAdminCallingLineIdNumberAccess()
     {
@@ -683,7 +683,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminServiceAccess
+     * @return GroupAdminServiceAccess $groupAdminServiceAccess
      */
     public function getGroupAdminServiceAccess()
     {
@@ -705,7 +705,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminTrunkGroupAccess
+     * @return GroupAdminTrunkGroupAccess $groupAdminTrunkGroupAccess
      */
     public function getGroupAdminTrunkGroupAccess()
     {
@@ -727,7 +727,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminSessionAdmissionControlAccess
+     * @return GroupAdminSessionAdmissionControlAccess $groupAdminSessionAdmissionControlAccess
      */
     public function getGroupAdminSessionAdmissionControlAccess()
     {
@@ -749,7 +749,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminDialableCallerIDAccess
+     * @return GroupAdminDialableCallerIDAccess $groupAdminDialableCallerIDAccess
      */
     public function getGroupAdminDialableCallerIDAccess()
     {
@@ -771,7 +771,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return GroupAdminOfficeZoneAccess
+     * @return GroupAdminOfficeZoneAccess $groupAdminOfficeZoneAccess
      */
     public function getGroupAdminOfficeZoneAccess()
     {
@@ -793,7 +793,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminProfileAccess
+     * @return ServiceProviderAdminProfileAccess $serviceProviderAdminProfileAccess
      */
     public function getServiceProviderAdminProfileAccess()
     {
@@ -815,7 +815,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminGroupAccess
+     * @return ServiceProviderAdminGroupAccess $serviceProviderAdminGroupAccess
      */
     public function getServiceProviderAdminGroupAccess()
     {
@@ -837,7 +837,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminUserAccess
+     * @return ServiceProviderAdminUserAccess $serviceProviderAdminUserAccess
      */
     public function getServiceProviderAdminUserAccess()
     {
@@ -859,7 +859,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminAdminAccess
+     * @return ServiceProviderAdminAdminAccess $serviceProviderAdminAdminAccess
      */
     public function getServiceProviderAdminAdminAccess()
     {
@@ -881,7 +881,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminDepartmentAccess
+     * @return ServiceProviderAdminDepartmentAccess $ServiceProviderAdminDepartmentAccess
      */
     public function getServiceProviderAdminDepartmentAccess()
     {
@@ -903,7 +903,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminAccessDeviceAccess
+     * @return ServiceProviderAdminAccessDeviceAccess $serviceProviderAdminAccessDeviceAccess
      */
     public function getServiceProviderAdminAccessDeviceAccess()
     {
@@ -925,7 +925,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminPhoneNumberExtensionAccess
+     * @return ServiceProviderAdminPhoneNumberExtensionAccess $serviceProviderAdminPhoneNumberExtensionAccess
      */
     public function getServiceProviderAdminPhoneNumberExtensionAccess()
     {
@@ -947,7 +947,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminCallingLineIdNumberAccess
+     * @return ServiceProviderAdminCallingLineIdNumberAccess $serviceProviderAdminCallingLineIdNumberAccess
      */
     public function getServiceProviderAdminCallingLineIdNumberAccess()
     {
@@ -969,7 +969,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminServiceAccess
+     * @return ServiceProviderAdminServiceAccess $serviceProviderAdminServiceAccess
      */
     public function getServiceProviderAdminServiceAccess()
     {
@@ -991,7 +991,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminServicePackAccess
+     * @return ServiceProviderAdminServicePackAccess $serviceProviderAdminServicePackAccess
      */
     public function getServiceProviderAdminServicePackAccess()
     {
@@ -1013,7 +1013,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminSessionAdmissionControlAccess
+     * @return ServiceProviderAdminSessionAdmissionControlAccess $serviceProviderAdminSessionAdmissionControlAccess
      */
     public function getServiceProviderAdminSessionAdmissionControlAccess()
     {
@@ -1035,7 +1035,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminWebBrandingAccess
+     * @return ServiceProviderAdminWebBrandingAccess $serviceProviderAdminWebBrandingAccess
      */
     public function getServiceProviderAdminWebBrandingAccess()
     {
@@ -1057,7 +1057,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminOfficeZoneAccess
+     * @return ServiceProviderAdminOfficeZoneAccess $serviceProviderAdminOfficeZoneAccess
      */
     public function getServiceProviderAdminOfficeZoneAccess()
     {
@@ -1079,7 +1079,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminCommunicationBarringAccess
+     * @return ServiceProviderAdminCommunicationBarringAccess $serviceProviderAdminCommunicationBarringAccess
      */
     public function getServiceProviderAdminCommunicationBarringAccess()
     {
@@ -1101,7 +1101,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return EnterpriseAdminNetworkPolicyAccess
+     * @return EnterpriseAdminNetworkPolicyAccess $enterpriseAdminNetworkPolicyAccess
      */
     public function getEnterpriseAdminNetworkPolicyAccess()
     {
@@ -1123,7 +1123,7 @@ class SystemPolicyModifyDefaultRequest14 extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return ServiceProviderAdminDialableCallerIDAccess
+     * @return ServiceProviderAdminDialableCallerIDAccess $serviceProviderAdminDialableCallerIDAccess
      */
     public function getServiceProviderAdminDialableCallerIDAccess()
     {

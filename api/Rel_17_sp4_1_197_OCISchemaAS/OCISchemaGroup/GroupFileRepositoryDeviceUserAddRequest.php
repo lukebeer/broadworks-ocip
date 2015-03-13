@@ -56,7 +56,7 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -78,7 +78,7 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -100,7 +100,7 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -122,7 +122,7 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return FileRepositoryName
+     * @return FileRepositoryName $fileRepositoryName
      */
     public function getFileRepositoryName()
     {
@@ -144,7 +144,7 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return FileRepositoryUserName
+     * @return FileRepositoryUserName $userName
      */
     public function getUserName()
     {
@@ -166,7 +166,7 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return FileRepositoryUserPassword
+     * @return FileRepositoryUserPassword $password
      */
     public function getPassword()
     {
@@ -186,7 +186,7 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowPut
      */
     public function getAllowPut()
     {
@@ -206,7 +206,7 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowDelete
      */
     public function getAllowDelete()
     {
@@ -226,7 +226,7 @@ class GroupFileRepositoryDeviceUserAddRequest extends ComplexType implements Com
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $allowGet
      */
     public function getAllowGet()
     {

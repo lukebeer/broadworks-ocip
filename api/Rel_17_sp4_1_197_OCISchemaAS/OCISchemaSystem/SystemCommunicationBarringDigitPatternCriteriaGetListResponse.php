@@ -24,7 +24,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetListResponse extends Comp
     protected $criteriaTable = null;
 
     /**
-     * @return SystemCommunicationBarringDigitPatternCriteriaGetListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

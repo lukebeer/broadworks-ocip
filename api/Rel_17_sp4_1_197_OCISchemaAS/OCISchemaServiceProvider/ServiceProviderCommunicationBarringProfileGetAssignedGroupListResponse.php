@@ -25,7 +25,7 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse ext
     protected $groupTable = null;
 
     /**
-     * @return ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

@@ -42,7 +42,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -64,7 +64,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -86,7 +86,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -106,7 +106,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $isActive
      */
     public function getIsActive()
     {
@@ -128,7 +128,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
 
     /**
      * 
-     * @return ThirdPartyVoiceMailSupportMailServer
+     * @return ThirdPartyVoiceMailSupportMailServer $groupServer
      */
     public function getGroupServer()
     {

@@ -53,7 +53,7 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -75,7 +75,7 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -97,7 +97,7 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return GroupId
+     * @return GroupId $groupId
      */
     public function getGroupId()
     {
@@ -119,7 +119,7 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return EnterpriseTrunkName
+     * @return EnterpriseTrunkName $enterpriseTrunkName
      */
     public function getEnterpriseTrunkName()
     {
@@ -141,7 +141,7 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return EnterpriseTrunkName
+     * @return EnterpriseTrunkName $newEnterpriseTrunkName
      */
     public function getNewEnterpriseTrunkName()
     {
@@ -163,7 +163,7 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return EnterpriseTrunkMaximumRerouteAttempts
+     * @return EnterpriseTrunkMaximumRerouteAttempts $maximumRerouteAttempts
      */
     public function getMaximumRerouteAttempts()
     {
@@ -185,7 +185,7 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return EnterpriseTrunkRouteExhaustionAction
+     * @return EnterpriseTrunkRouteExhaustionAction $routeExhaustionAction
      */
     public function getRouteExhaustionAction()
     {
@@ -207,7 +207,7 @@ class GroupEnterpriseTrunkModifyRequest extends ComplexType implements ComplexIn
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $routeExhaustionForwardAddress
      */
     public function getRouteExhaustionForwardAddress()
     {

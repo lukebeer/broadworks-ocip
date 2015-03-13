@@ -25,7 +25,7 @@ class GroupRoutePointGetDNISAgentListResponse extends ComplexType implements Com
     protected $agentTable = null;
 
     /**
-     * @return GroupRoutePointGetDNISAgentListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAgentListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {

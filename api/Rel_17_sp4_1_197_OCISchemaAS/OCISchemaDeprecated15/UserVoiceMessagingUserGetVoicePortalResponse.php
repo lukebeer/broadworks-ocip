@@ -27,7 +27,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse extends ComplexType implement
     protected $personalizedNameAudioFileDescription = null;
 
     /**
-     * @return UserVoiceMessagingUserGetVoicePortalResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserVoiceMessagingUserGetVoicePortalResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $usePersonalizedName
      */
     public function getUsePersonalizedName()
     {
@@ -67,7 +67,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse extends ComplexType implement
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $voicePortalAutoLogin
      */
     public function getVoicePortalAutoLogin()
     {
@@ -89,7 +89,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse extends ComplexType implement
 
     /**
      * 
-     * @return FileDescription
+     * @return FileDescription $personalizedNameAudioFileDescription
      */
     public function getPersonalizedNameAudioFileDescription()
     {

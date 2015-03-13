@@ -24,7 +24,7 @@ class SystemInCallServiceActivationGetResponse17 extends ComplexType implements 
     protected $defaultCallTransferActivationDigits = null;
 
     /**
-     * @return SystemInCallServiceActivationGetResponse17
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInCallServiceActivation\SystemInCallServiceActivationGetResponse17 $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -46,7 +46,7 @@ class SystemInCallServiceActivationGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return InCallServiceActivationDigits
+     * @return InCallServiceActivationDigits $defaultFlashActivationDigits
      */
     public function getDefaultFlashActivationDigits()
     {
@@ -68,7 +68,7 @@ class SystemInCallServiceActivationGetResponse17 extends ComplexType implements 
 
     /**
      * 
-     * @return InCallServiceActivationDigits
+     * @return InCallServiceActivationDigits $defaultCallTransferActivationDigits
      */
     public function getDefaultCallTransferActivationDigits()
     {

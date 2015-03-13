@@ -43,7 +43,7 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -65,7 +65,7 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -87,7 +87,7 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return AnswerConfirmationAnnouncementSelection
+     * @return AnswerConfirmationAnnouncementSelection $announcementMessageSelection
      */
     public function getAnnouncementMessageSelection()
     {
@@ -107,7 +107,7 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $confirmationMessageAudioFile
      */
     public function getConfirmationMessageAudioFile()
     {
@@ -129,7 +129,7 @@ class ServiceProviderAnswerConfirmationModifyRequest extends ComplexType impleme
 
     /**
      * 
-     * @return AnswerConfirmationTimeoutSeconds
+     * @return AnswerConfirmationTimeoutSeconds $confirmationTimoutSeconds
      */
     public function getConfirmationTimoutSeconds()
     {

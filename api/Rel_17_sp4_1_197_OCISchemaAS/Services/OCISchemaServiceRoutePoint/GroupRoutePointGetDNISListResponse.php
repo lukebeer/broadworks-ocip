@@ -27,7 +27,7 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
     protected $dnisTable         = null;
 
     /**
-     * @return GroupRoutePointGetDNISListResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISListResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -47,7 +47,7 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $displayDNISNumber
      */
     public function getDisplayDNISNumber()
     {
@@ -67,7 +67,7 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $displayDNISName
      */
     public function getDisplayDNISName()
     {

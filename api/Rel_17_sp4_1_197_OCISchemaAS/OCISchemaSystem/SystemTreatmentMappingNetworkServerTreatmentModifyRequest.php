@@ -34,7 +34,7 @@ class SystemTreatmentMappingNetworkServerTreatmentModifyRequest extends ComplexT
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -56,7 +56,7 @@ class SystemTreatmentMappingNetworkServerTreatmentModifyRequest extends ComplexT
 
     /**
      * 
-     * @return NetworkServerTreatment
+     * @return NetworkServerTreatment $nsTreatment
      */
     public function getNsTreatment()
     {
@@ -78,7 +78,7 @@ class SystemTreatmentMappingNetworkServerTreatmentModifyRequest extends ComplexT
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $treatmentId
      */
     public function getTreatmentId()
     {

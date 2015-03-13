@@ -8,7 +8,6 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
 use Broadworks_OCIP\core\Builder\Types\SimpleContent;
-use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentUnavailableCodeStateModify;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -20,7 +19,6 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAgentUnavailableCodeStateModify extends ComplexType implements ComplexInterface
 {
-    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallCenterAgentUnavailableCodeStateModify';
     public    $name     = 'CallCenterAgentUnavailableCodeStateModify';
     protected $code     = null;
     protected $isActive = null;
@@ -34,7 +32,7 @@ class CallCenterAgentUnavailableCodeStateModify extends ComplexType implements C
     }
 
     /**
-     * @return CallCenterAgentUnavailableCodeStateModify
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -54,7 +52,7 @@ class CallCenterAgentUnavailableCodeStateModify extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $code
      */
     public function getCode()
     {
@@ -74,7 +72,7 @@ class CallCenterAgentUnavailableCodeStateModify extends ComplexType implements C
 
     /**
      * 
-     * @return SimpleContent
+     * @return SimpleContent $isActive
      */
     public function getIsActive()
     {

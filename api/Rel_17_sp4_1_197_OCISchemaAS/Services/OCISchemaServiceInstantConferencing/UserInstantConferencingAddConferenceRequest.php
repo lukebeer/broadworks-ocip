@@ -62,7 +62,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -84,7 +84,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
 
     /**
      * 
-     * @return UserId
+     * @return UserId $userId
      */
     public function getUserId()
     {
@@ -106,7 +106,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
 
     /**
      * 
-     * @return UserId
+     * @return UserId $bridgeServiceUserId
      */
     public function getBridgeServiceUserId()
     {
@@ -128,7 +128,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
 
     /**
      * 
-     * @return UserId
+     * @return UserId $conferenceOwnerUserId
      */
     public function getConferenceOwnerUserId()
     {
@@ -150,7 +150,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
 
     /**
      * 
-     * @return InstantConferencingTitle
+     * @return InstantConferencingTitle $title
      */
     public function getTitle()
     {
@@ -170,7 +170,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $leaderRequired
      */
     public function getLeaderRequired()
     {
@@ -190,7 +190,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $leaderReleaseDropsParticipants
      */
     public function getLeaderReleaseDropsParticipants()
     {
@@ -210,7 +210,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $announceCallers
      */
     public function getAnnounceCallers()
     {
@@ -232,7 +232,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
 
     /**
      * 
-     * @return InstantConferencingConferenceType
+     * @return InstantConferencingConferenceType $conferenceType
      */
     public function getConferenceType()
     {
@@ -252,7 +252,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
 
     /**
      * 
-     * @return InstantConferencingSchedule
+     * @return InstantConferencingSchedule $conferenceSchedule
      */
     public function getConferenceSchedule()
     {
@@ -274,7 +274,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
 
     /**
      * 
-     * @return InstantConferencingBillingCode
+     * @return InstantConferencingBillingCode $billingCode
      */
     public function getBillingCode()
     {

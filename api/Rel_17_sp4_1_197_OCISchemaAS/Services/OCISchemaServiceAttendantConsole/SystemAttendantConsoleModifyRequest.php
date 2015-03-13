@@ -30,7 +30,7 @@ class SystemAttendantConsoleModifyRequest extends ComplexType implements Complex
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -52,7 +52,7 @@ class SystemAttendantConsoleModifyRequest extends ComplexType implements Complex
 
     /**
      * 
-     * @return MaximumMonitoredUsers
+     * @return MaximumMonitoredUsers $maxMonitoredUsers
      */
     public function getMaxMonitoredUsers()
     {

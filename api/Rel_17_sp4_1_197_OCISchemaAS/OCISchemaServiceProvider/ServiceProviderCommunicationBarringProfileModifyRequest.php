@@ -103,7 +103,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -125,7 +125,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return ServiceProviderId
+     * @return ServiceProviderId $serviceProviderId
      */
     public function getServiceProviderId()
     {
@@ -147,7 +147,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringProfileName
+     * @return CommunicationBarringProfileName $name
      */
     public function getName()
     {
@@ -169,7 +169,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringProfileName
+     * @return CommunicationBarringProfileName $newName
      */
     public function getNewName()
     {
@@ -191,7 +191,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringProfileDescription
+     * @return CommunicationBarringProfileDescription $description
      */
     public function getDescription()
     {
@@ -213,7 +213,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringOriginatingAction
+     * @return CommunicationBarringOriginatingAction $originatingDefaultAction
      */
     public function getOriginatingDefaultAction()
     {
@@ -235,7 +235,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return TreatmentId
+     * @return TreatmentId $originatingDefaultTreatmentId
      */
     public function getOriginatingDefaultTreatmentId()
     {
@@ -257,7 +257,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return OutgoingDN
+     * @return OutgoingDN $originatingDefaultTransferNumber
      */
     public function getOriginatingDefaultTransferNumber()
     {
@@ -279,7 +279,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $originatingDefaultCallTimeout
      */
     public function getOriginatingDefaultCallTimeout()
     {
@@ -299,7 +299,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return ServiceProviderReplacementCommunicationBarringHierarchicalOriginatingRuleList
+     * @return ServiceProviderReplacementCommunicationBarringHierarchicalOriginatingRuleList $originatingRule
      */
     public function getOriginatingRule()
     {
@@ -321,7 +321,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringRedirectingAction
+     * @return CommunicationBarringRedirectingAction $redirectingDefaultAction
      */
     public function getRedirectingDefaultAction()
     {
@@ -343,7 +343,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $redirectingDefaultCallTimeout
      */
     public function getRedirectingDefaultCallTimeout()
     {
@@ -363,7 +363,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList
+     * @return ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList $redirectingRule
      */
     public function getRedirectingRule()
     {
@@ -385,7 +385,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringCallMeNowAction
+     * @return CommunicationBarringCallMeNowAction $callMeNowDefaultAction
      */
     public function getCallMeNowDefaultAction()
     {
@@ -407,7 +407,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $callMeNowDefaultCallTimeout
      */
     public function getCallMeNowDefaultCallTimeout()
     {
@@ -427,7 +427,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return ServiceProviderReplacementCommunicationBarringHierarchicalCallMeNowRuleList
+     * @return ServiceProviderReplacementCommunicationBarringHierarchicalCallMeNowRuleList $callMeNowRule
      */
     public function getCallMeNowRule()
     {
@@ -449,7 +449,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringIncomingAction
+     * @return CommunicationBarringIncomingAction $incomingDefaultAction
      */
     public function getIncomingDefaultAction()
     {
@@ -471,7 +471,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return CommunicationBarringTimeoutSeconds
+     * @return CommunicationBarringTimeoutSeconds $incomingDefaultCallTimeout
      */
     public function getIncomingDefaultCallTimeout()
     {
@@ -491,7 +491,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return ReplacementCommunicationBarringIncomingRuleList
+     * @return ReplacementCommunicationBarringIncomingRuleList $incomingRule
      */
     public function getIncomingRule()
     {
@@ -511,7 +511,7 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $becomeDefault
      */
     public function getBecomeDefault()
     {

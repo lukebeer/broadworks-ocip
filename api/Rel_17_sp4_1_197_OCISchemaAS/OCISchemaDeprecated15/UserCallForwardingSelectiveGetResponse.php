@@ -28,7 +28,7 @@ class UserCallForwardingSelectiveGetResponse extends ComplexType implements Comp
     protected $criteriaTable               = null;
 
     /**
-     * @return UserCallForwardingSelectiveGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallForwardingSelectiveGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -50,7 +50,7 @@ class UserCallForwardingSelectiveGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return OutgoingDNorSIPURI
+     * @return OutgoingDNorSIPURI $defaultForwardToPhoneNumber
      */
     public function getDefaultForwardToPhoneNumber()
     {
@@ -70,7 +70,7 @@ class UserCallForwardingSelectiveGetResponse extends ComplexType implements Comp
 
     /**
      * 
-     * @return xs:boolean
+     * @return boolean $playRingReminder
      */
     public function getPlayRingReminder()
     {

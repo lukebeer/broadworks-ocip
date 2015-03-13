@@ -23,7 +23,7 @@ class UserDualModeVCCGetResponse extends ComplexType implements ComplexInterface
     protected $subscriberUserName = null;
 
     /**
-     * @return UserDualModeVCCGetResponse
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDualModeVCC\UserDualModeVCCGetResponse $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -45,7 +45,7 @@ class UserDualModeVCCGetResponse extends ComplexType implements ComplexInterface
 
     /**
      * 
-     * @return DualModeVCCSubscriberUserName
+     * @return DualModeVCCSubscriberUserName $subscriberUserName
      */
     public function getSubscriberUserName()
     {

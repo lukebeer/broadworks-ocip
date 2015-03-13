@@ -59,7 +59,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
     }
 
     /**
-     * @return 
+     * @return mixed $response
      */
     public function get(Client $client, $responseOutput = ResponseOutput::STD)
     {
@@ -81,7 +81,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return UserId
+     * @return UserId $serviceUserId
      */
     public function getServiceUserId()
     {
@@ -103,7 +103,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return CallCenterAnnouncementSelection
+     * @return CallCenterAnnouncementSelection $entranceMessageSelection
      */
     public function getEntranceMessageSelection()
     {
@@ -123,7 +123,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $entranceMessageAudioFile
      */
     public function getEntranceMessageAudioFile()
     {
@@ -143,7 +143,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $entranceMessageVideoFile
      */
     public function getEntranceMessageVideoFile()
     {
@@ -165,7 +165,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return CallCenterAnnouncementSelection
+     * @return CallCenterAnnouncementSelection $periodicComfortMessageSelection
      */
     public function getPeriodicComfortMessageSelection()
     {
@@ -185,7 +185,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $periodicComfortMessageAudioFile
      */
     public function getPeriodicComfortMessageAudioFile()
     {
@@ -205,7 +205,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $periodicComfortMessageVideoFile
      */
     public function getPeriodicComfortMessageVideoFile()
     {
@@ -227,7 +227,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return CallCenterAnnouncementSelection
+     * @return CallCenterAnnouncementSelection $onHoldMessageSelection
      */
     public function getOnHoldMessageSelection()
     {
@@ -247,7 +247,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $onHoldMessageAudioFile
      */
     public function getOnHoldMessageAudioFile()
     {
@@ -267,7 +267,7 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
 
     /**
      * 
-     * @return LabeledFileResource
+     * @return LabeledFileResource $onHoldMessageVideoFile
      */
     public function getOnHoldMessageVideoFile()
     {
