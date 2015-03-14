@@ -11,8 +11,7 @@ use Broadworks_OCIP\core\Client\Client;
 use Broadworks_OCIP\core\Response\ResponseOutput;
 
 /**
- * Class ComplexType is the main Request type comprised of any combination of elements.
- * eg: userAddRequest17sp4 is a ComplexType
+ * Class ComplexType - Defines a complex type element.
  *
  * @package Broadworks_OCIP\core\Builder\Types
  */
@@ -59,7 +58,8 @@ abstract class ComplexType
      * @param int $responseOutput
      * @return mixed
      */
-    public function send(Client $client, $responseOutput = ResponseOutput::STD) {
+    public function send(Client $client, $responseOutput = ResponseOutput::STD)
+    {
         $client->send($this);
         return $client->getResponse($responseOutput);
     }
@@ -75,14 +75,16 @@ abstract class ComplexType
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return join('', array_slice(explode('\\', get_class($this)), -1));
     }
 
     /**
      * @param $name
      */
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->name = $name;
     }
 }

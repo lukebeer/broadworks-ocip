@@ -9,7 +9,8 @@ namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
 /**
- * Class Length
+ * Class Length - Specifies the exact number of characters or list items allowed. Must be equal to or greater than zero.
+ *
  * @package Broadworks_OCIP\core\Builder\Restrictions
  */
 class Length extends Restriction implements RestrictionInterface

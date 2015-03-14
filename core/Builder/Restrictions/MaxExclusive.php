@@ -9,7 +9,8 @@ namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
 /**
- * Class MaxExclusive
+ * Class MaxExclusive - Specifies the upper bounds for numeric values (the value must be less than this value).
+ *
  * @package Broadworks_OCIP\core\Builder\Restrictions
  */
 class MaxExclusive extends Restriction implements RestrictionInterface

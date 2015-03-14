@@ -9,7 +9,8 @@ namespace Broadworks_OCIP\core\Builder\Types;
 
 
 /**
- * Interface ComplexInterface
+ * Interface ComplexInterface - Interface all ComplexTypes must implement.
+ *
  * @package Broadworks_OCIP\core\Builder\Types
  */
 interface ComplexInterface

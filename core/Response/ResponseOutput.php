@@ -8,7 +8,8 @@
 namespace Broadworks_OCIP\core\Response;
 
 /**
- * Class ResponseOutput
+ * Class ResponseOutput - Convenience class for selecting response output format.
+ *
  * @package Broadworks_OCIP\core\Response
  */
 abstract class ResponseOutput

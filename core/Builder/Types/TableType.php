@@ -7,12 +7,9 @@
 
 namespace Broadworks_OCIP\core\Builder\Types;
 
-use Broadworks_OCIP\core\Client\Client;
-use Broadworks_OCIP\core\Response\ResponseOutput;
-
 
 /**
- * Class TableType handles OCITable response types.
+ * Class TableType - Used for OCITable responses only, never in requests.
  *
  * @package Broadworks_OCIP\core\Builder\Types
  */
@@ -29,34 +26,15 @@ class TableType
      * @param $name
      * @param null $simpleXmlElement
      */
-    public function __construct($name, $simpleXmlElement=null) {
+    public function __construct($name, $simpleXmlElement = null)
+    {
         $this->setName($name);
         if ($simpleXmlElement) {
-            $this->setColHeadings((array) $simpleXmlElement->children()->colHeading);
+            $this->setColHeadings((array)$simpleXmlElement->children()->colHeading);
             foreach ($simpleXmlElement->children()->row as $row) {
-                $this->addRow((array) $row->col);
+                $this->addRow((array)$row->col);
             }
         }
-    }
-
-    /**
-     * Set column headings used in table.
-     *
-     * @param array $colHeadings
-     * @return TableType $this
-     */
-    public function setColHeadings(Array $colHeadings) {
-        $this->colHeadings = $colHeadings;
-        return $this;
-    }
-
-    /**
-     * Return column headings used in table.
-     *
-     * @return mixed
-     */
-    public function getColHeadings() {
-        return $this->colHeadings;
     }
 
     /**
@@ -65,7 +43,8 @@ class TableType
      * @param $row
      * @return TableType $this
      */
-    public function addRow($row) {
+    public function addRow($row)
+    {
         $this->rows[] = $row;
         return $this;
     }
@@ -76,7 +55,8 @@ class TableType
      * @param $row
      * @return TableType $this
      */
-    public function delRow($row) {
+    public function delRow($row)
+    {
         if ($row) {
             unset($this->rows[$row]);
         }
@@ -89,17 +69,9 @@ class TableType
      * @param $row
      * @return array
      */
-    public function getRow($row) {
+    public function getRow($row)
+    {
         return $this->rows[$row];
-    }
-
-    /**
-     * Return all rows.
-     *
-     * @return array
-     */
-    public function getAllRows() {
-        return $this->rows;
     }
 
     /**
@@ -110,7 +82,8 @@ class TableType
      * @param null $index_key
      * @return array
      */
-    public function getColumn($column, $index_key=null) {
+    public function getColumn($column, $index_key = null)
+    {
         return array_column($this->rows, $column, $index_key);
     }
 
@@ -120,7 +93,8 @@ class TableType
      * @param $search
      * @return bool
      */
-    public function findRow($search) {
+    public function findRow($search)
+    {
         foreach ($this->rows as $row) {
             if (in_array($search, $row)) return $row;
         }
@@ -130,7 +104,8 @@ class TableType
     /**
      * Return table name.
      */
-    public function getName() {
+    public function getName()
+    {
         $this->name;
     }
 
@@ -140,7 +115,8 @@ class TableType
      * @param $name
      * @return TableType $this
      */
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->name = $name;
         return $this;
     }
@@ -149,11 +125,44 @@ class TableType
      * Return pretty printed table from data, useful for printing to console or wrapped in <pre>
      * @return string
      */
-    public function getValue() {
+    public function getValue()
+    {
         require_once 'Console/Table.php';
         $tbl = new \Console_Table();
         $tbl->setHeaders($this->getColHeadings());
         $tbl->addData($this->getAllRows());
         return $tbl->getTable();
+    }
+
+    /**
+     * Return column headings used in table.
+     *
+     * @return mixed
+     */
+    public function getColHeadings()
+    {
+        return $this->colHeadings;
+    }
+
+    /**
+     * Set column headings used in table.
+     *
+     * @param array $colHeadings
+     * @return TableType $this
+     */
+    public function setColHeadings(Array $colHeadings)
+    {
+        $this->colHeadings = $colHeadings;
+        return $this;
+    }
+
+    /**
+     * Return all rows.
+     *
+     * @return array
+     */
+    public function getAllRows()
+    {
+        return $this->rows;
     }
 }

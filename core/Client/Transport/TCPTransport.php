@@ -7,12 +7,13 @@
 
 namespace Broadworks_OCIP\core\Client\Transport;
 
-use Broadworks_OCIP\core\Response\Response;
 use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Response\Response;
+use Broadworks_OCIP\core\Session\Session;
 
 
 /**
- * Class TCPTransport communicates with Broadworks via a TCPStream on port 2208, this is the fastest transport type.
+ * Class TCPTransport - Communicates with Broadworks via a TCPStream on port 2208, this is the fastest transport type.
  *
  * @package Broadworks_OCIP\core\Client\Transport
  */
@@ -29,7 +30,7 @@ class TCPTransport implements TransportInterface
      * @param string $host
      * @param int $port
      * @param int $timeout
-     * @throws Exception
+     * @throws \Exception
      */
     public function __construct($host = "127.0.0.1", $port = 2208, $timeout = 5)
     {
@@ -52,7 +53,7 @@ class TCPTransport implements TransportInterface
      *
      * @param \Broadworks_OCIP\core\Session\Session $session
      */
-    public function updateSession(&$session)
+    public function updateSession(Session &$session)
     {
         $session->setTransport('TCP');
         $this->session = &$session;

@@ -9,7 +9,8 @@ namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
 /**
- * Class MinLength
+ * Class MinLength - Specifies the minimum number of characters or list items allowed. Must be equal to or greater than zero.
+ *
  * @package Broadworks_OCIP\core\Builder\Restrictions
  */
 class MinLength extends Restriction implements RestrictionInterface

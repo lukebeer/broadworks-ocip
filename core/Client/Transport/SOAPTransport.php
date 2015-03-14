@@ -7,11 +7,15 @@
 
 namespace Broadworks_OCIP\core\Client\Transport;
 
+
+use Broadworks_OCIP\CoreFactory;
+use Broadworks_OCIP\core\Session\Session;
 use Broadworks_OCIP\core\Response\Response;
 use Broadworks_OCIP\core\Response\ResponseOutput;
 
 /**
- * Class SOAPTransport communicates with Broadworks via http(s), this is the slowest but most robust transport type
+ * Class SOAPTransport - Communicates with Broadworks via http(s), this is the slowest but most robust transport type.
+ *
  * @package Broadworks_OCIP\core\Client\Transport
  */
 class SOAPTransport implements TransportInterface
@@ -54,7 +58,7 @@ class SOAPTransport implements TransportInterface
      *
      * @param \Broadworks_OCIP\core\Session\Session $session
      */
-    public function updateSession(&$session)
+    public function updateSession(Session &$session)
     {
         $session->setTransport('SOAP');
         if ($this->getResponse()) {
@@ -78,7 +82,7 @@ class SOAPTransport implements TransportInterface
      * @param $appends
      * @return bool|\Broadworks_OCIP\core\Builder\Types\ComplexType|null|string
      */
-    public function getResponse($responseType=false, $outputType = ResponseOutput::STD, $appends = [])
+    public function getResponse($responseType = false, $outputType = ResponseOutput::STD, $appends = [])
     {
         if (is_object($this->response)) {
             $response = html_entity_decode($this->response->getBody());

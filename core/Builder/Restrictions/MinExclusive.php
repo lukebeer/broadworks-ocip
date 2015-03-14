@@ -9,7 +9,8 @@ namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
 /**
- * Class MinExclusive
+ * Class MinExclusive - Specifies the lower bounds for numeric values (the value must be greater than this value).
+ *
  * @package Broadworks_OCIP\core\Builder\Restrictions
  */
 class MinExclusive extends Restriction implements RestrictionInterface

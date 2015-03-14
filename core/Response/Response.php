@@ -7,15 +7,14 @@
 
 namespace Broadworks_OCIP\core\Response;
 
+use Broadworks_OCIP\core\Builder\Builder;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
-use Broadworks_OCIP\core\Serializer\XMLSerializer;
 use Broadworks_OCIP\core\Logging\ErrorControl;
-use Broadworks_OCIP\core\Builder\Builder;
+use Broadworks_OCIP\core\Serializer\XMLSerializer;
 
 /**
- * Class Response takes XML and spits out the requested response type.
- * Much room for improvement here by splitting up responsibilities.
+ * Class Response - Takes XML input and returns response object specified or false if error.
  *
  * @package Broadworks_OCIP\core\Response
  */

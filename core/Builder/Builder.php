@@ -7,13 +7,13 @@
 
 namespace Broadworks_OCIP\core\Builder;
 
-use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 
 
 /**
- * Class Builder
+ * Class Builder - Takes a ComplexType and converts to XML or XML string then wraps it in an envelope ready for shipping.
+ *
  * @package Broadworks_OCIP\core\Builder
  */
 class Builder

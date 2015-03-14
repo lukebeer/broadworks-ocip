@@ -11,7 +11,8 @@ use Broadworks_OCIP\core\Builder\Restrictions\RestrictionInterface;
 
 
 /**
- * Class SimpleType
+ * Class SimpleType - Defines a simple type and specifies the constraints and information about the values of attributes or text-only elements.
+ *
  * @package Broadworks_OCIP\core\Builder\Types
  */
 abstract class SimpleType
@@ -67,7 +68,8 @@ abstract class SimpleType
      *
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
@@ -76,7 +78,8 @@ abstract class SimpleType
      *
      * @param $name
      */
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->name = $name;
     }
 }

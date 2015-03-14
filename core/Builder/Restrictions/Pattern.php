@@ -9,7 +9,8 @@ namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
 /**
- * Class Pattern
+ * Class Pattern - Defines the exact sequence of characters that are acceptable.
+ *
  * @package Broadworks_OCIP\core\Builder\Restrictions
  */
 class Pattern extends Restriction implements RestrictionInterface
