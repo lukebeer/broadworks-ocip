@@ -26,7 +26,7 @@ class TableType
      * @param $name
      * @param null $simpleXmlElement
      */
-    public function __construct($name, $simpleXmlElement = null)
+    public function __construct($name, \SimpleXMLElement $simpleXmlElement = null)
     {
         $this->setName($name);
         if ($simpleXmlElement) {
@@ -133,7 +133,6 @@ class TableType
         $tbl->addData($this->getAllRows());
         return $tbl->getTable();
     }
-
     /**
      * Return column headings used in table.
      *

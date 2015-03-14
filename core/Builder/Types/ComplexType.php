@@ -21,6 +21,7 @@ abstract class ComplexType
     protected $elements = [];
     protected $responseType;
     protected $errors;
+    protected $params;
     protected $args;
 
     use TypeTrait;

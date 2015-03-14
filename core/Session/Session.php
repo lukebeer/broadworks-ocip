@@ -22,6 +22,8 @@ class Session
     private $cookie = null;
     private $loggedIn = false;
     private $transport = null;
+    private $clearpass = null;
+
 
     public function __construct()
     {

@@ -7,10 +7,12 @@
 
 namespace Broadworks_OCIP\core\Console;
 
+use Broadworks_OCIP\core\Client\Client;
 use Broadworks_OCIP\core\Response\ResponseOutput;
 use Broadworks_OCIP\core\Output\OutputInterface;
 use Symfony\Component\VarDumper\Cloner\VarCloner;
 use Symfony\Component\VarDumper\Dumper\CliDumper;
+
 
 /**
  * Class CommandGenerator - Generates an array of commands for the interactive console.
@@ -97,7 +99,7 @@ class Console
     private $currentLevel = [];
     private $history = [];
 
-    public function __construct($commands, OutputInterface $outputInterface, &$ociClient)
+    public function __construct($commands, OutputInterface $outputInterface, Client &$ociClient)
     {
         $this->commands = $commands;
         $this->outputInterface = $outputInterface;
@@ -179,10 +181,6 @@ class Console
                 $method = new \ReflectionMethod($this->levels[count($this->levels) - 2], $this->currentLevel['name']);
                 $cmd = $method->invokeArgs(null, array_slice($args, 1));
                 $this->client->send($cmd);
-                $output = ($this->client->getResponse())
-                    ? $this->client->getResponse(ResponseOutput::PRETTY)
-                    : print_r($this->client->errorControl->getLastError(), true);
-
                 $cloner = new VarCloner();
                 $dumper = new CliDumper();
                 $dumper->dump($cloner->cloneVar($this->client->getResponse()));
@@ -245,7 +243,6 @@ class Console
     private function parent()
     {
         $content = $this->commands;
-        $dirs = [];
         $parent = end($this->levels);
         if ($content['name'] == $parent) return $content;
         foreach ($content['content'] as $content) {
