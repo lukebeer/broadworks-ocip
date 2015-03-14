@@ -1,16 +1,18 @@
 <?php
-/**
- * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
+
+/*
+ * This file is part of the Broadworks OCIP package https://github.com/LukeBeer/Broadworks_OCIP
  *
- * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ * Copyright (c) 2015 Luke Berezynskyj (aka Luke Beer)
+ *
+ * @author Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
 namespace Broadworks_OCIP\core\Client\Transport;
 
-use Broadworks_OCIP\core\Response\ResponseOutput;
 use Broadworks_OCIP\core\Response\Response;
+use Broadworks_OCIP\core\Response\ResponseOutput;
 use Broadworks_OCIP\core\Session\Session;
-
 
 /**
  * Class TCPTransport - Communicates with Broadworks via a TCPStream on port 2208, this is the fastest transport type.
@@ -32,11 +34,11 @@ class TCPTransport implements TransportInterface
      * @param int $timeout
      * @throws \Exception
      */
-    public function __construct($host = "127.0.0.1", $port = 2208, $timeout = 5)
+    public function __construct($host = '127.0.0.1', $port = 2208, $timeout = 5)
     {
         $this->socket = stream_socket_client("tcp://$host:$port", $errno, $errstr, $timeout, STREAM_CLIENT_CONNECT);
         if (!$this->socket) {
-            throw new \Exception("$errno - $errstr");
+            exit("$errno - $errstr");
         }
     }
 
@@ -45,7 +47,9 @@ class TCPTransport implements TransportInterface
      */
     public function destruct()
     {
-        if (isset($this->socket)) @fclose($this->socket);
+        if ($this->socket) {
+            @fclose($this->socket);
+        }
     }
 
     /**
@@ -81,7 +85,7 @@ class TCPTransport implements TransportInterface
      * @param $appends
      * @return bool|\Broadworks_OCIP\core\Builder\Types\ComplexType|string
      */
-    public function getResponse($responseType = false, $outputType = ResponseOutput::STD, $appends = [])
+    public function getResponse($responseType = false, $outputType = ResponseOutput::STD, array $appends = [])
     {
         $data = '';
         if ($this->pending) {

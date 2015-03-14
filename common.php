@@ -6,15 +6,15 @@
  */
 
 namespace Broadworks_OCIP;
+xdebug_enable();
 
-
-ini_set('display_errors', 1);
-libxml_use_internal_errors(true);
+ini_set('display_errors', 'On');
+//libxml_use_internal_errors(true);
 error_reporting(E_ALL);
 define('OCI_PATH', realpath(dirname(__FILE__)));
 set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__);
 spl_autoload_register(function ($c) {
-    @require_once preg_replace('#\\\|_(?!.*\\\)#', '/', $c) . '.php';
+    require_once preg_replace('#\\\|_(?!.*\\\)#', '/', $c) . '.php';
 });
 $errorControl = CoreFactory::getErrorControl();
 

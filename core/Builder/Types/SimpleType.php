@@ -1,14 +1,16 @@
 <?php
-/**
- * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
+
+/*
+ * This file is part of the Broadworks OCIP package https://github.com/LukeBeer/Broadworks_OCIP
  *
- * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ * Copyright (c) 2015 Luke Berezynskyj (aka Luke Beer)
+ *
+ * @author Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
 namespace Broadworks_OCIP\core\Builder\Types;
 
-use Broadworks_OCIP\core\Builder\Restrictions\RestrictionInterface;
-
+use Broadworks_OCIP\core\Builder\Restrictions\Restriction;
 
 /**
  * Class SimpleType - Defines a simple type and specifies the constraints and information about the values of attributes or text-only elements.
@@ -20,8 +22,7 @@ abstract class SimpleType
     public $name = __CLASS__;
     protected $annontation;
     protected $attributes;
-    protected $restrictions;
-    protected $value;
+    protected $restrictions = [];
     protected $errors;
 
     use TypeTrait;
@@ -46,9 +47,9 @@ abstract class SimpleType
     /**
      * Add restriction into array for input validation.
      *
-     * @param RestrictionInterface $restriction
+     * @param Restriction $restriction
      */
-    public function addRestriction(RestrictionInterface $restriction)
+    public function addRestriction(Restriction $restriction)
     {
         $this->restrictions[] = $restriction;
     }

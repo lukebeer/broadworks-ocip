@@ -1,18 +1,19 @@
 <?php
-/**
- * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
+
+/*
+ * This file is part of the Broadworks OCIP package https://github.com/LukeBeer/Broadworks_OCIP
  *
- * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ * Copyright (c) 2015 Luke Berezynskyj (aka Luke Beer)
+ *
+ * @author Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
 namespace Broadworks_OCIP\core\Console;
 
 use Broadworks_OCIP\core\Client\Client;
-use Broadworks_OCIP\core\Response\ResponseOutput;
 use Broadworks_OCIP\core\Output\OutputInterface;
 use Symfony\Component\VarDumper\Cloner\VarCloner;
 use Symfony\Component\VarDumper\Dumper\CliDumper;
-
 
 /**
  * Class CommandGenerator - Generates an array of commands for the interactive console.
@@ -29,18 +30,17 @@ class CommandGenerator
         $this->commands = $this->buildSchema($directory);
     }
 
-    function buildSchema($directory)
+    public function buildSchema($directory)
     {
         $result = [];
         $cdir = scandir($directory);
         $path = $directory;
         foreach ($cdir as $key => $value) {
-            if (!in_array($value, [".", ".."])) {
+            if ((!in_array($value, ['.', '..'], null)) and (strpos($value, 'Deprecated'))) {
                 if (is_dir($directory . DIRECTORY_SEPARATOR . $value)) {
                     $result[$value] = $this->buildSchema($directory . DIRECTORY_SEPARATOR . $value);
                     $path .= '/' . $value;
                 } else {
-                    if (strpos($value, 'Deprecated')) continue;
                     $result[basename($value, '.php')] = [
                         'type' => 'schema',
                         'name' => basename($value, '.php'),
@@ -52,12 +52,12 @@ class CommandGenerator
         return ['type' => 'dir', 'name' => basename($directory), 'content' => $result];
     }
 
-    function buildCommands($file)
+    public function buildCommands($file)
     {
         $commands = [];
         $classes = get_declared_classes();
         require_once $file;
-        if ($remove = array_search(basename($file, '.php'), $classes)) {
+        if ($remove = array_search(basename($file, '.php'), $classes, null)) {
             unset($classes[$remove]);
         }
         $diff = array_diff(get_declared_classes(), $classes);
@@ -70,7 +70,7 @@ class CommandGenerator
         return $commands;
     }
 
-    function getCommandArgs($class, $method)
+    public function getCommandArgs($class, $method)
     {
         $args = [];
         $method = new \ReflectionMethod($class, $method);
@@ -78,7 +78,7 @@ class CommandGenerator
         return $args;
     }
 
-    function getCommands()
+    public function getCommands()
     {
         return $this->commands;
     }
@@ -93,11 +93,12 @@ class CommandGenerator
  */
 class Console
 {
-    private $commands = [];
-    private $outputInterface = null;
-    private $levels = [];
+    private $outputInterface;
     private $currentLevel = [];
+    private $commands = [];
     private $history = [];
+    private $levels = [];
+
 
     public function __construct($commands, OutputInterface $outputInterface, Client &$ociClient)
     {
@@ -112,8 +113,8 @@ class Console
     public function readline_callback($input, $index)
     {
         $matches = [];
-        foreach (array_keys($this->currentLevel['content']) as $match) {
-            $matches[] = $match;
+        foreach ($this->currentLevel['content'] as $key => $value) {
+            $matches[] = $key;
         }
         return $matches;
     }
@@ -127,7 +128,7 @@ class Console
 
     private function prompt()
     {
-        $input = readline("OCIP_CLI [" . str_replace('//', '/', implode('/', $this->levels)) . "]$ ");
+        $input = readline('OCIP_CLI [' . str_replace('//', '/', implode('/', $this->levels)) . ']$ ');
         $this->history[] = $input;
         $this->execute($input);
     }
@@ -135,13 +136,13 @@ class Console
     private function execute($input)
     {
         $input = trim($input);
-        if (empty($input)) return;
+        if (empty($input)) {
+            return;
+        }
         $args = array_filter(explode(' ', $input));
-        if (count($args) == 1) {
-            if (array_key_exists($args[0], $this->currentLevel['content'])) {
-                $this->execute("cd' {$args[0]}");
-                return;
-            }
+        if ((count($args) === 1) and (array_key_exists($args[0], $this->currentLevel['content']))) {
+            $this->execute("cd' {$args[0]}");
+            return;
         }
         switch ($args[0]) {
             case 'ls':
@@ -155,11 +156,11 @@ class Console
                     break;
                 }
                 $item = str_replace('/', '', $args[1]);
-                if ($item == '..') {
+                if ($item === '..') {
                     array_pop($this->levels);
                     $this->currentLevel = $this->parent();
                     break;
-                } elseif ($item == '/') {
+                } elseif ($item === '/') {
                     $this->levels = [$this->commands['content']['name']];
                     $this->currentLevel = $this->commands;
                     break;
@@ -167,7 +168,7 @@ class Console
                     array_push($this->levels, $item);
                     $this->currentLevel = $this->currentLevel['content'][$item];
                     break;
-                } elseif ($item == '.') {
+                } elseif ($item === '.') {
                     break;
                 } else {
                     $this->output("Error: $item not found.\n");
@@ -221,17 +222,17 @@ class Console
     {
         $output = '';
         if (array_key_exists('type', $this->currentLevel)) {
-            if ($this->currentLevel['type'] == 'command') {
-                echo "exec " . implode(", ", array_values($this->currentLevel['content'])) . "\n";
+            if ($this->currentLevel['type'] === 'command') {
+                echo 'exec ' . implode(', ', array_values($this->currentLevel['content'])) . "\n";
             } else {
                 foreach ($this->currentLevel['content'] as $item) {
-                    if ($item['type'] == 'dir') {
+                    if ($item['type'] === 'dir') {
                         $output .= "| {$item['name']}/\n";
                     }
-                    if ($item['type'] == 'schema') {
+                    if ($item['type'] === 'schema') {
                         $output .= ": {$item['name']}\n";
                     }
-                    if ($item['type'] == 'command') {
+                    if ($item['type'] === 'command') {
                         $output .= "> {$item['name']}\n";
                     }
                 }
@@ -244,9 +245,11 @@ class Console
     {
         $content = $this->commands;
         $parent = end($this->levels);
-        if ($content['name'] == $parent) return $content;
+        if ($content['name'] === $parent){
+            return $content;
+        }
         foreach ($content['content'] as $content) {
-            if ($content['name'] == $parent) {
+            if ($content['name'] === $parent) {
                 return $content;
             }
             $content = $content['content'];

@@ -1,8 +1,11 @@
 <?php
-/**
- * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
+
+/*
+ * This file is part of the Broadworks OCIP package https://github.com/LukeBeer/Broadworks_OCIP
  *
- * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ * Copyright (c) 2015 Luke Berezynskyj (aka Luke Beer)
+ *
+ * @author Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
 namespace Broadworks_OCIP\core\Serializer;
@@ -46,8 +49,8 @@ class XMLSerializer implements SerializerInterface
         $methods = get_class_methods($destinationObject);
         foreach ($simpleXMLElement->children() as $key => $value) {
             $methodName = 'set' . ucfirst($key);
-            if (in_array($methodName, $methods)) {
-                if (count($value->children()) == 0) {
+            if (in_array($methodName, $methods, null)) {
+                if (count($value->children()) === 0) {
                     $object->$methodName((string)$value);
                 } else {
                     if (preg_match('/Table/i', (string)$key)) {

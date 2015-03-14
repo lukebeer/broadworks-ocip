@@ -1,17 +1,19 @@
 <?php
-/**
- * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
+
+/*
+ * This file is part of the Broadworks OCIP package https://github.com/LukeBeer/Broadworks_OCIP
  *
- * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ * Copyright (c) 2015 Luke Berezynskyj (aka Luke Beer)
+ *
+ * @author Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
 namespace Broadworks_OCIP\core\Client\Transport;
 
-
-use Broadworks_OCIP\CoreFactory;
-use Broadworks_OCIP\core\Session\Session;
 use Broadworks_OCIP\core\Response\Response;
 use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Session\Session;
+use Broadworks_OCIP\CoreFactory;
 
 /**
  * Class SOAPTransport - Communicates with Broadworks via http(s), this is the slowest but most robust transport type.
@@ -82,7 +84,7 @@ class SOAPTransport implements TransportInterface
      * @param $appends
      * @return bool|\Broadworks_OCIP\core\Builder\Types\ComplexType|null|string
      */
-    public function getResponse($responseType = false, $outputType = ResponseOutput::STD, $appends = [])
+    public function getResponse($responseType = false, $outputType = ResponseOutput::STD, array $appends = [])
     {
         if (is_object($this->response)) {
             $response = html_entity_decode($this->response->getBody());
@@ -106,7 +108,7 @@ class SOAPTransport implements TransportInterface
         if ($cookie = $this->response->getCookies()) {
             $this->session->setCookie($cookie);
         }
-        return ($this->response->getStatus() == 200);
+        return ($this->response->getStatus() === 200);
     }
 
     /**

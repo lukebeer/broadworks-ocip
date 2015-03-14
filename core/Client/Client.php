@@ -1,12 +1,14 @@
 <?php
-/**
- * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
+
+/*
+ * This file is part of the Broadworks OCIP package https://github.com/LukeBeer/Broadworks_OCIP
  *
- * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ * Copyright (c) 2015 Luke Berezynskyj (aka Luke Beer)
+ *
+ * @author Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
 namespace Broadworks_OCIP\core\Client;
-
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\AuthenticationRequest;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginRequest14sp4;
@@ -19,7 +21,6 @@ use Broadworks_OCIP\core\Output\OutputInterface;
 use Broadworks_OCIP\core\Response\ResponseOutput;
 use Broadworks_OCIP\CoreFactory;
 
-
 require_once 'HTTP/Request2.php';
 
 /**
@@ -29,12 +30,12 @@ require_once 'HTTP/Request2.php';
  */
 class Client
 {
-    public $ociBuilder = null;
-    private $session = null;
+    public $ociBuilder;
+    private $session;
     private $timeout = 4;
     private $autoLogout = true;
-    private $requestMsg = null;
-    private $responseType = null;
+    private $requestMsg;
+    private $responseType = false;
     private $appendToResponse = [];
 
     /**
@@ -72,7 +73,7 @@ class Client
     public function logout()
     {
         if ($this->session->getLoggedIn()) {
-            $msg = new LogoutRequest($this->session->getUserId(), "Client Logout");
+            $msg = new LogoutRequest($this->session->getUserId(), 'Client Logout');
             $this->send($msg);
             $this->session->setLoggedOut();
         }
@@ -104,14 +105,12 @@ class Client
      */
     public function login($userId = null, $pass = null)
     {
-        if (isset($userId) && (isset($pass))) {
-            if ($this->authenticate($userId)) {
-                $this->session->setSignedPassword($pass);
-                $msg = new LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword());
-                if (($this->send($msg)) && ($this->getResponse())) {
-                    $this->session->setLoggedIn();
-                    return true;
-                }
+        if (($userId and $pass) and $this->authenticate($userId)) {
+            $this->session->setSignedPassword($pass);
+            $msg = new LoginRequest14sp4($this->session->getUserId(), $this->session->getSignedPassword());
+            if (($this->send($msg)) && ($this->getResponse())) {
+                $this->session->setLoggedIn();
+                return true;
             }
         }
         return false;
@@ -126,11 +125,13 @@ class Client
      */
     public function authenticate($userId = null)
     {
-        if ($userId) $this->session->setUserId($userId);
-        $msg = new AuthenticationRequest($this->session->getUserId());
-        if (($this->send($msg)) && ($this->getResponse())) {
-            $this->session->setNonce($this->getResponse()->getNonce());
-            return true;
+        if ($userId) {
+            $this->session->setUserId($userId);
+            $msg = new AuthenticationRequest($this->session->getUserId());
+            if (($this->send($msg)) && ($this->getResponse())) {
+                $this->session->setNonce($this->getResponse()->getNonce());
+                return true;
+            }
         }
         return false;
     }

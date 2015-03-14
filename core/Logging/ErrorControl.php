@@ -1,8 +1,11 @@
 <?php
-/**
- * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
+
+/*
+ * This file is part of the Broadworks OCIP package https://github.com/LukeBeer/Broadworks_OCIP
  *
- * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ * Copyright (c) 2015 Luke Berezynskyj (aka Luke Beer)
+ *
+ * @author Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
 namespace Broadworks_OCIP\core\Logging;
@@ -14,8 +17,8 @@ namespace Broadworks_OCIP\core\Logging;
  */
 class ErrorControl
 {
-    var $errors = null;
-    var $lastError = null;
+    protected $errors;
+    protected $lastError;
 
     /**
      * Add error into errors array.
@@ -63,6 +66,6 @@ class ErrorControl
      */
     public function hasErrors()
     {
-        return ($this->errors != null);
+        return ($this->errors !== null);
     }
 }

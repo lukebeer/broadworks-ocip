@@ -1,17 +1,18 @@
 <?php
-/**
- * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
+
+/*
+ * This file is part of the Broadworks OCIP package https://github.com/LukeBeer/Broadworks_OCIP
  *
- * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ * Copyright (c) 2015 Luke Berezynskyj (aka Luke Beer)
+ *
+ * @author Luke Berezynskyj <eat.lemons@gmail.com>
  */
 
 namespace Broadworks_OCIP\core\Builder;
 
-
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
 use Broadworks_OCIP\core\Session\Session;
-
 
 /**
  * Class Builder - Takes a ComplexType and converts to XML or XML string then wraps it in an envelope ready for shipping.
@@ -32,14 +33,14 @@ class Builder
     const SOAP_TAIL = '</arg0></processOCIMessage></soapenv:Body></soapenv:Envelope>';
     const BROADSOFT_DOC_HEAD = '<BroadsoftDocument protocol="OCI" xmlns="C" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">';
     const BROADSOFT_DOC_TAIL = '</BroadsoftDocument>';
-    public $session = null;
+    public $session;
 
     /**
      * Constructor.
      *
      * @param null $session
      */
-    public function __construct(Session &$session = null)
+    public function __construct(Session &$session)
     {
         $this->session = &$session;
     }
@@ -67,7 +68,7 @@ class Builder
         switch ($this->session->getTransport()) {
             case 'SOAP':
                 return Builder::XML_HEAD
-                . str_replace("\n", "", self::SOAP_HEAD)
+                . str_replace("\n", '', self::SOAP_HEAD)
                 . htmlentities($oci)
                 . self::SOAP_TAIL;
             case 'TCP':
