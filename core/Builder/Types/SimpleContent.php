@@ -8,19 +8,18 @@
 namespace Broadworks_OCIP\core\Builder\Types;
 
 
-use Broadworks_OCIP\core\Builder\Restrictions\RestrictionInterface;
-
 /**
- * Class SimpleContent
+ * Class SimpleContent - Contains extensions or restrictions on a text-only complex type or on a simple type as content and contains no elements.
+ *
  * @package Broadworks_OCIP\core\Builder\Types
  */
 class SimpleContent extends SimpleType implements SimpleInterface
 {
 
     /**
-     * @param $name
+     * @param mixed $value
      */
-    public function __construct($value=null)
+    public function __construct($value = null)
     {
         $this->value = $value;
     }

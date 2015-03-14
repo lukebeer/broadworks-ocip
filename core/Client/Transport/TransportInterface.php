@@ -8,10 +8,12 @@
 namespace Broadworks_OCIP\core\Client\Transport;
 
 use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Session\Session;
 
 
 /**
- * Interface TransportInterface
+ * Interface TransportInterface - Interface all Transport types must implement.
+ *
  * @package Broadworks_OCIP\core\Client\Transport
  */
 interface TransportInterface
@@ -20,7 +22,7 @@ interface TransportInterface
      * @param $session
      * @return mixed
      */
-    public function updateSession(&$session);
+    public function updateSession(Session &$session);
 
     /**
      * @param $msg

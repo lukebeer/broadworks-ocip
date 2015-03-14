@@ -8,9 +8,7 @@
 namespace Broadworks_OCIP\core\Builder\Types;
 
 /**
- * Common trait all types have.
- *
- * Class TypeTrait
+ * Class TypeTrait - Common trait all types have.
  * @package Broadworks_OCIP\core\Builder\Types
  */
 trait TypeTrait

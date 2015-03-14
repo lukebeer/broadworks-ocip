@@ -8,7 +8,8 @@
 namespace Broadworks_OCIP\core\Output;
 
 /**
- * Interface OutputInterface
+ * Interface OutputInterface - Output interface all Outputs must implement.
+ *
  * @package Broadworks_OCIP\core\Output
  */
 interface OutputInterface

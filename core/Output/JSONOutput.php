@@ -8,7 +8,8 @@
 namespace Broadworks_OCIP\core\Output;
 
 /**
- * Class JSONOutput
+ * Class JSONOutput - Generates and echos JSON.
+ *
  * @package Broadworks_OCIP\core\Output
  */
 class JSONOutput implements OutputInterface

@@ -11,7 +11,8 @@ namespace Broadworks_OCIP\core\Builder\Types;
 use Broadworks_OCIP\core\Builder\Restrictions\RestrictionInterface;
 
 /**
- * Interface SimpleInterface
+ * Interface SimpleInterface - Interface all SimpleTypes must implement.
+ *
  * @package Broadworks_OCIP\core\Builder\Types
  */
 interface SimpleInterface

@@ -16,6 +16,11 @@ use Broadworks_OCIP\core\Logging\ErrorControl;
 use Broadworks_OCIP\core\Session\Session;
 
 
+/**
+ * Class CoreFactory - CoreFactory for object retrieval.
+ *
+ * @package Broadworks_OCIP
+ */
 class CoreFactory
 {
     public static function &getErrorControl()

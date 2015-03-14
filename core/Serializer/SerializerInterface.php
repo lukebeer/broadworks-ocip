@@ -8,9 +8,11 @@
 namespace Broadworks_OCIP\core\Serializer;
 
 /**
- * Interface SerializerInterface
+ * Interface SerializerInterface - Interface all Serializers must implement.
+ *
  * @package Broadworks_OCIP\core\Serializer
  */
-interface SerializerInterface {
+interface SerializerInterface
+{
     public function serialize($destinationObject, $data);
 }

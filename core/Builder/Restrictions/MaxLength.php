@@ -9,7 +9,8 @@ namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
 /**
- * Class MaxLength
+ * Class MaxLength - Specifies the maximum number of characters or list items allowed. Must be equal to or greater than zero.
+ *
  * @package Broadworks_OCIP\core\Builder\Restrictions
  */
 class MaxLength extends Restriction implements RestrictionInterface

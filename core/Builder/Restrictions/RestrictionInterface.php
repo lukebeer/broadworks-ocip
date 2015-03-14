@@ -9,7 +9,8 @@ namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
 /**
- * Interface RestrictionInterface
+ * Interface RestrictionInterface - Interface all Restrictins must implement.
+ *
  * @package Broadworks_OCIP\core\Builder\Restrictions
  */
 interface RestrictionInterface

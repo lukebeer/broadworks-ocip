@@ -11,20 +11,19 @@ namespace Broadworks_OCIP\core\Client;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\AuthenticationRequest;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginRequest14sp4;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LogoutRequest;
-use Broadworks_OCIP\core\Client\Transport\TransportInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Client\Transport\TransportInterface;
 use Broadworks_OCIP\core\Console\CommandGenerator;
-use Broadworks_OCIP\core\Response\ResponseOutput;
-use Broadworks_OCIP\core\Output\OutputInterface;
 use Broadworks_OCIP\core\Console\Console;
+use Broadworks_OCIP\core\Output\OutputInterface;
+use Broadworks_OCIP\core\Response\ResponseOutput;
 use Broadworks_OCIP\CoreFactory;
 
 
 require_once 'HTTP/Request2.php';
 
 /**
- * Class Client is the main controller for the whole framework and interface to the Broadworks API
- *
+ * Class Client - Main controller for the whole framework exposing methods for requests and responses.
  *
  * @package Broadworks_OCIP\core\Client
  */
@@ -143,7 +142,7 @@ class Client
      * @param bool $responseType
      * @return mixed
      */
-    public function getResponse($outputType = ResponseOutput::STD, $responseType=false)
+    public function getResponse($outputType = ResponseOutput::STD, $responseType = false)
     {
         $responseType = $responseType ?: $this->responseType;
         return $this->transport->getResponse($responseType, $outputType, $this->appendToResponse);
@@ -232,7 +231,8 @@ class Client
      * @param \Broadworks_OCIP\core\Builder\Types\SimpleType|ComplexType $element
      * @return $this
      */
-    public function addElementToResponse($element) {
+    public function addElementToResponse($element)
+    {
         $this->appendToResponse[] = $element;
         return $this;
     }
@@ -240,7 +240,8 @@ class Client
     /**
      * Empties appendToResponse array.
      */
-    public function clearAdditionalResponseElements() {
+    public function clearAdditionalResponseElements()
+    {
         $this->appendToResponse = [];
     }
 }

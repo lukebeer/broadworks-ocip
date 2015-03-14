@@ -8,7 +8,8 @@
 namespace Broadworks_OCIP\core\Builder\Types;
 
 /**
- * Class TypeCheck
+ * Class TypeCheck - Not implemented yet.
+ *
  * @package Broadworks_OCIP\core\Builder\Types
  */
 abstract class TypeCheck

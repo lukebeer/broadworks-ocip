@@ -7,14 +7,16 @@
 
 namespace Broadworks_OCIP\core\Console;
 
-
+use Broadworks_OCIP\core\Response\ResponseOutput;
 use Broadworks_OCIP\core\Output\OutputInterface;
 use Symfony\Component\VarDumper\Cloner\VarCloner;
 use Symfony\Component\VarDumper\Dumper\CliDumper;
-use Symfony\Component\VarDumper\Dumper\HtmlDumper;
-use Symfony\Component\VarDumper\VarDumper;
 
-
+/**
+ * Class CommandGenerator - Generates an array of commands for the interactive console.
+ *
+ * @package Broadworks_OCIP\core\Console
+ */
 class CommandGenerator
 {
 
@@ -69,7 +71,7 @@ class CommandGenerator
     function getCommandArgs($class, $method)
     {
         $args = [];
-        $method = new ReflectionMethod($class, $method);
+        $method = new \ReflectionMethod($class, $method);
         foreach ($method->getParameters() as $param) $args[] = $param->getName();
         return $args;
     }
@@ -82,6 +84,11 @@ class CommandGenerator
 }
 
 
+/**
+ * Class Console - Interactive console to the Broadworks API.
+ *
+ * @package Broadworks_OCIP\core\Console
+ */
 class Console
 {
     private $commands = [];
@@ -169,11 +176,11 @@ class Console
                     $this->output("'exec' requires current element to be a command. Select one by 'cd'\n");
                     return;
                 }
-                $method = new ReflectionMethod($this->levels[count($this->levels) - 2], $this->currentLevel['name']);
+                $method = new \ReflectionMethod($this->levels[count($this->levels) - 2], $this->currentLevel['name']);
                 $cmd = $method->invokeArgs(null, array_slice($args, 1));
                 $this->client->send($cmd);
                 $output = ($this->client->getResponse())
-                    ? $this->client->getResponse(OCIResponseOutput::PRETTY)
+                    ? $this->client->getResponse(ResponseOutput::PRETTY)
                     : print_r($this->client->errorControl->getLastError(), true);
 
                 $cloner = new VarCloner();

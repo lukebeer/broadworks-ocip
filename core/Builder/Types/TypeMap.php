@@ -8,7 +8,8 @@
 namespace Broadworks_OCIP\core\Builder\Types;
 
 /**
- * Class TypeMap
+ * Class TypeMap - Converts xs types to PHP types.
+ *
  * @package Broadworks_OCIP\core\Builder\Types
  */
 abstract class TypeMap

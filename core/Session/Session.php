@@ -7,6 +7,11 @@
 
 namespace Broadworks_OCIP\core\Session;
 
+/**
+ * Class Session - Portable Session object used to store details of the current authenticated session.
+ *
+ * @package Broadworks_OCIP\core\Session
+ */
 class Session
 {
     private $url = null;

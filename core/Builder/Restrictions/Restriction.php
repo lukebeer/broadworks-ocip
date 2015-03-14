@@ -9,7 +9,8 @@ namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
 /**
- * Class Restriction
+ * Class Restriction - Abstract base class all restrictions must extend.
+ *
  * @package Broadworks_OCIP\core\Builder\Restrictions
  */
 abstract class Restriction

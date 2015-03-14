@@ -8,9 +8,8 @@
 namespace Broadworks_OCIP\core\Logging;
 
 /**
- * Crappy logging object, needs nuking and starting again.
+ * Class ErrorControl - Crappy logging object, needs nuking and starting again.
  *
- * Class ErrorControl
  * @package Broadworks_OCIP\core\Logging
  */
 class ErrorControl

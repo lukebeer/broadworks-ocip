@@ -8,7 +8,8 @@
 namespace Broadworks_OCIP\core\Output;
 
 /**
- * Class ConsoleOutput
+ * Class ConsoleOutput - Output type for the interactive console.
+ *
  * @package Broadworks_OCIP\core\Output
  */
 class ConsoleOutput implements OutputInterface

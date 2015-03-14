@@ -9,7 +9,8 @@ namespace Broadworks_OCIP\core\Builder\Restrictions;
 
 
 /**
- * Class Enumeration
+ * Class Enumeration - Defines a list of acceptable values.
+ *
  * @package Broadworks_OCIP\core\Builder\Restrictions
  */
 class Enumeration extends Restriction implements RestrictionInterface

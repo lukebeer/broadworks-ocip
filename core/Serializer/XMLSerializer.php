@@ -6,16 +6,16 @@
  */
 
 namespace Broadworks_OCIP\core\Serializer;
+
 use Broadworks_OCIP\core\Builder\Types\TableType;
 
 /**
- * Converts XML into the requested object type automatically, very clever shit.
- * This took HOURS to get right.
+ * Class XMLSerializer - Converts XML into the requested object type automatically, very much the brain of this.
  *
- * Class XMLSerializer
  * @package Broadworks_OCIP\core\Serializer
  */
-class XMLSerializer implements SerializerInterface {
+class XMLSerializer implements SerializerInterface
+{
     public $object;
     public $methods;
     public $setter;
@@ -45,12 +45,12 @@ class XMLSerializer implements SerializerInterface {
         $object = $reflectionClass->newInstance();
         $methods = get_class_methods($destinationObject);
         foreach ($simpleXMLElement->children() as $key => $value) {
-            $methodName = 'set'.ucfirst($key);
+            $methodName = 'set' . ucfirst($key);
             if (in_array($methodName, $methods)) {
                 if (count($value->children()) == 0) {
-                    $object->$methodName((string) $value);
+                    $object->$methodName((string)$value);
                 } else {
-                    if (preg_match('/Table/i', (string) $key)) {
+                    if (preg_match('/Table/i', (string)$key)) {
                         $obj = new TableType($key, $value);
                     } else {
                         $method = $reflectionClass->getMethod($methodName)->getParameters();
