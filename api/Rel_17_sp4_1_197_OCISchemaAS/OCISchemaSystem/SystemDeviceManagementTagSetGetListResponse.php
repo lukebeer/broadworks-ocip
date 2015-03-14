@@ -1,0 +1,56 @@
+<?php
+/**
+ * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
+ * 
+ * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ */
+
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
+
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DeviceManagementTagSetName;
+use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
+use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
+
+
+/**
+ * Response to SystemDeviceManagementTagSetGetListRequest.
+ *         The response includes an array of tag set names defined in the system.
+ *         The system default tag set name is not part of this response.
+ */
+class SystemDeviceManagementTagSetGetListResponse extends ComplexType implements ComplexInterface
+{
+    public    $name       = 'SystemDeviceManagementTagSetGetListResponse';
+    protected $tagSetName = null;
+
+    /**
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagSetGetListResponse $response
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setTagSetName($tagSetName = null)
+    {
+        if (!$tagSetName) return $this;
+        $this->tagSetName = ($tagSetName InstanceOf DeviceManagementTagSetName)
+             ? $tagSetName
+             : new DeviceManagementTagSetName($tagSetName);
+        $this->tagSetName->setName('tagSetName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return DeviceManagementTagSetName $tagSetName
+     */
+    public function getTagSetName()
+    {
+        return $this->tagSetName->getValue();
+    }
+}

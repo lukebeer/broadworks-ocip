@@ -1,0 +1,278 @@
+<?php
+/**
+ * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
+ * 
+ * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ */
+
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
+
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\GroupUserLicenseLimit;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseStrictness;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ServerHostId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseName;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
+use Broadworks_OCIP\core\Builder\Types\TableType;
+use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
+use Broadworks_OCIP\core\Builder\Types\ComplexType;
+use Broadworks_OCIP\core\Response\ResponseOutput;
+use Broadworks_OCIP\core\Client\Client;
+
+
+/**
+ * Response to SystemLicensingGetRequest14sp3. The subscriber license table columns are: "Name", "Licensed", "Used" and "Available".
+ *         The group service license table columns are: "Name", "Licensed", "Used" and "Available".
+ *         The virtual service license table columns are: "Name", "Licensed", "Used" and "Available".
+ *         The user service license table columns are: "Name", "Licensed", "Used", "Used By Hosted Users", "Used By Trunk Users", "Available" and "Expiration Date".
+ *         The system param license table columns are: "Name", "Licensed", "Used", Available".
+ */
+class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInterface
+{
+    public    $name                       = 'SystemLicensingGetResponse14sp3';
+    protected $licenseStrictness          = null;
+    protected $groupUserlimit             = null;
+    protected $expirationDate             = null;
+    protected $hostId                     = null;
+    protected $licenseName                = null;
+    protected $numberOfTrunkUsers         = null;
+    protected $subscriberLicenseTable     = null;
+    protected $groupServiceLicenseTable   = null;
+    protected $virtualServiceLicenseTable = null;
+    protected $userServiceLicenseTable    = null;
+    protected $systemParamLicenseTable    = null;
+
+    /**
+     * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemLicensingGetResponse14sp3 $response
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setLicenseStrictness($licenseStrictness = null)
+    {
+        if (!$licenseStrictness) return $this;
+        $this->licenseStrictness = ($licenseStrictness InstanceOf LicenseStrictness)
+             ? $licenseStrictness
+             : new LicenseStrictness($licenseStrictness);
+        $this->licenseStrictness->setName('licenseStrictness');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return LicenseStrictness $licenseStrictness
+     */
+    public function getLicenseStrictness()
+    {
+        return $this->licenseStrictness->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setGroupUserlimit($groupUserlimit = null)
+    {
+        if (!$groupUserlimit) return $this;
+        $this->groupUserlimit = ($groupUserlimit InstanceOf GroupUserLicenseLimit)
+             ? $groupUserlimit
+             : new GroupUserLicenseLimit($groupUserlimit);
+        $this->groupUserlimit->setName('groupUserlimit');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return GroupUserLicenseLimit $groupUserlimit
+     */
+    public function getGroupUserlimit()
+    {
+        return $this->groupUserlimit->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setExpirationDate(xs:dateTime $expirationDate = null)
+    {
+        if (!$expirationDate) return $this;
+        $this->expirationDate->setName('expirationDate');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return xs:dateTime $expirationDate
+     */
+    public function getExpirationDate()
+    {
+        return $this->expirationDate->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setHostId($hostId = null)
+    {
+        if (!$hostId) return $this;
+        $this->hostId = ($hostId InstanceOf ServerHostId)
+             ? $hostId
+             : new ServerHostId($hostId);
+        $this->hostId->setName('hostId');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return ServerHostId $hostId
+     */
+    public function getHostId()
+    {
+        return $this->hostId->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setLicenseName($licenseName = null)
+    {
+        if (!$licenseName) return $this;
+        $this->licenseName = ($licenseName InstanceOf LicenseName)
+             ? $licenseName
+             : new LicenseName($licenseName);
+        $this->licenseName->setName('licenseName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return LicenseName $licenseName
+     */
+    public function getLicenseName()
+    {
+        return $this->licenseName->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setNumberOfTrunkUsers($numberOfTrunkUsers = null)
+    {
+        if (!$numberOfTrunkUsers) return $this;
+        $this->numberOfTrunkUsers = new PrimitiveType($numberOfTrunkUsers);
+        $this->numberOfTrunkUsers->setName('numberOfTrunkUsers');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return int $numberOfTrunkUsers
+     */
+    public function getNumberOfTrunkUsers()
+    {
+        return $this->numberOfTrunkUsers->getValue();
+    }
+
+    /**
+     * 
+     */
+    public function setSubscriberLicenseTable(TableType $subscriberLicenseTable = null)
+    {
+        if (!$subscriberLicenseTable) return $this;
+        $this->subscriberLicenseTable = $subscriberLicenseTable;
+        $this->subscriberLicenseTable->setName('subscriberLicenseTable');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return TableType
+     */
+    public function getSubscriberLicenseTable()
+    {
+        return $this->subscriberLicenseTable;
+    }
+
+    /**
+     * 
+     */
+    public function setGroupServiceLicenseTable(TableType $groupServiceLicenseTable = null)
+    {
+        if (!$groupServiceLicenseTable) return $this;
+        $this->groupServiceLicenseTable = $groupServiceLicenseTable;
+        $this->groupServiceLicenseTable->setName('groupServiceLicenseTable');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return TableType
+     */
+    public function getGroupServiceLicenseTable()
+    {
+        return $this->groupServiceLicenseTable;
+    }
+
+    /**
+     * 
+     */
+    public function setVirtualServiceLicenseTable(TableType $virtualServiceLicenseTable = null)
+    {
+        if (!$virtualServiceLicenseTable) return $this;
+        $this->virtualServiceLicenseTable = $virtualServiceLicenseTable;
+        $this->virtualServiceLicenseTable->setName('virtualServiceLicenseTable');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return TableType
+     */
+    public function getVirtualServiceLicenseTable()
+    {
+        return $this->virtualServiceLicenseTable;
+    }
+
+    /**
+     * 
+     */
+    public function setUserServiceLicenseTable(TableType $userServiceLicenseTable = null)
+    {
+        if (!$userServiceLicenseTable) return $this;
+        $this->userServiceLicenseTable = $userServiceLicenseTable;
+        $this->userServiceLicenseTable->setName('userServiceLicenseTable');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return TableType
+     */
+    public function getUserServiceLicenseTable()
+    {
+        return $this->userServiceLicenseTable;
+    }
+
+    /**
+     * 
+     */
+    public function setSystemParamLicenseTable(TableType $systemParamLicenseTable = null)
+    {
+        if (!$systemParamLicenseTable) return $this;
+        $this->systemParamLicenseTable = $systemParamLicenseTable;
+        $this->systemParamLicenseTable->setName('systemParamLicenseTable');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return TableType
+     */
+    public function getSystemParamLicenseTable()
+    {
+        return $this->systemParamLicenseTable;
+    }
+}

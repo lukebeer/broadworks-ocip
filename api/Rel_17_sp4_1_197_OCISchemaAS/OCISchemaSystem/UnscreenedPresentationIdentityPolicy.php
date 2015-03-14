@@ -1,0 +1,31 @@
+<?php
+/**
+ * This file is part of http://github.com/LukeBeer/Broadworks_OCIP
+ * 
+ * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ */
+
+namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
+
+use Broadworks_OCIP\core\Builder\Types\SimpleType;
+use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
+
+
+/**
+ * Unscreened Presentation Identity Policy Options
+ */
+class UnscreenedPresentationIdentityPolicy extends SimpleType
+{
+    public $name = "UnscreenedPresentationIdentityPolicy";
+    protected $value;
+
+    public function __construct($value) {
+        $this->value    = $value;
+        $this->dataType = "";
+        $this->addRestriction(new Enumeration([
+            'Profile Presentation Identity',
+            'Unscreened Presentation Identity',
+            'Unscreened Presentation Identity With Profile Domain'
+        ]));
+    }
+}
