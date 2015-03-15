@@ -81,8 +81,8 @@ Objects support serialisation to allow saving of messages in plain-text format t
 
 UserGetRequest17sp4
 -------------------
-*responseType is automatically set for dynamic responses*
-*element userId is a SimpleType object comprised of min/max restrictions for validation*
+* responseType is automatically set for dynamic response mapping
+* Element userId is a SimpleType object comprised of min/max restrictions for validation
 
 ``` php
 <?php
@@ -132,8 +132,18 @@ Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetRequest17s
 
 UserGetResponse7sp4
 -------------------
-*ComplexType object with get/set methods is automatically generated from XML*
-*Notice how StreetAddress is a nested ComplexType object*
+* Response from UserGetRequest17sp4 is a ComplexType object serialized from XML
+* Response has get/set methods for all elements
+* Notice how StreetAddress is a nested ComplexType object, this will have get/set methods
+
+example usage:
+``` php
+$request  = new UserGetRequest17sp4($userId);
+$response = $request->get($client);
+$address  = $response->getAddress();
+$street   = $address->getAddressLine1();
+$postcode = $address->getZipOrPostalCode();
+```
 
 ``` php
 <?php
