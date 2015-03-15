@@ -25,7 +25,6 @@ class CoreFactory
 {
     public static function &getErrorControl()
     {
-        require_once(OCI_PATH . "/core/Logging/ErrorControl.php");
         static $instance;
         if (!is_object($instance)) {
             $instance = new ErrorControl();
@@ -35,36 +34,28 @@ class CoreFactory
 
     public static function getBuilder($sessionId)
     {
-        require_once(OCI_PATH . "/core/Builder/Builder.php");
-        $instance = new Builder($sessionId);
-        return $instance;
+        return new Builder($sessionId);
     }
 
     public static function getClient(TransportInterface &$transport)
     {
-        require_once(OCI_PATH . "/core/Client/Client.php");
-        $instance = new Client($transport);
-        return $instance;
+        return new Client($transport);
     }
 
-    public static function getTCPTransport($host = "127.0.0.1", $port = 2208, $timeout = 4)
+    public static function getTCPClient($host = "127.0.0.1", $port = 2208, $timeout = 4)
     {
-        require_once(OCI_PATH . "/core/Client/Transport/TCPTransport.php");
-        $instance = new TCPTransport($host, $port, $timeout);
-        return $instance;
+        $transport = new TCPTransport($host, $port, $timeout);
+        return self::getClient($transport);
     }
 
-    public static function getSOAPTransport($url, $timeout = 30, $autoLogout = true, $followRedirects = true, $proxy = null)
+    public static function getSOAPClient($url, $timeout = 30, $autoLogout = true, $followRedirects = true, $proxy = null)
     {
-        require_once(OCI_PATH . "/core/Client/Transport/SOAPTransport.php");
-        $instance = new SOAPTransport($url, $timeout, $autoLogout, $followRedirects, $proxy);
-        return $instance;
+        $transport = new SOAPTransport($url, $timeout, $autoLogout, $followRedirects, $proxy);
+        return self::getClient($transport);
     }
 
     public static function getSession()
     {
-        require_once(OCI_PATH . "/core/Session/Session.php");
-        $instance = new Session();
-        return $instance;
+        return new Session();
     }
 }
